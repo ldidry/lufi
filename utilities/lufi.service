@@ -1,0 +1,18 @@
+[Unit]
+Description=File hosting service with encryption
+Documentation=https://git.framasoft.org/luc/lufi
+Requires=network.target
+After=network.target
+
+[Service]
+Type=forking
+User=www-data
+RemainAfterExit=yes
+WorkingDirectory=/var/www/lufi/
+PIDFile=/var/www/lufi/script/hypnotoad.pid
+ExecStart=/usr/local/bin/carton exec hypnotoad script/lufi
+ExecStop=/usr/local/bin/carton exec hypnotoad -s script/lufi
+ExecReload=/usr/local/bin/carton exec hypnotoad script/lufi
+
+[Install]
+WantedBy=multi-user.target

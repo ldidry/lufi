@@ -1,0 +1,6 @@
+# LDIR is the path where you installed Lutim
+# It has to end with a final /
+LDIR=/var/www/lufi/
+
+# USER is the user who will launch Lutim
+USER=www-data

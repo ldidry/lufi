@@ -1,0 +1,197 @@
+#!/bin/sh
+# vim: set ts=4 sw=4 sts=4 tw=0:
+# vim: set expandtab:
+
+### BEGIN INIT INFO
+# Provides:          lufi
+# Required-Start:    $local_fs $remote_fs $network $syslog
+# Required-Stop:     $local_fs $remote_fs $network $syslog
+# Default-Start:     2 3 4 5
+# Default-Stop:      0 1 6
+# Short-Description: starts lufi with hypnotoad
+# Description:       starts lufi with hypnotoad
+### END INIT INFO
+
+
+PATH=/usr/local/sbin:/usr/local/bin:/sbin:/bin:/usr/sbin:/usr/bin
+DAEMON=script/lufi
+NAME=lufi
+DESC=lufi
+
+if [ -f "/etc/default/lufi" ]
+then
+    . /etc/default/lufi
+    if [ -z $LDIR ]
+    then
+        echo "LDIR variable is empty, please fill it in /etc/default/lufi"
+        exit 0
+    fi
+    if [ -z $USER ]
+    then
+        echo "USER variable is empty, please fill it in /etc/default/lufi"
+        exit 0
+    fi
+else
+    echo "Missing /etc/default/lufi file"
+    exit 0
+fi
+
+if [ ! -f "$LDIR$DAEMON" ]
+then
+    echo "Missing $LDIR$DAEMON file"
+    exit 0
+fi
+
+set -e
+
+. /lib/lsb/init-functions
+
+do_start()
+{
+    # Return
+    # 0 if daemon has been started
+    # 1 if daemon was already running
+    # 2 if daemon could not be started
+
+    cd $LDIR
+    su $USER -c "carton exec hypnotoad $DAEMON >/dev/null 2>&1"
+    return "$?"
+}
+
+do_stop()
+{
+    # Return
+    # 0 if daemon has been stopped
+    # 1 if daemon was already stopped
+    # 2 if daemon could not be stopped
+    # other if a failure occurred
+
+    cd $LDIR
+    su $USER -c "carton exec hypnotoad -s $DAEMON >/dev/null 2>&1"
+    return "$?"
+}
+
+do_status()
+{
+    cd $LDIR
+    if [ -f "script/hypnotoad.pid" ]
+    then
+        pgrep -lf $DAEMON >/dev/null 2>&1
+        if [ "$?" = "0" ]; then
+            log_progress_msg "$NAME is running"
+        else
+            log_failure_msg "$NAME is NOT running but PID file exists"
+        fi
+    else
+        log_failure_msg "$NAME is NOT running"
+    fi
+}
+
+case "$1" in
+    start)
+        log_daemon_msg "Starting $NAME"
+        cd $LDIR
+        if [ -f "script/hypnotoad.pid" ]
+        then
+             pgrep -lf $DAEMON >/dev/null 2>&1
+             if [ "$?" = "0" ]
+             then
+                 log_progress_msg "$NAME is already running. Unable to start."
+                 log_end_msg 1;
+             else
+                 do_start
+                 case "$?" in
+                     0|1)
+                         log_progress_msg "done"
+                         log_end_msg 0
+                         ;;
+                     2)
+                         log_failure_msg "failed"
+                         log_end_msg 1
+                         ;;
+                 esac
+             fi
+        else
+            do_start
+            case "$?" in
+                0|1)
+                    log_progress_msg "done"
+                    log_end_msg 0
+                    ;;
+                2)
+                    log_failure_msg "failed"
+                    log_end_msg 1
+                    ;;
+            esac
+        fi
+        ;;
+    stop)
+        log_daemon_msg "Stopping $NAME"
+        cd $LDIR
+        if [ -f "script/hypnotoad.pid" ]
+        then
+            pgrep -lf $DAEMON >/dev/null 2>&1
+            if [ "$?" = "0" ]; then
+                do_stop
+                case "$?" in
+                    0|1)
+                        log_progress_msg "done"
+                        log_end_msg 0
+                        ;;
+                    *)
+                        log_failure_msg "failed"
+                        log_end_msg 1
+                        ;;
+                esac
+            else
+                log_failure_msg "$NAME is NOT running. Unable to stop"
+                log_end_msg 1
+            fi
+        else
+            log_failure_msg "$NAME is NOT running. Unable to stop"
+            log_end_msg 1
+        fi
+        ;;
+    status)
+        log_daemon_msg "Checking $NAME status"
+        do_status
+        log_end_msg 0
+        ;;
+    reload)
+        log_daemon_msg "Reloading $NAME"
+        do_start
+	sleep 1
+        case "$?" in
+            0|1)
+                log_progress_msg "done"
+                log_end_msg 0
+                ;;
+            2)
+                log_failure_msg "failed"
+                log_end_msg 1
+                ;;
+        esac
+        ;;
+    restart)
+        log_daemon_msg "Restarting $NAME"
+        do_stop
+        sleep 6
+        do_start
+        case "$?" in
+            0|1)
+                log_progress_msg "done"
+                log_end_msg 0
+                ;;
+            2)
+                log_failure_msg "failed";
+                log_end_msg 1
+                ;;
+        esac
+        ;;
+    *)
+        echo "Usage: $0 {start|stop|status|reload|restart}" >&2
+        exit 3
+        ;;
+esac
+
+exit 0
