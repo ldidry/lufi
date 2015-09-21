@@ -1,0 +1,60 @@
+# vim:set sw=4 ts=4 sts=4 ft=perl expandtab:
+{
+    ####################
+    # Hypnotoad settings
+    ####################
+    # see http://mojolicio.us/perldoc/Mojo/Server/Hypnotoad for a full list of settings
+    hypnotoad => {
+        # array of IP addresses and ports you want to listen to
+        listen => ['http://127.0.0.1:8080'],
+    },
+
+    # put a way to contact you here and uncomment it
+    # MANDATORY
+    #contact       => 'admin[at]example.com',
+
+    # array of random strings used to encrypt cookies
+    # optional, default is ['fdjsofjoihrei'], PLEASE, CHANGE IT
+    #secrets        => ['fdjsofjoihrei'],
+
+    # length of the random URL
+    # optional, default is 8
+    #length            => 8,
+
+    # how many URLs will be provisioned in a batch ?
+    # optional, default is 5
+    #provis_step       => 5,
+
+    # max number of URLs to be provisioned
+    # optional, default is 100
+    #provisioning      => 100,
+
+    # length of the modify/delete token
+    # optional, default is 32
+    #token_length      => 32,
+
+    # default time limit for files
+    # valid values are 0, 1, 7, 30 and 365
+    # optional, default is 0 (no limit)
+    #default_delay     => 0,
+
+    # number of days after which the images will be deleted, even if they were uploaded with "no delay" (or value superior to max_delay)
+    # a warning message will be displayed on homepage
+    # optional, default is 0 (no limit)
+    #max_delay         => 0,
+
+    # URL sub-directory in which you want Lstu to be accessible
+    # example: you want to have Lstu under https://example.org/lufi/
+    # => set prefix to '/lufi' or to '/lufi/', it doesn't matter
+    # optional, defaut is /
+    #prefix        => '/',
+
+    # array of authorized domains for API calls.
+    # if you want to authorize everyone to use the API: ['*']
+    # optional, no domains allowed by default
+    #allowed_domains   => ['http://1.example.com', 'http://2.example.com'],
+
+    # if set, the shortened URLs will use this domain
+    # optional
+    #fixed_domain => 'example.org',
+};

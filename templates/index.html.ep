@@ -1,0 +1,63 @@
+% # vim:set sw=4 ts=4 sts=4 ft=html.epl expandtab:
+% my %d = (
+%   delay_0   => l('no time limit'),
+%   delay_1   => l('24 hours'),
+%   delay_365 => l('1 year')
+% );
+<div class="inner cover">
+    <div class="form-group row">
+        <div class="col-sm-6 col-xs-12">
+            <select id="delete-day" class="form-control">
+% for my $delay (qw/0 1 7 30 365/) {
+%   my $text = ($delay == 7 || $delay == 30) ? l('%1 days', $delay) : $d{'delay_'.$delay};
+%   if (config('max_delay')) {
+%       if ($delay) {
+%           if ($delay < config('max_delay')) {
+                <option value="<%= $delay %>" <%== is_selected($delay) %>><%= $text %></option>
+%           } elsif ($delay == config('max_delay')) {
+                <option value="<%= $delay %>" <%== is_selected($delay) %>><%= $text %></option>
+%               last;
+%           } else {
+%               my $text = ($delay == 1) ? l('24 hours') : l('%1 days', $delay);
+                <option value="<%= config('max_delay') %>" <%== is_selected(config('max_delay')) %>><%= l('%1 days', config('max_delay')) %></option>
+%               last;
+%           }
+%       }
+%   } else {
+                <option value="<%= $delay %>" <%== is_selected($delay) %>><%= $text %></option>
+%   }
+% }
+            </select>
+        </div>
+        <div class="col-sm-6 col-xs-12 text-left">
+            <div class="checkbox">
+                <label>
+                    <input type="checkbox" id="first-view"> <%= l('Delete at first view?') %>
+                </label>
+            </div>
+        </div>
+    </div>
+    <div id="files">
+        <h2><%= l('Drop files here') %></h2>
+        <p><small><%= l('or') %></small></p>
+        <label>
+            <span><%= l('Click to open the file browser') %></span>
+            <input type="file" onchange="handleFiles(this.files)" multiple>
+        </label>
+    </div>
+    <div id="results">
+        <h2><%= l('Uploaded files') %></h2>
+        <ul class="list-group" id="ul-results">
+        </ul>
+    </div>
+</div>
+%= javascript begin
+var ws_url   = '<%= url_for('upload')->to_abs() %>';
+var hit      = '<%= l('Hit Enter, then Ctrl+C to copy the download link') %>';
+var hits     = '<%= l('Hit Enter, then Ctrl+C to copy all the download links') %>';
+var dltext   = '<%= l('Download link') %>';
+var cptext   = '<%= l('Copy to clipboard') %>';
+var del_text = '<%= l('Deletion link') %>';
+% end
+%= javascript '/js/sjcl.js'
+%= javascript '/js/lufi-up.js'

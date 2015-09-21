@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Created with Inkscape (http://www.inkscape.org/) -->
+
+<svg
+   xmlns:dc="http://purl.org/dc/elements/1.1/"
+   xmlns:cc="http://creativecommons.org/ns#"
+   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+   xmlns:svg="http://www.w3.org/2000/svg"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   width="282.70126"
+   height="282.53867"
+   id="svg2"
+   version="1.1"
+   inkscape:version="0.91 r13725"
+   sodipodi:docname="lufi.svg"
+   inkscape:export-filename="/home/luc/PERSONNEL/fiat-tux_designs/lufi.png"
+   inkscape:export-xdpi="271"
+   inkscape:export-ydpi="271">
+  <defs
+     id="defs4" />
+  <sodipodi:namedview
+     id="base"
+     pagecolor="#ffffff"
+     bordercolor="#666666"
+     borderopacity="1.0"
+     inkscape:pageopacity="0.0"
+     inkscape:pageshadow="2"
+     inkscape:zoom="1.979899"
+     inkscape:cx="26.011995"
+     inkscape:cy="84.402272"
+     inkscape:document-units="px"
+     inkscape:current-layer="layer1"
+     showgrid="false"
+     inkscape:window-width="1920"
+     inkscape:window-height="1039"
+     inkscape:window-x="0"
+     inkscape:window-y="41"
+     inkscape:window-maximized="0"
+     fit-margin-top="10"
+     fit-margin-left="10"
+     fit-margin-right="10"
+     fit-margin-bottom="10" />
+  <metadata
+     id="metadata7">
+    <rdf:RDF>
+      <cc:Work
+         rdf:about="">
+        <dc:format>image/svg+xml</dc:format>
+        <dc:type
+           rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
+        <dc:title></dc:title>
+      </cc:Work>
+    </rdf:RDF>
+  </metadata>
+  <g
+     inkscape:label="Calque 1"
+     inkscape:groupmode="layer"
+     id="layer1"
+     transform="translate(-221.44765,-362.7203)">
+    <g
+       id="g2994"
+       transform="matrix(1.0020558,-1.0020558,1.0020558,1.0020558,-490.60541,247.60842)"
+       inkscape:export-filename="/home/luc/tmp/lufi.png"
+       inkscape:export-xdpi="271.87875"
+       inkscape:export-ydpi="271.87875">
+      <path
+         inkscape:connector-curvature="0"
+         id="path3875"
+         d="m 214.90995,548.04352 -38.63833,1.01016 -2.27284,6.56599 3.03045,3.03046 41.92133,0.75761 157.07873,1.01015 40.15356,0 5.3033,-5.3033 -2.77792,-6.81853 -19.69797,-1.01015 -20.20306,0.25254 -2.77791,-15.40483 -6.81853,-16.92005 -14.39468,-17.93021 -13.63706,-12.62691 -13.13198,-6.56599 -18.18275,-5.3033 -22.72843,1.26269 -21.2132,4.79822 -13.38452,5.55584 -13.13199,10.85914 -10.6066,13.38452 -7.3236,9.34392 -3.78808,10.35406 -3.28299,12.87944 z"
+         style="fill:#ffd119;fill-opacity:1;stroke:#000000;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1" />
+      <rect
+         ry="7.3214264"
+         y="522.78973"
+         x="216.17265"
+         height="24.243732"
+         width="159.85664"
+         id="rect3873"
+         style="fill:#ff000a;fill-opacity:1;fill-rule:evenodd;stroke:#000000;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1" />
+      <g
+         transform="translate(-17.800222,72.844826)"
+         id="g3074">
+        <path
+           sodipodi:nodetypes="ssssssssccccssssssssscsscccssccsssscssssssssssssssssssssssssss"
+           inkscape:connector-curvature="0"
+           id="path3076"
+           d="m 191.54148,487.67039 c -5.11077,-4.02013 -3.76609,-12.77744 2.28591,-14.88718 1.90113,-0.66273 9.86788,-1.13532 19.13896,-1.13532 11.85861,0 15.96787,-0.31667 16.22051,-1.25 0.18609,-0.6875 0.81278,-3.78781 1.39265,-6.88958 3.71296,-19.86087 19.21745,-41.97257 37.20623,-53.06158 24.32865,-14.99715 56.89702,-16.92672 82.60964,-4.89433 23.5152,11.00409 42.6905,34.14334 48.04833,57.98096 l 1.78265,7.93123 18.36719,0.34165 17.1045,0.34165 c 9.45192,1.08409 8.2901,17.0871 0.24154,17.5 l -120.94207,0 c -118.96911,0 -120.98307,-0.0323 -123.45604,-1.9775 z m 243.67283,-3.59393 c 2.51368,-0.82861 3.43825,-3.94122 0.37143,-6.22857 -2.52906,-1.88627 -29.03663,-1.2 -120.46482,-1.2 -116.89017,0 -119.28542,0.0385 -120.3,1.93426 -1.4064,2.62788 -1.30648,3.65158 0.53625,5.49431 1.41087,1.41087 13.6645,1.57143 119.92857,1.57143 106.26407,0 116.73199,-0.5177 119.92857,-1.57143 z m -42.52164,-13.34989 c 1.1562,-0.73196 1.21003,-1.8711 0.30207,-6.39217 -0.60767,-3.02582 -1.78032,-7.11812 -2.6059,-9.094 l -1.50105,-3.59251 -74.5376,0 -74.53761,0 -1.4229,3.40548 c -1.94511,4.65531 -3.87987,14.33903 -3.11283,15.58013 0.79688,1.28938 155.38177,1.38078 157.41582,0.0931 z m -25.90693,-24.39153 c 0,-1.24672 -5.7033,-11.73239 -7.62234,-14.01388 -2.88837,-3.43389 -3.05342,-5.67327 -0.41813,-5.67327 4.38551,0 11.74148,11.74497 10.68001,17.05232 l -0.58954,2.94768 7.975,0 c 5.74935,0 7.975,-0.35183 7.975,-1.26068 0,-2.26743 -8.58166,-14.10933 -14.6056,-20.15437 -15.05404,-15.10678 -33.86286,-22.60595 -56.60224,-22.56759 -22.08745,0.0373 -39.40142,6.87913 -54.36384,21.48264 -6.94616,6.77954 -15.42832,18.41013 -15.42832,21.15504 0,1.11203 10.65076,1.34496 61.5,1.34496 33.825,0 61.5,-0.14078 61.5,-0.31285 z m -93.59158,-3.06521 c -0.66235,-1.72604 3.9076,-10.69297 6.76967,-13.28311 1.63365,-1.47843 2.06875,-1.51459 3.27243,-0.27199 1.18957,1.22804 0.82283,2.36345 -2.56242,7.93316 -4.00121,6.58312 -6.41472,8.39719 -7.47968,5.62194 z m 74.8173,0.12806 c -2.02408,-2.4825 -3.63934,-9.73638 -2.43601,-10.93971 1.64641,-1.64641 3.95916,0.61949 5.34149,5.23327 1.63547,5.45873 -0.18778,9.03966 -2.90548,5.70644 z m -87.8736,-3.27477 c -1.08443,-2.82599 9.43089,-16.47523 12.69246,-16.47523 3.51737,0 3.02283,2.00661 -1.97445,8.01145 -2.76577,3.32341 -5.50383,6.93041 -6.08458,8.01556 -1.25494,2.34487 -3.81074,2.59211 -4.63343,0.44822 z m 27.06887,0.17947 c -0.66129,-1.72328 2.00067,-6.21879 4.17686,-7.05387 2.19279,-0.84146 2.95868,2.31694 1.28494,5.29892 -1.67568,2.98543 -4.62586,3.93336 -5.4618,1.75495 z"
+           style="fill:#000000;fill-opacity:1" />
+      </g>
+    </g>
+  </g>
+</svg>

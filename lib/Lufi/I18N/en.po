@@ -1,0 +1,110 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"POT-Creation-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#. ($delay)
+#. (config('max_delay')
+#: templates/index.html.ep:12 templates/index.html.ep:21 templates/index.html.ep:22
+msgid "%1 days"
+msgstr "%1 days"
+
+#: templates/index.html.ep:5
+msgid "1 year"
+msgstr ""
+
+#: templates/index.html.ep:21 templates/index.html.ep:4
+msgid "24 hours"
+msgstr ""
+
+#: templates/layouts/default.html.ep:35
+msgid "About"
+msgstr ""
+
+#: templates/index.html.ep:44
+msgid "Click to open the file browser"
+msgstr ""
+
+#: templates/index.html.ep:59
+msgid "Copy to clipboard"
+msgstr ""
+
+#: lib/Lufi/Controller/Files.pm:188
+msgid "Could not find the file. Are you sure of the URL and the token?"
+msgstr ""
+
+#: lib/Lufi/Controller/Files.pm:132
+msgid "Could not find the file. Are you sure of the URL?"
+msgstr ""
+
+#: templates/index.html.ep:35
+msgid "Delete at first view?"
+msgstr ""
+
+#: templates/index.html.ep:60
+msgid "Deletion link"
+msgstr ""
+
+#: templates/index.html.ep:58
+msgid "Download link"
+msgstr ""
+
+#: templates/index.html.ep:41
+msgid "Drop files here"
+msgstr ""
+
+#: lib/Lufi/Controller/Files.pm:172
+msgid "File deleted"
+msgstr ""
+
+#: templates/index.html.ep:57
+msgid "Hit Enter, then Ctrl+C to copy all the download links"
+msgstr ""
+
+#: templates/index.html.ep:56
+msgid "Hit Enter, then Ctrl+C to copy the download link"
+msgstr ""
+
+#: templates/layouts/default.html.ep:34
+msgid "My files"
+msgstr ""
+
+#: lib/Lufi/Controller/Files.pm:169
+msgid "The file has already been deleted"
+msgstr ""
+
+#: lib/Lufi/Controller/Files.pm:122
+msgid "The file has been deleted and is no more available."
+msgstr ""
+
+#: lib/Lufi/Controller/Files.pm:154
+msgid "Unable to get counter"
+msgstr ""
+
+#: templates/layouts/default.html.ep:33
+msgid "Upload files"
+msgstr ""
+
+#: templates/index.html.ep:49
+msgid "Uploaded files"
+msgstr ""
+
+#: templates/index.html.ep:3
+msgid "no time limit"
+msgstr ""
+
+#: templates/index.html.ep:42
+msgid "or"
+msgstr ""

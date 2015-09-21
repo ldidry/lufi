@@ -1,0 +1,23 @@
+% # vim:set sw=4 ts=4 sts=4 ft=html.epl expandtab:
+<div class="inner cover render">
+% if (!defined($f) && defined($msg)) {
+    <div class="alert alert-danger"><%= $msg %></div>
+% } else {
+    <h2><%= stash('f')->filename %></h2>
+    % if (defined($msg)) {
+    <div class="alert alert-danger"><%= $msg %></div>
+    % } else {
+    <p id="please-wait"><%= l('Please wait while we are getting your file') %></p>
+    <div class="progress" id="pbd">
+        <div id="pb" class="progress-bar progress-bar-info progress-bar-striped active" role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100" style="width: 0;">
+            <span id="pbt" class="sr-only">0%</span>
+        </div>
+    </div>
+%= javascript begin
+var ws_url = '<%= url_for('download')->to_abs() %>';
+% end
+%= javascript '/js/sjcl.js'
+%= javascript '/js/lufi-down.js'
+    % }
+% }
+</div>

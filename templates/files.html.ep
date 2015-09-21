@@ -1,0 +1,93 @@
+% # vim:set sts=4 sw=4 ts=4 ft=html.epl expandtab:
+<h2><%= l('My files') %></h2>
+<hr>
+
+<p>
+    <%= l('Only the files sent with this browser will be listed here. The informations are stored in localStorage: if you delete your localStorage data, you\'ll loose this informations.') %>
+</p>
+
+<div class="table-responsive">
+    <table class="table table-hover">
+        <thead>
+            <tr>
+                <th class="text-center"><%= l('File name') %></th>
+                <th class="text-center"><%= l('Download link') %></th>
+                <th class="text-center"><%= l('Counter') %></th>
+                <th class="text-center"><%= l('Delete at first view?') %></th>
+                <th class="text-center"><%= l('Uploaded at') %></th>
+                <th class="text-center"><%= l('Expires at') %></th>
+                <th class="text-center"><%= l('Deletion link') %></th>
+            </tr>
+        </thead>
+        <tbody id="myfiles">
+        </tbody>
+    </table>
+</div>
+
+%= javascript begin
+    function populateFilesTable() {
+        var files = JSON.parse(localStorage.getItem('files'));
+        files.reverse();
+        files.forEach(function(element, index, array) {
+            var del_view   = (element.del_at_first_view) ? '<span class="glyphicon glyphicon-ok"></span>' : '<span class="glyphicon glyphicon-remove"></span>';
+            var dlink      = '<%== url_for('/')->to_abs() %>d/'+element.short+'/'+element.token;
+            var limit      = (element.limit === 0) ? '<%= l('No limit') %>' : moment.unix(element.delay * 86400 + element.created_at).locale(window.navigator.language).format('LLLL');
+            var created_at = moment.unix(element.created_at).locale(window.navigator.language).format('LLLL');
+
+            var tr = document.createElement('tr');
+            tr.innerHTML = '<td class="text-left">'
+                +element.name
+                +'</td><td class="text-left">'
+                +'<a href="'+element.url+'">'+element.url+'</a>'
+                +'</td><td id="count-'+element.short+'" class="text-center">'
+                +'</td><td class="text-center">'
+                +del_view
+                +'</td><td>'
+                +created_at
+                +'</td><td>'
+                +limit
+                +'</td><td class="text-left">'
+                +'<a href="'+dlink+'">'+dlink+'</a>'
+                +'</td>';
+            document.getElementById('myfiles').appendChild(tr);
+
+            var xhr = new XMLHttpRequest();
+            xhr.open('POST', '<%== url_for('counter') %>');
+            xhr.onreadystatechange = function() {
+                if (xhr.readyState>3 && xhr.status==200) {
+                    var data = JSON.parse(xhr.responseText);
+                    if (data.success) {
+                        document.getElementById('count-'+element.short).innerHTML = data.counter;
+                    } else {
+                        alert(data.msg);
+                    }
+                }
+            };
+            xhr.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
+            xhr.send('short='+element.short+'&token='+element.token);
+
+            /*$.ajax({
+                url  : '<%== url_for('counter') %>',
+                type : 'POST',
+                data : {
+                    'short': element.short,
+                    'token': element.token
+                },
+                success: function(data) {
+                    if (data.success) {
+                        $('#count-'+element.id).text(data.counter);
+                    } else {
+                        alert(data.msg);
+                    }
+                },
+                error: function() {
+                    alert(element.filename+'<%= l(': Error while trying to get the counter.') %>');
+                }
+            });*/
+        });
+    }
+    document.addEventListener('DOMContentLoaded', function() {
+        populateFilesTable();
+    });
+% end
+%= javascript '/js/moment-with-locales.min.js'

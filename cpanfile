@@ -1,0 +1,9 @@
+requires "Mojolicious";
+requires "ORLite";
+requires "Mojolicious::Plugin::DebugDumperHelper";
+requires 'Mojolicious::Plugin::I18N';
+requires 'EV';
+requires 'Filesys::DiskUsage';
+requires 'Switch';
+requires 'Locale::Maketext';
+requires 'Locale::Maketext::Extract';

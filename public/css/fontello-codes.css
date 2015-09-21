@@ -1,0 +1,4 @@
+
+.icon-download:before { content: '\e800'; } /* '' */
+.icon-clipboard:before { content: '\e801'; } /* '' */
+.icon-trash:before { content: '\e802'; } /* '' */
