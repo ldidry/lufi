@@ -43,8 +43,8 @@
     # optional, default is 0 (no limit)
     #max_delay         => 0,
 
-    # URL sub-directory in which you want Lstu to be accessible
-    # example: you want to have Lstu under https://example.org/lufi/
+    # URL sub-directory in which you want Lufi to be accessible
+    # example: you want to have Lufi under https://example.org/lufi/
     # => set prefix to '/lufi' or to '/lufi/', it doesn't matter
     # optional, defaut is /
     #prefix        => '/',
