@@ -31,7 +31,7 @@ body {
 body {
   color: #888;
   text-align: center;
-  text-shadow: 0 1px 3px rgba(0,0,0,.3);
+  /*text-shadow: 0 1px 3px rgba(0,0,0,.3);*/
 }
 
 /* Extra markup and styles for table-esque vertical and horizontal centering */
@@ -80,7 +80,7 @@ body {
   color: #888; /* IE8 proofing */
   color: rgba(136,136,136,.75);
   border-bottom: 2px solid transparent;
-  text-shadow: 0 1px 3px rgba(0,0,0,.2);
+  /*text-shadow: 0 1px 3px rgba(0,0,0,.2);*/
 }
 .masthead-nav > li > a:hover,
 .masthead-nav > li > a:focus {

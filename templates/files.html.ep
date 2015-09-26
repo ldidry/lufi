@@ -38,7 +38,7 @@
             tr.innerHTML = '<td class="text-left">'
                 +element.name
                 +'</td><td class="text-left">'
-                +'<a href="'+element.url+'">'+element.url+'</a>'
+                +'<a href="'+element.url+'" class="classic">'+element.url+'</a>'
                 +'</td><td id="count-'+element.short+'" class="text-center">'
                 +'</td><td class="text-center">'
                 +del_view
@@ -47,7 +47,7 @@
                 +'</td><td>'
                 +limit
                 +'</td><td class="text-left">'
-                +'<a href="'+dlink+'">'+dlink+'</a>'
+                +'<a href="'+dlink+'" class="classic">'+dlink+'</a>'
                 +'</td>';
             document.getElementById('myfiles').appendChild(tr);
 

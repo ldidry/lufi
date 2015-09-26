@@ -26,3 +26,8 @@
 #results {
     display: none;
 }
+a.classic,
+a.classic:hover,
+a.classic:focus {
+    color: #337AB7;
+}
