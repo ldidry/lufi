@@ -33,7 +33,7 @@
     # optional, default is 32
     #token_length      => 32,
 
-    # broadcast_message which will displayed on all pages of Lutim (but no in json response)
+    # broadcast_message which will displayed on the index page
     # optional, no default
     #broadcast_message => 'Maintenance',
 
