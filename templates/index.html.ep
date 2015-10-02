@@ -60,11 +60,14 @@
 </div>
 %= javascript begin
 var ws_url   = '<%= url_for('upload')->to_abs() %>';
-var hit      = '<%= l('Hit Enter, then Ctrl+C to copy the download link') %>';
-var hits     = '<%= l('Hit Enter, then Ctrl+C to copy all the download links') %>';
-var dltext   = '<%= l('Download link') %>';
-var cptext   = '<%= l('Copy to clipboard') %>';
-var del_text = '<%= l('Deletion link') %>';
+var i18n   = {
+    cpText:      '<%= l('Copy to clipboard') %>',
+    delText:    '<%= l('Deletion link') %>',
+    dlText:      '<%= l('Download link') %>',
+    download:    '<%= l('Download') %>',
+    hit:         '<%= l('Hit Enter, then Ctrl+C to copy the download link') %>',
+    hits:        '<%= l('Hit Enter, then Ctrl+C to copy all the download links') %>',
+}
 % end
 %= javascript '/js/sjcl.js'
 %= javascript '/js/lufi-up.js'

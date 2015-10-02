@@ -26,7 +26,7 @@ function copyToClipboard(el) {
         el.focus();
         var len = el.value.length * 2;
         el.setSelectionRange(0, len);
-        alert(hit);
+        alert(i18n.hit);
     }
 
     document.body.removeChild(textArea);
@@ -60,7 +60,7 @@ function copyAllToClipboard() {
         textArea.style.width      = '';
         textArea.style.height     = '';
         textArea.style.background = '#FFFFFF';
-        alert(hits);
+        alert(i18n.hits);
     }
 
     document.body.removeChild(textArea);
@@ -140,6 +140,8 @@ function sliceAndUpload(randomkey, i, parts, j, delay, del_at_first_view, short)
             i: i
         };
         data = JSON.stringify(data);
+
+        // Verify that we have a websocket and send json
         if (window.ws.readyState === 3) {
             window.ws = spawnWebsocket(function() {
                 window.ws.send(data+'XXMOJOXX'+JSON.stringify(encrypted));
@@ -171,26 +173,26 @@ function updateProgressBar(data) {
         d.innerHTML = '<div class="form-group"><label class="sr-only" for="'
             +short
             +'">'
-            +dltext
+            +i18n.dlText
             +'</label><div class="input-group"><div class="input-group-addon"><a href="'
             +url
             +'" target="_blank"><span class="icon icon-download" title="'
-            +dltext
+            +i18n.dlText
             +'"></span></a></div><input id="'
             +short
             +'" class="form-control link-input" value="'
             +url
             +'" readonly="" type="text" style="background-color: #FFF;"><a href="#" onclick="copyToClipboard(this);" class="input-group-addon" title="'
-            +cptext
+            +i18n.cpText
             +'"><span class="icon icon-clipboard"></span></a></div></div>'
             +'<div class="form-group"><label class="sr-only" for="delete-'
             +short
             +'">'
-            +del_text
+            +i18n.delText
             +'</label><div class="input-group"><div class="input-group-addon"><a href="'
             +del_url
             +'" target="_blank"><span class="icon icon-trash" title="'
-            +del_text
+            +i18n.delText
             +'"></span></a></div><input id="delete-'
             +short
             +'" class="form-control" value="'

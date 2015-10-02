@@ -15,6 +15,9 @@
     </div>
 %= javascript begin
 var ws_url = '<%= url_for('download')->to_abs() %>';
+var i18n   = {
+    download: '<%= l('Download') %>',
+}
 % end
 %= javascript '/js/sjcl.js'
 %= javascript '/js/lufi-down.js'

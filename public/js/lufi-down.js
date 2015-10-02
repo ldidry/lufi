@@ -68,7 +68,7 @@ function spawnWebsocket() {
 
                 var pbd  = document.getElementById('pbd');
                 pbd.setAttribute('class', '');
-                pbd.innerHTML = '<a href="'+URL.createObjectURL(blob)+'" class="btn btn-primary" download="'+data.name+'">Download</a>';
+                pbd.innerHTML = '<a href="'+URL.createObjectURL(blob)+'" class="btn btn-primary" download="'+data.name+'">'+i18n.download+'</a>';
 
                 ws.send('{"ended":true}');
             } else {
