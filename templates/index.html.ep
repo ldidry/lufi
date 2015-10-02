@@ -6,6 +6,13 @@
 % );
 <div class="inner cover">
     <div class="form-group row">
+% if (defined(config('broadcast_message'))) {
+        <div  class="col-sm-12 col-xs-12">
+            <div class="alert alert-info">
+                <strong><%= config('broadcast_message') %></strong>
+            </div>
+        </div>
+% }
         <div class="col-sm-6 col-xs-12">
             <select id="delete-day" class="form-control">
 % for my $delay (qw/0 1 7 30 365/) {

@@ -33,6 +33,11 @@
     # optional, default is 32
     #token_length      => 32,
 
+    # broadcast_message which will displayed on all pages of Lutim (but no in json response)
+    # optional, no default
+    #broadcast_message => 'Maintenance',
+
+
     # default time limit for files
     # valid values are 0, 1, 7, 30 and 365
     # optional, default is 0 (no limit)
