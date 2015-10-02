@@ -20,6 +20,12 @@
         %= stylesheet '/css/cover.css'
         %= stylesheet '/css/lufi.css'
         %= stylesheet '/css/fontello.css'
+        %= javascript begin
+            function confirmExit() {
+                console.log(i18n.confirmExit);
+                return i18n.confirmExit;
+            }
+        % end
     </head>
     <body>
         <div class="site-wrapper">

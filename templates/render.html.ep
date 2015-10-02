@@ -17,6 +17,7 @@
 var ws_url = '<%= url_for('download')->to_abs() %>';
 var i18n   = {
     download: '<%= l('Download') %>',
+    confirmExit: '<%= l('You have attempted to leave this page. The download will be canceled. Are you sure?') %>',
 }
 % end
 %= javascript '/js/sjcl.js'

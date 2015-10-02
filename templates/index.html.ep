@@ -65,6 +65,7 @@ var i18n   = {
     delText:    '<%= l('Deletion link') %>',
     dlText:      '<%= l('Download link') %>',
     download:    '<%= l('Download') %>',
+    confirmExit: '<%= l('You have attempted to leave this page. The upload will be canceled. Are you sure?') %>',
     hit:         '<%= l('Hit Enter, then Ctrl+C to copy the download link') %>',
     hits:        '<%= l('Hit Enter, then Ctrl+C to copy all the download links') %>',
 }
