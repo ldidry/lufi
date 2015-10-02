@@ -13,6 +13,12 @@
       "src": "fontawesome"
     },
     {
+      "uid": "a17986e457f3d85f26c9c240dfd6a4ba",
+      "css": "mail",
+      "code": 59395,
+      "src": "mfglabs"
+    },
+    {
       "uid": "c9bef3dc67fea47e94c4a5030ea64dad",
       "css": "clipboard",
       "code": 59393,

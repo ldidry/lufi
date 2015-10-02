@@ -110,7 +110,7 @@ function uploadFile(i, delay, del_at_first_view) {
     var r  = document.getElementById('ul-results');
     var w  = document.createElement('li');
     w.setAttribute('class', 'list-group-item');
-    w.innerHTML='<div><p>'+file.name+'</p></div><div class="progress"><div id="progress-'+i+'" style="width: 0%;" data-key="'+randomkey+'" data-name="'+file.name+'" aria-valuemax="100" aria-valuemin="0" aria-valuenow="0" role="progressbar" class="progress-bar"><span class="sr-only">'+file.name+'0%</span></div></div>';
+    w.innerHTML='<div><p id="name-'+i+'">'+file.name+'</p></div><div class="progress"><div id="progress-'+i+'" style="width: 0%;" data-key="'+randomkey+'" data-name="'+file.name+'" aria-valuemax="100" aria-valuemin="0" aria-valuenow="0" role="progressbar" class="progress-bar"><span class="sr-only">'+file.name+'0%</span></div></div>';
     r.appendChild(w);
 
     sliceAndUpload(randomkey, i, parts, 0, delay, del_at_first_view, null);
@@ -171,10 +171,13 @@ function updateProgressBar(data) {
     var key   = dp.getAttribute('data-key');
 
     if (j + 1 === parts) {
+        var n       = document.getElementById('name-'+i);
         var d       = document.createElement('div');
         var baseURL = document.location.href.replace(/#$/, '');
         var url     = baseURL+'r/'+short+'#'+key;
         var del_url = baseURL+'d/'+short+'/'+data.token;
+        var links   = encodeURIComponent('["'+short+'"]');
+        n.innerHTML = n.innerHTML+' <a href="'+baseURL+'m?links='+links+'"><span class="icon icon-mail"></span></a>';
         d.innerHTML = '<div class="form-group"><label class="sr-only" for="'
             +short
             +'">'
@@ -213,7 +216,7 @@ function updateProgressBar(data) {
         // Add copy all and mailto buttons
         var misc = document.getElementById('misc');
         if (misc.innerHTML === '') {
-            misc.innerHTML = '<a href="#" onclick="copyAllToClipboard();" class="btn btn-info">'+i18n.copyAll+'</a> <a id="mailto" href="'+baseURL+'m?links=["'+short+'"]" class="btn btn-info">'+i18n.mailTo+'</a>';
+            misc.innerHTML = '<a href="#" onclick="copyAllToClipboard();" class="btn btn-info">'+i18n.copyAll+'</a> <a id="mailto" href="'+baseURL+'m?links='+links+'" class="btn btn-info">'+i18n.mailTo+'</a>';
         } else {
             var a = document.getElementsByClassName('link-input');
             var l = new Array();
