@@ -1,3 +1,4 @@
+# vim:set sw=4 ts=4 sts=4 ft=perl expandtab:
 package Lufi::Controller::Files;
 use Mojo::Base 'Mojolicious::Controller';
 use Mojo::JSON qw(encode_json decode_json true false);

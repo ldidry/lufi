@@ -148,9 +148,9 @@ sub startup {
     })->name('index');
 
     # Get a file
-    $r->get('/r/:short')
-        ->to('Files#r')
-        ->name('render');
+    $r->get('/r/:short')->
+        to('Files#r')->
+        name('render');
 
     # List of files (use localstorage, so the server know nothing about files
     $r->get('/files' => sub {
@@ -167,20 +167,29 @@ sub startup {
         to('Files#delete')->
         name('delete');
 
+    # Get mail page
+    $r->get('/m' => sub {
+        shift->render(template => 'mail');
+    })->name('mail');
+
+    # Submit mail
+    $r->post('/m')->
+        to('Mail#send_mail');
+
     # About page
     $r->get('/about' => sub {
         shift->render(template => 'about');
     })->name('about');
 
     # Upload files websocket
-    $r->websocket('/upload')
-        ->to('Files#upload')
-        ->name('upload');
+    $r->websocket('/upload')->
+        to('Files#upload')->
+        name('upload');
 
     # Get files websocket
-    $r->websocket('/download/:short')
-        ->to('Files#download')
-        ->name('download');
+    $r->websocket('/download/:short')->
+        to('Files#download')->
+        name('download');
 }
 
 1;
