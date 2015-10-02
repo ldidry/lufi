@@ -17,11 +17,25 @@ sub startup {
             token_length  => 32,
             secret        => ['hfudsifdsih'],
             default_delay => 0,
-            max_delay     => 0
+            max_delay     => 0,
+            mail          => {
+                how => 'sendmail'
+            },
+            mail_sender   => 'no-reply@lufi.io'
         }
     });
 
     die "You need to provide a contact information in lufi.conf!" unless (defined($config->{contact}));
+
+    # Mail config
+    my $mail_config = {
+        type     => 'text/plain',
+        encoding => 'quoted-printable',
+        how      => $self->config('mail')->{'how'}
+    };
+    $mail_config->{howargs} = $self->config('mail')->{'howargs'} if (defined $self->config('mail')->{'howargs'});
+
+    $self->plugin('Mail' => $mail_config);
 
     # Internationalization
     $self->plugin('I18N');

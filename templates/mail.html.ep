@@ -1,0 +1,96 @@
+% # vim:set sw=4 ts=4 sts=4 ft=html.epl expandtab:
+<div class="inner cover render">
+% if (defined(stash('msg'))) {
+    <div class="alert alert-warning"><%= stash('msg') %></div>
+% }
+    <div class="alert alert-info">
+        <p><%= l('If you send the mail from this server, the links will be send to the server, which may lower your privacy protection.') %></p>
+    </div>
+    <form action="<%= url_for('m') %>" method="post">
+        %= csrf_field
+        <div class="form-group">
+            <label for="emails"><%= l('Comma-separated email addresses') %></label>
+% if (defined(stash('values'))) {
+            <input type="text" class="form-control" id="emails" name="emails" placeholder="<%= l('Emails') %>" value="<%== stash('values')->{emails} %>">
+% } else {
+            <input type="text" class="form-control" id="emails" name="emails" placeholder="<%= l('Emails') %>">
+% }
+        </div>
+        <div class="form-group">
+            <label for="subject"><%= l('Email subject') %></label>
+% if (defined(stash('values'))) {
+            <input type="text" class="form-control" id="subject" name="subject" value="<%= l('Here\'s some files') %>" value="<%== stash('values')->{subject} %>">
+% } else {
+            <input type="text" class="form-control" id="subject" name="subject" value="<%= l('Here\'s some files') %>">
+% }
+        </div>
+        <div class="form-group">
+            <label for="body"><%= l('Email body') %></label>
+            <textarea class="form-control" id="body" name="body" rows="10">
+% if (defined(stash('values'))) {
+<%== stash('values')->{body} %>
+% }
+            </textarea>
+        </div>
+        <button type="submit" class="btn btn-info"><%= l('Send with this server') %></button>
+        <a href="#" class="btn btn-primary" id="mailto"><%= l('Send with your own mail software') %></a>
+    </form>
+</div>
+%= javascript begin
+    function findItem(name) {
+        console.log(name);
+        var files = localStorage.getItem('files');
+        if (files === null) {
+            files = new Array();
+        } else {
+            files = JSON.parse(files);
+        }
+        var r = null;
+        var i;
+        for (i = 0; i < files.length; i++) {
+            if (files[i].short === name) {
+                return files[i];
+            }
+        }
+    }
+    function updateMailtoLink() {
+        var btn     = document.getElementById('mailto');
+        var emails  = document.getElementById('emails');
+        var subject = document.getElementById('subject');
+        var text    = document.getElementById('body');
+
+        btn.href = 'mailto:'+encodeURIComponent(emails.value)+'?subject='+encodeURIComponent(subject.value)+'&body='+encodeURIComponent(body.value);
+    }
+    function populateBody() {
+        var links = JSON.parse('<%== $self->param('links') %>');
+        var text = "<%== l('Hello,\n\nHere\'s some files I want to share with you:\n') %>";
+        links.forEach(function(name, index, array) {
+            var item = findItem(name);
+            if (item !== null) {
+                var limit = (item.limit === 0) ? null : moment.unix(item.delay * 86400 + item.created_at).locale(window.navigator.language).format('LLLL');
+                text = text+'- '+item.name+'<%= l(':') %> '+item.url;
+                if (limit !== null) {
+                    text = text+"\n  (<%= l('deadline: ') %>"+limit+')';
+                }
+                text = text+"\n";
+            }
+        });
+
+        text  = text+"\n--\n<%= l('Share your files in total privacy on %1', url_for('/')->to_abs) %>";
+        tArea = document.getElementById('body').value = text;
+        updateMailtoLink();
+    }
+    document.addEventListener('DOMContentLoaded', function() {
+% unless (defined(stash('msg')) || defined(stash('values'))) {
+        populateBody();
+% }
+
+        var emails  = document.getElementById('emails');
+        var subject = document.getElementById('subject');
+        var text    = document.getElementById('body');
+        emails.addEventListener('change', updateMailtoLink);
+        subject.addEventListener('change', updateMailtoLink);
+        text.addEventListener('change', updateMailtoLink);
+    });
+% end
+%= javascript '/js/moment-with-locales.min.js'

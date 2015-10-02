@@ -37,7 +37,6 @@
     # optional, no default
     #broadcast_message => 'Maintenance',
 
-
     # default time limit for files
     # valid values are 0, 1, 7, 30 and 365
     # optional, default is 0 (no limit)
@@ -62,4 +61,17 @@
     # if set, the shortened URLs will use this domain
     # optional
     #fixed_domain => 'example.org',
+
+    # Mail configuration
+    # See https://metacpan.org/pod/Mojolicious::Plugin::Mail#EXAMPLES
+    # Optional, default to sendmail method with no arguments
+    #mail => {
+    #    # Valid values are 'sendmail' and 'smtp'
+    #    how => 'smtp',
+    #    howargs => ['smtp.example.org']
+    #},
+
+    # Email sender address
+    # Optional, default to no-reply@lufi.io
+    #mail_sender => 'no-reply@lufi.io'
 };

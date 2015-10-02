@@ -17,7 +17,7 @@ msgstr ""
 
 #. ($delay)
 #. (config('max_delay')
-#: templates/index.html.ep:12 templates/index.html.ep:21 templates/index.html.ep:22
+#: templates/index.html.ep:19 templates/index.html.ep:28 templates/index.html.ep:29
 msgid "%1 days"
 msgstr "%1 days"
 
@@ -25,19 +25,23 @@ msgstr "%1 days"
 msgid "1 year"
 msgstr ""
 
-#: templates/index.html.ep:21 templates/index.html.ep:4
+#: templates/index.html.ep:28 templates/index.html.ep:4
 msgid "24 hours"
 msgstr ""
 
-#: templates/layouts/default.html.ep:35
+#: templates/layouts/default.html.ep:41
 msgid "About"
 msgstr ""
 
-#: templates/index.html.ep:44
+#: templates/index.html.ep:51
 msgid "Click to open the file browser"
 msgstr ""
 
-#: templates/index.html.ep:59
+#: templates/index.html.ep:65
+msgid "Copy all links to clipboard"
+msgstr ""
+
+#: templates/index.html.ep:66
 msgid "Copy to clipboard"
 msgstr ""
 
@@ -49,19 +53,23 @@ msgstr ""
 msgid "Could not find the file. Are you sure of the URL?"
 msgstr ""
 
-#: templates/index.html.ep:35
+#: templates/index.html.ep:42
 msgid "Delete at first view?"
 msgstr ""
 
-#: templates/index.html.ep:60
+#: templates/index.html.ep:67
 msgid "Deletion link"
 msgstr ""
 
-#: templates/index.html.ep:58
+#: templates/index.html.ep:69
+msgid "Download"
+msgstr ""
+
+#: templates/index.html.ep:68
 msgid "Download link"
 msgstr ""
 
-#: templates/index.html.ep:41
+#: templates/index.html.ep:48
 msgid "Drop files here"
 msgstr ""
 
@@ -69,16 +77,20 @@ msgstr ""
 msgid "File deleted"
 msgstr ""
 
-#: templates/index.html.ep:57
+#: templates/index.html.ep:72
 msgid "Hit Enter, then Ctrl+C to copy all the download links"
 msgstr ""
 
-#: templates/index.html.ep:56
+#: templates/index.html.ep:71
 msgid "Hit Enter, then Ctrl+C to copy the download link"
 msgstr ""
 
-#: templates/layouts/default.html.ep:34
+#: templates/layouts/default.html.ep:40
 msgid "My files"
+msgstr ""
+
+#: templates/index.html.ep:73
+msgid "Send all links by email"
 msgstr ""
 
 #: lib/Lufi/Controller/Files.pm:169
@@ -93,18 +105,22 @@ msgstr ""
 msgid "Unable to get counter"
 msgstr ""
 
-#: templates/layouts/default.html.ep:33
+#: templates/layouts/default.html.ep:39
 msgid "Upload files"
 msgstr ""
 
-#: templates/index.html.ep:49
+#: templates/index.html.ep:56
 msgid "Uploaded files"
+msgstr ""
+
+#: templates/index.html.ep:70
+msgid "You have attempted to leave this page. The upload will be canceled. Are you sure?"
 msgstr ""
 
 #: templates/index.html.ep:3
 msgid "no time limit"
 msgstr ""
 
-#: templates/index.html.ep:42
+#: templates/index.html.ep:49
 msgid "or"
 msgstr ""

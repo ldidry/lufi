@@ -33,9 +33,11 @@ function copyToClipboard(el) {
 }
 function copyAllToClipboard() {
     var text = new Array();
-    document.getElementByClassName('link-input').forEach(function(e, index, array) {
-        text.push(e.value);
-    });
+    var a = document.getElementsByClassName('link-input');
+    var i;
+    for (i = 0; i < a.length; i++) {
+        text.push(a[i].value);
+    }
     var textArea              = document.createElement('textarea');
     textArea.style.position   = 'fixed';
     textArea.style.top        = 0;
@@ -170,8 +172,9 @@ function updateProgressBar(data) {
 
     if (j + 1 === parts) {
         var d       = document.createElement('div');
-        var url     = document.location.href.replace(/#$/, '')+'r/'+short+'#'+key;
-        var del_url = document.location.href.replace(/#$/, '')+'d/'+short+'/'+data.token;
+        var baseURL = document.location.href.replace(/#$/, '');
+        var url     = baseURL+'r/'+short+'#'+key;
+        var del_url = baseURL+'d/'+short+'/'+data.token;
         d.innerHTML = '<div class="form-group"><label class="sr-only" for="'
             +short
             +'">'
@@ -207,6 +210,22 @@ function updateProgressBar(data) {
         p2.remove();
         p1.appendChild(d);
 
+        // Add copy all and mailto buttons
+        var misc = document.getElementById('misc');
+        if (misc.innerHTML === '') {
+            misc.innerHTML = '<a href="#" onclick="copyAllToClipboard();" class="btn btn-info">'+i18n.copyAll+'</a> <a id="mailto" href="'+baseURL+'m?links=["'+short+'"]" class="btn btn-info">'+i18n.mailTo+'</a>';
+        } else {
+            var a = document.getElementsByClassName('link-input');
+            var l = new Array();
+            var i;
+            for (i = 0; i < a.length; i++) {
+                l.push(a[i].id);
+            }
+            var u = baseURL+'m?links='+JSON.stringify(l);
+            document.getElementById('mailto').href = u;
+        }
+
+        // Add the file to localStorage
         addItem(data.name, url, data.size, del_at_first_view, created_at, delay, data.short, data.token);
 
         i++;
