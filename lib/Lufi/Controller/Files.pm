@@ -57,6 +57,7 @@ sub upload {
 
             if (($json->{part} + 1) == $json->{total}) {
                 $f->complete(1);
+                $f->created_at(time);
                 $c->provisioning;
             }
 
