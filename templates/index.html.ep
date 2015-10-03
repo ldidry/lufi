@@ -20,16 +20,16 @@
             <select id="delete-day" class="form-control">
 % for my $delay (qw/0 1 7 30 365/) {
 %   my $text = ($delay == 7 || $delay == 30) ? l('%1 days', $delay) : $d{'delay_'.$delay};
-%   if (config('max_delay')) {
+%   if (max_delay) {
 %       if ($delay) {
-%           if ($delay < config('max_delay')) {
+%           if ($delay < max_delay) {
                 <option value="<%= $delay %>" <%== is_selected($delay) %>><%= $text %></option>
-%           } elsif ($delay == config('max_delay')) {
+%           } elsif ($delay == max_delay) {
                 <option value="<%= $delay %>" <%== is_selected($delay) %>><%= $text %></option>
 %               last;
 %           } else {
 %               my $text = ($delay == 1) ? l('24 hours') : l('%1 days', $delay);
-                <option value="<%= config('max_delay') %>" <%== is_selected(config('max_delay')) %>><%= l('%1 days', config('max_delay')) %></option>
+                <option value="<%= max_delay %>" <%== is_selected(max_delay) %>><%= l('%1 days', max_delay) %></option>
 %               last;
 %           }
 %       }

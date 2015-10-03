@@ -54,7 +54,7 @@ sub upload {
                     }
                     # If the file size is lower than the lowest configured size or if there is no delay_for_size setting, we choose the configured max delay
                     unless (defined $delay) {
-                        $delay = ($json->{delay} <= $c->config('max_delay') || $c->config('max_delay') == 0) ? $json->{delay} : $c->config('max_delay');
+                        $delay = ($json->{delay} <= $c->max_delay || $c->max_delay == 0) ? $json->{delay} : $c->max_delay;
                     }
 
                     $f = Lufi::File->new(

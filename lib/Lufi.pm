@@ -115,10 +115,22 @@ sub startup {
     );
 
     $self->helper(
+        max_delay => sub {
+            my $c = shift;
+
+            return $c->config('max_delay') if ($c->config('max_delay') >= 0);
+
+            warn "max_delay set to a negative value. Default to 0.";
+            return 0;
+        }
+    );
+
+    $self->helper(
         is_selected => sub {
             my $c   = shift;
             my $num = shift;
 
+            return ($num == $c->max_delay)     ? 'selected="selected"' : '' if ($c->max_delay && !$c->default_delay);
             return ($num == $c->default_delay) ? 'selected="selected"' : '';
         }
     );
