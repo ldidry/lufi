@@ -1,11 +1,11 @@
 % # vim:set sw=4 ts=4 sts=4 ft=html.epl expandtab:
 <div class="inner cover render">
-% if (!defined($f) && defined($msg)) {
-    <div class="alert alert-danger"><%= $msg %></div>
+% if (!defined(stash('f')) && defined(stash('msg'))) {
+    <div class="alert alert-danger"><%= stash('msg') %></div>
 % } else {
     <h2><%= stash('f')->filename %></h2>
-    % if (defined($msg)) {
-    <div class="alert alert-danger"><%= $msg %></div>
+    % if (defined(stash('msg'))) {
+    <div class="alert alert-danger"><%= stash('msg') %></div>
     % } else {
     <p id="please-wait"><%= l('Please wait while we are getting your file') %></p>
     <div class="progress" id="pbd">

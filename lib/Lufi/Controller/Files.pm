@@ -81,36 +81,62 @@ sub download {
     $c->debug('Client connected');
 
     my @records = LufiDB::Files->select('WHERE short = ?', $short);
-    my $f       = Lufi::File->new(record => $records[0]);
 
-    $c->on(
-        message => sub {
-            my ($ws, $json) = @_;
-            $json = decode_json $json;
-            if (defined($json->{part})) {
-                # Make $num an integer instead of a string
-                my $num = $json->{part} + 0;
-
-                my $e    = $f->slices->[$num];
-                my $text = slurp $e->path;
-                $c->send($text);
-            } elsif (defined($json->{ended}) && $json->{ended}) {
-                $f->counter($f->counter + 1);
-                $f->last_access_at(time);
-
-                if ($f->delete_at_first_view) {
-                    $f->delete;
-                } else {
-                    $f->write;
+    # Do we have a file?
+    if (scalar @records) {
+        # Is the file fully uploaded?
+        if ($records[0]->deleted) {
+            $c->on(
+                message => sub {
+                    my ($ws, $json) = @_;
+                    $c->send('{"success": false, "msg": "'.$c->l('Error: the file existed but has been deleted.').'"}');
                 }
-            }
+            );
+        } elsif ($records[0]->complete) {
+            my $f       = Lufi::File->new(record => $records[0]);
+
+            $c->on(
+                message => sub {
+                    my ($ws, $json) = @_;
+                    $json = decode_json $json;
+                    if (defined($json->{part})) {
+                        # Make $num an integer instead of a string
+                        my $num = $json->{part} + 0;
+
+                        # Get the slice
+                        my $e    = $f->slices->[$num];
+                        my $text = slurp $e->path;
+
+                        # Send the slice
+                        $c->send($text);
+                    } elsif (defined($json->{ended}) && $json->{ended}) {
+                        $f->counter($f->counter + 1);
+                        $f->last_access_at(time);
+
+                        if ($f->delete_at_first_view) {
+                            $f->delete;
+                        } else {
+                            $f->write;
+                        }
+                    }
+                }
+            );
+            $c->on(
+                finish => sub {
+                    $c->debug('Client disconnected');
+                }
+            );
+        } else {
+            $c->on(
+                message => sub {
+                    my ($ws, $json) = @_;
+                    $c->send('{"success": false, "msg": "'.$c->l('Error: the file has not been send entirely.').'"}');
+                }
+            );
         }
-    );
-    $c->on(
-        finish => sub {
-            $c->debug('Client disconnected');
-        }
-    );
+    } else {
+        $c->send('{"success": false, "msg": "'.$c->l('Error: unable to find the file. Are you sure of your URL?').'"}');
+    }
 }
 
 sub r {
@@ -120,16 +146,13 @@ sub r {
     my @records = LufiDB::Files->select('WHERE short = ?', $short);
     if (scalar @records) {
         my $f   = Lufi::File->new(record => $records[0]);
-        my $msg = $c->l('The file has been deleted and is no more available.') if $f->deleted;
         return $c->render(
             template => 'render',
-            f        => $f,
-            msg      => $msg
+            f        => $f
         );
     } else {
         return $c->render(
             template => 'render',
-            f        => undef,
             msg      => $c->l('Could not find the file. Are you sure of the URL?')
         );
     }
@@ -148,13 +171,14 @@ sub get_counter {
                 counter => $records[0]->counter
             }
         );
+    } else {
+        return $c->render(
+            json => {
+                success => false,
+                msg     => $c->l('Unable to get counter for %1. The file does not exists.', $short)
+            }
+        );
     }
-    return $c->render(
-        json => {
-            success => false,
-            msg     => $c->l('Unable to get counter')
-        }
-    );
 }
 
 sub delete {
