@@ -63,18 +63,21 @@
     </div>
 </div>
 %= javascript begin
-var ws_url   = '<%= url_for('upload')->to_abs() %>';
+var ws_url = '<%= url_for('upload')->to_abs() %>';
 var i18n   = {
+    confirmExit: '<%= l('You have attempted to leave this page. The upload will be canceled. Are you sure?') %>',
     copyAll:     '<%= l('Copy all links to clipboard') %>',
     cpText:      '<%= l('Copy to clipboard') %>',
     delText:     '<%= l('Deletion link') %>',
     dlText:      '<%= l('Download link') %>',
     download:    '<%= l('Download') %>',
-    confirmExit: '<%= l('You have attempted to leave this page. The upload will be canceled. Are you sure?') %>',
+    expiration:  '<%= l('Expiration:') %>',
     hit:         '<%= l('Hit Enter, then Ctrl+C to copy the download link') %>',
     hits:        '<%= l('Hit Enter, then Ctrl+C to copy all the download links') %>',
     mailTo:      '<%= l('Send all links by email') %>',
-}
+    noLimit:     '<%= l('No limit') %>',
+};
 % end
 %= javascript '/js/sjcl.js'
+%= javascript '/js/moment-with-locales.min.js'
 %= javascript '/js/lufi-up.js'

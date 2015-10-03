@@ -9,15 +9,25 @@
         <p><%= l('This server sets limitations according to the file size. The expiration delay of your file will be the minimum between what you choose and the following limitations:') %></p>
         <ul>
         % my $delays   = config('delay_for_size');
-        % $delays->{0} = 1;
+        % $delays->{0} = config('max_delay');
         % my @keys     = sort keys %{$delays};
         % my $i        = 0;
         % for my $key (@keys) {
+            % my $delay = $delays->{$keys[$i]};
             % if ($i + 1 < scalar(@keys)) {
-            <li><%= l('between %1 and %2, the file will be kept %3 day(s)', format_bytes($keys[$i++]), format_bytes($keys[$i]), $delays->{$keys[$i]}) %></li>
+                % if ($delay) {
+                <li><%= l('between %1 and %2, the file will be kept %3 day(s).', format_bytes($keys[$i]), format_bytes($keys[$i + 1]), $delay) %></li>
+                % } else {
+                <li><%= l('between %1 and %2, the file will be kept forever.', format_bytes($keys[$i]), format_bytes($keys[$i + 1]), $delay) %></li>
+                % }
             % } else {
-            <li><%= l('for %1 and more, the file will be kept %2 day(s)', format_bytes($keys[$i]), $delays->{$keys[$i]}) %></li>
+                % if ($delay) {
+                <li><%= l('for %1 and more, the file will be kept %2 day(s)', format_bytes($keys[$i]), $delay) %></li>
+                % } else {
+                <li><%= l('for %1 and more, the file will be kept forever.', format_bytes($keys[$i]), $delay) %></li>
+                % }
             % }
+            % $i++;
         % }
         </ul>
     </div>

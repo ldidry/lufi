@@ -66,7 +66,7 @@
         links.forEach(function(name, index, array) {
             var item = findItem(name);
             if (item !== null) {
-                var limit = (item.limit === 0) ? null : moment.unix(item.delay * 86400 + item.created_at).locale(window.navigator.language).format('LLLL');
+                var limit = (item.delay === 0) ? null : moment.unix(item.delay * 86400 + item.created_at).locale(window.navigator.language).format('LLLL');
                 text = text+'- '+item.name+'<%= l(':') %> '+item.url;
                 if (limit !== null) {
                     text = text+"\n  (<%= l('deadline: ') %>"+limit+')';

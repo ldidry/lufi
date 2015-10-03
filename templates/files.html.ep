@@ -31,7 +31,7 @@
         files.forEach(function(element, index, array) {
             var del_view   = (element.del_at_first_view) ? '<span class="glyphicon glyphicon-ok"></span>' : '<span class="glyphicon glyphicon-remove"></span>';
             var dlink      = '<%== url_for('/')->to_abs() %>d/'+element.short+'/'+element.token;
-            var limit      = (element.limit === 0) ? '<%= l('No limit') %>' : moment.unix(element.delay * 86400 + element.created_at).locale(window.navigator.language).format('LLLL');
+            var limit      = (element.delay === 0) ? '<%= l('No limit') %>' : moment.unix(element.delay * 86400 + element.created_at).locale(window.navigator.language).format('LLLL');
             var created_at = moment.unix(element.created_at).locale(window.navigator.language).format('LLLL');
 
             var tr = document.createElement('tr');

@@ -28,11 +28,29 @@ sub upload {
                 my @records = LufiDB::Files->select('WHERE short = ?', $json->{id});
                 $f          = Lufi::File->new(record => $records[0]);
             } else {
+                my $delay;
+
+                if (defined $c->config('delay_for_size')) {
+                    # Choose delay according to config
+                    my $delays   = $c->config('delay_for_size');
+                    my @keys     = sort {$b <=> $a} keys %{$delays};
+                    for my $key (@keys) {
+                        if ($json->{size} >= $key) {
+                            $delay = ($json->{delay} < $delays->{$key}) ? $json->{delay} : $delays->{$key};
+                            last;
+                        }
+                    }
+                }
+                # If the file size is lower than the lowest configured size or if there is no delay_for_size setting, we choose the configured max delay
+                unless (defined $delay) {
+                    $delay = ($json->{delay} <= $c->config('max_delay') || $c->config('max_delay') == 0) ? $json->{delay} : $c->config('max_delay');
+                }
+
                 $f = Lufi::File->new(
                     record               => $c->get_empty,
                     created_by           => $c->ip,
                     delete_at_first_view => ($json->{del_at_first_view}) ? 1 : 0,
-                    delete_at_day        => $json->{delay},
+                    delete_at_day        => $delay,
                     mediatype            => $json->{type},
                     filename             => $json->{name},
                     filesize             => $json->{size},

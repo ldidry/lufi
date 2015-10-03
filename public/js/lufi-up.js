@@ -1,5 +1,7 @@
 // vim:set sw=4 ts=4 sts=4 ft=javascript expandtab:
 
+window.fc = 0;
+// Copy a link to clipboard
 function copyToClipboard(el) {
     el = el.previousSibling;
     var textArea              = document.createElement('textarea');
@@ -31,6 +33,8 @@ function copyToClipboard(el) {
 
     document.body.removeChild(textArea);
 }
+
+// Copy all links to clipboard
 function copyAllToClipboard() {
     var text = new Array();
     var a = document.getElementsByClassName('link-input');
@@ -67,6 +71,8 @@ function copyAllToClipboard() {
 
     document.body.removeChild(textArea);
 }
+
+// Add item to localStorage
 function addItem(name, url, size, del_at_first_view, created_at, delay, short, token) {
     var files = localStorage.getItem('files');
     if (files === null) {
@@ -110,7 +116,7 @@ function uploadFile(i, delay, del_at_first_view) {
     var r  = document.getElementById('ul-results');
     var w  = document.createElement('li');
     w.setAttribute('class', 'list-group-item');
-    w.innerHTML='<div><p id="name-'+i+'">'+file.name+'</p></div><div class="progress"><div id="progress-'+i+'" style="width: 0%;" data-key="'+randomkey+'" data-name="'+file.name+'" aria-valuemax="100" aria-valuemin="0" aria-valuenow="0" role="progressbar" class="progress-bar"><span class="sr-only">'+file.name+'0%</span></div></div>';
+    w.innerHTML='<div></a><p id="name-'+window.fc+'">'+file.name+'</p></div><div class="progress"><div id="progress-'+window.fc+'" style="width: 0%;" data-key="'+randomkey+'" data-name="'+file.name+'" aria-valuemax="100" aria-valuemin="0" aria-valuenow="0" role="progressbar" class="progress-bar"><span class="sr-only">'+file.name+'0%</span></div></div>';
     r.appendChild(w);
 
     sliceAndUpload(randomkey, i, parts, 0, delay, del_at_first_view, null);
@@ -167,17 +173,18 @@ function updateProgressBar(data) {
     var created_at        = data.created_at;
     var delay             = data.delay;
 
-    var dp    = document.getElementById('progress-'+i);
+    var dp    = document.getElementById('progress-'+window.fc);
     var key   = dp.getAttribute('data-key');
 
     if (j + 1 === parts) {
-        var n       = document.getElementById('name-'+i);
+        var n       = document.getElementById('name-'+window.fc);
         var d       = document.createElement('div');
         var baseURL = document.location.href.replace(/#$/, '');
         var url     = baseURL+'r/'+short+'#'+key;
         var del_url = baseURL+'d/'+short+'/'+data.token;
         var links   = encodeURIComponent('["'+short+'"]');
-        n.innerHTML = n.innerHTML+' <a href="'+baseURL+'m?links='+links+'"><span class="icon icon-mail"></span></a>';
+        var limit   = (delay === 0) ? i18n.noLimit : i18n.expiration+' '+moment.unix(delay * 86400 + created_at).locale(window.navigator.language).format('LLLL');
+        n.innerHTML = n.innerHTML+' <a href="'+baseURL+'m?links='+links+'"><span class="icon icon-mail"></span></a><br>'+limit;
         d.innerHTML = '<div class="form-group"><label class="sr-only" for="'
             +short
             +'">'
@@ -231,6 +238,7 @@ function updateProgressBar(data) {
         // Add the file to localStorage
         addItem(data.name, url, data.size, del_at_first_view, created_at, delay, data.short, data.token);
 
+        window.fc++;
         i++;
         if (i < window.files.length) {
             uploadFile(i, delay, del_at_first_view);

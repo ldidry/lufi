@@ -54,6 +54,7 @@
 
     # size thresholds: if you want to define max delays for different sizes of file
     # the keys are size in Bytes, you can't have 10*1000*10000 as key
+    # if a file is smaller than the smallest configured size, it will have a expiration delay of max_delay (see above)
     # optional, default is using max_delay (see above) for all sizes
     #delay_for_size  => {
     #    10000000   => 90, # between 10MB and 50MB => max is 90 days, less than 10MB => max is max_delay (see above)
