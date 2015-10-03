@@ -52,5 +52,8 @@
                 </div>
             </div>
         </div>
+% if (defined(config('piwik_img'))) {
+        <img src="<%== config('piwik_img') %>" style="border:0" alt="" />
+% }
     </body>
 </html>
