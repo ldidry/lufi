@@ -84,6 +84,31 @@ function addItem(name, url, size, del_at_first_view, created_at, delay, short, t
     localStorage.setItem('files', JSON.stringify(files));
 }
 
+// Remove a file block
+function destroyBlock(el) {
+    el.parentNode.parentNode.remove();
+
+    var a = document.getElementsByClassName('link-input');
+    if (a.length === 0) {
+        document.getElementById('misc').innerHTML = '';
+        document.getElementById('results').style.display = 'none';
+    } else {
+        updateMailLink();
+    }
+}
+
+// Update the mail link
+function updateMailLink() {
+    var a = document.getElementsByClassName('link-input');
+    var l = new Array();
+    var i;
+    for (i = 0; i < a.length; i++) {
+        l.push(a[i].id);
+    }
+    var u = baseURL+'m?links='+JSON.stringify(l);
+    document.getElementById('mailto').href = u;
+}
+
 // Start uploading the files (called from <input> and from drop zone)
 function handleFiles(f) {
     window.files = f;
@@ -116,7 +141,7 @@ function uploadFile(i, delay, del_at_first_view) {
     var r  = document.getElementById('ul-results');
     var w  = document.createElement('li');
     w.setAttribute('class', 'list-group-item');
-    w.innerHTML='<div></a><p id="name-'+window.fc+'">'+file.name+'</p></div><div class="progress"><div id="progress-'+window.fc+'" style="width: 0%;" data-key="'+randomkey+'" data-name="'+file.name+'" aria-valuemax="100" aria-valuemin="0" aria-valuenow="0" role="progressbar" class="progress-bar"><span class="sr-only">'+file.name+'0%</span></div></div>';
+    w.innerHTML='<div><a href="#" onclick="destroyBlock(this);"><span class="pull-right icon icon-cancel"></span></a><p id="name-'+window.fc+'">'+file.name+'</p></div><div class="progress"><div id="progress-'+window.fc+'" style="width: 0%;" data-key="'+randomkey+'" data-name="'+file.name+'" aria-valuemax="100" aria-valuemin="0" aria-valuenow="0" role="progressbar" class="progress-bar"><span class="sr-only">'+file.name+'0%</span></div></div>';
     r.appendChild(w);
 
     sliceAndUpload(randomkey, i, parts, 0, delay, del_at_first_view, null);
@@ -179,7 +204,6 @@ function updateProgressBar(data) {
     if (j + 1 === parts) {
         var n       = document.getElementById('name-'+window.fc);
         var d       = document.createElement('div');
-        var baseURL = document.location.href.replace(/#$/, '');
         var url     = baseURL+'r/'+short+'#'+key;
         var del_url = baseURL+'d/'+short+'/'+data.token;
         var links   = encodeURIComponent('["'+short+'"]');
@@ -225,14 +249,7 @@ function updateProgressBar(data) {
         if (misc.innerHTML === '') {
             misc.innerHTML = '<a href="#" onclick="copyAllToClipboard();" class="btn btn-info">'+i18n.copyAll+'</a> <a id="mailto" href="'+baseURL+'m?links='+links+'" class="btn btn-info">'+i18n.mailTo+'</a>';
         } else {
-            var a = document.getElementsByClassName('link-input');
-            var l = new Array();
-            var i;
-            for (i = 0; i < a.length; i++) {
-                l.push(a[i].id);
-            }
-            var u = baseURL+'m?links='+JSON.stringify(l);
-            document.getElementById('mailto').href = u;
+            updateMailLink();
         }
 
         // Add the file to localStorage
