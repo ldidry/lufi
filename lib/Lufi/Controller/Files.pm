@@ -7,6 +7,7 @@ use LufiDB;
 use Lufi::File;
 use Lufi::Slice;
 use File::Spec::Functions;
+use Number::Bytes::Human qw(format_bytes);
 
 sub upload {
     my $c = shift;
@@ -23,65 +24,76 @@ sub upload {
 
             $c->debug('Got message');
 
-            my $f;
-            if (defined($json->{id})) {
-                my @records = LufiDB::Files->select('WHERE short = ?', $json->{id});
-                $f          = Lufi::File->new(record => $records[0]);
-            } else {
-                my $delay;
+            my $over_size = 0;
+            # Check against max_size
+            if (defined $c->config('max_file_size')) {
+                if ($json->{size} > $c->config('max_file_size')) {
+                    $over_size = 1;
+                    $c->send(sprintf('{"success": false, "msg":"'.$c->l('Your file is too big: %1 (maximum size allowed: %2)', format_bytes($json->{size}), format_bytes($c->config('max_file_size'))).'", "sent_delay": %d, "i": %d}', $json->{delay}, $json->{i}));
+                }
+            }
 
-                if (defined $c->config('delay_for_size')) {
-                    # Choose delay according to config
-                    my $delays   = $c->config('delay_for_size');
-                    my @keys     = sort {$b <=> $a} keys %{$delays};
-                    for my $key (@keys) {
-                        if ($json->{size} >= $key) {
-                            $delay = ($json->{delay} < $delays->{$key}) ? $json->{delay} : $delays->{$key};
-                            last;
+            unless ($over_size) {
+                my $f;
+                if (defined($json->{id})) {
+                    my @records = LufiDB::Files->select('WHERE short = ?', $json->{id});
+                    $f          = Lufi::File->new(record => $records[0]);
+                } else {
+                    my $delay;
+
+                    if (defined $c->config('delay_for_size')) {
+                        # Choose delay according to config
+                        my $delays   = $c->config('delay_for_size');
+                        my @keys     = sort {$b <=> $a} keys %{$delays};
+                        for my $key (@keys) {
+                            if ($json->{size} >= $key) {
+                                $delay = ($json->{delay} < $delays->{$key}) ? $json->{delay} : $delays->{$key};
+                                last;
+                            }
                         }
                     }
-                }
-                # If the file size is lower than the lowest configured size or if there is no delay_for_size setting, we choose the configured max delay
-                unless (defined $delay) {
-                    $delay = ($json->{delay} <= $c->config('max_delay') || $c->config('max_delay') == 0) ? $json->{delay} : $c->config('max_delay');
-                }
+                    # If the file size is lower than the lowest configured size or if there is no delay_for_size setting, we choose the configured max delay
+                    unless (defined $delay) {
+                        $delay = ($json->{delay} <= $c->config('max_delay') || $c->config('max_delay') == 0) ? $json->{delay} : $c->config('max_delay');
+                    }
 
-                $f = Lufi::File->new(
-                    record               => $c->get_empty,
-                    created_by           => $c->ip,
-                    delete_at_first_view => ($json->{del_at_first_view}) ? 1 : 0,
-                    delete_at_day        => $delay,
-                    mediatype            => $json->{type},
-                    filename             => $json->{name},
-                    filesize             => $json->{size},
-                    nbslices             => $json->{total},
-                    mod_token            => $c->shortener($c->config('token_length'))
+                    $f = Lufi::File->new(
+                        record               => $c->get_empty,
+                        created_by           => $c->ip,
+                        delete_at_first_view => ($json->{del_at_first_view}) ? 1 : 0,
+                        delete_at_day        => $delay,
+                        mediatype            => $json->{type},
+                        filename             => $json->{name},
+                        filesize             => $json->{size},
+                        nbslices             => $json->{total},
+                        mod_token            => $c->shortener($c->config('token_length'))
+                    );
+                    $f->write;
+                }
+                # Create directory
+                my $dir = catdir('files', $f->short);
+                mkdir($dir, 0700) unless (-d $dir);
+
+                # Create slice file
+                my $file = catfile($dir, $json->{part}.'.part');
+                my $s    = Lufi::Slice->new(
+                    short => $f->short,
+                    j     => $json->{part},
+                    path  => $file
                 );
+                spurt $text, $file;
+                push @{$f->slices}, $s;
+
+                if (($json->{part} + 1) == $json->{total}) {
+                    $f->complete(1);
+                    $f->created_at(time);
+                    $c->provisioning;
+                }
+
                 $f->write;
+
+                $ws->send(sprintf('{"success": true, "i": %d, "j": %d, "parts": %d, "short": "%s", "name": "%s", "size": %d, "del_at_first_view": %s, "created_at": %d, "delay": %d, "token": "%s", "sent_delay": %d}', $json->{i}, $json->{part}, $json->{total}, $f->short, $f->filename, $f->filesize, (($f->delete_at_first_view) ? 'true' : 'false'), $f->created_at, $f->delete_at_day, $f->mod_token, $json->{delay}));
             }
-            # Create directory
-            my $dir = catdir('files', $f->short);
-            mkdir($dir, 0700) unless (-d $dir);
-
-            # Create slice file
-            my $file = catfile($dir, $json->{part}.'.part');
-            my $s    = Lufi::Slice->new(
-                short => $f->short,
-                j     => $json->{part},
-                path  => $file
-            );
-            spurt $text, $file;
-            push @{$f->slices}, $s;
-
-            if (($json->{part} + 1) == $json->{total}) {
-                $f->complete(1);
-                $f->created_at(time);
-                $c->provisioning;
-            }
-
-            $f->write;
-
-            $ws->send(sprintf('{"success": true, "i": %d, "j": %d, "parts": %d, "short": "%s", "name": "%s", "size": %d, "del_at_first_view": %s, "created_at": %d, "delay": %d, "token": "%s"}', $json->{i}, $json->{part}, $json->{total}, $f->short, $f->filename, $f->filesize, (($f->delete_at_first_view) ? 'true' : 'false'), $f->created_at, $f->delete_at_day, $f->mod_token));
         }
     );
     $c->on(

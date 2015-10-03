@@ -191,89 +191,114 @@ function sliceAndUpload(randomkey, i, parts, j, delay, del_at_first_view, short)
 // Update the progress bar
 function updateProgressBar(data) {
     var i                 = data.i;
-    var j                 = data.j;
-    var parts             = data.parts;
-    var short             = data.short;
+    var sent_delay        = data.sent_delay;
     var del_at_first_view = data.del_at_first_view;
-    var created_at        = data.created_at;
-    var delay             = data.delay;
+    if (data.success) {
+        var j          = data.j;
+        var delay      = data.delay;
+        var parts      = data.parts;
+        var short      = data.short;
+        var created_at = data.created_at;
 
-    var dp    = document.getElementById('progress-'+window.fc);
-    var key   = dp.getAttribute('data-key');
+        var dp    = document.getElementById('progress-'+window.fc);
+        var key   = dp.getAttribute('data-key');
 
-    if (j + 1 === parts) {
-        var n       = document.getElementById('name-'+window.fc);
-        var d       = document.createElement('div');
-        var url     = baseURL+'r/'+short+'#'+key;
-        var del_url = baseURL+'d/'+short+'/'+data.token;
-        var links   = encodeURIComponent('["'+short+'"]');
-        var limit   = (delay === 0) ? i18n.noLimit : i18n.expiration+' '+moment.unix(delay * 86400 + created_at).locale(window.navigator.language).format('LLLL');
-        n.innerHTML = n.innerHTML+' <a href="'+baseURL+'m?links='+links+'"><span class="icon icon-mail"></span></a><br>'+limit;
-        d.innerHTML = '<div class="form-group"><label class="sr-only" for="'
-            +short
-            +'">'
-            +i18n.dlText
-            +'</label><div class="input-group"><div class="input-group-addon"><a href="'
-            +url
-            +'" target="_blank"><span class="icon icon-download" title="'
-            +i18n.dlText
-            +'"></span></a></div><input id="'
-            +short
-            +'" class="form-control link-input" value="'
-            +url
-            +'" readonly="" type="text" style="background-color: #FFF;"><a href="#" onclick="copyToClipboard(this);" class="input-group-addon" title="'
-            +i18n.cpText
-            +'"><span class="icon icon-clipboard"></span></a></div></div>'
-            +'<div class="form-group"><label class="sr-only" for="delete-'
-            +short
-            +'">'
-            +i18n.delText
-            +'</label><div class="input-group"><div class="input-group-addon"><a href="'
-            +del_url
-            +'" target="_blank"><span class="icon icon-trash" title="'
-            +i18n.delText
-            +'"></span></a></div><input id="delete-'
-            +short
-            +'" class="form-control" value="'
-            +del_url
-            +'" readonly="" type="text" style="background-color: #FFF;">';
+        if (j + 1 === parts) {
+            var n       = document.getElementById('name-'+window.fc);
+            var d       = document.createElement('div');
+            var url     = baseURL+'r/'+short+'#'+key;
+            var del_url = baseURL+'d/'+short+'/'+data.token;
+            var links   = encodeURIComponent('["'+short+'"]');
+            var limit   = (delay === 0) ? i18n.noLimit : i18n.expiration+' '+moment.unix(delay * 86400 + created_at).locale(window.navigator.language).format('LLLL');
+            n.innerHTML = n.innerHTML+' <a href="'+baseURL+'m?links='+links+'"><span class="icon icon-mail"></span></a><br>'+limit;
+            d.innerHTML = '<div class="form-group"><label class="sr-only" for="'
+                +short
+                +'">'
+                +i18n.dlText
+                +'</label><div class="input-group"><div class="input-group-addon"><a href="'
+                +url
+                +'" target="_blank"><span class="icon icon-download" title="'
+                +i18n.dlText
+                +'"></span></a></div><input id="'
+                +short
+                +'" class="form-control link-input" value="'
+                +url
+                +'" readonly="" type="text" style="background-color: #FFF;"><a href="#" onclick="copyToClipboard(this);" class="input-group-addon" title="'
+                +i18n.cpText
+                +'"><span class="icon icon-clipboard"></span></a></div></div>'
+                +'<div class="form-group"><label class="sr-only" for="delete-'
+                +short
+                +'">'
+                +i18n.delText
+                +'</label><div class="input-group"><div class="input-group-addon"><a href="'
+                +del_url
+                +'" target="_blank"><span class="icon icon-trash" title="'
+                +i18n.delText
+                +'"></span></a></div><input id="delete-'
+                +short
+                +'" class="form-control" value="'
+                +del_url
+                +'" readonly="" type="text" style="background-color: #FFF;">';
 
-        var p2 = dp.parentNode;
-        var p1 = p2.parentNode;
+            var p2 = dp.parentNode;
+            var p1 = p2.parentNode;
 
-        p2.remove();
-        p1.appendChild(d);
+            p2.remove();
+            p1.appendChild(d);
 
-        // Add copy all and mailto buttons
-        var misc = document.getElementById('misc');
-        if (misc.innerHTML === '') {
-            misc.innerHTML = '<a href="#" onclick="copyAllToClipboard();" class="btn btn-info">'+i18n.copyAll+'</a> <a id="mailto" href="'+baseURL+'m?links='+links+'" class="btn btn-info">'+i18n.mailTo+'</a>';
+            // Add copy all and mailto buttons
+            var misc = document.getElementById('misc');
+            if (misc.innerHTML === '') {
+                misc.innerHTML = '<a href="#" onclick="copyAllToClipboard();" class="btn btn-info">'+i18n.copyAll+'</a> <a id="mailto" href="'+baseURL+'m?links='+links+'" class="btn btn-info">'+i18n.mailTo+'</a>';
+            } else {
+                updateMailLink();
+            }
+
+            // Add the file to localStorage
+            addItem(data.name, url, data.size, del_at_first_view, created_at, delay, data.short, data.token);
+
+            // Upload next file
+            window.fc++;
+            i++;
+            if (i < window.files.length) {
+                uploadFile(i, sent_delay, del_at_first_view);
+            } else {
+                // We have finished
+                window.removeEventListener('onbeforeunload', confirmExit);
+                document.getElementById('delete-day').removeAttribute('disabled');
+                document.getElementById('first-view').removeAttribute('disabled');
+            }
         } else {
-            updateMailLink();
+            j++;
+            // Update progress bar
+            var percent    = Math.round(100 * j/parts);
+            dp.style.width = percent+'%';
+            dp.setAttribute('aria-valuenow', percent);
+
+            // Encrypt and upload next slice
+            sliceAndUpload(key, i, parts, j, delay, del_at_first_view, short);
         }
+    } else {
+        var n       = document.getElementById('name-'+window.fc);
+        var p       = document.getElementById('progress-'+window.fc);
+        var d       = document.createElement('div');
 
-        // Add the file to localStorage
-        addItem(data.name, url, data.size, del_at_first_view, created_at, delay, data.short, data.token);
+        p.parentNode.remove();
+        d.innerHTML = data.msg;
+        d.setAttribute('class', 'alert alert-danger');
+        n.parentNode.appendChild(d);
 
+        // Upload next file
         window.fc++;
         i++;
         if (i < window.files.length) {
-            uploadFile(i, delay, del_at_first_view);
+            uploadFile(i, sent_delay, del_at_first_view);
         } else {
             // We have finished
             window.removeEventListener('onbeforeunload', confirmExit);
             document.getElementById('delete-day').removeAttribute('disabled');
             document.getElementById('first-view').removeAttribute('disabled');
         }
-    } else {
-        j++;
-        // Update progress bar
-        var percent    = Math.round(100 * j/parts);
-        dp.style.width = percent+'%';
-        dp.setAttribute('aria-valuenow', percent);
-
-        // Encrypt and upload next slice
-        sliceAndUpload(key, i, parts, j, delay, del_at_first_view, short);
     }
 }
 
@@ -304,12 +329,7 @@ function spawnWebsocket(callback) {
         console.log('Connection is closed.');
     }
     ws.onmessage = function(e) {
-        var data = JSON.parse(e.data);
-        if (data.success) {
-            updateProgressBar(data);
-        } else {
-            alert(data.msg);
-        }
+        updateProgressBar(JSON.parse(e.data));
     }
     ws.onerror = function() {
         console.log('error');

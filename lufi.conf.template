@@ -33,6 +33,11 @@
     # optional, default is 32
     #token_length      => 32,
 
+    # max file size, in octets
+    # you can write it 100*1024*1024
+    # optional, no default
+    #max_file_size     => 104857600,
+
     # if you want to have piwik statistics, provide a piwik image tracker
     # only the image tracker is allowed, no javascript
     # optional, no default
