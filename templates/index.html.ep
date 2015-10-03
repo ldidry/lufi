@@ -13,7 +13,10 @@
             </div>
         </div>
 % }
-        <div class="col-sm-6 col-xs-12">
+        <div class="col-sm-1 col-xs-12">
+            <a href="<%= url_for('/delays') %>" title="<%= l('Important: more information on delays') %>"><span class="lead icon icon-help-circled"></span></a>
+        </div>
+        <div class="col-sm-5 col-xs-12">
             <select id="delete-day" class="form-control">
 % for my $delay (qw/0 1 7 30 365/) {
 %   my $text = ($delay == 7 || $delay == 30) ? l('%1 days', $delay) : $d{'delay_'.$delay};

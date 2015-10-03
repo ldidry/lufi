@@ -9,3 +9,4 @@ requires 'Switch';
 requires 'Locale::Maketext';
 requires 'Locale::Maketext::Extract';
 requires 'Email::Valid';
+requires 'Number::Bytes::Human';

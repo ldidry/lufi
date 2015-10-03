@@ -167,6 +167,11 @@ sub startup {
         to('Files#delete')->
         name('delete');
 
+    # Get some informations about delays
+    $r->get('/delays' => sub {
+        shift->render(template => 'delays');
+    })->name('delays');
+
     # Get mail page
     $r->get('/m' => sub {
         shift->render(template => 'mail');

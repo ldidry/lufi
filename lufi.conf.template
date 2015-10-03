@@ -52,6 +52,15 @@
     # optional, default is 0 (no limit)
     #max_delay         => 0,
 
+    # size thresholds: if you want to define max delays for different sizes of file
+    # the keys are size in Bytes, you can't have 10*1000*10000 as key
+    # optional, default is using max_delay (see above) for all sizes
+    #delay_for_size  => {
+    #    10000000   => 90, # between 10MB and 50MB => max is 90 days, less than 10MB => max is max_delay (see above)
+    #    50000000   => 60, # between 50MB ans 1GB  => max is 60 days
+    #    1000000000 => 2,  # more than 1GB         => max is 2 days
+    #}
+
     # URL sub-directory in which you want Lufi to be accessible
     # example: you want to have Lufi under https://example.org/lufi/
     # => set prefix to '/lufi' or to '/lufi/', it doesn't matter

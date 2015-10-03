@@ -1,0 +1,25 @@
+% # vim:set sw=4 ts=4 sts=4 ft=html.epl expandtab:
+% use Number::Bytes::Human qw(format_bytes);
+<div class="inner cover render">
+    <h1><%= l('Information about delays') %></h1>
+    <div class="text-left">
+        <p><%= l('If you choose a delay, the file will be deleted after that delay.') %><br>
+           <%= l('Don\'t worry: if a user begins to download the file before the expiration and the download ends after the expiration, he will be able to get the file.') %>
+    % if (defined(config('delay_for_size'))) {
+        <p><%= l('This server sets limitations according to the file size. The expiration delay of your file will be the minimum between what you choose and the following limitations:') %></p>
+        <ul>
+        % my $delays   = config('delay_for_size');
+        % $delays->{0} = 1;
+        % my @keys     = sort keys %{$delays};
+        % my $i        = 0;
+        % for my $key (@keys) {
+            % if ($i + 1 < scalar(@keys)) {
+            <li><%= l('between %1 and %2, the file will be kept %3 day(s)', format_bytes($keys[$i++]), format_bytes($keys[$i]), $delays->{$keys[$i]}) %></li>
+            % } else {
+            <li><%= l('for %1 and more, the file will be kept %2 day(s)', format_bytes($keys[$i]), $delays->{$keys[$i]}) %></li>
+            % }
+        % }
+        </ul>
+    </div>
+% }
+</div>

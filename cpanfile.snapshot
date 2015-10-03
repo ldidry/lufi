@@ -504,6 +504,15 @@ DISTRIBUTIONS
       Mojolicious 5
       Test::More 0
       perl 5.001001
+  Number-Bytes-Human-0.09
+    pathname: D/DA/DAGOBERT/Number-Bytes-Human-0.09.tar.gz
+    provides:
+      Number::Bytes::Human 0.09
+    requirements:
+      Carp 0
+      ExtUtils::MakeMaker 0
+      POSIX 0
+      Test::More 0
   ORLite-1.98
     pathname: A/AD/ADAMK/ORLite-1.98.tar.gz
     provides:
