@@ -65,7 +65,7 @@
     #    10000000   => 90, # between 10MB and 50MB => max is 90 days, less than 10MB => max is max_delay (see above)
     #    50000000   => 60, # between 50MB ans 1GB  => max is 60 days
     #    1000000000 => 2,  # more than 1GB         => max is 2 days
-    #}
+    #},
 
     # URL sub-directory in which you want Lufi to be accessible
     # example: you want to have Lufi under https://example.org/lufi/
@@ -94,4 +94,10 @@
     # Email sender address
     # Optional, default to no-reply@lufi.io
     #mail_sender => 'no-reply@lufi.io'
+
+    # define a path to the SQLite database
+    # you can define it relative to lufi directory or set an absolute path
+    # remember that it has to be in a directory writable by Lutim user
+    # optional, default is lufi.db
+    #db_path           => 'lufi.db',
 };
