@@ -270,7 +270,7 @@ function updateProgressBar(data) {
                 uploadFile(i, sent_delay, del_at_first_view);
             } else {
                 // We have finished
-                window.removeEventListener('onbeforeunload', confirmExit);
+                window.onbeforeunload = null;
                 document.getElementById('delete-day').removeAttribute('disabled');
                 document.getElementById('first-view').removeAttribute('disabled');
             }
@@ -301,7 +301,7 @@ function updateProgressBar(data) {
             uploadFile(i, sent_delay, del_at_first_view);
         } else {
             // We have finished
-            document.onbeforeunload = null;
+            window.onbeforeunload = null;
             document.getElementById('delete-day').removeAttribute('disabled');
             document.getElementById('first-view').removeAttribute('disabled');
         }
