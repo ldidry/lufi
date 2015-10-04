@@ -43,7 +43,9 @@
                             </nav>
                         </div>
                     </div>
-                    <%= content %>
+                    <div class="inner cover render">
+                        <%= content %>
+                    </div>
                     <!-- <div class="mastfoot">
                         <div class="inner">
                             <p>Lufi, &copy; 2015 <a href="https://fiat-tux.fr">Luc Didry</a>, <a href="https://gnu.org/licenses/agpl.html">GNU Affero Public License</a></p>

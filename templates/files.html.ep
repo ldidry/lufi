@@ -3,7 +3,7 @@
 <hr>
 
 <p>
-    <a href="#" onclick="purgeExpired();" class="pull-right btn btn-info btn-xs"><%= l('Purge expired files from localStorage') %></a>
+    <a href="#" onclick="purgeExpired();" class="pull-right btn btn-info btn-xs left-mg"><%= l('Purge expired files from localStorage') %></a>
     <%= l('Only the files sent with this browser will be listed here. The informations are stored in localStorage: if you delete your localStorage data, you\'ll loose this informations.') %>
 </p>
 

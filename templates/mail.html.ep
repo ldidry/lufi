@@ -1,5 +1,4 @@
 % # vim:set sw=4 ts=4 sts=4 ft=html.epl expandtab:
-<div class="inner cover render">
 % if (defined(stash('msg'))) {
     <div class="alert alert-warning"><%= stash('msg') %></div>
 % }
@@ -35,7 +34,6 @@
         <button type="submit" class="btn btn-info"><%= l('Send with this server') %></button>
         <a href="#" class="btn btn-primary" id="mailto"><%= l('Send with your own mail software') %></a>
     </form>
-</div>
 %= javascript begin
     function findItem(name) {
         var files = localStorage.getItem('files');

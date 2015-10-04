@@ -4,7 +4,6 @@
 %   delay_1   => l('24 hours'),
 %   delay_365 => l('1 year')
 % );
-<div class="inner cover">
     <div class="form-group row">
 % if (defined(config('broadcast_message'))) {
         <div  class="col-sm-12 col-xs-12">
@@ -68,7 +67,6 @@
         <ul class="list-group" id="ul-results">
         </ul>
     </div>
-</div>
 %= javascript begin
 var ws_url  = '<%= url_for('upload')->to_abs() %>';
 var baseURL = '<%= url_for('/')->to_abs() %>';

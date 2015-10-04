@@ -1,5 +1,4 @@
 % # vim:set sw=4 ts=4 sts=4 ft=html.epl expandtab:
-<div class="inner cover render">
 % if (!defined(stash('f')) && defined(stash('msg'))) {
     <div class="alert alert-danger"><%= stash('msg') %></div>
 % } else {
@@ -26,4 +25,3 @@ var i18n   = {
 %= javascript '/js/lufi-down.js'
     % }
 % }
-</div>
