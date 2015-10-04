@@ -135,6 +135,16 @@ sub startup {
         }
     );
 
+    $self->helper(
+        stop_upload => sub {
+            my $c = shift;
+
+            if (-f 'stop-upload' || -f 'stop-upload.manual') {
+                return 1;
+            }
+            return 0;
+        }
+    );
     # Hooks
     $self->hook(
         after_dispatch => sub {

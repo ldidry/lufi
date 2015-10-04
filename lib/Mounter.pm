@@ -7,6 +7,8 @@ use File::Spec qw(catfile);
 sub startup {
     my $self = shift;
 
+    push @{$self->commands->namespaces}, 'Lufi::Command';
+
     my $config = $self->plugin('Config' =>
         {
             file    => File::Spec->catfile($Bin, '..' ,'lufi.conf'),

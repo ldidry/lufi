@@ -100,4 +100,29 @@
     # remember that it has to be in a directory writable by Lutim user
     # optional, default is lufi.db
     #db_path           => 'lufi.db',
+
+    #########################
+    # Lufi cron jobs settings
+    #########################
+
+    # number of days senders' IP addresses are kept in database
+    # after that delay, they will be deleted from database (used with script/lufi cron cleanbdd)
+    # optional, default is 365
+    #keep_ip_during    => 365,
+
+    # max size of the files directory, in octets
+    # used by script/lufi cron watch to trigger an action
+    # optional, no default
+    #max_total_size    => 10*1024*1024*1024,
+
+    # default action when files directory is over max_total_size (used with script/lufi cron watch)
+    # valid values are 'warn', 'stop-upload' and 'delete'
+    # please, see readme
+    # optional, default is 'warn'
+    #policy_when_full  => 'warn',
+
+    # images which are not viewed since delete_no_longer_viewed_files days will be deleted by the cron cleanfiles task
+    # if delete_no_longer_viewed_files is not set, the no longer viewed files will NOT be deleted
+    # optional, no default
+    #delete_no_longer_viewed_files => 90
 };

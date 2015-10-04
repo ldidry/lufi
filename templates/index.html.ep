@@ -13,6 +13,13 @@
             </div>
         </div>
 % }
+% if (stop_upload) {
+        <div  class="col-sm-12 col-xs-12">
+            <div class="alert alert-danger">
+                <strong><%= l('Sorry, the uploading is currently disabled. Please try again later.') %></strong>
+            </div>
+        </div>
+% } else {
         <div class="col-sm-1 col-xs-12">
             <a href="<%= url_for('/delays') %>" title="<%= l('Important: more information on delays') %>"><span class="lead icon icon-help-circled"></span></a>
         </div>
@@ -82,3 +89,4 @@ var i18n    = {
 %= javascript '/js/sjcl.js'
 %= javascript '/js/moment-with-locales.min.js'
 %= javascript '/js/lufi-up.js'
+% }

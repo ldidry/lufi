@@ -4,3 +4,4 @@ lufi.conf
 lufi.db
 *.swp
 script/hypnotoad.pid
+stop-upload

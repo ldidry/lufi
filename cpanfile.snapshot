@@ -183,6 +183,12 @@ DISTRIBUTIONS
       File::Spec 3.29
       Test::More 0.42
       perl 5.00503
+  Filesys-DfPortable-0.85
+    pathname: I/IG/IGUTHRIE/Filesys-DfPortable-0.85.tar.gz
+    provides:
+      Filesys::DfPortable 0.85
+    requirements:
+      ExtUtils::MakeMaker 0
   Filesys-DiskUsage-0.08
     pathname: S/SZ/SZABGAB/Filesys-DiskUsage-0.08.tar.gz
     provides:

@@ -89,9 +89,12 @@ function destroyBlock(el) {
     el.parentNode.parentNode.remove();
 
     var a = document.getElementsByClassName('link-input');
+    var l = document.getElementById('results').querySelector('li');
     if (a.length === 0) {
         document.getElementById('misc').innerHTML = '';
-        document.getElementById('results').style.display = 'none';
+        if (l === null) {
+            document.getElementById('results').style.display = 'none';
+        }
     } else {
         updateMailLink();
     }

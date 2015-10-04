@@ -8,6 +8,7 @@ use Lufi::File;
 use Lufi::Slice;
 use File::Spec::Functions;
 use Number::Bytes::Human qw(format_bytes);
+use Filesys::DfPortable;
 
 sub upload {
     my $c = shift;
@@ -24,16 +25,27 @@ sub upload {
 
             $c->debug('Got message');
 
-            my $over_size = 0;
+            my $stop = 0;
+
+            # Check if stop_upload file is present
+            if ($c->stop_upload) {
+                $stop = 1;
+                $c->send(sprintf('{"success": false, "msg":"'.$c->l('Sorry, uploading is disabled.').'", "sent_delay": %d, "i": %d}', $json->{delay}, $json->{i}));
+            }
             # Check against max_size
-            if (defined $c->config('max_file_size')) {
+            elsif (defined $c->config('max_file_size')) {
                 if ($json->{size} > $c->config('max_file_size')) {
-                    $over_size = 1;
+                    $stop = 1;
                     $c->send(sprintf('{"success": false, "msg":"'.$c->l('Your file is too big: %1 (maximum size allowed: %2)', format_bytes($json->{size}), format_bytes($c->config('max_file_size'))).'", "sent_delay": %d, "i": %d}', $json->{delay}, $json->{i}));
                 }
             }
+            # Check that we have enough space (multiplying by 2 since it's encrypted, it takes more place that the original file)
+            elsif (($json->{size} * 2) >= dfportable('files')->{bavail}) {
+                $stop = 1;
+                $c->send(sprintf('{"success": false, "msg":"'.$c->l('No enough space available on the server for this file (size: %1).', format_bytes($json->{size})).'", "sent_delay": %d, "i": %d}', $json->{delay}, $json->{i}));
+            }
 
-            unless ($over_size) {
+            unless ($stop) {
                 my $f;
                 if (defined($json->{id})) {
                     my @records = LufiDB::Files->select('WHERE short = ?', $json->{id});
@@ -114,16 +126,28 @@ sub download {
 
     # Do we have a file?
     if (scalar @records) {
+        my $record = $records[0];
         # Is the file fully uploaded?
-        if ($records[0]->deleted) {
+        if ($record->deleted
+            || (
+                $record->delete_at_day != 0
+                && (
+                    ($record->created_at + $record->delete_at_day * 86400) < time()
+                )
+            )
+        ) {
+            unless ($record->deleted) {
+                my $f = Lufi::File->new(record => $record);
+                $f->delete;
+            }
             $c->on(
                 message => sub {
                     my ($ws, $json) = @_;
                     $c->send('{"success": false, "msg": "'.$c->l('Error: the file existed but has been deleted.').'"}');
                 }
             );
-        } elsif ($records[0]->complete) {
-            my $f       = Lufi::File->new(record => $records[0]);
+        } elsif ($record->complete) {
+            my $f = Lufi::File->new(record => $record);
 
             $c->on(
                 message => sub {
