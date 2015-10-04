@@ -49,7 +49,7 @@
         <div class="col-sm-6 col-xs-12 text-left">
             <div class="checkbox">
                 <label>
-                    <input type="checkbox" id="first-view"> <%= l('Delete at first view?') %>
+                    <input type="checkbox" id="first-view"> <%= l('Delete at first download?') %>
                 </label>
             </div>
         </div>

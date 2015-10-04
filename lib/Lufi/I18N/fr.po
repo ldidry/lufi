@@ -1,165 +1,178 @@
-# SOME DESCRIPTIVE TITLE.
-# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
-# This file is distributed under the same license as the PACKAGE package.
-# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+# Lufi FR translation
+# Copyright (C) 2015 Luc Didry
+# This file is distributed under the same license as the Lufi package.
+# Luc Didry <luc@didry.org>, 2015.
 #
-#, fuzzy
 msgid ""
 msgstr ""
-"Project-Id-Version: PACKAGE VERSION\n"
+"Project-Id-Version: \n"
 "POT-Creation-Date: YEAR-MO-DA HO:MI+ZONE\n"
-"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
-"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
-"Language-Team: LANGUAGE <LL@li.org>\n"
+"PO-Revision-Date: 2015-10-04 04:05+0200\n"
 "MIME-Version: 1.0\n"
-"Content-Type: text/plain; charset=utf8\n"
+"Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"Language-Team: \n"
+"X-Generator: Poedit 1.8.5\n"
+"Last-Translator: Luc Didry <luc@didry.org>\n"
+"Plural-Forms: nplurals=2; plural=(n > 1);\n"
+"Language: fr\n"
 
 #. ($delay)
 #. (max_delay)
-#: templates/index.html.ep:29 templates/index.html.ep:38 templates/index.html.ep:39
+#: templates/index.html.ep:29 templates/index.html.ep:38
+#: templates/index.html.ep:39
 msgid "%1 days"
-msgstr "%1 days"
+msgstr "%1 jours"
 
 #: templates/index.html.ep:5
 msgid "1 year"
-msgstr ""
+msgstr "1 an"
 
 #: templates/index.html.ep:38 templates/index.html.ep:4
 msgid "24 hours"
-msgstr ""
+msgstr "24 heures"
 
 #: templates/layouts/default.html.ep:41
 msgid "About"
-msgstr ""
+msgstr "À propos"
 
 #: templates/index.html.ep:61
 msgid "Click to open the file browser"
-msgstr ""
+msgstr "Cliquez pour ouvrir le navigateur de fichier"
 
 #: templates/index.html.ep:77
 msgid "Copy all links to clipboard"
-msgstr ""
+msgstr "Copier tous les liens dans le presse-papier"
 
 #: templates/index.html.ep:78
 msgid "Copy to clipboard"
-msgstr ""
+msgstr "Copier dans le presse-papier"
 
 #: lib/Lufi/Controller/Files.pm:267
 msgid "Could not find the file. Are you sure of the URL and the token?"
 msgstr ""
+"Impossible de retrouver le fichier. Êtes-vous sûr de l’URL et du jeton ?"
 
 #: lib/Lufi/Controller/Files.pm:210
 msgid "Could not find the file. Are you sure of the URL?"
-msgstr ""
+msgstr "Impossible de retrouver le fichier. Êtes-vous sûr de l’URL ?"
 
 #: templates/index.html.ep:52
 msgid "Delete at first download?"
-msgstr ""
+msgstr "Supprimer après le premier téléchargement ?"
 
 #: templates/index.html.ep:79
 msgid "Deletion link"
-msgstr ""
+msgstr "Lien de suppression"
 
 #: templates/index.html.ep:81
 msgid "Download"
-msgstr ""
+msgstr "Télécharger"
 
 #: templates/index.html.ep:80
 msgid "Download link"
-msgstr ""
+msgstr "Lien de téléchargement"
 
 #: templates/index.html.ep:58
 msgid "Drop files here"
-msgstr ""
+msgstr "Glissez vos fichiers ici"
 
 #: lib/Lufi/Controller/Files.pm:146
 msgid "Error: the file existed but has been deleted."
-msgstr ""
+msgstr "Erreur : le fichier existait mais a été supprimé"
 
 #: lib/Lufi/Controller/Files.pm:187
 msgid "Error: the file has not been send entirely."
-msgstr ""
+msgstr "Erreur : le fichier n’a pas été envoyé dans son intégralité"
 
 #: lib/Lufi/Controller/Files.pm:192
 msgid "Error: unable to find the file. Are you sure of your URL?"
-msgstr ""
+msgstr "Erreur : impossible de retrouver le fichier. Êtes-vous sûr de l’URL ?"
 
 #: templates/index.html.ep:82
 msgid "Expiration:"
-msgstr ""
+msgstr "Expiration :"
 
 #: lib/Lufi/Controller/Files.pm:251
 msgid "File deleted"
-msgstr ""
+msgstr "Fichier supprimé"
 
 #: templates/index.html.ep:84
 msgid "Hit Enter, then Ctrl+C to copy all the download links"
 msgstr ""
+"Appuyez sur Entrée puis sur Ctrl+C pour copier les liens de téléchargement"
 
 #: templates/index.html.ep:83
 msgid "Hit Enter, then Ctrl+C to copy the download link"
 msgstr ""
+"Appuyez sur Entrée puis sur Ctrl+C pour copier le lien de téléchargement"
 
 #: templates/index.html.ep:24
 msgid "Important: more information on delays"
-msgstr ""
+msgstr "Important : plus d’informations sur les délais"
 
 #: templates/layouts/default.html.ep:40
 msgid "My files"
-msgstr ""
+msgstr "Mes fichiers"
 
 #. (format_bytes($json->{size})
 #: lib/Lufi/Controller/Files.pm:45
 msgid "No enough space available on the server for this file (size: %1)."
 msgstr ""
+"Espace disque insuffisant sur le serveur pour ce fichier (taille du "
+"fichier: %1)."
 
 #: templates/index.html.ep:86
 msgid "No expiration delay"
-msgstr ""
+msgstr "Pas de délai d’expiration"
 
 #: templates/index.html.ep:85
 msgid "Send all links by email"
-msgstr ""
+msgstr "Envoyer tous les liens par mail"
 
 #: templates/index.html.ep:19
 msgid "Sorry, the uploading is currently disabled. Please try again later."
 msgstr ""
+"Désolé, l’envoi de fichier est actuellement désactivé. Veuillez réessayer "
+"plus tard."
 
 #: lib/Lufi/Controller/Files.pm:33
 msgid "Sorry, uploading is disabled."
-msgstr ""
+msgstr "Désolé, l’envoi de fichier est désactivé."
 
 #: lib/Lufi/Controller/Files.pm:248
 msgid "The file has already been deleted"
-msgstr ""
+msgstr "Le fichier a déjà été supprimé"
 
 #. ($short)
 #: lib/Lufi/Controller/Files.pm:232
 msgid "Unable to get counter for %1. The file does not exists."
-msgstr ""
+msgstr "Impossible de récupérer le compteur de %1. Le fichier n’existe pas."
 
 #: templates/layouts/default.html.ep:39
 msgid "Upload files"
-msgstr ""
+msgstr "Envoyer des fichiers"
 
 #: templates/index.html.ep:66
 msgid "Uploaded files"
-msgstr ""
+msgstr "Fichiers envoyés"
 
 #: templates/index.html.ep:76
-msgid "You have attempted to leave this page. The upload will be canceled. Are you sure?"
-msgstr ""
+msgid ""
+"You have attempted to leave this page. The upload will be canceled. Are you "
+"sure?"
+msgstr "Vous essayez de quitter la page. L’envoi sera annulé. Êtes-vous sûr ?"
 
 #. (format_bytes($json->{size})
 #: lib/Lufi/Controller/Files.pm:39
 msgid "Your file is too big: %1 (maximum size allowed: %2)"
 msgstr ""
+"Votre fichier est trop volumineux : %1 (la taille maximum autorisée est %2)"
 
 #: templates/index.html.ep:3
 msgid "no time limit"
-msgstr ""
+msgstr "Pas de liimite de temps"
 
 #: templates/index.html.ep:59
 msgid "or"
-msgstr ""
+msgstr "ou"
