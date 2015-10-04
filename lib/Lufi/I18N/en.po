@@ -29,12 +29,8 @@ msgstr ""
 msgid "24 hours"
 msgstr ""
 
-#: templates/mail.html.ep:70
+#: templates/mail.html.ep:69
 msgid ":"
-msgstr ""
-
-#: templates/files.html.ep:84
-msgid ": Error while trying to get the counter."
 msgstr ""
 
 #: templates/layouts/default.html.ep:41
@@ -57,7 +53,7 @@ msgstr ""
 msgid "Copy to clipboard"
 msgstr ""
 
-#: lib/Lufi/Controller/Files.pm:267
+#: lib/Lufi/Controller/Files.pm:282
 msgid "Could not find the file. Are you sure of the URL and the token?"
 msgstr ""
 
@@ -65,15 +61,15 @@ msgstr ""
 msgid "Could not find the file. Are you sure of the URL?"
 msgstr ""
 
-#: templates/files.html.ep:15
+#: templates/files.html.ep:16
 msgid "Counter"
 msgstr ""
 
-#: templates/files.html.ep:16 templates/index.html.ep:52
+#: templates/files.html.ep:17 templates/index.html.ep:52
 msgid "Delete at first download?"
 msgstr ""
 
-#: templates/files.html.ep:19 templates/index.html.ep:79
+#: templates/files.html.ep:20 templates/index.html.ep:79
 msgid "Deletion link"
 msgstr ""
 
@@ -85,7 +81,7 @@ msgstr ""
 msgid "Download"
 msgstr ""
 
-#: templates/files.html.ep:14 templates/index.html.ep:80
+#: templates/files.html.ep:15 templates/index.html.ep:80
 msgid "Download link"
 msgstr ""
 
@@ -121,19 +117,19 @@ msgstr ""
 msgid "Expiration:"
 msgstr ""
 
-#: templates/files.html.ep:18
+#: templates/files.html.ep:19
 msgid "Expires at"
 msgstr ""
 
-#: lib/Lufi/Controller/Files.pm:251
+#: lib/Lufi/Controller/Files.pm:266
 msgid "File deleted"
 msgstr ""
 
-#: templates/files.html.ep:13
+#: templates/files.html.ep:14
 msgid "File name"
 msgstr ""
 
-#: templates/mail.html.ep:65
+#: templates/mail.html.ep:64
 msgid "Hello,\\n\\nHere's some files I want to share with you:\\n"
 msgstr ""
 
@@ -178,16 +174,20 @@ msgstr ""
 msgid "No enough space available on the server for this file (size: %1)."
 msgstr ""
 
-#: templates/files.html.ep:34 templates/index.html.ep:86
+#: templates/index.html.ep:86
 msgid "No expiration delay"
 msgstr ""
 
-#: templates/files.html.ep:6
+#: templates/files.html.ep:7
 msgid "Only the files sent with this browser will be listed here. The informations are stored in localStorage: if you delete your localStorage data, you'll loose this informations."
 msgstr ""
 
 #: templates/render.html.ep:10
 msgid "Please wait while we are getting your file"
+msgstr ""
+
+#: templates/files.html.ep:6
+msgid "Purge expired files from localStorage"
 msgstr ""
 
 #: templates/index.html.ep:85
@@ -203,7 +203,7 @@ msgid "Send with your own mail software"
 msgstr ""
 
 #. (url_for('/')
-#: templates/mail.html.ep:78
+#: templates/mail.html.ep:77
 msgid "Share your files in total privacy on %1"
 msgstr ""
 
@@ -223,7 +223,7 @@ msgstr ""
 msgid "The email subject can't be empty."
 msgstr ""
 
-#: lib/Lufi/Controller/Files.pm:248
+#: lib/Lufi/Controller/Files.pm:263
 msgid "The file has already been deleted"
 msgstr ""
 
@@ -241,15 +241,20 @@ msgid "This server sets limitations according to the file size. The expiration d
 msgstr ""
 
 #. ($short)
-#: lib/Lufi/Controller/Files.pm:232
-msgid "Unable to get counter for %1. The file does not exists."
+#: lib/Lufi/Controller/Files.pm:247
+msgid "Unable to get counter for %1. The file does not exists. It will be removed from your localStorage."
+msgstr ""
+
+#. ($short)
+#: lib/Lufi/Controller/Files.pm:237
+msgid "Unable to get counter for %1. The token is unvalid."
 msgstr ""
 
 #: templates/layouts/default.html.ep:39
 msgid "Upload files"
 msgstr ""
 
-#: templates/files.html.ep:17
+#: templates/files.html.ep:18
 msgid "Uploaded at"
 msgstr ""
 
@@ -288,7 +293,7 @@ msgstr ""
 msgid "between %1 and %2, the file will be kept forever."
 msgstr ""
 
-#: templates/mail.html.ep:72
+#: templates/mail.html.ep:71
 msgid "deadline: "
 msgstr ""
 

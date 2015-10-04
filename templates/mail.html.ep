@@ -44,7 +44,6 @@
         } else {
             files = JSON.parse(files);
         }
-        var r = null;
         var i;
         for (i = 0; i < files.length; i++) {
             if (files[i].short === name) {

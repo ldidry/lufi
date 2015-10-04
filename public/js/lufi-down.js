@@ -58,6 +58,7 @@ function spawnWebsocket() {
 
         if (data.msg !== undefined) {
             addAlert(data.msg);
+            window.onbeforeunload = null;
         } else {
             var slice   = JSON.parse(res.shift());
             var percent = Math.round(100 * (data.part + 1)/data.total);

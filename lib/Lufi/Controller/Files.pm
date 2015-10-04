@@ -217,19 +217,34 @@ sub get_counter {
     my $short = $c->param('short');
     my $token = $c->param('token');
 
-    my @records = LufiDB::Files->select('WHERE short = ? AND mod_token = ?', ($short, $token));
+    my @records = LufiDB::Files->select('WHERE short = ?', $short);
     if (scalar(@records)) {
-        return $c->render(
-            json => {
-                success => true,
-                counter => $records[0]->counter
-            }
-        );
+        if ($records[0]->mod_token eq $token) {
+            return $c->render(
+                json => {
+                    success => true,
+                    short   => $short,
+                    counter => $records[0]->counter,
+                    deleted => ($records[0]->deleted) ? true : false
+                }
+            );
+        } else {
+            return $c->render(
+                json => {
+                    success => false,
+                    missing => false,
+                    short   => $short,
+                    msg     => $c->l('Unable to get counter for %1. The token is unvalid.', $short)
+                }
+            );
+        }
     } else {
         return $c->render(
             json => {
                 success => false,
-                msg     => $c->l('Unable to get counter for %1. The file does not exists.', $short)
+                missing => true,
+                short   => $short,
+                msg     => $c->l('Unable to get counter for %1. The file does not exists. It will be removed from your localStorage.', $short)
             }
         );
     }

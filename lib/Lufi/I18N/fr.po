@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "POT-Creation-Date: YEAR-MO-DA HO:MI+ZONE\n"
-"PO-Revision-Date: 2015-10-04 16:33+0200\n"
+"PO-Revision-Date: 2015-10-04 19:44+0200\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -19,7 +19,8 @@ msgstr ""
 
 #. ($delay)
 #. (max_delay)
-#: templates/index.html.ep:29 templates/index.html.ep:38 templates/index.html.ep:39
+#: templates/index.html.ep:29 templates/index.html.ep:38
+#: templates/index.html.ep:39
 msgid "%1 days"
 msgstr "%1 jours"
 
@@ -31,11 +32,10 @@ msgstr "1 an"
 msgid "24 hours"
 msgstr "24 heures"
 
-#: templates/mail.html.ep:70
+#: templates/mail.html.ep:69
 msgid ":"
 msgstr " :"
 
-#: templates/files.html.ep:84
 msgid ": Error while trying to get the counter."
 msgstr " : erreur en essayant de récupérer le compteur"
 
@@ -59,7 +59,7 @@ msgstr "Copier tous les liens dans le presse-papier"
 msgid "Copy to clipboard"
 msgstr "Copier dans le presse-papier"
 
-#: lib/Lufi/Controller/Files.pm:267
+#: lib/Lufi/Controller/Files.pm:282
 msgid "Could not find the file. Are you sure of the URL and the token?"
 msgstr "Impossible de retrouver le fichier. Êtes-vous sûr de l’URL et du jeton ?"
 
@@ -67,15 +67,15 @@ msgstr "Impossible de retrouver le fichier. Êtes-vous sûr de l’URL et du jet
 msgid "Could not find the file. Are you sure of the URL?"
 msgstr "Impossible de retrouver le fichier. Êtes-vous sûr de l’URL ?"
 
-#: templates/files.html.ep:15
+#: templates/files.html.ep:16
 msgid "Counter"
 msgstr "Compteur"
 
-#: templates/files.html.ep:16 templates/index.html.ep:52
+#: templates/files.html.ep:17 templates/index.html.ep:52
 msgid "Delete at first download?"
 msgstr "Supprimer après le premier téléchargement ?"
 
-#: templates/files.html.ep:19 templates/index.html.ep:79
+#: templates/files.html.ep:20 templates/index.html.ep:79
 msgid "Deletion link"
 msgstr "Lien de suppression"
 
@@ -87,7 +87,7 @@ msgstr "Ne vous inquiétez pas : si un utilisateur commence à télécharger le
 msgid "Download"
 msgstr "Télécharger"
 
-#: templates/files.html.ep:14 templates/index.html.ep:80
+#: templates/files.html.ep:15 templates/index.html.ep:80
 msgid "Download link"
 msgstr "Lien de téléchargement"
 
@@ -123,19 +123,19 @@ msgstr "Erreur : impossible de retrouver le fichier. Êtes-vous sûr de l’URL
 msgid "Expiration:"
 msgstr "Expiration :"
 
-#: templates/files.html.ep:18
+#: templates/files.html.ep:19
 msgid "Expires at"
 msgstr "Expire le"
 
-#: lib/Lufi/Controller/Files.pm:251
+#: lib/Lufi/Controller/Files.pm:266
 msgid "File deleted"
 msgstr "Fichier supprimé"
 
-#: templates/files.html.ep:13
+#: templates/files.html.ep:14
 msgid "File name"
 msgstr "Nom du fichier"
 
-#: templates/mail.html.ep:65
+#: templates/mail.html.ep:64
 msgid "Hello,\\n\\nHere's some files I want to share with you:\\n"
 msgstr "Bonjour,\\n\\nVoici quelques fichiers que je souhaite partager avec toi:\\n"
 
@@ -180,21 +180,24 @@ msgstr "Mes fichiers"
 msgid "No enough space available on the server for this file (size: %1)."
 msgstr "Espace disque insuffisant sur le serveur pour ce fichier (taille du fichier: %1)."
 
-#: templates/files.html.ep:34 templates/index.html.ep:86
+#: templates/index.html.ep:86
 msgid "No expiration delay"
 msgstr "Pas de délai d’expiration"
 
-#:
 msgid "No limit"
 msgstr "Aucune limite"
 
-#: templates/files.html.ep:6
+#: templates/files.html.ep:7
 msgid "Only the files sent with this browser will be listed here. The informations are stored in localStorage: if you delete your localStorage data, you'll loose this informations."
 msgstr "Seuls les fichiers envoyés depuis ce navigateur sont listés ici. Les informations sont stockées en localStorage : si vous supprimez vos données localStorage, vous perdrez ces informations."
 
 #: templates/render.html.ep:10
 msgid "Please wait while we are getting your file"
 msgstr "Veuillez patienter pendant la récupération de votre fichier"
+
+#: templates/files.html.ep:6
+msgid "Purge expired files from localStorage"
+msgstr "Supprimer du localStorage les fichiers expirés"
 
 #: templates/index.html.ep:85
 msgid "Send all links by email"
@@ -209,7 +212,7 @@ msgid "Send with your own mail software"
 msgstr "Envoyer avec votre propre logiciel de mail"
 
 #. (url_for('/')
-#: templates/mail.html.ep:78
+#: templates/mail.html.ep:77
 msgid "Share your files in total privacy on %1"
 msgstr "Partagez vos fichiers en toute confidentialité sur %1"
 
@@ -229,7 +232,7 @@ msgstr "Le corps du mail ne peut être vide."
 msgid "The email subject can't be empty."
 msgstr "Le sujet du mail ne peut être vide."
 
-#: lib/Lufi/Controller/Files.pm:248
+#: lib/Lufi/Controller/Files.pm:263
 msgid "The file has already been deleted"
 msgstr "Le fichier a déjà été supprimé"
 
@@ -246,16 +249,24 @@ msgstr "Le mail a été envoyé."
 msgid "This server sets limitations according to the file size. The expiration delay of your file will be the minimum between what you choose and the following limitations:"
 msgstr "Ce serveur impose des limitations selon la taille des fichiers. Le délai d’expiration de votre fichier sera le minimum entre ce que vous avez choisi et les limites suivantes :"
 
-#. ($short)
-#: lib/Lufi/Controller/Files.pm:232
 msgid "Unable to get counter for %1. The file does not exists."
 msgstr "Impossible de récupérer le compteur de %1. Le fichier n’existe pas."
+
+#. ($short)
+#: lib/Lufi/Controller/Files.pm:247
+msgid "Unable to get counter for %1. The file does not exists. It will be removed from your localStorage."
+msgstr "Impossible de récupérer le compteur pour %1. Le fichier n'existe pas. Il va être supprimé de votre localStorage."
+
+#. ($short)
+#: lib/Lufi/Controller/Files.pm:237
+msgid "Unable to get counter for %1. The token is unvalid."
+msgstr "Impossible de récupérer le compteur pour %1. Le jeton est invalide."
 
 #: templates/layouts/default.html.ep:39
 msgid "Upload files"
 msgstr "Envoyer des fichiers"
 
-#: templates/files.html.ep:17
+#: templates/files.html.ep:18
 msgid "Uploaded at"
 msgstr "Envoyé le"
 
@@ -294,7 +305,7 @@ msgstr "entre %1 et %2, le fichier sera conservé %3 jour(s) ;"
 msgid "between %1 and %2, the file will be kept forever."
 msgstr "entre %1 et %2, le fichier sera conservé indéfiniment ;"
 
-#: templates/mail.html.ep:72
+#: templates/mail.html.ep:71
 msgid "deadline: "
 msgstr "dernier délai pour télécharger : "
 
