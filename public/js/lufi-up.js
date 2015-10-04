@@ -116,7 +116,7 @@ function updateMailLink() {
 function handleFiles(f) {
     window.files = f;
 
-    var r  = document.getElementById('results');
+    var r = document.getElementById('results');
     r.style.display = 'block';
 
     var delay             = document.getElementById('delete-day');
@@ -139,6 +139,9 @@ function uploadFile(i, delay, del_at_first_view) {
     var file  = window.files[i];
     var name  = file.name;
     var parts = Math.ceil(file.size/window.sliceLength);
+    if (parts === 0) {
+        parts = 1;
+    }
 
     // Create a progress bar for the file
     var r  = document.getElementById('ul-results');
