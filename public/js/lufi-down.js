@@ -71,7 +71,7 @@ function spawnWebsocket() {
                 pbd.innerHTML = '<a href="'+URL.createObjectURL(blob)+'" class="btn btn-primary" download="'+data.name+'">'+i18n.download+'</a>';
 
                 ws.send('{"ended":true}');
-                window.removeEventListener('onbeforeunload', confirmExit);
+                window.onbeforeunload = null;
             } else {
                 if (ws.readyState === 3) {
                     ws = spawnWebsocket();
@@ -93,5 +93,5 @@ document.addEventListener('DOMContentLoaded', function() {
     ws = spawnWebsocket();
 
     // Prevent exiting page before full download
-    window.addEventListener('onbeforeunload', confirmExit);
+    window.onbeforeunload = confirmExit;
 });

@@ -130,7 +130,7 @@ function handleFiles(f) {
 // Create progress bar and call slicing and uploading function
 function uploadFile(i, delay, del_at_first_view) {
     // Prevent exiting page before full upload
-    window.addEventListener('onbeforeunload', confirmExit);
+    window.onbeforeunload = confirmExit;
 
     // Create a random key, different for all files
     var randomkey = sjcl.codec.base64.fromBits(sjcl.random.randomWords(8, 0), 0);
@@ -301,7 +301,7 @@ function updateProgressBar(data) {
             uploadFile(i, sent_delay, del_at_first_view);
         } else {
             // We have finished
-            window.removeEventListener('onbeforeunload', confirmExit);
+            document.onbeforeunload = null;
             document.getElementById('delete-day').removeAttribute('disabled');
             document.getElementById('first-view').removeAttribute('disabled');
         }
