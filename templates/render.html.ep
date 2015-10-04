@@ -16,8 +16,10 @@
 %= javascript begin
 var ws_url = '<%= url_for('download')->to_abs() %>';
 var i18n   = {
-    download: '<%= l('Download') %>',
+    badkey:      '<%= l('It seems that the key in your URL is incorrect. Please, verify your URL') %>',
     confirmExit: '<%= l('You have attempted to leave this page. The download will be canceled. Are you sure?') %>',
+    download:    '<%= l('Download') %>',
+    nokey:       '<%= l('You don\'t seem to have a key in your URL. You won\'t be able to decrypt the file. Download canceled.') %>',
 }
 % end
 %= javascript '/js/sjcl.js'

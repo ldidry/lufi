@@ -31,6 +31,16 @@ function base64ToArrayBuffer(base64) {
     return bytes.buffer;
 }
 
+// Something's wring
+function addAlert(msg) {
+    document.getElementById('please-wait').remove();
+
+    var pbd = document.getElementById('pbd');
+    pbd.setAttribute('class', 'alert alert-danger');
+    pbd.setAttribute('role', 'alert');
+    pbd.innerHTML = '<p>'+msg+'</p>';
+}
+
 // Spawn WebSocket
 function spawnWebsocket() {
     var ws       = new WebSocket(ws_url);
@@ -47,12 +57,7 @@ function spawnWebsocket() {
         var data = JSON.parse(json);
 
         if (data.msg !== undefined) {
-            document.getElementById('please-wait').remove();
-
-            var pbd = document.getElementById('pbd');
-            pbd.setAttribute('class', 'alert alert-danger');
-            pbd.setAttribute('role', 'alert');
-            pbd.innerHTML = '<p>'+data.msg+'</p>';
+            addAlert(data.msg);
         } else {
             var slice   = JSON.parse(res.shift());
             var percent = Math.round(100 * (data.part + 1)/data.total);
@@ -60,23 +65,33 @@ function spawnWebsocket() {
             pb.style.width = percent+'%';
             pb.setAttribute('aria-valuenow', percent);
             document.getElementById('pbt').innerHTML = percent+'%';
-            window.a.push(base64ToArrayBuffer(sjcl.decrypt(window.key, slice)));
-            if (data.part + 1 === data.total) {
-                var blob = new File(a, data.name, {type: data.type});
+            try {
+                var b64 = sjcl.decrypt(window.key, slice);
+                window.a.push(base64ToArrayBuffer(b64));
+                if (data.part + 1 === data.total) {
+                    var blob = new File(a, data.name, {type: data.type});
 
-                document.getElementById('please-wait').remove();
+                    document.getElementById('please-wait').remove();
 
-                var pbd  = document.getElementById('pbd');
-                pbd.setAttribute('class', '');
-                pbd.innerHTML = '<a href="'+URL.createObjectURL(blob)+'" class="btn btn-primary" download="'+data.name+'">'+i18n.download+'</a>';
+                    var pbd  = document.getElementById('pbd');
+                    pbd.setAttribute('class', '');
+                    pbd.innerHTML = '<a href="'+URL.createObjectURL(blob)+'" class="btn btn-primary" download="'+data.name+'">'+i18n.download+'</a>';
 
-                ws.send('{"ended":true}');
-                window.onbeforeunload = null;
-            } else {
-                if (ws.readyState === 3) {
-                    ws = spawnWebsocket();
+                    ws.send('{"ended":true}');
+                    window.onbeforeunload = null;
+                } else {
+                    if (ws.readyState === 3) {
+                        ws = spawnWebsocket();
+                    }
+                    ws.send('{"part":'+(data.part + 1)+'}');
                 }
-                ws.send('{"part":'+(data.part + 1)+'}');
+            } catch(err) {
+                if (err.message === 'ccm: tag doesn\'t match') {
+                    addAlert(i18n.badkey);
+                } else {
+                    addAlert(err.message);
+                }
+                window.onbeforeunload = null;
             }
         }
     }
@@ -89,9 +104,13 @@ document.addEventListener('DOMContentLoaded', function() {
     window.a   = new Array();
     window.key = pageKey();
 
-    // Set websocket
-    ws = spawnWebsocket();
+    if (key !== '=') {
+        // Set websocket
+        ws = spawnWebsocket();
 
-    // Prevent exiting page before full download
-    window.onbeforeunload = confirmExit;
+        // Prevent exiting page before full download
+        window.onbeforeunload = confirmExit;
+    } else {
+        addAlert(i18n.nokey);
+    }
 });
