@@ -1,3 +1,9 @@
 templates/layouts/default.html.ep
 templates/index.html.ep
+templates/delays.html.ep
+templates/files.html.ep
+templates/mail.html.ep
+templates/msg.html.ep
+templates/render.html.ep
 lib/Lufi/Controller/Files.pm
+lib/Lufi/Controller/Mail.pm
