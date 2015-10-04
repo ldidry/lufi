@@ -367,8 +367,8 @@ DISTRIBUTIONS
       Text::ParseWords 0
       perl 5.008000
       version 0.87
-  Mojolicious-6.17
-    pathname: S/SR/SRI/Mojolicious-6.17.tar.gz
+  Mojolicious-6.22
+    pathname: S/SR/SRI/Mojolicious-6.22.tar.gz
     provides:
       Mojo undef
       Mojo::Asset undef
@@ -400,7 +400,6 @@ DISTRIBUTIONS
       Mojo::IOLoop::Stream undef
       Mojo::JSON undef
       Mojo::JSON::Pointer undef
-      Mojo::JSON::_Bool undef
       Mojo::Loader undef
       Mojo::Log undef
       Mojo::Message undef
@@ -431,7 +430,7 @@ DISTRIBUTIONS
       Mojo::UserAgent::Server undef
       Mojo::UserAgent::Transactor undef
       Mojo::Util undef
-      Mojolicious 6.17
+      Mojolicious 6.22
       Mojolicious::Command undef
       Mojolicious::Command::cgi undef
       Mojolicious::Command::cpanify undef
@@ -480,6 +479,7 @@ DISTRIBUTIONS
     requirements:
       ExtUtils::MakeMaker 0
       IO::Socket::IP 0.26
+      JSON::PP 2.27103
       Pod::Simple 3.09
       Time::Local 1.2
   Mojolicious-Plugin-DebugDumperHelper-0.02
