@@ -169,6 +169,11 @@ sub startup {
         shift->render(template => 'index');
     })->name('index');
 
+    # About page
+    $r->get('/about' => sub {
+        shift->render(template => 'about');
+    })->name('about');
+
     # Get a file
     $r->get('/r/:short')->
         to('Files#r')->

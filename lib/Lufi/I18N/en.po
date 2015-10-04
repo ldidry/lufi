@@ -33,8 +33,20 @@ msgstr ""
 msgid ":"
 msgstr ""
 
+#: templates/about.html.ep:16
+msgid "A thank you with a photo of kitten on <a href=\"https://framasphere.org/people/b13eb6b0beac0131e7e32a0000053625\" class=\"classic\">Diaspora*</a> or <a href=\"https://twitter.com/framasky\" class=\"classic\">Twitter</a> is cool too ;-)"
+msgstr ""
+
 #: templates/layouts/default.html.ep:41
 msgid "About"
+msgstr ""
+
+#: templates/about.html.ep:18
+msgid "As Lufi is a free software, you can install it on you own server. Have a look on the <a href=\"https://git.framasoft.org/luc/lufi/wikis/home\" class=\"classic\">Wiki</a> for the procedure."
+msgstr ""
+
+#: templates/about.html.ep:19
+msgid "Back to homepage"
 msgstr ""
 
 #: templates/index.html.ep:61
@@ -83,6 +95,10 @@ msgstr ""
 
 #: templates/files.html.ep:15 templates/index.html.ep:80
 msgid "Download link"
+msgstr ""
+
+#: templates/about.html.ep:10
+msgid "Drag and drop files in the appropriate area or use the traditional way to send files and the files will be chunked, encrypted and sent to the server. You will get two links per file: a download link, that you give to the people you want to share the file with and a deletion link, allowing you to delete the file when you want."
 msgstr ""
 
 #: templates/index.html.ep:58
@@ -145,6 +161,18 @@ msgstr ""
 msgid "Hit Enter, then Ctrl+C to copy the download link"
 msgstr ""
 
+#: templates/about.html.ep:9
+msgid "How does it works?"
+msgstr ""
+
+#: templates/about.html.ep:17
+msgid "How to install the software on my server?"
+msgstr ""
+
+#: templates/about.html.ep:12
+msgid "How to report an illegal file?"
+msgstr ""
+
 #: templates/delays.html.ep:6
 msgid "If you choose a delay, the file will be deleted after that delay."
 msgstr ""
@@ -165,6 +193,10 @@ msgstr ""
 msgid "It seems that the key in your URL is incorrect. Please, verify your URL."
 msgstr ""
 
+#: templates/about.html.ep:4
+msgid "Lufi is a free (as in free speech) file hosting software."
+msgstr ""
+
 #: templates/files.html.ep:2 templates/layouts/default.html.ep:40
 msgid "My files"
 msgstr ""
@@ -182,8 +214,17 @@ msgstr ""
 msgid "Only the files sent with this browser will be listed here. The informations are stored in localStorage: if you delete your localStorage data, you'll loose this informations."
 msgstr ""
 
+#. (config('contact')
+#: templates/about.html.ep:13
+msgid "Please contact the administrator: %1"
+msgstr ""
+
 #: templates/render.html.ep:10
 msgid "Please wait while we are getting your file"
+msgstr ""
+
+#: templates/about.html.ep:5
+msgid "Privacy"
 msgstr ""
 
 #: templates/files.html.ep:6
@@ -215,6 +256,10 @@ msgstr ""
 msgid "Sorry, uploading is disabled."
 msgstr ""
 
+#: templates/about.html.ep:7
+msgid "The administrator can only see the file's name, its size and its mimetype (what kind of file it is: video, text, etc)."
+msgstr ""
+
 #: lib/Lufi/Controller/Mail.pm:32
 msgid "The email body can't be empty."
 msgstr ""
@@ -227,6 +272,10 @@ msgstr ""
 msgid "The file has already been deleted"
 msgstr ""
 
+#: templates/about.html.ep:6
+msgid "The files uploaded on a Lufi instance are encrypted before the upload to the server: the administrator of the server can not see the file's content."
+msgstr ""
+
 #. (join(', ', @bad)
 #: lib/Lufi/Controller/Mail.pm:27
 msgid "The following email addresses are not valid: %1"
@@ -234,6 +283,11 @@ msgstr ""
 
 #: lib/Lufi/Controller/Mail.pm:55
 msgid "The mail has been sent."
+msgstr ""
+
+#. (url_for('/')
+#: templates/about.html.ep:15
+msgid "The original (and only for now) author is <a href=\"https://fiat-tux.fr\" class=\"classic\">Luc Didry</a>. If you want to support him, you can to it via <a href=\"https://flattr.com/submit/auto?user_id=_SKy_&amp;url=%1&amp;title=Lufi&amp;category=software\" class=\"classic\">Flattr</a> or with <a href=\"bitcoin:1CJYU2uGmPKhvithCGntyniTTe2hofpPX3?label=Lufi\" class=\"classic\">Bitcoin</a>."
 msgstr ""
 
 #: templates/delays.html.ep:9
@@ -260,6 +314,22 @@ msgstr ""
 
 #: templates/index.html.ep:66
 msgid "Uploaded files"
+msgstr ""
+
+#: templates/about.html.ep:3
+msgid "What is Lufi?"
+msgstr ""
+
+#: templates/about.html.ep:14
+msgid "Who wrote this software?"
+msgstr ""
+
+#: templates/about.html.ep:11
+msgid "You can see the list of your files by clicking on the \"My files\" link at the top right of this page."
+msgstr ""
+
+#: templates/about.html.ep:8
+msgid "You don't need to register yourself to upload files but be aware that, for legal reasons, your IP address will be stored when you send a file. Don't panic, it is normally the case of all sites on which you send files."
 msgstr ""
 
 #: templates/render.html.ep:22

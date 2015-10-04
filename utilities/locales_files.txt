@@ -5,5 +5,6 @@ templates/files.html.ep
 templates/mail.html.ep
 templates/msg.html.ep
 templates/render.html.ep
+templates/about.html.ep
 lib/Lufi/Controller/Files.pm
 lib/Lufi/Controller/Mail.pm
