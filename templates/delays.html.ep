@@ -9,7 +9,7 @@
         <ul>
         % my $delays   = config('delay_for_size');
         % $delays->{0} = max_delay;
-        % my @keys     = sort keys %{$delays};
+        % my @keys     = sort {$a <=> $b} keys %{$delays};
         % my $i        = 0;
         % for my $key (@keys) {
             % my $delay = $delays->{$keys[$i]};
