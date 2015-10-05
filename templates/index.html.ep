@@ -5,6 +5,13 @@
 %   delay_365 => l('1 year')
 % );
     <div class="form-group row">
+        <noscript>
+            <div  class="col-sm-12 col-xs-12">
+                <div class="alert alert-danger">
+                    <strong><%= l('Javascript is disabled. You won\'t be able to use Lufi.') %></strong>
+                </div>
+            </div>
+        </noscript>
 % if (defined(config('broadcast_message'))) {
         <div  class="col-sm-12 col-xs-12">
             <div class="alert alert-info">

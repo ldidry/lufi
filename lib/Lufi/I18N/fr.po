@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "POT-Creation-Date: YEAR-MO-DA HO:MI+ZONE\n"
-"PO-Revision-Date: 2015-10-04 21:00+0200\n"
+"PO-Revision-Date: 2015-10-05 23:06+0200\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -19,8 +19,8 @@ msgstr ""
 
 #. ($delay)
 #. (max_delay)
-#: templates/index.html.ep:29 templates/index.html.ep:38
-#: templates/index.html.ep:39
+#: templates/index.html.ep:35 templates/index.html.ep:44
+#: templates/index.html.ep:45
 msgid "%1 days"
 msgstr "%1 jours"
 
@@ -28,11 +28,11 @@ msgstr "%1 jours"
 msgid "1 year"
 msgstr "1 an"
 
-#: templates/index.html.ep:38 templates/index.html.ep:4
+#: templates/index.html.ep:4 templates/index.html.ep:44
 msgid "24 hours"
 msgstr "24 heures"
 
-#: templates/mail.html.ep:69
+#: templates/mail.html.ep:67
 msgid ":"
 msgstr " :"
 
@@ -55,19 +55,19 @@ msgstr "Comme Lufi est un logiciel libre, vous pouvez l'installer sur votre prop
 msgid "Back to homepage"
 msgstr "Retour à la page d'accueil"
 
-#: templates/index.html.ep:61
+#: templates/index.html.ep:67
 msgid "Click to open the file browser"
 msgstr "Cliquez pour ouvrir le navigateur de fichier"
 
-#: templates/mail.html.ep:12
+#: templates/mail.html.ep:11
 msgid "Comma-separated email addresses"
 msgstr "Adresses mails séparées par des virgules"
 
-#: templates/index.html.ep:77
+#: templates/index.html.ep:82
 msgid "Copy all links to clipboard"
 msgstr "Copier tous les liens dans le presse-papier"
 
-#: templates/index.html.ep:78
+#: templates/index.html.ep:83
 msgid "Copy to clipboard"
 msgstr "Copier dans le presse-papier"
 
@@ -83,23 +83,23 @@ msgstr "Impossible de retrouver le fichier. Êtes-vous sûr de l’URL ?"
 msgid "Counter"
 msgstr "Compteur"
 
-#: templates/files.html.ep:17 templates/index.html.ep:52
+#: templates/files.html.ep:17 templates/index.html.ep:58
 msgid "Delete at first download?"
 msgstr "Supprimer après le premier téléchargement ?"
 
-#: templates/files.html.ep:20 templates/index.html.ep:79
+#: templates/files.html.ep:20 templates/index.html.ep:84
 msgid "Deletion link"
 msgstr "Lien de suppression"
 
-#: templates/delays.html.ep:7
+#: templates/delays.html.ep:6
 msgid "Don't worry: if a user begins to download the file before the expiration and the download ends after the expiration, he will be able to get the file."
 msgstr "Ne vous inquiétez pas : si un utilisateur commence à télécharger le fichier avant son expiration et que le téléchargement se termine après l’expiration, l’utilisateur pourra quand même récupérer le fichier."
 
-#: templates/index.html.ep:81 templates/render.html.ep:21
+#: templates/index.html.ep:86 templates/render.html.ep:20
 msgid "Download"
 msgstr "Télécharger"
 
-#: templates/files.html.ep:15 templates/index.html.ep:80
+#: templates/files.html.ep:15 templates/index.html.ep:85
 msgid "Download link"
 msgstr "Lien de téléchargement"
 
@@ -107,19 +107,19 @@ msgstr "Lien de téléchargement"
 msgid "Drag and drop files in the appropriate area or use the traditional way to send files and the files will be chunked, encrypted and sent to the server. You will get two links per file: a download link, that you give to the people you want to share the file with and a deletion link, allowing you to delete the file when you want."
 msgstr "Faites glisser des fichiers dans la zone prévue à cet effet ou sélectionnez un fichier de façon classique et les fichiers seront découpés en morceaux, chiffrés et envoyés au serveur. Vous récupérerez deux liens par fichier : un lien de téléchargement et un lien pour supprimer le fichier quand vous le souhaitez."
 
-#: templates/index.html.ep:58
+#: templates/index.html.ep:64
 msgid "Drop files here"
 msgstr "Glissez vos fichiers ici"
 
-#: templates/mail.html.ep:28
+#: templates/mail.html.ep:27
 msgid "Email body"
 msgstr "Corps du mail"
 
-#: templates/mail.html.ep:20
+#: templates/mail.html.ep:19
 msgid "Email subject"
 msgstr "Sujet du mail"
 
-#: templates/mail.html.ep:14 templates/mail.html.ep:16
+#: templates/mail.html.ep:13 templates/mail.html.ep:15
 msgid "Emails"
 msgstr "Mails"
 
@@ -135,7 +135,7 @@ msgstr "Erreur : le fichier n’a pas été envoyé dans son intégralité"
 msgid "Error: unable to find the file. Are you sure of your URL?"
 msgstr "Erreur : impossible de retrouver le fichier. Êtes-vous sûr de l’URL ?"
 
-#: templates/index.html.ep:82
+#: templates/index.html.ep:87
 msgid "Expiration:"
 msgstr "Expiration :"
 
@@ -151,19 +151,19 @@ msgstr "Fichier supprimé"
 msgid "File name"
 msgstr "Nom du fichier"
 
-#: templates/mail.html.ep:64
+#: templates/mail.html.ep:62
 msgid "Hello,\\n\\nHere's some files I want to share with you:\\n"
 msgstr "Bonjour,\\n\\nVoici quelques fichiers que je souhaite partager avec toi:\\n"
 
-#: templates/mail.html.ep:22 templates/mail.html.ep:24
+#: templates/mail.html.ep:21 templates/mail.html.ep:23
 msgid "Here's some files"
 msgstr "Voici quelques fichiers"
 
-#: templates/index.html.ep:84
+#: templates/index.html.ep:89
 msgid "Hit Enter, then Ctrl+C to copy all the download links"
 msgstr "Appuyez sur Entrée puis sur Ctrl+C pour copier les liens de téléchargement"
 
-#: templates/index.html.ep:83
+#: templates/index.html.ep:88
 msgid "Hit Enter, then Ctrl+C to copy the download link"
 msgstr "Appuyez sur Entrée puis sur Ctrl+C pour copier le lien de téléchargement"
 
@@ -179,25 +179,29 @@ msgstr "Comment installer le logiciel sur mon serveur ?"
 msgid "How to report an illegal file?"
 msgstr "Comment signaler un fichier illégal ?"
 
-#: templates/delays.html.ep:6
+#: templates/delays.html.ep:5
 msgid "If you choose a delay, the file will be deleted after that delay."
 msgstr "Si vous choisissez un délai, le fichier sera supprimé après ce délai."
 
-#: templates/mail.html.ep:7
+#: templates/mail.html.ep:6
 msgid "If you send the mail from this server, the links will be send to the server, which may lower your privacy protection."
 msgstr "Si vous envoyer le mail depuis ce serveur, les liens seront envoyés au serveur, ce qui peut diminuer la protection de la confidentialité."
 
-#: templates/index.html.ep:24
+#: templates/index.html.ep:30
 msgid "Important: more information on delays"
 msgstr "Important : plus d’informations sur les délais"
 
-#: templates/delays.html.ep:4
+#: templates/delays.html.ep:3
 msgid "Information about delays"
 msgstr "Information sur les délais"
 
-#: templates/render.html.ep:19
+#: templates/render.html.ep:18
 msgid "It seems that the key in your URL is incorrect. Please, verify your URL."
 msgstr "Il semble que la clé dans votre URL soit incorrecte. Veuillez vérifier votre URL."
+
+#: templates/index.html.ep:11
+msgid "Javascript is disabled. You won't be able to use Lufi."
+msgstr "Javascript est désactivé. Lufi ne fonctionnera pas."
 
 #: templates/about.html.ep:4
 msgid "Lufi is a free (as in free speech) file hosting software."
@@ -212,7 +216,7 @@ msgstr "Mes fichiers"
 msgid "No enough space available on the server for this file (size: %1)."
 msgstr "Espace disque insuffisant sur le serveur pour ce fichier (taille du fichier: %1)."
 
-#: templates/index.html.ep:86
+#: templates/index.html.ep:91
 msgid "No expiration delay"
 msgstr "Pas de délai d’expiration"
 
@@ -228,7 +232,7 @@ msgstr "Seuls les fichiers envoyés depuis ce navigateur sont listés ici. Les i
 msgid "Please contact the administrator: %1"
 msgstr "Veuillez contacter l'administrateur : %1"
 
-#: templates/render.html.ep:10
+#: templates/render.html.ep:9
 msgid "Please wait while we are getting your file"
 msgstr "Veuillez patienter pendant la récupération de votre fichier"
 
@@ -240,24 +244,24 @@ msgstr "Confidentialité"
 msgid "Purge expired files from localStorage"
 msgstr "Supprimer du localStorage les fichiers expirés"
 
-#: templates/index.html.ep:85
+#: templates/index.html.ep:90
 msgid "Send all links by email"
 msgstr "Envoyer tous les liens par mail"
 
-#: templates/mail.html.ep:35
+#: templates/mail.html.ep:34
 msgid "Send with this server"
 msgstr "Envoyer avec ce serveur"
 
-#: templates/mail.html.ep:36
+#: templates/mail.html.ep:35
 msgid "Send with your own mail software"
 msgstr "Envoyer avec votre propre logiciel de mail"
 
 #. (url_for('/')
-#: templates/mail.html.ep:77
+#: templates/mail.html.ep:75
 msgid "Share your files in total privacy on %1"
 msgstr "Partagez vos fichiers en toute confidentialité sur %1"
 
-#: templates/index.html.ep:19
+#: templates/index.html.ep:25
 msgid "Sorry, the uploading is currently disabled. Please try again later."
 msgstr "Désolé, l’envoi de fichier est actuellement désactivé. Veuillez réessayer plus tard."
 
@@ -299,7 +303,7 @@ msgstr "Le mail a été envoyé."
 msgid "The original (and only for now) author is <a href=\"https://fiat-tux.fr\" class=\"classic\">Luc Didry</a>. If you want to support him, you can to it via <a href=\"https://flattr.com/submit/auto?user_id=_SKy_&amp;url=%1&amp;title=Lufi&amp;category=software\" class=\"classic\">Flattr</a> or with <a href=\"bitcoin:1CJYU2uGmPKhvithCGntyniTTe2hofpPX3?label=Lufi\" class=\"classic\">Bitcoin</a>."
 msgstr "L'auteur originel (et pour l'instant, le seul) est <a href=\"https://fiat-tux.fr\" class=\"classic\">Luc Didry</a>. Si vous avez envie de le supporter, vous pouvez le faire via <a href=\"https://flattr.com/submit/auto?user_id=_SKy_&amp;url=%1&amp;title=Lufi&amp;category=software\" class=\"classic\">Flattr</a> ou en <a href=\"bitcoin:1CJYU2uGmPKhvithCGntyniTTe2hofpPX3?label=Lufi\" class=\"classic\">Bitcoin</a>."
 
-#: templates/delays.html.ep:9
+#: templates/delays.html.ep:8
 msgid "This server sets limitations according to the file size. The expiration delay of your file will be the minimum between what you choose and the following limitations:"
 msgstr "Ce serveur impose des limitations selon la taille des fichiers. Le délai d’expiration de votre fichier sera le minimum entre ce que vous avez choisi et les limites suivantes :"
 
@@ -324,7 +328,7 @@ msgstr "Envoyer des fichiers"
 msgid "Uploaded at"
 msgstr "Envoyé le"
 
-#: templates/index.html.ep:66
+#: templates/index.html.ep:72
 msgid "Uploaded files"
 msgstr "Fichiers envoyés"
 
@@ -344,15 +348,15 @@ msgstr "Vous pouvez voir la liste de vos fichiers en cliquant sur le lien « Mes
 msgid "You don't need to register yourself to upload files but be aware that, for legal reasons, your IP address will be stored when you send a file. Don't panic, it is normally the case of all sites on which you send files."
 msgstr "Vous n'avez pas besoin de vous enregistrer pour envoyer des fichiers mais notez que, pour des raisons légales, votre adresse IP sera enregistrée quand vous envoyez un fichier. Ne paniquez pas, c'est normalement le cas pour tous les sites où vous envoyez des fichiers."
 
-#: templates/render.html.ep:22
+#: templates/render.html.ep:21
 msgid "You don't seem to have a key in your URL. You won't be able to decrypt the file. Download canceled."
 msgstr "Il semble que vous n’ayez pas de clé dans votre URL. Vous ne serez pas capable de déchiffrer le fichier. Téléchargement annulé."
 
-#: templates/render.html.ep:20
+#: templates/render.html.ep:19
 msgid "You have attempted to leave this page. The download will be canceled. Are you sure?"
 msgstr "Vous essayez de quitter la page. Le téléchargement sera annulé. Êtes-vous sûr ?"
 
-#: templates/index.html.ep:76
+#: templates/index.html.ep:81
 msgid "You have attempted to leave this page. The upload will be canceled. Are you sure?"
 msgstr "Vous essayez de quitter la page. L’envoi sera annulé. Êtes-vous sûr ?"
 
@@ -366,26 +370,26 @@ msgid "Your file is too big: %1 (maximum size allowed: %2)"
 msgstr "Votre fichier est trop volumineux : %1 (la taille maximum autorisée est %2)"
 
 #. (format_bytes($keys[$i])
-#: templates/delays.html.ep:19
+#: templates/delays.html.ep:18
 msgid "between %1 and %2, the file will be kept %3 day(s)."
 msgstr "entre %1 et %2, le fichier sera conservé %3 jour(s) ;"
 
 #. (format_bytes($keys[$i])
-#: templates/delays.html.ep:21
+#: templates/delays.html.ep:20
 msgid "between %1 and %2, the file will be kept forever."
 msgstr "entre %1 et %2, le fichier sera conservé indéfiniment ;"
 
-#: templates/mail.html.ep:71
+#: templates/mail.html.ep:69
 msgid "deadline: "
 msgstr "dernier délai pour télécharger : "
 
 #. (format_bytes($keys[$i])
-#: templates/delays.html.ep:25
+#: templates/delays.html.ep:24
 msgid "for %1 and more, the file will be kept %2 day(s)"
 msgstr "pour %1 et plus, le fichier sera conservé %2 jour(s)."
 
 #. (format_bytes($keys[$i])
-#: templates/delays.html.ep:27
+#: templates/delays.html.ep:26
 msgid "for %1 and more, the file will be kept forever."
 msgstr "pour %1 et plus, le fichier sera conservé indéfiniment."
 
@@ -393,6 +397,6 @@ msgstr "pour %1 et plus, le fichier sera conservé indéfiniment."
 msgid "no time limit"
 msgstr "Pas de liimite de temps"
 
-#: templates/index.html.ep:59
+#: templates/index.html.ep:65
 msgid "or"
 msgstr "ou"
