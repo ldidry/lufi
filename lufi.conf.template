@@ -20,6 +20,10 @@
     # optional, default is ['fdjsofjoihrei'], PLEASE, CHANGE IT
     #secrets        => ['fdjsofjoihrei'],
 
+    # choose a theme. See the available themes in `themes` directory
+    # optional, default is 'default'
+    #theme         => 'default',
+
     # length of the random URL
     # optional, default is 8
     #length            => 8,

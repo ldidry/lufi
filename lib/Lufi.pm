@@ -11,7 +11,7 @@ sub startup {
 
     my $config = $self->plugin('Config' => {
         default =>  {
-            provisioning => 100,
+            provisioning  => 100,
             provis_step   => 5,
             length        => 10,
             token_length  => 32,
@@ -21,11 +21,20 @@ sub startup {
             mail          => {
                 how => 'sendmail'
             },
-            mail_sender   => 'no-reply@lufi.io'
+            mail_sender   => 'no-reply@lufi.io',
+            theme         => 'default',
         }
     });
 
-    die "You need to provide a contact information in lufi.conf!" unless (defined($config->{contact}));
+    die "You need to provide a contact information in lufi.conf!" unless (defined($self->config('contact')));
+
+    # Themes handling
+    shift @{$self->app->renderer->paths};
+    if ($config->{theme} ne 'default') {
+        my $theme = $self->home->rel_dir('themes/'.$config->{theme});
+        push @{$self->renderer->paths}, $theme.'/templates' if -d $theme.'/templates';
+    }
+    push @{$self->renderer->paths}, $self->home->rel_dir('themes/default/templates');
 
     # Mail config
     my $mail_config = {
@@ -43,7 +52,7 @@ sub startup {
     # Debug
     $self->plugin('DebugDumperHelper');
 
-    $self->secrets($config->{secrets});
+    $self->secrets($self->config('secrets'));
 
     # Helpers
     $self->helper(
