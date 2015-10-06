@@ -47,6 +47,8 @@ sub startup {
     $self->plugin('Mail' => $mail_config);
 
     # Internationalization
+    my $lib = $self->home->rel_dir('themes/'.$config->{theme}.'/lib');
+    eval qq(use lib "$lib");
     $self->plugin('I18N');
 
     # Debug

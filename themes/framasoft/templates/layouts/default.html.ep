@@ -1,0 +1,61 @@
+% # vim:set sw=4 ts=4 sts=4 ft=html.epl expandtab:
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Let's Upload that FIle</title>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="mobile-web-app-capable" content="yes">
+        <meta name="apple-mobile-web-app-capable" content="yes">
+        <meta name="apple-mobile-web-app-status-bar-style" content="black">
+        <link rel="icon" type="image/png" href="<%= url_for('/img/favicon.png') %>">
+        <link rel="icon" sizes="128x128" href="<%= url_for('/img/lufi128.png') %>">
+        <link rel="icon" sizes="196x196" href="<%= url_for('/img/lufi196.png') %>">
+        <link rel="apple-touch-icon" href="<%= url_for('/img/lufi60.png') %>">
+        <link rel="apple-touch-icon" sizes="76x76" href="<%= url_for('/img/lufi76.png') %>">
+        <link rel="apple-touch-icon" sizes="120x120" href="<%= url_for('/img/lufi120.png') %>">
+        <link rel="apple-touch-icon" sizes="152x152" href="<%= url_for('/img/lufi152.png') %>">
+        <link rel="apple-touch-icon-precomposed" sizes="128x128" href="<%= url_for('/img/lufi128.png') %>">
+        %= stylesheet '/css/bootstrap.min.css'
+        %= stylesheet '/css/cover.css'
+        %= stylesheet '/css/lufi.css'
+        %= stylesheet '/css/fontello.css'
+        %= javascript begin
+            function confirmExit() {
+                console.log(i18n.confirmExit);
+                return i18n.confirmExit;
+            }
+        % end
+    </head>
+    <body>
+        <div class="site-wrapper">
+            <div class="site-wrapper-inner">
+                <div class="cover-container">
+                    <div class="masthead clearfix">
+                        <div class="inner">
+                            <h3 class="masthead-brand"><a href="<%= url_for('/') %>"><img src="<%= url_for('/img/lufi-min.png') %>" alt="logo"> Framadrop</a></h3>
+                            <nav>
+                                <ul class="nav masthead-nav">
+                                    <li<%== ' class="active"' if (current_route eq 'index') %>><a href="<%= url_for('/') %>"><%= l('Use Framadrop!') %></a></li>
+                                    <li<%== ' class="active"' if (current_route eq 'files') %>><a href="<%= url_for('/files') %>"><%= l('My files') %></a></li>
+                                    <li<%== ' class="active"' if (current_route eq 'about') %>><a href="<%= url_for('/about') %>"><%= l('About') %></a></li>
+                                </ul>
+                            </nav>
+                        </div>
+                    </div>
+                    <div class="inner cover render">
+                        <%= content %>
+                    </div>
+                    <!-- <div class="mastfoot">
+                        <div class="inner">
+                            <p>Lufi, &copy; 2015 <a href="https://fiat-tux.fr">Luc Didry</a>, <a href="https://gnu.org/licenses/agpl.html">GNU Affero Public License</a></p>
+                        </div>
+                    </div> -->
+                </div>
+            </div>
+        </div>
+% if (defined(config('piwik_img'))) {
+        <img src="<%== config('piwik_img') %>" style="border:0" alt="" />
+% }
+    </body>
+</html>

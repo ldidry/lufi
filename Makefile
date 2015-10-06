@@ -1,6 +1,6 @@
 EXTRACTFILES=utilities/locales_files.txt
-EN=lib/Lufi/I18N/en.po
-FR=lib/Lufi/I18N/fr.po
+EN=themes/default/lib/Lufi/I18N/en.po
+FR=themes/default/lib/Lufi/I18N/fr.po
 XGETTEXT=carton exec local/bin/xgettext.pl
 CARTON=carton exec
 REAL_LUFI=script/application
