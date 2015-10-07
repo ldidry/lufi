@@ -22,4 +22,4 @@ devlog:
 	multitail log/development.log
 
 prod:
-	$(CARTON) hypnotoad $(LUFI)
+	$(CARTON) hypnotoad -f $(LUFI)
