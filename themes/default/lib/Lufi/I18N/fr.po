@@ -48,10 +48,10 @@ msgid "About"
 msgstr "À propos"
 
 #: themes/default/templates/about.html.ep:18
-msgid "As Lufi is a free software, you can install it on you own server. Have a look on the <a href=\"https://git.framasoft.org/luc/lufi/wikis/home\" class=\"classic\">Wiki</a> for the procedure."
-msgstr "Comme Lufi est un logiciel libre, vous pouvez l’installer sur votre propre serveur. Veuillez consulter le <a href=\"https://git.framasoft.org/luc/lufi/wikis/home\" class=\"classic\">Wiki</a> pour voir la procédure."
+msgid "As Lufi is a free software licensed under of the terms of the <a href=\"https://gnu.org/licenses/agpl.html\" class=\"classic\">AGPLv3</a>, you can install it on you own server. Have a look on the <a href=\"https://git.framasoft.org/luc/lufi/wikis/home\" class=\"classic\">Wiki</a> for the procedure."
+msgstr "Comme Lufi est un logiciel libre soumis aux termes de la license <a href=\"https://gnu.org/licenses/agpl.html\" class=\"classic\">AGPLv3</a>, vous pouvez l’installer sur votre propre serveur. Veuillez consulter le <a href=\"https://git.framasoft.org/luc/lufi/wikis/home\" class=\"classic\">Wiki</a> pour voir la procédure."
 
-#: themes/default/templates/about.html.ep:19
+#: themes/default/templates/about.html.ep:21
 msgid "Back to homepage"
 msgstr "Retour à la page d’accueil"
 
@@ -150,6 +150,10 @@ msgstr "Fichier supprimé"
 #: themes/default/templates/files.html.ep:15
 msgid "File name"
 msgstr "Nom du fichier"
+
+#: themes/default/templates/about.html.ep:19
+msgid "Get the source code on <a href=\"https://git.framasoft.org/luc/lufi\" class=\"classic\">the official repository</a> or on its <a href=\"https://github.com/ldidry/lufi\" class=\"classic\">Github mirror</a>"
+msgstr "Récupérez le code source sur <a href=\"https://git.framasoft.org/luc/lufi\" class=\"classic\">le dépôt officiel</a> ou sur son <a href=\"https://github.com/ldidry/lufi\" class=\"classic\">miroir Github</a>."
 
 #: themes/default/templates/mail.html.ep:62
 msgid "Hello,\\n\\nHere's some files I want to share with you:\\n"

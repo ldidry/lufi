@@ -42,10 +42,10 @@ msgid "About"
 msgstr ""
 
 #: themes/default/templates/about.html.ep:18
-msgid "As Lufi is a free software, you can install it on you own server. Have a look on the <a href=\"https://git.framasoft.org/luc/lufi/wikis/home\" class=\"classic\">Wiki</a> for the procedure."
+msgid "As Lufi is a free software licensed under of the terms of the <a href=\"https://gnu.org/licenses/agpl.html\" class=\"classic\">AGPLv3</a>, you can install it on you own server. Have a look on the <a href=\"https://git.framasoft.org/luc/lufi/wikis/home\" class=\"classic\">Wiki</a> for the procedure."
 msgstr ""
 
-#: themes/default/templates/about.html.ep:19
+#: themes/default/templates/about.html.ep:21
 msgid "Back to homepage"
 msgstr ""
 
@@ -143,6 +143,10 @@ msgstr ""
 
 #: themes/default/templates/files.html.ep:15
 msgid "File name"
+msgstr ""
+
+#: themes/default/templates/about.html.ep:19
+msgid "Get the source code on <a href=\"https://git.framasoft.org/luc/lufi\" class=\"classic\">the official repository</a> or on its <a href=\"https://github.com/ldidry/lufi\" class=\"classic\">Github mirror</a>"
 msgstr ""
 
 #: themes/default/templates/mail.html.ep:62

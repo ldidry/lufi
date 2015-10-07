@@ -15,6 +15,8 @@
     <p><%== l('The original (and only for now) author is <a href="https://fiat-tux.fr" class="classic">Luc Didry</a>. If you want to support him, you can to it via <a href="https://flattr.com/submit/auto?user_id=_SKy_&amp;url=%1&amp;title=Lufi&amp;category=software" class="classic">Flattr</a> or with <a href="bitcoin:1CJYU2uGmPKhvithCGntyniTTe2hofpPX3?label=Lufi" class="classic">Bitcoin</a>.', url_for('/')->to_abs()) %><br>
         <%== l('A thank you with a photo of kitten on <a href="https://framasphere.org/people/b13eb6b0beac0131e7e32a0000053625" class="classic">Diaspora*</a> or <a href="https://twitter.com/framasky" class="classic">Twitter</a> is cool too ;-)') %></p>
     <h3><%= l('How to install the software on my server?') %></h3>
-    <p><%== l('As Lufi is a free software, you can install it on you own server. Have a look on the <a href="https://git.framasoft.org/luc/lufi/wikis/home" class="classic">Wiki</a> for the procedure.') %></p>
+    <p><%== l('As Lufi is a free software licensed under of the terms of the <a href="https://gnu.org/licenses/agpl.html" class="classic">AGPLv3</a>, you can install it on you own server. Have a look on the <a href="https://git.framasoft.org/luc/lufi/wikis/home" class="classic">Wiki</a> for the procedure.') %><br>
+       <%== l('Get the source code on <a href="https://git.framasoft.org/luc/lufi" class="classic">the official repository</a> or on its <a href="https://github.com/ldidry/lufi" class="classic">Github mirror</a>') %>
+    </p>
     <%= link_to url_for('/') => ( class => "btn btn-info" ) => begin %><%= l('Back to homepage') %><% end%>
 </div>
