@@ -2,10 +2,18 @@
 <h2><%= l('My files') %></h2>
 <hr>
 
+
 <p>
-    <a href="#" onclick="purgeExpired();" class="pull-right btn btn-info btn-xs left-mg"><%= l('Purge expired files from localStorage') %></a>
     <%= l('Only the files sent with this browser will be listed here. The informations are stored in localStorage: if you delete your localStorage data, you\'ll loose this informations.') %><br>
     <%= l('Rows in red means that the file has expired and is no longer available.') %>
+</p>
+<p>
+    <a href="#" onclick="purgeExpired();" class="btn btn-info btn-xs left-mg"><%= l('Purge expired files from localStorage') %></a>
+    <a href="#" onclick="exportStorage();" class="btn btn-info btn-xs left-mg"><%= l('Export localStorage data') %></a>
+    <label>
+        <span class="btn btn-info btn-xs left-mg"><%= l('Import localStorage data') %></span>
+        <input type="file" onchange="importStorage(this.files)" class="hidden">
+    </label>
 </p>
 
 <div class="table-responsive">
@@ -30,7 +38,8 @@
 var baseURL    = '<%== url_for('/')->to_abs() %>';
 var counterURL = '<%== url_for('counter') %>';
 var i18n       = {
-    noExpiration: '<%= l('No expiration delay') %>',
+    noExpiration:    '<%= l('No expiration delay') %>',
+    importProcessed: '<%= l('The data has been successfully imported.') %>',
 };
 document.addEventListener('DOMContentLoaded', function() {
     populateFilesTable();

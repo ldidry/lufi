@@ -1,3 +1,15 @@
+// Add item to localStorage
+function addItem(item) {
+    var files = localStorage.getItem('files');
+    if (files === null) {
+        files = new Array();
+    } else {
+        files = JSON.parse(files);
+    }
+    files.push(item);
+    localStorage.setItem('files', JSON.stringify(files));
+}
+
 function delItem(name) {
     var files = localStorage.getItem('files');
     if (files === null) {
@@ -12,6 +24,22 @@ function delItem(name) {
         }
     }
     localStorage.setItem('files', JSON.stringify(files));
+}
+
+function itemExists(name) {
+    var files = localStorage.getItem('files');
+    if (files === null) {
+        return false;
+    } else {
+        files = JSON.parse(files);
+        var i;
+        for (i = 0; i < files.length; i++) {
+            if (files[i].short === name) {
+                return true;
+            }
+        }
+        return false;
+    }
 }
 
 function purgeExpired() {
@@ -36,9 +64,58 @@ function purgeExpired() {
     });
 }
 
+function exportStorage() {
+    var a   = document.createElement("a");
+    a.style = "display: none";
+    document.body.appendChild(a);
+
+    var storageData = [localStorage.getItem('files')];
+    var exportFile  = new File(storageData, 'data.json', {type : 'application/json'});
+    var url         = window.URL.createObjectURL(exportFile);
+
+    a.href = url;
+    a.setAttribute('download', 'data.json');
+    a.click();
+    a.remove();
+}
+
+function importStorage(f) {
+    var reader = new FileReader();
+    reader.addEventListener("loadend", function() {
+        try {
+            var newFiles = JSON.parse(String.fromCharCode.apply(null, new Uint8Array(reader.result)));
+            var i;
+            var hasImported = 0;
+            for (i = 0; i < newFiles.length; i++) {
+                var item = newFiles[i];
+                if (!itemExists(item.short)) {
+                    addItem(item);
+                    hasImported++;
+                }
+            }
+            populateFilesTable();
+
+            alert(i18n.importProcessed);
+        } catch(err) {
+            alert(err);
+        }
+    });
+    reader.readAsArrayBuffer(f[0]);
+}
+
 function populateFilesTable() {
+    document.getElementById('myfiles').innerHTML = '';
+
     var files = JSON.parse(localStorage.getItem('files'));
-    files.reverse();
+    files.sort(function(a, b) {
+        if (a.created_at < b.created_at) {
+            return -1;
+        } else if (a.created_at > b.created_at) {
+            return 1;
+        } else {
+            return 0
+        }
+    });
     files.forEach(function(element, index, array) {
         var del_view   = (element.del_at_first_view) ? '<span class="icon icon-ok"></span>' : '<span class="icon icon-cancel"></span>';
         var dlink      = baseURL+'d/'+element.short+'/'+element.token;

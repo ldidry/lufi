@@ -65,23 +65,23 @@ msgstr ""
 msgid "Copy to clipboard"
 msgstr ""
 
-#: lib/Lufi/Controller/Files.pm:282
+#: lib/Lufi/Controller/Files.pm:284
 msgid "Could not find the file. Are you sure of the URL and the token?"
 msgstr ""
 
-#: lib/Lufi/Controller/Files.pm:210
+#: lib/Lufi/Controller/Files.pm:212
 msgid "Could not find the file. Are you sure of the URL?"
 msgstr ""
 
-#: themes/default/templates/files.html.ep:17
+#: themes/default/templates/files.html.ep:25
 msgid "Counter"
 msgstr ""
 
-#: themes/default/templates/files.html.ep:18 themes/default/templates/index.html.ep:58
+#: themes/default/templates/files.html.ep:26 themes/default/templates/index.html.ep:58
 msgid "Delete at first download?"
 msgstr ""
 
-#: themes/default/templates/files.html.ep:21 themes/default/templates/index.html.ep:84
+#: themes/default/templates/files.html.ep:29 themes/default/templates/index.html.ep:84
 msgid "Deletion link"
 msgstr ""
 
@@ -93,7 +93,7 @@ msgstr ""
 msgid "Download"
 msgstr ""
 
-#: themes/default/templates/files.html.ep:16 themes/default/templates/index.html.ep:85
+#: themes/default/templates/files.html.ep:24 themes/default/templates/index.html.ep:85
 msgid "Download link"
 msgstr ""
 
@@ -117,15 +117,15 @@ msgstr ""
 msgid "Emails"
 msgstr ""
 
-#: lib/Lufi/Controller/Files.pm:146
+#: lib/Lufi/Controller/Files.pm:148
 msgid "Error: the file existed but has been deleted."
 msgstr ""
 
-#: lib/Lufi/Controller/Files.pm:187
+#: lib/Lufi/Controller/Files.pm:189
 msgid "Error: the file has not been send entirely."
 msgstr ""
 
-#: lib/Lufi/Controller/Files.pm:192
+#: lib/Lufi/Controller/Files.pm:194
 msgid "Error: unable to find the file. Are you sure of your URL?"
 msgstr ""
 
@@ -133,15 +133,19 @@ msgstr ""
 msgid "Expiration:"
 msgstr ""
 
-#: themes/default/templates/files.html.ep:20
+#: themes/default/templates/files.html.ep:28
 msgid "Expires at"
 msgstr ""
 
-#: lib/Lufi/Controller/Files.pm:266
+#: themes/default/templates/files.html.ep:12
+msgid "Export localStorage data"
+msgstr ""
+
+#: lib/Lufi/Controller/Files.pm:268
 msgid "File deleted"
 msgstr ""
 
-#: themes/default/templates/files.html.ep:15
+#: themes/default/templates/files.html.ep:23
 msgid "File name"
 msgstr ""
 
@@ -185,6 +189,10 @@ msgstr ""
 msgid "If you send the mail from this server, the links will be send to the server, which may lower your privacy protection."
 msgstr ""
 
+#: themes/default/templates/files.html.ep:14
+msgid "Import localStorage data"
+msgstr ""
+
 #: themes/default/templates/index.html.ep:30
 msgid "Important: more information on delays"
 msgstr ""
@@ -210,11 +218,11 @@ msgid "My files"
 msgstr ""
 
 #. (format_bytes($json->{size})
-#: lib/Lufi/Controller/Files.pm:45
+#: lib/Lufi/Controller/Files.pm:47
 msgid "No enough space available on the server for this file (size: %1)."
 msgstr ""
 
-#: themes/default/templates/files.html.ep:33 themes/default/templates/index.html.ep:91
+#: themes/default/templates/files.html.ep:41 themes/default/templates/index.html.ep:91
 msgid "No expiration delay"
 msgstr ""
 
@@ -235,7 +243,7 @@ msgstr ""
 msgid "Privacy"
 msgstr ""
 
-#: themes/default/templates/files.html.ep:6
+#: themes/default/templates/files.html.ep:11
 msgid "Purge expired files from localStorage"
 msgstr ""
 
@@ -264,12 +272,16 @@ msgstr ""
 msgid "Sorry, the uploading is currently disabled. Please try again later."
 msgstr ""
 
-#: lib/Lufi/Controller/Files.pm:33
+#: lib/Lufi/Controller/Files.pm:35
 msgid "Sorry, uploading is disabled."
 msgstr ""
 
 #: themes/default/templates/about.html.ep:7
 msgid "The administrator can only see the file's name, its size and its mimetype (what kind of file it is: video, text, etc)."
+msgstr ""
+
+#: themes/default/templates/files.html.ep:42
+msgid "The data has been successfully imported."
 msgstr ""
 
 #: lib/Lufi/Controller/Mail.pm:32
@@ -280,7 +292,7 @@ msgstr ""
 msgid "The email subject can't be empty."
 msgstr ""
 
-#: lib/Lufi/Controller/Files.pm:263
+#: lib/Lufi/Controller/Files.pm:265
 msgid "The file has already been deleted"
 msgstr ""
 
@@ -307,12 +319,12 @@ msgid "This server sets limitations according to the file size. The expiration d
 msgstr ""
 
 #. ($short)
-#: lib/Lufi/Controller/Files.pm:247
+#: lib/Lufi/Controller/Files.pm:249
 msgid "Unable to get counter for %1. The file does not exists. It will be removed from your localStorage."
 msgstr ""
 
 #. ($short)
-#: lib/Lufi/Controller/Files.pm:237
+#: lib/Lufi/Controller/Files.pm:239
 msgid "Unable to get counter for %1. The token is unvalid."
 msgstr ""
 
@@ -320,7 +332,7 @@ msgstr ""
 msgid "Upload files"
 msgstr ""
 
-#: themes/default/templates/files.html.ep:19
+#: themes/default/templates/files.html.ep:27
 msgid "Uploaded at"
 msgstr ""
 
@@ -361,7 +373,7 @@ msgid "You must give email addresses."
 msgstr ""
 
 #. (format_bytes($json->{size})
-#: lib/Lufi/Controller/Files.pm:39
+#: lib/Lufi/Controller/Files.pm:41
 msgid "Your file is too big: %1 (maximum size allowed: %2)"
 msgstr ""
 

@@ -7,8 +7,8 @@ REAL_LUFI=script/application
 LUFI=script/lufi
 
 locales:
-	$(XGETTEXT) -f $(EXTRACTFILES) -o $(EN)
-	$(XGETTEXT) -f $(EXTRACTFILES) -o $(FR)
+	$(XGETTEXT) -f $(EXTRACTFILES) -o $(EN) 2>/dev/null
+	$(XGETTEXT) -f $(EXTRACTFILES) -o $(FR) 2>/dev/null
 
 test:
 	$(CARTON) $(REAL_LUFI) test
