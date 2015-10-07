@@ -57,7 +57,7 @@ msgstr "Retour à la page d’accueil"
 
 #: themes/default/templates/index.html.ep:67
 msgid "Click to open the file browser"
-msgstr "Cliquez pour ouvrir le navigateur de fichier"
+msgstr "Cliquez pour ouvrir le navigateur de fichiers"
 
 #: themes/default/templates/mail.html.ep:11
 msgid "Comma-separated email addresses"
@@ -73,11 +73,11 @@ msgstr "Copier dans le presse-papier"
 
 #: lib/Lufi/Controller/Files.pm:282
 msgid "Could not find the file. Are you sure of the URL and the token?"
-msgstr "Impossible de retrouver le fichier. Êtes-vous sûr de l’URL et du jeton ?"
+msgstr "Impossible de retrouver le fichier. Êtes-vous sûr(e) que l’URL et le jeton sont les bons ?"
 
 #: lib/Lufi/Controller/Files.pm:210
 msgid "Could not find the file. Are you sure of the URL?"
-msgstr "Impossible de retrouver le fichier. Êtes-vous sûr de l’URL ?"
+msgstr "Impossible de retrouver le fichier. Êtes-vous sûr(e) que l’URL est la bonne ?"
 
 #: themes/default/templates/files.html.ep:17
 msgid "Counter"
@@ -133,7 +133,7 @@ msgstr "Erreur : le fichier n’a pas été envoyé dans son intégralité"
 
 #: lib/Lufi/Controller/Files.pm:192
 msgid "Error: unable to find the file. Are you sure of your URL?"
-msgstr "Erreur : impossible de retrouver le fichier. Êtes-vous sûr de l’URL ?"
+msgstr "Erreur : impossible de retrouver le fichier. Êtes-vous sûr(e) de l’URL ?"
 
 #: themes/default/templates/index.html.ep:87
 msgid "Expiration:"
@@ -161,11 +161,11 @@ msgstr "Voici quelques fichiers"
 
 #: themes/default/templates/index.html.ep:89
 msgid "Hit Enter, then Ctrl+C to copy all the download links"
-msgstr "Appuyez sur Entrée puis sur Ctrl+C pour copier les liens de téléchargement"
+msgstr "Appuyez sur la touche Entrée puis faites Ctrl+C pour copier tous les liens de téléchargement"
 
 #: themes/default/templates/index.html.ep:88
 msgid "Hit Enter, then Ctrl+C to copy the download link"
-msgstr "Appuyez sur Entrée puis sur Ctrl+C pour copier le lien de téléchargement"
+msgstr "Appuyez sur la touche Entrée puis faites Ctrl+C pour copier le lien de téléchargement"
 
 #: themes/default/templates/about.html.ep:9
 msgid "How does it works?"
@@ -226,7 +226,7 @@ msgstr "Aucune limite"
 
 #: themes/default/templates/files.html.ep:7
 msgid "Only the files sent with this browser will be listed here. The informations are stored in localStorage: if you delete your localStorage data, you'll loose this informations."
-msgstr "Seuls les fichiers envoyés depuis ce navigateur sont listés ici. Les informations sont stockées en localStorage : si vous supprimez vos données localStorage, vous perdrez ces informations."
+msgstr "Seuls les fichiers envoyés avec ce navigateur web sont listés ici. Les informations sont stockées en localStorage : si vous supprimez vos données localStorage, vous perdrez ces informations."
 
 #. (config('contact')
 #: themes/default/templates/about.html.ep:13
@@ -360,11 +360,11 @@ msgstr "Il semble que vous n’ayez pas de clé dans votre URL. Vous ne serez pa
 
 #: themes/default/templates/render.html.ep:19
 msgid "You have attempted to leave this page. The download will be canceled. Are you sure?"
-msgstr "Vous essayez de quitter la page. Le téléchargement sera annulé. Êtes-vous sûr ?"
+msgstr "Vous essayez de quitter la page. Le téléchargement sera annulé. Êtes-vous sûr(e) ?"
 
 #: themes/default/templates/index.html.ep:81
 msgid "You have attempted to leave this page. The upload will be canceled. Are you sure?"
-msgstr "Vous essayez de quitter la page. L’envoi sera annulé. Êtes-vous sûr ?"
+msgstr "Vous essayez de quitter la page. L’envoi sera annulé. Êtes-vous sûr(e) ?"
 
 #: lib/Lufi/Controller/Mail.pm:30
 msgid "You must give email addresses."
@@ -401,7 +401,7 @@ msgstr "pour %1 et plus, le fichier sera conservé indéfiniment."
 
 #: themes/default/templates/index.html.ep:3
 msgid "no time limit"
-msgstr "Pas de liimite de temps"
+msgstr "durée illimité"
 
 #: themes/default/templates/index.html.ep:65
 msgid "or"
