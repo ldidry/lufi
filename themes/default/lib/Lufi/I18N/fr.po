@@ -19,55 +19,55 @@ msgstr ""
 
 #. ($delay)
 #. (max_delay)
-#: templates/index.html.ep:35 templates/index.html.ep:44
-#: templates/index.html.ep:45
+#: themes/default/templates/index.html.ep:35 themes/default/templates/index.html.ep:44 themes/default/templates/index.html.ep:45
 msgid "%1 days"
 msgstr "%1 jours"
 
-#: templates/index.html.ep:5
+#: themes/default/templates/index.html.ep:5
 msgid "1 year"
 msgstr "1 an"
 
-#: templates/index.html.ep:4 templates/index.html.ep:44
+#: themes/default/templates/index.html.ep:4 themes/default/templates/index.html.ep:44
 msgid "24 hours"
 msgstr "24 heures"
 
-#: templates/mail.html.ep:67
+#: themes/default/templates/mail.html.ep:67
 msgid ":"
 msgstr " :"
 
+#:
 msgid ": Error while trying to get the counter."
 msgstr " : erreur en essayant de récupérer le compteur"
 
-#: templates/about.html.ep:16
+#: themes/default/templates/about.html.ep:16
 msgid "A thank you with a photo of kitten on <a href=\"https://framasphere.org/people/b13eb6b0beac0131e7e32a0000053625\" class=\"classic\">Diaspora*</a> or <a href=\"https://twitter.com/framasky\" class=\"classic\">Twitter</a> is cool too ;-)"
-msgstr "Un merci avec une photo de chaton sur <a href=\"https://framasphere.org/people/b13eb6b0beac0131e7e32a0000053625\" class=\"classic\">Diaspora*</a> ou <a href=\"https://twitter.com/framasky\" class=\"classic\">Twitter</a> fait aussi l'affaire ;-)"
+msgstr "Un merci avec une photo de chaton sur <a href=\"https://framasphere.org/people/b13eb6b0beac0131e7e32a0000053625\" class=\"classic\">Diaspora*</a> ou <a href=\"https://twitter.com/framasky\" class=\"classic\">Twitter</a> fait aussi l’affaire ;-)"
 
-#: templates/layouts/default.html.ep:41
+#: themes/default/templates/layouts/default.html.ep:41
 msgid "About"
 msgstr "À propos"
 
-#: templates/about.html.ep:18
+#: themes/default/templates/about.html.ep:18
 msgid "As Lufi is a free software, you can install it on you own server. Have a look on the <a href=\"https://git.framasoft.org/luc/lufi/wikis/home\" class=\"classic\">Wiki</a> for the procedure."
-msgstr "Comme Lufi est un logiciel libre, vous pouvez l'installer sur votre propre serveur. Veuillez consulter le <a href=\"https://git.framasoft.org/luc/lufi/wikis/home\" class=\"classic\">Wiki</a> pour voir la procédure."
+msgstr "Comme Lufi est un logiciel libre, vous pouvez l’installer sur votre propre serveur. Veuillez consulter le <a href=\"https://git.framasoft.org/luc/lufi/wikis/home\" class=\"classic\">Wiki</a> pour voir la procédure."
 
-#: templates/about.html.ep:19
+#: themes/default/templates/about.html.ep:19
 msgid "Back to homepage"
-msgstr "Retour à la page d'accueil"
+msgstr "Retour à la page d’accueil"
 
-#: templates/index.html.ep:67
+#: themes/default/templates/index.html.ep:67
 msgid "Click to open the file browser"
 msgstr "Cliquez pour ouvrir le navigateur de fichier"
 
-#: templates/mail.html.ep:11
+#: themes/default/templates/mail.html.ep:11
 msgid "Comma-separated email addresses"
 msgstr "Adresses mails séparées par des virgules"
 
-#: templates/index.html.ep:82
+#: themes/default/templates/index.html.ep:82
 msgid "Copy all links to clipboard"
 msgstr "Copier tous les liens dans le presse-papier"
 
-#: templates/index.html.ep:83
+#: themes/default/templates/index.html.ep:83
 msgid "Copy to clipboard"
 msgstr "Copier dans le presse-papier"
 
@@ -79,47 +79,47 @@ msgstr "Impossible de retrouver le fichier. Êtes-vous sûr de l’URL et du jet
 msgid "Could not find the file. Are you sure of the URL?"
 msgstr "Impossible de retrouver le fichier. Êtes-vous sûr de l’URL ?"
 
-#: templates/files.html.ep:16
+#: themes/default/templates/files.html.ep:17
 msgid "Counter"
 msgstr "Compteur"
 
-#: templates/files.html.ep:17 templates/index.html.ep:58
+#: themes/default/templates/files.html.ep:18 themes/default/templates/index.html.ep:58
 msgid "Delete at first download?"
 msgstr "Supprimer après le premier téléchargement ?"
 
-#: templates/files.html.ep:20 templates/index.html.ep:84
+#: themes/default/templates/files.html.ep:21 themes/default/templates/index.html.ep:84
 msgid "Deletion link"
 msgstr "Lien de suppression"
 
-#: templates/delays.html.ep:6
+#: themes/default/templates/delays.html.ep:6
 msgid "Don't worry: if a user begins to download the file before the expiration and the download ends after the expiration, he will be able to get the file."
 msgstr "Ne vous inquiétez pas : si un utilisateur commence à télécharger le fichier avant son expiration et que le téléchargement se termine après l’expiration, l’utilisateur pourra quand même récupérer le fichier."
 
-#: templates/index.html.ep:86 templates/render.html.ep:20
+#: themes/default/templates/index.html.ep:86 themes/default/templates/render.html.ep:20
 msgid "Download"
 msgstr "Télécharger"
 
-#: templates/files.html.ep:15 templates/index.html.ep:85
+#: themes/default/templates/files.html.ep:16 themes/default/templates/index.html.ep:85
 msgid "Download link"
 msgstr "Lien de téléchargement"
 
-#: templates/about.html.ep:10
+#: themes/default/templates/about.html.ep:10
 msgid "Drag and drop files in the appropriate area or use the traditional way to send files and the files will be chunked, encrypted and sent to the server. You will get two links per file: a download link, that you give to the people you want to share the file with and a deletion link, allowing you to delete the file when you want."
 msgstr "Faites glisser des fichiers dans la zone prévue à cet effet ou sélectionnez un fichier de façon classique et les fichiers seront découpés en morceaux, chiffrés et envoyés au serveur. Vous récupérerez deux liens par fichier : un lien de téléchargement et un lien pour supprimer le fichier quand vous le souhaitez."
 
-#: templates/index.html.ep:64
+#: themes/default/templates/index.html.ep:64
 msgid "Drop files here"
 msgstr "Glissez vos fichiers ici"
 
-#: templates/mail.html.ep:27
+#: themes/default/templates/mail.html.ep:27
 msgid "Email body"
 msgstr "Corps du mail"
 
-#: templates/mail.html.ep:19
+#: themes/default/templates/mail.html.ep:19
 msgid "Email subject"
 msgstr "Sujet du mail"
 
-#: templates/mail.html.ep:13 templates/mail.html.ep:15
+#: themes/default/templates/mail.html.ep:13 themes/default/templates/mail.html.ep:15
 msgid "Emails"
 msgstr "Mails"
 
@@ -135,11 +135,11 @@ msgstr "Erreur : le fichier n’a pas été envoyé dans son intégralité"
 msgid "Error: unable to find the file. Are you sure of your URL?"
 msgstr "Erreur : impossible de retrouver le fichier. Êtes-vous sûr de l’URL ?"
 
-#: templates/index.html.ep:87
+#: themes/default/templates/index.html.ep:87
 msgid "Expiration:"
 msgstr "Expiration :"
 
-#: templates/files.html.ep:19
+#: themes/default/templates/files.html.ep:20
 msgid "Expires at"
 msgstr "Expire le"
 
@@ -147,67 +147,67 @@ msgstr "Expire le"
 msgid "File deleted"
 msgstr "Fichier supprimé"
 
-#: templates/files.html.ep:14
+#: themes/default/templates/files.html.ep:15
 msgid "File name"
 msgstr "Nom du fichier"
 
-#: templates/mail.html.ep:62
+#: themes/default/templates/mail.html.ep:62
 msgid "Hello,\\n\\nHere's some files I want to share with you:\\n"
 msgstr "Bonjour,\\n\\nVoici quelques fichiers que je souhaite partager avec toi:\\n"
 
-#: templates/mail.html.ep:21 templates/mail.html.ep:23
+#: themes/default/templates/mail.html.ep:21 themes/default/templates/mail.html.ep:23
 msgid "Here's some files"
 msgstr "Voici quelques fichiers"
 
-#: templates/index.html.ep:89
+#: themes/default/templates/index.html.ep:89
 msgid "Hit Enter, then Ctrl+C to copy all the download links"
 msgstr "Appuyez sur Entrée puis sur Ctrl+C pour copier les liens de téléchargement"
 
-#: templates/index.html.ep:88
+#: themes/default/templates/index.html.ep:88
 msgid "Hit Enter, then Ctrl+C to copy the download link"
 msgstr "Appuyez sur Entrée puis sur Ctrl+C pour copier le lien de téléchargement"
 
-#: templates/about.html.ep:9
+#: themes/default/templates/about.html.ep:9
 msgid "How does it works?"
 msgstr "Comment ça marche ?"
 
-#: templates/about.html.ep:17
+#: themes/default/templates/about.html.ep:17
 msgid "How to install the software on my server?"
 msgstr "Comment installer le logiciel sur mon serveur ?"
 
-#: templates/about.html.ep:12
+#: themes/default/templates/about.html.ep:12
 msgid "How to report an illegal file?"
 msgstr "Comment signaler un fichier illégal ?"
 
-#: templates/delays.html.ep:5
+#: themes/default/templates/delays.html.ep:5
 msgid "If you choose a delay, the file will be deleted after that delay."
 msgstr "Si vous choisissez un délai, le fichier sera supprimé après ce délai."
 
-#: templates/mail.html.ep:6
+#: themes/default/templates/mail.html.ep:6
 msgid "If you send the mail from this server, the links will be send to the server, which may lower your privacy protection."
 msgstr "Si vous envoyer le mail depuis ce serveur, les liens seront envoyés au serveur, ce qui peut diminuer la protection de la confidentialité."
 
-#: templates/index.html.ep:30
+#: themes/default/templates/index.html.ep:30
 msgid "Important: more information on delays"
 msgstr "Important : plus d’informations sur les délais"
 
-#: templates/delays.html.ep:3
+#: themes/default/templates/delays.html.ep:3
 msgid "Information about delays"
 msgstr "Information sur les délais"
 
-#: templates/render.html.ep:18
+#: themes/default/templates/render.html.ep:18
 msgid "It seems that the key in your URL is incorrect. Please, verify your URL."
 msgstr "Il semble que la clé dans votre URL soit incorrecte. Veuillez vérifier votre URL."
 
-#: templates/index.html.ep:11
+#: themes/default/templates/index.html.ep:11
 msgid "Javascript is disabled. You won't be able to use Lufi."
 msgstr "Javascript est désactivé. Lufi ne fonctionnera pas."
 
-#: templates/about.html.ep:4
+#: themes/default/templates/about.html.ep:4
 msgid "Lufi is a free (as in free speech) file hosting software."
-msgstr "Lufi est un logiciel libre d'hébergement de fichiers."
+msgstr "Lufi est un logiciel libre d’hébergement de fichiers."
 
-#: templates/files.html.ep:2 templates/layouts/default.html.ep:40
+#: themes/default/templates/files.html.ep:2 themes/default/templates/layouts/default.html.ep:40
 msgid "My files"
 msgstr "Mes fichiers"
 
@@ -216,52 +216,57 @@ msgstr "Mes fichiers"
 msgid "No enough space available on the server for this file (size: %1)."
 msgstr "Espace disque insuffisant sur le serveur pour ce fichier (taille du fichier: %1)."
 
-#: templates/index.html.ep:91
+#: themes/default/templates/files.html.ep:33 themes/default/templates/index.html.ep:91
 msgid "No expiration delay"
 msgstr "Pas de délai d’expiration"
 
+#:
 msgid "No limit"
 msgstr "Aucune limite"
 
-#: templates/files.html.ep:7
+#: themes/default/templates/files.html.ep:7
 msgid "Only the files sent with this browser will be listed here. The informations are stored in localStorage: if you delete your localStorage data, you'll loose this informations."
 msgstr "Seuls les fichiers envoyés depuis ce navigateur sont listés ici. Les informations sont stockées en localStorage : si vous supprimez vos données localStorage, vous perdrez ces informations."
 
 #. (config('contact')
-#: templates/about.html.ep:13
+#: themes/default/templates/about.html.ep:13
 msgid "Please contact the administrator: %1"
-msgstr "Veuillez contacter l'administrateur : %1"
+msgstr "Veuillez contacter l’administrateur : %1"
 
-#: templates/render.html.ep:9
+#: themes/default/templates/render.html.ep:9
 msgid "Please wait while we are getting your file"
 msgstr "Veuillez patienter pendant la récupération de votre fichier"
 
-#: templates/about.html.ep:5
+#: themes/default/templates/about.html.ep:5
 msgid "Privacy"
 msgstr "Confidentialité"
 
-#: templates/files.html.ep:6
+#: themes/default/templates/files.html.ep:6
 msgid "Purge expired files from localStorage"
 msgstr "Supprimer du localStorage les fichiers expirés"
 
-#: templates/index.html.ep:90
+#: themes/default/templates/files.html.ep:8
+msgid "Rows in red means that the file has expired and is no longer available."
+msgstr "Les lignes en rouge indiquent que le fichier a expiré et n’est plus disponible."
+
+#: themes/default/templates/index.html.ep:90
 msgid "Send all links by email"
 msgstr "Envoyer tous les liens par mail"
 
-#: templates/mail.html.ep:34
+#: themes/default/templates/mail.html.ep:34
 msgid "Send with this server"
 msgstr "Envoyer avec ce serveur"
 
-#: templates/mail.html.ep:35
+#: themes/default/templates/mail.html.ep:35
 msgid "Send with your own mail software"
 msgstr "Envoyer avec votre propre logiciel de mail"
 
 #. (url_for('/')
-#: templates/mail.html.ep:75
+#: themes/default/templates/mail.html.ep:75
 msgid "Share your files in total privacy on %1"
 msgstr "Partagez vos fichiers en toute confidentialité sur %1"
 
-#: templates/index.html.ep:25
+#: themes/default/templates/index.html.ep:25
 msgid "Sorry, the uploading is currently disabled. Please try again later."
 msgstr "Désolé, l’envoi de fichier est actuellement désactivé. Veuillez réessayer plus tard."
 
@@ -269,9 +274,9 @@ msgstr "Désolé, l’envoi de fichier est actuellement désactivé. Veuillez r�
 msgid "Sorry, uploading is disabled."
 msgstr "Désolé, l’envoi de fichier est désactivé."
 
-#: templates/about.html.ep:7
+#: themes/default/templates/about.html.ep:7
 msgid "The administrator can only see the file's name, its size and its mimetype (what kind of file it is: video, text, etc)."
-msgstr "L'administrateur ne peut voir que le nom du fichier, sa taille et son type mime (son type de fichier : vidéo, text, etc)."
+msgstr "L’administrateur ne peut voir que le nom du fichier, sa taille et son type mime (son type de fichier : vidéo, text, etc)."
 
 #: lib/Lufi/Controller/Mail.pm:32
 msgid "The email body can't be empty."
@@ -285,9 +290,9 @@ msgstr "Le sujet du mail ne peut être vide."
 msgid "The file has already been deleted"
 msgstr "Le fichier a déjà été supprimé"
 
-#: templates/about.html.ep:6
+#: themes/default/templates/about.html.ep:6
 msgid "The files uploaded on a Lufi instance are encrypted before the upload to the server: the administrator of the server can not see the file's content."
-msgstr "Les fichiers envoyés sur une instance de Lufi sont chiffrés avant l'envoi au serveur : l'administrateur du serveur ne peut pas voir le contenu de vos fichiers."
+msgstr "Les fichiers envoyés sur une instance de Lufi sont chiffrés avant l’envoi au serveur : l’administrateur du serveur ne peut pas voir le contenu de vos fichiers."
 
 #. (join(', ', @bad)
 #: lib/Lufi/Controller/Mail.pm:27
@@ -299,64 +304,65 @@ msgid "The mail has been sent."
 msgstr "Le mail a été envoyé."
 
 #. (url_for('/')
-#: templates/about.html.ep:15
+#: themes/default/templates/about.html.ep:15
 msgid "The original (and only for now) author is <a href=\"https://fiat-tux.fr\" class=\"classic\">Luc Didry</a>. If you want to support him, you can to it via <a href=\"https://flattr.com/submit/auto?user_id=_SKy_&amp;url=%1&amp;title=Lufi&amp;category=software\" class=\"classic\">Flattr</a> or with <a href=\"bitcoin:1CJYU2uGmPKhvithCGntyniTTe2hofpPX3?label=Lufi\" class=\"classic\">Bitcoin</a>."
-msgstr "L'auteur originel (et pour l'instant, le seul) est <a href=\"https://fiat-tux.fr\" class=\"classic\">Luc Didry</a>. Si vous avez envie de le supporter, vous pouvez le faire via <a href=\"https://flattr.com/submit/auto?user_id=_SKy_&amp;url=%1&amp;title=Lufi&amp;category=software\" class=\"classic\">Flattr</a> ou en <a href=\"bitcoin:1CJYU2uGmPKhvithCGntyniTTe2hofpPX3?label=Lufi\" class=\"classic\">Bitcoin</a>."
+msgstr "L’auteur originel (et pour l’instant, le seul) est <a href=\"https://fiat-tux.fr\" class=\"classic\">Luc Didry</a>. Si vous avez envie de le supporter, vous pouvez le faire via <a href=\"https://flattr.com/submit/auto?user_id=_SKy_&amp;url=%1&amp;title=Lufi&amp;category=software\" class=\"classic\">Flattr</a> ou en <a href=\"bitcoin:1CJYU2uGmPKhvithCGntyniTTe2hofpPX3?label=Lufi\" class=\"classic\">Bitcoin</a>."
 
-#: templates/delays.html.ep:8
+#: themes/default/templates/delays.html.ep:8
 msgid "This server sets limitations according to the file size. The expiration delay of your file will be the minimum between what you choose and the following limitations:"
 msgstr "Ce serveur impose des limitations selon la taille des fichiers. Le délai d’expiration de votre fichier sera le minimum entre ce que vous avez choisi et les limites suivantes :"
 
+#:
 msgid "Unable to get counter for %1. The file does not exists."
 msgstr "Impossible de récupérer le compteur de %1. Le fichier n’existe pas."
 
 #. ($short)
 #: lib/Lufi/Controller/Files.pm:247
 msgid "Unable to get counter for %1. The file does not exists. It will be removed from your localStorage."
-msgstr "Impossible de récupérer le compteur pour %1. Le fichier n'existe pas. Il va être supprimé de votre localStorage."
+msgstr "Impossible de récupérer le compteur pour %1. Le fichier n’existe pas. Il va être supprimé de votre localStorage."
 
 #. ($short)
 #: lib/Lufi/Controller/Files.pm:237
 msgid "Unable to get counter for %1. The token is unvalid."
 msgstr "Impossible de récupérer le compteur pour %1. Le jeton est invalide."
 
-#: templates/layouts/default.html.ep:39
+#: themes/default/templates/layouts/default.html.ep:39
 msgid "Upload files"
 msgstr "Envoyer des fichiers"
 
-#: templates/files.html.ep:18
+#: themes/default/templates/files.html.ep:19
 msgid "Uploaded at"
 msgstr "Envoyé le"
 
-#: templates/index.html.ep:72
+#: themes/default/templates/index.html.ep:72
 msgid "Uploaded files"
 msgstr "Fichiers envoyés"
 
-#: templates/about.html.ep:3
+#: themes/default/templates/about.html.ep:3
 msgid "What is Lufi?"
-msgstr "Qu'est-ce que Lufi ?"
+msgstr "Qu’est-ce que Lufi ?"
 
-#: templates/about.html.ep:14
+#: themes/default/templates/about.html.ep:14
 msgid "Who wrote this software?"
 msgstr "Qui a écrit ce logiciel ?"
 
-#: templates/about.html.ep:11
+#: themes/default/templates/about.html.ep:11
 msgid "You can see the list of your files by clicking on the \"My files\" link at the top right of this page."
 msgstr "Vous pouvez voir la liste de vos fichiers en cliquant sur le lien « Mes fichiers » en haut à droite de cette page."
 
-#: templates/about.html.ep:8
+#: themes/default/templates/about.html.ep:8
 msgid "You don't need to register yourself to upload files but be aware that, for legal reasons, your IP address will be stored when you send a file. Don't panic, it is normally the case of all sites on which you send files."
-msgstr "Vous n'avez pas besoin de vous enregistrer pour envoyer des fichiers mais notez que, pour des raisons légales, votre adresse IP sera enregistrée quand vous envoyez un fichier. Ne paniquez pas, c'est normalement le cas pour tous les sites où vous envoyez des fichiers."
+msgstr "Vous n’avez pas besoin de vous enregistrer pour envoyer des fichiers mais notez que, pour des raisons légales, votre adresse IP sera enregistrée quand vous envoyez un fichier. Ne paniquez pas, c’est normalement le cas pour tous les sites où vous envoyez des fichiers."
 
-#: templates/render.html.ep:21
+#: themes/default/templates/render.html.ep:21
 msgid "You don't seem to have a key in your URL. You won't be able to decrypt the file. Download canceled."
 msgstr "Il semble que vous n’ayez pas de clé dans votre URL. Vous ne serez pas capable de déchiffrer le fichier. Téléchargement annulé."
 
-#: templates/render.html.ep:19
+#: themes/default/templates/render.html.ep:19
 msgid "You have attempted to leave this page. The download will be canceled. Are you sure?"
 msgstr "Vous essayez de quitter la page. Le téléchargement sera annulé. Êtes-vous sûr ?"
 
-#: templates/index.html.ep:81
+#: themes/default/templates/index.html.ep:81
 msgid "You have attempted to leave this page. The upload will be canceled. Are you sure?"
 msgstr "Vous essayez de quitter la page. L’envoi sera annulé. Êtes-vous sûr ?"
 
@@ -370,33 +376,33 @@ msgid "Your file is too big: %1 (maximum size allowed: %2)"
 msgstr "Votre fichier est trop volumineux : %1 (la taille maximum autorisée est %2)"
 
 #. (format_bytes($keys[$i])
-#: templates/delays.html.ep:18
+#: themes/default/templates/delays.html.ep:18
 msgid "between %1 and %2, the file will be kept %3 day(s)."
 msgstr "entre %1 et %2, le fichier sera conservé %3 jour(s) ;"
 
 #. (format_bytes($keys[$i])
-#: templates/delays.html.ep:20
+#: themes/default/templates/delays.html.ep:20
 msgid "between %1 and %2, the file will be kept forever."
 msgstr "entre %1 et %2, le fichier sera conservé indéfiniment ;"
 
-#: templates/mail.html.ep:69
+#: themes/default/templates/mail.html.ep:69
 msgid "deadline: "
 msgstr "dernier délai pour télécharger : "
 
 #. (format_bytes($keys[$i])
-#: templates/delays.html.ep:24
+#: themes/default/templates/delays.html.ep:24
 msgid "for %1 and more, the file will be kept %2 day(s)"
 msgstr "pour %1 et plus, le fichier sera conservé %2 jour(s)."
 
 #. (format_bytes($keys[$i])
-#: templates/delays.html.ep:26
+#: themes/default/templates/delays.html.ep:26
 msgid "for %1 and more, the file will be kept forever."
 msgstr "pour %1 et plus, le fichier sera conservé indéfiniment."
 
-#: templates/index.html.ep:3
+#: themes/default/templates/index.html.ep:3
 msgid "no time limit"
 msgstr "Pas de liimite de temps"
 
-#: templates/index.html.ep:65
+#: themes/default/templates/index.html.ep:65
 msgid "or"
 msgstr "ou"

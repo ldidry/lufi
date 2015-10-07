@@ -4,7 +4,8 @@
 
 <p>
     <a href="#" onclick="purgeExpired();" class="pull-right btn btn-info btn-xs left-mg"><%= l('Purge expired files from localStorage') %></a>
-    <%= l('Only the files sent with this browser will be listed here. The informations are stored in localStorage: if you delete your localStorage data, you\'ll loose this informations.') %>
+    <%= l('Only the files sent with this browser will be listed here. The informations are stored in localStorage: if you delete your localStorage data, you\'ll loose this informations.') %><br>
+    <%= l('Rows in red means that the file has expired and is no longer available.') %>
 </p>
 
 <div class="table-responsive">
@@ -29,7 +30,7 @@
 var baseURL    = '<%== url_for('/')->to_abs() %>';
 var counterURL = '<%== url_for('counter') %>';
 var i18n       = {
-    noExpiration: '<%== url_for('counter') %>',
+    noExpiration: '<%= l('No expiration delay') %>',
 };
 document.addEventListener('DOMContentLoaded', function() {
     populateFilesTable();

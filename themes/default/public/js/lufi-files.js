@@ -69,6 +69,9 @@ function populateFilesTable() {
                 var data = JSON.parse(xhr.responseText);
                 if (data.success) {
                     document.getElementById('count-'+data.short).innerHTML = data.counter;
+                    if (data.deleted) {
+                        document.getElementById('count-'+data.short).parentNode.setAttribute('class', 'danger');
+                    }
                 } else {
                     alert(data.msg);
                     document.getElementById('count-'+data.short).parentNode.remove();
