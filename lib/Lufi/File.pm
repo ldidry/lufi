@@ -3,6 +3,7 @@ package Lufi::File;
 use Mojo::Base -base;
 use Mojo::Collection;
 use LufiDB;
+use Lufi::Slice;
 
 has 'record';
 has 'short';
