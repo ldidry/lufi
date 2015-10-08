@@ -193,7 +193,7 @@ msgstr "Si vous choisissez un délai, le fichier sera supprimé après ce délai
 
 #: themes/default/templates/mail.html.ep:6
 msgid "If you send the mail from this server, the links will be send to the server, which may lower your privacy protection."
-msgstr "Si vous envoyer le mail depuis ce serveur, les liens seront envoyés au serveur, ce qui peut diminuer la protection de la confidentialité."
+msgstr "Si vous envoyez le mail depuis ce serveur, les liens seront envoyés au serveur, ce qui peut diminuer la protection de la confidentialité."
 
 #: themes/default/templates/files.html.ep:14
 msgid "Import localStorage data"
