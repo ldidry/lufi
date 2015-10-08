@@ -5,3 +5,6 @@ lufi.db
 *.swp
 script/hypnotoad.pid
 stop-upload
+themes/*
+!themes/default
+!themes/default/*
