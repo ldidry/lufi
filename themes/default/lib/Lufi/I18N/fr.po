@@ -161,7 +161,7 @@ msgstr "Récupérez le code source sur <a href=\"https://git.framasoft.org/luc/l
 
 #: themes/default/templates/mail.html.ep:62
 msgid "Hello,\\n\\nHere's some files I want to share with you:\\n"
-msgstr "Bonjour,\\n\\nVoici quelques fichiers que je souhaite partager avec toi:\\n"
+msgstr "Bonjour,\\n\\nVoici quelques fichiers que je souhaite partager avec toi :\\n"
 
 #: themes/default/templates/mail.html.ep:21 themes/default/templates/mail.html.ep:23
 msgid "Here's some files"
