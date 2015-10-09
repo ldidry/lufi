@@ -182,6 +182,8 @@ function sliceAndUpload(randomkey, i, parts, j, delay, del_at_first_view, short)
         };
         data = JSON.stringify(data);
 
+        console.log('sending slice '+(j + 1)+'/'+parts+' of file '+file.name);¬
+
         // Verify that we have a websocket and send json
         if (window.ws.readyState === 3) {
             window.ws = spawnWebsocket(function() {
@@ -205,6 +207,8 @@ function updateProgressBar(data) {
         var parts      = data.parts;
         var short      = data.short;
         var created_at = data.created_at;
+
+        console.log('getting response for slice '+(j + 1)+'/'+parts+' of file '+data.name);
 
         var dp    = document.getElementById('progress-'+window.fc);
         var key   = dp.getAttribute('data-key');
@@ -354,5 +358,5 @@ document.addEventListener('DOMContentLoaded', function() {
     window.ws = spawnWebsocket();
 
     // Use slice of 10MB
-    window.sliceLength = 10000000;
+    window.sliceLength = 2000000;
 });

@@ -13,7 +13,7 @@ use Filesys::DfPortable;
 sub upload {
     my $c = shift;
 
-    $c->inactivity_timeout(300000);
+    $c->inactivity_timeout(30000000);
     $c->debug('Client connected');
     $c->on(
         message => sub {
