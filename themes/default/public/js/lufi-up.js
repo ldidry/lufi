@@ -147,7 +147,7 @@ function uploadFile(i, delay, del_at_first_view) {
     var r  = document.getElementById('ul-results');
     var w  = document.createElement('li');
     w.setAttribute('class', 'list-group-item');
-    w.innerHTML='<div><a href="#" onclick="destroyBlock(this);"><span class="pull-right icon icon-cancel"></span></a><p id="name-'+window.fc+'">'+file.name+'</p></div><div class="progress"><div id="progress-'+window.fc+'" style="width: 0%;" data-key="'+randomkey+'" data-name="'+file.name+'" aria-valuemax="100" aria-valuemin="0" aria-valuenow="0" role="progressbar" class="progress-bar"><span class="sr-only">'+file.name+'0%</span></div></div>';
+    w.innerHTML='<div><a href="#" onclick="destroyBlock(this);"><span class="pull-right icon icon-cancel"></span></a><p id="name-'+window.fc+'">'+file.name+'</p><p id="parts-'+window.fc+'"></p></div><div class="progress"><div id="progress-'+window.fc+'" style="width: 0%;" data-key="'+randomkey+'" data-name="'+file.name+'" aria-valuemax="100" aria-valuemin="0" aria-valuenow="0" role="progressbar" class="progress-bar"><span class="sr-only">'+file.name+'0%</span></div></div>';
     r.appendChild(w);
 
     sliceAndUpload(randomkey, i, parts, 0, delay, del_at_first_view, null);
@@ -159,6 +159,8 @@ function sliceAndUpload(randomkey, i, parts, j, delay, del_at_first_view, short)
     var slice = file.slice(j * window.sliceLength, (j + 1) * window.sliceLength, file.type);
     var fr = new FileReader();
     fr.onloadend = function() {
+        var sl        = document.getElementById('parts-'+window.fc);
+
         // Get the binary result
         var bin       = fr.result;
 
@@ -166,6 +168,7 @@ function sliceAndUpload(randomkey, i, parts, j, delay, del_at_first_view, short)
         var b         = window.btoa(bin);
 
         // Encrypt it
+        sl.innerHTML  = i18n.encrypting.replace(/XX1(.*)XX2/, (j+1)+'$1'+parts);
         var encrypted = sjcl.encrypt(randomkey, b);
 
         // Prepare json
@@ -184,12 +187,23 @@ function sliceAndUpload(randomkey, i, parts, j, delay, del_at_first_view, short)
 
         console.log('sending slice '+(j + 1)+'/'+parts+' of file '+file.name);
 
+        sl.innerHTML = i18n.sending.replace(/XX1(.*)XX2/, (j+1)+'$1'+parts);
+
         // Verify that we have a websocket and send json
         if (window.ws.readyState === 3) {
-            window.ws = spawnWebsocket(function() {
+            window.ws = spawnWebsocket(0, function() {
                 window.ws.send(data+'XXMOJOXX'+JSON.stringify(encrypted));
             });
         } else {
+            window.ws.onerror = function() {
+                console.log('Error on Websocket, waiting 10sec.');
+                setTimeout(function() {
+                    window.ws = spawnWebsocket(0, function() {
+                        console.log('sending again slice '+(j + 1)+'/'+parts+' of file '+file.name);
+                        window.ws.send(data+'XXMOJOXX'+JSON.stringify(encrypted));
+                    });
+                }, 10000);
+            };
             window.ws.send(data+'XXMOJOXX'+JSON.stringify(encrypted));
         }
     }
@@ -214,6 +228,7 @@ function updateProgressBar(data) {
         var key   = dp.getAttribute('data-key');
 
         if (j + 1 === parts) {
+            document.getElementById('parts-'+window.fc).remove();
             var n       = document.getElementById('name-'+window.fc);
             var d       = document.createElement('div');
             var url     = baseURL+'r/'+short+'#'+key;
@@ -289,26 +304,33 @@ function updateProgressBar(data) {
             sliceAndUpload(key, i, parts, j, delay, del_at_first_view, short);
         }
     } else {
-        var n       = document.getElementById('name-'+window.fc);
-        var p       = document.getElementById('progress-'+window.fc);
-        var d       = document.createElement('div');
+        addAlertOnFile(data.msg, i, delay, del_at_first_view);
+    }
+}
 
-        p.parentNode.remove();
-        d.innerHTML = data.msg;
-        d.setAttribute('class', 'alert alert-danger');
-        n.parentNode.appendChild(d);
 
-        // Upload next file
-        window.fc++;
-        i++;
-        if (i < window.files.length) {
-            uploadFile(i, sent_delay, del_at_first_view);
-        } else {
-            // We have finished
-            window.onbeforeunload = null;
-            document.getElementById('delete-day').removeAttribute('disabled');
-            document.getElementById('first-view').removeAttribute('disabled');
-        }
+
+// Write message instead in a file block
+function addAlertOnFile(msg, i, sent_delay, del_at_first_view) {
+    var n       = document.getElementById('name-'+window.fc);
+    var p       = document.getElementById('progress-'+window.fc);
+    var d       = document.createElement('div');
+
+    p.parentNode.remove();
+    d.innerHTML = msg;
+    d.setAttribute('class', 'alert alert-danger');
+    n.parentNode.appendChild(d);
+
+    // Upload next file
+    window.fc++;
+    i++;
+    if (i < window.files.length) {
+        uploadFile(i, sent_delay, del_at_first_view);
+    } else {
+        // We have finished
+        window.onbeforeunload = null;
+        document.getElementById('delete-day').removeAttribute('disabled');
+        document.getElementById('first-view').removeAttribute('disabled');
     }
 }
 
@@ -327,7 +349,10 @@ function handleDragOver(evt) {
 }
 
 // Spawn websocket
-function spawnWebsocket(callback) {
+function spawnWebsocket(i, callback) {
+    if (i === undefined || i === null) {
+        i = 0;
+    }
     var ws       = new WebSocket(ws_url);
     ws.onopen    = function() {
         console.log('Connection is established!');
@@ -342,6 +367,12 @@ function spawnWebsocket(callback) {
         updateProgressBar(JSON.parse(e.data));
     }
     ws.onerror = function() {
+        if (i < 5 && callback !== undefined) {
+            setTimeout(function() {
+                console.log('Retrying to send file '+i);
+                window.ws = spawnWebsocket(i + 1, callback);
+            }, 10000);
+        }
         console.log('error');
     }
     return ws;
@@ -355,7 +386,7 @@ document.addEventListener('DOMContentLoaded', function() {
     dropZone.addEventListener('drop', handleDrop, false);
 
     // Set websocket
-    window.ws = spawnWebsocket();
+    window.ws = spawnWebsocket(0, function() {return null;});
 
     // Use slice of 10MB
     window.sliceLength = 2000000;

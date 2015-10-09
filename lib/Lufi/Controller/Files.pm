@@ -82,27 +82,33 @@ sub upload {
                     );
                     $f->write;
                 }
-                # Create directory
-                my $dir = catdir('files', $f->short);
-                mkdir($dir, 0700) unless (-d $dir);
 
-                # Create slice file
-                my $file = catfile($dir, $json->{part}.'.part');
-                my $s    = Lufi::Slice->new(
-                    short => $f->short,
-                    j     => $json->{part},
-                    path  => $file
-                );
-                spurt $text, $file;
-                push @{$f->slices}, $s;
+                # If we already have a part, it's a resend because the websocket has been broken
+                # In this case, we don't need to rewrite the file
+                unless ($f->slices->grep(sub { $_->j == $json->{part} })->size) {
+                    # Create directory
+                    my $dir = catdir('files', $f->short);
+                    mkdir($dir, 0700) unless (-d $dir);
 
-                if (($json->{part} + 1) == $json->{total}) {
-                    $f->complete(1);
-                    $f->created_at(time);
-                    $c->provisioning;
+                    # Create slice file
+                    my $file = catfile($dir, $json->{part}.'.part');
+                    my $s    = Lufi::Slice->new(
+                        short => $f->short,
+                        j     => $json->{part},
+                        path  => $file
+                    );
+                    spurt $text, $file;
+                    push @{$f->slices}, $s;
+
+                    if (($json->{part} + 1) == $json->{total}) {
+                        $f->complete(1);
+                        $f->created_at(time);
+                    }
+
+                    $f->write;
                 }
 
-                $f->write;
+                $c->provisioning;
 
                 $ws->send(sprintf('{"success": true, "i": %d, "j": %d, "parts": %d, "short": "%s", "name": "%s", "size": %d, "del_at_first_view": %s, "created_at": %d, "delay": %d, "token": "%s", "sent_delay": %d}', $json->{i}, $json->{part}, $json->{total}, $f->short, $f->filename, $f->filesize, (($f->delete_at_first_view) ? 'true' : 'false'), $f->created_at, $f->delete_at_day, $f->mod_token, $json->{delay}));
             }

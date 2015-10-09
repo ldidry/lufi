@@ -71,11 +71,11 @@ msgstr "Copier tous les liens dans le presse-papier"
 msgid "Copy to clipboard"
 msgstr "Copier dans le presse-papier"
 
-#: lib/Lufi/Controller/Files.pm:284
+#: lib/Lufi/Controller/Files.pm:288
 msgid "Could not find the file. Are you sure of the URL and the token?"
 msgstr "Impossible de retrouver le fichier. Êtes-vous sûr(e) que l’URL et le jeton sont les bons ?"
 
-#: lib/Lufi/Controller/Files.pm:212
+#: lib/Lufi/Controller/Files.pm:216
 msgid "Could not find the file. Are you sure of the URL?"
 msgstr "Impossible de retrouver le fichier. Êtes-vous sûr(e) que l’URL est la bonne ?"
 
@@ -123,19 +123,23 @@ msgstr "Sujet du mail"
 msgid "Emails"
 msgstr "Mails"
 
-#: lib/Lufi/Controller/Files.pm:148
+#: themes/default/templates/index.html.ep:87
+msgid "Encrypting part XX1 of XX2"
+msgstr "Chiffrement du fragment XX1 sur XX2"
+
+#: lib/Lufi/Controller/Files.pm:152
 msgid "Error: the file existed but has been deleted."
 msgstr "Erreur : le fichier existait mais a été supprimé"
 
-#: lib/Lufi/Controller/Files.pm:189
+#: lib/Lufi/Controller/Files.pm:193
 msgid "Error: the file has not been send entirely."
 msgstr "Erreur : le fichier n’a pas été envoyé dans son intégralité"
 
-#: lib/Lufi/Controller/Files.pm:194
+#: lib/Lufi/Controller/Files.pm:198
 msgid "Error: unable to find the file. Are you sure of your URL?"
 msgstr "Erreur : impossible de retrouver le fichier. Êtes-vous sûr(e) de l’URL ?"
 
-#: themes/default/templates/index.html.ep:87
+#: themes/default/templates/index.html.ep:88
 msgid "Expiration:"
 msgstr "Expiration :"
 
@@ -147,7 +151,7 @@ msgstr "Expire le"
 msgid "Export localStorage data"
 msgstr "Exporter les données localStorage"
 
-#: lib/Lufi/Controller/Files.pm:268
+#: lib/Lufi/Controller/Files.pm:272
 msgid "File deleted"
 msgstr "Fichier supprimé"
 
@@ -167,11 +171,11 @@ msgstr "Bonjour,\\n\\nVoici quelques fichiers que je souhaite partager avec toi�
 msgid "Here's some files"
 msgstr "Voici quelques fichiers"
 
-#: themes/default/templates/index.html.ep:89
+#: themes/default/templates/index.html.ep:90
 msgid "Hit Enter, then Ctrl+C to copy all the download links"
 msgstr "Appuyez sur la touche Entrée puis faites Ctrl+C pour copier tous les liens de téléchargement"
 
-#: themes/default/templates/index.html.ep:88
+#: themes/default/templates/index.html.ep:89
 msgid "Hit Enter, then Ctrl+C to copy the download link"
 msgstr "Appuyez sur la touche Entrée puis faites Ctrl+C pour copier le lien de téléchargement"
 
@@ -224,11 +228,11 @@ msgid "My files"
 msgstr "Mes fichiers"
 
 #. (format_bytes($json->{size})
-#: lib/Lufi/Controller/Files.pm:47
+#: lib/Lufi/Controller/Files.pm:45
 msgid "No enough space available on the server for this file (size: %1)."
 msgstr "Espace disque insuffisant sur le serveur pour ce fichier (taille du fichier: %1)."
 
-#: themes/default/templates/files.html.ep:41 themes/default/templates/index.html.ep:91
+#: themes/default/templates/files.html.ep:41 themes/default/templates/index.html.ep:92
 msgid "No expiration delay"
 msgstr "Pas de délai d’expiration"
 
@@ -261,7 +265,7 @@ msgstr "Supprimer du localStorage les fichiers expirés"
 msgid "Rows in red means that the file has expired and is no longer available."
 msgstr "Les lignes en rouge indiquent que le fichier a expiré et n’est plus disponible."
 
-#: themes/default/templates/index.html.ep:90
+#: themes/default/templates/index.html.ep:91
 msgid "Send all links by email"
 msgstr "Envoyer tous les liens par mail"
 
@@ -273,6 +277,10 @@ msgstr "Envoyer avec ce serveur"
 msgid "Send with your own mail software"
 msgstr "Envoyer avec votre propre logiciel de mail"
 
+#: themes/default/templates/index.html.ep:93
+msgid "Sending part XX1 of XX2"
+msgstr "Envoi du fragment XX1 sur XX2"
+
 #. (url_for('/')
 #: themes/default/templates/mail.html.ep:75
 msgid "Share your files in total privacy on %1"
@@ -282,7 +290,7 @@ msgstr "Partagez vos fichiers en toute confidentialité sur %1"
 msgid "Sorry, the uploading is currently disabled. Please try again later."
 msgstr "Désolé, l’envoi de fichier est actuellement désactivé. Veuillez réessayer plus tard."
 
-#: lib/Lufi/Controller/Files.pm:35
+#: lib/Lufi/Controller/Files.pm:33
 msgid "Sorry, uploading is disabled."
 msgstr "Désolé, l’envoi de fichier est désactivé."
 
@@ -302,7 +310,7 @@ msgstr "Le corps du mail ne peut être vide."
 msgid "The email subject can't be empty."
 msgstr "Le sujet du mail ne peut être vide."
 
-#: lib/Lufi/Controller/Files.pm:265
+#: lib/Lufi/Controller/Files.pm:269
 msgid "The file has already been deleted"
 msgstr "Le fichier a déjà été supprimé"
 
@@ -333,12 +341,12 @@ msgid "Unable to get counter for %1. The file does not exists."
 msgstr "Impossible de récupérer le compteur de %1. Le fichier n’existe pas."
 
 #. ($short)
-#: lib/Lufi/Controller/Files.pm:249
+#: lib/Lufi/Controller/Files.pm:253
 msgid "Unable to get counter for %1. The file does not exists. It will be removed from your localStorage."
 msgstr "Impossible de récupérer le compteur pour %1. Le fichier n’existe pas. Il va être supprimé de votre localStorage."
 
 #. ($short)
-#: lib/Lufi/Controller/Files.pm:239
+#: lib/Lufi/Controller/Files.pm:243
 msgid "Unable to get counter for %1. The token is unvalid."
 msgstr "Impossible de récupérer le compteur pour %1. Le jeton est invalide."
 
@@ -387,7 +395,7 @@ msgid "You must give email addresses."
 msgstr "Vous devez envoyer des adresses mail."
 
 #. (format_bytes($json->{size})
-#: lib/Lufi/Controller/Files.pm:41
+#: lib/Lufi/Controller/Files.pm:39
 msgid "Your file is too big: %1 (maximum size allowed: %2)"
 msgstr "Votre fichier est trop volumineux : %1 (la taille maximum autorisée est %2)"
 
