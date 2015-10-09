@@ -182,7 +182,7 @@ function sliceAndUpload(randomkey, i, parts, j, delay, del_at_first_view, short)
         };
         data = JSON.stringify(data);
 
-        console.log('sending slice '+(j + 1)+'/'+parts+' of file '+file.name);¬
+        console.log('sending slice '+(j + 1)+'/'+parts+' of file '+file.name);
 
         // Verify that we have a websocket and send json
         if (window.ws.readyState === 3) {
