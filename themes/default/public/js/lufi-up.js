@@ -195,6 +195,15 @@ function sliceAndUpload(randomkey, i, parts, j, delay, del_at_first_view, short)
                 window.ws.send(data+'XXMOJOXX'+JSON.stringify(encrypted));
             });
         } else {
+            window.ws.onclose = function() {
+                console.log('Websocket closed, waiting 10sec.');
+                setTimeout(function() {
+                    window.ws = spawnWebsocket(0, function() {
+                        console.log('sending again slice '+(j + 1)+'/'+parts+' of file '+file.name);
+                        window.ws.send(data+'XXMOJOXX'+JSON.stringify(encrypted));
+                    });
+                }, 10000);
+            };
             window.ws.onerror = function() {
                 console.log('Error on Websocket, waiting 10sec.');
                 setTimeout(function() {
@@ -228,6 +237,14 @@ function updateProgressBar(data) {
         var key   = dp.getAttribute('data-key');
 
         if (j + 1 === parts) {
+            //
+            window.ws.onclose = function() {
+                console.log('Connection is closed.');
+            };
+            window.ws.onerror = function() {
+                console.log('Error on WebSocket connection but file has been fully send, so we don\'t care.');
+            }
+
             document.getElementById('parts-'+window.fc).remove();
             var n       = document.getElementById('name-'+window.fc);
             var d       = document.createElement('div');
