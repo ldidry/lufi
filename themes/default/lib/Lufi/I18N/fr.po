@@ -71,11 +71,11 @@ msgstr "Copier tous les liens dans le presse-papier"
 msgid "Copy to clipboard"
 msgstr "Copier dans le presse-papier"
 
-#: lib/Lufi/Controller/Files.pm:288
+#: lib/Lufi/Controller/Files.pm:298
 msgid "Could not find the file. Are you sure of the URL and the token?"
 msgstr "Impossible de retrouver le fichier. Êtes-vous sûr(e) que l’URL et le jeton sont les bons ?"
 
-#: lib/Lufi/Controller/Files.pm:216
+#: lib/Lufi/Controller/Files.pm:226
 msgid "Could not find the file. Are you sure of the URL?"
 msgstr "Impossible de retrouver le fichier. Êtes-vous sûr(e) que l’URL est la bonne ?"
 
@@ -127,15 +127,15 @@ msgstr "Mails"
 msgid "Encrypting part XX1 of XX2"
 msgstr "Chiffrement du fragment XX1 sur XX2"
 
-#: lib/Lufi/Controller/Files.pm:152
+#: lib/Lufi/Controller/Files.pm:162
 msgid "Error: the file existed but has been deleted."
 msgstr "Erreur : le fichier existait mais a été supprimé"
 
-#: lib/Lufi/Controller/Files.pm:193
+#: lib/Lufi/Controller/Files.pm:203
 msgid "Error: the file has not been send entirely."
 msgstr "Erreur : le fichier n’a pas été envoyé dans son intégralité"
 
-#: lib/Lufi/Controller/Files.pm:198
+#: lib/Lufi/Controller/Files.pm:208
 msgid "Error: unable to find the file. Are you sure of your URL?"
 msgstr "Erreur : impossible de retrouver le fichier. Êtes-vous sûr(e) de l’URL ?"
 
@@ -151,7 +151,7 @@ msgstr "Expire le"
 msgid "Export localStorage data"
 msgstr "Exporter les données localStorage"
 
-#: lib/Lufi/Controller/Files.pm:272
+#: lib/Lufi/Controller/Files.pm:282
 msgid "File deleted"
 msgstr "Fichier supprimé"
 
@@ -228,7 +228,7 @@ msgid "My files"
 msgstr "Mes fichiers"
 
 #. (format_bytes($json->{size})
-#: lib/Lufi/Controller/Files.pm:45
+#: lib/Lufi/Controller/Files.pm:49
 msgid "No enough space available on the server for this file (size: %1)."
 msgstr "Espace disque insuffisant sur le serveur pour ce fichier (taille du fichier: %1)."
 
@@ -290,7 +290,7 @@ msgstr "Partagez vos fichiers en toute confidentialité sur %1"
 msgid "Sorry, the uploading is currently disabled. Please try again later."
 msgstr "Désolé, l’envoi de fichier est actuellement désactivé. Veuillez réessayer plus tard."
 
-#: lib/Lufi/Controller/Files.pm:33
+#: lib/Lufi/Controller/Files.pm:37
 msgid "Sorry, uploading is disabled."
 msgstr "Désolé, l’envoi de fichier est désactivé."
 
@@ -310,7 +310,7 @@ msgstr "Le corps du mail ne peut être vide."
 msgid "The email subject can't be empty."
 msgstr "Le sujet du mail ne peut être vide."
 
-#: lib/Lufi/Controller/Files.pm:269
+#: lib/Lufi/Controller/Files.pm:279
 msgid "The file has already been deleted"
 msgstr "Le fichier a déjà été supprimé"
 
@@ -332,6 +332,10 @@ msgstr "Le mail a été envoyé."
 msgid "The original (and only for now) author is <a href=\"https://fiat-tux.fr\" class=\"classic\">Luc Didry</a>. If you want to support him, you can to it via <a href=\"https://flattr.com/submit/auto?user_id=_SKy_&amp;url=%1&amp;title=Lufi&amp;category=software\" class=\"classic\">Flattr</a> or with <a href=\"bitcoin:1CJYU2uGmPKhvithCGntyniTTe2hofpPX3?label=Lufi\" class=\"classic\">Bitcoin</a>."
 msgstr "L’auteur originel (et pour l’instant, le seul) est <a href=\"https://fiat-tux.fr\" class=\"classic\">Luc Didry</a>. Si vous avez envie de le supporter, vous pouvez le faire via <a href=\"https://flattr.com/submit/auto?user_id=_SKy_&amp;url=%1&amp;title=Lufi&amp;category=software\" class=\"classic\">Flattr</a> ou en <a href=\"bitcoin:1CJYU2uGmPKhvithCGntyniTTe2hofpPX3?label=Lufi\" class=\"classic\">Bitcoin</a>."
 
+#: lib/Lufi/Controller/Files.pm:122
+msgid "The server was unable to find the file record to add your file part to. Please, contact the administrator."
+msgstr "Le serveur a été incapable de retrouver l’enregistrement du fichier auquel ajouter votre fragment de fichier. Veuillez contacter l'administrateur."
+
 #: themes/default/templates/delays.html.ep:8
 msgid "This server sets limitations according to the file size. The expiration delay of your file will be the minimum between what you choose and the following limitations:"
 msgstr "Ce serveur impose des limitations selon la taille des fichiers. Le délai d’expiration de votre fichier sera le minimum entre ce que vous avez choisi et les limites suivantes :"
@@ -341,12 +345,12 @@ msgid "Unable to get counter for %1. The file does not exists."
 msgstr "Impossible de récupérer le compteur de %1. Le fichier n’existe pas."
 
 #. ($short)
-#: lib/Lufi/Controller/Files.pm:253
+#: lib/Lufi/Controller/Files.pm:263
 msgid "Unable to get counter for %1. The file does not exists. It will be removed from your localStorage."
 msgstr "Impossible de récupérer le compteur pour %1. Le fichier n’existe pas. Il va être supprimé de votre localStorage."
 
 #. ($short)
-#: lib/Lufi/Controller/Files.pm:243
+#: lib/Lufi/Controller/Files.pm:253
 msgid "Unable to get counter for %1. The token is unvalid."
 msgstr "Impossible de récupérer le compteur pour %1. Le jeton est invalide."
 
@@ -395,7 +399,7 @@ msgid "You must give email addresses."
 msgstr "Vous devez envoyer des adresses mail."
 
 #. (format_bytes($json->{size})
-#: lib/Lufi/Controller/Files.pm:39
+#: lib/Lufi/Controller/Files.pm:43
 msgid "Your file is too big: %1 (maximum size allowed: %2)"
 msgstr "Votre fichier est trop volumineux : %1 (la taille maximum autorisée est %2)"
 

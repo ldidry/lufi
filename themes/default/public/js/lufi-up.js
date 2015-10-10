@@ -231,7 +231,7 @@ function updateProgressBar(data) {
         var short      = data.short;
         var created_at = data.created_at;
 
-        console.log('getting response for slice '+(j + 1)+'/'+parts+' of file '+data.name);
+        console.log('getting response for slice '+(j + 1)+'/'+parts+' of file '+data.name+' ('+data.duration+' sec)');
 
         var dp    = document.getElementById('progress-'+window.fc);
         var key   = dp.getAttribute('data-key');
