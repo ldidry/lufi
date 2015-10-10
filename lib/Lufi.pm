@@ -15,7 +15,7 @@ sub startup {
             provis_step   => 5,
             length        => 10,
             token_length  => 32,
-            secret        => ['hfudsifdsih'],
+            secrets       => ['hfudsifdsih'],
             default_delay => 0,
             max_delay     => 0,
             mail          => {
