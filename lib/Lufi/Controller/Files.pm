@@ -14,16 +14,20 @@ sub upload {
     my $c = shift;
 
     $c->inactivity_timeout(30000000);
-    $c->debug('Client connected');
+
+    $c->app->log->debug('Client connected');
+
     $c->on(
         message => sub {
             my ($ws, $text) = @_;
+
+            my $begin = time;
 
             my ($json) = split('XXMOJOXX', $text, 2);
             $json = encode 'UTF-8', $json;
             $json = decode_json $json;
 
-            $c->debug('Got message');
+            $c->app->log->debug('Got message');
 
             my $stop = 0;
 
@@ -40,7 +44,7 @@ sub upload {
                 }
             }
             # Check that we have enough space (multiplying by 2 since it's encrypted, it takes more place that the original file)
-            elsif (($json->{size} * 2) >= dfportable('files')->{bavail}) {
+            elsif ($json->{part} == 0 && ($json->{size} * 2) >= dfportable('files')->{bavail}) {
                 $stop = 1;
                 $c->send(sprintf('{"success": false, "msg":"'.$c->l('No enough space available on the server for this file (size: %1).', format_bytes($json->{size})).'", "sent_delay": %d, "i": %d}', $json->{delay}, $json->{i}));
             }
@@ -49,7 +53,7 @@ sub upload {
                 my $f;
                 if (defined($json->{id})) {
                     my @records = LufiDB::Files->select('WHERE short = ?', $json->{id});
-                    $f          = Lufi::File->new(record => $records[0]);
+                    $f          = Lufi::File->new(record => $records[0]) if scalar @records;
                 } else {
                     my $delay;
 
@@ -83,40 +87,46 @@ sub upload {
                     $f->write;
                 }
 
-                # If we already have a part, it's a resend because the websocket has been broken
-                # In this case, we don't need to rewrite the file
-                unless ($f->slices->grep(sub { $_->j == $json->{part} })->size) {
-                    # Create directory
-                    my $dir = catdir('files', $f->short);
-                    mkdir($dir, 0700) unless (-d $dir);
+                # This check is just in case we didn't succeed to find a corresponding record
+                # It normally can't happen
+                if (defined $f) {
+                    # If we already have a part, it's a resend because the websocket has been broken
+                    # In this case, we don't need to rewrite the file
+                    unless ($f->slices->grep(sub { $_->j == $json->{part} })->size) {
+                        # Create directory
+                        my $dir = catdir('files', $f->short);
+                        mkdir($dir, 0700) unless (-d $dir);
 
-                    # Create slice file
-                    my $file = catfile($dir, $json->{part}.'.part');
-                    my $s    = Lufi::Slice->new(
-                        short => $f->short,
-                        j     => $json->{part},
-                        path  => $file
-                    );
-                    spurt $text, $file;
-                    push @{$f->slices}, $s;
+                        # Create slice file
+                        my $file = catfile($dir, $json->{part}.'.part');
+                        my $s    = Lufi::Slice->new(
+                            short => $f->short,
+                            j     => $json->{part},
+                            path  => $file
+                        );
+                        spurt $text, $file;
+                        push @{$f->slices}, $s;
+                        $s->write;
 
-                    if (($json->{part} + 1) == $json->{total}) {
-                        $f->complete(1);
-                        $f->created_at(time);
+                        if (($json->{part} + 1) == $json->{total}) {
+                            $f->complete(1);
+                            $f->created_at(time);
+                            $f->write;
+                        }
                     }
 
-                    $f->write;
+                    $c->provisioning;
+
+                    $ws->send(sprintf('{"success": true, "i": %d, "j": %d, "parts": %d, "short": "%s", "name": "%s", "size": %d, "del_at_first_view": %s, "created_at": %d, "delay": %d, "token": "%s", "sent_delay": %d, "duration": %d}', $json->{i}, $json->{part}, $json->{total}, $f->short, $f->filename, $f->filesize, (($f->delete_at_first_view) ? 'true' : 'false'), $f->created_at, $f->delete_at_day, $f->mod_token, $json->{delay}, time - $begin));
+                } else {
+                    $ws->send(sprintf('{"success": false, "msg":"'.$c->l('The server was unable to find the file record to add your file part to. Please, contact the administrator.').'", "sent_delay": %d, "i": %d}', $json->{delay}, $json->{i}));
                 }
-
-                $c->provisioning;
-
-                $ws->send(sprintf('{"success": true, "i": %d, "j": %d, "parts": %d, "short": "%s", "name": "%s", "size": %d, "del_at_first_view": %s, "created_at": %d, "delay": %d, "token": "%s", "sent_delay": %d}', $json->{i}, $json->{part}, $json->{total}, $f->short, $f->filename, $f->filesize, (($f->delete_at_first_view) ? 'true' : 'false'), $f->created_at, $f->delete_at_day, $f->mod_token, $json->{delay}));
             }
         }
     );
     $c->on(
         finish => sub {
-            $c->debug('Client disconnected');
+            $c->app->log->debug('Client disconnected');
         }
     );
 }
@@ -126,7 +136,7 @@ sub download {
     my $short = $c->param('short');
 
     $c->inactivity_timeout(300000);
-    $c->debug('Client connected');
+    $c->app->log->debug('Client connected');
 
     my @records = LufiDB::Files->select('WHERE short = ?', $short);
 
@@ -183,7 +193,7 @@ sub download {
             );
             $c->on(
                 finish => sub {
-                    $c->debug('Client disconnected');
+                    $c->app->log->debug('Client disconnected');
                 }
             );
         } else {

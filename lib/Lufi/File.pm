@@ -55,13 +55,6 @@ sub write {
         complete             => $c->complete,
     );
 
-    $c->slices->each(
-        sub {
-            my ($e, $num) = @_;
-            $e->write;
-        }
-    );
-
     return $c;
 }
 
@@ -98,9 +91,8 @@ sub _slurp {
     $c->complete($c->record->complete)                         if defined $c->record->complete;
 
     my @slices = LufiDB::Slices->select('WHERE short = ? ORDER BY j ASC', $c->short);
-    for my $s (@slices) {
-        push @{$c->slices}, Lufi::Slice->new(record => $s);
-    }
+
+    $c->slices(Mojo::Collection->new(map { Lufi::Slice->new(record => $_) } @slices));
 
     return $c;
 }
