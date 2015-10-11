@@ -12,3 +12,4 @@ requires 'Email::Valid';
 requires 'Number::Bytes::Human';
 requires 'Filesys::DfPortable';
 requires 'Switch';
+requires 'Data::Entropy';

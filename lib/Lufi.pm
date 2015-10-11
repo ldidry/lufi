@@ -2,6 +2,7 @@
 package Lufi;
 use Mojo::Base 'Mojolicious';
 use LufiDB;
+use Data::Entropy qw(entropy_source);
 
 $ENV{MOJO_MAX_WEBSOCKET_SIZE} = 100485760; # 10 * 1024 * 1024 = 10MiB
 
@@ -101,7 +102,7 @@ sub startup {
             my @chars  = ('a'..'z','A'..'Z','0'..'9', '-', '_');
             my $result = '';
             foreach (1..$length) {
-                $result .= $chars[rand scalar(@chars)];
+                $result .= $chars[entropy_source->get_int(scalar(@chars))];
             }
             return $result;
         }
