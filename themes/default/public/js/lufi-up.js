@@ -127,13 +127,18 @@ function handleFiles(f) {
     uploadFile(0, delay.value, del_at_first_view.checked);
 }
 
+// Create random key
+function genRandomKey() {
+    return sjcl.codec.base64.fromBits(sjcl.random.randomWords(8, 10), 0);
+}
+
 // Create progress bar and call slicing and uploading function
 function uploadFile(i, delay, del_at_first_view) {
     // Prevent exiting page before full upload
     window.onbeforeunload = confirmExit;
 
     // Create a random key, different for all files
-    var randomkey = sjcl.codec.base64.fromBits(sjcl.random.randomWords(8, 0), 0);
+    var randomkey = genRandomKey();
 
     // Get the file and properties
     var file  = window.files[i];
