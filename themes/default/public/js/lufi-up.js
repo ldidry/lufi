@@ -382,7 +382,7 @@ function spawnWebsocket(i, callback) {
     ws.onerror = function() {
         console.log('error');
         if (i < 5 && callback !== undefined) {
-            console.log('Retrying to send file '+i);
+            console.log('Retrying to send file (try '+i+' of 5)');
             window.ws = spawnWebsocket(i + 1, callback);
         }
     }
