@@ -197,21 +197,17 @@ function sliceAndUpload(randomkey, i, parts, j, delay, del_at_first_view, short)
         } else {
             window.ws.onclose = function() {
                 console.log('Websocket closed, waiting 10sec.');
-                setTimeout(function() {
-                    window.ws = spawnWebsocket(0, function() {
-                        console.log('sending again slice '+(j + 1)+'/'+parts+' of file '+file.name);
-                        window.ws.send(data+'XXMOJOXX'+JSON.stringify(encrypted));
-                    });
-                }, 10000);
+                window.ws = spawnWebsocket(0, function() {
+                    console.log('sending again slice '+(j + 1)+'/'+parts+' of file '+file.name);
+                    window.ws.send(data+'XXMOJOXX'+JSON.stringify(encrypted));
+                });
             };
             window.ws.onerror = function() {
                 console.log('Error on Websocket, waiting 10sec.');
-                setTimeout(function() {
-                    window.ws = spawnWebsocket(0, function() {
-                        console.log('sending again slice '+(j + 1)+'/'+parts+' of file '+file.name);
-                        window.ws.send(data+'XXMOJOXX'+JSON.stringify(encrypted));
-                    });
-                }, 10000);
+                window.ws = spawnWebsocket(0, function() {
+                    console.log('sending again slice '+(j + 1)+'/'+parts+' of file '+file.name);
+                    window.ws.send(data+'XXMOJOXX'+JSON.stringify(encrypted));
+                });
             };
             window.ws.send(data+'XXMOJOXX'+JSON.stringify(encrypted));
         }
@@ -384,13 +380,11 @@ function spawnWebsocket(i, callback) {
         updateProgressBar(JSON.parse(e.data));
     }
     ws.onerror = function() {
-        if (i < 5 && callback !== undefined) {
-            setTimeout(function() {
-                console.log('Retrying to send file '+i);
-                window.ws = spawnWebsocket(i + 1, callback);
-            }, 10000);
-        }
         console.log('error');
+        if (i < 5 && callback !== undefined) {
+            console.log('Retrying to send file '+i);
+            window.ws = spawnWebsocket(i + 1, callback);
+        }
     }
     return ws;
 }
