@@ -51,6 +51,11 @@ msgstr "À propos"
 msgid "As Lufi is a free software licensed under of the terms of the <a href=\"https://gnu.org/licenses/agpl.html\" class=\"classic\">AGPLv3</a>, you can install it on you own server. Have a look on the <a href=\"https://git.framasoft.org/luc/lufi/wikis/home\" class=\"classic\">Wiki</a> for the procedure."
 msgstr "Comme Lufi est un logiciel libre soumis aux termes de la license <a href=\"https://gnu.org/licenses/agpl.html\" class=\"classic\">AGPLv3</a>, vous pouvez l’installer sur votre propre serveur. Veuillez consulter le <a href=\"https://git.framasoft.org/luc/lufi/wikis/home\" class=\"classic\">Wiki</a> pour voir la procédure."
 
+#. (stash('f')
+#: themes/default/templates/render.html.ep:22
+msgid "Asking for file part XX1 of %1"
+msgstr "Demande de récupération du fragment de fichier XX1 sur %1"
+
 #: themes/default/templates/about.html.ep:21
 msgid "Back to homepage"
 msgstr "Retour à la page d’accueil"
@@ -95,7 +100,7 @@ msgstr "Lien de suppression"
 msgid "Don't worry: if a user begins to download the file before the expiration and the download ends after the expiration, he will be able to get the file."
 msgstr "Ne vous inquiétez pas : si un utilisateur commence à télécharger le fichier avant son expiration et que le téléchargement se termine après l’expiration, l’utilisateur pourra quand même récupérer le fichier."
 
-#: themes/default/templates/index.html.ep:86 themes/default/templates/render.html.ep:20
+#: themes/default/templates/index.html.ep:86 themes/default/templates/render.html.ep:21
 msgid "Download"
 msgstr "Télécharger"
 
@@ -211,7 +216,7 @@ msgstr "Important : plus d’informations sur les délais"
 msgid "Information about delays"
 msgstr "Information sur les délais"
 
-#: themes/default/templates/render.html.ep:18
+#: themes/default/templates/render.html.ep:19
 msgid "It seems that the key in your URL is incorrect. Please, verify your URL."
 msgstr "Il semble que la clé dans votre URL soit incorrecte. Veuillez vérifier votre URL."
 
@@ -382,11 +387,11 @@ msgstr "Vous pouvez voir la liste de vos fichiers en cliquant sur le lien « Mes
 msgid "You don't need to register yourself to upload files but be aware that, for legal reasons, your IP address will be stored when you send a file. Don't panic, it is normally the case of all sites on which you send files."
 msgstr "Vous n’avez pas besoin de vous enregistrer pour envoyer des fichiers mais notez que, pour des raisons légales, votre adresse IP sera enregistrée quand vous envoyez un fichier. Ne paniquez pas, c’est normalement le cas pour tous les sites où vous envoyez des fichiers."
 
-#: themes/default/templates/render.html.ep:21
+#: themes/default/templates/render.html.ep:23
 msgid "You don't seem to have a key in your URL. You won't be able to decrypt the file. Download canceled."
 msgstr "Il semble que vous n’ayez pas de clé dans votre URL. Vous ne serez pas capable de déchiffrer le fichier. Téléchargement annulé."
 
-#: themes/default/templates/render.html.ep:19
+#: themes/default/templates/render.html.ep:20
 msgid "You have attempted to leave this page. The download will be canceled. Are you sure?"
 msgstr "Vous essayez de quitter la page. Le téléchargement sera annulé. Êtes-vous sûr(e) ?"
 

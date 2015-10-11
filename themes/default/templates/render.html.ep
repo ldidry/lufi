@@ -7,6 +7,7 @@
     <div class="alert alert-danger"><%= stash('msg') %></div>
     % } else {
     <p id="please-wait"><%= l('Please wait while we are getting your file') %></p>
+    <p id="loading"></p>
     <div class="progress" id="pbd">
         <div id="pb" class="progress-bar progress-bar-info progress-bar-striped active" role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100" style="width: 0;">
             <span id="pbt" class="sr-only">0%</span>
@@ -18,6 +19,7 @@ var i18n   = {
     badkey:      '<%= l('It seems that the key in your URL is incorrect. Please, verify your URL.') %>',
     confirmExit: '<%= l('You have attempted to leave this page. The download will be canceled. Are you sure?') %>',
     download:    '<%= l('Download') %>',
+    loading:     '<%= l('Asking for file part XX1 of %1', stash('f')->nbslices) %>',
     nokey:       '<%= l('You don\'t seem to have a key in your URL. You won\'t be able to decrypt the file. Download canceled.') %>',
 }
 % end

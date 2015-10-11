@@ -393,8 +393,9 @@
     "labels.less",
     "alerts.less",
     "progress-bars.less",
-    "list-group.less"
+    "list-group.less",
+    "responsive-embed.less"
   ],
   "js": [],
-  "customizerUrl": "http://getbootstrap.com/customize/?id=524bae2807d3b239cf66"
+  "customizerUrl": "http://getbootstrap.com/customize/?id=a91c594ef35f35061756"
 }

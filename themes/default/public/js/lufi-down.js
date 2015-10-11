@@ -46,6 +46,9 @@ function spawnWebsocket(pa) {
     var ws       = new WebSocket(ws_url);
     ws.onopen    = function() {
         console.log('Connection is established!');
+
+        var l    = document.getElementById('loading');
+        l.innerHTML = i18n.loading.replace(/XX1/, pa);
         window.ws.send('{"part":'+pa+'}');
     };
     ws.onclose   = function() {
@@ -79,15 +82,29 @@ function spawnWebsocket(pa) {
                     var blob = new File(a, data.name, {type: data.type});
 
                     document.getElementById('please-wait').remove();
+                    document.getElementById('loading').remove();
 
                     var pbd  = document.getElementById('pbd');
                     pbd.setAttribute('class', '');
-                    pbd.innerHTML = '<a href="'+URL.createObjectURL(blob)+'" class="btn btn-primary" download="'+data.name+'">'+i18n.download+'</a>';
+                    var blobURL   = URL.createObjectURL(blob);
+                    var innerHTML = '<p><a href="'+blobURL+'" class="btn btn-primary" download="'+data.name+'">'+i18n.download+'</a></p>';
+
+                    if (data.type.match(/^image\//) !== null) {
+                        innerHTML += '<img id="render-image" class="img-responsive" alt="'+data.name+'" src="'+blobURL+'">';
+                    } else if (data.type.match(/^video\//) !== null) {
+                        innerHTML += '<div class="embed-responsive embed-responsive-16by9">'
+                            +'<video class="embed-responsive-item" controls>'
+                            +'    <source src="'+blobURL+'" type="'+data.type+'">'
+                            +'</video></div>';
+                    }
+                    pbd.innerHTML = innerHTML;
 
                     window.ws.send('{"ended":true}');
                     window.onbeforeunload = null;
                     window.completed = true;
                 } else {
+                    var l    = document.getElementById('loading');
+                    l.innerHTML = i18n.loading.replace(/XX1/, (data.part + 1));
                     if (ws.readyState === 3) {
                         window.ws = spawnWebsocket(data.part + 1);
                     } else {
