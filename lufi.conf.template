@@ -104,9 +104,16 @@
 
     # define a path to the SQLite database
     # you can define it relative to lufi directory or set an absolute path
-    # remember that it has to be in a directory writable by Lutim user
+    # remember that it has to be in a directory writable by Lufi user
     # optional, default is lufi.db
     #db_path           => 'lufi.db',
+
+    # define a path to the upload directory, where the uploaded files will be stored
+    # you can define it relative to lufi directory or set an absolute path
+    # remember that it has to be in a directory writable by Lufi user
+    # DO NOT CHANGE THIS IF FILES HAVE BEEN ALREADY UPLOADED: THEY WILL NOT BE DOWNLOADABLE ANYMORE
+    # optional, default is 'files'
+    #upload_dir           => 'files',
 
     #########################
     # Lufi cron jobs settings

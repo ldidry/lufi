@@ -44,7 +44,7 @@ sub upload {
                 }
             }
             # Check that we have enough space (multiplying by 2 since it's encrypted, it takes more place that the original file)
-            elsif ($json->{part} == 0 && ($json->{size} * 2) >= dfportable('files')->{bavail}) {
+            elsif ($json->{part} == 0 && ($json->{size} * 2) >= dfportable($c->config('upload_dir'))->{bavail}) {
                 $stop = 1;
                 $c->send(sprintf('{"success": false, "msg":"'.$c->l('No enough space available on the server for this file (size: %1).', format_bytes($json->{size})).'", "sent_delay": %d, "i": %d}', $json->{delay}, $json->{i}));
             }
@@ -94,7 +94,7 @@ sub upload {
                     # In this case, we don't need to rewrite the file
                     unless ($f->slices->grep(sub { $_->j == $json->{part} })->size) {
                         # Create directory
-                        my $dir = catdir('files', $f->short);
+                        my $dir = catdir($c->config('upload_dir'), $f->short);
                         mkdir($dir, 0700) unless (-d $dir);
 
                         # Create slice file

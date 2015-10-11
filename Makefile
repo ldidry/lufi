@@ -16,7 +16,7 @@ test:
 clean:
 	rm -rf lufi.db files/
 dev: clean
-	$(CARTON) morbo $(LUFI) --listen http://0.0.0.0:3000 --watch lib/ --watch script/ --watch themes/
+	$(CARTON) morbo $(LUFI) --listen http://0.0.0.0:3000 --watch lib/ --watch script/ --watch themes/ --watch lufi.conf
 
 devlog:
 	multitail log/development.log

@@ -23,6 +23,7 @@ sub startup {
             },
             mail_sender   => 'no-reply@lufi.io',
             theme         => 'default',
+            upload_dir    => 'files',
         }
     });
 
@@ -170,7 +171,8 @@ sub startup {
     $self->provisioning();
 
     # Create directory if needed
-    mkdir('files', 0700) unless (-d 'files');
+    mkdir($self->config('upload_dir'), 0700) unless (-d $self->config('upload_dir'));
+    die ('The upload directory ('.$self->config('upload_dir').') is not writable') unless (-w $self->config('upload_dir'));
 
     # Default layout
     $self->defaults(layout => 'default');
