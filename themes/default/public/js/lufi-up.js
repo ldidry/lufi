@@ -114,7 +114,13 @@ function updateMailLink() {
 
 // Start uploading the files (called from <input> and from drop zone)
 function handleFiles(f) {
-    window.files = f;
+    var go = true;
+    if (window.fileList === undefined || window.fileList === null) {
+        window.fileList = Array.prototype.slice.call(f);
+    } else {
+        go = false;
+        window.fileList = window.fileList.concat(Array.prototype.slice.call(f));
+    }
 
     var r = document.getElementById('results');
     r.style.display = 'block';
@@ -124,7 +130,9 @@ function handleFiles(f) {
     delay.setAttribute('disabled', 'disabled');
     del_at_first_view.setAttribute('disabled', 'disabled');
 
-    uploadFile(0, delay.value, del_at_first_view.checked);
+    if (go) {
+        uploadFile(0, delay.value, del_at_first_view.checked);
+    }
 }
 
 // Create random key
@@ -141,7 +149,7 @@ function uploadFile(i, delay, del_at_first_view) {
     var randomkey = genRandomKey();
 
     // Get the file and properties
-    var file  = window.files[i];
+    var file  = window.fileList[i];
     var name  = file.name;
     var parts = Math.ceil(file.size/window.sliceLength);
     if (parts === 0) {
@@ -160,7 +168,7 @@ function uploadFile(i, delay, del_at_first_view) {
 
 // Get a slice of file and send it
 function sliceAndUpload(randomkey, i, parts, j, delay, del_at_first_view, short) {
-    var file  = window.files[i];
+    var file  = window.fileList[i];
     var slice = file.slice(j * window.sliceLength, (j + 1) * window.sliceLength, file.type);
     var fr = new FileReader();
     fr.onloadend = function() {
@@ -303,10 +311,11 @@ function updateProgressBar(data) {
             // Upload next file
             window.fc++;
             i++;
-            if (i < window.files.length) {
+            if (i < window.fileList.length) {
                 uploadFile(i, sent_delay, del_at_first_view);
             } else {
                 // We have finished
+                window.fileList = null;
                 window.onbeforeunload = null;
                 document.getElementById('delete-day').removeAttribute('disabled');
                 document.getElementById('first-view').removeAttribute('disabled');
@@ -342,7 +351,7 @@ function addAlertOnFile(msg, i, sent_delay, del_at_first_view) {
     // Upload next file
     window.fc++;
     i++;
-    if (i < window.files.length) {
+    if (i < window.fileList.length) {
         uploadFile(i, sent_delay, del_at_first_view);
     } else {
         // We have finished
