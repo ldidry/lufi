@@ -51,10 +51,8 @@ function spawnWebsocket(pa) {
     ws.onclose   = function() {
         console.log('Connection is closed');
         if (!window.completed) {
-            console.log('Connection closed. Retrying to get slice '+pa+' in 5 seconds');
-            setTimeout(function() {
-                window.ws = spawnWebsocket(pa);
-            }, 5000);
+            console.log('Connection closed. Retrying to get slice '+pa);
+            window.ws = spawnWebsocket(pa);
         }
     }
     ws.onmessage = function(e) {
@@ -96,17 +94,13 @@ function spawnWebsocket(pa) {
                         window.ws.onclose = function() {
                             console.log('Connection is closed');
                             if (!window.completed) {
-                                console.log('Connection closed. Retrying to get slice '+(data.part + 1)+' in 5 seconds');
-                                setTimeout(function() {
-                                    window.ws = spawnWebsocket(data.part + 1);
-                                }, 5000);
+                                console.log('Connection closed. Retrying to get slice '+(data.part + 1));
+                                window.ws = spawnWebsocket(data.part + 1);
                             }
                         }
                         window.ws.onerror = function() {
-                            console.log('Error. Retrying to get slice '+(data.part + 1)+' in 5 seconds');
-                            setTimeout(function() {
-                                window.ws = spawnWebsocket(data.part + 1);
-                            }, 5000);
+                            console.log('Error. Retrying to get slice '+(data.part + 1));
+                            window.ws = spawnWebsocket(data.part + 1);
                         };
                         window.ws.send('{"part":'+(data.part + 1)+'}');
                     }
@@ -122,10 +116,8 @@ function spawnWebsocket(pa) {
         }
     }
     ws.onerror = function() {
-        console.log('Error. Retrying to get slice '+pa+' in 5 seconds');
-        setTimeout(function() {
-            window.ws = spawnWebsocket(pa);
-        }, 5000);
+        console.log('Error. Retrying to get slice '+pa);
+        window.ws = spawnWebsocket(pa);
     }
     return ws;
 }
