@@ -8,8 +8,8 @@ Lufi means Let's Upload that FIle.
 
 It stores files and allows you to download them.
 
-Is that all? No. All the files are encrypted **by the browser**! It means that your files **never** leave your computer unencrypted.  
-The administrator of the Lufi instance you use will not be able to see what is in your file, and your network administrator neither. Neither can do your ISP.
+Is that all? No. All the files are encrypted **by the browser**! It means that your files **never** leave your computer unencrypted.
+The administrator of the Lufi instance you use will not be able to see what is in your file, neither will your network administrator, or your ISP.
 
 ## License
 
@@ -33,9 +33,9 @@ git clone https://git.framasoft.org/luc/lufi.wiki.git
 
 ## Encryption
 
-All the encryption/decryption process takes place on your browser. The encryption key never go on the network.
+All the encryption/decryption process takes place in your browser. The encryption key is never sent over the network.
 
-But please, notice that some meta-datas are send unencrypted:
+However please note that some metadata are sent unencrypted:
 
 * the file name
 * its size
@@ -51,11 +51,11 @@ See [AUTHORS.md](AUTHORS.md) file.
 
 ## Contribute!
 
-Please consider contributing, either by [reporting issues](https://git.framasoft.org/luc/lufi/issues) or by helping the [internationalization](https://pootle.framasoft.org/projects/lufi/). And of course, code contribution are welcome!
+Please consider contributing, either by [reporting issues](https://git.framasoft.org/luc/lufi/issues) or by helping the [internationalization](https://pootle.framasoft.org/projects/lufi/). And of course, code contributions are welcome!
 
 The details on how to contribute are on the [wiki](https://git.framasoft.org/luc/lufi/wikis/contribute).
 
-## Others projects dependancies
+## Other dependencies
 
 Lufi is written in Perl with the [Mojolicious](http://mojolicio.us) framework.
 
