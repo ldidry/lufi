@@ -3,7 +3,7 @@
     <div class="alert alert-warning"><%= stash('msg') %></div>
 % }
     <div class="alert alert-info">
-        <p><%= l('If you send the mail from this server, the links will be send to the server, which may lower your privacy protection.') %></p>
+        <p><%= l('If you send the mail from this server, the links will be sent to the server, which may lower your privacy protection.') %></p>
     </div>
     <form action="<%= url_for('m') %>" method="post">
         %= csrf_field
