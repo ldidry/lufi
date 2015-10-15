@@ -103,7 +103,7 @@ msgid "Download link"
 msgstr ""
 
 #: themes/default/templates/about.html.ep:10
-msgid "Drag and drop files in the appropriate area or use the traditional way to send files and the files will be chunked, encrypted and sent to the server. You will get two links per file: a download link, that you give to the people you want to share the file with and a deletion link, allowing you to delete the file when you want."
+msgid "Drag and drop files in the appropriate area or use the traditional way to send files and the files will be chunked, encrypted and sent to the server. You will get two links per file: a download link, that you give to the people you want to share the file with and a deletion link, allowing you to delete the file whenever you want."
 msgstr ""
 
 #: themes/default/templates/index.html.ep:64
@@ -127,11 +127,11 @@ msgid "Encrypting part XX1 of XX2"
 msgstr ""
 
 #: lib/Lufi/Controller/Files.pm:162
-msgid "Error: the file existed but has been deleted."
+msgid "Error: the file existed but was deleted."
 msgstr ""
 
 #: lib/Lufi/Controller/Files.pm:203
-msgid "Error: the file has not been send entirely."
+msgid "Error: the file has not been sent entirely."
 msgstr ""
 
 #: lib/Lufi/Controller/Files.pm:208
@@ -179,7 +179,7 @@ msgid "Hit Enter, then Ctrl+C to copy the download link"
 msgstr ""
 
 #: themes/default/templates/about.html.ep:9
-msgid "How does it works?"
+msgid "How does it work?"
 msgstr ""
 
 #: themes/default/templates/about.html.ep:17
@@ -195,7 +195,7 @@ msgid "If you choose a delay, the file will be deleted after that delay."
 msgstr ""
 
 #: themes/default/templates/mail.html.ep:6
-msgid "If you send the mail from this server, the links will be send to the server, which may lower your privacy protection."
+msgid "If you send the mail from this server, the links will be sent to the server, which may lower your privacy protection."
 msgstr ""
 
 #: themes/default/templates/files.html.ep:14
@@ -236,7 +236,7 @@ msgid "No expiration delay"
 msgstr ""
 
 #: themes/default/templates/files.html.ep:7
-msgid "Only the files sent with this browser will be listed here. The informations are stored in localStorage: if you delete your localStorage data, you'll loose this informations."
+msgid "Only the files sent with this browser will be listed here. This list is stored in localStorage: if you delete your localStorage data, you'll lose this list."
 msgstr ""
 
 #. (config('contact')
@@ -257,7 +257,7 @@ msgid "Purge expired files from localStorage"
 msgstr ""
 
 #: themes/default/templates/files.html.ep:8
-msgid "Rows in red means that the file has expired and is no longer available."
+msgid "Rows in red mean that the files have expired and are no longer available."
 msgstr ""
 
 #: themes/default/templates/index.html.ep:91
@@ -324,7 +324,7 @@ msgstr ""
 
 #. (url_for('/')
 #: themes/default/templates/about.html.ep:15
-msgid "The original (and only for now) author is <a href=\"https://fiat-tux.fr\" class=\"classic\">Luc Didry</a>. If you want to support him, you can to it via <a href=\"https://flattr.com/submit/auto?user_id=_SKy_&amp;url=%1&amp;title=Lufi&amp;category=software\" class=\"classic\">Flattr</a> or with <a href=\"bitcoin:1CJYU2uGmPKhvithCGntyniTTe2hofpPX3?label=Lufi\" class=\"classic\">Bitcoin</a>."
+msgid "The original (and only for now) author is <a href=\"https://fiat-tux.fr\" class=\"classic\">Luc Didry</a>. If you want to support him, you can do it via <a href=\"https://flattr.com/submit/auto?user_id=_SKy_&amp;url=%1&amp;title=Lufi&amp;category=software\" class=\"classic\">Flattr</a> or with <a href=\"bitcoin:1CJYU2uGmPKhvithCGntyniTTe2hofpPX3?label=Lufi\" class=\"classic\">Bitcoin</a>."
 msgstr ""
 
 #: lib/Lufi/Controller/Files.pm:122
@@ -342,7 +342,7 @@ msgstr ""
 
 #. ($short)
 #: lib/Lufi/Controller/Files.pm:253
-msgid "Unable to get counter for %1. The token is unvalid."
+msgid "Unable to get counter for %1. The token is invalid."
 msgstr ""
 
 #: themes/default/templates/layouts/default.html.ep:39
@@ -370,7 +370,7 @@ msgid "You can see the list of your files by clicking on the \"My files\" link a
 msgstr ""
 
 #: themes/default/templates/about.html.ep:8
-msgid "You don't need to register yourself to upload files but be aware that, for legal reasons, your IP address will be stored when you send a file. Don't panic, it is normally the case of all sites on which you send files."
+msgid "You don't need to register yourself to upload files but be aware that, for legal reasons, your IP address will be stored when you send a file. Don't panic, this is normally the case for all sites on which you send files."
 msgstr ""
 
 #: themes/default/templates/render.html.ep:23
