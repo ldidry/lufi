@@ -51,7 +51,7 @@ See [AUTHORS.md](AUTHORS.md) file.
 
 ## Contribute!
 
-Please consider contributing, either by [reporting issues](https://git.framasoft.org/luc/lufi/issues) or by helping the [internationalization](https://pootle.framasoft.org/projects/lufi/). And of course, code contributions are welcome!
+Please consider contributing, either by [reporting issues](https://git.framasoft.org/luc/lufi/issues) or by helping the internationalization. And of course, code contributions are welcome!
 
 The details on how to contribute are on the [wiki](https://git.framasoft.org/luc/lufi/wikis/contribute).
 
