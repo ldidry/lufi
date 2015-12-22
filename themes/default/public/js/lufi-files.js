@@ -70,7 +70,7 @@ function exportStorage() {
     document.body.appendChild(a);
 
     var storageData = [localStorage.getItem('files')];
-    var exportFile  = new File(storageData, 'data.json', {type : 'application/json'});
+    var exportFile  = new Blob(storageData, {type : 'application/json'});
     var url         = window.URL.createObjectURL(exportFile);
 
     a.href = url;
