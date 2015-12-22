@@ -4,82 +4,94 @@
 %   delay_1   => l('24 hours'),
 %   delay_365 => l('1 year')
 % );
-    <div class="form-group row">
+    <form class="row">
         <noscript>
-            <div  class="col-sm-12 col-xs-12">
-                <div class="alert alert-danger">
-                    <strong><%= l('Javascript is disabled. You won\'t be able to use Lufi.') %></strong>
+            <div class="col s12">
+                <div class="card pink">
+                    <div class="card-content white-text">
+                        <strong><%= l('Javascript is disabled. You won\'t be able to use Lufi.') %></strong>
+                    </div>
                 </div>
             </div>
         </noscript>
 % if (defined(config('broadcast_message'))) {
-        <div  class="col-sm-12 col-xs-12">
-            <div class="alert alert-info">
-                <strong><%= config('broadcast_message') %></strong>
+        <div class="col s12">
+            <div class="card pink">
+                <div class="card-content white-text">
+                    <strong><%= config('broadcast_message') %></strong>
+                </div>
             </div>
         </div>
 % }
 % if (stop_upload) {
-        <div  class="col-sm-12 col-xs-12">
-            <div class="alert alert-danger">
-                <strong><%= l('Sorry, the uploading is currently disabled. Please try again later.') %></strong>
+        <div class="col s12">
+            <div class="card pink">
+                <div class="card-content white-text">
+                    <strong><%= l('Sorry, the uploading is currently disabled. Please try again later.') %></strong>
+                </div>
             </div>
         </div>
 % } else {
-        <div class="col-sm-1 col-xs-12">
-            <a href="<%= url_for('/delays') %>" title="<%= l('Important: more information on delays') %>"><span class="lead icon icon-help-circled"></span></a>
-        </div>
-        <div class="col-sm-5 col-xs-12">
-            <select id="delete-day" class="form-control">
+        <div class="col s12 m6">
+            <div class="input-field">
+                <a class="waves-effect waves-light modal-trigger prefix" href="#delays-info" title="<%= l('Important: more information on delays') %>"><i class="mdi-action-info small"></i></a>
+                <select id="delete-day">
 % for my $delay (qw/0 1 7 30 365/) {
 %   my $text = ($delay == 7 || $delay == 30) ? l('%1 days', $delay) : $d{'delay_'.$delay};
 %   if (max_delay) {
 %       if ($delay) {
 %           if ($delay < max_delay) {
-                <option value="<%= $delay %>" <%== is_selected($delay) %>><%= $text %></option>
+                    <option value="<%= $delay %>" <%== is_selected($delay) %>><%= $text %></option>
 %           } elsif ($delay == max_delay) {
-                <option value="<%= $delay %>" <%== is_selected($delay) %>><%= $text %></option>
+                    <option value="<%= $delay %>" <%== is_selected($delay) %>><%= $text %></option>
 %               last;
 %           } else {
 %               my $text = ($delay == 1) ? l('24 hours') : l('%1 days', $delay);
-                <option value="<%= max_delay %>" <%== is_selected(max_delay) %>><%= l('%1 days', max_delay) %></option>
+                    <option value="<%= max_delay %>" <%== is_selected(max_delay) %>><%= l('%1 days', max_delay) %></option>
 %               last;
 %           }
 %       }
 %   } else {
-                <option value="<%= $delay %>" <%== is_selected($delay) %>><%= $text %></option>
+                    <option value="<%= $delay %>" <%== is_selected($delay) %>><%= $text %></option>
 %   }
 % }
-            </select>
-        </div>
-        <div class="col-sm-6 col-xs-12 text-left">
-            <div class="checkbox">
-                <label>
-                    <input type="checkbox" id="first-view"> <%= l('Delete at first download?') %>
-                </label>
+                </select>
             </div>
         </div>
-    </div>
+        <div class="input-field">
+            <p class="col s12 m6 text-left">
+                <input type="checkbox" id="first-view" data-checked="">
+                <label for="first-view"><%= l('Delete at first download?') %></label>
+            </p>
+        </div>
+    </form>
     <div id="files">
         <h2><%= l('Drop files here') %></h2>
         <p><small><%= l('or') %></small></p>
         <label>
-            <span><%= l('Click to open the file browser') %></span>
+            <span class="btn cyan waves-effect waves-light"><%= l('Click to open the file browser') %></span>
             <input type="file" onchange="handleFiles(this.files)" multiple>
         </label>
     </div>
     <div id="results">
         <h2><%= l('Uploaded files') %></h2>
-        <div id="misc" class="form-group"></div>
+        <div id="misc"></div>
         <ul class="list-group" id="ul-results">
         </ul>
     </div>
+%= include 'delays'
 %= javascript begin
+$(document).ready(function(){
+    $('.modal-trigger').leanModal();
+    $('select').material_select();
+});
 var ws_url  = '<%= url_for('upload')->to_abs() %>';
 var baseURL = '<%= url_for('/')->to_abs() %>';
 var i18n    = {
     confirmExit: '<%= l('You have attempted to leave this page. The upload will be canceled. Are you sure?') %>',
     copyAll:     '<%= l('Copy all links to clipboard') %>',
+    copySuccess: '<%= l('The link(s) has been copied to your clipboard') %>',
+    copyFail:    '<%= l('Unable to copy the link(s) to your clipboard') %>',
     cpText:      '<%= l('Copy to clipboard') %>',
     delText:     '<%= l('Deletion link') %>',
     dlText:      '<%= l('Download link') %>',
@@ -91,6 +103,7 @@ var i18n    = {
     mailTo:      '<%= l('Send all links by email') %>',
     noLimit:     '<%= l('No expiration delay') %>',
     sending:     '<%= l('Sending part XX1 of XX2') %>',
+    wsProblem:   '<%= l('Websocket communication error') %>',
 };
 % end
 %= javascript '/js/sjcl.js'

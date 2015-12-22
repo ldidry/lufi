@@ -33,12 +33,15 @@ function base64ToArrayBuffer(base64) {
 
 // Something's wring
 function addAlert(msg) {
-    document.getElementById('please-wait').remove();
+    $('#please-wait').remove();
 
-    var pbd = document.getElementById('pbd');
-    pbd.setAttribute('class', 'alert alert-danger');
-    pbd.setAttribute('role', 'alert');
-    pbd.innerHTML = '<p>'+msg+'</p>';
+    var pbd = $('#pbd');
+    pbd.attr('role', 'alert');
+    pbd.html(['<div class="card pink">',
+                  '<div class="card-content white-text">',
+                      '<strong>', msg, '</strong>',
+                  '</div>',
+              '</div>'].join(''));
 }
 
 // Spawn WebSocket
@@ -47,8 +50,8 @@ function spawnWebsocket(pa) {
     ws.onopen    = function() {
         console.log('Connection is established!');
 
-        var l    = document.getElementById('loading');
-        l.innerHTML = i18n.loading.replace(/XX1/, pa);
+        var l    = $('#loading');
+        l.html(i18n.loading.replace(/XX1/, pa));
         window.ws.send('{"part":'+pa+'}');
     };
     ws.onclose   = function() {
@@ -71,40 +74,39 @@ function spawnWebsocket(pa) {
             console.log('Getting slice '+(data.part + 1)+' of '+data.total);
             var slice   = JSON.parse(res.shift());
             var percent = Math.round(100 * (data.part + 1)/data.total);
-            var pb      = document.getElementById('pb');
-            pb.style.width = percent+'%';
-            pb.setAttribute('aria-valuenow', percent);
-            document.getElementById('pbt').innerHTML = percent+'%';
+            var pb      = $('#pb');
+            pb.css('width', percent+'%');
+            pb.attr('aria-valuenow', percent);
+            $('#pbt').html(percent+'%');
             try {
                 var b64 = sjcl.decrypt(window.key, slice);
                 window.a[data.part] = base64ToArrayBuffer(b64);
                 if (data.part + 1 === data.total) {
                     var blob = new Blob(a, {type: data.type});
 
-                    document.getElementById('please-wait').remove();
-                    document.getElementById('loading').remove();
+                    $('#please-wait').remove();
+                    $('#loading').remove();
 
-                    var pbd  = document.getElementById('pbd');
-                    pbd.setAttribute('class', '');
+                    var pbd  = $('#pbd');
+                    pbd.attr('class', 'center-align');
                     var blobURL   = URL.createObjectURL(blob);
-                    var innerHTML = '<p><a href="'+blobURL+'" class="btn btn-primary" download="'+data.name+'">'+i18n.download+'</a></p>';
+                    var innerHTML = [ '<p><a href="', blobURL, '" class="btn btn-primary" download="', data.name, '">', i18n.download, '</a></p>'];
 
                     if (data.type.match(/^image\//) !== null) {
-                        innerHTML += '<img id="render-image" class="img-responsive" alt="'+data.name+'" src="'+blobURL+'">';
+                        innerHTML.push('<img id="render-image" class="responsive-img" alt="', data.name, '" src="', blobURL, '">');
                     } else if (data.type.match(/^video\//) !== null) {
-                        innerHTML += '<div class="embed-responsive embed-responsive-16by9">'
-                            +'<video class="embed-responsive-item" controls>'
-                            +'    <source src="'+blobURL+'" type="'+data.type+'">'
-                            +'</video></div>';
+                        innerHTML.push('<video class="responsive-video" controls>',
+                                           '<source src="', blobURL, '" type="', data.type, '">',
+                                       '</video>');
                     }
-                    pbd.innerHTML = innerHTML;
+                    pbd.html(innerHTML.join(''));
 
                     window.ws.send('{"ended":true}');
                     window.onbeforeunload = null;
                     window.completed = true;
                 } else {
-                    var l    = document.getElementById('loading');
-                    l.innerHTML = i18n.loading.replace(/XX1/, (data.part + 1));
+                    var l = $('#loading');
+                    l.html(i18n.loading.replace(/XX1/, (data.part + 1)));
                     if (ws.readyState === 3) {
                         window.ws = spawnWebsocket(data.part + 1);
                     } else {
@@ -139,7 +141,8 @@ function spawnWebsocket(pa) {
     return ws;
 }
 // When it's ready
-document.addEventListener('DOMContentLoaded', function() {
+$(document).ready(function(){
+    $('#filesize').html(filesize($('#filesize').attr('data-filesize'), {base: 10}));
     window.a         = new Array();
     window.key       = pageKey();
     window.completed = false;

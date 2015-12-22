@@ -33,6 +33,7 @@ a.classic:focus {
 }
 .left-mg {
     margin-left: 10px;
+    margin-right: 10px;
 }
 @-moz-document url-prefix() {
     fieldset { display: table-cell; }
@@ -42,4 +43,43 @@ a.classic:focus {
     max-height: 200px;
     margin-left: auto;
     margin-right: auto;
+}
+.input-field .big-prefix {
+    width: 6rem;
+}
+.input-field .big-prefix ~ input,
+.input-field .big-prefix ~ textarea,
+.input-field .big-prefix ~ label,
+.input-field .big-prefix ~ div.select-wrapper  {
+    margin-left: 6rem;
+    width: 92%;
+    width: calc(100% - 6rem); }
+}
+@media only screen and (max-width : 992px) {
+    .input-field .big-prefix ~ input {
+        width: 82%;
+        width: calc(100% - 6rem);
+    }
+}
+@media only screen and (max-width : 600px) {
+    .input-field .big-prefix ~ input {
+        width: 60%;
+        width: calc(100% - 6rem);
+    }
+}
+.file-field .btn.left-mg {
+    height: 36px;
+    line-height: 36px;
+}
+.textarea-hidden {
+    position: 'fixed';
+    top: 0;
+    left: 0;
+    width: '2em';
+    height: '2em';
+    padding: 0;
+    border: 'none';
+    outline: 'none';
+    boxShadow: 'none';
+    background: 'transparent';
 }

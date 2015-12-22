@@ -2,28 +2,18 @@
 
 window.fc = 0;
 // Copy a link to clipboard
-function copyToClipboard(el) {
-    el = el.previousSibling;
-    var textArea              = document.createElement('textarea');
-    textArea.style.position   = 'fixed';
-    textArea.style.top        = 0;
-    textArea.style.left       = 0;
-    textArea.style.width      = '2em';
-    textArea.style.height     = '2em';
-    textArea.style.padding    = 0;
-    textArea.style.border     = 'none';
-    textArea.style.outline    = 'none';
-    textArea.style.boxShadow  = 'none';
-    textArea.style.background = 'transparent';
-    textArea.value            = el.value;
+function copyToClipboard(txt) {
+    var textArea = $('<textarea>');
+    textArea.addClass('textarea-hidden');
+    textArea.val(txt);
 
-    document.body.appendChild(textArea);
+    $('body').append(textArea);
     textArea.select();
 
     try {
         var successful = document.execCommand('copy');
-        var msg = successful ? 'successful' : 'unsuccessful';
-        console.log('Copying text command was ' + msg);
+        var msg = successful ? i18n.copySuccess : i18n.copyFail;
+        Materialize.toast(msg, 4000);
     } catch (err) {
         el.focus();
         var len = el.value.length * 2;
@@ -31,45 +21,36 @@ function copyToClipboard(el) {
         alert(i18n.hit);
     }
 
-    document.body.removeChild(textArea);
+    textArea.remove();
 }
 
 // Copy all links to clipboard
 function copyAllToClipboard() {
     var text = new Array();
-    var a = document.getElementsByClassName('link-input');
+    var a = $('.link-input');
     var i;
     for (i = 0; i < a.length; i++) {
         text.push(a[i].value);
     }
-    var textArea              = document.createElement('textarea');
-    textArea.style.position   = 'fixed';
-    textArea.style.top        = 0;
-    textArea.style.left       = 0;
-    textArea.style.width      = '2em';
-    textArea.style.height     = '2em';
-    textArea.style.padding    = 0;
-    textArea.style.border     = 'none';
-    textArea.style.outline    = 'none';
-    textArea.style.boxShadow  = 'none';
-    textArea.style.background = 'transparent';
-    textArea.value            = text.join("\n");
+    var textArea = $('<textarea>');
+    textArea.addClass('textarea-hidden');
+    textArea.val(text.join("\n"));
 
-    document.body.appendChild(textArea);
+    $('body').append(textArea);
     textArea.select();
 
     try {
         var successful = document.execCommand('copy');
-        var msg = successful ? 'successful' : 'unsuccessful';
-        console.log('Copying text command was ' + msg);
+        var msg = successful ? i18n.copySuccess : i18n.copyFail;
+        Materialize.toast(msg, 4000);
     } catch (err) {
-        textArea.style.width      = '';
-        textArea.style.height     = '';
-        textArea.style.background = '#FFFFFF';
+        textArea.css('width', '');
+        textArea.css('height', '');
+        textArea.css('background', '#FFFFFF');
         alert(i18n.hits);
     }
 
-    document.body.removeChild(textArea);
+    textArea.remove();
 }
 
 // Add item to localStorage
@@ -86,14 +67,14 @@ function addItem(name, url, size, del_at_first_view, created_at, delay, short, t
 
 // Remove a file block
 function destroyBlock(el) {
-    el.parentNode.parentNode.remove();
+    $(el).parents('li').remove();
 
-    var a = document.getElementsByClassName('link-input');
-    var l = document.getElementById('results').querySelector('li');
+    var a = $('.link-input');
+    var l = $('#results li');
     if (a.length === 0) {
-        document.getElementById('misc').innerHTML = '';
-        if (l === null) {
-            document.getElementById('results').style.display = 'none';
+        $('#misc').empty();
+        if (l.length === 0) {
+            $('#results').hide();
         }
     } else {
         updateMailLink();
@@ -102,14 +83,14 @@ function destroyBlock(el) {
 
 // Update the mail link
 function updateMailLink() {
-    var a = document.getElementsByClassName('link-input');
+    var a = $('.link-input');
     var l = new Array();
     var i;
     for (i = 0; i < a.length; i++) {
         l.push(a[i].id);
     }
     var u = baseURL+'m?links='+JSON.stringify(l);
-    document.getElementById('mailto').href = u;
+    $('#mailto').attr('href', u);
 }
 
 // Start uploading the files (called from <input> and from drop zone)
@@ -122,16 +103,16 @@ function handleFiles(f) {
         window.fileList = window.fileList.concat(Array.prototype.slice.call(f));
     }
 
-    var r = document.getElementById('results');
-    r.style.display = 'block';
+    var r = $('#results');
+    r.show();
 
-    var delay             = document.getElementById('delete-day');
-    var del_at_first_view = document.getElementById('first-view');
-    delay.setAttribute('disabled', 'disabled');
-    del_at_first_view.setAttribute('disabled', 'disabled');
+    var delay             = $('#delete-day');
+    var del_at_first_view = $('#first-view');
+    delay.attr('disabled', 'disabled');
+    del_at_first_view.attr('disabled', 'disabled');
 
     if (go) {
-        uploadFile(0, delay.value, del_at_first_view.checked);
+        uploadFile(0, delay.val(), del_at_first_view.attr('data-checked'));
     }
 }
 
@@ -157,11 +138,25 @@ function uploadFile(i, delay, del_at_first_view) {
     }
 
     // Create a progress bar for the file
-    var r  = document.getElementById('ul-results');
-    var w  = document.createElement('li');
-    w.setAttribute('class', 'list-group-item');
-    w.innerHTML='<div><a href="#" onclick="destroyBlock(this);"><span class="pull-right icon icon-cancel"></span></a><p id="name-'+window.fc+'">'+file.name+'</p><p id="parts-'+window.fc+'"></p></div><div class="progress"><div id="progress-'+window.fc+'" style="width: 0%;" data-key="'+randomkey+'" data-name="'+file.name+'" aria-valuemax="100" aria-valuemin="0" aria-valuenow="0" role="progressbar" class="progress-bar"><span class="sr-only">'+file.name+'0%</span></div></div>';
-    r.appendChild(w);
+    var r  = $('#ul-results');
+    var w  = $('<li>');
+    w.addClass('list-group-item');
+    w.html(['<div class="card">',
+                '<div>',
+                    '<a href="#" onclick="destroyBlock(this);">',
+                        '<i class="right mdi-navigation-close small"></i>',
+                    '</a>',
+                    '<div class="card-content">',
+                        '<span class="card-title" id="name-', window.fc, '">', file.name, '</span>',
+                        '<p id="parts-', window.fc, '"></p>',
+                    '</div>',
+                    '<div class="progress">',
+                        '<div id="progress-', window.fc, '" style="width: 0%;" data-key="', randomkey, '" data-name="', file.name, '" aria-valuemax="100" aria-valuemin="0" aria-valuenow="0" role="progressbar" class="determinate">',
+                            '<span class="sr-only">', file.name, '0%</span>',
+                        '</div>',
+                    '</div>',
+            '<div>'].join(''));
+    r.append(w);
 
     sliceAndUpload(randomkey, i, parts, 0, delay, del_at_first_view, null);
 }
@@ -172,7 +167,7 @@ function sliceAndUpload(randomkey, i, parts, j, delay, del_at_first_view, short)
     var slice = file.slice(j * window.sliceLength, (j + 1) * window.sliceLength, file.type);
     var fr = new FileReader();
     fr.onloadend = function() {
-        var sl        = document.getElementById('parts-'+window.fc);
+        var sl        = $('#parts-'+window.fc);
 
         // Get the binary result
         var bin       = fr.result;
@@ -181,7 +176,7 @@ function sliceAndUpload(randomkey, i, parts, j, delay, del_at_first_view, short)
         var b         = window.btoa(bin);
 
         // Encrypt it
-        sl.innerHTML  = i18n.encrypting.replace(/XX1(.*)XX2/, (j+1)+'$1'+parts);
+        sl.html(i18n.encrypting.replace(/XX1(.*)XX2/, (j+1)+'$1'+parts));
         var encrypted = sjcl.encrypt(randomkey, b);
 
         // Prepare json
@@ -200,7 +195,7 @@ function sliceAndUpload(randomkey, i, parts, j, delay, del_at_first_view, short)
 
         console.log('sending slice '+(j + 1)+'/'+parts+' of file '+file.name);
 
-        sl.innerHTML = i18n.sending.replace(/XX1(.*)XX2/, (j+1)+'$1'+parts);
+        sl.html(i18n.sending.replace(/XX1(.*)XX2/, (j+1)+'$1'+parts));
 
         // Verify that we have a websocket and send json
         if (window.ws.readyState === 3) {
@@ -242,8 +237,8 @@ function updateProgressBar(data) {
 
         console.log('getting response for slice '+(j + 1)+'/'+parts+' of file '+data.name+' ('+data.duration+' sec)');
 
-        var dp    = document.getElementById('progress-'+window.fc);
-        var key   = dp.getAttribute('data-key');
+        var dp    = $('#progress-'+window.fc);
+        var key   = dp.attr('data-key');
 
         if (j + 1 === parts) {
             //
@@ -254,53 +249,49 @@ function updateProgressBar(data) {
                 console.log('Error on WebSocket connection but file has been fully send, so we don\'t care.');
             }
 
-            document.getElementById('parts-'+window.fc).remove();
-            var n       = document.getElementById('name-'+window.fc);
-            var d       = document.createElement('div');
+            $('#parts-'+window.fc).remove();
+            var n       = $('#name-'+window.fc);
+            var d       = $('<div>');
             var url     = baseURL+'r/'+short+'#'+key;
             var del_url = baseURL+'d/'+short+'/'+data.token;
             var links   = encodeURIComponent('["'+short+'"]');
             var limit   = (delay === 0) ? i18n.noLimit : i18n.expiration+' '+moment.unix(delay * 86400 + created_at).locale(window.navigator.language).format('LLLL');
-            n.innerHTML = n.innerHTML+' <a href="'+baseURL+'m?links='+links+'"><span class="icon icon-mail"></span></a><br>'+limit;
-            d.innerHTML = '<div class="form-group"><label class="sr-only" for="'
-                +short
-                +'">'
-                +i18n.dlText
-                +'</label><div class="input-group"><div class="input-group-addon"><a href="'
-                +url
-                +'" target="_blank"><span class="icon icon-download" title="'
-                +i18n.dlText
-                +'"></span></a></div><input id="'
-                +short
-                +'" class="form-control link-input" value="'
-                +url
-                +'" readonly="" type="text" style="background-color: #FFF;"><a href="#" onclick="copyToClipboard(this);" class="input-group-addon" title="'
-                +i18n.cpText
-                +'"><span class="icon icon-clipboard"></span></a></div></div>'
-                +'<div class="form-group"><label class="sr-only" for="delete-'
-                +short
-                +'">'
-                +i18n.delText
-                +'</label><div class="input-group"><div class="input-group-addon"><a href="'
-                +del_url
-                +'" target="_blank"><span class="icon icon-trash" title="'
-                +i18n.delText
-                +'"></span></a></div><input id="delete-'
-                +short
-                +'" class="form-control" value="'
-                +del_url
-                +'" readonly="" type="text" style="background-color: #FFF;">';
+            n.html(n.html()+' <a href="'+baseURL+'m?links='+links+'"><i class="mdi-communication-email"></i></a><br>'+limit);
+            d.html(['<div class="card-action">',
+                        '<div class="input-field">',
+                            '<span class="prefix big-prefix">',
+                                '<a href="', url, '" target="_blank">',
+                                    '<i class="mdi-file-file-download small" title="', i18n.dlText, '"></i>',
+                                '</a>',
+                                '<a href="#" onclick="copyToClipboard(\''+url+'\');" title="', i18n.cpText, '">',
+                                    '<i class="mdi-content-content-copy small"></i>',
+                                '</a>',
+                            '</span>',
+                            '<input id="', short, '" class="form-control link-input" value="', url, '" readonly="" type="text" style="background-color: #FFF;">',
+                            '<label class="active" for="', short, '">', i18n.dlText, '</label>',
+                        '</div>',
+                        '<div class="input-field">',
+                            '<a href="', del_url, '" target="_blank" class="prefix big-prefix">',
+                                '<i class="mdi-action-delete small" title="', i18n.delText, '"></i>',
+                            '</a>',
+                            '<input id="delete-', short, '" class="form-control" value="', del_url, '" readonly="" type="text" style="background-color: #FFF;">',
+                            '<label class="active" for="delete-', short, '">', i18n.delText, '</label>',
+                        '</div>',
+                    '</div>'].join(''));
 
-            var p2 = dp.parentNode;
-            var p1 = p2.parentNode;
+            var p2 = dp.parent();
+            var p1 = p2.parent();
 
             p2.remove();
-            p1.appendChild(d);
+            p1.append(d);
 
+            $("input[type='text']").on("click", function () {
+                $(this).select();
+            });
             // Add copy all and mailto buttons
-            var misc = document.getElementById('misc');
-            if (misc.innerHTML === '') {
-                misc.innerHTML = '<a href="#" onclick="copyAllToClipboard();" class="btn btn-info">'+i18n.copyAll+'</a> <a id="mailto" href="'+baseURL+'m?links='+links+'" class="btn btn-info">'+i18n.mailTo+'</a>';
+            var misc = $('#misc');
+            if (misc.html() === '') {
+                misc.html('<a href="#" onclick="copyAllToClipboard();" class="btn btn-info">'+i18n.copyAll+'</a> <a id="mailto" href="'+baseURL+'m?links='+links+'" class="btn btn-info">'+i18n.mailTo+'</a>');
             } else {
                 updateMailLink();
             }
@@ -317,15 +308,15 @@ function updateProgressBar(data) {
                 // We have finished
                 window.fileList = null;
                 window.onbeforeunload = null;
-                document.getElementById('delete-day').removeAttribute('disabled');
-                document.getElementById('first-view').removeAttribute('disabled');
+                $('#delete-day').attr('disabled', null);
+                $('#first-view').attr('disabled', null);
             }
         } else {
             j++;
             // Update progress bar
             var percent    = Math.round(100 * j/parts);
-            dp.style.width = percent+'%';
-            dp.setAttribute('aria-valuenow', percent);
+            dp.css('width', percent+'%');
+            dp.attr('aria-valuenow', percent);
 
             // Encrypt and upload next slice
             sliceAndUpload(key, i, parts, j, delay, del_at_first_view, short);
@@ -339,14 +330,16 @@ function updateProgressBar(data) {
 
 // Write message instead in a file block
 function addAlertOnFile(msg, i, sent_delay, del_at_first_view) {
-    var n       = document.getElementById('name-'+window.fc);
-    var p       = document.getElementById('progress-'+window.fc);
-    var d       = document.createElement('div');
+    var n       = $('#name-'+window.fc);
+    var p       = $('#progress-'+window.fc);
+    var d       = $('<div>');
 
-    p.parentNode.remove();
-    d.innerHTML = msg;
-    d.setAttribute('class', 'alert alert-danger');
-    n.parentNode.appendChild(d);
+    p.parent().remove();
+    d.addClass('card pink');
+    d.html(['<div class="card-content white-text">',
+                '<strong>', msg, '</strong>',
+            '</div>'].join(''));
+    n.parent().append(d);
 
     // Upload next file
     window.fc++;
@@ -356,8 +349,8 @@ function addAlertOnFile(msg, i, sent_delay, del_at_first_view) {
     } else {
         // We have finished
         window.onbeforeunload = null;
-        document.getElementById('delete-day').removeAttribute('disabled');
-        document.getElementById('first-view').removeAttribute('disabled');
+        $('#delete-day').attr('disabled', null);
+        $('#first-view').attr('disabled', null);
     }
 }
 
@@ -404,11 +397,18 @@ function spawnWebsocket(i, callback) {
 }
 
 // When it's ready
-document.addEventListener('DOMContentLoaded', function() {
+$(document).ready(function(){
     // Dropzone events binding
-    var dropZone = document.getElementById('files');
-    dropZone.addEventListener('dragover', handleDragOver, false);
-    dropZone.addEventListener('drop', handleDrop, false);
+    var dropZone = $('#files');
+    dropZone.on('dragover', handleDragOver);
+    dropZone.on('drop', handleDrop);
+    $('label[for="first-view"').on('click', function(){
+        if ($('#first-view').attr('data-checked') && $('#first-view').attr('data-checked') === 'data-checked') {
+            $('#first-view').attr('data-checked', null);
+        } else {
+            $('#first-view').attr('data-checked', 'data-checked');
+        }
+    });
 
     // Set websocket
     window.ws = spawnWebsocket(0, function() {return null;});
