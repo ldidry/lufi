@@ -13,11 +13,13 @@ The administrator of the Lufi instance you use will not be able to see what is i
 
 ## License
 
-Lufi is licensed under the terms of the AGPL. See the LICENSE file.
+Lufi is licensed under the terms of the AGPL. See the [LICENSE](LICENSE) file.
 
 ## Official instance
 
-Not for now. Lufi is still in development.
+There is a demonstration site, available at <https://demo.lufi.io>, with strong limitations on time and file size.
+
+To really use Lufi, you can go to <https://framadrop.org>, provided by the [Framasoft](http://framasoft.org)
 
 ## Logo
 
@@ -45,6 +47,8 @@ But please, notice that some meta-datas are send unencrypted:
 
 Lufi comes with English and French languages. It will choose the language to display from the browser's settings.
 
+If you want to add a language, merge-requests are welcome.
+
 ## Authors
 
 See [AUTHORS.md](AUTHORS.md) file.
@@ -61,9 +65,9 @@ Lufi is written in Perl with the [Mojolicious](http://mojolicio.us) framework.
 
 It uses:
 
-* [Twitter bootstrap](http://getbootstrap.com) framework to look not too ugly
+* [Materialize](http://materializecss.com/) framework to look not too ugly
+* [jQuery](https://jquery.com)
 * [Stanford Javascript Crypto Library](http://bitwiseshiftleft.github.com/sjcl/)
 * [Moment.js](http://momentjs.com/) for displaying real dates instead of unix timestamps.
-* [Fontello](http://fontello.com/) for the icons, licenses for the fontello icons fonts are in `public/font/LICENSE.txt`
+* [Filesize.js](http://filesizejs.com/) for displaying file sizes
 
-Yup, no jQuery here, just old good vanilla javascript.
