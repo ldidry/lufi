@@ -46,37 +46,39 @@ function purgeExpired() {
     var files = JSON.parse(localStorage.getItem('files'));
 
     files.forEach(function(element, index, array) {
-        var xhr = new XMLHttpRequest();
-        xhr.open('POST', counterURL);
-        xhr.onreadystatechange = function() {
-            if (xhr.readyState>3 && xhr.status==200) {
-                var data = JSON.parse(xhr.responseText);
+        $.ajax({
+            url: counterURL,
+            method: 'POST',
+            dataType: 'json',
+            data: {
+                short: element.short,
+                token: element.token
+            },
+            success: function(data, textStatus, jqXHR) {
                 if (data.success) {
                     if (data.deleted) {
-                        document.getElementById('count-'+data.short).parentNode.remove();
+                        $('#count-'+data.short).parent().remove();
                         delItem(data.short);
                     }
                 }
             }
-        };
-        xhr.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
-        xhr.send('short='+element.short+'&token='+element.token);
+        });
     });
 }
 
 function exportStorage() {
-    var a   = document.createElement("a");
-    a.style = "display: none";
-    document.body.appendChild(a);
+    var a   = $('<a id="data-json">');
+    a.hide();
+    $('body').append(a);
 
     var storageData = [localStorage.getItem('files')];
     var exportFile  = new Blob(storageData, {type : 'application/json'});
     var url         = window.URL.createObjectURL(exportFile);
 
-    a.href = url;
-    a.setAttribute('download', 'data.json');
-    a.click();
-    a.remove();
+    a.attr('href', url);
+    a.attr('download', 'data.json');
+    $('#data-json')[0].click();
+    $('#data-json').remove();
 }
 
 function importStorage(f) {
@@ -95,7 +97,7 @@ function importStorage(f) {
             }
             populateFilesTable();
 
-            alert(i18n.importProcessed);
+            Materialize.toast(i18n.importProcessed);
         } catch(err) {
             alert(err);
         }
@@ -104,7 +106,7 @@ function importStorage(f) {
 }
 
 function populateFilesTable() {
-    document.getElementById('myfiles').innerHTML = '';
+    $('#myfiles').empty();
 
     var files = JSON.parse(localStorage.getItem('files'));
     files.sort(function(a, b) {
@@ -117,48 +119,56 @@ function populateFilesTable() {
         }
     });
     files.forEach(function(element, index, array) {
-        var del_view   = (element.del_at_first_view) ? '<span class="icon icon-ok"></span>' : '<span class="icon icon-cancel"></span>';
+        var del_view   = (element.del_at_first_view) ? '<i class="small mdi-action-done"></i>' : '<i class="small mdi-navigation-close"></i>';
         var dlink      = baseURL+'d/'+element.short+'/'+element.token;
         var limit      = (element.delay === 0) ? i18n.noExpiration : moment.unix(element.delay * 86400 + element.created_at).locale(window.navigator.language).format('LLLL');
         var created_at = moment.unix(element.created_at).locale(window.navigator.language).format('LLLL');
 
-        var tr = document.createElement('tr');
-        tr.innerHTML = '<td class="text-left">'
-            +element.name
-            +'</td><td class="text-left">'
-            +'<a href="'+element.url+'" class="classic">'+element.url+'</a>'
-            +'</td><td id="count-'+element.short+'" class="text-center">'
-            +'</td><td class="text-center">'
-            +del_view
-            +'</td><td>'
-            +created_at
-            +'</td><td>'
-            +limit
-            +'</td><td class="text-left">'
-            +'<a href="'+dlink+'" class="classic">'+dlink+'</a>'
-            +'</td>';
-        document.getElementById('myfiles').appendChild(tr);
+        var tr = $('<tr>');
+        tr.html([ '<td class="left-align">',
+                      element.name,
+                  '</td>',
+                  '<td class="center-align">',
+                      '<a href="', element.url, '" class="classic"><i class="small mdi-file-file-download"></i></a>',
+                  '</td>',
+                  '<td id="count-', element.short, '" class="center-align">',
+                  '</td>',
+                  '<td class="center-align">',
+                      del_view,
+                  '</td>',
+                  '<td>',
+                      created_at,
+                  '</td>',
+                  '<td>',
+                      limit,
+                  '</td>',
+                  '<td class="center-align">',
+                      '<a href="', dlink, '" class="classic"><i class="small mdi-action-delete"></i></a>',
+                  '</td>'].join(''));
+        $('#myfiles').append(tr);
 
-        var xhr = new XMLHttpRequest();
-        xhr.open('POST', counterURL);
-        xhr.onreadystatechange = function() {
-            if (xhr.readyState>3 && xhr.status==200) {
-                var data = JSON.parse(xhr.responseText);
+        $.ajax({
+            url: counterURL,
+            method: 'POST',
+            dataType: 'json',
+            data: {
+                short: element.short,
+                token: element.token
+            },
+            success: function(data, textStatus, jqXHR) {
                 if (data.success) {
-                    document.getElementById('count-'+data.short).innerHTML = data.counter;
+                    $('#count-'+data.short).html(data.counter);
                     if (data.deleted) {
-                        document.getElementById('count-'+data.short).parentNode.setAttribute('class', 'danger');
+                        $('#count-'+data.short).parent().addClass('purple lighten-4');
                     }
                 } else {
                     alert(data.msg);
-                    document.getElementById('count-'+data.short).parentNode.remove();
+                    $('#count-'+data.short).parent().remove();
                     if (data.missing) {
                         delItem(data.short);
                     }
                 }
             }
-        };
-        xhr.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
-        xhr.send('short='+element.short+'&token='+element.token);
+        });
     });
 }

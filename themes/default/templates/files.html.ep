@@ -1,4 +1,5 @@
 % # vim:set sts=4 sw=4 ts=4 ft=html.epl expandtab:
+
 <h2><%= l('My files') %></h2>
 <hr>
 
@@ -7,26 +8,26 @@
     <%= l('Only the files sent with this browser will be listed here. The informations are stored in localStorage: if you delete your localStorage data, you\'ll loose this informations.') %><br>
     <%= l('Rows in red means that the file has expired and is no longer available.') %>
 </p>
-<p>
-    <a href="#" onclick="purgeExpired();" class="btn btn-info btn-xs left-mg"><%= l('Purge expired files from localStorage') %></a>
-    <a href="#" onclick="exportStorage();" class="btn btn-info btn-xs left-mg"><%= l('Export localStorage data') %></a>
-    <label>
-        <span class="btn btn-info btn-xs left-mg"><%= l('Import localStorage data') %></span>
-        <input type="file" onchange="importStorage(this.files)" class="hidden">
-    </label>
-</p>
+<div>
+    <a href="#" onclick="exportStorage();" class="btn left-mg cyan"><%= l('Export localStorage data') %></a>
+    <a href="#" onclick="purgeExpired();" class="btn left-mg cyan"><%= l('Purge expired files from localStorage') %></a>
+    <a href="#" onclick="$('#import').click();" class="btn left-mg cyan"><%= l('Import localStorage data') %></a>
+    <span class="file-field input-field">
+        <input type="file" id="import" onchange="importStorage(this.files)">
+    </span>
+</div>
 
-<div class="table-responsive">
-    <table class="table table-hover">
+<div>
+    <table class="responsive-table striped">
         <thead>
             <tr>
-                <th class="text-center"><%= l('File name') %></th>
-                <th class="text-center"><%= l('Download link') %></th>
-                <th class="text-center"><%= l('Counter') %></th>
-                <th class="text-center"><%= l('Delete at first download?') %></th>
-                <th class="text-center"><%= l('Uploaded at') %></th>
-                <th class="text-center"><%= l('Expires at') %></th>
-                <th class="text-center"><%= l('Deletion link') %></th>
+                <th class="center-align"><%= l('File name') %></th>
+                <th class="center-align"><%= l('Download link') %></th>
+                <th class="center-align"><%= l('Counter') %></th>
+                <th class="center-align"><%= l('Delete at first download?') %></th>
+                <th class="center-align"><%= l('Uploaded at') %></th>
+                <th class="center-align"><%= l('Expires at') %></th>
+                <th class="center-align"><%= l('Deletion link') %></th>
             </tr>
         </thead>
         <tbody id="myfiles">
@@ -41,7 +42,7 @@ var i18n       = {
     noExpiration:    '<%= l('No expiration delay') %>',
     importProcessed: '<%= l('The data has been successfully imported.') %>',
 };
-document.addEventListener('DOMContentLoaded', function() {
+$(document).ready(function() {
     populateFilesTable();
 });
 % end

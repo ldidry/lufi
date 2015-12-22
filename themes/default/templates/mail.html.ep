@@ -1,31 +1,42 @@
 % # vim:set sw=4 ts=4 sts=4 ft=html.epl expandtab:
+<div class="row">
 % if (defined(stash('msg'))) {
-    <div class="alert alert-warning"><%= stash('msg') %></div>
-% }
-    <div class="alert alert-info">
-        <p><%= l('If you send the mail from this server, the links will be send to the server, which may lower your privacy protection.') %></p>
+    <div class="col s12">
+        <div class="card pink">
+            <div class="card-content white-text">
+                <strong><%= stash('msg')%></strong>
+            </div>
+        </div>
     </div>
-    <form action="<%= url_for('m') %>" method="post">
+% }
+    <div class="col s12">
+        <div class="card cyan">
+            <div class="card-content white-text">
+                <p><%= l('If you send the mail from this server, the links will be send to the server, which may lower your privacy protection.') %></p>
+            </div>
+        </div>
+    </div>
+    <form action="<%= url_for('m') %>" method="post" class="col s12">
         %= csrf_field
-        <div class="form-group">
+        <div class="input-field">
             <label for="emails"><%= l('Comma-separated email addresses') %></label>
 % if (defined(stash('values'))) {
-            <input type="text" class="form-control" id="emails" name="emails" placeholder="<%= l('Emails') %>" value="<%== stash('values')->{emails} %>">
+            <input type="text" class="validate" id="emails" name="emails" placeholder="<%= l('Emails') %>" value="<%== stash('values')->{emails} %>">
 % } else {
-            <input type="text" class="form-control" id="emails" name="emails" placeholder="<%= l('Emails') %>">
+            <input type="text" class="validate" id="emails" name="emails" placeholder="<%= l('Emails') %>">
 % }
         </div>
-        <div class="form-group">
+        <div class="input-field">
             <label for="subject"><%= l('Email subject') %></label>
 % if (defined(stash('values'))) {
-            <input type="text" class="form-control" id="subject" name="subject" value="<%= l('Here\'s some files') %>" value="<%== stash('values')->{subject} %>">
+            <input type="text" class="validate" id="subject" name="subject" value="<%= l('Here\'s some files') %>" value="<%== stash('values')->{subject} %>">
 % } else {
-            <input type="text" class="form-control" id="subject" name="subject" value="<%= l('Here\'s some files') %>">
+            <input type="text" class="validate" id="subject" name="subject" value="<%= l('Here\'s some files') %>">
 % }
         </div>
-        <div class="form-group">
+        <div class="input-field">
             <label for="body"><%= l('Email body') %></label>
-            <textarea class="form-control" id="body" name="body" rows="10">
+            <textarea class="materialize-textarea" id="body" name="body" rows="10">
 % if (defined(stash('values'))) {
 <%== stash('values')->{body} %>
 % }
@@ -34,6 +45,7 @@
         <button type="submit" class="btn btn-info"><%= l('Send with this server') %></button>
         <a href="#" class="btn btn-primary" id="mailto"><%= l('Send with your own mail software') %></a>
     </form>
+<div>
 %= javascript begin
     function findItem(name) {
         var files = localStorage.getItem('files');
