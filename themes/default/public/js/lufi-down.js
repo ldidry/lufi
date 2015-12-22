@@ -79,7 +79,7 @@ function spawnWebsocket(pa) {
                 var b64 = sjcl.decrypt(window.key, slice);
                 window.a[data.part] = base64ToArrayBuffer(b64);
                 if (data.part + 1 === data.total) {
-                    var blob = new File(a, data.name, {type: data.type});
+                    var blob = new Blob(a, {type: data.type});
 
                     document.getElementById('please-wait').remove();
                     document.getElementById('loading').remove();
