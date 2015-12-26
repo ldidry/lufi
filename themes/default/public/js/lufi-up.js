@@ -399,9 +399,9 @@ function spawnWebsocket(i, callback) {
 // When it's ready
 $(document).ready(function(){
     // Dropzone events binding
-    var dropZone = $('#files');
-    dropZone.on('dragover', handleDragOver);
-    dropZone.on('drop', handleDrop);
+    var dropZone = document.getElementById('files');
+    dropZone.addEventListener('dragover', handleDragOver, false);
+    dropZone.addEventListener('drop', handleDrop, false);
     $('label[for="first-view"').on('click', function(){
         if ($('#first-view').attr('data-checked') && $('#first-view').attr('data-checked') === 'data-checked') {
             $('#first-view').attr('data-checked', null);
