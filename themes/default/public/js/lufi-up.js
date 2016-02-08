@@ -1,6 +1,11 @@
 // vim:set sw=4 ts=4 sts=4 ft=javascript expandtab:
 
 window.fc = 0;
+// Set websocket
+window.ws = spawnWebsocket(0, function() {return null;});
+// Use slice of 10MB
+window.sliceLength = 2000000;
+
 // Copy a link to clipboard
 function copyToClipboard(txt) {
     var textArea = $('<textarea>');
@@ -409,10 +414,4 @@ $(document).ready(function(){
             $('#first-view').attr('data-checked', 'data-checked');
         }
     });
-
-    // Set websocket
-    window.ws = spawnWebsocket(0, function() {return null;});
-
-    // Use slice of 10MB
-    window.sliceLength = 2000000;
 });
