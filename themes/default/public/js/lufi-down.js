@@ -37,6 +37,7 @@ function addAlert(msg) {
 
     var pbd = $('#pbd');
     pbd.attr('role', 'alert');
+    pbd.removeClass('progress');
     pbd.html(['<div class="card pink">',
                   '<div class="card-content white-text">',
                       '<strong>', msg, '</strong>',
