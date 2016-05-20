@@ -39,6 +39,10 @@ msgstr " :"
 msgid "A thank you with a photo of kitten on <a href=\"https://framasphere.org/people/b13eb6b0beac0131e7e32a0000053625\" class=\"classic\">Diaspora*</a> or <a href=\"https://twitter.com/framasky\" class=\"classic\">Twitter</a> is cool too ;-)"
 msgstr "Un merci avec une photo de chaton sur <a href=\"https://framasphere.org/people/b13eb6b0beac0131e7e32a0000053625\" class=\"classic\">Diaspora*</a> ou <a href=\"https://twitter.com/framasky\" class=\"classic\">Twitter</a> fait aussi l’affaire ;-)"
 
+#: themes/default/templates/render.html.ep:34
+msgid "Abort"
+msgstr "Abandonner"
+
 #: themes/default/templates/layouts/default.html.ep:40 themes/default/templates/layouts/default.html.ep:52
 msgid "About"
 msgstr "À propos"
@@ -48,13 +52,17 @@ msgid "As Lufi is a free software licensed under of the terms of the <a href=\"h
 msgstr "Comme Lufi est un logiciel libre soumis aux termes de la license <a href=\"https://gnu.org/licenses/agpl.html\" class=\"classic\">AGPLv3</a>, vous pouvez l’installer sur votre propre serveur. Veuillez consulter le <a href=\"https://git.framasoft.org/luc/lufi/wikis/home\" class=\"classic\">Wiki</a> pour voir la procédure."
 
 #. (stash('f')
-#: themes/default/templates/render.html.ep:39
+#: themes/default/templates/render.html.ep:44
 msgid "Asking for file part XX1 of %1"
 msgstr "Demande de récupération du fragment de fichier XX1 sur %1"
 
 #: themes/default/templates/about.html.ep:21
 msgid "Back to homepage"
 msgstr "Retour à la page d’accueil"
+
+#: themes/default/templates/render.html.ep:40
+msgid "Click here to refresh the page and restart the download."
+msgstr "Cliquez ici pour rafraîchir la page et redémarrer le téléchargement."
 
 #: themes/default/templates/index.html.ep:72
 msgid "Click to open the file browser"
@@ -104,9 +112,13 @@ msgstr "Lien de suppression"
 msgid "Don't worry: if a user begins to download the file before the expiration and the download ends after the expiration, he will be able to get the file."
 msgstr "Ne vous inquiétez pas : si un utilisateur commence à télécharger le fichier avant son expiration et que le téléchargement se termine après l’expiration, l’utilisateur pourra quand même récupérer le fichier."
 
-#: themes/default/templates/index.html.ep:98 themes/default/templates/render.html.ep:38
+#: themes/default/templates/index.html.ep:98
 msgid "Download"
 msgstr "Télécharger"
+
+#: themes/default/templates/render.html.ep:39
+msgid "Download aborted."
+msgstr "Téléchargement abandonné."
 
 #: themes/default/templates/files.html.ep:25 themes/default/templates/index.html.ep:97
 msgid "Download link"
@@ -168,6 +180,10 @@ msgstr "Fichier supprimé"
 msgid "File name"
 msgstr "Nom du fichier"
 
+#: themes/default/templates/render.html.ep:43
+msgid "Get the file"
+msgstr "Récupérez le fichier"
+
 #: themes/default/templates/about.html.ep:19
 msgid "Get the source code on <a href=\"https://git.framasoft.org/luc/lufi\" class=\"classic\">the official repository</a> or on its <a href=\"https://github.com/ldidry/lufi\" class=\"classic\">Github mirror</a>"
 msgstr "Récupérez le code source sur <a href=\"https://git.framasoft.org/luc/lufi\" class=\"classic\">le dépôt officiel</a> ou sur son <a href=\"https://github.com/ldidry/lufi\" class=\"classic\">miroir Github</a>."
@@ -220,7 +236,7 @@ msgstr "Important : plus d’informations sur les délais"
 msgid "Information about delays"
 msgstr "Information sur les délais"
 
-#: themes/default/templates/render.html.ep:36
+#: themes/default/templates/render.html.ep:41
 msgid "It seems that the key in your URL is incorrect. Please, verify your URL."
 msgstr "Il semble que la clé dans votre URL soit incorrecte. Veuillez vérifier votre URL."
 
@@ -267,8 +283,8 @@ msgid "Please contact the administrator: %1"
 msgstr "Veuillez contacter l’administrateur : %1"
 
 #: themes/default/templates/render.html.ep:25
-msgid "Please wait while we are getting your file"
-msgstr "Veuillez patienter pendant la récupération de votre fichier"
+msgid "Please wait while we are getting your file. We first need to download and decrypt all parts before you can get it."
+msgstr "Veuillez patientez pendant que la récupération de votre fichier. Nous devons d'abord récupérer et déchiffrer tous les fragments avant que vous puissiez le télécharger."
 
 #: themes/default/templates/about.html.ep:5
 msgid "Privacy"
@@ -416,11 +432,11 @@ msgstr "Vous pouvez voir la liste de vos fichiers en cliquant sur le lien « Mes
 msgid "You don't need to register yourself to upload files but be aware that, for legal reasons, your IP address will be stored when you send a file. Don't panic, this is normally the case for all sites on which you send files."
 msgstr "Vous n’avez pas besoin de vous enregistrer pour envoyer des fichiers mais notez que, pour des raisons légales, votre adresse IP sera enregistrée quand vous envoyez un fichier. Ne paniquez pas, c’est normalement le cas pour tous les sites où vous envoyez des fichiers."
 
-#: themes/default/templates/render.html.ep:40
+#: themes/default/templates/render.html.ep:45
 msgid "You don't seem to have a key in your URL. You won't be able to decrypt the file. Download canceled."
 msgstr "Il semble que vous n’ayez pas de clé dans votre URL. Vous ne serez pas capable de déchiffrer le fichier. Téléchargement annulé."
 
-#: themes/default/templates/render.html.ep:37
+#: themes/default/templates/render.html.ep:42
 msgid "You have attempted to leave this page. The download will be canceled. Are you sure?"
 msgstr "Vous essayez de quitter la page. Le téléchargement sera annulé. Êtes-vous sûr(e) ?"
 
