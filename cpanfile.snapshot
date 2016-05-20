@@ -1,5 +1,26 @@
 # carton snapshot format: version 1.0
 DISTRIBUTIONS
+  Authen-SASL-2.16
+    pathname: G/GB/GBARR/Authen-SASL-2.16.tar.gz
+    provides:
+      Authen::SASL 2.16
+      Authen::SASL::CRAM_MD5 2.14
+      Authen::SASL::EXTERNAL 2.14
+      Authen::SASL::Perl 2.14
+      Authen::SASL::Perl::ANONYMOUS 2.14
+      Authen::SASL::Perl::CRAM_MD5 2.14
+      Authen::SASL::Perl::DIGEST_MD5 2.14
+      Authen::SASL::Perl::EXTERNAL 2.14
+      Authen::SASL::Perl::GSSAPI 0.05
+      Authen::SASL::Perl::LOGIN 2.14
+      Authen::SASL::Perl::Layer 2.14
+      Authen::SASL::Perl::PLAIN 2.14
+    requirements:
+      Digest::HMAC_MD5 0
+      Digest::MD5 0
+      ExtUtils::MakeMaker 6.42
+      Test::More 0
+      perl 5.005
   CPAN-Meta-2.150005
     pathname: D/DA/DAGOLDEN/CPAN-Meta-2.150005.tar.gz
     provides:
@@ -29,6 +50,14 @@ DISTRIBUTIONS
       Canary::Stability 2006
     requirements:
       ExtUtils::MakeMaker 0
+  Convert-ASN1-0.27
+    pathname: G/GB/GBARR/Convert-ASN1-0.27.tar.gz
+    provides:
+      Convert::ASN1 0.27
+    requirements:
+      ExtUtils::MakeMaker 6.30
+      Math::BigInt 1.997
+      Test::More 0.90
   Crypt-Rijndael-1.13
     pathname: L/LE/LEONT/Crypt-Rijndael-1.13.tar.gz
     provides:
@@ -193,10 +222,21 @@ DISTRIBUTIONS
       perl 5.006
       strict 0
       warnings 0
-  EV-4.21
-    pathname: M/ML/MLEHMANN/EV-4.21.tar.gz
+  Digest-HMAC-1.03
+    pathname: G/GA/GAAS/Digest-HMAC-1.03.tar.gz
     provides:
-      EV 4.21
+      Digest::HMAC 1.03
+      Digest::HMAC_MD5 1.01
+      Digest::HMAC_SHA1 1.03
+    requirements:
+      Digest::MD5 2
+      Digest::SHA 1
+      ExtUtils::MakeMaker 0
+      perl 5.004
+  EV-4.22
+    pathname: M/ML/MLEHMANN/EV-4.22.tar.gz
+    provides:
+      EV 4.22
       EV::MakeMaker undef
     requirements:
       Canary::Stability 0
@@ -212,16 +252,38 @@ DISTRIBUTIONS
       Time::Local 0
       strict 0
       warnings 0
-  Email-Valid-1.196
-    pathname: R/RJ/RJBS/Email-Valid-1.196.tar.gz
+  Email-Valid-1.200
+    pathname: R/RJ/RJBS/Email-Valid-1.200.tar.gz
     provides:
-      Email::Valid 1.196
+      Email::Valid 1.200
     requirements:
       ExtUtils::MakeMaker 0
       Mail::Address 0
       Scalar::Util 0
       Test::More 0
       perl 5.006
+  Encode-Locale-1.05
+    pathname: G/GA/GAAS/Encode-Locale-1.05.tar.gz
+    provides:
+      Encode::Locale 1.05
+    requirements:
+      Encode 2
+      Encode::Alias 0
+      ExtUtils::MakeMaker 0
+      perl 5.008
+  File-Listing-6.04
+    pathname: G/GA/GAAS/File-Listing-6.04.tar.gz
+    provides:
+      File::Listing 6.04
+      File::Listing::apache 6.04
+      File::Listing::dosftp 6.04
+      File::Listing::netware 6.04
+      File::Listing::unix 6.04
+      File::Listing::vms 6.04
+    requirements:
+      ExtUtils::MakeMaker 0
+      HTTP::Date 6
+      perl 5.006002
   File-Remove-1.52
     pathname: A/AD/ADAMK/File-Remove-1.52.tar.gz
     provides:
@@ -249,6 +311,62 @@ DISTRIBUTIONS
       File::Temp 0
       Test::More 0
       Test::Warn 0
+  HTML-Parser-3.72
+    pathname: G/GA/GAAS/HTML-Parser-3.72.tar.gz
+    provides:
+      HTML::Entities 3.69
+      HTML::Filter 3.72
+      HTML::HeadParser 3.71
+      HTML::LinkExtor 3.69
+      HTML::Parser 3.72
+      HTML::PullParser 3.57
+      HTML::TokeParser 3.69
+    requirements:
+      ExtUtils::MakeMaker 0
+      HTML::Tagset 3
+      XSLoader 0
+      perl 5.008
+  HTML-Tagset-3.20
+    pathname: P/PE/PETDANCE/HTML-Tagset-3.20.tar.gz
+    provides:
+      HTML::Tagset 3.20
+    requirements:
+      ExtUtils::MakeMaker 0
+  HTTP-Cookies-6.01
+    pathname: G/GA/GAAS/HTTP-Cookies-6.01.tar.gz
+    provides:
+      HTTP::Cookies 6.01
+      HTTP::Cookies::Microsoft 6.00
+      HTTP::Cookies::Netscape 6.00
+    requirements:
+      ExtUtils::MakeMaker 0
+      HTTP::Date 6
+      HTTP::Headers::Util 6
+      Time::Local 0
+      perl 5.008001
+  HTTP-Daemon-6.01
+    pathname: G/GA/GAAS/HTTP-Daemon-6.01.tar.gz
+    provides:
+      HTTP::Daemon 6.01
+      HTTP::Daemon::ClientConn 6.01
+    requirements:
+      ExtUtils::MakeMaker 0
+      HTTP::Date 6
+      HTTP::Request 6
+      HTTP::Response 6
+      HTTP::Status 6
+      IO::Socket 0
+      LWP::MediaTypes 6
+      Sys::Hostname 0
+      perl 5.008001
+  HTTP-Date-6.02
+    pathname: G/GA/GAAS/HTTP-Date-6.02.tar.gz
+    provides:
+      HTTP::Date 6.02
+    requirements:
+      ExtUtils::MakeMaker 0
+      Time::Local 0
+      perl 5.006002
   HTTP-Lite-2.44
     pathname: N/NE/NEILB/HTTP-Lite-2.44.tar.gz
     provides:
@@ -260,6 +378,80 @@ DISTRIBUTIONS
       perl 5.005
       strict 0
       warnings 0
+  HTTP-Message-6.11
+    pathname: E/ET/ETHER/HTTP-Message-6.11.tar.gz
+    provides:
+      HTTP::Config 6.11
+      HTTP::Headers 6.11
+      HTTP::Headers::Auth 6.11
+      HTTP::Headers::ETag 6.11
+      HTTP::Headers::Util 6.11
+      HTTP::Message 6.11
+      HTTP::Request 6.11
+      HTTP::Request::Common 6.11
+      HTTP::Response 6.11
+      HTTP::Status 6.11
+    requirements:
+      Compress::Raw::Zlib 0
+      Encode 2.21
+      Encode::Locale 1
+      Exporter 5.57
+      ExtUtils::MakeMaker 0
+      HTTP::Date 6
+      IO::Compress::Bzip2 2.021
+      IO::Compress::Deflate 0
+      IO::Compress::Gzip 0
+      IO::HTML 0
+      IO::Uncompress::Bunzip2 2.021
+      IO::Uncompress::Gunzip 0
+      IO::Uncompress::Inflate 0
+      IO::Uncompress::RawInflate 0
+      LWP::MediaTypes 6
+      MIME::Base64 2.1
+      MIME::QuotedPrint 0
+      URI 1.10
+      perl 5.008001
+  HTTP-Negotiate-6.01
+    pathname: G/GA/GAAS/HTTP-Negotiate-6.01.tar.gz
+    provides:
+      HTTP::Negotiate 6.01
+    requirements:
+      ExtUtils::MakeMaker 0
+      HTTP::Headers 6
+      perl 5.008001
+  IO-HTML-1.001
+    pathname: C/CJ/CJM/IO-HTML-1.001.tar.gz
+    provides:
+      IO::HTML 1.001
+    requirements:
+      Carp 0
+      Encode 2.10
+      Exporter 5.57
+      ExtUtils::MakeMaker 6.30
+  IO-Socket-IP-0.37
+    pathname: P/PE/PEVANS/IO-Socket-IP-0.37.tar.gz
+    provides:
+      IO::Socket::IP 0.37
+    requirements:
+      IO::Socket 0
+      Socket 1.97
+      Test::More 0.88
+  IO-Socket-SSL-2.027
+    pathname: S/SU/SULLR/IO-Socket-SSL-2.027.tar.gz
+    provides:
+      IO::Socket::SSL 2.027
+      IO::Socket::SSL::Intercept 2.014
+      IO::Socket::SSL::OCSP_Cache 2.027
+      IO::Socket::SSL::OCSP_Resolver 2.027
+      IO::Socket::SSL::PublicSuffix undef
+      IO::Socket::SSL::SSL_Context 2.027
+      IO::Socket::SSL::SSL_HANDLE 2.027
+      IO::Socket::SSL::Session_Cache 2.027
+      IO::Socket::SSL::Utils 2.014
+    requirements:
+      ExtUtils::MakeMaker 0
+      Net::SSLeay 1.46
+      Scalar::Util 0
   IPC-Run3-0.048
     pathname: R/RJ/RJBS/IPC-Run3-0.048.tar.gz
     provides:
@@ -268,6 +460,22 @@ DISTRIBUTIONS
       ExtUtils::MakeMaker 0
       Test::More 0.31
       Time::HiRes 0
+  JSON-2.90
+    pathname: M/MA/MAKAMAKA/JSON-2.90.tar.gz
+    provides:
+      JSON 2.90
+      JSON::Backend::PP 2.90
+      JSON::Boolean 2.90
+    requirements:
+      ExtUtils::MakeMaker 0
+      Test::More 0
+  LWP-MediaTypes-6.02
+    pathname: G/GA/GAAS/LWP-MediaTypes-6.02.tar.gz
+    provides:
+      LWP::MediaTypes 6.02
+    requirements:
+      ExtUtils::MakeMaker 0
+      perl 5.006002
   Locale-Maketext-Lexicon-1.00
     pathname: D/DR/DRTECH/Locale-Maketext-Lexicon-1.00.tar.gz
     provides:
@@ -427,8 +635,8 @@ DISTRIBUTIONS
       Text::ParseWords 0
       perl 5.008000
       version 0.87
-  Mojolicious-6.22
-    pathname: S/SR/SRI/Mojolicious-6.22.tar.gz
+  Mojolicious-6.62
+    pathname: S/SR/SRI/Mojolicious-6.62.tar.gz
     provides:
       Mojo undef
       Mojo::Asset undef
@@ -490,7 +698,8 @@ DISTRIBUTIONS
       Mojo::UserAgent::Server undef
       Mojo::UserAgent::Transactor undef
       Mojo::Util undef
-      Mojolicious 6.22
+      Mojo::WebSocket undef
+      Mojolicious 6.62
       Mojolicious::Command undef
       Mojolicious::Command::cgi undef
       Mojolicious::Command::cpanify undef
@@ -538,10 +747,19 @@ DISTRIBUTIONS
       ojo undef
     requirements:
       ExtUtils::MakeMaker 0
-      IO::Socket::IP 0.26
+      IO::Socket::IP 0.37
       JSON::PP 2.27103
       Pod::Simple 3.09
       Time::Local 1.2
+  Mojolicious-Plugin-Authentication-1.29
+    pathname: M/MA/MADCAT/Mojolicious-Plugin-Authentication-1.29.tar.gz
+    provides:
+      Mojolicious::Plugin::Authentication 1.29
+    requirements:
+      ExtUtils::MakeMaker 0
+      Mojo::Base 0
+      strict 0
+      warnings 0
   Mojolicious-Plugin-DebugDumperHelper-0.02
     pathname: L/LD/LDIDRY/Mojolicious-Plugin-DebugDumperHelper-0.02.tar.gz
     provides:
@@ -570,10 +788,35 @@ DISTRIBUTIONS
       Mojolicious 5
       Test::More 0
       perl 5.001001
-  Number-Bytes-Human-0.09
-    pathname: D/DA/DAGOBERT/Number-Bytes-Human-0.09.tar.gz
+  Net-HTTP-6.09
+    pathname: E/ET/ETHER/Net-HTTP-6.09.tar.gz
     provides:
-      Number::Bytes::Human 0.09
+      Net::HTTP 6.09
+      Net::HTTP::Methods 6.09
+      Net::HTTP::NB 6.09
+      Net::HTTPS 6.09
+    requirements:
+      Compress::Raw::Zlib 0
+      ExtUtils::MakeMaker 0
+      IO::Select 0
+      IO::Socket::INET 0
+      IO::Uncompress::Gunzip 0
+      URI 0
+      perl 5.006002
+  Net-SSLeay-1.74
+    pathname: M/MI/MIKEM/Net-SSLeay-1.74.tar.gz
+    provides:
+      Net::SSLeay 1.74
+      Net::SSLeay::Handle 0.61
+    requirements:
+      ExtUtils::MakeMaker 6.36
+      MIME::Base64 0
+      Test::More 0.60_01
+      perl 5.005
+  Number-Bytes-Human-0.10
+    pathname: D/DA/DAGOBERT/Number-Bytes-Human-0.10.tar.gz
+    provides:
+      Number::Bytes::Human 0.10
     requirements:
       Carp 0
       ExtUtils::MakeMaker 0
@@ -676,6 +919,13 @@ DISTRIBUTIONS
       Test::Builder::Tester 1.02
       Test::More 0
       perl 5.006
+  Text-Soundex-3.05
+    pathname: R/RJ/RJBS/Text-Soundex-3.05.tar.gz
+    provides:
+      Text::Soundex 3.05
+    requirements:
+      ExtUtils::MakeMaker 0
+      if 0
   TimeDate-2.30
     pathname: G/GB/GBARR/TimeDate-2.30.tar.gz
     provides:
@@ -719,9 +969,233 @@ DISTRIBUTIONS
       Time::Zone 2.24
     requirements:
       ExtUtils::MakeMaker 0
+  URI-1.71
+    pathname: E/ET/ETHER/URI-1.71.tar.gz
+    provides:
+      URI 1.71
+      URI::Escape 3.31
+      URI::Heuristic 4.20
+      URI::IRI 1.71
+      URI::QueryParam 1.71
+      URI::Split 1.71
+      URI::URL 5.04
+      URI::WithBase 2.20
+      URI::_foreign 1.71
+      URI::_generic 1.71
+      URI::_idna 1.71
+      URI::_ldap 1.71
+      URI::_login 1.71
+      URI::_punycode 1.71
+      URI::_query 1.71
+      URI::_segment 1.71
+      URI::_server 1.71
+      URI::_userpass 1.71
+      URI::data 1.71
+      URI::file 4.21
+      URI::file::Base 1.71
+      URI::file::FAT 1.71
+      URI::file::Mac 1.71
+      URI::file::OS2 1.71
+      URI::file::QNX 1.71
+      URI::file::Unix 1.71
+      URI::file::Win32 1.71
+      URI::ftp 1.71
+      URI::gopher 1.71
+      URI::http 1.71
+      URI::https 1.71
+      URI::ldap 1.71
+      URI::ldapi 1.71
+      URI::ldaps 1.71
+      URI::mailto 1.71
+      URI::mms 1.71
+      URI::news 1.71
+      URI::nntp 1.71
+      URI::pop 1.71
+      URI::rlogin 1.71
+      URI::rsync 1.71
+      URI::rtsp 1.71
+      URI::rtspu 1.71
+      URI::sftp 1.71
+      URI::sip 1.71
+      URI::sips 1.71
+      URI::snews 1.71
+      URI::ssh 1.71
+      URI::telnet 1.71
+      URI::tn3270 1.71
+      URI::urn 1.71
+      URI::urn::isbn undef
+      URI::urn::oid 1.71
+    requirements:
+      Exporter 5.57
+      ExtUtils::MakeMaker 0
+      MIME::Base64 2
+      Scalar::Util 0
+      parent 0
+      perl 5.008001
+      utf8 0
+  WWW-RobotRules-6.02
+    pathname: G/GA/GAAS/WWW-RobotRules-6.02.tar.gz
+    provides:
+      WWW::RobotRules 6.02
+      WWW::RobotRules::AnyDBM_File 6.00
+      WWW::RobotRules::InCore 6.02
+    requirements:
+      AnyDBM_File 0
+      ExtUtils::MakeMaker 0
+      Fcntl 0
+      URI 1.10
+      perl 5.008001
+  XML-SAX-Base-1.08
+    pathname: G/GR/GRANTM/XML-SAX-Base-1.08.tar.gz
+    provides:
+      XML::SAX::Base 1.08
+      XML::SAX::Base::NoHandler 1.08
+      XML::SAX::Exception 1.08
+    requirements:
+      ExtUtils::MakeMaker 6.31
+      Test::More 0.88
   common-sense-3.74
     pathname: M/ML/MLEHMANN/common-sense-3.74.tar.gz
     provides:
       common::sense 3.74
     requirements:
       ExtUtils::MakeMaker 0
+  libwww-perl-6.15
+    pathname: E/ET/ETHER/libwww-perl-6.15.tar.gz
+    provides:
+      LWP 6.15
+      LWP::Authen::Basic undef
+      LWP::Authen::Digest undef
+      LWP::Authen::Ntlm 6.15
+      LWP::ConnCache 6.15
+      LWP::Debug undef
+      LWP::DebugFile undef
+      LWP::MemberMixin undef
+      LWP::Protocol 6.15
+      LWP::Protocol::GHTTP undef
+      LWP::Protocol::MyFTP undef
+      LWP::Protocol::cpan undef
+      LWP::Protocol::data undef
+      LWP::Protocol::file undef
+      LWP::Protocol::ftp undef
+      LWP::Protocol::gopher undef
+      LWP::Protocol::http undef
+      LWP::Protocol::http::Socket undef
+      LWP::Protocol::http::SocketMethods undef
+      LWP::Protocol::loopback undef
+      LWP::Protocol::mailto undef
+      LWP::Protocol::nntp undef
+      LWP::Protocol::nogo undef
+      LWP::RobotUA 6.15
+      LWP::Simple 6.15
+      LWP::UserAgent 6.15
+    requirements:
+      Digest::MD5 0
+      Encode 2.12
+      Encode::Locale 0
+      ExtUtils::MakeMaker 0
+      File::Copy 0
+      File::Listing 6
+      Getopt::Long 0
+      HTML::Entities 0
+      HTML::HeadParser 0
+      HTTP::Cookies 6
+      HTTP::Daemon 6
+      HTTP::Date 6
+      HTTP::Negotiate 6
+      HTTP::Request 6
+      HTTP::Request::Common 6
+      HTTP::Response 6
+      HTTP::Status 6
+      IO::Select 0
+      IO::Socket 0
+      LWP::MediaTypes 6
+      MIME::Base64 2.1
+      Net::FTP 2.58
+      Net::HTTP 6.07
+      URI 1.10
+      URI::Escape 0
+      WWW::RobotRules 6
+      perl 5.008001
+  perl-ldap-0.65
+    pathname: M/MA/MARSCHAP/perl-ldap-0.65.tar.gz
+    provides:
+      Bundle::Net::LDAP 0.03
+      LWP::Protocol::ldap 1.25
+      LWP::Protocol::ldapi undef
+      LWP::Protocol::ldaps undef
+      Net::LDAP 0.65
+      Net::LDAP::ASN 0.12
+      Net::LDAP::Bind 1.05
+      Net::LDAP::Constant 0.23
+      Net::LDAP::Control 0.18
+      Net::LDAP::Control::Assertion 0.02
+      Net::LDAP::Control::DontUseCopy 0.01
+      Net::LDAP::Control::EntryChange 0.02
+      Net::LDAP::Control::ManageDsaIT 0.04
+      Net::LDAP::Control::MatchedValues 0.02
+      Net::LDAP::Control::Paged 0.05
+      Net::LDAP::Control::PasswordPolicy 0.04
+      Net::LDAP::Control::PersistentSearch 0.04
+      Net::LDAP::Control::PostRead 0.03
+      Net::LDAP::Control::PreRead 0.04
+      Net::LDAP::Control::ProxyAuth 1.09
+      Net::LDAP::Control::Relax 0.03
+      Net::LDAP::Control::Sort 0.04
+      Net::LDAP::Control::SortResult 0.03
+      Net::LDAP::Control::SyncDone 0.03
+      Net::LDAP::Control::SyncRequest 0.03
+      Net::LDAP::Control::SyncState 0.04
+      Net::LDAP::Control::VLV 0.06
+      Net::LDAP::Control::VLVResponse 0.04
+      Net::LDAP::DSML 0.16
+      Net::LDAP::DSML::output 0.16
+      Net::LDAP::DSML::pp 0.16
+      Net::LDAP::Entry 0.27
+      Net::LDAP::Extension 1.04
+      Net::LDAP::Extension::Cancel 0.02
+      Net::LDAP::Extension::Refresh 0.03
+      Net::LDAP::Extension::SetPassword 0.06
+      Net::LDAP::Extension::WhoAmI 0.02
+      Net::LDAP::Extra 0.02
+      Net::LDAP::Extra::AD 0.04
+      Net::LDAP::Extra::eDirectory 0.03
+      Net::LDAP::Filter 0.20
+      Net::LDAP::FilterList 0.02
+      Net::LDAP::FilterMatch 0.27
+      Net::LDAP::Intermediate 0.04
+      Net::LDAP::Intermediate::SyncInfo 0.03
+      Net::LDAP::LDIF 0.26
+      Net::LDAP::Message 1.12
+      Net::LDAP::Message::Dummy 1.12
+      Net::LDAP::Reference 0.14
+      Net::LDAP::RootDSE 0.02
+      Net::LDAP::Schema 0.9908
+      Net::LDAP::Search 0.14
+      Net::LDAP::Util 0.19
+      Net::LDAPI 0.04
+      Net::LDAPS 0.06
+    requirements:
+      Authen::SASL 2.00
+      Convert::ASN1 0.2
+      Digest::MD5 0
+      ExtUtils::MakeMaker 6.42
+      File::Basename 0
+      File::Compare 0
+      File::Path 0
+      HTTP::Negotiate 0
+      HTTP::Response 0
+      HTTP::Status 0
+      IO::File 0
+      IO::Socket::SSL 1.26
+      JSON 0
+      LWP 0
+      LWP::MediaTypes 0
+      LWP::Protocol 0
+      MIME::Base64 0
+      Test::More 0
+      Text::Soundex 0
+      Time::Local 0
+      URI::ldap 1.1
+      XML::SAX::Base 0
+      perl 5.008001

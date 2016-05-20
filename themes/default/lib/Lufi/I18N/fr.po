@@ -39,7 +39,7 @@ msgstr " :"
 msgid "A thank you with a photo of kitten on <a href=\"https://framasphere.org/people/b13eb6b0beac0131e7e32a0000053625\" class=\"classic\">Diaspora*</a> or <a href=\"https://twitter.com/framasky\" class=\"classic\">Twitter</a> is cool too ;-)"
 msgstr "Un merci avec une photo de chaton sur <a href=\"https://framasphere.org/people/b13eb6b0beac0131e7e32a0000053625\" class=\"classic\">Diaspora*</a> ou <a href=\"https://twitter.com/framasky\" class=\"classic\">Twitter</a> fait aussi l’affaire ;-)"
 
-#: themes/default/templates/layouts/default.html.ep:36 themes/default/templates/layouts/default.html.ep:41
+#: themes/default/templates/layouts/default.html.ep:40 themes/default/templates/layouts/default.html.ep:52
 msgid "About"
 msgstr "À propos"
 
@@ -76,11 +76,15 @@ msgstr "Copier tous les liens dans le presse-papier"
 msgid "Copy to clipboard"
 msgstr "Copier dans le presse-papier"
 
-#: lib/Lufi/Controller/Files.pm:298
+#: lib/Lufi/Controller/Files.pm:328
+msgid "Could not delete the file. You are not authenticated."
+msgstr "Impossible de supprimer le fichier. Vous n'êtes pas connecté·e."
+
+#: lib/Lufi/Controller/Files.pm:312
 msgid "Could not find the file. Are you sure of the URL and the token?"
 msgstr "Impossible de retrouver le fichier. Êtes-vous sûr(e) que l’URL et le jeton sont les bons ?"
 
-#: lib/Lufi/Controller/Files.pm:226
+#: lib/Lufi/Controller/Files.pm:228
 msgid "Could not find the file. Are you sure of the URL?"
 msgstr "Impossible de retrouver le fichier. Êtes-vous sûr(e) que l’URL soit correcte ?"
 
@@ -132,15 +136,15 @@ msgstr "Mails"
 msgid "Encrypting part XX1 of XX2"
 msgstr "Chiffrement du fragment XX1 sur XX2"
 
-#: lib/Lufi/Controller/Files.pm:162
+#: lib/Lufi/Controller/Files.pm:164
 msgid "Error: the file existed but was deleted."
 msgstr "Erreur : le fichier existait mais a été supprimé"
 
-#: lib/Lufi/Controller/Files.pm:203
+#: lib/Lufi/Controller/Files.pm:205
 msgid "Error: the file has not been sent entirely."
 msgstr "Erreur : le fichier n’a pas été envoyé dans son intégralité"
 
-#: lib/Lufi/Controller/Files.pm:208
+#: lib/Lufi/Controller/Files.pm:210
 msgid "Error: unable to find the file. Are you sure of your URL?"
 msgstr "Erreur : impossible de retrouver le fichier. Êtes-vous sûr(e) de l’URL ?"
 
@@ -156,7 +160,7 @@ msgstr "Expire le"
 msgid "Export localStorage data"
 msgstr "Exporter les données localStorage"
 
-#: lib/Lufi/Controller/Files.pm:282
+#: lib/Lufi/Controller/Files.pm:296
 msgid "File deleted"
 msgstr "Fichier supprimé"
 
@@ -224,16 +228,24 @@ msgstr "Il semble que la clé dans votre URL soit incorrecte. Veuillez vérifier
 msgid "Javascript is disabled. You won't be able to use Lufi."
 msgstr "Javascript est désactivé. Lufi ne fonctionnera pas."
 
+#: themes/default/templates/login.html.ep:15
+msgid "Login"
+msgstr "Identifiant"
+
+#: themes/default/templates/layouts/default.html.ep:42 themes/default/templates/layouts/default.html.ep:54
+msgid "Logout"
+msgstr "Déconnexion"
+
 #: themes/default/templates/about.html.ep:4
 msgid "Lufi is a free (as in free speech) file hosting software."
 msgstr "Lufi est un logiciel libre d’hébergement de fichiers."
 
-#: themes/default/templates/files.html.ep:3 themes/default/templates/layouts/default.html.ep:35 themes/default/templates/layouts/default.html.ep:40
+#: themes/default/templates/files.html.ep:3 themes/default/templates/layouts/default.html.ep:36 themes/default/templates/layouts/default.html.ep:48
 msgid "My files"
 msgstr "Mes fichiers"
 
 #. (format_bytes($json->{size})
-#: lib/Lufi/Controller/Files.pm:49
+#: lib/Lufi/Controller/Files.pm:50
 msgid "No enough space available on the server for this file (size: %1)."
 msgstr "Espace disque insuffisant sur le serveur pour ce fichier (taille du fichier: %1)."
 
@@ -244,6 +256,10 @@ msgstr "Pas de délai d’expiration"
 #: themes/default/templates/files.html.ep:8
 msgid "Only the files sent with this browser will be listed here. This list is stored in localStorage: if you delete your localStorage data, you'll lose this list."
 msgstr "Seuls les fichiers envoyés avec ce navigateur web sont listés ici. Les informations sont stockées en localStorage : si vous supprimez vos données localStorage, vous perdrez ces informations."
+
+#: themes/default/templates/login.html.ep:21
+msgid "Password"
+msgstr "Mot de passe"
 
 #. (config('contact')
 #: themes/default/templates/about.html.ep:13
@@ -287,11 +303,15 @@ msgstr "Envoi du fragment XX1 sur XX2"
 msgid "Share your files in total privacy on %1"
 msgstr "Partagez vos fichiers en toute confidentialité sur %1"
 
+#: themes/default/templates/layouts/default.html.ep:38 themes/default/templates/layouts/default.html.ep:50 themes/default/templates/login.html.ep:26 themes/default/templates/logout.html.ep:8
+msgid "Signin"
+msgstr "Connexion"
+
 #: themes/default/templates/index.html.ep:30
 msgid "Sorry, the uploading is currently disabled. Please try again later."
 msgstr "Désolé, l’envoi de fichier est actuellement désactivé. Veuillez réessayer plus tard."
 
-#: lib/Lufi/Controller/Files.pm:37
+#: lib/Lufi/Controller/Files.pm:38
 msgid "Sorry, uploading is disabled."
 msgstr "Désolé, l’envoi de fichier est désactivé."
 
@@ -311,7 +331,7 @@ msgstr "Le corps du mail ne peut être vide."
 msgid "The email subject can't be empty."
 msgstr "Le sujet du mail ne peut être vide."
 
-#: lib/Lufi/Controller/Files.pm:279
+#: lib/Lufi/Controller/Files.pm:293
 msgid "The file has already been deleted"
 msgstr "Le fichier a déjà été supprimé"
 
@@ -337,7 +357,7 @@ msgstr "Le mail a été envoyé."
 msgid "The original (and only for now) author is <a href=\"https://fiat-tux.fr\" class=\"classic\">Luc Didry</a>. If you want to support him, you can do it via <a href=\"https://flattr.com/submit/auto?user_id=_SKy_&amp;url=%1&amp;title=Lufi&amp;category=software\" class=\"classic\">Flattr</a> or with <a href=\"bitcoin:1CJYU2uGmPKhvithCGntyniTTe2hofpPX3?label=Lufi\" class=\"classic\">Bitcoin</a>."
 msgstr "L’auteur originel (et pour l’instant, le seul) est <a href=\"https://fiat-tux.fr\" class=\"classic\">Luc Didry</a>. Si vous avez envie de le supporter, vous pouvez le faire via <a href=\"https://flattr.com/submit/auto?user_id=_SKy_&amp;url=%1&amp;title=Lufi&amp;category=software\" class=\"classic\">Flattr</a> ou en <a href=\"bitcoin:1CJYU2uGmPKhvithCGntyniTTe2hofpPX3?label=Lufi\" class=\"classic\">Bitcoin</a>."
 
-#: lib/Lufi/Controller/Files.pm:122
+#: lib/Lufi/Controller/Files.pm:123
 msgid "The server was unable to find the file record to add your file part to. Please, contact the administrator."
 msgstr "Le serveur a été incapable de retrouver l’enregistrement du fichier auquel ajouter votre fragment de fichier. Veuillez contacter l'administrateur."
 
@@ -350,16 +370,21 @@ msgid "Unable to copy the link(s) to your clipboard"
 msgstr "Impossible de copier le(s) lien(s) dans votre presse-papier"
 
 #. ($short)
-#: lib/Lufi/Controller/Files.pm:263
+#: lib/Lufi/Controller/Files.pm:266
 msgid "Unable to get counter for %1. The file does not exists. It will be removed from your localStorage."
 msgstr "Impossible de récupérer le compteur pour %1. Le fichier n’existe pas. Il va être supprimé de votre localStorage."
 
 #. ($short)
-#: lib/Lufi/Controller/Files.pm:253
+#: lib/Lufi/Controller/Files.pm:256
 msgid "Unable to get counter for %1. The token is invalid."
 msgstr "Impossible de récupérer le compteur pour %1. Le jeton est invalide."
 
-#: themes/default/templates/layouts/default.html.ep:34 themes/default/templates/layouts/default.html.ep:39
+#. ($short)
+#: lib/Lufi/Controller/Files.pm:276
+msgid "Unable to get counter for %1. You are not authenticated."
+msgstr "Impossible de récupérer le compteur pour %1. Vous n'êtes pas connecté·e."
+
+#: themes/default/templates/layouts/default.html.ep:35 themes/default/templates/layouts/default.html.ep:47
 msgid "Upload files"
 msgstr "Envoyer des fichiers"
 
@@ -403,12 +428,16 @@ msgstr "Vous essayez de quitter la page. Le téléchargement sera annulé. Êtes
 msgid "You have attempted to leave this page. The upload will be canceled. Are you sure?"
 msgstr "Vous essayez de quitter la page. L’envoi sera annulé. Êtes-vous sûr(e) ?"
 
+#: themes/default/templates/logout.html.ep:5
+msgid "You have been successfully logged out."
+msgstr "Vous avez été déconnecté·e avec succès."
+
 #: lib/Lufi/Controller/Mail.pm:30
 msgid "You must give email addresses."
 msgstr "Vous devez envoyer des adresses mail."
 
 #. (format_bytes($json->{size})
-#: lib/Lufi/Controller/Files.pm:43
+#: lib/Lufi/Controller/Files.pm:44
 msgid "Your file is too big: %1 (maximum size allowed: %2)"
 msgstr "Votre fichier est trop volumineux : %1 (la taille maximum autorisée est %2)"
 
