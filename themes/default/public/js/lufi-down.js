@@ -105,6 +105,7 @@ function spawnWebsocket(pa) {
                     window.ws.send('{"ended":true}');
                     window.onbeforeunload = null;
                     window.completed = true;
+                    $('#abort').remove();
                 } else {
                     var l = $('#loading');
                     l.html(i18n.loading.replace(/XX1/, (data.part + 1)));
