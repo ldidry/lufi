@@ -295,8 +295,8 @@ msgid "Send with your own mail software"
 msgstr "Envoyer avec votre propre logiciel de mail"
 
 #: themes/default/templates/index.html.ep:105
-msgid "Sending part XX1 of XX2"
-msgstr "Envoi du fragment XX1 sur XX2"
+msgid "Sending part XX1 of XX2. Please, be patient, the progress bar can take a while to move."
+msgstr "Envoi du fragment XX1 sur XX2. Veuillez patienter, la barre de progression peut mettre du temps avant d'avancer."
 
 #. (url_for('/')
 #: themes/default/templates/mail.html.ep:87

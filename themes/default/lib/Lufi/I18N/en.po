@@ -293,7 +293,7 @@ msgid "Send with your own mail software"
 msgstr ""
 
 #: themes/default/templates/index.html.ep:105
-msgid "Sending part XX1 of XX2"
+msgid "Sending part XX1 of XX2. Please, be patient, the progress bar can take a while to move."
 msgstr ""
 
 #. (url_for('/')
