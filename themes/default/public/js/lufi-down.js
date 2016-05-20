@@ -52,7 +52,7 @@ function spawnWebsocket(pa) {
         console.log('Connection is established!');
 
         var l    = $('#loading');
-        l.html(i18n.loading.replace(/XX1/, pa));
+        l.html(i18n.loading.replace(/XX1/, (pa + 1)));
         window.ws.send('{"part":'+pa+'}');
     };
     ws.onclose   = function() {
