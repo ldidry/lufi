@@ -22,7 +22,7 @@
         % } else {
         <div class="col s12">
             <p id="filesize" data-filesize="<%= stash('f')->filesize %>"></p>
-            <p id="please-wait"><%= l('Please wait while we are getting your file') %></p>
+            <p id="please-wait"><%= l('Please wait while we are getting your file. We first need to download and decrypt all parts before you can get it.') %></p>
             <p id="loading"></p>
             <div class="progress" id="pbd">
                 <div id="pb" class="determinate" role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100" style="width: 0;">
@@ -30,12 +30,17 @@
                 </div>
             </div>
         </div>
+        <div class="col s12">
+            <a id="abort" class="waves-effect waves-light btn"><%= l('Abort') %></a>
+        </div>
 %= javascript begin
 var ws_url = '<%= url_for('download')->to_abs() %>';
 var i18n   = {
+    aborted1:    '<%= l('Download aborted.') %>',
+    aborted2:    '<%= l('Click here to refresh the page and restart the download.') %>',
     badkey:      '<%= l('It seems that the key in your URL is incorrect. Please, verify your URL.') %>',
     confirmExit: '<%= l('You have attempted to leave this page. The download will be canceled. Are you sure?') %>',
-    download:    '<%= l('Download') %>',
+    download:    '<%= l('Get the file') %>',
     loading:     '<%= l('Asking for file part XX1 of %1', stash('f')->nbslices) %>',
     nokey:       '<%= l('You don\'t seem to have a key in your URL. You won\'t be able to decrypt the file. Download canceled.') %>',
 }
