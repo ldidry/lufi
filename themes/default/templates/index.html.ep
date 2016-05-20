@@ -102,7 +102,7 @@ var i18n    = {
     hits:        '<%= l('Hit Enter, then Ctrl+C to copy all the download links') %>',
     mailTo:      '<%= l('Send all links by email') %>',
     noLimit:     '<%= l('No expiration delay') %>',
-    sending:     '<%= l('Sending part XX1 of XX2') %>',
+    sending:     '<%= l('Sending part XX1 of XX2. Please, be patient, the progress bar can take a while to move.') %>',
     wsProblem:   '<%= l('Websocket communication error') %>',
 };
 % end
