@@ -21,7 +21,7 @@ Lufi is licensed under the terms of the AGPL. See the [LICENSE](LICENSE) file.
 
 There is a demonstration site, available at <https://demo.lufi.io>, with strong limitations on time and file size.
 
-To really use Lufi, you can go to <https://framadrop.org>, provided by the [Framasoft](http://framasoft.org)
+To really use Lufi, you can go to <https://framadrop.org>, provided by the [Framasoft association](http://framasoft.org) (you can help them to keep providing free services at <https://soutenir.framasoft.org>).
 
 ## Logo
 
