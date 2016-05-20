@@ -3,6 +3,7 @@ package Lufi;
 use Mojo::Base 'Mojolicious';
 use LufiDB;
 use Data::Entropy qw(entropy_source);
+use Net::LDAP;
 
 $ENV{MOJO_MAX_WEBSOCKET_SIZE} = 100485760; # 10 * 1024 * 1024 = 10MiB
 
@@ -12,19 +13,20 @@ sub startup {
 
     my $config = $self->plugin('Config' => {
         default =>  {
-            provisioning  => 100,
-            provis_step   => 5,
-            length        => 10,
-            token_length  => 32,
-            secrets       => ['hfudsifdsih'],
-            default_delay => 0,
-            max_delay     => 0,
-            mail          => {
+            provisioning     => 100,
+            provis_step      => 5,
+            length           => 10,
+            token_length     => 32,
+            secrets          => ['hfudsifdsih'],
+            default_delay    => 0,
+            max_delay        => 0,
+            mail             => {
                 how => 'sendmail'
             },
-            mail_sender   => 'no-reply@lufi.io',
-            theme         => 'default',
-            upload_dir    => 'files',
+            mail_sender      => 'no-reply@lufi.io',
+            theme            => 'default',
+            upload_dir       => 'files',
+            session_duration => 3600,
         }
     });
 
@@ -59,6 +61,55 @@ sub startup {
     # Debug
     $self->plugin('DebugDumperHelper');
 
+    # Authentication (if configured)
+    $self->plugin('authentication' =>
+        {
+            autoload_user => 1,
+            session_key   => 'Dolomon',
+            load_user     => sub {
+                my ($c, $username) = @_;
+
+                return $username;
+            },
+            validate_user => sub {
+                my ($c, $username, $password, $extradata) = @_;
+
+                my $ldap = Net::LDAP->new($c->config->{ldap}->{uri});
+                my $mesg = $ldap->bind($c->config->{ldap}->{bind_user}.$c->config->{ldap}->{bind_dn},
+                    password => $c->config->{ldap}->{bind_pwd}
+                );
+
+                $mesg->code && die $mesg->error;
+
+                $mesg = $ldap->search(
+                    base   => $c->config->{ldap}->{user_tree},
+                    filter => "(&(uid=$username)".$c->config->{ldap}->{user_filter}.")"
+                );
+
+                if ($mesg->code) {
+                    $c->app->log->error($mesg->error);
+                    return undef;
+                }
+
+                # Now we know that the user exists
+                $mesg = $ldap->bind('uid='.$username.$c->config->{ldap}->{bind_dn},
+                    password => $password
+                );
+
+                if ($mesg->code) {
+                    $c->app->log->error($mesg->error);
+                    return undef;
+                }
+
+                return $username;
+            }
+        }
+    );
+    if (defined($self->config('ldap'))) {
+        $self->app->sessions->default_expiration($self->config('session_duration'));
+    }
+
+    # Secrets
     $self->secrets($self->config('secrets'));
 
     # Helpers
@@ -183,8 +234,46 @@ sub startup {
 
     # Page for files uploading
     $r->get('/' => sub {
-        shift->render(template => 'index');
+        my $c = shift;
+        if (!defined($c->config('ldap')) || $c->is_user_authenticated) {
+            $c->render(template => 'index');
+        } else {
+            $c->redirect_to('login');
+        }
     })->name('index');
+
+    if (defined $self->config('ldap')) {
+        # Login page
+        $r->get('/login' => sub {
+            my $c = shift;
+            if ($c->is_user_authenticated) {
+                $c->redirect_to('index');
+            } else {
+                $c->render(template => 'login');
+            }
+        });
+        # Authentication
+        $r->post('/login' => sub {
+            my $c = shift;
+            my $login = $c->param('login');
+            my $pwd   = $c->param('password');
+
+            if($c->authenticate($login, $pwd)) {
+                $c->redirect_to('index');
+            } else {
+                $c->stash(msg => $c->l('Please, check your credentials: unable to authenticate.'));
+                $c->render(template => 'login');
+            }
+        });
+        # Logout page
+        $r->get('/logout' => sub {
+            my $c = shift;
+            if ($c->is_user_authenticated) {
+                $c->logout;
+            }
+            $c->render(template => 'logout');
+        })->name('logout');
+    }
 
     # About page
     $r->get('/about' => sub {
@@ -196,9 +285,14 @@ sub startup {
         to('Files#r')->
         name('render');
 
-    # List of files (use localstorage, so the server know nothing about files
+    # List of files (use localstorage, so the server know nothing about files)
     $r->get('/files' => sub {
-        shift->render(template => 'files');
+        my $c = shift;
+        if (!defined($c->config('ldap')) || $c->is_user_authenticated) {
+            $c->render(template => 'files');
+        } else {
+            $c->redirect_to('login');
+        }
     })->name('files');
 
     # Get counter informations about a file

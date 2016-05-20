@@ -115,6 +115,23 @@
     # optional, default is 'files'
     #upload_dir           => 'files',
 
+    # set `ldap` if you want that only authenticated users can upload files
+    # please note that everybody can still download files
+    # optional, no default
+    #ldap => {
+    #    uri         => 'ldaps://ldap.example.org',
+    #    user_tree   => 'ou=users,dc=example,dc=org',
+    #    bind_dn     => ',ou=users,dc=example,dc=org',
+    #    bind_user   => 'uid=ldap_user',
+    #    bind_pwd    => 'secr3t',
+    #    user_filter => '!(uid=ldap_user)'
+    #},
+
+    # if you setted ldap above, the session will last `session_duration` seconds before
+    # the user needs to reauthenticate
+    # optional, default is 3600
+    #session_duration => 3600,
+
     #########################
     # Lufi cron jobs settings
     #########################
@@ -138,5 +155,5 @@
     # images which are not viewed since delete_no_longer_viewed_files days will be deleted by the cron cleanfiles task
     # if delete_no_longer_viewed_files is not set, the no longer viewed files will NOT be deleted
     # optional, no default
-    #delete_no_longer_viewed_files => 90
+    #delete_no_longer_viewed_files => 90,
 };

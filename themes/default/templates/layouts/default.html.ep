@@ -31,14 +31,28 @@
                 <a href="<%= url_for('/') %>" class="brand-logo">&nbsp;<img src="<%= url_for('/img/lufi-min.png') %>" alt="logo"> Lufi</a>
                 <a href="#" data-activates="mobile-demo" class="button-collapse"><i class="mdi-navigation-menu"></i></a>
                 <ul id="nav-mobile" class="right hide-on-med-and-down">
+                % if (!defined(config('ldap')) || is_user_authenticated()) {
                     <li<%== ' class="active"' if (current_route eq 'index') %>><a href="<%= url_for('/') %>"><%= l('Upload files') %></a></li>
                     <li<%== ' class="active"' if (current_route eq 'files') %>><a href="<%= url_for('/files') %>"><%= l('My files') %></a></li>
+                % } else {
+                    <li><a href="<%= url_for('/login') %>"><%= l('Signin') %></a></li>
+                % }
                     <li<%== ' class="active"' if (current_route eq 'about') %>><a href="<%= url_for('/about') %>"><%= l('About') %></a></li>
+                % if (defined(config('ldap')) && is_user_authenticated()) {
+                    <li><a href="<%= url_for('/logout') %>"><%= l('Logout') %></a></li>
+                % }
                 </ul>
                 <ul id="mobile-demo" class="side-nav">
+                % if (!defined(config('ldap')) || is_user_authenticated()) {
                     <li<%== ' class="active"' if (current_route eq 'index') %>><a href="<%= url_for('/') %>"><%= l('Upload files') %></a></li>
                     <li<%== ' class="active"' if (current_route eq 'files') %>><a href="<%= url_for('/files') %>"><%= l('My files') %></a></li>
+                % } else {
+                    <li><a href="<%= url_for('/login') %>"><%= l('Signin') %></a></li>
+                % }
                     <li<%== ' class="active"' if (current_route eq 'about') %>><a href="<%= url_for('/about') %>"><%= l('About') %></a></li>
+                % if (defined(config('ldap')) && is_user_authenticated()) {
+                    <li><a href="<%= url_for('/logout') %>"><%= l('Logout') %></a></li>
+                % }
                 </ul>
             </div>
         </nav>
