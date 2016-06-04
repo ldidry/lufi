@@ -100,7 +100,7 @@
 
     # Email sender address
     # Optional, default to no-reply@lufi.io
-    #mail_sender => 'no-reply@lufi.io'
+    #mail_sender => 'no-reply@lufi.io',
 
     # define a path to the SQLite database
     # you can define it relative to lufi directory or set an absolute path
