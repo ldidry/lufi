@@ -97,9 +97,12 @@ sub startup {
                 );
 
                 if ($mesg->code) {
-                    $c->app->log->error($mesg->error);
+                    $c->app->log->info("[LDAP authentication failed] login: $username, IP: ".$c->ip);
+                    $c->app->log->error("[LDAP authentication failed] ".$mesg->error);
                     return undef;
                 }
+
+                $c->app->log->info("[LDAP authentication successful] login: $username, IP: ".$c->ip);
 
                 return $username;
             }
