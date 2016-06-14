@@ -75,9 +75,13 @@ sub upload {
                             $delay = ($json->{delay} <= $c->max_delay || $c->max_delay == 0) ? $json->{delay} : $c->max_delay;
                         }
 
+                        my $creator = $c->ip;
+                        if (defined($c->config('ldap'))) {
+                            $creator = 'User: '.$c->current_user.', IP: '.$creator;
+                        }
                         $f = Lufi::File->new(
                             record               => $c->get_empty,
-                            created_by           => $c->ip,
+                            created_by           => $creator,
                             delete_at_first_view => ($json->{del_at_first_view}) ? 1 : 0,
                             delete_at_day        => $delay,
                             mediatype            => $json->{type},
