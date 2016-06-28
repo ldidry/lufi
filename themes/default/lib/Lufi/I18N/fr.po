@@ -483,7 +483,7 @@ msgstr "pour %1 et plus, le fichier sera conservé indéfiniment."
 
 #: themes/default/templates/index.html.ep:3
 msgid "no time limit"
-msgstr "durée illimité"
+msgstr "Pas de délai d'expiration"
 
 #: themes/default/templates/index.html.ep:70
 msgid "or"
