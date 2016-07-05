@@ -2,7 +2,7 @@
 
 ## What does Lufi mean?
 
-Lufi means Let's Upload that FIle.
+Lufi means Let's Upload that File.
 
 ## What does it do?
 
