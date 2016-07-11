@@ -10,6 +10,11 @@
         # if you use Lufi behind a reverse proxy like Nginx, you want ro set proxy to 1
         # if you use Lufi directly, let it commented
         #proxy  => 1,
+        
+        # Please read http://mojolicious.org/perldoc/Mojo/Server/Hypnotoad#workers
+        # to adjust this to your server
+        workers => 30,
+        clients => 1,
     },
 
     # put a way to contact you here and uncomment it
