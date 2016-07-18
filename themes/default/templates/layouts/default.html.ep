@@ -58,6 +58,7 @@
         </nav>
         <div class="container">
             %= javascript '/js/jquery-2.1.1.min.js'
+            %= javascript '/js/lufi-common.js'
             <%= content %>
         </div>
 % if (defined(config('piwik_img'))) {

@@ -1,3 +1,4 @@
+// vim:set sw=4 ts=4 sts=4 ft=javascript expandtab:
 // Add item to localStorage
 function addItem(item) {
     var files = localStorage.getItem('files');
@@ -126,7 +127,7 @@ function populateFilesTable() {
 
         var tr = $('<tr>');
         tr.html([ '<td class="left-align">',
-                      element.name,
+                      escapeHtml(element.name),
                   '</td>',
                   '<td class="center-align">',
                       '<a href="', element.url, '" class="classic"><i class="small mdi-file-file-download"></i></a>',

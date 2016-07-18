@@ -314,9 +314,9 @@ sub startup {
     })->name('delays');
 
     # Get mail page
-    $r->get('/m' => sub {
-        shift->render(template => 'mail');
-    })->name('mail');
+    $r->get('/m')->
+        to('Mail#render_mail')->
+        name('mail');
 
     # Submit mail
     $r->post('/m')->

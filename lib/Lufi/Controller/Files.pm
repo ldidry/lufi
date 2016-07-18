@@ -1,7 +1,7 @@
 # vim:set sw=4 ts=4 sts=4 ft=perl expandtab:
 package Lufi::Controller::Files;
 use Mojo::Base 'Mojolicious::Controller';
-use Mojo::JSON qw(encode_json decode_json true false);
+use Mojo::JSON qw(encode_json decode_json to_json true false);
 use Mojo::Util qw(slurp spurt encode decode);
 use LufiDB;
 use Lufi::File;
@@ -36,19 +36,40 @@ sub upload {
                 # Check if stop_upload file is present
                 if ($c->stop_upload) {
                     $stop = 1;
-                    $c->send(sprintf('{"success": false, "msg":"'.$c->l('Sorry, uploading is disabled.').'", "sent_delay": %d, "i": %d}', $json->{delay}, $json->{i}));
+                    $c->send(encode_json(
+                        {
+                            success    => false,
+                            msg        => $c->l('Sorry, uploading is disabled.'),
+                            sent_delay => $json->{delay},
+                            i          => $json->{i}
+                        }
+                    ));
                 }
                 # Check against max_size
                 elsif (defined $c->config('max_file_size')) {
                     if ($json->{size} > $c->config('max_file_size')) {
                         $stop = 1;
-                        $c->send(sprintf('{"success": false, "msg":"'.$c->l('Your file is too big: %1 (maximum size allowed: %2)', format_bytes($json->{size}), format_bytes($c->config('max_file_size'))).'", "sent_delay": %d, "i": %d}', $json->{delay}, $json->{i}));
+                        $c->send(encode_json(
+                            {
+                                success    => false,
+                                msg        => $c->l('Your file is too big: %1 (maximum size allowed: %2)', format_bytes($json->{size}), format_bytes($c->config('max_file_size'))),
+                                sent_delay => $json->{delay},
+                                i          => $json->{i}
+                            }
+                        ));
                     }
                 }
                 # Check that we have enough space (multiplying by 2 since it's encrypted, it takes more place that the original file)
                 elsif ($json->{part} == 0 && ($json->{size} * 2) >= dfportable($c->config('upload_dir'))->{bavail}) {
                     $stop = 1;
-                    $c->send(sprintf('{"success": false, "msg":"'.$c->l('No enough space available on the server for this file (size: %1).', format_bytes($json->{size})).'", "sent_delay": %d, "i": %d}', $json->{delay}, $json->{i}));
+                    $c->send(encode_json(
+                        {
+                            success    => false,
+                            msg        => $c->l('No enough space available on the server for this file (size: %1).', format_bytes($json->{size})),
+                            sent_delay => $json->{delay},
+                            i          => $json->{i}
+                        }
+                    ));
                 }
 
                 unless ($stop) {
@@ -123,9 +144,32 @@ sub upload {
 
                         $c->provisioning;
 
-                        $ws->send(sprintf('{"success": true, "i": %d, "j": %d, "parts": %d, "short": "%s", "name": "%s", "size": %d, "del_at_first_view": %s, "created_at": %d, "delay": %d, "token": "%s", "sent_delay": %d, "duration": %d}', $json->{i}, $json->{part}, $json->{total}, $f->short, $f->filename, $f->filesize, (($f->delete_at_first_view) ? 'true' : 'false'), $f->created_at, $f->delete_at_day, $f->mod_token, $json->{delay}, time - $begin));
+                        $ws->send(to_json(
+                            {
+                                success           => true,
+                                i                 => $json->{i},
+                                j                 => $json->{part},
+                                parts             => $json->{total},
+                                short             => $f->short,
+                                name              => $f->filename,
+                                size              => $f->filesize,
+                                del_at_first_view => (($f->delete_at_first_view) ? true : false),
+                                created_at        => $f->created_at,
+                                delay             => $f->delete_at_day,
+                                token             => $f->mod_token,
+                                sent_delay        => $json->{delay},
+                                duration          => time - $begin
+                            }
+                        ));
                     } else {
-                        $ws->send(sprintf('{"success": false, "msg":"'.$c->l('The server was unable to find the file record to add your file part to. Please, contact the administrator.').'", "sent_delay": %d, "i": %d}', $json->{delay}, $json->{i}));
+                        $ws->send(encode_json(
+                            {
+                                success    => false,
+                                msg        => $c->l('The server was unable to find the file record to add your file part to. Please, contact the administrator.'),
+                                sent_delay => $json->{delay},
+                                i          => $json->{i}
+                            }
+                        ));
                     }
                 }
             }
@@ -166,7 +210,12 @@ sub download {
             $c->on(
                 message => sub {
                     my ($ws, $json) = @_;
-                    $c->send('{"success": false, "msg": "'.$c->l('Error: the file existed but was deleted.').'"}');
+                    $c->send(encode_json(
+                        {
+                            success => false,
+                            msg     => $c->l('Error: the file existed but was deleted.')
+                        }
+                    ));
                 }
             );
         } elsif ($record->complete) {
@@ -211,12 +260,22 @@ sub download {
             $c->on(
                 message => sub {
                     my ($ws, $json) = @_;
-                    $c->send('{"success": false, "msg": "'.$c->l('Error: the file has not been sent entirely.').'"}');
+                    $c->send(encode_json(
+                        {
+                            success => false,
+                            msg     => $c->l('Error: the file has not been sent entirely.')
+                        }
+                    ));
                 }
             );
         }
     } else {
-        $c->send('{"success": false, "msg": "'.$c->l('Error: unable to find the file. Are you sure of your URL?').'"}');
+        $c->send(encode_json(
+            {
+                success => false,
+                msg     => $c->l('Error: unable to find the file. Are you sure of your URL?')
+            }
+        ));
     }
 }
 
