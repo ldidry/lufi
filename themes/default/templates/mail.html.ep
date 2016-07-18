@@ -21,7 +21,7 @@
         <div class="input-field">
             <label for="emails"><%= l('Comma-separated email addresses') %></label>
 % if (defined(stash('values'))) {
-            <input type="text" class="validate" id="emails" name="emails" placeholder="<%= l('Emails') %>" value="<%== stash('values')->{emails} %>">
+            <input type="text" class="validate" id="emails" name="emails" placeholder="<%= l('Emails') %>" value="<%= stash('values')->{emails} %>">
 % } else {
             <input type="text" class="validate" id="emails" name="emails" placeholder="<%= l('Emails') %>">
 % }
@@ -29,7 +29,7 @@
         <div class="input-field">
             <label for="subject"><%= l('Email subject') %></label>
 % if (defined(stash('values'))) {
-            <input type="text" class="validate" id="subject" name="subject" value="<%= l('Here\'s some files') %>" value="<%== stash('values')->{subject} %>">
+            <input type="text" class="validate" id="subject" name="subject" value="<%= stash('values')->{subject} %>">
 % } else {
             <input type="text" class="validate" id="subject" name="subject" value="<%= l('Here\'s some files') %>">
 % }
@@ -38,7 +38,7 @@
             <label for="body"><%= l('Email body') %></label>
             <textarea class="materialize-textarea" id="body" name="body" rows="10">
 % if (defined(stash('values'))) {
-<%== stash('values')->{body} %>
+<%= stash('values')->{body} %>
 % }
             </textarea>
         </div>
@@ -70,11 +70,15 @@
         btn.href = 'mailto:'+encodeURIComponent(emails.value)+'?subject='+encodeURIComponent(subject.value)+'&body='+encodeURIComponent(body.value);
     }
     function populateBody() {
-        var links = JSON.parse('<%== $self->param('links') %>');
-        var text = "<%== l('Hello,\n\nHere\'s some files I want to share with you:\n') %>";
+        var links = [
+        % for my $link (@{$links}) {
+            '<%= $link %>',
+        % }
+        ];
+        var text = "<%= l('Hello,\n\nHere\'s some files I want to share with you:\n') %>";
         links.forEach(function(name, index, array) {
             var item = findItem(name);
-            if (item !== null) {
+            if (item !== null && item !== undefined) {
                 var limit = (item.delay === 0) ? null : moment.unix(item.delay * 86400 + item.created_at).locale(window.navigator.language).format('LLLL');
                 text = text+'- '+item.name+'<%= l(':') %> '+item.url;
                 if (limit !== null) {

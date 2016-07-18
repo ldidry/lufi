@@ -83,3 +83,6 @@ a.classic:focus {
     boxShadow: 'none';
     background: 'transparent';
 }
+.hiddendiv.common {
+    min-height: 170px;
+}

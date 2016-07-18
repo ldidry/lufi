@@ -91,10 +91,10 @@ function spawnWebsocket(pa) {
                     var pbd  = $('#pbd');
                     pbd.attr('class', 'center-align');
                     var blobURL   = URL.createObjectURL(blob);
-                    var innerHTML = [ '<p><a href="', blobURL, '" class="btn btn-primary" download="', data.name, '">', i18n.download, '</a></p>'];
+                    var innerHTML = ['<p><a href="', blobURL, '" class="btn btn-primary" download="', escapeHtml(data.name), '">', i18n.download, '</a></p>'];
 
                     if (data.type.match(/^image\//) !== null) {
-                        innerHTML.push('<img id="render-image" class="responsive-img" alt="', data.name, '" src="', blobURL, '">');
+                        innerHTML.push('<img id="render-image" class="responsive-img" alt="', escapeHtml(data.name), '" src="', blobURL, '">');
                     } else if (data.type.match(/^video\//) !== null) {
                         innerHTML.push('<video class="responsive-video" controls>',
                                            '<source src="', blobURL, '" type="', data.type, '">',

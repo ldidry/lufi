@@ -3,7 +3,7 @@
 window.fc = 0;
 // Set websocket
 window.ws = spawnWebsocket(0, function() {return null;});
-// Use slice of 10MB
+// Use slice of 2MB
 window.sliceLength = 2000000;
 
 // Copy a link to clipboard
@@ -117,7 +117,7 @@ function handleFiles(f) {
     del_at_first_view.attr('disabled', 'disabled');
 
     if (go) {
-        uploadFile(0, delay.val(), del_at_first_view.attr('data-checked'));
+        uploadFile(0, delay.val(), del_at_first_view.is(':checked'));
     }
 }
 
@@ -136,7 +136,7 @@ function uploadFile(i, delay, del_at_first_view) {
 
     // Get the file and properties
     var file  = window.fileList[i];
-    var name  = file.name;
+    var name  = escapeHtml(file.name);
     var parts = Math.ceil(file.size/window.sliceLength);
     if (parts === 0) {
         parts = 1;
@@ -152,12 +152,12 @@ function uploadFile(i, delay, del_at_first_view) {
                         '<i class="right mdi-navigation-close small"></i>',
                     '</a>',
                     '<div class="card-content">',
-                        '<span class="card-title" id="name-', window.fc, '">', file.name, '</span>',
+                        '<span class="card-title" id="name-', window.fc, '">', name, '</span>',
                         '<p id="parts-', window.fc, '"></p>',
                     '</div>',
                     '<div class="progress">',
-                        '<div id="progress-', window.fc, '" style="width: 0%;" data-key="', randomkey, '" data-name="', file.name, '" aria-valuemax="100" aria-valuemin="0" aria-valuenow="0" role="progressbar" class="determinate">',
-                            '<span class="sr-only">', file.name, '0%</span>',
+                        '<div id="progress-', window.fc, '" style="width: 0%;" data-key="', randomkey, '" data-name="', name, '" aria-valuemax="100" aria-valuemin="0" aria-valuenow="0" role="progressbar" class="determinate">',
+                            '<span class="sr-only">', name, '0%</span>',
                         '</div>',
                     '</div>',
             '<div>'].join(''));
@@ -268,7 +268,7 @@ function updateProgressBar(data) {
                                 '<a href="', url, '" target="_blank">',
                                     '<i class="mdi-file-file-download small" title="', i18n.dlText, '"></i>',
                                 '</a>',
-                                '<a href="#" onclick="copyToClipboard(\''+url+'\');" title="', i18n.cpText, '">',
+                                '<a href="#" onclick="copyToClipboard(\'', url, '\');" title="', i18n.cpText, '">',
                                     '<i class="mdi-content-content-copy small"></i>',
                                 '</a>',
                             '</span>',

@@ -61,6 +61,10 @@ Please consider contributing, either by [reporting issues](https://git.framasoft
 
 The details on how to contribute are on the [wiki](https://git.framasoft.org/luc/lufi/wikis/contribute).
 
+## Make a donation
+
+You can make a donation to the author on [Tipeee](https://www.tipeee.com/fiat-tux) or on [Liberapay](https://liberapay.com/sky/).
+
 ## Other dependencies
 
 Lufi is written in Perl with the [Mojolicious](http://mojolicio.us) framework.

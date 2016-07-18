@@ -2,12 +2,22 @@
 package Lufi::Controller::Mail;
 use Mojo::Base 'Mojolicious::Controller';
 use Email::Valid;
+use Mojo::JSON qw(decode_json);
+
+sub render_mail {
+    my $c = shift;
+
+    $c->render(
+        template => 'mail',
+        links    => decode_json($c->param('links'))
+    );
+}
 
 sub send_mail {
     my $c = shift;
 
     my $validation = $c->validation;
-    return $c->render(text => 'Bad CSRF token!', status => 403) if $validation->csrf_protect->has_error('csrf_token');
+    return $c->render(text => $c->l('Bad CSRF token!'), status => 403) if $validation->csrf_protect->has_error('csrf_token');
 
     my $emails = $c->param('emails');
 
@@ -36,7 +46,7 @@ sub send_mail {
             template => 'mail',
             msg      => $msg,
             values   => {
-                emails => $emails,
+                emails  => $emails,
                 subject => $c->param('subject'),
                 body    => $c->param('body')
             }
