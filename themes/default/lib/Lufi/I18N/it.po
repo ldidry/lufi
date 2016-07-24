@@ -21,7 +21,7 @@ msgstr ""
 #. (max_delay)
 #: themes/default/templates/index.html.ep:40 themes/default/templates/index.html.ep:49 themes/default/templates/index.html.ep:50
 msgid "%1 days"
-msgstr "%1 giorno"
+msgstr "%1 giorni"
 
 #: themes/default/templates/index.html.ep:5
 msgid "1 year"
@@ -222,7 +222,7 @@ msgstr "Come segnalare un file illegale?"
 
 #: themes/default/templates/delays.html.ep:7
 msgid "If you choose a delay, the file will be deleted after that delay."
-msgstr "Se sceglieste un ritardo, il file sarebbe cancellato dopo tale ritardo."
+msgstr "Se sceglieste una scadenza, il file sarebbe cancellato dopo tale scadenza."
 
 #: themes/default/templates/mail.html.ep:15
 msgid "If you send the mail from this server, the links will be sent to the server, which may lower your privacy protection."
@@ -234,11 +234,11 @@ msgstr "Importare i dati del localStorage"
 
 #: themes/default/templates/index.html.ep:37
 msgid "Important: more information on delays"
-msgstr "Importante : più informazioni sui ritardi"
+msgstr "Importante : più informazioni sulle scadenze"
 
 #: themes/default/templates/delays.html.ep:5
 msgid "Information about delays"
-msgstr "Informazione sui ritardi"
+msgstr "Informazione sulle scadenze"
 
 #: themes/default/templates/render.html.ep:41
 msgid "It seems that the key in your URL is incorrect. Please, verify your URL."
@@ -382,7 +382,7 @@ msgstr "Il server non è stato in grado di trovare il file record a cui aggiunger
 
 #: themes/default/templates/delays.html.ep:10
 msgid "This server sets limitations according to the file size. The expiration delay of your file will be the minimum between what you choose and the following limitations:"
-msgstr "Questo server pone delle limitazion in base alla dimensione del file.La data di scadenza del tuo file sarà la minore tra quella scelta e queste limitazioni:"
+msgstr "Questo server pone delle limitazioni in base alla dimensione del file.La data di scadenza del tuo file sarà la minore tra quella scelta e queste limitazioni:"
 
 #: themes/default/templates/index.html.ep:94
 msgid "Unable to copy the link(s) to your clipboard"
