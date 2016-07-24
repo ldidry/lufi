@@ -159,7 +159,7 @@ sub download {
             $c->on(
                 message => sub {
                     my ($ws, $json) = @_;
-                    $c->send('{"success": false, "msg": "'.$c->l('Error: the file existed but has been deleted.').'"}');
+                    $c->send('{"success": false, "msg": "'.$c->l('Error: the file existed but was deleted.').'"}');
                 }
             );
         } elsif ($record->complete) {
@@ -200,7 +200,7 @@ sub download {
             $c->on(
                 message => sub {
                     my ($ws, $json) = @_;
-                    $c->send('{"success": false, "msg": "'.$c->l('Error: the file has not been send entirely.').'"}');
+                    $c->send('{"success": false, "msg": "'.$c->l('Error: the file has not been sent entirely.').'"}');
                 }
             );
         }
@@ -250,7 +250,7 @@ sub get_counter {
                     success => false,
                     missing => false,
                     short   => $short,
-                    msg     => $c->l('Unable to get counter for %1. The token is unvalid.', $short)
+                    msg     => $c->l('Unable to get counter for %1. The token is invalid.', $short)
                 }
             );
         }

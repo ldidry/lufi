@@ -5,8 +5,8 @@
 
 
 <p>
-    <%= l('Only the files sent with this browser will be listed here. The informations are stored in localStorage: if you delete your localStorage data, you\'ll loose this informations.') %><br>
-    <%= l('Rows in red means that the file has expired and is no longer available.') %>
+    <%= l('Only the files sent with this browser will be listed here. This list is stored in localStorage: if you delete your localStorage data, you\'ll lose this list.') %><br>
+    <%= l('Rows in red mean that the files have expired and are no longer available.') %>
 </p>
 <div>
     <a href="#" onclick="exportStorage();" class="btn left-mg cyan"><%= l('Export localStorage data') %></a>

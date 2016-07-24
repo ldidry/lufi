@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "POT-Creation-Date: YEAR-MO-DA HO:MI+ZONE\n"
-"PO-Revision-Date: 2015-10-05 23:06+0200\n"
+"PO-Revision-Date: 2015-10-15 14:00-0400\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -34,10 +34,6 @@ msgstr "24 heures"
 #: themes/default/templates/mail.html.ep:79
 msgid ":"
 msgstr " :"
-
-#:
-msgid ": Error while trying to get the counter."
-msgstr " : erreur en essayant de récupérer le compteur"
 
 #: themes/default/templates/about.html.ep:16
 msgid "A thank you with a photo of kitten on <a href=\"https://framasphere.org/people/b13eb6b0beac0131e7e32a0000053625\" class=\"classic\">Diaspora*</a> or <a href=\"https://twitter.com/framasky\" class=\"classic\">Twitter</a> is cool too ;-)"
@@ -113,7 +109,7 @@ msgid "Download link"
 msgstr "Lien de téléchargement"
 
 #: themes/default/templates/about.html.ep:10
-msgid "Drag and drop files in the appropriate area or use the traditional way to send files and the files will be chunked, encrypted and sent to the server. You will get two links per file: a download link, that you give to the people you want to share the file with and a deletion link, allowing you to delete the file when you want."
+msgid "Drag and drop files in the appropriate area or use the traditional way to send files and the files will be chunked, encrypted and sent to the server. You will get two links per file: a download link, that you give to the people you want to share the file with and a deletion link, allowing you to delete the file whenever you want."
 msgstr "Faites glisser des fichiers dans la zone prévue à cet effet ou sélectionnez un fichier de façon classique et les fichiers seront découpés en morceaux, chiffrés et envoyés au serveur. Vous récupérerez deux liens par fichier : un lien de téléchargement et un lien pour supprimer le fichier quand vous le souhaitez."
 
 #: themes/default/templates/index.html.ep:69
@@ -137,11 +133,11 @@ msgid "Encrypting part XX1 of XX2"
 msgstr "Chiffrement du fragment XX1 sur XX2"
 
 #: lib/Lufi/Controller/Files.pm:162
-msgid "Error: the file existed but has been deleted."
+msgid "Error: the file existed but was deleted."
 msgstr "Erreur : le fichier existait mais a été supprimé"
 
 #: lib/Lufi/Controller/Files.pm:203
-msgid "Error: the file has not been send entirely."
+msgid "Error: the file has not been sent entirely."
 msgstr "Erreur : le fichier n’a pas été envoyé dans son intégralité"
 
 #: lib/Lufi/Controller/Files.pm:208
@@ -189,7 +185,7 @@ msgid "Hit Enter, then Ctrl+C to copy the download link"
 msgstr "Appuyez sur la touche Entrée puis faites Ctrl+C pour copier le lien de téléchargement"
 
 #: themes/default/templates/about.html.ep:9
-msgid "How does it works?"
+msgid "How does it work?"
 msgstr "Comment ça marche ?"
 
 #: themes/default/templates/about.html.ep:17
@@ -205,7 +201,7 @@ msgid "If you choose a delay, the file will be deleted after that delay."
 msgstr "Si vous choisissez un délai, le fichier sera supprimé après ce délai."
 
 #: themes/default/templates/mail.html.ep:15
-msgid "If you send the mail from this server, the links will be send to the server, which may lower your privacy protection."
+msgid "If you send the mail from this server, the links will be sent to the server, which may lower your privacy protection."
 msgstr "Si vous envoyez le mail depuis ce serveur, les liens seront envoyés au serveur, ce qui peut diminuer la protection de la confidentialité."
 
 #: themes/default/templates/files.html.ep:14
@@ -245,12 +241,8 @@ msgstr "Espace disque insuffisant sur le serveur pour ce fichier (taille du fich
 msgid "No expiration delay"
 msgstr "Pas de délai d’expiration"
 
-#:
-msgid "No limit"
-msgstr "Aucune limite"
-
 #: themes/default/templates/files.html.ep:8
-msgid "Only the files sent with this browser will be listed here. The informations are stored in localStorage: if you delete your localStorage data, you'll loose this informations."
+msgid "Only the files sent with this browser will be listed here. This list is stored in localStorage: if you delete your localStorage data, you'll lose this list."
 msgstr "Seuls les fichiers envoyés avec ce navigateur web sont listés ici. Les informations sont stockées en localStorage : si vous supprimez vos données localStorage, vous perdrez ces informations."
 
 #. (config('contact')
@@ -271,7 +263,7 @@ msgid "Purge expired files from localStorage"
 msgstr "Supprimer du localStorage les fichiers expirés"
 
 #: themes/default/templates/files.html.ep:9
-msgid "Rows in red means that the file has expired and is no longer available."
+msgid "Rows in red mean that the files have expired and are no longer available."
 msgstr "Les lignes en rouge indiquent que le fichier a expiré et n’est plus disponible."
 
 #: themes/default/templates/index.html.ep:103
@@ -342,7 +334,7 @@ msgstr "Le mail a été envoyé."
 
 #. (url_for('/')
 #: themes/default/templates/about.html.ep:15
-msgid "The original (and only for now) author is <a href=\"https://fiat-tux.fr\" class=\"classic\">Luc Didry</a>. If you want to support him, you can to it via <a href=\"https://flattr.com/submit/auto?user_id=_SKy_&amp;url=%1&amp;title=Lufi&amp;category=software\" class=\"classic\">Flattr</a> or with <a href=\"bitcoin:1CJYU2uGmPKhvithCGntyniTTe2hofpPX3?label=Lufi\" class=\"classic\">Bitcoin</a>."
+msgid "The original (and only for now) author is <a href=\"https://fiat-tux.fr\" class=\"classic\">Luc Didry</a>. If you want to support him, you can do it via <a href=\"https://flattr.com/submit/auto?user_id=_SKy_&amp;url=%1&amp;title=Lufi&amp;category=software\" class=\"classic\">Flattr</a> or with <a href=\"bitcoin:1CJYU2uGmPKhvithCGntyniTTe2hofpPX3?label=Lufi\" class=\"classic\">Bitcoin</a>."
 msgstr "L’auteur originel (et pour l’instant, le seul) est <a href=\"https://fiat-tux.fr\" class=\"classic\">Luc Didry</a>. Si vous avez envie de le supporter, vous pouvez le faire via <a href=\"https://flattr.com/submit/auto?user_id=_SKy_&amp;url=%1&amp;title=Lufi&amp;category=software\" class=\"classic\">Flattr</a> ou en <a href=\"bitcoin:1CJYU2uGmPKhvithCGntyniTTe2hofpPX3?label=Lufi\" class=\"classic\">Bitcoin</a>."
 
 #: lib/Lufi/Controller/Files.pm:122
@@ -357,10 +349,6 @@ msgstr "Ce serveur impose des limitations selon la taille des fichiers. Le déla
 msgid "Unable to copy the link(s) to your clipboard"
 msgstr "Impossible de copier le(s) lien(s) dans votre presse-papier"
 
-#:
-msgid "Unable to get counter for %1. The file does not exists."
-msgstr "Impossible de récupérer le compteur de %1. Le fichier n’existe pas."
-
 #. ($short)
 #: lib/Lufi/Controller/Files.pm:263
 msgid "Unable to get counter for %1. The file does not exists. It will be removed from your localStorage."
@@ -368,7 +356,7 @@ msgstr "Impossible de récupérer le compteur pour %1. Le fichier n’existe pas
 
 #. ($short)
 #: lib/Lufi/Controller/Files.pm:253
-msgid "Unable to get counter for %1. The token is unvalid."
+msgid "Unable to get counter for %1. The token is invalid."
 msgstr "Impossible de récupérer le compteur pour %1. Le jeton est invalide."
 
 #: themes/default/templates/layouts/default.html.ep:34 themes/default/templates/layouts/default.html.ep:39
@@ -400,7 +388,7 @@ msgid "You can see the list of your files by clicking on the \"My files\" link a
 msgstr "Vous pouvez voir la liste de vos fichiers en cliquant sur le lien « Mes fichiers » en haut à droite de cette page."
 
 #: themes/default/templates/about.html.ep:8
-msgid "You don't need to register yourself to upload files but be aware that, for legal reasons, your IP address will be stored when you send a file. Don't panic, it is normally the case of all sites on which you send files."
+msgid "You don't need to register yourself to upload files but be aware that, for legal reasons, your IP address will be stored when you send a file. Don't panic, this is normally the case for all sites on which you send files."
 msgstr "Vous n’avez pas besoin de vous enregistrer pour envoyer des fichiers mais notez que, pour des raisons légales, votre adresse IP sera enregistrée quand vous envoyez un fichier. Ne paniquez pas, c’est normalement le cas pour tous les sites où vous envoyez des fichiers."
 
 #: themes/default/templates/render.html.ep:40
