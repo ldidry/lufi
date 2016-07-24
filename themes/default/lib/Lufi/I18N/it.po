@@ -1,4 +1,4 @@
-# Lufi FR translation
+# Lufi IT translation
 # Copyright (C) 2015 Luc Didry
 # This file is distributed under the same license as the Lufi package.
 # Luc Didry <luc@didry.org>, 2015.
@@ -13,9 +13,9 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Language-Team: \n"
 "X-Generator: Poedit 1.8.5\n"
-"Last-Translator: Luc Didry <luc@didry.org>\n"
+"Last-Translator: Nikos Filopoulos \n"
 "Plural-Forms: nplurals=2; plural=(n > 1);\n"
-"Language: fr\n"
+"Language: it\n"
 
 #. ($delay)
 #. (max_delay)
@@ -37,7 +37,7 @@ msgstr "A�:"
 
 #: themes/default/templates/about.html.ep:16
 msgid "A thank you with a photo of kitten on <a href=\"https://framasphere.org/people/b13eb6b0beac0131e7e32a0000053625\" class=\"classic\">Diaspora*</a> or <a href=\"https://twitter.com/framasky\" class=\"classic\">Twitter</a> is cool too ;-)"
-msgstr "Un merci avec une photo de chaton sur <a href=\"https://framasphere.org/people/b13eb6b0beac0131e7e32a0000053625\" class=\"classic\">Diaspora*</a> ou <a href=\"https://twitter.com/framasky\" class=\"classic\">Twitter</a> fait aussi l’affaire ;-)"
+msgstr "Un grazie con una foto di un gattino sur <a href=\"https://framasphere.org/people/b13eb6b0beac0131e7e32a0000053625\" class=\"classic\">Diaspora*</a> o <a href=\"https://twitter.com/framasky\" class=\"classic\">Twitter</a>  � forte;-)"
 
 #: themes/default/templates/render.html.ep:34
 msgid "Abort"
@@ -262,20 +262,20 @@ msgstr "Lufi � un software libero di file hosting."
 
 #: themes/default/templates/files.html.ep:3 themes/default/templates/layouts/default.html.ep:36 themes/default/templates/layouts/default.html.ep:48
 msgid "My files"
-msgstr "Mes fichiers"
+msgstr "I miei file"
 
 #. (format_bytes($json->{size})
 #: lib/Lufi/Controller/Files.pm:68
 msgid "No enough space available on the server for this file (size: %1)."
-msgstr "Espace disque insuffisant sur le serveur pour ce fichier (taille du fichier : %1)."
+msgstr "Spazio disco insufficiente sul server per questo file (dimensione: %1)."
 
 #: themes/default/templates/files.html.ep:42 themes/default/templates/index.html.ep:104
 msgid "No expiration delay"
-msgstr "Pas de délai d’expiration"
+msgstr "Nessun ritardo per la scadenza"
 
 #: themes/default/templates/files.html.ep:8
 msgid "Only the files sent with this browser will be listed here. This list is stored in localStorage: if you delete your localStorage data, you'll lose this list."
-msgstr "Seuls les fichiers envoyés avec ce navigateur web sont listés ici. Les informations sont stockées en localStorage : si vous supprimez vos données localStorage, vous perdrez ces informations."
+msgstr "Solo i file inviati con questo browser web sono nella lista. Le informazioni sono memorizzate nel localStorage: se cancellaste i dati dal vostro localStorage, perdereste questa lista."
 
 #: themes/default/templates/login.html.ep:21
 msgid "Password"
