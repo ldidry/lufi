@@ -53,7 +53,7 @@ a.classic:focus {
 .input-field .big-prefix ~ div.select-wrapper  {
     margin-left: 6rem;
     width: 92%;
-    width: calc(100% - 6rem); }
+    width: calc(100% - 6rem);
 }
 @media only screen and (max-width : 992px) {
     .input-field .big-prefix ~ input {
@@ -72,16 +72,16 @@ a.classic:focus {
     line-height: 36px;
 }
 .textarea-hidden {
-    position: 'fixed';
+    position: fixed;
     top: 0;
     left: 0;
-    width: '2em';
-    height: '2em';
+    width: 2em;
+    height: 2em;
     padding: 0;
-    border: 'none';
-    outline: 'none';
-    boxShadow: 'none';
-    background: 'transparent';
+    border: none;
+    outline: none;
+    box-shadow: none;
+    background: transparent;
 }
 .hiddendiv.common {
     min-height: 170px;
