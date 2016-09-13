@@ -4,7 +4,7 @@
     <p><%= l('Lufi is a free (as in free speech) file hosting software.') %></p>
     <h3><%= l('Privacy') %></h3>
     <p><%= l('The files uploaded on a Lufi instance are encrypted before the upload to the server: the administrator of the server can not see the file\'s content.') %><br>
-    <%= l('The administrator can only see the file\'s name, its size and its mimetype (what kind of file it is: video, text, etc).') %></p>
+    <%= l('The administrator can only see the file\'s name, its size and its mimetype (what kind of file it is: video, text, etc.).') %></p>
     <p><%= l('You don\'t need to register yourself to upload files but be aware that, for legal reasons, your IP address will be stored when you send a file. Don\'t panic, this is normally the case for all sites on which you send files.') %></p>
     <h3><%= l('How does it work?') %></h3>
     <p><%= l('Drag and drop files in the appropriate area or use the traditional way to send files and the files will be chunked, encrypted and sent to the server. You will get two links per file: a download link, that you give to the people you want to share the file with and a deletion link, allowing you to delete the file whenever you want.') %></p>

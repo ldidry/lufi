@@ -160,7 +160,7 @@ case "$1" in
     reload)
         log_daemon_msg "Reloading $NAME"
         do_start
-	sleep 1
+        sleep 1
         case "$?" in
             0|1)
                 log_progress_msg "done"

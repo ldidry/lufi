@@ -336,8 +336,8 @@ msgid "Sorry, uploading is disabled."
 msgstr "Désolé, l’envoi de fichier est désactivé."
 
 #: themes/default/templates/about.html.ep:7
-msgid "The administrator can only see the file's name, its size and its mimetype (what kind of file it is: video, text, etc)."
-msgstr "L’administrateur ne peut voir que le nom du fichier, sa taille et son type mime (son type de fichier : vidéo, texte, etc)."
+msgid "The administrator can only see the file's name, its size and its mimetype (what kind of file it is: video, text, etc.)."
+msgstr "L’administrateur ne peut voir que le nom du fichier, sa taille et son type mime (son type de fichier : vidéo, texte, etc.)."
 
 #: themes/default/templates/files.html.ep:43
 msgid "The data has been successfully imported."

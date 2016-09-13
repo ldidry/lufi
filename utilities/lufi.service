@@ -1,6 +1,6 @@
 [Unit]
 Description=File hosting service with encryption
-Documentation=https://git.framasoft.org/luc/lufi
+Documentation=https://framagit.org/luc/lufi
 Requires=network.target
 After=network.target
 
