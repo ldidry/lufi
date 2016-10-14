@@ -334,7 +334,7 @@ msgid "Sorry, uploading is disabled."
 msgstr ""
 
 #: themes/default/templates/about.html.ep:7
-msgid "The administrator can only see the file's name, its size and its mimetype (what kind of file it is: video, text, etc)."
+msgid "The administrator can only see the file's name, its size and its mimetype (what kind of file it is: video, text, etc.)."
 msgstr ""
 
 #: themes/default/templates/files.html.ep:43

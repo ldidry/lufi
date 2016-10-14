@@ -132,7 +132,7 @@
     #    user_filter => '!(uid=ldap_user)'
     #},
 
-    # if you setted ldap above, the session will last `session_duration` seconds before
+    # if you've set ldap above, the session will last `session_duration` seconds before
     # the user needs to reauthenticate
     # optional, default is 3600
     #session_duration => 3600,
