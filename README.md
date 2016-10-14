@@ -39,7 +39,7 @@ git clone https://framagit.org/luc/lufi.wiki.git
 
 All the encryption/decryption processes take place in your browser. The encryption key is never sent over the network.
 
-However please note that some metadata is sent unencrypted:
+However please note that some metadata are sent unencrypted:
 
 * the file name
 * its size
