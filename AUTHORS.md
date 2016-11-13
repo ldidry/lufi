@@ -10,3 +10,4 @@
 * Framartin (fix french translation)
 * Sébastien Duthil (fix english translation)
 * Armando Lüscher, https://noplanman.ch/ (fix css)
+* Quentin Pagès (occitan translation)
