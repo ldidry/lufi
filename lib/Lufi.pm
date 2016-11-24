@@ -4,6 +4,7 @@ use Mojo::Base 'Mojolicious';
 use LufiDB;
 use Data::Entropy qw(entropy_source);
 use Net::LDAP;
+use Apache::Htpasswd;
 
 $ENV{MOJO_MAX_WEBSOCKET_SIZE} = 100485760; # 10 * 1024 * 1024 = 10MiB
 
@@ -62,6 +63,9 @@ sub startup {
     # Debug
     $self->plugin('DebugDumperHelper');
 
+    # Check htpasswd file existence
+    die 'Unable to read '.$self->config('htpasswd') if (defined($self->config('htpasswd')) && !-r $self->config('htpasswd'));
+
     # Authentication (if configured)
     $self->plugin('authentication' =>
         {
@@ -75,41 +79,51 @@ sub startup {
             validate_user => sub {
                 my ($c, $username, $password, $extradata) = @_;
 
-                my $ldap = Net::LDAP->new($c->config->{ldap}->{uri});
-                my $mesg = $ldap->bind($c->config->{ldap}->{bind_user}.$c->config->{ldap}->{bind_dn},
-                    password => $c->config->{ldap}->{bind_pwd}
-                );
-
-                $mesg->code && die $mesg->error;
-
-                $mesg = $ldap->search(
-                    base   => $c->config->{ldap}->{user_tree},
-                    filter => "(&(uid=$username)".$c->config->{ldap}->{user_filter}.")"
-                );
-
-                if ($mesg->code) {
-                    $c->app->log->error($mesg->error);
-                    return undef;
+                if (defined($c->config('ldap'))) {
+                    my $ldap = Net::LDAP->new($c->config->{ldap}->{uri});
+                    my $mesg = $ldap->bind($c->config->{ldap}->{bind_user}.$c->config->{ldap}->{bind_dn},
+                        password => $c->config->{ldap}->{bind_pwd}
+                    );
+    
+                    $mesg->code && die $mesg->error;
+    
+                    $mesg = $ldap->search(
+                        base   => $c->config->{ldap}->{user_tree},
+                        filter => "(&(uid=$username)".$c->config->{ldap}->{user_filter}.")"
+                    );
+    
+                    if ($mesg->code) {
+                        $c->app->log->error($mesg->error);
+                        return undef;
+                    }
+    
+                    # Now we know that the user exists
+                    $mesg = $ldap->bind('uid='.$username.$c->config->{ldap}->{bind_dn},
+                        password => $password
+                    );
+    
+                    if ($mesg->code) {
+                        $c->app->log->info("[LDAP authentication failed] login: $username, IP: ".$c->ip);
+                        $c->app->log->error("[LDAP authentication failed] ".$mesg->error);
+                        return undef;
+                    }
+    
+                    $c->app->log->info("[LDAP authentication successful] login: $username, IP: ".$c->ip);
+                } elsif (defined($c->config('htpasswd'))) {
+                    my $htpasswd = new Apache::Htpasswd({passwdFile => $c->config->{htpasswd},
+                                                 ReadOnly   => 1}
+                                                );
+                    if (!$htpasswd->htCheckPassword($username, $password)) {
+                        return undef;
+                    }
+                    $c->app->log->info("[Simple authentication successful] login: $username, IP: ".$c->ip);
                 }
-
-                # Now we know that the user exists
-                $mesg = $ldap->bind('uid='.$username.$c->config->{ldap}->{bind_dn},
-                    password => $password
-                );
-
-                if ($mesg->code) {
-                    $c->app->log->info("[LDAP authentication failed] login: $username, IP: ".$c->ip);
-                    $c->app->log->error("[LDAP authentication failed] ".$mesg->error);
-                    return undef;
-                }
-
-                $c->app->log->info("[LDAP authentication successful] login: $username, IP: ".$c->ip);
 
                 return $username;
             }
         }
     );
-    if (defined($self->config('ldap'))) {
+    if (defined($self->config('ldap')) || defined($self->config('htpasswd'))) {
         $self->app->sessions->default_expiration($self->config('session_duration'));
     }
 
@@ -249,14 +263,14 @@ sub startup {
     # Page for files uploading
     $r->get('/' => sub {
         my $c = shift;
-        if (!defined($c->config('ldap')) || $c->is_user_authenticated) {
+        if ((!defined($c->config('ldap')) && !defined($c->config('htpasswd'))) || $c->is_user_authenticated) {
             $c->render(template => 'index');
         } else {
             $c->redirect_to('login');
         }
     })->name('index');
 
-    if (defined $self->config('ldap')) {
+    if (defined $self->config('ldap') || defined $self->config('htpasswd')) {
         # Login page
         $r->get('/login' => sub {
             my $c = shift;
@@ -302,7 +316,7 @@ sub startup {
     # List of files (use localstorage, so the server know nothing about files)
     $r->get('/files' => sub {
         my $c = shift;
-        if (!defined($c->config('ldap')) || $c->is_user_authenticated) {
+        if ((!defined($c->config('ldap')) && !defined($c->config('htpasswd'))) || $c->is_user_authenticated) {
             $c->render(template => 'files');
         } else {
             $c->redirect_to('login');
