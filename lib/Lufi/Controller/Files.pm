@@ -79,6 +79,9 @@ sub upload {
                         $f          = Lufi::File->new(record => $records[0]) if scalar @records;
                     } else {
                         my $delay;
+                        unless (defined $json->{delay}) {
+                            $json->{delay} = $c->max_delay;
+                        }
 
                         if (defined $c->config('delay_for_size')) {
                             # Choose delay according to config
