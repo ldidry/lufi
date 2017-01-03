@@ -36,7 +36,7 @@
 </div>
 
 %= javascript begin
-var baseURL    = '<%== url_for('/')->to_abs() %>';
+var baseURL    = '//'+window.location.host+'<%= url_for('/') %>';
 var counterURL = '<%== url_for('counter') %>';
 var i18n       = {
     noExpiration:    '<%= l('No expiration delay') %>',
