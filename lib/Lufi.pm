@@ -62,6 +62,9 @@ sub startup {
     # Debug
     $self->plugin('DebugDumperHelper');
 
+    # Check htpasswd file existence
+    die 'Unable to read '.$self->config('htpasswd') if (defined($self->config('htpasswd')) && !-r $self->config('htpasswd'));
+
     # Authentication (if configured)
     $self->plugin('authentication' =>
         {
@@ -106,8 +109,8 @@ sub startup {
     
                     $c->app->log->info("[LDAP authentication successful] login: $username, IP: ".$c->ip);
                 }
-                if (defined($c->config('htpasswd'))) {
-                    my $htpasswd = new Apache::Htpasswd({passwdFile => $c->config->{htpasswd}->{file},
+                elsif (defined($c->config('htpasswd'))) {
+                    my $htpasswd = new Apache::Htpasswd({passwdFile => $c->config->{htpasswd},
                                                  ReadOnly   => 1}
                                                 );
                     if (!$htpasswd->htCheckPassword($username, $password)) {

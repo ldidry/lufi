@@ -134,9 +134,7 @@
 
     # set `htpasswd` if you want to use an htpasswd file instead of ldap
     # see 'man htpasswd' to know how to create such file
-    #htpasswd => {
-    #    file        => 'lufi.passwd'
-    #},
+    #htpasswd => 'lufi.passwd',
 
     # if you've set ldap above, the session will last `session_duration` seconds before
     # the user needs to reauthenticate
