@@ -108,8 +108,7 @@ sub startup {
                     }
     
                     $c->app->log->info("[LDAP authentication successful] login: $username, IP: ".$c->ip);
-                }
-                elsif (defined($c->config('htpasswd'))) {
+                } elsif (defined($c->config('htpasswd'))) {
                     my $htpasswd = new Apache::Htpasswd({passwdFile => $c->config->{htpasswd},
                                                  ReadOnly   => 1}
                                                 );
