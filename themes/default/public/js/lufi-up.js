@@ -196,6 +196,12 @@ function sliceAndUpload(randomkey, i, parts, j, delay, del_at_first_view, short)
             id: short,
             i: i
         };
+        if ($('#file_pwd').length === 1) {
+            var pwd = $('#file_pwd').val();
+            if (pwd !== undefined && pwd !== null && pwd !== '') {
+                data['file_pwd'] = $('#file_pwd').val();
+            }
+        }
         data = JSON.stringify(data);
 
         console.log('sending slice '+(j + 1)+'/'+parts+' of file '+file.name);

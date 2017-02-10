@@ -15,3 +15,4 @@ requires 'Filesys::DfPortable';
 requires 'Switch';
 requires 'Data::Entropy';
 requires 'Net::LDAP';
+requires 'Crypt::SaltedHash';
