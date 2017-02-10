@@ -9,6 +9,7 @@ use Lufi::Slice;
 use File::Spec::Functions;
 use Number::Bytes::Human qw(format_bytes);
 use Filesys::DfPortable;
+use Crypt::SaltedHash;
 
 sub upload {
     my $c = shift;
@@ -98,6 +99,14 @@ sub upload {
                         unless (defined $delay) {
                             $delay = (($json->{delay} > 0 && $json->{delay} <= $c->max_delay) || $c->max_delay == 0) ? $json->{delay} : $c->max_delay;
                         }
+                        # If we have a password
+                        my $salted_pwd;
+                        if ($c->config('allow_pwd_on_files') && defined($json->{file_pwd}) && $json->{file_pwd} ne '') {
+                            my $csh = Crypt::SaltedHash->new(algorithm => 'SHA-256', salt_len => 8);
+                            $csh->add($json->{file_pwd});
+
+                            $salted_pwd = $csh->generate();
+                        }
 
                         my $creator = $c->ip;
                         if (defined($c->config('ldap'))) {
@@ -112,7 +121,8 @@ sub upload {
                             filename             => $json->{name},
                             filesize             => $json->{size},
                             nbslices             => $json->{total},
-                            mod_token            => $c->shortener($c->config('token_length'))
+                            mod_token            => $c->shortener($c->config('token_length')),
+                            passwd               => $salted_pwd
                         );
                         $f->write;
                     }
@@ -228,29 +238,41 @@ sub download {
                 message => sub {
                     my ($ws, $json) = @_;
                     $json = decode_json $json;
-                    if (defined($json->{part})) {
-                        # Make $num an integer instead of a string
-                        my $num = $json->{part} + 0;
 
-                        # Get the slice
-                        my $e    = $f->slices->[$num];
-                        my $text = slurp $e->path;
+                    # Do we need a password?
+                    my $valid = 1;
+                    if ($c->config('allow_pwd_on_files') && defined($f->{passwd})) {
+                        my $pwd = $json->{file_pwd};
+                        $valid = Crypt::SaltedHash->validate($f->{passwd}, $json->{file_pwd}, 8);
+                    }
 
-                        my ($json2) = split('XXMOJOXX', $text, 2);
-                        $json2 = decode 'UTF-8', $json2;
-                        $text =~ s/^.*?XXMOJOXX/${json2}XXMOJOXX/;
+                    if ($valid) {
+                        if (defined($json->{part})) {
+                            # Make $num an integer instead of a string
+                            my $num = $json->{part} + 0;
 
-                        # Send the slice
-                        $c->send($text);
-                    } elsif (defined($json->{ended}) && $json->{ended}) {
-                        $f->counter($f->counter + 1);
-                        $f->last_access_at(time);
+                            # Get the slice
+                            my $e    = $f->slices->[$num];
+                            my $text = slurp $e->path;
 
-                        if ($f->delete_at_first_view) {
-                            $f->delete;
-                        } else {
-                            $f->write;
+                            my ($json2) = split('XXMOJOXX', $text, 2);
+                            $json2 = decode 'UTF-8', $json2;
+                            $text =~ s/^.*?XXMOJOXX/${json2}XXMOJOXX/;
+
+                            # Send the slice
+                            $c->send($text);
+                        } elsif (defined($json->{ended}) && $json->{ended}) {
+                            $f->counter($f->counter + 1);
+                            $f->last_access_at(time);
+
+                            if ($f->delete_at_first_view) {
+                                $f->delete;
+                            } else {
+                                $f->write;
+                            }
                         }
+                    } else {
+                        $c->send(encode_json({msg => $c->l('Your password is not valid. Please refresh the page to retry.')}));
                     }
                 }
             );
@@ -291,7 +313,8 @@ sub r {
         my $f   = Lufi::File->new(record => $records[0]);
         return $c->render(
             template => 'render',
-            f        => $f
+            f        => $f,
+            file_pwd => ($c->config('allow_pwd_on_files') && defined($records[0]->{passwd}))
         );
     } else {
         return $c->render(

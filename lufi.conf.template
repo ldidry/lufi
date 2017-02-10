@@ -137,6 +137,10 @@
     # optional, default is 3600
     #session_duration => 3600,
 
+    # allow to add a password on files, asked before allowing to download files
+    # optional, default to 0
+    #allow_pwd_on_files => 0,
+
     #########################
     # Lufi cron jobs settings
     #########################

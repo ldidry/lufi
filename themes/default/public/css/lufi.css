@@ -86,3 +86,8 @@ a.classic:focus {
 .hiddendiv.common {
     min-height: 170px;
 }
+.title-filename {
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}

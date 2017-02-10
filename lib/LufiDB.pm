@@ -37,7 +37,8 @@ use ORLite {
                last_access_at        INTEGER,
                mod_token             TEXT,
                nbslices              INTEGER,
-               complete              INTEGER)'
+               complete              INTEGER,
+               passwd                TEXT)'
           );
           $dbh->do(
               'CREATE TABLE slices (
