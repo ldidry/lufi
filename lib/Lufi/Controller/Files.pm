@@ -13,7 +13,7 @@ use Filesys::DfPortable;
 sub upload {
     my $c = shift;
 
-    if (!defined($c->config('ldap')) || $c->is_user_authenticated) {
+    if ((!defined($c->config('ldap')) && !defined($c->config('htpasswd'))) || $c->is_user_authenticated) {
         $c->inactivity_timeout(30000000);
 
         $c->app->log->debug('Client connected');
@@ -100,7 +100,7 @@ sub upload {
                         }
 
                         my $creator = $c->ip;
-                        if (defined($c->config('ldap'))) {
+                        if (defined($c->config('ldap')) || defined($c->config('htpasswd'))) {
                             $creator = 'User: '.$c->current_user.', IP: '.$creator;
                         }
                         $f = Lufi::File->new(
@@ -306,7 +306,7 @@ sub get_counter {
     my $short = $c->param('short');
     my $token = $c->param('token');
 
-    if (!defined($c->config('ldap')) || $c->is_user_authenticated) {
+    if ((!defined($c->config('ldap')) && !defined($c->config('htpasswd'))) || $c->is_user_authenticated) {
         my @records = LufiDB::Files->select('WHERE short = ?', $short);
         if (scalar(@records)) {
             if ($records[0]->mod_token eq $token) {
@@ -355,7 +355,7 @@ sub delete {
     my $short = $c->param('short');
     my $token = $c->param('token');
 
-    if (!defined($c->config('ldap')) || $c->is_user_authenticated) {
+    if ((!defined($c->config('ldap')) && !defined($c->config('htpasswd'))) || $c->is_user_authenticated) {
         my @records = LufiDB::Files->select('WHERE short = ? AND mod_token = ?', ($short, $token));
         if (scalar(@records)) {
             my $f   = Lufi::File->new(record => $records[0]);
