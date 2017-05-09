@@ -38,12 +38,12 @@ sub startup {
     shift @{$self->renderer->paths};
     shift @{$self->static->paths};
     if ($config->{theme} ne 'default') {
-        my $theme = $self->home->rel_dir('themes/'.$config->{theme});
+        my $theme = $self->home->rel_file('themes/'.$config->{theme});
         push @{$self->renderer->paths}, $theme.'/templates' if -d $theme.'/templates';
         push @{$self->static->paths}, $theme.'/public' if -d $theme.'/public';
     }
-    push @{$self->renderer->paths}, $self->home->rel_dir('themes/default/templates');
-    push @{$self->static->paths}, $self->home->rel_dir('themes/default/public');
+    push @{$self->renderer->paths}, $self->home->rel_file('themes/default/templates');
+    push @{$self->static->paths}, $self->home->rel_file('themes/default/public');
 
     # Mail config
     my $mail_config = {
@@ -56,7 +56,7 @@ sub startup {
     $self->plugin('Mail' => $mail_config);
 
     # Internationalization
-    my $lib = $self->home->rel_dir('themes/'.$config->{theme}.'/lib');
+    my $lib = $self->home->rel_file('themes/'.$config->{theme}.'/lib');
     eval qq(use lib "$lib");
     $self->plugin('I18N');
 
