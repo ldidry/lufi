@@ -85,8 +85,8 @@ $(document).ready(function(){
     $('.modal-trigger').leanModal();
     $('select').material_select();
 });
-var ws_url  = '<%= url_for('upload')->to_abs() %>';
-var baseURL = '<%= url_for('/')->to_abs() %>';
+var ws_url  = 'ws://'+window.location.host+'<%= url_for('upload') %>';
+var baseURL = '//'+window.location.host+'<%= url_for('/') %>';
 var i18n    = {
     confirmExit: '<%= l('You have attempted to leave this page. The upload will be canceled. Are you sure?') %>',
     copyAll:     '<%= l('Copy all links to clipboard') %>',

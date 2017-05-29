@@ -34,7 +34,7 @@
             <a id="abort" class="waves-effect waves-light btn"><%= l('Abort') %></a>
         </div>
 %= javascript begin
-var ws_url = '<%= url_for('download')->to_abs() %>';
+var ws_url = 'ws://'+window.location.host+'<%= url_for('download') %>';
 var i18n   = {
     aborted1:    '<%= l('Download aborted.') %>',
     aborted2:    '<%= l('Click here to refresh the page and restart the download.') %>',

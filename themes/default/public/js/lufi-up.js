@@ -32,10 +32,13 @@ function copyToClipboard(txt) {
 // Copy all links to clipboard
 function copyAllToClipboard() {
     var text = new Array();
-    var a = $('.link-input');
+	var cards = $('.card');
     var i;
-    for (i = 0; i < a.length; i++) {
-        text.push(a[i].value);
+    for (i = 0; i < cards.length; i++) {
+		var name = $('.card-title',cards[i])[0].innerText.split("\n")[0].trim();
+		var link = $('.link-input',cards[i])[0].value;
+		if(link[0]==='/') link = 'http:'+link;
+        text.push(name+' : '+link);
     }
     var textArea = $('<textarea>');
     textArea.addClass('textarea-hidden');
@@ -57,7 +60,6 @@ function copyAllToClipboard() {
 
     textArea.remove();
 }
-
 // Add item to localStorage
 function addItem(name, url, size, del_at_first_view, created_at, delay, short, token) {
     var files = localStorage.getItem('files');
