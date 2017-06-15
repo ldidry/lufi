@@ -1,6 +1,6 @@
-requires "Mojolicious";
-requires "ORLite";
-requires "Mojolicious::Plugin::DebugDumperHelper";
+requires 'Mojolicious', '< 7.31';
+requires 'ORLite';
+requires 'Mojolicious::Plugin::DebugDumperHelper';
 requires 'Mojolicious::Plugin::I18N';
 requires 'Mojolicious::Plugin::Mail';
 requires 'Mojolicious::Plugin::Authentication';
