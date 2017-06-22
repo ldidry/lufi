@@ -11,6 +11,7 @@ $ENV{MOJO_MAX_WEBSOCKET_SIZE} = 100485760; # 10 * 1024 * 1024 = 10MiB
 # This method will run once at server start
 sub startup {
     my $self = shift;
+    my $entry = undef;
 
     my $config = $self->plugin('Config' => {
         default =>  {
@@ -96,8 +97,15 @@ sub startup {
                         $c->app->log->error($mesg->error);
                         return undef;
                     }
-    
-                    # Now we know that the user exists
+
+                    # we filtered out, but did we actually get a non-empty result?
+                    $entry = $mesg->shift_entry;
+                    if (!defined $entry) {
+                        $c->app->log->info("[LDAP authentication failed] - User $username filtered out, IP: ".$c->ip);
+                        return undef;
+                    }
+ 
+                    # Now we know that the user exists, and that he is authorized by the filter
                     $mesg = $ldap->bind('uid='.$username.$c->config->{ldap}->{bind_dn},
                         password => $password
                     );
@@ -288,9 +296,12 @@ sub startup {
 
             if($c->authenticate($login, $pwd)) {
                 $c->redirect_to('index');
-            } else {
-                $c->stash(msg => $c->l('Please, check your credentials: unable to authenticate.'));
-                $c->render(template => 'login');
+            } elsif (defined $entry) { 
+                    $c->stash(msg => $c->l('Please, check your credentials: unable to authenticate.'));
+                    $c->render(template => 'login');
+                } else {
+                    $c->stash(msg => $c->l('Sorry mate, you are not authorised to use that service. Contact your sysadmin if you think there\'s a glitch in the matrix.'));
+                    $c->render(template => 'login');
             }
         });
         # Logout page
