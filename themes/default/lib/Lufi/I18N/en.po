@@ -505,3 +505,7 @@ msgstr ""
 #: themes/default/templates/index.html.ep:78
 msgid "or"
 msgstr ""
+
+#: themes/default/templates/files.html.ep:32
+msgid "Mail"
+msgstr ""
