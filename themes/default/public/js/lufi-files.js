@@ -145,6 +145,9 @@ function populateFilesTable() {
                   '</td>',
                   '<td class="center-align">',
                       '<a href="', dlink, '" class="classic"><i class="small mdi-action-delete"></i></a>',
+                  '</td>',
+                  '<td class="center-align">',
+                      '<a href="'+baseURL+'m?links=[&quot;'+element.short+'&quot;]" class="classic"><i class="small mdi-communication-email"></i></a>',
                   '</td>'].join(''));
         $('#myfiles').append(tr);
 
