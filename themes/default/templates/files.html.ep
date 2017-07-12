@@ -28,6 +28,7 @@
                 <th class="center-align"><%= l('Uploaded at') %></th>
                 <th class="center-align"><%= l('Expires at') %></th>
                 <th class="center-align"><%= l('Deletion link') %></th>
+                <th class="center-align"><%= l('Mail') %></th>
             </tr>
         </thead>
         <tbody id="myfiles">
