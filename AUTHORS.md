@@ -13,3 +13,4 @@
 * Quentin Pagès (occitan translation)
 * Yann Le Brech (htpasswd file support)
 * Jéssica Da Cunha (portuguese translation)
+* Ilker Kulgu (fix IE11 compatibility)
