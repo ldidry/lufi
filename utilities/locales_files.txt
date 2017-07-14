@@ -10,3 +10,4 @@ themes/default/templates/login.html.ep
 themes/default/templates/logout.html.ep
 lib/Lufi/Controller/Files.pm
 lib/Lufi/Controller/Mail.pm
+lib/Lufi.pm
