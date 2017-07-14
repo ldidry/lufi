@@ -22,10 +22,10 @@ sub startup {
     # Themes handling
     shift @{$self->static->paths};
     if ($config->{theme} ne 'default') {
-        my $theme = $self->home->rel_dir('themes/'.$config->{theme});
+        my $theme = $self->home->rel_file('themes/'.$config->{theme});
         push @{$self->static->paths}, $theme.'/public' if -d $theme.'/public';
     }
-    push @{$self->static->paths}, $self->home->rel_dir('themes/default/public');
+    push @{$self->static->paths}, $self->home->rel_file('themes/default/public');
 
     $self->plugin('Mount' => {$config->{prefix} => File::Spec->catfile($Bin, '..', 'script', 'application')});
 }

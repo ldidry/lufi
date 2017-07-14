@@ -11,3 +11,5 @@
 * Sébastien Duthil (fix english translation)
 * Armando Lüscher, https://noplanman.ch/ (fix css)
 * Quentin Pagès (occitan translation)
+* Yann Le Brech (htpasswd file support)
+* Jéssica Da Cunha (portuguese translation)
