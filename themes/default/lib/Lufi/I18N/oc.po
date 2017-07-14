@@ -290,6 +290,10 @@ msgstr "Mercés de contactar l’administrator : %1"
 msgid "Please wait while we are getting your file. We first need to download and decrypt all parts before you can get it."
 msgstr "Mercés d’esperar pendent la recuperacion de vòstre fichièr. Nos cal d’en primièr recuperar e deschifrar totes los fragaments abans que poscatz o telecargar."
 
+#: lib/Lufi.pm:300
+msgid "Please, check your credentials: unable to authenticate."
+msgstr ""
+
 #: themes/default/templates/about.html.ep:5
 msgid "Privacy"
 msgstr "Confidencialitat"
@@ -326,6 +330,10 @@ msgstr "Partejatz vòstres fichièrs en tota confidencialitat sus %1"
 #: themes/default/templates/layouts/default.html.ep:38 themes/default/templates/layouts/default.html.ep:50 themes/default/templates/login.html.ep:26 themes/default/templates/logout.html.ep:8
 msgid "Signin"
 msgstr "Connexion"
+
+#: lib/Lufi.pm:303
+msgid "Sorry mate, you are not authorised to use that service. Contact your sysadmin if you think there's a glitch in the matrix."
+msgstr ""
 
 #: themes/default/templates/index.html.ep:30
 msgid "Sorry, the uploading is currently disabled. Please try again later."

@@ -288,6 +288,10 @@ msgstr ""
 msgid "Please wait while we are getting your file. We first need to download and decrypt all parts before you can get it."
 msgstr ""
 
+#: lib/Lufi.pm:300
+msgid "Please, check your credentials: unable to authenticate."
+msgstr ""
+
 #: themes/default/templates/about.html.ep:5
 msgid "Privacy"
 msgstr ""
@@ -323,6 +327,10 @@ msgstr ""
 
 #: themes/default/templates/layouts/default.html.ep:38 themes/default/templates/layouts/default.html.ep:50 themes/default/templates/login.html.ep:26 themes/default/templates/logout.html.ep:8
 msgid "Signin"
+msgstr ""
+
+#: lib/Lufi.pm:303
+msgid "Sorry mate, you are not authorised to use that service. Contact your sysadmin if you think there's a glitch in the matrix."
 msgstr ""
 
 #: themes/default/templates/index.html.ep:30
