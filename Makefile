@@ -5,6 +5,7 @@ IT=themes/default/lib/Lufi/I18N/it.po
 OC=themes/default/lib/Lufi/I18N/oc.po
 CA=themes/default/lib/Lufi/I18N/ca.po
 PT=themes/default/lib/Lufi/I18N/pt.po
+NL=themes/default/lib/Lufi/I18N/nl.po
 XGETTEXT=carton exec local/bin/xgettext.pl
 CARTON=carton exec
 REAL_LUFI=script/application
@@ -17,6 +18,7 @@ locales:
 	$(XGETTEXT) $(EXTRACTDIR) -o $(OC) 2>/dev/null
 	$(XGETTEXT) $(EXTRACTDIR) -o $(CA) 2>/dev/null
 	$(XGETTEXT) $(EXTRACTDIR) -o $(PT) 2>/dev/null
+	$(XGETTEXT) $(EXTRACTDIR) -o $(NL) 2>/dev/null
 
 test:
 	$(CARTON) $(REAL_LUFI) test
