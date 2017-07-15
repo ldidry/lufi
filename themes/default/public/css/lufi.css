@@ -6,7 +6,6 @@
     color: #888;
 }
 #files label {
-    background-color: #5A7BC2;
     padding: 6px 0;
     color: #FFF;
     font-weight: bold;
@@ -17,7 +16,16 @@
     cursor: pointer;
 }
 #files input {
-    display:none;
+    width: 100%;
+    background: rgba(150,225,150,0.0);
+    vertical-align: middle;
+    text-align: center;
+    padding: 0 50%;
+    margin-top: -206px;
+    color: #FFF;
+    font-weight: bold;
+    font-size: 200px;
+    opacity: 0;
 }
 .progress-info {
     text-shadow: initial;
@@ -85,4 +93,9 @@ a.classic:focus {
 }
 .hiddendiv.common {
     min-height: 170px;
+}
+.title-filename {
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
 }

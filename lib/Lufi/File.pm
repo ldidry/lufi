@@ -25,6 +25,7 @@ has 'complete' => 0;
 has 'slices' => sub {
     return Mojo::Collection->new();
 };
+has 'passwd';
 
 sub new {
     my $c = shift;
@@ -53,6 +54,7 @@ sub write {
         mod_token            => $c->mod_token,
         nbslices             => $c->nbslices,
         complete             => $c->complete,
+        passwd               => $c->passwd,
     );
 
     return $c;
@@ -89,6 +91,7 @@ sub _slurp {
     $c->mod_token($c->record->mod_token)                       if defined $c->record->mod_token;
     $c->nbslices($c->record->nbslices)                         if defined $c->record->nbslices;
     $c->complete($c->record->complete)                         if defined $c->record->complete;
+    $c->passwd($c->record->passwd)                             if defined $c->record->passwd;
 
     my @slices = LufiDB::Slices->select('WHERE short = ? ORDER BY j ASC', $c->short);
 

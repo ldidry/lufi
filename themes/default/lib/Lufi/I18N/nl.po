@@ -1,256 +1,250 @@
-# Lufi IT translation
+# Lufi Dutch translation.
 # Copyright (C) 2015 Luc Didry
-# This file is distributed under the same license as the Lufi package.
-# Luc Didry <luc@didry.org>, 2015.
+# This file is distributed under the same license as the LUFI package.
+# Ilker Kulgu <i.kulgu@gmail.com>, 2017.
 #
+
 msgid ""
 msgstr ""
-"Project-Id-Version: \n"
+"Project-Id-Version: PACKAGE VERSION\n"
 "POT-Creation-Date: YEAR-MO-DA HO:MI+ZONE\n"
-"PO-Revision-Date: 2015-10-15 14:00-0400\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
 "MIME-Version: 1.0\n"
-"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Type: text/plain; charset=utf8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Language-Team: \n"
-"X-Generator: Poedit 1.8.5\n"
-"Last-Translator: Nikos Filopoulos \n"
-"Plural-Forms: nplurals=2; plural=(n > 1);\n"
-"Language: it\n"
 
 #. ($delay)
 #. (max_delay)
 #: themes/default/templates/index.html.ep:40 themes/default/templates/index.html.ep:49 themes/default/templates/index.html.ep:50
 msgid "%1 days"
-msgstr "%1 giorni"
+msgstr "%1 dagen"
 
 #: themes/default/templates/index.html.ep:5
 msgid "1 year"
-msgstr "1 anno"
+msgstr "1 jaar"
 
 #: themes/default/templates/index.html.ep:4 themes/default/templates/index.html.ep:49
 msgid "24 hours"
-msgstr "24 ore"
+msgstr "24 uur"
 
 #: themes/default/templates/mail.html.ep:83
 msgid ":"
-msgstr " :"
+msgstr ":"
 
 #: themes/default/templates/about.html.ep:16
 msgid "A thank you with a photo of kitten on <a href=\"https://framasphere.org/people/b13eb6b0beac0131e7e32a0000053625\" class=\"classic\">Diaspora*</a> or <a href=\"https://twitter.com/framasky\" class=\"classic\">Twitter</a> is cool too ;-)"
-msgstr "Un grazie con una foto di un gattino sur <a href=\"https://framasphere.org/people/b13eb6b0beac0131e7e32a0000053625\" class=\"classic\">Diaspora*</a> o <a href=\"https://twitter.com/framasky\" class=\"classic\">Twitter</a> è forte;-)"
+msgstr "Een bedankt foto met een katje op <a href=\"https://framasphere.org/people/b13eb6b0beac0131e7e32a0000053625\" class=\"classic\">Diaspora*</a> of <a href=\"https://twitter.com/framasky\" class=\"classic\">Twitter</a> is ook goed ;-)"
 
-#: themes/default/templates/render.html.ep:42
+#: themes/default/templates/render.html.ep:34
 msgid "Abort"
-msgstr "Annulla"
+msgstr "Annuleren"
 
 #: themes/default/templates/layouts/default.html.ep:40 themes/default/templates/layouts/default.html.ep:52
 msgid "About"
-msgstr "A proposito"
-
-#: themes/default/templates/index.html.ep:71
-msgid "Add a password to file(s)"
-msgstr ""
+msgstr "Over"
 
 #: themes/default/templates/about.html.ep:18
 msgid "As Lufi is a free software licensed under of the terms of the <a href=\"https://gnu.org/licenses/agpl.html\" class=\"classic\">AGPLv3</a>, you can install it on you own server. Have a look on the <a href=\"https://framagit.org/luc/lufi/wikis/home\" class=\"classic\">Wiki</a> for the procedure."
-msgstr "Poiché Lufi è un software libero soggetto ai termini della licenza <a href=\"https://gnu.org/licenses/agpl.html\" class=\"classic\">AGPLv3</a>, potete installarlo sul vostro server. Si consulti <a href=\"https://framagit.org/luc/lufi/wikis/home\" class=\"classic\">Wiki</a> per vedere la procedura."
+msgstr "Aangezien Lufi een gratis software id die gelicentieerd staat onder de voorwaarden van <a href=\"https://gnu.org/licenses/agpl.html\" class=\"classic\">AGPLv3</a>, kan je het installeren op je eigen server. Bekijk <a href=\"https://framagit.org/luc/lufi/wikis/home\" class=\"classic\">Wiki</a> voor de procedure."
 
 #. (stash('f')
-#: themes/default/templates/render.html.ep:52
+#: themes/default/templates/render.html.ep:44
 msgid "Asking for file part XX1 of %1"
-msgstr "Recupero della porzione del file XX1 su %1"
+msgstr "Deel XX1 van %1 wordt opgehaald"
 
 #: themes/default/templates/about.html.ep:21
 msgid "Back to homepage"
-msgstr "Ritorna all'homepage"
+msgstr "Terug naar home"
 
 #: lib/Lufi/Controller/Mail.pm:20
 msgid "Bad CSRF token!"
-msgstr "Torken CSRF errato!"
+msgstr "Verkeerde CSRF token!"
 
-#: themes/default/templates/render.html.ep:48
+#: themes/default/templates/render.html.ep:40
 msgid "Click here to refresh the page and restart the download."
-msgstr "Click qui per aggiornare la pagina e ricominciare il download."
+msgstr "Klik hier om de pagina te verversen en opnieuw te downloaden."
 
-#: themes/default/templates/index.html.ep:80
+#: themes/default/templates/index.html.ep:72
 msgid "Click to open the file browser"
-msgstr "Click per aprire il file browser"
+msgstr "Klik voor bestandbrowser"
 
 #: themes/default/templates/delays.html.ep:38
 msgid "Close"
-msgstr "Chiudi"
+msgstr "Sluiten"
 
 #: themes/default/templates/mail.html.ep:22
 msgid "Comma-separated email addresses"
-msgstr "Indirizzi email separati da virgole"
+msgstr "Komma gescheiden email adressen"
 
-#: themes/default/templates/index.html.ep:100
+#: themes/default/templates/index.html.ep:92
 msgid "Copy all links to clipboard"
-msgstr "Copiare tutti i link negli appunti"
+msgstr "Kopieer alle links naar klembord"
 
-#: themes/default/templates/index.html.ep:103
+#: themes/default/templates/index.html.ep:95
 msgid "Copy to clipboard"
-msgstr "Copiare negli appunti"
+msgstr "Kopieer naar klembord"
 
-#: lib/Lufi/Controller/Files.pm:422
+#: lib/Lufi/Controller/Files.pm:396
 msgid "Could not delete the file. You are not authenticated."
-msgstr "Impossibile cancellare il file. Non siete autenticati."
+msgstr "Kan het bestand niet verwijderen. Je bent niet geautoriseerd."
 
-#: lib/Lufi/Controller/Files.pm:406
+#: lib/Lufi/Controller/Files.pm:380
 msgid "Could not find the file. Are you sure of the URL and the token?"
-msgstr "Impossibile trovare il file. Sei sicuro che URL e token siano corretti ?"
+msgstr "Kan het bestand niet vinden. Klopt de URL en token wel?"
 
-#: lib/Lufi/Controller/Files.pm:322
+#: lib/Lufi/Controller/Files.pm:296
 msgid "Could not find the file. Are you sure of the URL?"
-msgstr "Impossibile trovare il file. Sei sicuro che l'URL sia corretto?"
+msgstr "Kan het bestand niet vinden. Klopt de URL?"
 
 #: themes/default/templates/files.html.ep:26
 msgid "Counter"
-msgstr "Contatore"
+msgstr "Teller"
 
 #: themes/default/templates/files.html.ep:27 themes/default/templates/index.html.ep:64
 msgid "Delete at first download?"
-msgstr "Cancellare al primo download?"
+msgstr "Verwijder na eerste download?"
 
-#: themes/default/templates/files.html.ep:30 themes/default/templates/index.html.ep:104
+#: themes/default/templates/files.html.ep:30 themes/default/templates/index.html.ep:96
 msgid "Deletion link"
-msgstr "Link per l'eliminazione"
+msgstr "Verwijderingslink"
 
 #: themes/default/templates/delays.html.ep:8
 msgid "Don't worry: if a user begins to download the file before the expiration and the download ends after the expiration, he will be able to get the file."
-msgstr "Non preoccuparti: se un utente cominciasse il download del file prima della scadenza ed il download terminasse dopo la scadenza, potrebbe ottenere il file."
+msgstr "Geen zorgen: als een gebruiker de download start voor de vervaldatum, dan zal die het bestand kunnen binnenhalen."
 
-#: themes/default/templates/index.html.ep:106 themes/default/templates/render.html.ep:28
+#: themes/default/templates/index.html.ep:98
 msgid "Download"
 msgstr "Download"
 
-#: themes/default/templates/render.html.ep:47
+#: themes/default/templates/render.html.ep:39
 msgid "Download aborted."
-msgstr "Download annullato."
+msgstr "Download geannuleerd."
 
-#: themes/default/templates/files.html.ep:25 themes/default/templates/index.html.ep:105
+#: themes/default/templates/files.html.ep:25 themes/default/templates/index.html.ep:97
 msgid "Download link"
-msgstr "Link per il download"
+msgstr "Download link"
 
 #: themes/default/templates/about.html.ep:10
 msgid "Drag and drop files in the appropriate area or use the traditional way to send files and the files will be chunked, encrypted and sent to the server. You will get two links per file: a download link, that you give to the people you want to share the file with and a deletion link, allowing you to delete the file whenever you want."
-msgstr "Trascinare e lasciare il file nell'are prevista o selezionare i file nel modo classico ed i file saranno divisi,cifrati ed inviati al server. Otterrete 2 link per ogni file : uno per il download ed uno per eliminare il file quando vorrete."
+msgstr "Drag and drop bestanden in de daarvoor bestemde locatie of gebruik de traditionele weg om bestanden encrypted op te sturen naar server. Je zal 2 linkjes per bestand krijgen: een download link, die stuur je naar personen waarmee je het bestand wilt delen en een verwijderings link, waarmee je het bestand kan verwijderen wanneer je dat wilt."
 
-#: themes/default/templates/index.html.ep:77
+#: themes/default/templates/index.html.ep:69
 msgid "Drop files here"
-msgstr "Lasciare i file qui"
+msgstr "Sleep bestand(en) naar dit venster"
 
 #: themes/default/templates/mail.html.ep:38
 msgid "Email body"
-msgstr "Corpo dell'email"
+msgstr "Email inhoud"
 
 #: themes/default/templates/mail.html.ep:30
 msgid "Email subject"
-msgstr "Oggetto dell'email"
+msgstr "Onderwerp"
 
 #: themes/default/templates/mail.html.ep:24 themes/default/templates/mail.html.ep:26
 msgid "Emails"
-msgstr "Email"
+msgstr "Emails"
 
-#: themes/default/templates/index.html.ep:107
+#: themes/default/templates/index.html.ep:99
 msgid "Encrypting part XX1 of XX2"
-msgstr "Cifratura della parte XX1 di XX2"
+msgstr "Encrypten deel XX1 van XX2 "
 
-#: lib/Lufi/Controller/Files.pm:229
+#: lib/Lufi/Controller/Files.pm:216
 msgid "Error: the file existed but was deleted."
-msgstr "Errore: il file esisteva ma è stato eliminato"
+msgstr "Fout: het bestand bestond wel maar is verwijderd."
 
-#: lib/Lufi/Controller/Files.pm:291
+#: lib/Lufi/Controller/Files.pm:266
 msgid "Error: the file has not been sent entirely."
-msgstr "Errore: il file non è stato inviato completamente"
+msgstr "Fout: het bestand is niet volledig opgestuurd."
 
-#: lib/Lufi/Controller/Files.pm:301
+#: lib/Lufi/Controller/Files.pm:276
 msgid "Error: unable to find the file. Are you sure of your URL?"
-msgstr "Errore: impossibile trovare il file. Sei certo dell'URL ?"
+msgstr "Fout: kan het bestand niet vinden. Is de URL juist?"
 
-#: themes/default/templates/index.html.ep:108
+#: themes/default/templates/index.html.ep:100
 msgid "Expiration:"
-msgstr "Scadenza:"
+msgstr "Vervaldatum:"
 
 #: themes/default/templates/files.html.ep:29
 msgid "Expires at"
-msgstr "Scade il"
+msgstr "Vervalt op"
 
 #: themes/default/templates/files.html.ep:12
 msgid "Export localStorage data"
-msgstr "Esportare i dati del localStorage"
+msgstr "Exporteer opgeslagen data"
 
-#: lib/Lufi/Controller/Files.pm:390
+#: lib/Lufi/Controller/Files.pm:364
 msgid "File deleted"
-msgstr "File cancellato"
+msgstr "Bestand verwijderd"
 
 #: themes/default/templates/files.html.ep:24
 msgid "File name"
-msgstr "Nome del file"
+msgstr "Bestandsnaam"
 
-#: themes/default/templates/render.html.ep:51
+#: themes/default/templates/render.html.ep:43
 msgid "Get the file"
-msgstr "Ottenere il file"
+msgstr "Download bestand"
 
 #: themes/default/templates/about.html.ep:19
 msgid "Get the source code on <a href=\"https://framagit.org/luc/lufi\" class=\"classic\">the official repository</a> or on its <a href=\"https://github.com/ldidry/lufi\" class=\"classic\">Github mirror</a>"
-msgstr "Ottenere il codice sorgente su <a href=\"https://framagit.org/luc/lufi\" class=\"classic\">le dÃ©pÃ´t officiel</a> ou sur son <a href=\"https://github.com/ldidry/lufi\" class=\"classic\">miroir Github</a>."
+msgstr "Krijg de broncode op <a href=\"https://framagit.org/luc/lufi\" class=\"classic\">de officiële repository</a> of op <a href=\"https://github.com/ldidry/lufi\" class=\"classic\">Github mirror</a>"
 
 #: themes/default/templates/mail.html.ep:78
 msgid "Hello,\\n\\nHere's some files I want to share with you:\\n"
-msgstr "Buongiorno,\\n\\necco qualche file che vorrei condividere con te:\\n"
+msgstr "Hallo,\\n\\nHier zijn enkele bestanden die ik met je wil delen:\\n\\n"
 
 #: themes/default/templates/mail.html.ep:34
 msgid "Here's some files"
-msgstr "Ecco qualche file"
+msgstr "Hier zijn enkele bestanden"
 
-#: themes/default/templates/index.html.ep:110
+#: themes/default/templates/index.html.ep:102
 msgid "Hit Enter, then Ctrl+C to copy all the download links"
-msgstr "Premere Enter, poi Ctrl+C per copiare tutti i link di download"
+msgstr "Druk Enter, vervolgens CTRL+C om alle download links te kopieeren"
 
-#: themes/default/templates/index.html.ep:109
+#: themes/default/templates/index.html.ep:101
 msgid "Hit Enter, then Ctrl+C to copy the download link"
-msgstr "Premere Enter, poi Ctrl+C per copiare il link di download"
+msgstr "Druk Enter, vervolgens CTRL+C om de download link te kopieeren"
 
 #: themes/default/templates/about.html.ep:9
 msgid "How does it work?"
-msgstr "Come funziona?"
+msgstr "Hoe werkt het?"
 
 #: themes/default/templates/about.html.ep:17
 msgid "How to install the software on my server?"
-msgstr "Come installare il software sul mio server ?"
+msgstr "Hoe installeer ik de software op mijn server?"
 
 #: themes/default/templates/about.html.ep:12
 msgid "How to report an illegal file?"
-msgstr "Come segnalare un file illegale?"
+msgstr "Hoe rapporteer ik een verdachte bestand?"
 
 #: themes/default/templates/delays.html.ep:7
 msgid "If you choose a delay, the file will be deleted after that delay."
-msgstr "Se sceglieste una scadenza, il file sarebbe cancellato dopo tale scadenza."
+msgstr "Als je een uitstel kiest, zal het bestand na die uitstel tijd verwijderd worden."
 
 #: themes/default/templates/mail.html.ep:15
 msgid "If you send the mail from this server, the links will be sent to the server, which may lower your privacy protection."
-msgstr "Se inviaste l'email da questo server, i link sarebbero inviati al server, e questo potrebbe diminuire la protezione della riservatezza."
+msgstr "Als je een mail via de server verstuurt, zullen links naar de server verstuurd worden waardoor je lagere privacy protection zal hebben."
 
 #: themes/default/templates/files.html.ep:14
 msgid "Import localStorage data"
-msgstr "Importare i dati del localStorage"
+msgstr "Importeer opgeslagen data"
 
 #: themes/default/templates/index.html.ep:37
 msgid "Important: more information on delays"
-msgstr "Importante : più informazioni sulle scadenze"
+msgstr "Belangrijk: meer informatie over uitstel"
 
 #: themes/default/templates/delays.html.ep:5
 msgid "Information about delays"
-msgstr "Informazione sulle scadenze"
+msgstr "Informatie over uitstel"
 
-#: themes/default/templates/render.html.ep:49
+#: themes/default/templates/render.html.ep:41
 msgid "It seems that the key in your URL is incorrect. Please, verify your URL."
-msgstr "Sembra che la chiave nel tuo URL sia errata. Controllare il tuo URL."
+msgstr "Het lijkt er op dat de sleutel in je URL niet klopt. Controleer je URL."
 
 #: themes/default/templates/index.html.ep:12
 msgid "Javascript is disabled. You won't be able to use Lufi."
-msgstr "Javascript è disattivato. Lufi non può funzionare."
+msgstr "Javascript is uitgeschakeld. Je kan geen gebruik maken van Lufi."
 
 #: themes/default/templates/login.html.ep:15
 msgid "Login"
@@ -262,248 +256,240 @@ msgstr "Logout"
 
 #: themes/default/templates/about.html.ep:4
 msgid "Lufi is a free (as in free speech) file hosting software."
-msgstr "Lufi è un software libero di file hosting."
+msgstr "Lufi is een gratis bestand hosting software."
 
 #: themes/default/templates/files.html.ep:3 themes/default/templates/layouts/default.html.ep:36 themes/default/templates/layouts/default.html.ep:48
 msgid "My files"
-msgstr "I miei file"
+msgstr "Mijn bestanden"
 
 #. (format_bytes($json->{size})
-#: lib/Lufi/Controller/Files.pm:69
+#: lib/Lufi/Controller/Files.pm:68
 msgid "No enough space available on the server for this file (size: %1)."
-msgstr "Spazio disco insufficiente sul server per questo file (dimensione: %1)."
+msgstr "Geen genoeg ruimte op de server voor deze bestand (grootte: %1)."
 
-#: themes/default/templates/files.html.ep:42 themes/default/templates/index.html.ep:112
+#: themes/default/templates/files.html.ep:42 themes/default/templates/index.html.ep:104
 msgid "No expiration delay"
-msgstr "Nessun ritardo per la scadenza"
+msgstr "Geen verloop uitstel"
 
 #: themes/default/templates/files.html.ep:8
 msgid "Only the files sent with this browser will be listed here. This list is stored in localStorage: if you delete your localStorage data, you'll lose this list."
-msgstr "Solo i file inviati con questo browser web sono nella lista. Le informazioni sono memorizzate nel localStorage: se cancellaste i dati dal vostro localStorage, perdereste questa lista."
+msgstr "Alleen bestanden die via deze browser zijn verstuurd zijn hier zichtbaar. Deze lijst is opgeslagen: als je opgeslagen data verwijderd, zal je deze lijst verlizen."
 
-#: themes/default/templates/index.html.ep:70 themes/default/templates/login.html.ep:21 themes/default/templates/render.html.ep:26
+#: themes/default/templates/login.html.ep:21
 msgid "Password"
-msgstr "Password"
+msgstr "Wachtwoord"
 
 #. (config('contact')
 #: themes/default/templates/about.html.ep:13
 msgid "Please contact the administrator: %1"
-msgstr "Contattare l'amministratore : %1"
+msgstr "Neem contact op met administrator: %1"
 
-#: themes/default/templates/render.html.ep:33
+#: themes/default/templates/render.html.ep:25
 msgid "Please wait while we are getting your file. We first need to download and decrypt all parts before you can get it."
-msgstr "Attendere mentre otteniamo il vostro file. Dobbiamo prima scaricare e decifrare tutte le parti prima che possiate averlo."
-
-#: lib/Lufi.pm:300
-msgid "Please, check your credentials: unable to authenticate."
-msgstr ""
+msgstr "Een ogenblik geduld, we pakken je bestand er bij. We moeten alle delen downloaden en decrypten voordat je het kan downloaden."
 
 #: themes/default/templates/about.html.ep:5
 msgid "Privacy"
-msgstr "Riservatezza"
+msgstr "Privacy"
 
 #: themes/default/templates/files.html.ep:13
 msgid "Purge expired files from localStorage"
-msgstr "Eliminare dal localStorage i file scaduti"
+msgstr "Verwijder verlopen data"
 
 #: themes/default/templates/files.html.ep:9
 msgid "Rows in red mean that the files have expired and are no longer available."
-msgstr "Le righe in rosso indicano che il file è scaduto e non è più disponibile."
+msgstr "Rode rijen betekenen dat deze bestanden verlopen en verwijderd zijn."
 
-#: themes/default/templates/index.html.ep:111
+#: themes/default/templates/index.html.ep:103
 msgid "Send all links by email"
-msgstr "Inviare tutti i link tramite email"
+msgstr "Verstuur alle links via mail"
 
 #: themes/default/templates/mail.html.ep:45
 msgid "Send with this server"
-msgstr "Inviare tramite questo server"
+msgstr "Verstuur via deze server"
 
 #: themes/default/templates/mail.html.ep:46
 msgid "Send with your own mail software"
-msgstr "Inviare tramite il vostro programma di posta"
+msgstr "Verstuur via eigen mail software"
 
-#: themes/default/templates/index.html.ep:113
+#: themes/default/templates/index.html.ep:105
 msgid "Sending part XX1 of XX2. Please, be patient, the progress bar can take a while to move."
-msgstr "Invio della parte XX1 su XX2. Prego attendere, la barra di avanzamento può impiagare del tempo prima di avanzare."
+msgstr "Versturen deel XX1 van XX2. Een ogenblik geduld..."
 
 #. (url_for('/')
 #: themes/default/templates/mail.html.ep:91
 msgid "Share your files in total privacy on %1"
-msgstr "Condividi tutti i file in totale riservatezza su %1"
+msgstr "Deel je bestanden met volledige privacy op %1"
 
 #: themes/default/templates/layouts/default.html.ep:38 themes/default/templates/layouts/default.html.ep:50 themes/default/templates/login.html.ep:26 themes/default/templates/logout.html.ep:8
 msgid "Signin"
-msgstr "Autenticazione"
+msgstr "Inloggen"
 
-#: lib/Lufi.pm:303
-msgid "Sorry mate, you are not authorised to use that service. Contact your sysadmin if you think there's a glitch in the matrix."
-msgstr ""
+#: themes/default/templates/layouts/default.html.ep:38
+msgid "Register"
+msgstr "Registreer"
 
 #: themes/default/templates/index.html.ep:30
 msgid "Sorry, the uploading is currently disabled. Please try again later."
-msgstr "L'invio del file è attualemente disattivato. Riprovare più tardi."
+msgstr "Sorry, uploaden is momenteel uitgeschakeld. Probeer het later nogmaals."
 
-#: lib/Lufi/Controller/Files.pm:43
+#: lib/Lufi/Controller/Files.pm:42
 msgid "Sorry, uploading is disabled."
-msgstr "L'invio del file è attualemente disattivato."
+msgstr "SOrry, uploaden is uitgeschakeld."
 
 #: themes/default/templates/about.html.ep:7
 msgid "The administrator can only see the file's name, its size and its mimetype (what kind of file it is: video, text, etc.)."
-msgstr "L'amministratore pu vedere solo il nome del file, la sua dimensione e il suo mimetype (video, testo, etc.)."
+msgstr "Beheerders zien alleen bestandsnamen, grootte en mimetype (wat voor soort bestand het is: video, tekst etc.)."
 
 #: themes/default/templates/files.html.ep:43
 msgid "The data has been successfully imported."
-msgstr "I dati sono stati importati correttamente."
+msgstr "Data is succesvol geimporteerd."
 
 #: lib/Lufi/Controller/Mail.pm:42
 msgid "The email body can't be empty."
-msgstr "Il corpo dell'email non può essere vuoto."
+msgstr "Mail inhoud kan niet leeg zijn."
 
 #: lib/Lufi/Controller/Mail.pm:41
 msgid "The email subject can't be empty."
-msgstr "Il soggetto dell'email non può essere vuoto."
+msgstr "Onderwerp kan niet leeg zijn."
 
-#: lib/Lufi/Controller/Files.pm:387
+#: lib/Lufi/Controller/Files.pm:361
 msgid "The file has already been deleted"
-msgstr "Il file è già stato cancellato"
+msgstr "Bestand is reeds verwijderd"
 
 #: themes/default/templates/about.html.ep:6
 msgid "The files uploaded on a Lufi instance are encrypted before the upload to the server: the administrator of the server can not see the file's content."
-msgstr "I file inviati su un istanza di Lufi sono cifrati prima dell'invio al server: l'amministratore del server non può vedere il contenuto dei vostri file."
+msgstr "Bestanden die geupload zijn naar Lufi worden voor de upload versleuteld: beheerders van de server kunnen de inhoud van het bestand niet zien."
 
 #. (join(', ', @bad)
 #: lib/Lufi/Controller/Mail.pm:37
 msgid "The following email addresses are not valid: %1"
-msgstr "I seguenti indirizzi email non sono validi: %1"
+msgstr "Volgende email adressen zijn niet geldig: %1"
 
-#: themes/default/templates/index.html.ep:101
+#: themes/default/templates/index.html.ep:93
 msgid "The link(s) has been copied to your clipboard"
-msgstr "I link sono stati copiati negli appunti"
+msgstr "De link is gekopieerd naar je klembord"
 
 #: lib/Lufi/Controller/Mail.pm:65
 msgid "The mail has been sent."
-msgstr "Email inviata."
+msgstr "Email is verzonden."
 
 #: themes/default/templates/about.html.ep:15
 msgid "The original (and only for now) author is <a href=\"https://fiat-tux.fr\" class=\"classic\">Luc Didry</a>. If you want to support him, you can do it via <a href=\"https://www.tipeee.com/fiat-tux\" class=\"classic\">Tipeee</a> or via <a href=\"https://liberapay.com/sky/\" class=\"classic\">Liberapay</a>."
-msgstr "L'autore ( e per ora l'unico) è <a href=\"https://fiat-tux.fr\" class=\"classic\">Luc Didry</a>. Se aveste voglia di aiutarlo, potreste farlo tramite <a href=\"https://www.tipeee.com/fiat-tux\" class=\"classic\">Tipeee</a> ou via <a href=\"https://liberapay.com/sky/\" class=\"classic\">Liberapay</a>."
+msgstr "De oorspronkelijke auteur is <a href=\"https://fiat-tux.fr\" class=\"classic\">Luc Didry</a>. Als je hem wilt ondersteunen, dan kan dat via <a href=\"https://www.tipeee.com/fiat-tux\" class=\"classic\">Tipeee</a> of via <a href=\"https://liberapay.com/sky/\" class=\"classic\">Liberapay</a>."
 
-#: lib/Lufi/Controller/Files.pm:181
+#: lib/Lufi/Controller/Files.pm:168
 msgid "The server was unable to find the file record to add your file part to. Please, contact the administrator."
-msgstr "Il server non è stato in grado di trovare il file record a cui aggiungere la vostra porzione di file. Prego contattare l'amministratore."
+msgstr "Server kon een deel van het bestand niet vinden. Neem contact op met beheerder."
 
 #: themes/default/templates/delays.html.ep:10
 msgid "This server sets limitations according to the file size. The expiration delay of your file will be the minimum between what you choose and the following limitations:"
-msgstr "Questo server pone delle limitazioni in base alla dimensione del file.La data di scadenza del tuo file sarà la minore tra quella scelta e queste limitazioni:"
+msgstr "Deze server stelt beperkingen vast volgens de bestandsgrootte. De vervaldatum van uw bestand zal het minimum zijn tussen wat u kiest en de volgende beperkingen:"
 
-#: themes/default/templates/index.html.ep:102
+#: themes/default/templates/index.html.ep:94
 msgid "Unable to copy the link(s) to your clipboard"
-msgstr "Impossibile copiare i link negli appunti"
+msgstr "Kan de link(s) niet naar je klembord kopieeren"
 
 #. ($short)
-#: lib/Lufi/Controller/Files.pm:360
+#: lib/Lufi/Controller/Files.pm:334
 msgid "Unable to get counter for %1. The file does not exists. It will be removed from your localStorage."
-msgstr "Impossibile recuperare il contatore per %1. Il file non esiste. Il file sarà eliminato dal tuo localStorage."
+msgstr "Kan geen teller verkrijgen voor %1. Bestand bestaat niet. Het zal verwijderd worden van opgeslagen data."
 
 #. ($short)
-#: lib/Lufi/Controller/Files.pm:350
+#: lib/Lufi/Controller/Files.pm:324
 msgid "Unable to get counter for %1. The token is invalid."
-msgstr "Impossibile recuperare il contatore per %1. Il token non è valido."
+msgstr "Kan geen teller verkrijgen voor %1. De token is ongeldig."
 
 #. ($short)
-#: lib/Lufi/Controller/Files.pm:370
+#: lib/Lufi/Controller/Files.pm:344
 msgid "Unable to get counter for %1. You are not authenticated."
-msgstr "Impossibile recuperare il contatore per %1. Non sei autenticato."
+msgstr "Kan geen teller verkrijgen voor %1. Je bent niet geauthenticeerd."
 
 #: themes/default/templates/layouts/default.html.ep:35 themes/default/templates/layouts/default.html.ep:47
 msgid "Upload files"
-msgstr "Invio dei file"
+msgstr "Upload bestanden"
 
 #: themes/default/templates/files.html.ep:28
 msgid "Uploaded at"
-msgstr "Invio il"
+msgstr "Geupload op"
 
-#: themes/default/templates/index.html.ep:85
+#: themes/default/templates/index.html.ep:77
 msgid "Uploaded files"
-msgstr "File inviati"
+msgstr "Geuploade bestanden"
 
-#: themes/default/templates/index.html.ep:114
+#: themes/default/templates/index.html.ep:106
 msgid "Websocket communication error"
-msgstr "Errore di comunicazione WebSocket"
+msgstr "Websocket communicatie fout"
 
 #: themes/default/templates/about.html.ep:3
 msgid "What is Lufi?"
-msgstr "Cos'è Lufi ?"
+msgstr "Wat is Lufi?"
 
 #: themes/default/templates/about.html.ep:14
 msgid "Who wrote this software?"
-msgstr "Chi ha scritto questo software?"
+msgstr "Wie heeft deze software geschreven?"
 
 #: themes/default/templates/about.html.ep:11
 msgid "You can see the list of your files by clicking on the \"My files\" link at the top right of this page."
-msgstr "Puoi consultare la lista dei vostri file cliccando sul link « I miei file » in alto a destra in questa pagina."
+msgstr "Je kan een lijst van je eigen bestanden zien door op \"Mijn bestanden\" link rechts boven te klikken."
 
 #: themes/default/templates/about.html.ep:8
 msgid "You don't need to register yourself to upload files but be aware that, for legal reasons, your IP address will be stored when you send a file. Don't panic, this is normally the case for all sites on which you send files."
-msgstr "Non hai bisogno di registrarti per inviare i file ma devi essere consapevole che, per motivi legali, il tuo indirizzo IP sarà registrato quando invierai un file. Non ti preoccupare, avviene in tutti i siti su cui invii dei file."
+msgstr "U hoeft zich niet te registreren om bestanden te uploaden, maar wees ervan bewust dat uw IP-adres om juridische redenen zal worden opgeslagen wanneer u een bestand verzendt. Geen paniek, dit is normaal gesproken het geval voor alle sites waarnaar u bestanden verzendt."
 
-#: themes/default/templates/render.html.ep:53
+#: themes/default/templates/render.html.ep:45
 msgid "You don't seem to have a key in your URL. You won't be able to decrypt the file. Download canceled."
-msgstr "Sembra che non ci sia una chiave nel tuo URL. Non sarai in grado di decifrare il file. Download annullato."
+msgstr "Je hebt geen sleutel in je URL. Je kan het bestand niet decrypten. Download geannuleerd."
 
-#: themes/default/templates/render.html.ep:50
+#: themes/default/templates/render.html.ep:42
 msgid "You have attempted to leave this page. The download will be canceled. Are you sure?"
-msgstr "Hai cercato di uscire da questa pagina. Il download sarà cancellato. Sei sicuro?"
+msgstr "Je verlaat deze pagina. Download zal geannuleerd worden. Weet je het zeker?"
 
-#: themes/default/templates/index.html.ep:99
+#: themes/default/templates/index.html.ep:91
 msgid "You have attempted to leave this page. The upload will be canceled. Are you sure?"
-msgstr "Hai cercato di uscire da questa pagina. L'invio sarà cancellato. Sei sicuro?"
+msgstr "Je verlaat deze pagina. Upload zal geannuleerd worden. Weet je het zeker? "
 
 #: themes/default/templates/logout.html.ep:5
 msgid "You have been successfully logged out."
-msgstr "Logout avvenuto con successo."
+msgstr "Je bent succesvol uitgelogd."
 
 #: lib/Lufi/Controller/Mail.pm:40
 msgid "You must give email addresses."
-msgstr "Devi fornire gli indirizzi email."
+msgstr "Je moet een mail adres opgeven."
 
 #. (format_bytes($json->{size})
-#: lib/Lufi/Controller/Files.pm:56
+#: lib/Lufi/Controller/Files.pm:55
 msgid "Your file is too big: %1 (maximum size allowed: %2)"
-msgstr "Il vostro file è troppo grande : %1 (la dimensione massima permessa è %2)"
-
-#: lib/Lufi/Controller/Files.pm:275
-msgid "Your password is not valid. Please refresh the page to retry."
-msgstr ""
+msgstr "Je bestand is te groot: %1 (max: %2)"
 
 #. (format_bytes($keys[$i])
 #: themes/default/templates/delays.html.ep:20
 msgid "between %1 and %2, the file will be kept %3 day(s)."
-msgstr "tra %1 e %2, il file sarà conservato %3 giorno(i);"
+msgstr "tussen %1 en %1, bestand zal bewaard worden voor %3 dag(en)."
 
 #. (format_bytes($keys[$i])
 #: themes/default/templates/delays.html.ep:22
 msgid "between %1 and %2, the file will be kept forever."
-msgstr "tra %1 e %2, il file sarà conservato per sempre;"
+msgstr "tussen %1 en %2, bestand zal voor altijd bewaard worden."
 
 #: themes/default/templates/mail.html.ep:85
 msgid "deadline: "
-msgstr "scadenza: "
+msgstr "deadline: "
 
 #. (format_bytes($keys[$i])
 #: themes/default/templates/delays.html.ep:26
 msgid "for %1 and more, the file will be kept %2 day(s)"
-msgstr "per %1 e più, il file sarà conservato %2 giorno(i)."
+msgstr "voor %1 en meer, bestand zal bewaard worden voor %2 dag(en)"
 
 #. (format_bytes($keys[$i])
 #: themes/default/templates/delays.html.ep:28
 msgid "for %1 and more, the file will be kept forever."
-msgstr "per %1 e più, il file sarà conservato per sempre."
+msgstr "voor %1 en meer, bestand zal voor altijd bewaard worden."
 
 #: themes/default/templates/index.html.ep:3
 msgid "no time limit"
-msgstr "nessuna limitazione temporale"
+msgstr "geen tijdslimiet"
 
-#: themes/default/templates/index.html.ep:78
+#: themes/default/templates/index.html.ep:70
 msgid "or"
-msgstr "o"
+msgstr "of"

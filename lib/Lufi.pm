@@ -15,20 +15,21 @@ sub startup {
 
     my $config = $self->plugin('Config' => {
         default =>  {
-            provisioning     => 100,
-            provis_step      => 5,
-            length           => 10,
-            token_length     => 32,
-            secrets          => ['hfudsifdsih'],
-            default_delay    => 0,
-            max_delay        => 0,
-            mail             => {
+            provisioning       => 100,
+            provis_step        => 5,
+            length             => 10,
+            token_length       => 32,
+            secrets            => ['hfudsifdsih'],
+            default_delay      => 0,
+            max_delay          => 0,
+            mail               => {
                 how => 'sendmail'
             },
-            mail_sender      => 'no-reply@lufi.io',
-            theme            => 'default',
-            upload_dir       => 'files',
-            session_duration => 3600,
+            mail_sender        => 'no-reply@lufi.io',
+            theme              => 'default',
+            upload_dir         => 'files',
+            session_duration   => 3600,
+            allow_pwd_on_files => 0,
         }
     });
 
@@ -250,6 +251,16 @@ sub startup {
     # Create directory if needed
     mkdir($self->config('upload_dir'), 0700) unless (-d $self->config('upload_dir'));
     die ('The upload directory ('.$self->config('upload_dir').') is not writable') unless (-w $self->config('upload_dir'));
+
+    # SQLite database migration if needed
+    my $columns = LufiDB::Files->table_info;
+    my $pwd_col = 0;
+    foreach my $col (@{$columns}) {
+        $pwd_col = 1 if $col->{name} eq 'passwd';
+    }
+    unless ($pwd_col) {
+        LufiDB->do('ALTER TABLE files ADD COLUMN passwd TEXT;');
+    }
 
     # Default layout
     $self->defaults(layout => 'default');

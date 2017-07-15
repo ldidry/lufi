@@ -174,8 +174,12 @@ function sliceAndUpload(randomkey, i, parts, j, delay, del_at_first_view, short)
     fr.onloadend = function() {
         var sl        = $('#parts-'+window.fc);
 
-        // Get the binary result
-        var bin       = fr.result;
+        // Get the binary result, different result in IE browsers (see default.html.ep line 27:48)
+    	if (isIE == true){
+			var bin = fr.content;
+		} else {
+			var bin = fr.result;
+		}
 
         // Transform it in base64
         var b         = window.btoa(bin);
@@ -196,6 +200,12 @@ function sliceAndUpload(randomkey, i, parts, j, delay, del_at_first_view, short)
             id: short,
             i: i
         };
+        if ($('#file_pwd').length === 1) {
+            var pwd = $('#file_pwd').val();
+            if (pwd !== undefined && pwd !== null && pwd !== '') {
+                data['file_pwd'] = $('#file_pwd').val();
+            }
+        }
         data = JSON.stringify(data);
 
         console.log('sending slice '+(j + 1)+'/'+parts+' of file '+file.name);
