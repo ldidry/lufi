@@ -2,7 +2,8 @@
 package Lufi::Controller::Files;
 use Mojo::Base 'Mojolicious::Controller';
 use Mojo::JSON qw(encode_json decode_json to_json true false);
-use Mojo::Util qw(slurp spurt encode decode);
+use Mojo::Util qw(encode decode);
+use Mojo::File;
 use LufiDB;
 use Lufi::File;
 use Lufi::Slice;
@@ -144,7 +145,7 @@ sub upload {
                                 j     => $json->{part},
                                 path  => $file
                             );
-                            spurt $text, $file;
+                            Mojo::File->new($file)->spurt($text);
                             push @{$f->slices}, $s;
                             $s->write;
 
@@ -253,7 +254,7 @@ sub download {
 
                             # Get the slice
                             my $e    = $f->slices->[$num];
-                            my $text = slurp $e->path;
+                            my $text = Mojo::File->new($e->path)->slurp;
 
                             my ($json2) = split('XXMOJOXX', $text, 2);
                             $json2 = decode 'UTF-8', $json2;

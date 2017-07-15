@@ -1,4 +1,4 @@
-requires 'Mojolicious', '< 7.31';
+requires 'Mojolicious', '>= 7.31';
 requires 'ORLite';
 requires 'Mojolicious::Plugin::DebugDumperHelper';
 requires 'Mojolicious::Plugin::I18N';
