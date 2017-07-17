@@ -319,6 +319,11 @@ sub startup {
         shift->render(template => 'about');
     })->name('about');
 
+    # Get instance stats
+    $r->get('/fullstats')
+        ->to('Misc#fullstats')
+        ->name('fullstats');
+
     # Get a file
     $r->get('/r/:short')->
         to('Files#r')->
