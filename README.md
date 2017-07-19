@@ -45,6 +45,10 @@ However please note that some metadata are sent unencrypted:
 * its size
 * its mimetype
 
+## Client
+
+There is the web interface, but you can use a CLI client too! Have a look at <https://framagit.org/luc/lufi-cli> or install it directly with `sudo npm install -g lufi-cli`.
+
 ## Internationalization
 
 Lufi comes with English and French languages. It will choose the language to display from the browser's settings.
