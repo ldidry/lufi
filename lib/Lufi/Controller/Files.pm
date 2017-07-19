@@ -392,8 +392,10 @@ sub delete {
             }
             return $c->respond_to(
                 json => {
-                    success => true,
-                    msg     => $msg
+                    json => {
+                        success => true,
+                        msg     => $msg
+                    }
                 },
                 any => sub {
                     $c->render(
@@ -407,8 +409,10 @@ sub delete {
             my $msg = $c->l('Could not find the file. Are you sure of the URL and the token?');
             return $c->respond_to(
                 json => {
-                    success => false,
-                    msg     => $msg
+                    json => {
+                        success => false,
+                        msg     => $msg
+                    }
                 },
                 any => sub {
                     $c->render(
@@ -423,8 +427,10 @@ sub delete {
         my $msg = $c->l('Could not delete the file. You are not authenticated.');
         return $c->respond_to(
             json => {
-                success => false,
-                msg     => $msg
+                json => {
+                    success => false,
+                    msg     => $msg
+                }
             },
             any => sub {
                 $c->render(
