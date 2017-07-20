@@ -4,6 +4,17 @@
 
 Lufi means Let's Upload that FIle.
 
+## Which browsers are compatible?
+
+Lufi is tested and working on the following browsers / devices :
+    - Firefox
+    - Chrome
+    - Internet Explorer 11
+    - Microsoft Edge
+    - Safari
+    - iOS devices (ipad, iphone)
+    - Android devices (Galaxy tab, Galaxy S8)
+
 ## What does it do?
 
 It stores files and allows you to download them.
