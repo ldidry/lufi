@@ -2,7 +2,6 @@
 package Lufi;
 use Mojo::Base 'Mojolicious';
 use LufiDB;
-use Data::Entropy qw(entropy_source);
 use Net::LDAP;
 use Apache::Htpasswd;
 
@@ -139,105 +138,7 @@ sub startup {
     $self->secrets($self->config('secrets'));
 
     # Helpers
-    $self->helper(
-        provisioning => sub {
-            my $c = shift;
-
-            # Create some short patterns for provisioning
-            if (LufiDB::Files->count('WHERE created_at IS NULL') < $c->config('provisioning')) {
-                for (my $i = 0; $i < $c->config('provis_step'); $i++) {
-                    if (LufiDB->begin) {
-                        my $short;
-                        do {
-                            $short= $c->shortener($c->config('length'));
-                        } while (LufiDB::Files->count('WHERE short = ?', $short));
-
-                        LufiDB::Files->create(
-                            short => $short
-                        );
-                        LufiDB->commit;
-                    }
-                }
-            }
-        }
-    );
-
-    $self->helper(
-        get_empty => sub {
-            my $c =  shift;
-
-            my @records = LufiDB::Files->select('WHERE created_at IS NULL LIMIT 1');
-            return $records[0];
-        }
-    );
-
-    $self->helper(
-        shortener => sub {
-            my $c      = shift;
-            my $length = shift;
-
-            my @chars  = ('a'..'z','A'..'Z','0'..'9', '-', '_');
-            my $result = '';
-            foreach (1..$length) {
-                $result .= $chars[entropy_source->get_int(scalar(@chars))];
-            }
-            return $result;
-        }
-    );
-
-    $self->helper(
-        ip => sub {
-            my $c           = shift;
-            my $proxy       = $c->req->headers->header('X-Forwarded-For');
-            my $ip          = ($proxy) ? $proxy : $c->tx->remote_address;
-            my $remote_port = (defined($c->req->headers->header('X-Remote-Port'))) ? $c->req->headers->header('X-Remote-Port') : $c->tx->remote_port;
-
-            return "$ip remote port:$remote_port";
-        }
-    );
-
-    $self->helper(
-        default_delay => sub {
-            my $c = shift;
-
-            return $c->config('default_delay') if ($c->config('default_delay') >= 0);
-
-            warn "default_delay set to a negative value. Default to 0.";
-            return 0;
-        }
-    );
-
-    $self->helper(
-        max_delay => sub {
-            my $c = shift;
-
-            return $c->config('max_delay') if ($c->config('max_delay') >= 0);
-
-            warn "max_delay set to a negative value. Default to 0.";
-            return 0;
-        }
-    );
-
-    $self->helper(
-        is_selected => sub {
-            my $c   = shift;
-            my $num = shift;
-
-            return ($num == $c->max_delay)     ? 'selected="selected"' : '' if ($c->max_delay && !$c->default_delay);
-            return ($num == $c->default_delay) ? 'selected="selected"' : '';
-        }
-    );
-
-    $self->helper(
-        stop_upload => sub {
-            my $c = shift;
-
-            if (-f 'stop-upload' || -f 'stop-upload.manual') {
-                return 1;
-            }
-            return 0;
-        }
-    );
+    $self->plugin('Lufi::Plugin::Helpers');
     # Hooks
     $self->hook(
         after_dispatch => sub {
@@ -251,16 +152,6 @@ sub startup {
     # Create directory if needed
     mkdir($self->config('upload_dir'), 0700) unless (-d $self->config('upload_dir'));
     die ('The upload directory ('.$self->config('upload_dir').') is not writable') unless (-w $self->config('upload_dir'));
-
-    # SQLite database migration if needed
-    my $columns = LufiDB::Files->table_info;
-    my $pwd_col = 0;
-    foreach my $col (@{$columns}) {
-        $pwd_col = 1 if $col->{name} eq 'passwd';
-    }
-    unless ($pwd_col) {
-        LufiDB->do('ALTER TABLE files ADD COLUMN passwd TEXT;');
-    }
 
     # Default layout
     $self->defaults(layout => 'default');
