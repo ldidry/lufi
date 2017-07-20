@@ -60,13 +60,13 @@ sub write {
 
 sub delete {
     my $c = shift;
-
+	my $dir = catdir($c->config('upload_dir'), $f->short);
     $c->slices->each(sub {
         my ($e, $num) = @_;
         unlink $e->path;
     });
     $c->deleted(1);
-
+	rmdir($dir);
     $c->write;
 
     return $c;
