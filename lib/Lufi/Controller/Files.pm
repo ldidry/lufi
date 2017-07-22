@@ -4,9 +4,8 @@ use Mojo::Base 'Mojolicious::Controller';
 use Mojo::JSON qw(encode_json decode_json to_json true false);
 use Mojo::Util qw(encode decode);
 use Mojo::File;
-use LufiDB;
-use Lufi::File;
-use Lufi::Slice;
+use Lufi::DB::File;
+use Lufi::DB::Slice;
 use File::Spec::Functions;
 use Number::Bytes::Human qw(format_bytes);
 use Filesys::DfPortable;
@@ -38,47 +37,46 @@ sub upload {
                 # Check if stop_upload file is present
                 if ($c->stop_upload) {
                     $stop = 1;
-                    $c->send(encode_json(
+                    $c->send(decode('UTF-8', encode_json(
                         {
                             success    => false,
                             msg        => $c->l('Sorry, uploading is disabled.'),
                             sent_delay => $json->{delay},
                             i          => $json->{i}
                         }
-                    ));
+                    )));
                 }
                 # Check against max_size
                 elsif (defined $c->config('max_file_size')) {
                     if ($json->{size} > $c->config('max_file_size')) {
                         $stop = 1;
-                        $c->send(encode_json(
+                        $c->send(decode('UTF-8', encode_json(
                             {
                                 success    => false,
                                 msg        => $c->l('Your file is too big: %1 (maximum size allowed: %2)', format_bytes($json->{size}), format_bytes($c->config('max_file_size'))),
                                 sent_delay => $json->{delay},
                                 i          => $json->{i}
                             }
-                        ));
+                        )));
                     }
                 }
                 # Check that we have enough space (multiplying by 2 since it's encrypted, it takes more place that the original file)
                 elsif ($json->{part} == 0 && ($json->{size} * 2) >= dfportable($c->config('upload_dir'))->{bavail}) {
                     $stop = 1;
-                    $c->send(encode_json(
+                    $c->send(decode('UTF-8', encode_json(
                         {
                             success    => false,
                             msg        => $c->l('No enough space available on the server for this file (size: %1).', format_bytes($json->{size})),
                             sent_delay => $json->{delay},
                             i          => $json->{i}
                         }
-                    ));
+                    )));
                 }
 
                 unless ($stop) {
                     my $f;
                     if (defined($json->{id})) {
-                        my @records = LufiDB::Files->select('WHERE short = ?', $json->{id});
-                        $f          = Lufi::File->new(record => $records[0]) if scalar @records;
+                        $f = Lufi::DB::File->new(app => $c->app)->from_short($json->{id});
                     } else {
                         my $delay;
                         unless (defined $json->{delay}) {
@@ -113,19 +111,17 @@ sub upload {
                         if (defined($c->config('ldap')) || defined($c->config('htpasswd'))) {
                             $creator = 'User: '.$c->current_user.', IP: '.$creator;
                         }
-                        $f = Lufi::File->new(
-                            record               => $c->get_empty,
-                            created_by           => $creator,
-                            delete_at_first_view => ($json->{del_at_first_view}) ? 1 : 0,
-                            delete_at_day        => $delay,
-                            mediatype            => $json->{type},
-                            filename             => $json->{name},
-                            filesize             => $json->{size},
-                            nbslices             => $json->{total},
-                            mod_token            => $c->shortener($c->config('token_length')),
-                            passwd               => $salted_pwd
-                        );
-                        $f->write;
+                        $f = Lufi::DB::File->new(app => $c->app)->get_empty()
+                                ->created_by($creator)
+                                ->delete_at_first_view(($json->{del_at_first_view}) ? 1 : 0)
+                                ->delete_at_day($delay)
+                                ->mediatype($json->{type})
+                                ->filename($json->{name})
+                                ->filesize($json->{size})
+                                ->nbslices($json->{total})
+                                ->mod_token($c->shortener($c->config('token_length')))
+                                ->passwd($salted_pwd)
+                                ->write;
                     }
 
                     # This check is just in case we didn't succeed to find a corresponding record
@@ -140,7 +136,8 @@ sub upload {
 
                             # Create slice file
                             my $file = catfile($dir, $json->{part}.'.part');
-                            my $s    = Lufi::Slice->new(
+                            my $s    = Lufi::DB::Slice->new(
+                                app   => $c->app,
                                 short => $f->short,
                                 j     => $json->{part},
                                 path  => $file
@@ -176,14 +173,14 @@ sub upload {
                             }
                         ));
                     } else {
-                        $ws->send(encode_json(
+                        $ws->send(decode('UTF-8', encode_json(
                             {
                                 success    => false,
                                 msg        => $c->l('The server was unable to find the file record to add your file part to. Please, contact the administrator.'),
                                 sent_delay => $json->{delay},
                                 i          => $json->{i}
                             }
-                        ));
+                        )));
                     }
                 }
             }
@@ -203,37 +200,35 @@ sub download {
     $c->inactivity_timeout(300000);
     $c->app->log->debug('Client connected');
 
-    my @records = LufiDB::Files->select('WHERE short = ?', $short);
+    my $ldfile = Lufi::DB::File->new(app => $c->app)->from_short($short);
 
     # Do we have a file?
-    if (scalar @records) {
-        my $record = $records[0];
+    if (defined $ldfile) {
         # Is the file fully uploaded?
-        if ($record->deleted
+        if ($ldfile->deleted
             || (
-                $record->delete_at_day != 0
+                $ldfile->delete_at_day != 0
                 && (
-                    ($record->created_at + $record->delete_at_day * 86400) < time()
+                    ($ldfile->created_at + $ldfile->delete_at_day * 86400) < time()
                 )
             )
         ) {
-            unless ($record->deleted) {
-                my $f = Lufi::File->new(record => $record);
-                $f->delete;
+            unless ($ldfile->deleted) {
+                $ldfile->delete;
             }
             $c->on(
                 message => sub {
                     my ($ws, $json) = @_;
-                    $c->send(encode_json(
+                    $c->send(decode('UTF-8', encode_json(
                         {
                             success => false,
                             msg     => $c->l('Error: the file existed but was deleted.')
                         }
-                    ));
+                    )));
                 }
             );
-        } elsif ($record->complete) {
-            my $f = Lufi::File->new(record => $record);
+        } elsif ($ldfile->complete) {
+            my $f = $ldfile;
 
             $c->on(
                 message => sub {
@@ -273,7 +268,11 @@ sub download {
                             }
                         }
                     } else {
-                        $c->send(encode_json({msg => $c->l('Your password is not valid. Please refresh the page to retry.')}));
+                        $c->send(decode('UTF-8', encode_json(
+                            {
+                                msg => $c->l('Your password is not valid. Please refresh the page to retry.')
+                            }
+                        )));
                     }
                 }
             );
@@ -286,22 +285,22 @@ sub download {
             $c->on(
                 message => sub {
                     my ($ws, $json) = @_;
-                    $c->send(encode_json(
+                    $c->send(decode('UTF-8', encode_json(
                         {
                             success => false,
                             msg     => $c->l('Error: the file has not been sent entirely.')
                         }
-                    ));
+                    )));
                 }
             );
         }
     } else {
-        $c->send(encode_json(
+        $c->send(decode('UTF-8', encode_json(
             {
                 success => false,
                 msg     => $c->l('Error: unable to find the file. Are you sure of your URL?')
             }
-        ));
+        )));
     }
 }
 
@@ -309,13 +308,13 @@ sub r {
     my $c     = shift;
     my $short = $c->param('short');
 
-    my @records = LufiDB::Files->select('WHERE short = ?', $short);
-    if (scalar @records) {
-        my $f   = Lufi::File->new(record => $records[0]);
+    my $ldfile = Lufi::DB::File->new(app => $c->app)->from_short($short);
+
+    if (defined $ldfile) {
         return $c->render(
             template => 'render',
-            f        => $f,
-            file_pwd => ($c->config('allow_pwd_on_files') && defined($records[0]->{passwd}))
+            f        => $ldfile,
+            file_pwd => ($c->config('allow_pwd_on_files') && defined($ldfile->passwd))
         );
     } else {
         return $c->render(
@@ -331,15 +330,16 @@ sub get_counter {
     my $token = $c->param('token');
 
     if ((!defined($c->config('ldap')) && !defined($c->config('htpasswd'))) || $c->is_user_authenticated) {
-        my @records = LufiDB::Files->select('WHERE short = ?', $short);
-        if (scalar(@records)) {
-            if ($records[0]->mod_token eq $token) {
+        my $ldfile = Lufi::DB::File->new(app => $c->app)->from_short($short);
+
+        if (defined $ldfile) {
+            if ($ldfile->mod_token eq $token) {
                 return $c->render(
                     json => {
                         success => true,
                         short   => $short,
-                        counter => $records[0]->counter,
-                        deleted => ($records[0]->deleted) ? true : false
+                        counter => $ldfile->counter,
+                        deleted => ($ldfile->deleted) ? true : false
                     }
                 );
             } else {
@@ -380,14 +380,16 @@ sub delete {
     my $token = $c->param('token');
 
     if ((!defined($c->config('ldap')) && !defined($c->config('htpasswd'))) || $c->is_user_authenticated) {
-        my @records = LufiDB::Files->select('WHERE short = ? AND mod_token = ?', ($short, $token));
-        if (scalar(@records)) {
-            my $f   = Lufi::File->new(record => $records[0]);
+        my $ldfile = Lufi::DB::File->new(app => $c->app)->from_short($short);
+
+        $ldfile = undef unless (defined($ldfile) && $ldfile->mod_token eq $token);
+
+        if (defined $ldfile) {
             my $msg;
-            if ($f->deleted) {
+            if ($ldfile->deleted) {
                 $msg = $c->l('The file has already been deleted');
             } else {
-                $f->delete;
+                $ldfile->delete;
                 $msg = $c->l('File deleted');
             }
             return $c->respond_to(
@@ -400,7 +402,7 @@ sub delete {
                 any => sub {
                     $c->render(
                         template => 'msg',
-                        f        => $f,
+                        f        => $ldfile,
                         msg      => $msg
                     );
                 }

@@ -106,6 +106,10 @@ function spawnWebsocket(pa) {
                         innerHTML.push('<video class="responsive-video" controls>',
                                            '<source src="', blobURL, '" type="', data.type, '">',
                                        '</video>');
+                    } else if (data.type.match(/^audio\//) !== null) {
+                        innerHTML.push('<audio class="responsive-video" controls>',
+                                           '<source src="', blobURL, '" type="', data.type, '">',
+                                       '</audio>');
                     }
                     pbd.html(innerHTML.join(''));
 

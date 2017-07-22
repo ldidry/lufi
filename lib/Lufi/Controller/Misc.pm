@@ -2,22 +2,18 @@
 package Lufi::Controller::Misc;
 use Mojo::Base 'Mojolicious::Controller';
 use Mojo::File;
-use LufiDB;
-use Lufi::File;
-use Lufi::Slice;
+use Lufi::DB::File;
 
 sub fullstats {
     my $c = shift;
 
-    my $files   = LufiDB::Files->count('WHERE created_at IS NOT null AND deleted = 0');
-    my $deleted = LufiDB::Files->count('WHERE created_at IS NOT null AND deleted = 1');
-    my $empty   = LufiDB::Files->count('WHERE created_at IS null');
+    my $stats = Lufi::DB::File->new(app => $c->app)->get_stats;
 
     return $c->render(
         json => {
-            files     => $files,
-            deleted   => $deleted,
-            empty     => $empty,
+            files     => $stats->{files},
+            deleted   => $stats->{deleted},
+            empty     => $stats->{empty},
             timestamp => time,
         }
     );

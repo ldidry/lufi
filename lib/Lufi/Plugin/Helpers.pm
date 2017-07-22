@@ -1,20 +1,37 @@
 # vim:set sw=4 ts=4 sts=4 ft=perl expandtab:
 package Lufi::Plugin::Helpers;
 use Mojo::Base 'Mojolicious::Plugin';
+use Lufi::DB::File;
 use Data::Entropy qw(entropy_source);
-use LufiDB;
 
 sub register {
     my ($self, $app) = @_;
 
-    # SQLite database migration if needed
-    my $columns = LufiDB::Files->table_info;
-    my $pwd_col = 0;
-    foreach my $col (@{$columns}) {
-        $pwd_col = 1 if $col->{name} eq 'passwd';
-    }
-    unless ($pwd_col) {
-        LufiDB->do('ALTER TABLE files ADD COLUMN passwd TEXT;');
+    $app->plugin('PgURLHelper');
+    #
+    #    if ($app->config('dbtype') eq 'postgresql') {
+    #        use Mojo::Pg;
+    #        $app->helper(pg => \&_pg);
+    #
+    #        # Database migration
+    #        my $migrations = Mojo::Pg::Migrations->new(pg => $app->pg);
+    #        if ($app->mode eq 'development' && $ENV{LUFI_DEV} == 1) {
+    #            $migrations->from_file('utilities/migrations.sql')->migrate(0)->migrate(1);
+    #        } else {
+    #            $migrations->from_file('utilities/migrations.sql')->migrate(1);
+    #        }
+    #    } elsif ($app->config('dbtype') eq 'sqlite') {
+    if ($app->config('dbtype') eq 'sqlite') {
+        # SQLite database migration if needed
+        use Lufi::DB::SQLite;
+        my $columns = Lufi::DB::SQLite::Files->table_info;
+        my $pwd_col = 0;
+        foreach my $col (@{$columns}) {
+            $pwd_col = 1 if $col->{name} eq 'passwd';
+        }
+        unless ($pwd_col) {
+            Lufi::DB::SQLite->do('ALTER TABLE files ADD COLUMN passwd TEXT;');
+        }
     }
 
     $app->helper(provisioning => \&_provisioning);
@@ -27,23 +44,26 @@ sub register {
     $app->helper(stop_upload => \&_stop_upload);
 }
 
+sub _pg {
+    my $c     = shift;
+
+    state $pg = Mojo::Pg->new($c->app->pg_url($c->app->config('pgdb')));
+    return $pg;
+}
+
 sub _provisioning {
     my $c = shift;
 
     # Create some short patterns for provisioning
-    if (LufiDB::Files->count('WHERE created_at IS NULL') < $c->config('provisioning')) {
-        for (my $i = 0; $i < $c->config('provis_step'); $i++) {
-            if (LufiDB->begin) {
-                my $short;
-                do {
-                    $short= $c->shortener($c->config('length'));
-                } while (LufiDB::Files->count('WHERE short = ?', $short));
+    my $ldfile = Lufi::DB::File->new(app => $c->app);
+    if ($ldfile->count_empty < $c->app->config('provisioning')) {
+        for (my $i = 0; $i < $c->app->config('provis_step'); $i++) {
+            my $short;
+            do {
+                $short = $c->shortener($c->app->config('length'));
+            } while ($ldfile->already_exists($short));
 
-                LufiDB::Files->create(
-                    short => $short
-                );
-                LufiDB->commit;
-            }
+            $ldfile->created_at(undef)->short($short)->write;
         }
     }
 }
@@ -51,8 +71,9 @@ sub _provisioning {
 sub _get_empty {
     my $c =  shift;
 
-    my @records = LufiDB::Files->select('WHERE created_at IS NULL LIMIT 1');
-    return $records[0];
+    my $ldfile = Lufi::DB::File->new(app => $c->app)->get_empty;
+
+    return $ldfile;
 }
 
 sub _shortener {
@@ -79,7 +100,7 @@ sub _ip {
 sub _default_delay {
     my $c = shift;
 
-    return $c->config('default_delay') if ($c->config('default_delay') >= 0);
+    return $c->app->config('default_delay') if ($c->app->config('default_delay') >= 0);
 
     warn "default_delay set to a negative value. Default to 0.";
     return 0;
@@ -88,7 +109,7 @@ sub _default_delay {
 sub _max_delay {
     my $c = shift;
 
-    return $c->config('max_delay') if ($c->config('max_delay') >= 0);
+    return $c->app->config('max_delay') if ($c->app->config('max_delay') >= 0);
 
     warn "max_delay set to a negative value. Default to 0.";
     return 0;

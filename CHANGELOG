@@ -1,0 +1,14 @@
+Revision history for Lufi
+
+0.02  2017-?
+	- Database abstraction layer
+	- IE 11 and Edge support
+	- Fix encoding error (#83)
+	- Htpassword authentication support
+	- Ability to add a password to a file
+
+0.01  2017-01-09
+	- Upload files
+	- Download files
+	- Preview files in browser depending on mimetype (images and videos)
+	- LDAP authentication support

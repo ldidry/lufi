@@ -1,7 +1,6 @@
 # vim:set sw=4 ts=4 sts=4 ft=perl expandtab:
 package Lufi;
 use Mojo::Base 'Mojolicious';
-use LufiDB;
 use Net::LDAP;
 use Apache::Htpasswd;
 
@@ -29,6 +28,7 @@ sub startup {
             upload_dir         => 'files',
             session_duration   => 3600,
             allow_pwd_on_files => 0,
+            dbtype             => 'sqlite',
         }
     });
 

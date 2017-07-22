@@ -90,15 +90,15 @@ msgstr ""
 msgid "Copy to clipboard"
 msgstr ""
 
-#: lib/Lufi/Controller/Files.pm:423
+#: lib/Lufi/Controller/Files.pm:429
 msgid "Could not delete the file. You are not authenticated."
 msgstr ""
 
-#: lib/Lufi/Controller/Files.pm:407
+#: lib/Lufi/Controller/Files.pm:411
 msgid "Could not find the file. Are you sure of the URL and the token?"
 msgstr ""
 
-#: lib/Lufi/Controller/Files.pm:323
+#: lib/Lufi/Controller/Files.pm:322
 msgid "Could not find the file. Are you sure of the URL?"
 msgstr ""
 
@@ -154,15 +154,15 @@ msgstr ""
 msgid "Encrypting part XX1 of XX2"
 msgstr ""
 
-#: lib/Lufi/Controller/Files.pm:230
+#: lib/Lufi/Controller/Files.pm:225
 msgid "Error: the file existed but was deleted."
 msgstr ""
 
-#: lib/Lufi/Controller/Files.pm:292
+#: lib/Lufi/Controller/Files.pm:291
 msgid "Error: the file has not been sent entirely."
 msgstr ""
 
-#: lib/Lufi/Controller/Files.pm:302
+#: lib/Lufi/Controller/Files.pm:301
 msgid "Error: unable to find the file. Are you sure of your URL?"
 msgstr ""
 
@@ -178,7 +178,7 @@ msgstr ""
 msgid "Export localStorage data"
 msgstr ""
 
-#: lib/Lufi/Controller/Files.pm:391
+#: lib/Lufi/Controller/Files.pm:393
 msgid "File deleted"
 msgstr ""
 
@@ -271,7 +271,7 @@ msgid "My files"
 msgstr ""
 
 #. (format_bytes($json->{size})
-#: lib/Lufi/Controller/Files.pm:70
+#: lib/Lufi/Controller/Files.pm:69
 msgid "No enough space available on the server for this file (size: %1)."
 msgstr ""
 
@@ -296,7 +296,7 @@ msgstr ""
 msgid "Please wait while we are getting your file. We first need to download and decrypt all parts before you can get it."
 msgstr ""
 
-#: lib/Lufi.pm:300
+#: lib/Lufi.pm:191
 msgid "Please, check your credentials: unable to authenticate."
 msgstr ""
 
@@ -337,7 +337,7 @@ msgstr ""
 msgid "Signin"
 msgstr ""
 
-#: lib/Lufi.pm:303
+#: lib/Lufi.pm:194
 msgid "Sorry mate, you are not authorised to use that service. Contact your sysadmin if you think there's a glitch in the matrix."
 msgstr ""
 
@@ -345,7 +345,7 @@ msgstr ""
 msgid "Sorry, the uploading is currently disabled. Please try again later."
 msgstr ""
 
-#: lib/Lufi/Controller/Files.pm:44
+#: lib/Lufi/Controller/Files.pm:43
 msgid "Sorry, uploading is disabled."
 msgstr ""
 
@@ -365,7 +365,7 @@ msgstr ""
 msgid "The email subject can't be empty."
 msgstr ""
 
-#: lib/Lufi/Controller/Files.pm:388
+#: lib/Lufi/Controller/Files.pm:390
 msgid "The file has already been deleted"
 msgstr ""
 
@@ -390,7 +390,7 @@ msgstr ""
 msgid "The original (and only for now) author is <a href=\"https://fiat-tux.fr\" class=\"classic\">Luc Didry</a>. If you want to support him, you can do it via <a href=\"https://www.tipeee.com/fiat-tux\" class=\"classic\">Tipeee</a> or via <a href=\"https://liberapay.com/sky/\" class=\"classic\">Liberapay</a>."
 msgstr ""
 
-#: lib/Lufi/Controller/Files.pm:182
+#: lib/Lufi/Controller/Files.pm:179
 msgid "The server was unable to find the file record to add your file part to. Please, contact the administrator."
 msgstr ""
 
@@ -470,11 +470,11 @@ msgid "You must give email addresses."
 msgstr ""
 
 #. (format_bytes($json->{size})
-#: lib/Lufi/Controller/Files.pm:57
+#: lib/Lufi/Controller/Files.pm:56
 msgid "Your file is too big: %1 (maximum size allowed: %2)"
 msgstr ""
 
-#: lib/Lufi/Controller/Files.pm:276
+#: lib/Lufi/Controller/Files.pm:273
 msgid "Your password is not valid. Please refresh the page to retry."
 msgstr ""
 

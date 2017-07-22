@@ -20,6 +20,9 @@ locales:
 	$(XGETTEXT) $(EXTRACTDIR) -o $(PT) 2>/dev/null
 	$(XGETTEXT) $(EXTRACTDIR) -o $(NL) 2>/dev/null
 
+podcheck:
+	podchecker lib/Lufi/DB/File.pm lib/Lufi/DB/Slice.pm
+
 test:
 	$(CARTON) $(REAL_LUFI) test
 

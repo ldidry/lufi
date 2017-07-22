@@ -79,15 +79,15 @@ msgstr "Kopieer alle links naar klembord"
 msgid "Copy to clipboard"
 msgstr "Kopieer naar klembord"
 
-#: lib/Lufi/Controller/Files.pm:423
+#: lib/Lufi/Controller/Files.pm:429
 msgid "Could not delete the file. You are not authenticated."
 msgstr "Kan het bestand niet verwijderen. Je bent niet geautoriseerd."
 
-#: lib/Lufi/Controller/Files.pm:407
+#: lib/Lufi/Controller/Files.pm:411
 msgid "Could not find the file. Are you sure of the URL and the token?"
 msgstr "Kan het bestand niet vinden. Klopt de URL en token wel?"
 
-#: lib/Lufi/Controller/Files.pm:323
+#: lib/Lufi/Controller/Files.pm:322
 msgid "Could not find the file. Are you sure of the URL?"
 msgstr "Kan het bestand niet vinden. Klopt de URL?"
 
@@ -143,15 +143,15 @@ msgstr "Emails"
 msgid "Encrypting part XX1 of XX2"
 msgstr "Encrypten deel XX1 van XX2 "
 
-#: lib/Lufi/Controller/Files.pm:230
+#: lib/Lufi/Controller/Files.pm:225
 msgid "Error: the file existed but was deleted."
 msgstr "Fout: het bestand bestond wel maar is verwijderd."
 
-#: lib/Lufi/Controller/Files.pm:292
+#: lib/Lufi/Controller/Files.pm:291
 msgid "Error: the file has not been sent entirely."
 msgstr "Fout: het bestand is niet volledig opgestuurd."
 
-#: lib/Lufi/Controller/Files.pm:302
+#: lib/Lufi/Controller/Files.pm:301
 msgid "Error: unable to find the file. Are you sure of your URL?"
 msgstr "Fout: kan het bestand niet vinden. Is de URL juist?"
 
@@ -167,7 +167,7 @@ msgstr "Vervalt op"
 msgid "Export localStorage data"
 msgstr "Exporteer opgeslagen data"
 
-#: lib/Lufi/Controller/Files.pm:391
+#: lib/Lufi/Controller/Files.pm:393
 msgid "File deleted"
 msgstr "Bestand verwijderd"
 
@@ -260,7 +260,7 @@ msgid "My files"
 msgstr "Mijn bestanden"
 
 #. (format_bytes($json->{size})
-#: lib/Lufi/Controller/Files.pm:70
+#: lib/Lufi/Controller/Files.pm:69
 msgid "No enough space available on the server for this file (size: %1)."
 msgstr "Geen genoeg ruimte op de server voor deze bestand (grootte: %1)."
 
@@ -285,7 +285,7 @@ msgstr "Neem contact op met administrator: %1"
 msgid "Please wait while we are getting your file. We first need to download and decrypt all parts before you can get it."
 msgstr "Een ogenblik geduld, we pakken je bestand er bij. We moeten alle delen downloaden en decrypten voordat je het kan downloaden."
 
-#: lib/Lufi.pm:300
+#: lib/Lufi.pm:191
 msgid "Please, check your credentials: unable to authenticate."
 msgstr ""
 
@@ -330,7 +330,7 @@ msgstr "Deel je bestanden met volledige privacy op %1"
 msgid "Signin"
 msgstr "Inloggen"
 
-#: lib/Lufi.pm:303
+#: lib/Lufi.pm:194
 msgid "Sorry mate, you are not authorised to use that service. Contact your sysadmin if you think there's a glitch in the matrix."
 msgstr ""
 
@@ -338,7 +338,7 @@ msgstr ""
 msgid "Sorry, the uploading is currently disabled. Please try again later."
 msgstr "Sorry, uploaden is momenteel uitgeschakeld. Probeer het later nogmaals."
 
-#: lib/Lufi/Controller/Files.pm:44
+#: lib/Lufi/Controller/Files.pm:43
 msgid "Sorry, uploading is disabled."
 msgstr "SOrry, uploaden is uitgeschakeld."
 
@@ -358,7 +358,7 @@ msgstr "Mail inhoud kan niet leeg zijn."
 msgid "The email subject can't be empty."
 msgstr "Onderwerp kan niet leeg zijn."
 
-#: lib/Lufi/Controller/Files.pm:388
+#: lib/Lufi/Controller/Files.pm:390
 msgid "The file has already been deleted"
 msgstr "Bestand is reeds verwijderd"
 
@@ -383,7 +383,7 @@ msgstr "Email is verzonden."
 msgid "The original (and only for now) author is <a href=\"https://fiat-tux.fr\" class=\"classic\">Luc Didry</a>. If you want to support him, you can do it via <a href=\"https://www.tipeee.com/fiat-tux\" class=\"classic\">Tipeee</a> or via <a href=\"https://liberapay.com/sky/\" class=\"classic\">Liberapay</a>."
 msgstr "De oorspronkelijke auteur is <a href=\"https://fiat-tux.fr\" class=\"classic\">Luc Didry</a>. Als je hem wilt ondersteunen, dan kan dat via <a href=\"https://www.tipeee.com/fiat-tux\" class=\"classic\">Tipeee</a> of via <a href=\"https://liberapay.com/sky/\" class=\"classic\">Liberapay</a>."
 
-#: lib/Lufi/Controller/Files.pm:182
+#: lib/Lufi/Controller/Files.pm:179
 msgid "The server was unable to find the file record to add your file part to. Please, contact the administrator."
 msgstr "Server kon een deel van het bestand niet vinden. Neem contact op met beheerder."
 
@@ -463,11 +463,11 @@ msgid "You must give email addresses."
 msgstr "Je moet een mail adres opgeven."
 
 #. (format_bytes($json->{size})
-#: lib/Lufi/Controller/Files.pm:57
+#: lib/Lufi/Controller/Files.pm:56
 msgid "Your file is too big: %1 (maximum size allowed: %2)"
 msgstr "Je bestand is te groot: %1 (max: %2)"
 
-#: lib/Lufi/Controller/Files.pm:276
+#: lib/Lufi/Controller/Files.pm:273
 msgid "Your password is not valid. Please refresh the page to retry."
 msgstr ""
 

@@ -1,9 +1,11 @@
 requires 'Mojolicious', '>= 7.31';
 requires 'ORLite';
 requires 'Mojolicious::Plugin::DebugDumperHelper';
+requires 'Mojolicious::Plugin::PgURLHelper';
 requires 'Mojolicious::Plugin::I18N';
 requires 'Mojolicious::Plugin::Mail';
 requires 'Mojolicious::Plugin::Authentication';
+requires 'Mojo::Pg';
 requires 'EV';
 requires 'Filesys::DiskUsage';
 requires 'Switch';

@@ -93,15 +93,15 @@ msgstr "Copia tots els enllaços al porta-retalls"
 msgid "Copy to clipboard"
 msgstr "Copia al porta-retalls"
 
-#: lib/Lufi/Controller/Files.pm:423
+#: lib/Lufi/Controller/Files.pm:429
 msgid "Could not delete the file. You are not authenticated."
 msgstr "No es pot esborrar el fitxer. No esteu autenticat."
 
-#: lib/Lufi/Controller/Files.pm:407
+#: lib/Lufi/Controller/Files.pm:411
 msgid "Could not find the file. Are you sure of the URL and the token?"
 msgstr "No es troba el fitxer. Esteu segur de la URL i el testimoni?"
 
-#: lib/Lufi/Controller/Files.pm:323
+#: lib/Lufi/Controller/Files.pm:322
 msgid "Could not find the file. Are you sure of the URL?"
 msgstr "No trobo el fitxer. Esteu segurs de la URL?"
 
@@ -157,15 +157,15 @@ msgstr "correus electrònics"
 msgid "Encrypting part XX1 of XX2"
 msgstr "S'està xifrant la part XX1 de XX2"
 
-#: lib/Lufi/Controller/Files.pm:230
+#: lib/Lufi/Controller/Files.pm:225
 msgid "Error: the file existed but was deleted."
 msgstr "Error: el fitxer existia però va ser eliminat."
 
-#: lib/Lufi/Controller/Files.pm:292
+#: lib/Lufi/Controller/Files.pm:291
 msgid "Error: the file has not been sent entirely."
 msgstr "Error: el fitxer no s'ha enviat del tot."
 
-#: lib/Lufi/Controller/Files.pm:302
+#: lib/Lufi/Controller/Files.pm:301
 msgid "Error: unable to find the file. Are you sure of your URL?"
 msgstr "Error: no trobo el fitxer. Esteu segur de la URL ?"
 
@@ -181,7 +181,7 @@ msgstr "Expira el"
 msgid "Export localStorage data"
 msgstr "Exporta dades a l'emmagatzematge local"
 
-#: lib/Lufi/Controller/Files.pm:391
+#: lib/Lufi/Controller/Files.pm:393
 msgid "File deleted"
 msgstr "Fitxer eliminat"
 
@@ -275,7 +275,7 @@ msgid "My files"
 msgstr "Els meus fitxers"
 
 #. (format_bytes($json->{size})
-#: lib/Lufi/Controller/Files.pm:70
+#: lib/Lufi/Controller/Files.pm:69
 msgid "No enough space available on the server for this file (size: %1)."
 msgstr "No hi ha prou espai al servidor per a aquest fitxer (mida: %1)"
 
@@ -300,7 +300,7 @@ msgstr "Si us plau contacteu amb l'administrador: %1"
 msgid "Please wait while we are getting your file. We first need to download and decrypt all parts before you can get it."
 msgstr "Si us plau, espereu mentre obtenim el fitxer. Abans que el tingueu disponible primer cal descarregar i desxifrar tots els trossos."
 
-#: lib/Lufi.pm:300
+#: lib/Lufi.pm:191
 msgid "Please, check your credentials: unable to authenticate."
 msgstr ""
 
@@ -341,7 +341,7 @@ msgstr "Compartiu fitxers amb total privacitat a %1"
 msgid "Signin"
 msgstr "Autenticació"
 
-#: lib/Lufi.pm:303
+#: lib/Lufi.pm:194
 msgid "Sorry mate, you are not authorised to use that service. Contact your sysadmin if you think there's a glitch in the matrix."
 msgstr ""
 
@@ -349,7 +349,7 @@ msgstr ""
 msgid "Sorry, the uploading is currently disabled. Please try again later."
 msgstr "Disculpeu, les pujades estan actualment desactivades. Si us plau proveu-ho més tard."
 
-#: lib/Lufi/Controller/Files.pm:44
+#: lib/Lufi/Controller/Files.pm:43
 msgid "Sorry, uploading is disabled."
 msgstr "Disculpeu, les pujades estan deshabilitades"
 
@@ -371,7 +371,7 @@ msgstr "El cos del correu no pot estar buit."
 msgid "The email subject can't be empty."
 msgstr "L'assumpte dle correu no pot estar buit."
 
-#: lib/Lufi/Controller/Files.pm:388
+#: lib/Lufi/Controller/Files.pm:390
 msgid "The file has already been deleted"
 msgstr "El fitxer ja ha estat esborrat"
 
@@ -396,7 +396,7 @@ msgstr "El correu ja està enviat."
 msgid "The original (and only for now) author is <a href=\"https://fiat-tux.fr\" class=\"classic\">Luc Didry</a>. If you want to support him, you can do it via <a href=\"https://www.tipeee.com/fiat-tux\" class=\"classic\">Tipeee</a> or via <a href=\"https://liberapay.com/sky/\" class=\"classic\">Liberapay</a>."
 msgstr "L'autor original (i per ara l'únic) és <a href=\"https://fiat-tux.fr\" class=\"classic\">Luc Didry</a>. Si voleu fer una contribució podeu fer-ho via <a href=\"https://www.tipeee.com/fiat-tux\" class=\"classic\">Tipeee</a> o via <a href=\"https://liberapay.com/sky/\" class=\"classic\">Liberapay</a>."
 
-#: lib/Lufi/Controller/Files.pm:182
+#: lib/Lufi/Controller/Files.pm:179
 msgid "The server was unable to find the file record to add your file part to. Please, contact the administrator."
 msgstr "El servidor no ha pogut trobar el registre del fitxer per afegir-hi el tros del fitxer. Si us plau, contacteu l'administrador."
 
@@ -476,11 +476,11 @@ msgid "You must give email addresses."
 msgstr "Heu de donar l'adreça de correu electrònic."
 
 #. (format_bytes($json->{size})
-#: lib/Lufi/Controller/Files.pm:57
+#: lib/Lufi/Controller/Files.pm:56
 msgid "Your file is too big: %1 (maximum size allowed: %2)"
 msgstr "El fitxer és massa gran: %1 (mida màxima admesa: %2)"
 
-#: lib/Lufi/Controller/Files.pm:276
+#: lib/Lufi/Controller/Files.pm:273
 msgid "Your password is not valid. Please refresh the page to retry."
 msgstr ""
 
