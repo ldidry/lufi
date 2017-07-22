@@ -79,12 +79,8 @@ sub get_empty {
     my $c     = shift;
 
     my @records = Lufi::DB::SQLite::Files->select('WHERE created_at IS NULL LIMIT 1');
-    $c->record($records[0]);
-    $c->record->update(created_at => time);
-    $c->write;
-    $c->_slurp;
 
-    return $c;
+    return $c->record($records[0])->_slurp->created_at(time)->write;
 }
 
 sub get_stats {
