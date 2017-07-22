@@ -115,7 +115,7 @@
     # SQLite ONLY - only used if dbtype is set to sqlite
     # define a path to the SQLite database
     # you can define it relative to lufi directory or set an absolute path
-    # remember that it has to be in a directory writable by Lutim user
+    # remember that it has to be in a directory writable by Lufi user
     # optional, default is lufi.db
     #db_path           => 'lufi.db',
 

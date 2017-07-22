@@ -18,9 +18,10 @@ CREATE TABLE IF NOT EXISTS files (
 );
 
 CREATE TABLE IF NOT EXISTS slices (
-    short text REFERENCES files(short) ON DELETE CASCADE,
+    short text NOT NULL REFERENCES files(short) ON DELETE CASCADE,
     j integer NOT NULL,
     path text unique NOT NULL,
+    constraint slice_short_j UNIQUE (short, j)
 );
 -- 1 down
 DROP TABLE slices;

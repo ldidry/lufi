@@ -106,9 +106,9 @@ sub new {
         if ($dbtype eq 'sqlite') {
             use Lufi::DB::File::SQLite;
             $c = Lufi::DB::File::SQLite->new(@_);
-        #} elsif ($dbtype eq 'postgresql') {
-            #use Lufi::DB::File::Pg;
-            #$c = Lufi::DB::File::Pg->new(@_);
+        } elsif ($dbtype eq 'postgresql') {
+            use Lufi::DB::File::Pg;
+            $c = Lufi::DB::File::Pg->new(@_);
         }
     }
 

@@ -90,7 +90,7 @@ sub get_stats {
     my $deleted = Lufi::DB::SQLite::Files->count('WHERE created_at IS NOT null AND deleted = 1');
     my $empty   = Lufi::DB::SQLite::Files->count('WHERE created_at IS null');
 
-    return {files => $files, deleted => $deleted, empty => $empty};
+    return { files => $files, deleted => $deleted, empty => $empty };
 }
 
 sub from_short {

@@ -2,6 +2,7 @@ Revision history for Lufi
 
 0.02  2017-?
 	- Database abstraction layer
+	- PostgreSQL support
 	- IE 11 and Edge support
 	- Fix encoding error (#83)
 	- Htpassword authentication support

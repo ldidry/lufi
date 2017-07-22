@@ -8,20 +8,19 @@ sub register {
     my ($self, $app) = @_;
 
     $app->plugin('PgURLHelper');
-    #
-    #    if ($app->config('dbtype') eq 'postgresql') {
-    #        use Mojo::Pg;
-    #        $app->helper(pg => \&_pg);
-    #
-    #        # Database migration
-    #        my $migrations = Mojo::Pg::Migrations->new(pg => $app->pg);
-    #        if ($app->mode eq 'development' && $ENV{LUFI_DEV} == 1) {
-    #            $migrations->from_file('utilities/migrations.sql')->migrate(0)->migrate(1);
-    #        } else {
-    #            $migrations->from_file('utilities/migrations.sql')->migrate(1);
-    #        }
-    #    } elsif ($app->config('dbtype') eq 'sqlite') {
-    if ($app->config('dbtype') eq 'sqlite') {
+
+    if ($app->config('dbtype') eq 'postgresql') {
+        use Mojo::Pg;
+        $app->helper(pg => \&_pg);
+
+        # Database migration
+        my $migrations = Mojo::Pg::Migrations->new(pg => $app->pg);
+        if ($app->mode eq 'development' && $ENV{LUFI_DEV}) {
+            $migrations->from_file('utilities/migrations_pg.sql')->migrate(0)->migrate(1);
+        } else {
+            $migrations->from_file('utilities/migrations_pg.sql')->migrate(1);
+        }
+    } elsif ($app->config('dbtype') eq 'sqlite') {
         # SQLite database migration if needed
         use Lufi::DB::SQLite;
         my $columns = Lufi::DB::SQLite::Files->table_info;
