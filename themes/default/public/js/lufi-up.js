@@ -407,7 +407,7 @@ $(document).ready(function(){
     var dropZone = document.getElementById('files');
     dropZone.addEventListener('dragover', handleDragOver, false);
     dropZone.addEventListener('drop', handleDrop, false);
-    $('label[for="first-view"').on('click', function(){
+    $('label[for="first-view"]').on('click', function(){
         if ($('#first-view').attr('data-checked') && $('#first-view').attr('data-checked') === 'data-checked') {
             $('#first-view').attr('data-checked', null);
         } else {
