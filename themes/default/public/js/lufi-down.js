@@ -90,7 +90,13 @@ function spawnWebsocket(pa) {
 
                     var pbd  = $('#pbd');
                     pbd.attr('class', 'center-align');
-                    var blobURL   = URL.createObjectURL(blob);
+                    // IE & Edge fix for downloading blob files, gives option to save or open the file when the link is opened.
+                    if (window.navigator && window.navigator.msSaveOrOpenBlob) {
+                        var fileName = escapeHtml(data.name);
+                        window.navigator.msSaveOrOpenBlob(blob, fileName);
+                    } else {
+                        var blobURL   = URL.createObjectURL(blob);
+                    }
                     var innerHTML = ['<p><a href="', blobURL, '" class="btn btn-primary" download="', escapeHtml(data.name), '">', i18n.download, '</a></p>'];
 
                     if (data.type.match(/^image\//) !== null) {
