@@ -75,7 +75,7 @@
             '<%= $link %>',
         % }
         ];
-        var text = "<%= l('Hello,\n\nHere\'s some files I want to share with you:\n') %>";
+        var text = "<%== l('Hello,\n\nHere\'s some files I want to share with you:\n') %>";
         links.forEach(function(name, index, array) {
             var item = findItem(name);
             if (item !== null && item !== undefined) {
