@@ -62,7 +62,7 @@ msgstr ""
 msgid "Back to homepage"
 msgstr ""
 
-#: lib/Lufi/Controller/Mail.pm:20
+#: lib/Lufi/Controller/Mail.pm:21
 msgid "Bad CSRF token!"
 msgstr ""
 
@@ -357,11 +357,11 @@ msgstr ""
 msgid "The data has been successfully imported."
 msgstr ""
 
-#: lib/Lufi/Controller/Mail.pm:42
+#: lib/Lufi/Controller/Mail.pm:43
 msgid "The email body can't be empty."
 msgstr ""
 
-#: lib/Lufi/Controller/Mail.pm:41
+#: lib/Lufi/Controller/Mail.pm:42
 msgid "The email subject can't be empty."
 msgstr ""
 
@@ -374,7 +374,7 @@ msgid "The files uploaded on a Lufi instance are encrypted before the upload to 
 msgstr ""
 
 #. (join(', ', @bad)
-#: lib/Lufi/Controller/Mail.pm:37
+#: lib/Lufi/Controller/Mail.pm:38
 msgid "The following email addresses are not valid: %1"
 msgstr ""
 
@@ -382,7 +382,7 @@ msgstr ""
 msgid "The link(s) has been copied to your clipboard"
 msgstr ""
 
-#: lib/Lufi/Controller/Mail.pm:65
+#: lib/Lufi/Controller/Mail.pm:66
 msgid "The mail has been sent."
 msgstr ""
 
@@ -465,7 +465,7 @@ msgstr ""
 msgid "You have been successfully logged out."
 msgstr ""
 
-#: lib/Lufi/Controller/Mail.pm:40
+#: lib/Lufi/Controller/Mail.pm:41
 msgid "You must give email addresses."
 msgstr ""
 

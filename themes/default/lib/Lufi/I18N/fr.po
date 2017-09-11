@@ -64,7 +64,7 @@ msgstr "Demande de récupération du fragment de fichier XX1 sur %1"
 msgid "Back to homepage"
 msgstr "Retour à la page d’accueil"
 
-#: lib/Lufi/Controller/Mail.pm:20
+#: lib/Lufi/Controller/Mail.pm:21
 msgid "Bad CSRF token!"
 msgstr "Mauvais jeton CSRF !"
 
@@ -359,11 +359,11 @@ msgstr "L’administrateur ne peut voir que le nom du fichier, sa taille et son 
 msgid "The data has been successfully imported."
 msgstr "Les données ont été importées avec succès."
 
-#: lib/Lufi/Controller/Mail.pm:42
+#: lib/Lufi/Controller/Mail.pm:43
 msgid "The email body can't be empty."
 msgstr "Le corps du mail ne peut être vide."
 
-#: lib/Lufi/Controller/Mail.pm:41
+#: lib/Lufi/Controller/Mail.pm:42
 msgid "The email subject can't be empty."
 msgstr "Le sujet du mail ne peut être vide."
 
@@ -376,7 +376,7 @@ msgid "The files uploaded on a Lufi instance are encrypted before the upload to 
 msgstr "Les fichiers envoyés sur une instance de Lufi sont chiffrés avant l’envoi au serveur : l’administrateur du serveur ne peut pas voir le contenu de vos fichiers."
 
 #. (join(', ', @bad)
-#: lib/Lufi/Controller/Mail.pm:37
+#: lib/Lufi/Controller/Mail.pm:38
 msgid "The following email addresses are not valid: %1"
 msgstr "Les adresses mail suivantes ne sont pas valides : %1"
 
@@ -384,7 +384,7 @@ msgstr "Les adresses mail suivantes ne sont pas valides : %1"
 msgid "The link(s) has been copied to your clipboard"
 msgstr "Le(s) lien(s) a/ont été copié dans votre presse-papier"
 
-#: lib/Lufi/Controller/Mail.pm:65
+#: lib/Lufi/Controller/Mail.pm:66
 msgid "The mail has been sent."
 msgstr "Le mail a été envoyé."
 
@@ -467,7 +467,7 @@ msgstr "Vous essayez de quitter la page. L’envoi sera annulé. Êtes-vous sûr
 msgid "You have been successfully logged out."
 msgstr "Vous avez été déconnecté·e avec succès."
 
-#: lib/Lufi/Controller/Mail.pm:40
+#: lib/Lufi/Controller/Mail.pm:41
 msgid "You must give email addresses."
 msgstr "Vous devez envoyer des adresses mail."
 

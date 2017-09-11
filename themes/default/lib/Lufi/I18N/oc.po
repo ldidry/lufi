@@ -64,7 +64,7 @@ msgstr "Demanda del tròç XX1 sus %1 del fichièr"
 msgid "Back to homepage"
 msgstr "Retorn a la pagina d’acuèlh"
 
-#: lib/Lufi/Controller/Mail.pm:20
+#: lib/Lufi/Controller/Mail.pm:21
 msgid "Bad CSRF token!"
 msgstr "Marrit geton CSRF !"
 
@@ -359,11 +359,11 @@ msgstr "L’administrator pòt pas que veire lo nom del fichièr, sa talha e son
 msgid "The data has been successfully imported."
 msgstr "Las donadas son ben estadas importadas."
 
-#: lib/Lufi/Controller/Mail.pm:42
+#: lib/Lufi/Controller/Mail.pm:43
 msgid "The email body can't be empty."
 msgstr "Lo contengut del corrièl pòt pas èsser void."
 
-#: lib/Lufi/Controller/Mail.pm:41
+#: lib/Lufi/Controller/Mail.pm:42
 msgid "The email subject can't be empty."
 msgstr "Lo sujècte del corrièl pòt pas èsser void."
 
@@ -376,7 +376,7 @@ msgid "The files uploaded on a Lufi instance are encrypted before the upload to 
 msgstr "Los fichièrs mandats amb una instància Lufi son chifrats abans la mandadís al servidor : l’administrator del servidor pòt pas veire lo contengut dels fichièrs."
 
 #. (join(', ', @bad)
-#: lib/Lufi/Controller/Mail.pm:37
+#: lib/Lufi/Controller/Mail.pm:38
 msgid "The following email addresses are not valid: %1"
 msgstr "Las adreças de corrièl seguentas son pas validas : %1"
 
@@ -384,7 +384,7 @@ msgstr "Las adreças de corrièl seguentas son pas validas : %1"
 msgid "The link(s) has been copied to your clipboard"
 msgstr "Lo(s) ligam(s) es/son estat(s) copiat(s) dins vòstre quichapapièrs"
 
-#: lib/Lufi/Controller/Mail.pm:65
+#: lib/Lufi/Controller/Mail.pm:66
 msgid "The mail has been sent."
 msgstr "Lo corrièl es estat mandat."
 
@@ -467,7 +467,7 @@ msgstr "Ensajatz de partir de la pagina. Lo mandadís serà anullat. Sètz segur
 msgid "You have been successfully logged out."
 msgstr "Sètz ben estat desconnectat."
 
-#: lib/Lufi/Controller/Mail.pm:40
+#: lib/Lufi/Controller/Mail.pm:41
 msgid "You must give email addresses."
 msgstr "Vos cal donar d’adreças."
 

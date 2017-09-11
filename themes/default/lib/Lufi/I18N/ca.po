@@ -65,7 +65,7 @@ msgstr "Demanem la part XX1 de %1 del fitxer"
 msgid "Back to homepage"
 msgstr "Retorna a la pàgina d'inici"
 
-#: lib/Lufi/Controller/Mail.pm:20
+#: lib/Lufi/Controller/Mail.pm:21
 msgid "Bad CSRF token!"
 msgstr "Mal testimoni CSRF!"
 
@@ -363,11 +363,11 @@ msgstr ""
 msgid "The data has been successfully imported."
 msgstr "La importació de les dades ha reeixit."
 
-#: lib/Lufi/Controller/Mail.pm:42
+#: lib/Lufi/Controller/Mail.pm:43
 msgid "The email body can't be empty."
 msgstr "El cos del correu no pot estar buit."
 
-#: lib/Lufi/Controller/Mail.pm:41
+#: lib/Lufi/Controller/Mail.pm:42
 msgid "The email subject can't be empty."
 msgstr "L'assumpte dle correu no pot estar buit."
 
@@ -380,7 +380,7 @@ msgid "The files uploaded on a Lufi instance are encrypted before the upload to 
 msgstr "Els fitxers que es pugen a una instaŀlació de Lufi són xifrats abans de pujar-los al servidor i l'administrador del servidor no pot veure el contingut del fitxer."
 
 #. (join(', ', @bad)
-#: lib/Lufi/Controller/Mail.pm:37
+#: lib/Lufi/Controller/Mail.pm:38
 msgid "The following email addresses are not valid: %1"
 msgstr "Les següents adreces de correu electrònic no són vàlides: %1"
 
@@ -388,7 +388,7 @@ msgstr "Les següents adreces de correu electrònic no són vàlides: %1"
 msgid "The link(s) has been copied to your clipboard"
 msgstr "L'enllaç/ els enllaços ja estan copiats al portaretalls"
 
-#: lib/Lufi/Controller/Mail.pm:65
+#: lib/Lufi/Controller/Mail.pm:66
 msgid "The mail has been sent."
 msgstr "El correu ja està enviat."
 
@@ -471,7 +471,7 @@ msgstr "Heu intentat deixar aquesta pàgina. Es canceŀlarà la pujada. N'esteu 
 msgid "You have been successfully logged out."
 msgstr "Heu sortit correctament."
 
-#: lib/Lufi/Controller/Mail.pm:40
+#: lib/Lufi/Controller/Mail.pm:41
 msgid "You must give email addresses."
 msgstr "Heu de donar l'adreça de correu electrònic."
 

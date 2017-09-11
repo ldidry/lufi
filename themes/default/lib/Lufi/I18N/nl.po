@@ -51,7 +51,7 @@ msgstr "Deel XX1 van %1 wordt opgehaald"
 msgid "Back to homepage"
 msgstr "Terug naar home"
 
-#: lib/Lufi/Controller/Mail.pm:20
+#: lib/Lufi/Controller/Mail.pm:21
 msgid "Bad CSRF token!"
 msgstr "Verkeerde CSRF token!"
 
@@ -350,11 +350,11 @@ msgstr "Beheerders zien alleen bestandsnamen, grootte en mimetype (wat voor soor
 msgid "The data has been successfully imported."
 msgstr "Data is succesvol geimporteerd."
 
-#: lib/Lufi/Controller/Mail.pm:42
+#: lib/Lufi/Controller/Mail.pm:43
 msgid "The email body can't be empty."
 msgstr "Mail inhoud kan niet leeg zijn."
 
-#: lib/Lufi/Controller/Mail.pm:41
+#: lib/Lufi/Controller/Mail.pm:42
 msgid "The email subject can't be empty."
 msgstr "Onderwerp kan niet leeg zijn."
 
@@ -367,7 +367,7 @@ msgid "The files uploaded on a Lufi instance are encrypted before the upload to 
 msgstr "Bestanden die geupload zijn naar Lufi worden voor de upload versleuteld: beheerders van de server kunnen de inhoud van het bestand niet zien."
 
 #. (join(', ', @bad)
-#: lib/Lufi/Controller/Mail.pm:37
+#: lib/Lufi/Controller/Mail.pm:38
 msgid "The following email addresses are not valid: %1"
 msgstr "Volgende email adressen zijn niet geldig: %1"
 
@@ -375,7 +375,7 @@ msgstr "Volgende email adressen zijn niet geldig: %1"
 msgid "The link(s) has been copied to your clipboard"
 msgstr "De link is gekopieerd naar je klembord"
 
-#: lib/Lufi/Controller/Mail.pm:65
+#: lib/Lufi/Controller/Mail.pm:66
 msgid "The mail has been sent."
 msgstr "Email is verzonden."
 
@@ -458,7 +458,7 @@ msgstr "Je verlaat deze pagina. Upload zal geannuleerd worden. Weet je het zeker
 msgid "You have been successfully logged out."
 msgstr "Je bent succesvol uitgelogd."
 
-#: lib/Lufi/Controller/Mail.pm:40
+#: lib/Lufi/Controller/Mail.pm:41
 msgid "You must give email addresses."
 msgstr "Je moet een mail adres opgeven."
 
