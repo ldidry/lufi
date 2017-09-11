@@ -33,11 +33,11 @@ msgstr "24 ore"
 
 #: themes/default/templates/mail.html.ep:83
 msgid ":"
-msgstr " :"
+msgstr "A :"
 
 #: themes/default/templates/about.html.ep:16
 msgid "A thank you with a photo of kitten on <a href=\"https://framasphere.org/people/b13eb6b0beac0131e7e32a0000053625\" class=\"classic\">Diaspora*</a> or <a href=\"https://twitter.com/framasky\" class=\"classic\">Twitter</a> is cool too ;-)"
-msgstr "Un grazie con una foto di un gattino sur <a href=\"https://framasphere.org/people/b13eb6b0beac0131e7e32a0000053625\" class=\"classic\">Diaspora*</a> o <a href=\"https://twitter.com/framasky\" class=\"classic\">Twitter</a> è forte;-)"
+msgstr "Un grazie con una foto di un gattino sur <a href=\"https://framasphere.org/people/b13eb6b0beac0131e7e32a0000053625\" class=\"classic\">Diaspora*</a> o <a href=\"https://twitter.com/framasky\" class=\"classic\">Twitter</a>  è forte;-)"
 
 #: themes/default/templates/render.html.ep:42
 msgid "Abort"
@@ -53,7 +53,7 @@ msgstr ""
 
 #: themes/default/templates/about.html.ep:18
 msgid "As Lufi is a free software licensed under of the terms of the <a href=\"https://gnu.org/licenses/agpl.html\" class=\"classic\">AGPLv3</a>, you can install it on you own server. Have a look on the <a href=\"https://framagit.org/luc/lufi/wikis/home\" class=\"classic\">Wiki</a> for the procedure."
-msgstr "Poiché Lufi è un software libero soggetto ai termini della licenza <a href=\"https://gnu.org/licenses/agpl.html\" class=\"classic\">AGPLv3</a>, potete installarlo sul vostro server. Si consulti <a href=\"https://framagit.org/luc/lufi/wikis/home\" class=\"classic\">Wiki</a> per vedere la procedura."
+msgstr "Poiché Lufi è un software libero soggetto ai termini della licenza <a href=\"https://gnu.org/licenses/agpl.html\" class=\"classic\">AGPLv3</a>, potete installarlo sul vostro  server. Si consulti <a href=\"https://framagit.org/luc/lufi/wikis/home\" class=\"classic\">Wiki</a> per vedere la procedura."
 
 #. (stash('f')
 #: themes/default/templates/render.html.ep:52
@@ -66,7 +66,7 @@ msgstr "Ritorna all'homepage"
 
 #: lib/Lufi/Controller/Mail.pm:20
 msgid "Bad CSRF token!"
-msgstr "Torken CSRF errato!"
+msgstr "Token CSRF errato!"
 
 #: themes/default/templates/render.html.ep:48
 msgid "Click here to refresh the page and restart the download."
@@ -174,7 +174,7 @@ msgstr "Scadenza:"
 
 #: themes/default/templates/files.html.ep:29
 msgid "Expires at"
-msgstr "Scade il"
+msgstr "Scadrà il"
 
 #: themes/default/templates/files.html.ep:12
 msgid "Export localStorage data"
@@ -310,9 +310,13 @@ msgstr "Riservatezza"
 msgid "Purge expired files from localStorage"
 msgstr "Eliminare dal localStorage i file scaduti"
 
+#:
+msgid "Rows in purple mean that the files have expired and are no longer available."
+msgstr "Le righe in viola indicano che il file è scaduto e non è più disponibile."
+
 #: themes/default/templates/files.html.ep:9
 msgid "Rows in red mean that the files have expired and are no longer available."
-msgstr "Le righe in rosso indicano che il file è scaduto e non è più disponibile."
+msgstr ""
 
 #: themes/default/templates/index.html.ep:111
 msgid "Send all links by email"
@@ -328,7 +332,7 @@ msgstr "Inviare tramite il vostro programma di posta"
 
 #: themes/default/templates/index.html.ep:113
 msgid "Sending part XX1 of XX2. Please, be patient, the progress bar can take a while to move."
-msgstr "Invio della parte XX1 su XX2. Prego attendere, la barra di avanzamento può impiagare del tempo prima di avanzare."
+msgstr "Invio della parte XX1 su XX2. Prego attendere, la barra di avanzamento può impiegare del tempo prima di colorarsi."
 
 #. (url_for('/')
 #: themes/default/templates/mail.html.ep:91
@@ -351,9 +355,13 @@ msgstr "L'invio del file è attualemente disattivato. Riprovare più tardi."
 msgid "Sorry, uploading is disabled."
 msgstr "L'invio del file è attualemente disattivato."
 
+#:
+msgid "The administrator can only see the file's name, its size and its mimetype (what kind of file it is: video, text, etc)."
+msgstr "L'amministratore pu vedere solo il nome del file, la sua dimensione e il suo mimetype (video, testo, etc)."
+
 #: themes/default/templates/about.html.ep:7
 msgid "The administrator can only see the file's name, its size and its mimetype (what kind of file it is: video, text, etc.)."
-msgstr "L'amministratore pu vedere solo il nome del file, la sua dimensione e il suo mimetype (video, testo, etc.)."
+msgstr ""
 
 #: themes/default/templates/files.html.ep:44
 msgid "The data has been successfully imported."
