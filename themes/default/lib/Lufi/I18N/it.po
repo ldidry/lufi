@@ -43,7 +43,7 @@ msgstr "Un grazie con una foto di un gattino sur <a href=\"https://framasphere.o
 msgid "Abort"
 msgstr "Annulla"
 
-#: themes/default/templates/layouts/default.html.ep:66 themes/default/templates/layouts/default.html.ep:78
+#: themes/default/templates/layouts/default.html.ep:65 themes/default/templates/layouts/default.html.ep:77
 msgid "About"
 msgstr "A proposito"
 
@@ -256,7 +256,7 @@ msgstr "Javascript è disattivato. Lufi non può funzionare."
 msgid "Login"
 msgstr "Login"
 
-#: themes/default/templates/layouts/default.html.ep:68 themes/default/templates/layouts/default.html.ep:80
+#: themes/default/templates/layouts/default.html.ep:67 themes/default/templates/layouts/default.html.ep:79
 msgid "Logout"
 msgstr "Logout"
 
@@ -268,7 +268,7 @@ msgstr "Lufi è un software libero di file hosting."
 msgid "Mail"
 msgstr ""
 
-#: themes/default/templates/files.html.ep:3 themes/default/templates/layouts/default.html.ep:62 themes/default/templates/layouts/default.html.ep:74
+#: themes/default/templates/files.html.ep:3 themes/default/templates/layouts/default.html.ep:61 themes/default/templates/layouts/default.html.ep:73
 msgid "My files"
 msgstr "I miei file"
 
@@ -339,7 +339,7 @@ msgstr "Invio della parte XX1 su XX2. Prego attendere, la barra di avanzamento p
 msgid "Share your files in total privacy on %1"
 msgstr "Condividi tutti i file in totale riservatezza su %1"
 
-#: themes/default/templates/layouts/default.html.ep:64 themes/default/templates/layouts/default.html.ep:76 themes/default/templates/login.html.ep:26 themes/default/templates/logout.html.ep:8
+#: themes/default/templates/layouts/default.html.ep:63 themes/default/templates/layouts/default.html.ep:75 themes/default/templates/login.html.ep:26 themes/default/templates/logout.html.ep:8
 msgid "Signin"
 msgstr "Autenticazione"
 
@@ -427,7 +427,7 @@ msgstr "Impossibile recuperare il contatore per %1. Il token non è valido."
 msgid "Unable to get counter for %1. You are not authenticated."
 msgstr "Impossibile recuperare il contatore per %1. Non sei autenticato."
 
-#: themes/default/templates/layouts/default.html.ep:61 themes/default/templates/layouts/default.html.ep:73
+#: themes/default/templates/layouts/default.html.ep:60 themes/default/templates/layouts/default.html.ep:72
 msgid "Upload files"
 msgstr "Invio dei file"
 

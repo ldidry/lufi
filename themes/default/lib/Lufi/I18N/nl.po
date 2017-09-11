@@ -30,7 +30,7 @@ msgstr "Een bedankt foto met een katje op <a href=\"https://framasphere.org/peop
 msgid "Abort"
 msgstr "Annuleren"
 
-#: themes/default/templates/layouts/default.html.ep:66 themes/default/templates/layouts/default.html.ep:78
+#: themes/default/templates/layouts/default.html.ep:65 themes/default/templates/layouts/default.html.ep:77
 msgid "About"
 msgstr "Over"
 
@@ -243,7 +243,7 @@ msgstr "Javascript is uitgeschakeld. Je kan geen gebruik maken van Lufi."
 msgid "Login"
 msgstr "Login"
 
-#: themes/default/templates/layouts/default.html.ep:68 themes/default/templates/layouts/default.html.ep:80
+#: themes/default/templates/layouts/default.html.ep:67 themes/default/templates/layouts/default.html.ep:79
 msgid "Logout"
 msgstr "Logout"
 
@@ -255,7 +255,7 @@ msgstr "Lufi is een gratis bestand hosting software."
 msgid "Mail"
 msgstr ""
 
-#: themes/default/templates/files.html.ep:3 themes/default/templates/layouts/default.html.ep:62 themes/default/templates/layouts/default.html.ep:74
+#: themes/default/templates/files.html.ep:3 themes/default/templates/layouts/default.html.ep:61 themes/default/templates/layouts/default.html.ep:73
 msgid "My files"
 msgstr "Mijn bestanden"
 
@@ -326,7 +326,7 @@ msgstr "Versturen deel XX1 van XX2. Een ogenblik geduld..."
 msgid "Share your files in total privacy on %1"
 msgstr "Deel je bestanden met volledige privacy op %1"
 
-#: themes/default/templates/layouts/default.html.ep:64 themes/default/templates/layouts/default.html.ep:76 themes/default/templates/login.html.ep:26 themes/default/templates/logout.html.ep:8
+#: themes/default/templates/layouts/default.html.ep:63 themes/default/templates/layouts/default.html.ep:75 themes/default/templates/login.html.ep:26 themes/default/templates/logout.html.ep:8
 msgid "Signin"
 msgstr "Inloggen"
 
@@ -410,7 +410,7 @@ msgstr "Kan geen teller verkrijgen voor %1. De token is ongeldig."
 msgid "Unable to get counter for %1. You are not authenticated."
 msgstr "Kan geen teller verkrijgen voor %1. Je bent niet geauthenticeerd."
 
-#: themes/default/templates/layouts/default.html.ep:61 themes/default/templates/layouts/default.html.ep:73
+#: themes/default/templates/layouts/default.html.ep:60 themes/default/templates/layouts/default.html.ep:72
 msgid "Upload files"
 msgstr "Upload bestanden"
 

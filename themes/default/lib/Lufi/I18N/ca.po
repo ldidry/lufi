@@ -44,7 +44,7 @@ msgstr "Un agraïment amb la foto d'un gatet a <a href=\"https://framasphere.org
 msgid "Abort"
 msgstr "Avorta"
 
-#: themes/default/templates/layouts/default.html.ep:66 themes/default/templates/layouts/default.html.ep:78
+#: themes/default/templates/layouts/default.html.ep:65 themes/default/templates/layouts/default.html.ep:77
 msgid "About"
 msgstr "Quant a"
 
@@ -258,7 +258,7 @@ msgstr "Teniu el javascript deactivat. No podreu usar Lufi."
 msgid "Login"
 msgstr "Entrada"
 
-#: themes/default/templates/layouts/default.html.ep:68 themes/default/templates/layouts/default.html.ep:80
+#: themes/default/templates/layouts/default.html.ep:67 themes/default/templates/layouts/default.html.ep:79
 msgid "Logout"
 msgstr "Sortida"
 
@@ -270,7 +270,7 @@ msgstr "Lufi és programari lliure d'allotjament de fitxers."
 msgid "Mail"
 msgstr ""
 
-#: themes/default/templates/files.html.ep:3 themes/default/templates/layouts/default.html.ep:62 themes/default/templates/layouts/default.html.ep:74
+#: themes/default/templates/files.html.ep:3 themes/default/templates/layouts/default.html.ep:61 themes/default/templates/layouts/default.html.ep:73
 msgid "My files"
 msgstr "Els meus fitxers"
 
@@ -337,7 +337,7 @@ msgstr "S'està enviant el tros XX1 de XX2. Si us plau, paciència; la barra de 
 msgid "Share your files in total privacy on %1"
 msgstr "Compartiu fitxers amb total privacitat a %1"
 
-#: themes/default/templates/layouts/default.html.ep:64 themes/default/templates/layouts/default.html.ep:76 themes/default/templates/login.html.ep:26 themes/default/templates/logout.html.ep:8
+#: themes/default/templates/layouts/default.html.ep:63 themes/default/templates/layouts/default.html.ep:75 themes/default/templates/login.html.ep:26 themes/default/templates/logout.html.ep:8
 msgid "Signin"
 msgstr "Autenticació"
 
@@ -423,7 +423,7 @@ msgstr "No he pogut obtenir el comptador de %1. El testimoni no és vàlid."
 msgid "Unable to get counter for %1. You are not authenticated."
 msgstr "No he pogut obtenir el comptador de %1. No esteu autenticat."
 
-#: themes/default/templates/layouts/default.html.ep:61 themes/default/templates/layouts/default.html.ep:73
+#: themes/default/templates/layouts/default.html.ep:60 themes/default/templates/layouts/default.html.ep:72
 msgid "Upload files"
 msgstr "Pujar fitxers"
 

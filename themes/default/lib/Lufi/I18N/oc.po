@@ -43,7 +43,7 @@ msgstr "Un mercé amb una foto de caton sus <a href=\"https://framasphere.org/pe
 msgid "Abort"
 msgstr "Anullar"
 
-#: themes/default/templates/layouts/default.html.ep:66 themes/default/templates/layouts/default.html.ep:78
+#: themes/default/templates/layouts/default.html.ep:65 themes/default/templates/layouts/default.html.ep:77
 msgid "About"
 msgstr "A prepaus"
 
@@ -256,7 +256,7 @@ msgstr "Javascript es desactivat. Lufi foncionarà pas."
 msgid "Login"
 msgstr "Identificant"
 
-#: themes/default/templates/layouts/default.html.ep:68 themes/default/templates/layouts/default.html.ep:80
+#: themes/default/templates/layouts/default.html.ep:67 themes/default/templates/layouts/default.html.ep:79
 msgid "Logout"
 msgstr "Desconnexion"
 
@@ -268,7 +268,7 @@ msgstr "Lufi es un logicial liure d’albèrgament de fichièrs."
 msgid "Mail"
 msgstr ""
 
-#: themes/default/templates/files.html.ep:3 themes/default/templates/layouts/default.html.ep:62 themes/default/templates/layouts/default.html.ep:74
+#: themes/default/templates/files.html.ep:3 themes/default/templates/layouts/default.html.ep:61 themes/default/templates/layouts/default.html.ep:73
 msgid "My files"
 msgstr "Mos fichièrs"
 
@@ -335,7 +335,7 @@ msgstr "Mandadís del fragment XX1 sus XX2. Pacientatz, la barra de progression 
 msgid "Share your files in total privacy on %1"
 msgstr "Partejatz vòstres fichièrs en tota confidencialitat sus %1"
 
-#: themes/default/templates/layouts/default.html.ep:64 themes/default/templates/layouts/default.html.ep:76 themes/default/templates/login.html.ep:26 themes/default/templates/logout.html.ep:8
+#: themes/default/templates/layouts/default.html.ep:63 themes/default/templates/layouts/default.html.ep:75 themes/default/templates/login.html.ep:26 themes/default/templates/logout.html.ep:8
 msgid "Signin"
 msgstr "Connexion"
 
@@ -419,7 +419,7 @@ msgstr "Impossible de recuperar lo comptador per %1. Lo geton es invalid."
 msgid "Unable to get counter for %1. You are not authenticated."
 msgstr "Impossible de recuperar lo comptador per %1. Sètz pas connectat·ada."
 
-#: themes/default/templates/layouts/default.html.ep:61 themes/default/templates/layouts/default.html.ep:73
+#: themes/default/templates/layouts/default.html.ep:60 themes/default/templates/layouts/default.html.ep:72
 msgid "Upload files"
 msgstr "Mandar de fichièrs"
 

@@ -175,11 +175,11 @@ function sliceAndUpload(randomkey, i, parts, j, delay, del_at_first_view, short)
         var sl        = $('#parts-'+window.fc);
 
         // Get the binary result, different result in IE browsers (see default.html.ep line 27:48)
-    	if (isIE == true){
-			var bin = fr.content;
-		} else {
-			var bin = fr.result;
-		}
+        if (isIE == true){
+            var bin = fr.content;
+        } else {
+            var bin = fr.result;
+        }
 
         // Transform it in base64
         var b         = window.btoa(bin);

@@ -41,7 +41,7 @@ msgstr ""
 msgid "Abort"
 msgstr ""
 
-#: themes/default/templates/layouts/default.html.ep:66 themes/default/templates/layouts/default.html.ep:78
+#: themes/default/templates/layouts/default.html.ep:65 themes/default/templates/layouts/default.html.ep:77
 msgid "About"
 msgstr ""
 
@@ -254,7 +254,7 @@ msgstr ""
 msgid "Login"
 msgstr ""
 
-#: themes/default/templates/layouts/default.html.ep:68 themes/default/templates/layouts/default.html.ep:80
+#: themes/default/templates/layouts/default.html.ep:67 themes/default/templates/layouts/default.html.ep:79
 msgid "Logout"
 msgstr ""
 
@@ -266,7 +266,7 @@ msgstr ""
 msgid "Mail"
 msgstr ""
 
-#: themes/default/templates/files.html.ep:3 themes/default/templates/layouts/default.html.ep:62 themes/default/templates/layouts/default.html.ep:74
+#: themes/default/templates/files.html.ep:3 themes/default/templates/layouts/default.html.ep:61 themes/default/templates/layouts/default.html.ep:73
 msgid "My files"
 msgstr ""
 
@@ -333,7 +333,7 @@ msgstr ""
 msgid "Share your files in total privacy on %1"
 msgstr ""
 
-#: themes/default/templates/layouts/default.html.ep:64 themes/default/templates/layouts/default.html.ep:76 themes/default/templates/login.html.ep:26 themes/default/templates/logout.html.ep:8
+#: themes/default/templates/layouts/default.html.ep:63 themes/default/templates/layouts/default.html.ep:75 themes/default/templates/login.html.ep:26 themes/default/templates/logout.html.ep:8
 msgid "Signin"
 msgstr ""
 
@@ -417,7 +417,7 @@ msgstr ""
 msgid "Unable to get counter for %1. You are not authenticated."
 msgstr ""
 
-#: themes/default/templates/layouts/default.html.ep:61 themes/default/templates/layouts/default.html.ep:73
+#: themes/default/templates/layouts/default.html.ep:60 themes/default/templates/layouts/default.html.ep:72
 msgid "Upload files"
 msgstr ""
 
