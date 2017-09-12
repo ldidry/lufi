@@ -10,6 +10,7 @@ Revision history for Lufi
 	- Portuguese translation
 	- Catalan translation
 	- IE 11 support
+	- Deleting files from "My files" is now done with Ajax (#23)
 	- Bugfixes
 
 0.01  2017-01-09
