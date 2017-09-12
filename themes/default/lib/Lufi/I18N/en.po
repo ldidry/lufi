@@ -102,15 +102,19 @@ msgstr ""
 msgid "Could not find the file. Are you sure of the URL?"
 msgstr ""
 
-#: themes/default/templates/files.html.ep:26
+#: themes/default/templates/files.html.ep:28
 msgid "Counter"
 msgstr ""
 
-#: themes/default/templates/files.html.ep:27 themes/default/templates/index.html.ep:64
+#: themes/default/templates/files.html.ep:29 themes/default/templates/index.html.ep:64
 msgid "Delete at first download?"
 msgstr ""
 
-#: themes/default/templates/files.html.ep:30 themes/default/templates/index.html.ep:104
+#: themes/default/templates/files.html.ep:18
+msgid "Delete selected files"
+msgstr ""
+
+#: themes/default/templates/files.html.ep:32 themes/default/templates/index.html.ep:104
 msgid "Deletion link"
 msgstr ""
 
@@ -126,7 +130,7 @@ msgstr ""
 msgid "Download aborted."
 msgstr ""
 
-#: themes/default/templates/files.html.ep:25 themes/default/templates/index.html.ep:105
+#: themes/default/templates/files.html.ep:27 themes/default/templates/index.html.ep:105
 msgid "Download link"
 msgstr ""
 
@@ -170,7 +174,7 @@ msgstr ""
 msgid "Expiration:"
 msgstr ""
 
-#: themes/default/templates/files.html.ep:29
+#: themes/default/templates/files.html.ep:31
 msgid "Expires at"
 msgstr ""
 
@@ -182,7 +186,7 @@ msgstr ""
 msgid "File deleted"
 msgstr ""
 
-#: themes/default/templates/files.html.ep:24
+#: themes/default/templates/files.html.ep:26
 msgid "File name"
 msgstr ""
 
@@ -262,7 +266,7 @@ msgstr ""
 msgid "Lufi is a free (as in free speech) file hosting software."
 msgstr ""
 
-#: themes/default/templates/files.html.ep:31
+#: themes/default/templates/files.html.ep:33
 msgid "Mail"
 msgstr ""
 
@@ -275,7 +279,7 @@ msgstr ""
 msgid "No enough space available on the server for this file (size: %1)."
 msgstr ""
 
-#: themes/default/templates/files.html.ep:43 themes/default/templates/index.html.ep:112
+#: themes/default/templates/files.html.ep:45 themes/default/templates/index.html.ep:112
 msgid "No expiration delay"
 msgstr ""
 
@@ -353,7 +357,7 @@ msgstr ""
 msgid "The administrator can only see the file's name, its size and its mimetype (what kind of file it is: video, text, etc.)."
 msgstr ""
 
-#: themes/default/templates/files.html.ep:44
+#: themes/default/templates/files.html.ep:46
 msgid "The data has been successfully imported."
 msgstr ""
 
@@ -421,7 +425,7 @@ msgstr ""
 msgid "Upload files"
 msgstr ""
 
-#: themes/default/templates/files.html.ep:28
+#: themes/default/templates/files.html.ep:30
 msgid "Uploaded at"
 msgstr ""
 

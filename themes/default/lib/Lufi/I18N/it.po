@@ -104,15 +104,19 @@ msgstr "Impossibile trovare il file. Sei sicuro che URL e token siano corretti ?
 msgid "Could not find the file. Are you sure of the URL?"
 msgstr "Impossibile trovare il file. Sei sicuro che l'URL sia corretto?"
 
-#: themes/default/templates/files.html.ep:26
+#: themes/default/templates/files.html.ep:28
 msgid "Counter"
 msgstr "Contatore"
 
-#: themes/default/templates/files.html.ep:27 themes/default/templates/index.html.ep:64
+#: themes/default/templates/files.html.ep:29 themes/default/templates/index.html.ep:64
 msgid "Delete at first download?"
 msgstr "Cancellare al primo download?"
 
-#: themes/default/templates/files.html.ep:30 themes/default/templates/index.html.ep:104
+#: themes/default/templates/files.html.ep:18
+msgid "Delete selected files"
+msgstr ""
+
+#: themes/default/templates/files.html.ep:32 themes/default/templates/index.html.ep:104
 msgid "Deletion link"
 msgstr "Link per l'eliminazione"
 
@@ -128,7 +132,7 @@ msgstr "Download"
 msgid "Download aborted."
 msgstr "Download annullato."
 
-#: themes/default/templates/files.html.ep:25 themes/default/templates/index.html.ep:105
+#: themes/default/templates/files.html.ep:27 themes/default/templates/index.html.ep:105
 msgid "Download link"
 msgstr "Link per il download"
 
@@ -172,7 +176,7 @@ msgstr "Errore: impossibile trovare il file. Sei certo dell'URL ?"
 msgid "Expiration:"
 msgstr "Scadenza:"
 
-#: themes/default/templates/files.html.ep:29
+#: themes/default/templates/files.html.ep:31
 msgid "Expires at"
 msgstr "Scadrà il"
 
@@ -184,7 +188,7 @@ msgstr "Esportare i dati del localStorage"
 msgid "File deleted"
 msgstr "File cancellato"
 
-#: themes/default/templates/files.html.ep:24
+#: themes/default/templates/files.html.ep:26
 msgid "File name"
 msgstr "Nome del file"
 
@@ -264,7 +268,7 @@ msgstr "Logout"
 msgid "Lufi is a free (as in free speech) file hosting software."
 msgstr "Lufi è un software libero di file hosting."
 
-#: themes/default/templates/files.html.ep:31
+#: themes/default/templates/files.html.ep:33
 msgid "Mail"
 msgstr ""
 
@@ -277,7 +281,7 @@ msgstr "I miei file"
 msgid "No enough space available on the server for this file (size: %1)."
 msgstr "Spazio disco insufficiente sul server per questo file (dimensione: %1)."
 
-#: themes/default/templates/files.html.ep:43 themes/default/templates/index.html.ep:112
+#: themes/default/templates/files.html.ep:45 themes/default/templates/index.html.ep:112
 msgid "No expiration delay"
 msgstr "Nessun ritardo per la scadenza"
 
@@ -363,7 +367,7 @@ msgstr "L'amministratore pu vedere solo il nome del file, la sua dimensione e il
 msgid "The administrator can only see the file's name, its size and its mimetype (what kind of file it is: video, text, etc.)."
 msgstr ""
 
-#: themes/default/templates/files.html.ep:44
+#: themes/default/templates/files.html.ep:46
 msgid "The data has been successfully imported."
 msgstr "I dati sono stati importati correttamente."
 
@@ -431,7 +435,7 @@ msgstr "Impossibile recuperare il contatore per %1. Non sei autenticato."
 msgid "Upload files"
 msgstr "Invio dei file"
 
-#: themes/default/templates/files.html.ep:28
+#: themes/default/templates/files.html.ep:30
 msgid "Uploaded at"
 msgstr "Invio il"
 

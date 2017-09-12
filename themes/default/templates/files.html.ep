@@ -8,19 +8,21 @@
     <%= l('Only the files sent with this browser will be listed here. This list is stored in localStorage: if you delete your localStorage data, you\'ll lose this list.') %><br>
     <%= l('Rows in red mean that the files have expired and are no longer available.') %>
 </p>
-<div>
+<div class="files-buttons">
     <a href="#" onclick="exportStorage();" class="btn left-mg cyan"><%= l('Export localStorage data') %></a>
     <a href="#" onclick="purgeExpired();" class="btn left-mg cyan"><%= l('Purge expired files from localStorage') %></a>
     <a href="#" onclick="$('#import').click();" class="btn left-mg cyan"><%= l('Import localStorage data') %></a>
     <span class="file-field input-field">
         <input type="file" id="import" onchange="importStorage(this.files)">
     </span>
+    <a href="#" onclick="massDelete()" class="btn left-mg cyan disabled" id="mass-delete" disabled><%= l('Delete selected files') %></a>
 </div>
 
 <div>
     <table class="responsive-table striped">
         <thead>
             <tr>
+                <th class="center-align"></th>
                 <th class="center-align"><%= l('File name') %></th>
                 <th class="center-align"><%= l('Download link') %></th>
                 <th class="center-align"><%= l('Counter') %></th>

@@ -130,6 +130,20 @@ function delFile() {
     });
 }
 
+function evaluateMassDelete() {
+    if ($('input[data-checked="data-checked"]').length > 0) {
+        $('#mass-delete').removeAttr('disabled');
+        $('#mass-delete').removeClass('disabled');
+    } else {
+        $('#mass-delete').attr('disabled');
+        $('#mass-delete').addClass('disabled');
+    }
+}
+
+function massDelete() {
+    $('input[data-checked="data-checked"]').each(delFile);
+}
+
 function populateFilesTable() {
     $('#myfiles').empty();
 
@@ -150,7 +164,11 @@ function populateFilesTable() {
         var created_at = moment.unix(element.created_at).locale(window.navigator.language).format('LLLL');
 
         var tr = $('<tr id="row-'+element.short+'">');
-        tr.html([ '<td class="left-align">',
+        tr.html([ '<td class="center-align">',
+                      '<input type="checkbox" id="check-', element.short,'" data-short="', element.short, '" data-dlink="', dlink, '" data-checked="">',
+                      '<label for="check-', element.short,'"></label>',
+                  '</td>',
+                  '<td class="left-align">',
                       escapeHtml(element.name),
                   '</td>',
                   '<td class="center-align">',
@@ -175,6 +193,14 @@ function populateFilesTable() {
                   '</td>'].join(''));
         $('#myfiles').append(tr);
         $('#del-'+element.short).on('click', delFile);
+        $('label[for="check-'+element.short+'"').on('click', function(){
+            if ($('#check-'+element.short).attr('data-checked') && $('#check-'+element.short).attr('data-checked') === 'data-checked') {
+                $('#check-'+element.short).attr('data-checked', null);
+            } else {
+                $('#check-'+element.short).attr('data-checked', 'data-checked');
+            }
+            evaluateMassDelete();
+        });
 
         $.ajax({
             url: counterURL,

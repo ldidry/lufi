@@ -99,3 +99,6 @@ a.classic:focus {
     overflow: hidden;
     text-overflow: ellipsis;
 }
+.files-buttons a {
+    margin-bottom: 10px;
+}
