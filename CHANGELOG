@@ -1,6 +1,6 @@
 Revision history for Lufi
 
-0.02  2017-09-12
+0.02  2017-09-?
 	- Database abstraction layer
 	- PostgreSQL support
 	- IE 11 and Edge support
