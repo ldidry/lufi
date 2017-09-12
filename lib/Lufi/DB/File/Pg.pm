@@ -52,8 +52,8 @@ sub get_empty {
 sub get_stats {
     my $c = shift;
 
-    my $files   = $c->app->pg->db->query('SELECT count(short) FROM files WHERE created_at IS NOT null AND deleted = 0')->hashes->first->{count};
-    my $deleted = $c->app->pg->db->query('SELECT count(short) FROM files WHERE created_at IS NOT null AND deleted = 1')->hashes->first->{count};
+    my $files   = $c->app->pg->db->query('SELECT count(short) FROM files WHERE created_at IS NOT null AND deleted = false')->hashes->first->{count};
+    my $deleted = $c->app->pg->db->query('SELECT count(short) FROM files WHERE created_at IS NOT null AND deleted = true')->hashes->first->{count};
     my $empty   = $c->app->pg->db->query('SELECT count(short) FROM files WHERE created_at IS null')->hashes->first->{count};
 
     return { files => $files, deleted => $deleted, empty => $empty };
@@ -77,7 +77,7 @@ sub get_oldest_undeleted_files {
     my $num = shift;
 
     my @files;
-    my $records = $c->app->pg->db->query('SELECT * FROM files WHERE deleted = 0 ORDER BY created_at ASC LIMIT ?', $num)->hashes;
+    my $records = $c->app->pg->db->query('SELECT * FROM files WHERE deleted = false ORDER BY created_at ASC LIMIT ?', $num)->hashes;
     $records->each(
         sub {
             my ($e, $num) = @_;
@@ -96,7 +96,7 @@ sub get_expired {
 
     my @files;
     ## Select only files expired since two days, to be sure that nobody is still downloading it
-    my $records = $c->app->pg->db->query('SELECT * FROM files WHERE deleted = 0 AND ((delete_at_day + 2) * 86400) < (? - created_at) AND delete_at_day != 0', $time)->hashes;
+    my $records = $c->app->pg->db->query('SELECT * FROM files WHERE deleted = false AND ((delete_at_day + 2) * 86400) < (? - created_at) AND delete_at_day != 0', $time)->hashes;
     $records->each(
         sub {
             my ($e, $num) = @_;
@@ -114,7 +114,7 @@ sub get_no_longer_viewed {
     my $time = shift;
 
     my @files;
-    my $records = $c->app->pg->db->query('SELECT * FROM files WHERE deleted = 0 AND last_access_at < ?', $time)->hashes;
+    my $records = $c->app->pg->db->query('SELECT * FROM files WHERE deleted = false AND last_access_at < ?', $time)->hashes;
     $records->each(
         sub {
             my ($e, $num) = @_;

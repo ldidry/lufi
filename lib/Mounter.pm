@@ -19,6 +19,9 @@ sub startup {
         }
     );
 
+    # Helpers
+    $self->plugin('Lufi::Plugin::Helpers');
+
     # Themes handling
     shift @{$self->static->paths};
     if ($config->{theme} ne 'default') {
