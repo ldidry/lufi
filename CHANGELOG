@@ -1,12 +1,16 @@
 Revision history for Lufi
 
-0.02  2017-?
+0.02  2017-09-12
 	- Database abstraction layer
 	- PostgreSQL support
 	- IE 11 and Edge support
 	- Fix encoding error (#83)
 	- Htpassword authentication support
 	- Ability to add a password to a file
+	- Portuguese translation
+	- Catalan translation
+	- IE 11 support
+	- Bugfixes
 
 0.01  2017-01-09
 	- Upload files
