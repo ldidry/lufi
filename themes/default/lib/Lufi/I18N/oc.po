@@ -1,4 +1,4 @@
-# Lufi FR translation
+# Lufi OC translation
 # Copyright (C) 2015 Luc Didry
 # This file is distributed under the same license as the Lufi package.
 # Luc Didry <luc@didry.org>, 2015.
@@ -300,7 +300,7 @@ msgstr "Mercés d’esperar pendent la recuperacion de vòstre fichièr. Nos cal
 
 #: lib/Lufi.pm:191
 msgid "Please, check your credentials: unable to authenticate."
-msgstr ""
+msgstr "Mercés de verificar vòstres identificants : impossible de vos autorificar."
 
 #: themes/default/templates/about.html.ep:5
 msgid "Privacy"
@@ -341,7 +341,7 @@ msgstr "Connexion"
 
 #: lib/Lufi.pm:194
 msgid "Sorry mate, you are not authorised to use that service. Contact your sysadmin if you think there's a glitch in the matrix."
-msgstr ""
+msgstr "O planhèm collèga, sètz pas autorizat a utilizar aqueste servici. Contactatz ton administratr sistèma se pensatz qu'i a un problèma."
 
 #: themes/default/templates/index.html.ep:30
 msgid "Sorry, the uploading is currently disabled. Please try again later."
