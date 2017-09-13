@@ -6,10 +6,11 @@ use Mojo::JSON qw(decode_json);
 
 sub render_mail {
     my $c = shift;
+    my $links = (defined($c->param('links'))) ? decode_json($c->param('links')) : [];
 
     $c->render(
         template => 'mail',
-        links    => decode_json($c->param('links'))
+        links    => $links
     );
 }
 

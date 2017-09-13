@@ -1,14 +1,21 @@
 # vim:set sw=4 ts=4 sts=4 ft=perl expandtab:
-package LufiDB;
+package Lufi::DB::SQLite;
 use Mojolicious;
+use Mojo::File;
 use FindBin qw($Bin);
-use File::Spec::Functions;
 
 BEGIN {
     my $m = Mojolicious->new;
+    my $cfile = Mojo::File->new($Bin, '..' , 'lufi.conf');
+    if (defined $ENV{MOJO_CONFIG}) {
+        $cfile = Mojo::File->new($ENV{MOJO_CONFIG});
+        unless (-e $cfile->to_abs) {
+            $cfile = Mojo::File->new($Bin, '..', $ENV{MOJO_CONFIG});
+        }
+    }
     our $config = $m->plugin('Config' =>
         {
-            file    => catfile($Bin, '..' ,'lufi.conf'),
+            file    => $cfile->to_abs->to_string,
             default => {
                 db_path => 'lufi.db'
             }
@@ -37,7 +44,8 @@ use ORLite {
                last_access_at        INTEGER,
                mod_token             TEXT,
                nbslices              INTEGER,
-               complete              INTEGER)'
+               complete              INTEGER,
+               passwd                TEXT)'
           );
           $dbh->do(
               'CREATE TABLE slices (

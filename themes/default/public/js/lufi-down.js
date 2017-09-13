@@ -35,7 +35,7 @@ function base64ToArrayBuffer(base64) {
 function addAlert(msg) {
     $('#please-wait').remove();
 
-    var pbd = $('#pbd');
+    var pbd = $('.file-progress');
     pbd.attr('role', 'alert');
     pbd.removeClass('progress');
     pbd.html(['<div class="card pink">',
@@ -53,7 +53,11 @@ function spawnWebsocket(pa) {
 
         var l    = $('#loading');
         l.html(i18n.loading.replace(/XX1/, (pa + 1)));
-        window.ws.send('{"part":'+pa+'}');
+        if ($('#file_pwd').length === 1) {
+            window.ws.send('{"part":'+pa+', "file_pwd": "'+$('#file_pwd').val()+'"}');
+        } else {
+            window.ws.send('{"part":'+pa+'}');
+        }
     };
     ws.onclose   = function() {
         console.log('Connection is closed');
@@ -70,6 +74,9 @@ function spawnWebsocket(pa) {
         if (data.msg !== undefined) {
             addAlert(data.msg);
             console.log(data.msg);
+            if ($('#file_pwd').length === 1) {
+                $('.file-abort').addClass('hide');
+            }
             window.onbeforeunload = null;
         } else {
             console.log('Getting slice '+(data.part + 1)+' of '+data.total);
@@ -90,7 +97,13 @@ function spawnWebsocket(pa) {
 
                     var pbd  = $('#pbd');
                     pbd.attr('class', 'center-align');
-                    var blobURL   = URL.createObjectURL(blob);
+                    // IE & Edge fix for downloading blob files, gives option to save or open the file when the link is opened.
+                    if (window.navigator && window.navigator.msSaveOrOpenBlob) {
+                        var fileName = escapeHtml(data.name);
+                        window.navigator.msSaveOrOpenBlob(blob, fileName);
+                    } else {
+                        var blobURL   = URL.createObjectURL(blob);
+                    }
                     var innerHTML = ['<p><a href="', blobURL, '" class="btn btn-primary" download="', escapeHtml(data.name), '">', i18n.download, '</a></p>'];
 
                     if (data.type.match(/^image\//) !== null) {
@@ -99,10 +112,18 @@ function spawnWebsocket(pa) {
                         innerHTML.push('<video class="responsive-video" controls>',
                                            '<source src="', blobURL, '" type="', data.type, '">',
                                        '</video>');
+                    } else if (data.type.match(/^audio\//) !== null) {
+                        innerHTML.push('<audio class="responsive-video" controls>',
+                                           '<source src="', blobURL, '" type="', data.type, '">',
+                                       '</audio>');
                     }
                     pbd.html(innerHTML.join(''));
 
-                    window.ws.send('{"ended":true}');
+                    if ($('#file_pwd').length === 1) {
+                        window.ws.send('{"ended":true, "file_pwd": "'+$('#file_pwd').val()+'"}');
+                    } else {
+                        window.ws.send('{"ended":true}');
+                    }
                     window.onbeforeunload = null;
                     window.completed = true;
                     $('#abort').remove();
@@ -123,7 +144,11 @@ function spawnWebsocket(pa) {
                             console.log('Error. Retrying to get slice '+(data.part + 1));
                             window.ws = spawnWebsocket(data.part + 1);
                         };
-                        window.ws.send('{"part":'+(data.part + 1)+'}');
+                        if ($('#file_pwd').length === 1) {
+                            window.ws.send('{"part":'+(data.part + 1)+', "file_pwd": "'+$('#file_pwd').val()+'"}');
+                        } else {
+                            window.ws.send('{"part":'+(data.part + 1)+'}');
+                        }
                     }
                 }
             } catch(err) {
@@ -157,11 +182,26 @@ $(document).ready(function(){
     window.completed = false;
 
     if (key !== '=') {
-        // Set websocket
-        window.ws = spawnWebsocket(0);
+        var go = true;
+        if ($('#file_pwd').length === 1) {
+            go = false;
+            $('#go').click(function() {
+                $('.file-progress, .file-abort').removeClass('hide');
+                $('#file_pwd').parent().parent().addClass('hide');
+                // Set websocket
+                window.ws = spawnWebsocket(0);
 
-        // Prevent exiting page before full download
-        window.onbeforeunload = confirmExit;
+                // Prevent exiting page before full download
+                window.onbeforeunload = confirmExit;
+            });
+        }
+        if (go) {
+            // Set websocket
+            window.ws = spawnWebsocket(0);
+
+            // Prevent exiting page before full download
+            window.onbeforeunload = confirmExit;
+        }
     } else {
         addAlert(i18n.nokey);
     }

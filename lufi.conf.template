@@ -107,11 +107,27 @@
     # Optional, default to no-reply@lufi.io
     #mail_sender => 'no-reply@lufi.io',
 
+    # choose what database you want to use
+    # valid choices are sqlite and postgresql (all lowercase)
+    # optional, default is sqlite
+    #dbtype => 'sqlite',
+
+    # SQLite ONLY - only used if dbtype is set to sqlite
     # define a path to the SQLite database
     # you can define it relative to lufi directory or set an absolute path
     # remember that it has to be in a directory writable by Lufi user
     # optional, default is lufi.db
     #db_path           => 'lufi.db',
+
+    # PostgreSQL ONLY - only used if dbtype is set to postgresql
+    # these are the credentials to access the PostgreSQL database
+    # mandatory if you choosed postgresql as dbtype
+    #pgdb => {
+    #    database => 'lufi',
+    #    host     => 'localhost',
+    #    #user     => 'DBUSER',
+    #    #pwd      => 'DBPASSWORD'
+    #},
 
     # define a path to the upload directory, where the uploaded files will be stored
     # you can define it relative to lufi directory or set an absolute path
@@ -140,6 +156,10 @@
     # the user needs to reauthenticate
     # optional, default is 3600
     #session_duration => 3600,
+
+    # allow to add a password on files, asked before allowing to download files
+    # optional, default to 0
+    #allow_pwd_on_files => 0,
 
     #########################
     # Lufi cron jobs settings

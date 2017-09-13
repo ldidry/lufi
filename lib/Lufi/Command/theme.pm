@@ -62,7 +62,7 @@ SEDOPTS=-e "s\@SOME DESCRIPTIVE TITLE\@Lufi language file\@" \\
 		-e "s\@CHARSET\@utf8\@" \\
 		-e "s\@the PACKAGE package\@the Lufi package\@" \\
 		-e '/^\\#\\. (/{N;/\\n\\#\\. (/{N;/\\n.*\\.\\.\\/default\\//{s/\\#\\..*\\n.*\\#\\./\\#. (/g}}}' \\
-		-e '/^\\#\\. (/{N;/\\n.*\\.\\.\\/default\\//{s/\\n/ /}}' 
+		-e '/^\\#\\. (/{N;/\\n.*\\.\\.\\/default\\//{s/\\n/ /}}'
 SEDOPTS2=-e '/^\\#.*\\.\\.\\/default\\//,+3d'
 XGETTEXT=carton exec ../../local/bin/xgettext.pl
 CARTON=carton exec

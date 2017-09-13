@@ -10,7 +10,7 @@
             </div>
         </div>
     % } else {
-        <h2 class="col s12 center-align"><%= stash('f')->filename %></h2>
+        <h2 class="col s12 center-align title-filename"><%= stash('f')->filename %></h2>
         % if (defined(stash('msg'))) {
         <div class="col s12">
             <div class="card pink">
@@ -20,7 +20,15 @@
             </div>
         </div>
         % } else {
+        %   if (stash('file_pwd')) {
         <div class="col s12">
+            <div class="input-field">
+                <input type="password" id="file_pwd" placeholder="<%= l('Password') %>" class="validate">
+            </div>
+            <a id="go" class="waves-effect waves-light btn"><%= l('Download') %></a>
+        </div>
+        %   }
+        <div class="file-progress col s12<%= (stash('file_pwd')) ? ' hide' : '' %>">
             <p id="filesize" data-filesize="<%= stash('f')->filesize %>"></p>
             <p id="please-wait"><%= l('Please wait while we are getting your file. We first need to download and decrypt all parts before you can get it.') %></p>
             <p id="loading"></p>
@@ -30,7 +38,7 @@
                 </div>
             </div>
         </div>
-        <div class="col s12">
+        <div class="file-abort col s12<%= (stash('file_pwd')) ? ' hide' : '' %>">
             <a id="abort" class="waves-effect waves-light btn"><%= l('Abort') %></a>
         </div>
 %= javascript begin

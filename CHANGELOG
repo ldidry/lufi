@@ -1,0 +1,22 @@
+Revision history for Lufi
+
+0.02  2017-09-13
+	- Database abstraction layer
+	- PostgreSQL support
+	- IE 11 and Edge support
+	- Fix encoding error (#83)
+	- Htpassword authentication support
+	- Ability to add a password to a file
+	- Portuguese translation
+	- Catalan translation
+	- Dutch translation
+	- IE 11 support
+	- Deleting files from "My files" is now done with Ajax (#23)
+	- Allow bulk files deletion from "My files" (#24)
+	- Bugfixes
+
+0.01  2017-01-09
+	- Upload files
+	- Download files
+	- Preview files in browser depending on mimetype (images and videos)
+	- LDAP authentication support

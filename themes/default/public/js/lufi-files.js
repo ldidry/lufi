@@ -106,6 +106,44 @@ function importStorage(f) {
     reader.readAsArrayBuffer(f[0]);
 }
 
+function delFile() {
+    var dlink = $(this).attr('data-dlink');
+    var short = $(this).attr('data-short');
+    $.ajax({
+        url: dlink,
+        method: 'GET',
+        data: {
+            format: 'json'
+        },
+        success: function(data) {
+            if (data.success) {
+                $('#row-'+short).remove();
+                delItem(short);
+            } else {
+                alert(data.msg);
+            }
+        },
+        error: function() {
+        },
+        complete: function() {
+        }
+    });
+}
+
+function evaluateMassDelete() {
+    if ($('input[data-checked="data-checked"]').length > 0) {
+        $('#mass-delete').removeAttr('disabled');
+        $('#mass-delete').removeClass('disabled');
+    } else {
+        $('#mass-delete').attr('disabled');
+        $('#mass-delete').addClass('disabled');
+    }
+}
+
+function massDelete() {
+    $('input[data-checked="data-checked"]').each(delFile);
+}
+
 function populateFilesTable() {
     $('#myfiles').empty();
 
@@ -125,8 +163,12 @@ function populateFilesTable() {
         var limit      = (element.delay === 0) ? i18n.noExpiration : moment.unix(element.delay * 86400 + element.created_at).locale(window.navigator.language).format('LLLL');
         var created_at = moment.unix(element.created_at).locale(window.navigator.language).format('LLLL');
 
-        var tr = $('<tr>');
-        tr.html([ '<td class="left-align">',
+        var tr = $('<tr id="row-'+element.short+'">');
+        tr.html([ '<td class="center-align">',
+                      '<input type="checkbox" id="check-', element.short,'" data-short="', element.short, '" data-dlink="', dlink, '" data-checked="">',
+                      '<label for="check-', element.short,'"></label>',
+                  '</td>',
+                  '<td class="left-align">',
                       escapeHtml(element.name),
                   '</td>',
                   '<td class="center-align">',
@@ -144,9 +186,21 @@ function populateFilesTable() {
                       limit,
                   '</td>',
                   '<td class="center-align">',
-                      '<a href="', dlink, '" class="classic"><i class="small mdi-action-delete"></i></a>',
+                      '<a id="del-', element.short, '" data-short="', element.short, '" data-dlink="', dlink, '" href="#" class="classic"><i class="small mdi-action-delete"></i></a>',
+                  '</td>',
+                  '<td class="center-align">',
+                      '<a href="'+baseURL+'m?links=[&quot;'+element.short+'&quot;]" class="classic"><i class="small mdi-communication-email"></i></a>',
                   '</td>'].join(''));
         $('#myfiles').append(tr);
+        $('#del-'+element.short).on('click', delFile);
+        $('label[for="check-'+element.short+'"').on('click', function(){
+            if ($('#check-'+element.short).attr('data-checked') && $('#check-'+element.short).attr('data-checked') === 'data-checked') {
+                $('#check-'+element.short).attr('data-checked', null);
+            } else {
+                $('#check-'+element.short).attr('data-checked', 'data-checked');
+            }
+            evaluateMassDelete();
+        });
 
         $.ajax({
             url: counterURL,

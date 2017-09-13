@@ -1,11 +1,9 @@
 package Lufi::Command::cron::watch;
 use Mojo::Base 'Mojolicious::Command';
 use Filesys::DiskUsage qw/du/;
-use LufiDB;
-use Lufi::File;
+use Lufi::DB::File;
 use Switch;
 use FindBin qw($Bin);
-use File::Spec qw(catfile);
 
 has description => 'Watch the files directory and take action when over quota';
 has usage => sub { shift->extract_usage };
@@ -13,9 +11,17 @@ has usage => sub { shift->extract_usage };
 sub run {
     my $c = shift;
 
+    my $cfile = Mojo::File->new($Bin, '..' , 'lufi.conf');
+    if (defined $ENV{MOJO_CONFIG}) {
+        $cfile = Mojo::File->new($ENV{MOJO_CONFIG});
+        unless (-e $cfile->to_abs) {
+            $cfile = Mojo::File->new($Bin, '..', $ENV{MOJO_CONFIG});
+        }
+    }
     my $config = $c->app->plugin('Config', {
-        file    => File::Spec->catfile($Bin, '..' ,'lufi.conf'),
+        file    => $cfile,
         default => {
+            dbtype           => 'sqlite',
             policy_when_full => 'warn'
         }
     });
@@ -36,11 +42,14 @@ sub run {
                 }
                 case 'delete' {
                     say '[Lufi cron job watch] Older files are being deleted';
+                    my $ldfile = Lufi::DB::File->new(app => $c->app);
                     do {
-                        for my $file (LufiDB::Files->select('WHERE deleted = 0 ORDER BY created_at ASC LIMIT 50')) {
-                            my $f = Lufi::File->new(record => $file);
-                            $file->delete;
-                        }
+                        $ldfile->get_oldest_undeleted_files(50)->each(
+                            sub {
+                                my ($f, $num) = @_;
+                                $f->delete;
+                            }
+                        );
                     } while (du(qw/files/) > $config->{max_total_size});
                 }
                 else {

@@ -4,6 +4,17 @@
 
 Lufi means Let's Upload that FIle.
 
+## Which browsers are compatible?
+
+Lufi is tested and working on the following browsers / devices :
+    - Firefox
+    - Chrome
+    - Internet Explorer 11
+    - Microsoft Edge
+    - Safari
+    - iOS devices (ipad, iphone)
+    - Android devices (Galaxy tab, Galaxy S8)
+
 ## What does it do?
 
 It stores files and allows you to download them.
@@ -44,6 +55,10 @@ However please note that some metadata are sent unencrypted:
 * the file name
 * its size
 * its mimetype
+
+## Client
+
+There is the web interface, but you can use a CLI client too! Have a look at <https://framagit.org/luc/lufi-cli> or install it directly with `sudo npm install -g lufi-cli`.
 
 ## Internationalization
 
