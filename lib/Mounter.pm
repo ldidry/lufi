@@ -15,6 +15,7 @@ sub startup {
             default => {
                 prefix => '/',
                 theme  => 'default',
+                dbtype => 'sqlite',
             }
         }
     );
