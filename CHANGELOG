@@ -1,5 +1,8 @@
 Revision history for Lufi
 
+0.02.1 2017-09-14
+	- Fix DB abstraction layer bug
+
 0.02  2017-09-13
 	- Database abstraction layer
 	- PostgreSQL support
@@ -10,7 +13,6 @@ Revision history for Lufi
 	- Portuguese translation
 	- Catalan translation
 	- Dutch translation
-	- IE 11 support
 	- Deleting files from "My files" is now done with Ajax (#23)
 	- Allow bulk files deletion from "My files" (#24)
 	- Bugfixes
