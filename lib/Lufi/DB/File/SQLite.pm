@@ -123,7 +123,7 @@ sub get_expired {
     my $time = shift;
 
     ## Select only files expired since two days, to be sure that nobody is still downloading it
-    my @files = LufiDB::Files->select('WHERE deleted = 0 AND ((delete_at_day + 2) * 86400) < (? - created_at) AND delete_at_day != 0', $time);
+    my @files = Lufi::DB::SQLite::Files->select('WHERE deleted = 0 AND ((delete_at_day + 2) * 86400) < (? - created_at) AND delete_at_day != 0', $time);
 
     return c(map { Lufi::DB::File->new(app => $c->app, record => $_) } @files);
 }
@@ -132,7 +132,7 @@ sub get_no_longer_viewed {
     my $c    = shift;
     my $time = shift;
 
-    my @files = LufiDB::Files->select('WHERE deleted = 0 AND last_access_at < ?', $time);
+    my @files = Lufi::DB::SQLite::Files->select('WHERE deleted = 0 AND last_access_at < ?', $time);
 
     return c(map { Lufi::DB::File->new(app => $c->app, record => $_) } @files);
 }
