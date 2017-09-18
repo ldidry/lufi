@@ -20,7 +20,8 @@ sub run {
     my $config = $c->app->plugin('Config', {
         file    => $cfile,
         default => {
-            dbtype => 'sqlite',
+            dbtype     => 'sqlite',
+            upload_dir => 'files',
         }
     });
 

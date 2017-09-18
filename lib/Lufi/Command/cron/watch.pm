@@ -22,12 +22,13 @@ sub run {
         file    => $cfile,
         default => {
             dbtype           => 'sqlite',
+            upload_dir       => 'files',
             policy_when_full => 'warn'
         }
     });
 
     if (defined($config->{max_total_size})) {
-        my $total = du(qw/files/);
+        my $total = du(($c->app->config('upload_dir')));
 
         if ($total > $config->{max_total_size}) {
             say "[Lufi cron job watch] Files directory is over quota ($total > ".$config->{max_total_size}.")";
