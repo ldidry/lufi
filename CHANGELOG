@@ -1,5 +1,8 @@
 Revision history for Lufi
 
+0.02.2 2017-09-18
+	- Fix cron tasks bug
+
 0.02.1 2017-09-14
 	- Fix DB abstraction layer bug
 
