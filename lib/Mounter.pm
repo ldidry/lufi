@@ -9,9 +9,16 @@ sub startup {
 
     push @{$self->commands->namespaces}, 'Lufi::Command';
 
+    my $cfile = Mojo::File->new($Bin, '..' , 'lufi.conf');
+    if (defined $ENV{MOJO_CONFIG}) {
+        $cfile = Mojo::File->new($ENV{MOJO_CONFIG});
+        unless (-e $cfile->to_abs) {
+            $cfile = Mojo::File->new($Bin, '..', $ENV{MOJO_CONFIG});
+        }
+    }
     my $config = $self->plugin('Config' =>
         {
-            file    => File::Spec->catfile($Bin, '..' ,'lufi.conf'),
+            file    => $cfile,
             default => {
                 prefix => '/',
                 theme  => 'default',
