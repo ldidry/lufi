@@ -14,3 +14,4 @@
 * Yann Le Brech (htpasswd file support)
 * Jéssica Da Cunha (portuguese translation)
 * Ilker Kulgu (fix IE11 compatibility, Dutch translation)
+* Stéphane Baron (bugfix)
