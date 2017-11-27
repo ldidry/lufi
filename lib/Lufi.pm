@@ -3,6 +3,7 @@ package Lufi;
 use Mojo::Base 'Mojolicious';
 use Net::LDAP;
 use Apache::Htpasswd;
+use Mojolicious::Sessions;
 
 $ENV{MOJO_MAX_WEBSOCKET_SIZE} = 100485760; # 10 * 1024 * 1024 = 10MiB
 
@@ -13,6 +14,7 @@ sub startup {
 
     my $config = $self->plugin('Config' => {
         default =>  {
+            prefix             => '/',
             provisioning       => 100,
             provis_step        => 5,
             length             => 10,
@@ -152,6 +154,12 @@ sub startup {
     # Create directory if needed
     mkdir($self->config('upload_dir'), 0700) unless (-d $self->config('upload_dir'));
     die ('The upload directory ('.$self->config('upload_dir').') is not writable') unless (-w $self->config('upload_dir'));
+
+    # Configure sessions
+    my $sessions = Mojolicious::Sessions->new;
+    $sessions->cookie_name('lufi');
+    $sessions->cookie_path($self->config('prefix'));
+    $self->sessions($sessions);
 
     # Default layout
     $self->defaults(layout => 'default');

@@ -300,7 +300,7 @@ msgstr ""
 msgid "Please wait while we are getting your file. We first need to download and decrypt all parts before you can get it."
 msgstr ""
 
-#: lib/Lufi.pm:191
+#: lib/Lufi.pm:199
 msgid "Please, check your credentials: unable to authenticate."
 msgstr ""
 
@@ -341,7 +341,7 @@ msgstr ""
 msgid "Signin"
 msgstr ""
 
-#: lib/Lufi.pm:194
+#: lib/Lufi.pm:202
 msgid "Sorry mate, you are not authorised to use that service. Contact your sysadmin if you think there's a glitch in the matrix."
 msgstr ""
 

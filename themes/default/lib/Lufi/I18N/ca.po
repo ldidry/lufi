@@ -304,7 +304,7 @@ msgstr "Si us plau contacteu amb l'administrador: %1"
 msgid "Please wait while we are getting your file. We first need to download and decrypt all parts before you can get it."
 msgstr "Si us plau, espereu mentre obtenim el fitxer. Abans que el tingueu disponible primer cal descarregar i desxifrar tots els trossos."
 
-#: lib/Lufi.pm:191
+#: lib/Lufi.pm:199
 msgid "Please, check your credentials: unable to authenticate."
 msgstr ""
 
@@ -345,7 +345,7 @@ msgstr "Compartiu fitxers amb total privacitat a %1"
 msgid "Signin"
 msgstr "Autenticació"
 
-#: lib/Lufi.pm:194
+#: lib/Lufi.pm:202
 msgid "Sorry mate, you are not authorised to use that service. Contact your sysadmin if you think there's a glitch in the matrix."
 msgstr ""
 

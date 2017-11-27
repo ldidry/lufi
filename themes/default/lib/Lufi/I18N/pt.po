@@ -311,7 +311,7 @@ msgstr "Contacte o administrador: %1"
 msgid "Please wait while we are getting your file. We first need to download and decrypt all parts before you can get it."
 msgstr "Por favor aguarde durante a recuperação do seu ficheiro. Primeiro devemos recuperar e descodificar todos os fragmentos e depois poderá descarregar o ficheiro."
 
-#: lib/Lufi.pm:191
+#: lib/Lufi.pm:199
 msgid "Please, check your credentials: unable to authenticate."
 msgstr ""
 
@@ -352,7 +352,7 @@ msgstr "Partilhe os seus ficheiros com toda a privacidade em %1"
 msgid "Signin"
 msgstr "Conexão"
 
-#: lib/Lufi.pm:194
+#: lib/Lufi.pm:202
 msgid "Sorry mate, you are not authorised to use that service. Contact your sysadmin if you think there's a glitch in the matrix."
 msgstr ""
 
