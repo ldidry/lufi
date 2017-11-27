@@ -94,7 +94,12 @@ $(document).ready(function(){
     $('select').material_select();
 });
 var ws_url  = '<%= url_for('upload')->to_abs() %>';
+% if (defined($self->config('fixed_domain')) && $self->config('fixed_domain')) {
+var baseURL = '<%= url_for('/')->host($self->config('fixed_domain'))->to_abs() %>';
+% } else {
 var baseURL = '<%= url_for('/')->to_abs() %>';
+% }
+var actionURL = '<%= url_for('/')->to_abs() %>';
 var i18n    = {
     confirmExit: '<%= l('You have attempted to leave this page. The upload will be canceled. Are you sure?') %>',
     copyAll:     '<%= l('Copy all links to clipboard') %>',
