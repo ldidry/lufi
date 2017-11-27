@@ -85,11 +85,11 @@ msgstr "Tanca"
 msgid "Comma-separated email addresses"
 msgstr "Adreces de correu electrònic separades per comes"
 
-#: themes/default/templates/index.html.ep:100
+#: themes/default/templates/index.html.ep:105
 msgid "Copy all links to clipboard"
 msgstr "Copia tots els enllaços al porta-retalls"
 
-#: themes/default/templates/index.html.ep:103
+#: themes/default/templates/index.html.ep:108
 msgid "Copy to clipboard"
 msgstr "Copia al porta-retalls"
 
@@ -117,7 +117,7 @@ msgstr "Eliminar-lo a la primera descàrrega?"
 msgid "Delete selected files"
 msgstr ""
 
-#: themes/default/templates/files.html.ep:32 themes/default/templates/index.html.ep:104
+#: themes/default/templates/files.html.ep:32 themes/default/templates/index.html.ep:109
 msgid "Deletion link"
 msgstr "Enllaç per a eliminació"
 
@@ -125,7 +125,7 @@ msgstr "Enllaç per a eliminació"
 msgid "Don't worry: if a user begins to download the file before the expiration and the download ends after the expiration, he will be able to get the file."
 msgstr "No patiu per si un usuari comença a descarregar el fitxer abans de l'expiració i la descàrrega acaba després de l'expiració, encara podrà obtenir el fitxer."
 
-#: themes/default/templates/index.html.ep:106 themes/default/templates/render.html.ep:28
+#: themes/default/templates/index.html.ep:111 themes/default/templates/render.html.ep:28
 msgid "Download"
 msgstr "Descàrrega"
 
@@ -133,7 +133,7 @@ msgstr "Descàrrega"
 msgid "Download aborted."
 msgstr "Descàrrega avortada."
 
-#: themes/default/templates/files.html.ep:27 themes/default/templates/index.html.ep:105
+#: themes/default/templates/files.html.ep:27 themes/default/templates/index.html.ep:110
 msgid "Download link"
 msgstr "Enllaç per a descàrrega"
 
@@ -157,7 +157,7 @@ msgstr "Assumpte del correu electrònic"
 msgid "Emails"
 msgstr "correus electrònics"
 
-#: themes/default/templates/index.html.ep:107
+#: themes/default/templates/index.html.ep:112
 msgid "Encrypting part XX1 of XX2"
 msgstr "S'està xifrant la part XX1 de XX2"
 
@@ -173,7 +173,7 @@ msgstr "Error: el fitxer no s'ha enviat del tot."
 msgid "Error: unable to find the file. Are you sure of your URL?"
 msgstr "Error: no trobo el fitxer. Esteu segur de la URL ?"
 
-#: themes/default/templates/index.html.ep:108
+#: themes/default/templates/index.html.ep:113
 msgid "Expiration:"
 msgstr "Expiració:"
 
@@ -209,11 +209,11 @@ msgstr "Hola,\\n\\nVe't aquí uns fitxers que vull compartir amb tu:"
 msgid "Here's some files"
 msgstr "Ve't aquí uns fitxers"
 
-#: themes/default/templates/index.html.ep:110
+#: themes/default/templates/index.html.ep:115
 msgid "Hit Enter, then Ctrl+C to copy all the download links"
 msgstr "Prem Retorn, i després Ctrl+C per copiar tots els enllaços de descàrrega"
 
-#: themes/default/templates/index.html.ep:109
+#: themes/default/templates/index.html.ep:114
 msgid "Hit Enter, then Ctrl+C to copy the download link"
 msgstr "Prem Retorn, i després Ctrl+C per copiar l'enllaç de descàrrega"
 
@@ -283,7 +283,7 @@ msgstr "Els meus fitxers"
 msgid "No enough space available on the server for this file (size: %1)."
 msgstr "No hi ha prou espai al servidor per a aquest fitxer (mida: %1)"
 
-#: themes/default/templates/files.html.ep:45 themes/default/templates/index.html.ep:112
+#: themes/default/templates/files.html.ep:50 themes/default/templates/index.html.ep:117
 msgid "No expiration delay"
 msgstr "Sense moratòria d'expiració"
 
@@ -320,7 +320,7 @@ msgstr "Netegeu els fitxers expirats de l'emmagatzematge local."
 msgid "Rows in red mean that the files have expired and are no longer available."
 msgstr "Les files en vermell indiquen que els fitxers han expirat i ja no són disponibles."
 
-#: themes/default/templates/index.html.ep:111
+#: themes/default/templates/index.html.ep:116
 msgid "Send all links by email"
 msgstr "Envia tots els enllaços per correu electrònic"
 
@@ -332,7 +332,7 @@ msgstr "Envia amb aquest servidor"
 msgid "Send with your own mail software"
 msgstr "Envia amb el vostre propi programa de correu"
 
-#: themes/default/templates/index.html.ep:113
+#: themes/default/templates/index.html.ep:118
 msgid "Sending part XX1 of XX2. Please, be patient, the progress bar can take a while to move."
 msgstr "S'està enviant el tros XX1 de XX2. Si us plau, paciència; la barra de progrés pot trigar una mica a bellugar-se. "
 
@@ -363,7 +363,7 @@ msgstr ""
 "L'administrador només pot veure el nom del fitxer, la seva mida i el seu\n"
 "mimetype (quina mena de fitxer és: vídeo, text, etc.)"
 
-#: themes/default/templates/files.html.ep:46
+#: themes/default/templates/files.html.ep:51
 msgid "The data has been successfully imported."
 msgstr "La importació de les dades ha reeixit."
 
@@ -388,7 +388,7 @@ msgstr "Els fitxers que es pugen a una instaŀlació de Lufi són xifrats abans 
 msgid "The following email addresses are not valid: %1"
 msgstr "Les següents adreces de correu electrònic no són vàlides: %1"
 
-#: themes/default/templates/index.html.ep:101
+#: themes/default/templates/index.html.ep:106
 msgid "The link(s) has been copied to your clipboard"
 msgstr "L'enllaç/ els enllaços ja estan copiats al portaretalls"
 
@@ -408,7 +408,7 @@ msgstr "El servidor no ha pogut trobar el registre del fitxer per afegir-hi el t
 msgid "This server sets limitations according to the file size. The expiration delay of your file will be the minimum between what you choose and the following limitations:"
 msgstr "Aquest servidor estableix limitacions segons la mida del fitxer. La moratòria d'expiració del fitxer serà el mínim de l'escollida i aquestes limitacions:"
 
-#: themes/default/templates/index.html.ep:102
+#: themes/default/templates/index.html.ep:107
 msgid "Unable to copy the link(s) to your clipboard"
 msgstr "No s'han pogut copiar l'enllaç o els enllaços al porta-retalls."
 
@@ -439,7 +439,7 @@ msgstr "Pujat a les"
 msgid "Uploaded files"
 msgstr "Fitxers pujats"
 
-#: themes/default/templates/index.html.ep:114
+#: themes/default/templates/index.html.ep:119
 msgid "Websocket communication error"
 msgstr "Error de comunicacions del websocket"
 
@@ -467,7 +467,7 @@ msgstr "No sembla que hi hagi una clau a la URL. No podreu desxifrar el fitxer. 
 msgid "You have attempted to leave this page. The download will be canceled. Are you sure?"
 msgstr "Heu intentat deixar aquesta pàgina. Es canceŀlarà la descàrrega. N'esteu segur?"
 
-#: themes/default/templates/index.html.ep:99
+#: themes/default/templates/index.html.ep:104
 msgid "You have attempted to leave this page. The upload will be canceled. Are you sure?"
 msgstr "Heu intentat deixar aquesta pàgina. Es canceŀlarà la pujada. N'esteu segur?"
 

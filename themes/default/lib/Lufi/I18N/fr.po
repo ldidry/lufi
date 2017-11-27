@@ -84,11 +84,11 @@ msgstr "Fermer"
 msgid "Comma-separated email addresses"
 msgstr "Adresses mails séparées par des virgules"
 
-#: themes/default/templates/index.html.ep:100
+#: themes/default/templates/index.html.ep:105
 msgid "Copy all links to clipboard"
 msgstr "Copier tous les liens dans le presse-papier"
 
-#: themes/default/templates/index.html.ep:103
+#: themes/default/templates/index.html.ep:108
 msgid "Copy to clipboard"
 msgstr "Copier dans le presse-papier"
 
@@ -116,7 +116,7 @@ msgstr "Supprimer après le premier téléchargement ?"
 msgid "Delete selected files"
 msgstr "Supprimer les fichiers sélectionnés"
 
-#: themes/default/templates/files.html.ep:32 themes/default/templates/index.html.ep:104
+#: themes/default/templates/files.html.ep:32 themes/default/templates/index.html.ep:109
 msgid "Deletion link"
 msgstr "Lien de suppression"
 
@@ -124,7 +124,7 @@ msgstr "Lien de suppression"
 msgid "Don't worry: if a user begins to download the file before the expiration and the download ends after the expiration, he will be able to get the file."
 msgstr "Ne vous inquiétez pas : si un utilisateur commence à télécharger le fichier avant son expiration et que le téléchargement se termine après l’expiration, l’utilisateur pourra quand même récupérer le fichier."
 
-#: themes/default/templates/index.html.ep:106 themes/default/templates/render.html.ep:28
+#: themes/default/templates/index.html.ep:111 themes/default/templates/render.html.ep:28
 msgid "Download"
 msgstr "Télécharger"
 
@@ -132,7 +132,7 @@ msgstr "Télécharger"
 msgid "Download aborted."
 msgstr "Téléchargement abandonné."
 
-#: themes/default/templates/files.html.ep:27 themes/default/templates/index.html.ep:105
+#: themes/default/templates/files.html.ep:27 themes/default/templates/index.html.ep:110
 msgid "Download link"
 msgstr "Lien de téléchargement"
 
@@ -156,7 +156,7 @@ msgstr "Sujet du mail"
 msgid "Emails"
 msgstr "Mails"
 
-#: themes/default/templates/index.html.ep:107
+#: themes/default/templates/index.html.ep:112
 msgid "Encrypting part XX1 of XX2"
 msgstr "Chiffrement du fragment XX1 sur XX2"
 
@@ -172,7 +172,7 @@ msgstr "Erreur : le fichier n’a pas été envoyé dans son intégralité"
 msgid "Error: unable to find the file. Are you sure of your URL?"
 msgstr "Erreur : impossible de retrouver le fichier. Êtes-vous sûr(e) de l’URL ?"
 
-#: themes/default/templates/index.html.ep:108
+#: themes/default/templates/index.html.ep:113
 msgid "Expiration:"
 msgstr "Expiration :"
 
@@ -208,11 +208,11 @@ msgstr "Bonjour,\\n\\nVoici quelques fichiers que je souhaite partager avec toi�
 msgid "Here's some files"
 msgstr "Voici quelques fichiers"
 
-#: themes/default/templates/index.html.ep:110
+#: themes/default/templates/index.html.ep:115
 msgid "Hit Enter, then Ctrl+C to copy all the download links"
 msgstr "Appuyez sur la touche Entrée puis faites Ctrl+C pour copier tous les liens de téléchargement"
 
-#: themes/default/templates/index.html.ep:109
+#: themes/default/templates/index.html.ep:114
 msgid "Hit Enter, then Ctrl+C to copy the download link"
 msgstr "Appuyez sur la touche Entrée puis faites Ctrl+C pour copier le lien de téléchargement"
 
@@ -281,7 +281,7 @@ msgstr "Mes fichiers"
 msgid "No enough space available on the server for this file (size: %1)."
 msgstr "Espace disque insuffisant sur le serveur pour ce fichier (taille du fichier : %1)."
 
-#: themes/default/templates/files.html.ep:45 themes/default/templates/index.html.ep:112
+#: themes/default/templates/files.html.ep:50 themes/default/templates/index.html.ep:117
 msgid "No expiration delay"
 msgstr "Pas de délai d’expiration"
 
@@ -318,7 +318,7 @@ msgstr "Supprimer du localStorage les fichiers expirés"
 msgid "Rows in red mean that the files have expired and are no longer available."
 msgstr "Les lignes en rouge indiquent que le fichier a expiré et n’est plus disponible."
 
-#: themes/default/templates/index.html.ep:111
+#: themes/default/templates/index.html.ep:116
 msgid "Send all links by email"
 msgstr "Envoyer tous les liens par mail"
 
@@ -330,7 +330,7 @@ msgstr "Envoyer avec ce serveur"
 msgid "Send with your own mail software"
 msgstr "Envoyer avec votre propre logiciel de mail"
 
-#: themes/default/templates/index.html.ep:113
+#: themes/default/templates/index.html.ep:118
 msgid "Sending part XX1 of XX2. Please, be patient, the progress bar can take a while to move."
 msgstr "Envoi du fragment XX1 sur XX2. Veuillez patienter, la barre de progression peut mettre du temps avant d’avancer."
 
@@ -359,7 +359,7 @@ msgstr "Désolé, l’envoi de fichier est désactivé."
 msgid "The administrator can only see the file's name, its size and its mimetype (what kind of file it is: video, text, etc.)."
 msgstr "L’administrateur ne peut voir que le nom du fichier, sa taille et son type mime (son type de fichier : vidéo, texte, etc.)."
 
-#: themes/default/templates/files.html.ep:46
+#: themes/default/templates/files.html.ep:51
 msgid "The data has been successfully imported."
 msgstr "Les données ont été importées avec succès."
 
@@ -384,7 +384,7 @@ msgstr "Les fichiers envoyés sur une instance de Lufi sont chiffrés avant l’
 msgid "The following email addresses are not valid: %1"
 msgstr "Les adresses mail suivantes ne sont pas valides : %1"
 
-#: themes/default/templates/index.html.ep:101
+#: themes/default/templates/index.html.ep:106
 msgid "The link(s) has been copied to your clipboard"
 msgstr "Le(s) lien(s) a/ont été copié dans votre presse-papier"
 
@@ -404,7 +404,7 @@ msgstr "Le serveur a été incapable de retrouver l’enregistrement du fichier 
 msgid "This server sets limitations according to the file size. The expiration delay of your file will be the minimum between what you choose and the following limitations:"
 msgstr "Ce serveur impose des limitations selon la taille des fichiers. Le délai d’expiration de votre fichier sera le minimum entre ce que vous avez choisi et les limites suivantes :"
 
-#: themes/default/templates/index.html.ep:102
+#: themes/default/templates/index.html.ep:107
 msgid "Unable to copy the link(s) to your clipboard"
 msgstr "Impossible de copier le(s) lien(s) dans votre presse-papier"
 
@@ -435,7 +435,7 @@ msgstr "Envoyé le"
 msgid "Uploaded files"
 msgstr "Fichiers envoyés"
 
-#: themes/default/templates/index.html.ep:114
+#: themes/default/templates/index.html.ep:119
 msgid "Websocket communication error"
 msgstr "Erreur de communication WebSocket"
 
@@ -463,7 +463,7 @@ msgstr "Il semble que vous n’ayez pas de clé dans votre URL. Vous ne serez pa
 msgid "You have attempted to leave this page. The download will be canceled. Are you sure?"
 msgstr "Vous essayez de quitter la page. Le téléchargement sera annulé. Êtes-vous sûr(e) ?"
 
-#: themes/default/templates/index.html.ep:99
+#: themes/default/templates/index.html.ep:104
 msgid "You have attempted to leave this page. The upload will be canceled. Are you sure?"
 msgstr "Vous essayez de quitter la page. L’envoi sera annulé. Êtes-vous sûr(e) ?"
 

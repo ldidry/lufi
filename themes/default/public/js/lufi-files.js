@@ -159,7 +159,7 @@ function populateFilesTable() {
     });
     files.forEach(function(element, index, array) {
         var del_view   = (element.del_at_first_view) ? '<i class="small mdi-action-done"></i>' : '<i class="small mdi-navigation-close"></i>';
-        var dlink      = baseURL+'d/'+element.short+'/'+element.token;
+        var dlink      = actionURL+'d/'+element.short+'/'+element.token;
         var limit      = (element.delay === 0) ? i18n.noExpiration : moment.unix(element.delay * 86400 + element.created_at).locale(window.navigator.language).format('LLLL');
         var created_at = moment.unix(element.created_at).locale(window.navigator.language).format('LLLL');
 
@@ -189,7 +189,7 @@ function populateFilesTable() {
                       '<a id="del-', element.short, '" data-short="', element.short, '" data-dlink="', dlink, '" href="#" class="classic"><i class="small mdi-action-delete"></i></a>',
                   '</td>',
                   '<td class="center-align">',
-                      '<a href="'+baseURL+'m?links=[&quot;'+element.short+'&quot;]" class="classic"><i class="small mdi-communication-email"></i></a>',
+                      '<a href="'+actionURL+'m?links=[&quot;'+element.short+'&quot;]" class="classic"><i class="small mdi-communication-email"></i></a>',
                   '</td>'].join(''));
         $('#myfiles').append(tr);
         $('#del-'+element.short).on('click', delFile);

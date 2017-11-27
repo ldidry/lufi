@@ -71,11 +71,11 @@ msgstr "Sluiten"
 msgid "Comma-separated email addresses"
 msgstr "Komma gescheiden email adressen"
 
-#: themes/default/templates/index.html.ep:100
+#: themes/default/templates/index.html.ep:105
 msgid "Copy all links to clipboard"
 msgstr "Kopieer alle links naar klembord"
 
-#: themes/default/templates/index.html.ep:103
+#: themes/default/templates/index.html.ep:108
 msgid "Copy to clipboard"
 msgstr "Kopieer naar klembord"
 
@@ -103,7 +103,7 @@ msgstr "Verwijder na eerste download?"
 msgid "Delete selected files"
 msgstr ""
 
-#: themes/default/templates/files.html.ep:32 themes/default/templates/index.html.ep:104
+#: themes/default/templates/files.html.ep:32 themes/default/templates/index.html.ep:109
 msgid "Deletion link"
 msgstr "Verwijderingslink"
 
@@ -111,7 +111,7 @@ msgstr "Verwijderingslink"
 msgid "Don't worry: if a user begins to download the file before the expiration and the download ends after the expiration, he will be able to get the file."
 msgstr "Geen zorgen: als een gebruiker de download start voor de vervaldatum, dan zal die het bestand kunnen binnenhalen."
 
-#: themes/default/templates/index.html.ep:106 themes/default/templates/render.html.ep:28
+#: themes/default/templates/index.html.ep:111 themes/default/templates/render.html.ep:28
 msgid "Download"
 msgstr "Download"
 
@@ -119,7 +119,7 @@ msgstr "Download"
 msgid "Download aborted."
 msgstr "Download geannuleerd."
 
-#: themes/default/templates/files.html.ep:27 themes/default/templates/index.html.ep:105
+#: themes/default/templates/files.html.ep:27 themes/default/templates/index.html.ep:110
 msgid "Download link"
 msgstr "Download link"
 
@@ -143,7 +143,7 @@ msgstr "Onderwerp"
 msgid "Emails"
 msgstr "Emails"
 
-#: themes/default/templates/index.html.ep:107
+#: themes/default/templates/index.html.ep:112
 msgid "Encrypting part XX1 of XX2"
 msgstr "Encrypten deel XX1 van XX2 "
 
@@ -159,7 +159,7 @@ msgstr "Fout: het bestand is niet volledig opgestuurd."
 msgid "Error: unable to find the file. Are you sure of your URL?"
 msgstr "Fout: kan het bestand niet vinden. Is de URL juist?"
 
-#: themes/default/templates/index.html.ep:108
+#: themes/default/templates/index.html.ep:113
 msgid "Expiration:"
 msgstr "Vervaldatum:"
 
@@ -195,11 +195,11 @@ msgstr "Hallo,\\n\\nHier zijn enkele bestanden die ik met je wil delen:\\n\\n"
 msgid "Here's some files"
 msgstr "Hier zijn enkele bestanden"
 
-#: themes/default/templates/index.html.ep:110
+#: themes/default/templates/index.html.ep:115
 msgid "Hit Enter, then Ctrl+C to copy all the download links"
 msgstr "Druk Enter, vervolgens CTRL+C om alle download links te kopieeren"
 
-#: themes/default/templates/index.html.ep:109
+#: themes/default/templates/index.html.ep:114
 msgid "Hit Enter, then Ctrl+C to copy the download link"
 msgstr "Druk Enter, vervolgens CTRL+C om de download link te kopieeren"
 
@@ -268,7 +268,7 @@ msgstr "Mijn bestanden"
 msgid "No enough space available on the server for this file (size: %1)."
 msgstr "Geen genoeg ruimte op de server voor deze bestand (grootte: %1)."
 
-#: themes/default/templates/files.html.ep:45 themes/default/templates/index.html.ep:112
+#: themes/default/templates/files.html.ep:50 themes/default/templates/index.html.ep:117
 msgid "No expiration delay"
 msgstr "Geen verloop uitstel"
 
@@ -309,7 +309,7 @@ msgstr "Registreer"
 msgid "Rows in red mean that the files have expired and are no longer available."
 msgstr "Rode rijen betekenen dat deze bestanden verlopen en verwijderd zijn."
 
-#: themes/default/templates/index.html.ep:111
+#: themes/default/templates/index.html.ep:116
 msgid "Send all links by email"
 msgstr "Verstuur alle links via mail"
 
@@ -321,7 +321,7 @@ msgstr "Verstuur via deze server"
 msgid "Send with your own mail software"
 msgstr "Verstuur via eigen mail software"
 
-#: themes/default/templates/index.html.ep:113
+#: themes/default/templates/index.html.ep:118
 msgid "Sending part XX1 of XX2. Please, be patient, the progress bar can take a while to move."
 msgstr "Versturen deel XX1 van XX2. Een ogenblik geduld..."
 
@@ -350,7 +350,7 @@ msgstr "SOrry, uploaden is uitgeschakeld."
 msgid "The administrator can only see the file's name, its size and its mimetype (what kind of file it is: video, text, etc.)."
 msgstr "Beheerders zien alleen bestandsnamen, grootte en mimetype (wat voor soort bestand het is: video, tekst etc.)."
 
-#: themes/default/templates/files.html.ep:46
+#: themes/default/templates/files.html.ep:51
 msgid "The data has been successfully imported."
 msgstr "Data is succesvol geimporteerd."
 
@@ -375,7 +375,7 @@ msgstr "Bestanden die geupload zijn naar Lufi worden voor de upload versleuteld:
 msgid "The following email addresses are not valid: %1"
 msgstr "Volgende email adressen zijn niet geldig: %1"
 
-#: themes/default/templates/index.html.ep:101
+#: themes/default/templates/index.html.ep:106
 msgid "The link(s) has been copied to your clipboard"
 msgstr "De link is gekopieerd naar je klembord"
 
@@ -395,7 +395,7 @@ msgstr "Server kon een deel van het bestand niet vinden. Neem contact op met beh
 msgid "This server sets limitations according to the file size. The expiration delay of your file will be the minimum between what you choose and the following limitations:"
 msgstr "Deze server stelt beperkingen vast volgens de bestandsgrootte. De vervaldatum van uw bestand zal het minimum zijn tussen wat u kiest en de volgende beperkingen:"
 
-#: themes/default/templates/index.html.ep:102
+#: themes/default/templates/index.html.ep:107
 msgid "Unable to copy the link(s) to your clipboard"
 msgstr "Kan de link(s) niet naar je klembord kopieeren"
 
@@ -426,7 +426,7 @@ msgstr "Geupload op"
 msgid "Uploaded files"
 msgstr "Geuploade bestanden"
 
-#: themes/default/templates/index.html.ep:114
+#: themes/default/templates/index.html.ep:119
 msgid "Websocket communication error"
 msgstr "Websocket communicatie fout"
 
@@ -454,7 +454,7 @@ msgstr "Je hebt geen sleutel in je URL. Je kan het bestand niet decrypten. Downl
 msgid "You have attempted to leave this page. The download will be canceled. Are you sure?"
 msgstr "Je verlaat deze pagina. Download zal geannuleerd worden. Weet je het zeker?"
 
-#: themes/default/templates/index.html.ep:99
+#: themes/default/templates/index.html.ep:104
 msgid "You have attempted to leave this page. The upload will be canceled. Are you sure?"
 msgstr "Je verlaat deze pagina. Upload zal geannuleerd worden. Weet je het zeker? "
 

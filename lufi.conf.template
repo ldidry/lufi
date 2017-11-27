@@ -10,7 +10,7 @@
         # if you use Lufi behind a reverse proxy like Nginx, you want ro set proxy to 1
         # if you use Lufi directly, let it commented
         #proxy  => 1,
-        
+
         # Please read http://mojolicious.org/perldoc/Mojo/Server/Hypnotoad#workers
         # to adjust this to your server
         workers => 30,
@@ -160,6 +160,10 @@
     # allow to add a password on files, asked before allowing to download files
     # optional, default to 0
     #allow_pwd_on_files => 0,
+
+    # if set, the files' URLs will always use this domain
+    # optional
+    #fixed_domain => 'example.org',
 
     #########################
     # Lufi cron jobs settings
