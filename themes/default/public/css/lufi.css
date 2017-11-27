@@ -102,3 +102,9 @@ a.classic:focus {
 .files-buttons a {
     margin-bottom: 10px;
 }
+#pb {
+    width: 0;
+}
+.no_border {
+    border: 0;
+}

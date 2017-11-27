@@ -87,7 +87,7 @@
             <%= content %>
         </div>
 % if (defined(config('piwik_img'))) {
-        <img src="<%== config('piwik_img') %>" style="border:0" alt="" />
+        <img src="<%== config('piwik_img') %>" class="no_border" alt="" />
 % }
             %= javascript '/js/materialize.js'
             %= javascript begin
