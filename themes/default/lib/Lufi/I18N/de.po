@@ -1,0 +1,515 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"POT-Creation-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#. ($delay)
+#. (max_delay)
+#: themes/default/templates/index.html.ep:40 themes/default/templates/index.html.ep:49 themes/default/templates/index.html.ep:50
+msgid "%1 days"
+msgstr "%1 Tage"
+
+#: themes/default/templates/index.html.ep:5
+msgid "1 year"
+msgstr "1 Jahr"
+
+#: themes/default/templates/index.html.ep:4 themes/default/templates/index.html.ep:49
+msgid "24 hours"
+msgstr "24 Stunden"
+
+#: themes/default/templates/mail.html.ep:83
+msgid ":"
+msgstr ""
+
+#: themes/default/templates/about.html.ep:16
+msgid "A thank you with a photo of kitten on <a href=\"https://framasphere.org/people/b13eb6b0beac0131e7e32a0000053625\" class=\"classic\">Diaspora*</a> or <a href=\"https://framapiaf.org/@framasky\" class=\"classic\">Mastodon</a> is cool too ;-)"
+msgstr ""
+
+#: themes/default/templates/render.html.ep:42
+msgid "Abort"
+msgstr "Abbrechen"
+
+#: themes/default/templates/layouts/default.html.ep:65 themes/default/templates/layouts/default.html.ep:77
+msgid "About"
+msgstr "Über"
+
+#: themes/default/templates/index.html.ep:71
+msgid "Add a password to file(s)"
+msgstr "Die Datei(en) mit einem Passwort schützen"
+
+#: themes/default/templates/about.html.ep:18
+msgid "As Lufi is a free software licensed under of the terms of the <a href=\"https://gnu.org/licenses/agpl.html\" class=\"classic\">AGPLv3</a>, you can install it on you own server. Have a look on the <a href=\"https://framagit.org/luc/lufi/wikis/home\" class=\"classic\">Wiki</a> for the procedure."
+msgstr ""
+
+#. (stash('f')
+#: themes/default/templates/render.html.ep:52
+msgid "Asking for file part XX1 of %1"
+msgstr ""
+
+#: themes/default/templates/about.html.ep:21
+msgid "Back to homepage"
+msgstr "Zurück zur Homepage"
+
+#: lib/Lufi/Controller/Mail.pm:21
+msgid "Bad CSRF token!"
+msgstr ""
+
+#: themes/default/templates/render.html.ep:48
+msgid "Click here to refresh the page and restart the download."
+msgstr "Klicke hier, um die Seite neu zu laden und den Downlad erneut zu starten."
+
+#: themes/default/templates/index.html.ep:80
+msgid "Click to open the file browser"
+msgstr "Klicke hier, um den Datei-Browser zu öffnen"
+
+#: themes/default/templates/delays.html.ep:38
+msgid "Close"
+msgstr "Schliessen"
+
+#: themes/default/templates/mail.html.ep:22
+msgid "Comma-separated email addresses"
+msgstr "E-Mailadressen, durch Komma getrennt"
+
+#: themes/default/templates/index.html.ep:105
+msgid "Copy all links to clipboard"
+msgstr "Alle Links in die Zwischenablage kopieren"
+
+#: themes/default/templates/index.html.ep:108
+msgid "Copy to clipboard"
+msgstr "In die Zwischenablage kopieren"
+
+#: lib/Lufi/Controller/Files.pm:429
+msgid "Could not delete the file. You are not authenticated."
+msgstr "Datei konnte nicht gelöscht werden. Du bist nicht angemeldet."
+
+#: lib/Lufi/Controller/Files.pm:411
+msgid "Could not find the file. Are you sure of the URL and the token?"
+msgstr "Datei konnte nicht gefunden werden. Stimmt die URL und das Token?"
+
+#: lib/Lufi/Controller/Files.pm:322
+msgid "Could not find the file. Are you sure of the URL?"
+msgstr "Datei konnte nicht gefunden werden. Stimmt die URL?"
+
+#: themes/default/templates/files.html.ep:28
+msgid "Counter"
+msgstr "Zähler"
+
+#: themes/default/templates/files.html.ep:29 themes/default/templates/index.html.ep:64
+msgid "Delete at first download?"
+msgstr "Nach dem ersten Download löschen?"
+
+#: themes/default/templates/files.html.ep:18
+msgid "Delete selected files"
+msgstr "Lösche ausgewählte Dateien"
+
+#: themes/default/templates/files.html.ep:32 themes/default/templates/index.html.ep:109
+msgid "Deletion link"
+msgstr ""
+
+#: themes/default/templates/delays.html.ep:8
+msgid "Don't worry: if a user begins to download the file before the expiration and the download ends after the expiration, he will be able to get the file."
+msgstr ""
+
+#: themes/default/templates/index.html.ep:111 themes/default/templates/render.html.ep:28
+msgid "Download"
+msgstr ""
+
+#: themes/default/templates/render.html.ep:47
+msgid "Download aborted."
+msgstr "Download abgebrochen."
+
+#: themes/default/templates/files.html.ep:27 themes/default/templates/index.html.ep:110
+msgid "Download link"
+msgstr "Download-Link"
+
+#: themes/default/templates/about.html.ep:10
+msgid "Drag and drop files in the appropriate area or use the traditional way to send files and the files will be chunked, encrypted and sent to the server. You will get two links per file: a download link, that you give to the people you want to share the file with and a deletion link, allowing you to delete the file whenever you want."
+msgstr ""
+
+#: themes/default/templates/index.html.ep:77
+msgid "Drop files here"
+msgstr "Ziehe Dateien hierher"
+
+#: themes/default/templates/mail.html.ep:38
+msgid "Email body"
+msgstr "Nachrichtentext der E-Mail"
+
+#: themes/default/templates/mail.html.ep:30
+msgid "Email subject"
+msgstr "Betreff der E-Mail"
+
+#: themes/default/templates/mail.html.ep:24 themes/default/templates/mail.html.ep:26
+msgid "Emails"
+msgstr "E-Mails"
+
+#: themes/default/templates/index.html.ep:112
+msgid "Encrypting part XX1 of XX2"
+msgstr "Verschlüssele Teil XX1 von XX2"
+
+#: lib/Lufi/Controller/Files.pm:225
+msgid "Error: the file existed but was deleted."
+msgstr "Fehler: die Datei existierte, wurde aber gelöscht."
+
+#: lib/Lufi/Controller/Files.pm:291
+msgid "Error: the file has not been sent entirely."
+msgstr "Fehler: die Datei wurde nicht vollständig übertragen."
+
+#: lib/Lufi/Controller/Files.pm:301
+msgid "Error: unable to find the file. Are you sure of your URL?"
+msgstr "Fehler: Datei wurde nicht gefunden. Stimmt die URL?"
+
+#: themes/default/templates/index.html.ep:113
+msgid "Expiration:"
+msgstr "Verfallszeit:"
+
+#: themes/default/templates/files.html.ep:31
+msgid "Expires at"
+msgstr "Verfällt am"
+
+#: themes/default/templates/files.html.ep:12
+msgid "Export localStorage data"
+msgstr "Exportiere localStorage-Daten"
+
+#: lib/Lufi/Controller/Files.pm:393
+msgid "File deleted"
+msgstr "Datei gelöscht"
+
+#: themes/default/templates/files.html.ep:26
+msgid "File name"
+msgstr "Dateiname"
+
+#: themes/default/templates/render.html.ep:51
+msgid "Get the file"
+msgstr ""
+
+#: themes/default/templates/about.html.ep:19
+msgid "Get the source code on <a href=\"https://framagit.org/luc/lufi\" class=\"classic\">the official repository</a> or on its <a href=\"https://github.com/ldidry/lufi\" class=\"classic\">Github mirror</a>"
+msgstr ""
+
+#: themes/default/templates/mail.html.ep:78
+msgid "Hello,\\n\\nHere's some files I want to share with you:\\n"
+msgstr "Hallo,\\n\\nHier sind einige Dateien, die ich mit die teilen will:\\n"
+
+#: themes/default/templates/mail.html.ep:34
+msgid "Here's some files"
+msgstr ""
+
+#: themes/default/templates/index.html.ep:115
+msgid "Hit Enter, then Ctrl+C to copy all the download links"
+msgstr ""
+
+#: themes/default/templates/index.html.ep:114
+msgid "Hit Enter, then Ctrl+C to copy the download link"
+msgstr ""
+
+#: themes/default/templates/about.html.ep:9
+msgid "How does it work?"
+msgstr ""
+
+#: themes/default/templates/about.html.ep:17
+msgid "How to install the software on my server?"
+msgstr ""
+
+#: themes/default/templates/about.html.ep:12
+msgid "How to report an illegal file?"
+msgstr ""
+
+#: themes/default/templates/delays.html.ep:7
+msgid "If you choose a delay, the file will be deleted after that delay."
+msgstr ""
+
+#: themes/default/templates/mail.html.ep:15
+msgid "If you send the mail from this server, the links will be sent to the server, which may lower your privacy protection."
+msgstr ""
+
+#: themes/default/templates/files.html.ep:14
+msgid "Import localStorage data"
+msgstr ""
+
+#: themes/default/templates/index.html.ep:37
+msgid "Important: more information on delays"
+msgstr ""
+
+#: themes/default/templates/delays.html.ep:5
+msgid "Information about delays"
+msgstr ""
+
+#: themes/default/templates/render.html.ep:49
+msgid "It seems that the key in your URL is incorrect. Please, verify your URL."
+msgstr ""
+
+#: themes/default/templates/index.html.ep:12
+msgid "Javascript is disabled. You won't be able to use Lufi."
+msgstr "Javascript ist deaktiviert. Du wirst Lufi nicht benutzen können."
+
+#: themes/default/templates/login.html.ep:15
+msgid "Login"
+msgstr "Anmelden"
+
+#: themes/default/templates/layouts/default.html.ep:67 themes/default/templates/layouts/default.html.ep:79
+msgid "Logout"
+msgstr "Abmelden"
+
+#: themes/default/templates/about.html.ep:4
+msgid "Lufi is a free (as in free speech) file hosting software."
+msgstr ""
+
+#: themes/default/templates/files.html.ep:33
+msgid "Mail"
+msgstr "E-Mail"
+
+#: themes/default/templates/files.html.ep:3 themes/default/templates/layouts/default.html.ep:61 themes/default/templates/layouts/default.html.ep:73
+msgid "My files"
+msgstr "Meine Dateien"
+
+#. (format_bytes($json->{size})
+#: lib/Lufi/Controller/Files.pm:69
+msgid "No enough space available on the server for this file (size: %1)."
+msgstr ""
+
+#: themes/default/templates/files.html.ep:50 themes/default/templates/index.html.ep:117
+msgid "No expiration delay"
+msgstr ""
+
+#: themes/default/templates/files.html.ep:8
+msgid "Only the files sent with this browser will be listed here. This list is stored in localStorage: if you delete your localStorage data, you'll lose this list."
+msgstr ""
+
+#: themes/default/templates/index.html.ep:70 themes/default/templates/login.html.ep:21 themes/default/templates/render.html.ep:26
+msgid "Password"
+msgstr "Passwort"
+
+#. (config('contact')
+#: themes/default/templates/about.html.ep:13
+msgid "Please contact the administrator: %1"
+msgstr ""
+
+#: themes/default/templates/render.html.ep:33
+msgid "Please wait while we are getting your file. We first need to download and decrypt all parts before you can get it."
+msgstr ""
+
+#: lib/Lufi.pm:199
+msgid "Please, check your credentials: unable to authenticate."
+msgstr "Bitte überprüfe deine Anmeldedaten: Anmeldung nicht möglich."
+
+#: themes/default/templates/about.html.ep:5
+msgid "Privacy"
+msgstr "Privatsphäre"
+
+#: themes/default/templates/files.html.ep:13
+msgid "Purge expired files from localStorage"
+msgstr ""
+
+#: themes/default/templates/files.html.ep:9
+msgid "Rows in red mean that the files have expired and are no longer available."
+msgstr ""
+
+#: themes/default/templates/index.html.ep:116
+msgid "Send all links by email"
+msgstr "Alle Links per E-Mail verschicken"
+
+#: themes/default/templates/mail.html.ep:45
+msgid "Send with this server"
+msgstr ""
+
+#: themes/default/templates/mail.html.ep:46
+msgid "Send with your own mail software"
+msgstr ""
+
+#: themes/default/templates/index.html.ep:118
+msgid "Sending part XX1 of XX2. Please, be patient, the progress bar can take a while to move."
+msgstr ""
+
+#. (url_for('/')
+#: themes/default/templates/mail.html.ep:91
+msgid "Share your files in total privacy on %1"
+msgstr ""
+
+#: themes/default/templates/layouts/default.html.ep:63 themes/default/templates/layouts/default.html.ep:75 themes/default/templates/login.html.ep:26 themes/default/templates/logout.html.ep:8
+msgid "Signin"
+msgstr "Registrieren"
+
+#: lib/Lufi.pm:202
+msgid "Sorry mate, you are not authorised to use that service. Contact your sysadmin if you think there's a glitch in the matrix."
+msgstr ""
+
+#: themes/default/templates/index.html.ep:30
+msgid "Sorry, the uploading is currently disabled. Please try again later."
+msgstr ""
+
+#: lib/Lufi/Controller/Files.pm:43
+msgid "Sorry, uploading is disabled."
+msgstr "Entschuldige, das Hochladen ist deaktiviert."
+
+#: themes/default/templates/about.html.ep:7
+msgid "The administrator can only see the file's name, its size and its mimetype (what kind of file it is: video, text, etc.)."
+msgstr ""
+
+#: themes/default/templates/files.html.ep:51
+msgid "The data has been successfully imported."
+msgstr ""
+
+#: lib/Lufi/Controller/Mail.pm:43
+msgid "The email body can't be empty."
+msgstr ""
+
+#: lib/Lufi/Controller/Mail.pm:42
+msgid "The email subject can't be empty."
+msgstr ""
+
+#: lib/Lufi/Controller/Files.pm:390
+msgid "The file has already been deleted"
+msgstr ""
+
+#: themes/default/templates/about.html.ep:6
+msgid "The files uploaded on a Lufi instance are encrypted before the upload to the server: the administrator of the server can not see the file's content."
+msgstr ""
+
+#. (join(', ', @bad)
+#: lib/Lufi/Controller/Mail.pm:38
+msgid "The following email addresses are not valid: %1"
+msgstr ""
+
+#: themes/default/templates/index.html.ep:106
+msgid "The link(s) has been copied to your clipboard"
+msgstr ""
+
+#: lib/Lufi/Controller/Mail.pm:66
+msgid "The mail has been sent."
+msgstr "Die E-Mail wurde verschickt."
+
+#: themes/default/templates/about.html.ep:15
+msgid "The original (and only for now) author is <a href=\"https://fiat-tux.fr\" class=\"classic\">Luc Didry</a>. If you want to support him, you can do it via <a href=\"https://www.tipeee.com/fiat-tux\" class=\"classic\">Tipeee</a> or via <a href=\"https://liberapay.com/sky/\" class=\"classic\">Liberapay</a>."
+msgstr ""
+
+#: lib/Lufi/Controller/Files.pm:179
+msgid "The server was unable to find the file record to add your file part to. Please, contact the administrator."
+msgstr ""
+
+#: themes/default/templates/delays.html.ep:10
+msgid "This server sets limitations according to the file size. The expiration delay of your file will be the minimum between what you choose and the following limitations:"
+msgstr ""
+
+#: themes/default/templates/index.html.ep:107
+msgid "Unable to copy the link(s) to your clipboard"
+msgstr ""
+
+#. ($short)
+#: lib/Lufi/Controller/Files.pm:361
+msgid "Unable to get counter for %1. The file does not exists. It will be removed from your localStorage."
+msgstr ""
+
+#. ($short)
+#: lib/Lufi/Controller/Files.pm:351
+msgid "Unable to get counter for %1. The token is invalid."
+msgstr ""
+
+#. ($short)
+#: lib/Lufi/Controller/Files.pm:371
+msgid "Unable to get counter for %1. You are not authenticated."
+msgstr ""
+
+#: themes/default/templates/layouts/default.html.ep:60 themes/default/templates/layouts/default.html.ep:72
+msgid "Upload files"
+msgstr "Dateien hochladen"
+
+#: themes/default/templates/files.html.ep:30
+msgid "Uploaded at"
+msgstr ""
+
+#: themes/default/templates/index.html.ep:85
+msgid "Uploaded files"
+msgstr ""
+
+#: themes/default/templates/index.html.ep:119
+msgid "Websocket communication error"
+msgstr ""
+
+#: themes/default/templates/about.html.ep:3
+msgid "What is Lufi?"
+msgstr "Was ist Lufi?"
+
+#: themes/default/templates/about.html.ep:14
+msgid "Who wrote this software?"
+msgstr "Wer hat diese Software entwickelt?"
+
+#: themes/default/templates/about.html.ep:11
+msgid "You can see the list of your files by clicking on the \"My files\" link at the top right of this page."
+msgstr ""
+
+#: themes/default/templates/about.html.ep:8
+msgid "You don't need to register yourself to upload files but be aware that, for legal reasons, your IP address will be stored when you send a file. Don't panic, this is normally the case for all sites on which you send files."
+msgstr ""
+
+#: themes/default/templates/render.html.ep:53
+msgid "You don't seem to have a key in your URL. You won't be able to decrypt the file. Download canceled."
+msgstr ""
+
+#: themes/default/templates/render.html.ep:50
+msgid "You have attempted to leave this page. The download will be canceled. Are you sure?"
+msgstr ""
+
+#: themes/default/templates/index.html.ep:104
+msgid "You have attempted to leave this page. The upload will be canceled. Are you sure?"
+msgstr ""
+
+#: themes/default/templates/logout.html.ep:5
+msgid "You have been successfully logged out."
+msgstr "Du hast dich erfolgreich abgemeldet."
+
+#: lib/Lufi/Controller/Mail.pm:41
+msgid "You must give email addresses."
+msgstr "Du musst eine E-Mailadresse angeben."
+
+#. (format_bytes($json->{size})
+#: lib/Lufi/Controller/Files.pm:56
+msgid "Your file is too big: %1 (maximum size allowed: %2)"
+msgstr ""
+
+#: lib/Lufi/Controller/Files.pm:273
+msgid "Your password is not valid. Please refresh the page to retry."
+msgstr "Dein Passwort ist ungültig. Bitte aktualisiere die Seite, um es erneut zu versuchen."
+
+#. (format_bytes($keys[$i])
+#: themes/default/templates/delays.html.ep:20
+msgid "between %1 and %2, the file will be kept %3 day(s)."
+msgstr ""
+
+#. (format_bytes($keys[$i])
+#: themes/default/templates/delays.html.ep:22
+msgid "between %1 and %2, the file will be kept forever."
+msgstr ""
+
+#: themes/default/templates/mail.html.ep:85
+msgid "deadline: "
+msgstr ""
+
+#. (format_bytes($keys[$i])
+#: themes/default/templates/delays.html.ep:26
+msgid "for %1 and more, the file will be kept %2 day(s)"
+msgstr ""
+
+#. (format_bytes($keys[$i])
+#: themes/default/templates/delays.html.ep:28
+msgid "for %1 and more, the file will be kept forever."
+msgstr ""
+
+#: themes/default/templates/index.html.ep:3
+msgid "no time limit"
+msgstr ""
+
+#: themes/default/templates/index.html.ep:78
+msgid "or"
+msgstr "oder"
