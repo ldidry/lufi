@@ -14,7 +14,6 @@ requires 'Locale::Maketext::Extract';
 requires 'Email::Valid';
 requires 'Number::Bytes::Human';
 requires 'Filesys::DfPortable';
-requires 'Switch';
 requires 'Data::Entropy';
 requires 'Net::LDAP';
 requires 'Crypt::SaltedHash';
