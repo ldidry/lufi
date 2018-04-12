@@ -1,3 +1,4 @@
+requires 'inc::Module::Install';
 requires 'Mojolicious', '>= 7.31';
 requires 'ORLite';
 requires 'Mojolicious::Plugin::DebugDumperHelper';
