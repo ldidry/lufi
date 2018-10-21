@@ -140,12 +140,12 @@
     # please note that everybody can still download files
     # optional, no default
     #ldap => {
-    #    uri         => 'ldaps://ldap.example.org',
-    #    user_tree   => 'ou=users,dc=example,dc=org',
-    #    bind_dn     => ',ou=users,dc=example,dc=org',
-    #    bind_user   => 'uid=ldap_user',
-    #    bind_pwd    => 'secr3t',
-    #    user_filter => '!(uid=ldap_user)'
+    #    uri         => 'ldaps://ldap.example.org',                 # server URI
+    #    user_tree   => 'ou=users,dc=example,dc=org',               # search base DN
+    #    bind_dn     => 'uid=ldap_user,ou=users,dc=example,dc=org', # search bind DN
+    #    bind_pwd    => 'secr3t',                                   # search bind password
+    #    user_attr   => 'uid',                                      # user attribute (uid, mail, sAMAccountName, etc.)
+    #    user_filter => '(!(uid=ldap_user))',                       # user filter (to exclude some users, etc.)
     #},
 
     # set `htpasswd` if you want to use an htpasswd file instead of ldap

@@ -302,7 +302,7 @@ msgstr "Mercés de contactar l’administrator : %1"
 msgid "Please wait while we are getting your file. We first need to download and decrypt all parts before you can get it."
 msgstr "Mercés d’esperar pendent la recuperacion de vòstre fichièr. Nos cal d’en primièr recuperar e deschifrar totes los fragaments abans que poscatz o telecargar."
 
-#: lib/Lufi.pm:200
+#: lib/Lufi.pm:136
 msgid "Please, check your credentials: unable to authenticate."
 msgstr "Mercés de verificar vòstres identificants : impossible de vos autentificar."
 
@@ -343,7 +343,7 @@ msgstr "Partejatz vòstres fichièrs en tota confidencialitat sus %1"
 msgid "Signin"
 msgstr "Connexion"
 
-#: lib/Lufi.pm:203
+#: lib/Lufi.pm:139
 msgid "Sorry mate, you are not authorised to use that service. Contact your sysadmin if you think there's a glitch in the matrix."
 msgstr "O planhèm collèga, sètz pas autorizat a utilizar aqueste servici. Contactatz vòstre administrator sistèma se pensatz que i a un problèma."
 

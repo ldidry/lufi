@@ -66,82 +66,18 @@ sub startup {
     # Debug
     $self->plugin('DebugDumperHelper');
 
-    # Check htpasswd file existence
-    die 'Unable to read '.$self->config('htpasswd') if (defined($self->config('htpasswd')) && !-r $self->config('htpasswd'));
+    # Fiat Tux helpers
+    $self->plugin('FiatTux::Helpers');
 
-    # Authentication (if configured)
-    $self->plugin('authentication' =>
-        {
-            autoload_user => 1,
-            session_key   => 'Dolomon',
-            load_user     => sub {
-                my ($c, $username) = @_;
-
-                return $username;
-            },
-            validate_user => sub {
-                my ($c, $username, $password, $extradata) = @_;
-
-                if (defined($c->config('ldap'))) {
-                    my $ldap = Net::LDAP->new($c->config->{ldap}->{uri});
-                    my $mesg = $ldap->bind($c->config->{ldap}->{bind_user}.$c->config->{ldap}->{bind_dn},
-                        password => $c->config->{ldap}->{bind_pwd}
-                    );
-
-                    $mesg->code && die $mesg->error;
-
-                    $mesg = $ldap->search(
-                        base   => $c->config->{ldap}->{user_tree},
-                        filter => "(&(uid=$username)".$c->config->{ldap}->{user_filter}.")"
-                    );
-
-                    if ($mesg->code) {
-                        $c->app->log->error($mesg->error);
-                        return undef;
-                    }
-
-                    # we filtered out, but did we actually get a non-empty result?
-                    $entry = $mesg->shift_entry;
-                    if (!defined $entry) {
-                        $c->app->log->info("[LDAP authentication failed] - User $username filtered out, IP: ".$c->ip);
-                        return undef;
-                    }
-
-                    # Now we know that the user exists, and that he is authorized by the filter
-                    $mesg = $ldap->bind('uid='.$username.$c->config->{ldap}->{bind_dn},
-                        password => $password
-                    );
-
-                    if ($mesg->code) {
-                        $c->app->log->info("[LDAP authentication failed] login: $username, IP: ".$c->ip);
-                        $c->app->log->error("[LDAP authentication failed] ".$mesg->error);
-                        return undef;
-                    }
-
-                    $c->app->log->info("[LDAP authentication successful] login: $username, IP: ".$c->ip);
-                } elsif (defined($c->config('htpasswd'))) {
-                    my $htpasswd = new Apache::Htpasswd({passwdFile => $c->config->{htpasswd},
-                                                 ReadOnly   => 1}
-                                                );
-                    if (!$htpasswd->htCheckPassword($username, $password)) {
-                        return undef;
-                    }
-                    $c->app->log->info("[Simple authentication successful] login: $username, IP: ".$c->ip);
-                }
-
-                return $username;
-            }
-        }
-    );
-    if (defined($self->config('ldap')) || defined($self->config('htpasswd'))) {
-        $self->app->sessions->default_expiration($self->config('session_duration'));
-    }
+    # Authentication
+    $self->plugin('FiatTux::GrantAccess');
 
     # Secrets
     $self->secrets($self->config('secrets'));
 
     # Helpers
     $self->plugin('Lufi::Plugin::Helpers');
+
     # Hooks
     $self->hook(
         after_dispatch => sub {
