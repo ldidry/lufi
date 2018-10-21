@@ -137,6 +137,7 @@ function uploadFile(i, delay, del_at_first_view) {
     // Get the file and properties
     var file  = window.fileList[i];
     var name  = escapeHtml(file.name);
+    var size  = filesize(file.size);
     var parts = Math.ceil(file.size/window.sliceLength);
     if (parts === 0) {
         parts = 1;
@@ -152,7 +153,7 @@ function uploadFile(i, delay, del_at_first_view) {
                         '<i class="right mdi-navigation-close small"></i>',
                     '</a>',
                     '<div class="card-content">',
-                        '<span class="card-title" id="name-', window.fc, '">', name, '</span>',
+                        '<span class="card-title" id="name-', window.fc, '">', name, '</span> <span id="size-', window.fc ,'">(', size,')</span>',
                         '<p id="parts-', window.fc, '"></p>',
                     '</div>',
                     '<div class="progress">',
@@ -266,12 +267,13 @@ function updateProgressBar(data) {
 
             $('#parts-'+window.fc).remove();
             var n       = $('#name-'+window.fc);
+            var s       = $('#size-'+window.fc);
             var d       = $('<div>');
             var url     = baseURL+'r/'+short+'#'+key;
             var del_url = actionURL+'d/'+short+'/'+data.token;
             var links   = encodeURIComponent('["'+short+'"]');
             var limit   = (delay === 0) ? i18n.noLimit : i18n.expiration+' '+moment.unix(delay * 86400 + created_at).locale(window.navigator.language).format('LLLL');
-            n.html(n.html()+' <a href="'+actionURL+'m?links='+links+'"><i class="mdi-communication-email"></i></a><br>'+limit);
+            n.html(n.html()+' '+s.html()+' <a href="'+actionURL+'m?links='+links+'"><i class="mdi-communication-email"></i></a><br>'+limit);
             d.html(['<div class="card-action">',
                         '<div class="input-field">',
                             '<span class="prefix big-prefix">',
@@ -293,6 +295,7 @@ function updateProgressBar(data) {
                             '<label class="active" for="delete-', short, '">', i18n.delText, '</label>',
                         '</div>',
                     '</div>'].join(''));
+            s.remove();
 
             var p2 = dp.parent();
             var p1 = p2.parent();

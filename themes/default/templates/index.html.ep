@@ -101,5 +101,6 @@
 %= javascript '/partial/index.js'
 %= javascript '/js/sjcl.js'
 %= javascript '/js/moment-with-locales.min.js'
+%= javascript '/js/filesize.min.js'
 %= javascript '/js/lufi-up.js'
 % }
