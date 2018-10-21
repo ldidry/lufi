@@ -146,6 +146,12 @@
     #    bind_pwd    => 'secr3t',                                   # search bind password
     #    user_attr   => 'uid',                                      # user attribute (uid, mail, sAMAccountName, etc.)
     #    user_filter => '(!(uid=ldap_user))',                       # user filter (to exclude some users, etc.)
+    #    # optional start_tls configuration. See https://metacpan.org/pod/distribution/perl-ldap/lib/Net/LDAP.pod#start_tls
+    #    # don't set or uncomment if you don't want to configure it
+    #    start_tls => {
+    #       verify     => 'optional',
+    #       clientcert => '/etc/ssl/certs/ca-bundle.pem'
+    #    }
     #},
 
     # set `htpasswd` if you want to use an htpasswd file instead of ldap
