@@ -14,24 +14,25 @@ sub startup {
 
     my $config = $self->plugin('Config' => {
         default =>  {
-            prefix             => '/',
-            provisioning       => 100,
-            provis_step        => 5,
-            length             => 10,
-            token_length       => 32,
-            secrets            => ['hfudsifdsih'],
-            default_delay      => 0,
-            max_delay          => 0,
-            mail               => {
+            prefix        => '/',
+            provisioning  => 100,
+            provis_step   => 5,
+            length        => 10,
+            token_length  => 32,
+            secrets       => ['hfudsifdsih'],
+            default_delay => 0,
+            max_delay     => 0,
+            mail          => {
                 how => 'sendmail'
             },
-            mail_sender        => 'no-reply@lufi.io',
-            theme              => 'default',
-            upload_dir         => 'files',
-            session_duration   => 3600,
-            allow_pwd_on_files => 0,
-            dbtype             => 'sqlite',
-            db_path            => 'lufi.db',
+            mail_sender              => 'no-reply@lufi.io',
+            theme                    => 'default',
+            upload_dir               => 'files',
+            session_duration         => 3600,
+            allow_pwd_on_files       => 0,
+            dbtype                   => 'sqlite',
+            db_path                  => 'lufi.db',
+            force_burn_after_reading => 0,
         }
     });
 
@@ -154,6 +155,16 @@ sub startup {
     $r->get('/about' => sub {
         shift->render(template => 'about');
     })->name('about');
+
+    # Generated js files
+    $r->get('/partial/:file' => sub {
+        my $c = shift;
+        $c->render(
+            template => 'partial/'.$c->param('file'),
+            format   => 'js',
+            layout   => undef,
+        );
+    })->name('partial');
 
     # Get instance stats
     $r->get('/fullstats')

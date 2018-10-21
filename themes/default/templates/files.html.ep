@@ -38,21 +38,6 @@
     </table>
 </div>
 
-%= javascript begin
-% if (defined($self->config('fixed_domain')) && $self->config('fixed_domain')) {
-var baseURL = '<%= url_for('/')->host($self->config('fixed_domain'))->to_abs() %>';
-% } else {
-var baseURL = '<%= url_for('/')->to_abs() %>';
-% }
-var actionURL = '<%= url_for('/')->to_abs() %>';
-var counterURL = '<%== url_for('counter') %>';
-var i18n       = {
-    noExpiration:    '<%= l('No expiration delay') %>',
-    importProcessed: '<%= l('The data has been successfully imported.') %>',
-};
-$(document).ready(function() {
-    populateFilesTable();
-});
-% end
+%= javascript '/partial/files.js.ep'
 %= javascript '/js/lufi-files.js'
 %= javascript '/js/moment-with-locales.min.js'

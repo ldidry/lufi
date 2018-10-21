@@ -17,37 +17,7 @@
         <link rel="apple-touch-icon-precomposed" sizes="128x128" href="<%= url_for('/img/lufi128.png') %>">
         %= stylesheet '/css/materialize.min.css'
         %= stylesheet '/css/lufi.css'
-        %= javascript begin
-            function confirmExit() {
-                console.log(i18n.confirmExit);
-                return i18n.confirmExit;
-            }
-
-            // Is the browser IE?
-            var isIE = /*@cc_on!@*/false || !!document.documentMode;
-
-            // If the browser is IE, add readAsBinaryString function and store the data
-            if (isIE == true){
-                if (FileReader.prototype.readAsBinaryString === undefined) {
-                    FileReader.prototype.readAsBinaryString = function (fileData) {
-                            var binary = "";
-                            var pt = this;
-                            var reader = new FileReader();
-                            reader.onload = function (e) {
-                                var bytes = new Uint8Array(reader.result);
-                                var length = bytes.byteLength;
-                                for (var i = 0; i < length; i++) {
-                                    binary += String.fromCharCode(bytes[i]);
-                                }
-                                //pt.result  - readonly so assign content to another property
-                                pt.content = binary;
-                                $(pt).trigger('onloadend');
-                            }
-                        reader.readAsArrayBuffer(fileData);
-                    }
-                }
-            }
-        % end
+        %= javascript '/js/ie-detection.js'
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
     </head>
     <body>
@@ -90,10 +60,6 @@
         <img src="<%== config('piwik_img') %>" class="no_border" alt="" />
 % }
             %= javascript '/js/materialize.js'
-            %= javascript begin
-                $(document).ready(function() {
-                    $(".button-collapse").sideNav();
-                });
-            %end
+            %= javascript '/js/sidenav.js'
     </body>
 </html>

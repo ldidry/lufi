@@ -111,9 +111,11 @@ sub upload {
                         if (defined($c->config('ldap')) || defined($c->config('htpasswd'))) {
                             $creator = 'User: '.$c->current_user.', IP: '.$creator;
                         }
+                        my $delete_at_first_view = ($json->{del_at_first_view}) ? 1 : 0;
+                        $delete_at_first_view    = 1 if $c->app->config('force_burn_after_reading');
                         $f = Lufi::DB::File->new(app => $c->app)->get_empty()
                                 ->created_by($creator)
-                                ->delete_at_first_view(($json->{del_at_first_view}) ? 1 : 0)
+                                ->delete_at_first_view($delete_at_first_view)
                                 ->delete_at_day($delay)
                                 ->mediatype($json->{type})
                                 ->filename($json->{name})

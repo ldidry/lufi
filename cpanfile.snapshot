@@ -986,7 +986,6 @@ DISTRIBUTIONS
       Mojolicious::Lite undef
       Mojolicious::Plugin undef
       Mojolicious::Plugin::Config undef
-      Mojolicious::Plugin::Config::Sandbox undef
       Mojolicious::Plugin::DefaultHelpers undef
       Mojolicious::Plugin::EPLRenderer undef
       Mojolicious::Plugin::EPRenderer undef
@@ -1690,6 +1689,7 @@ DISTRIBUTIONS
     requirements:
       Authen::SASL 2.00
       Convert::ASN1 0.2
+      Digest::HMAC_MD5 0
       Digest::MD5 0
       ExtUtils::MakeMaker 6.42
       File::Basename 0

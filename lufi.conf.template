@@ -158,8 +158,12 @@
     #session_duration => 3600,
 
     # allow to add a password on files, asked before allowing to download files
-    # optional, default to 0
+    # optional, default is 0
     #allow_pwd_on_files => 0,
+
+    # force all files to be in "Burn after reading mode"
+    # optional, default is 0
+    #force_burn_after_reading => 0,
 
     # if set, the files' URLs will always use this domain
     # optional

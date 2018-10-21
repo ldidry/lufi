@@ -1,0 +1,30 @@
+% # vim:set sts=4 sw=4 ts=4 ft=javascript expandtab:
+$(document).ready(function(){
+    $('.modal-trigger').leanModal();
+    $('select').material_select();
+});
+var ws_url  = '<%= url_for('upload')->to_abs() %>';
+% if (defined($self->config('fixed_domain')) && $self->config('fixed_domain')) {
+var baseURL = '<%= url_for('/')->host($self->config('fixed_domain'))->to_abs() %>';
+% } else {
+var baseURL = '<%= url_for('/')->to_abs() %>';
+% }
+var actionURL = '<%= url_for('/')->to_abs() %>';
+var i18n    = {
+    confirmExit: '<%= l('You have attempted to leave this page. The upload will be canceled. Are you sure?') %>',
+    copyAll:     '<%= l('Copy all links to clipboard') %>',
+    copySuccess: '<%= l('The link(s) has been copied to your clipboard') %>',
+    copyFail:    '<%= l('Unable to copy the link(s) to your clipboard') %>',
+    cpText:      '<%= l('Copy to clipboard') %>',
+    delText:     '<%= l('Deletion link') %>',
+    dlText:      '<%= l('Download link') %>',
+    download:    '<%= l('Download') %>',
+    encrypting:  '<%= l('Encrypting part XX1 of XX2') %>',
+    expiration:  '<%= l('Expiration:') %>',
+    hit:         '<%= l('Hit Enter, then Ctrl+C to copy the download link') %>',
+    hits:        '<%= l('Hit Enter, then Ctrl+C to copy all the download links') %>',
+    mailTo:      '<%= l('Send all links by email') %>',
+    noLimit:     '<%= l('No expiration delay') %>',
+    sending:     '<%= l('Sending part XX1 of XX2. Please, be patient, the progress bar can take a while to move.') %>',
+    wsProblem:   '<%= l('Websocket communication error') %>',
+};
