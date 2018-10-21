@@ -32,7 +32,7 @@ msgstr "1 ano"
 msgid "24 hours"
 msgstr "24 horas"
 
-#: themes/default/templates/partial/mail.js.ep:35
+#: themes/default/templates/partial/mail.js.ep:40
 msgid ":"
 msgstr " :"
 
@@ -209,7 +209,7 @@ msgstr "Recuperar o ficheiro"
 msgid "Get the source code on <a href=\"https://framagit.org/luc/lufi\" class=\"classic\">the official repository</a> or on its <a href=\"https://github.com/ldidry/lufi\" class=\"classic\">Github mirror</a>"
 msgstr "Recupere o código-fonte no <a href=\"https://framagit.org/luc/lufi\" class=\"classic\">o depósito oficial</a> ou então <a href=\"https://github.com/ldidry/lufi\" class=\"classic\">réplicas Github</a>."
 
-#: themes/default/templates/partial/mail.js.ep:30
+#: themes/default/templates/partial/mail.js.ep:35
 msgid "Hello,\\n\\nHere's some files I want to share with you:\\n"
 msgstr "Olá,\\n\\nAqui estão alguns ficheiros que gostaria de partilhar contigo:\\n"
 
@@ -348,7 +348,7 @@ msgid "Sending part XX1 of XX2. Please, be patient, the progress bar can take a 
 msgstr "Envio do fragmento XX1 de XX2. Por favor aguarde, a barra de progressão pode levar algum tempo antes de avançar."
 
 #. (url_for('/')
-#: themes/default/templates/partial/mail.js.ep:43
+#: themes/default/templates/partial/mail.js.ep:48
 msgid "Share your files in total privacy on %1"
 msgstr "Partilhe os seus ficheiros com toda a privacidade em %1"
 
@@ -511,7 +511,7 @@ msgstr "entre %1 e %2, o ficheiro será conservado %3 dia(s) ;"
 msgid "between %1 and %2, the file will be kept forever."
 msgstr "entre %1 e %2, o ficheiro será conservado por um tempo indeterminado."
 
-#: themes/default/templates/partial/mail.js.ep:37
+#: themes/default/templates/partial/mail.js.ep:42
 msgid "deadline: "
 msgstr "Data-limite: "
 

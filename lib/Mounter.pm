@@ -42,6 +42,9 @@ sub startup {
                 dbtype                   => 'sqlite',
                 db_path                  => 'lufi.db',
                 force_burn_after_reading => 0,
+                x_frame_options          => 'DENY',
+                x_content_type_options   => 'nosniff',
+                x_xss_protection         => '1; mode=block',
             }
         }
     );
@@ -49,8 +52,8 @@ sub startup {
     # Compress static assets
     $self->plugin('GzipStatic');
 
-    # Cache static assets
-    $self->plugin('StaticCache');
+    # Headers
+    $self->plugin('Lufi::Plugin::Headers');
 
     # Helpers
     $self->plugin('Lufi::Plugin::Helpers');

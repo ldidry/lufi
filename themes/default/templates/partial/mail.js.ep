@@ -23,8 +23,13 @@ function updateMailtoLink() {
 }
 function populateBody() {
     var links = [
-    % for my $link (@{stash('links')}) {
+    % my $ref = ref(stash('links'));
+    % if ($ref eq 'ARRAY') {
+    %   for my $link (@{stash('links')}) {
         '<%= $link %>',
+    %   }
+    % } else {
+        '<%= stash('links') %>',
     % }
     ];
     var text = "<%== l('Hello,\n\nHere\'s some files I want to share with you:\n') %>";

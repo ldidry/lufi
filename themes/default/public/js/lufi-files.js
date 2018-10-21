@@ -43,7 +43,8 @@ function itemExists(name) {
     }
 }
 
-function purgeExpired() {
+function purgeExpired(event) {
+    event.preventDefault();
     var files = JSON.parse(localStorage.getItem('files'));
 
     files.forEach(function(element, index, array) {
@@ -67,7 +68,8 @@ function purgeExpired() {
     });
 }
 
-function exportStorage() {
+function exportStorage(event) {
+    event.preventDefault();
     var a   = $('<a id="data-json">');
     a.hide();
     $('body').append(a);
@@ -122,6 +124,7 @@ function delFile() {
             } else {
                 alert(data.msg);
             }
+            evaluateMassDelete();
         },
         error: function() {
         },
@@ -140,7 +143,8 @@ function evaluateMassDelete() {
     }
 }
 
-function massDelete() {
+function massDelete(event) {
+    event.preventDefault();
     $('input[data-checked="data-checked"]').each(delFile);
 }
 
@@ -226,4 +230,9 @@ function populateFilesTable() {
             }
         });
     });
+}
+
+function clickImport(event) {
+    event.preventDefault();
+    $('#import').click();
 }

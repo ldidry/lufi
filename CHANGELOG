@@ -7,6 +7,7 @@ Revision history for Lufi
 	- Use GzipStatic and StaticCache plugins for speed
 	- Allow to block files by setting an abuse field in DB
 	- Display file size when uploading
+	- Add Content-Security-Policy header
 
 0.02.2 2017-09-18
 	- Fix cron tasks bug

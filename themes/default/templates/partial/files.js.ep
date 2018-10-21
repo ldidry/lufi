@@ -12,5 +12,9 @@ var i18n       = {
 };
 $(document).ready(function() {
     populateFilesTable();
+    $('#exportStorage').on('click', exportStorage);
+    $('#purgeExpired').on('click', purgeExpired);
+    $('#clickImport').on('click', clickImport);
+    $('#mass-delete').on('click', massDelete);
 });
 
