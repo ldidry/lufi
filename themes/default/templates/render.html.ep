@@ -41,7 +41,7 @@
         <div class="file-abort col s12<%= (stash('file_pwd')) ? ' hide' : '' %>">
             <a id="abort" class="waves-effect waves-light btn"><%= l('Abort') %></a>
         </div>
-%= javascript '/partial/render.js'
+%= javascript '/partial/render.js?nbslices='.stash('f')->nbslices.'&file='.stash('f')->short
 %= javascript '/js/filesize.min.js'
 %= javascript '/js/sjcl.js'
 %= javascript '/js/lufi-down.js'

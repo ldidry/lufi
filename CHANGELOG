@@ -5,6 +5,7 @@ Revision history for Lufi
 	- Use FiatTux plugins
 	- Option to force "Burn after reading" for each uploaded file
 	- Use GzipStatic and StaticCache plugins for speed
+	- Allow to block files by setting an abuse field in DB
 
 0.02.2 2017-09-18
 	- Fix cron tasks bug

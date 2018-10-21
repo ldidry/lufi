@@ -172,8 +172,17 @@
     #force_burn_after_reading => 0,
 
     # if set, the files' URLs will always use this domain
-    # optional
+    # optional, no default
     #fixed_domain => 'example.org',
+
+    # abuse reasons
+    # set an integer in the abuse field of a file in the database and it will not be downloadable anymore
+    # the reason will be displayed to the downloader, according to the reasons you will configure here.
+    # optional, no default
+    #abuse => {
+    #   0 => 'Copyright infringment',
+    #   1 => 'Illegal content',
+    #},
 
     #########################
     # Lufi cron jobs settings

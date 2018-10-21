@@ -20,9 +20,9 @@ sub register {
         # Database migration
         my $migrations = Mojo::Pg::Migrations->new(pg => $app->dbi);
         if ($app->mode eq 'development' && $ENV{LUFI_DEV}) {
-            $migrations->from_file('utilities/migrations/pg.sql')->migrate(0)->migrate(1);
+            $migrations->from_file('utilities/migrations/pg.sql')->migrate(0)->migrate(2);
         } else {
-            $migrations->from_file('utilities/migrations/pg.sql')->migrate(1);
+            $migrations->from_file('utilities/migrations/pg.sql')->migrate(2);
         }
     } elsif ($app->config('dbtype') eq 'sqlite') {
         require Mojo::SQLite;
@@ -33,14 +33,19 @@ sub register {
         my $sql        = $app->dbi;
         my $migrations = $sql->migrations;
         if ($app->mode eq 'development' && $ENV{LUFI_DEV}) {
-            $migrations->from_file('utilities/migrations/sqlite.sql')->migrate(0)->migrate(1);
+            $migrations->from_file('utilities/migrations/sqlite.sql')->migrate(0)->migrate(2);
         } else {
-            $migrations->from_file('utilities/migrations/sqlite.sql')->migrate(1);
+            $migrations->from_file('utilities/migrations/sqlite.sql')->migrate(2);
         }
+
+        # Check if passwd column is missing
         my $columns = $app->dbi->db->query('PRAGMA table_info(files)')->hashes;
-        if ($columns->size == 14) { # Missing passwd column
-            $app->dbi->db->query('ALTER TABLE files ADD COLUMN passwd TEXT');
-        }
+        my $pwd_col = 0;
+        $columns->each(sub {
+            my ($e, $num) = @_;
+            $pwd_col = 1 if $e->{name} eq 'passwd';
+        });
+        $app->dbi->db->query('ALTER TABLE files ADD COLUMN passwd TEXT') unless $pwd_col;
     }
 
     $app->helper(provisioning  => \&_provisioning);

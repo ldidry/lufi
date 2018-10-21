@@ -11,6 +11,16 @@ use Number::Bytes::Human qw(format_bytes);
 use Filesys::DfPortable;
 use Crypt::SaltedHash;
 
+sub files {
+    my $c = shift;
+
+    if ((!defined($c->config('ldap')) && !defined($c->config('htpasswd'))) || $c->is_user_authenticated) {
+        $c->render(template => 'files');
+    } else {
+        $c->redirect_to('login');
+    }
+}
+
 sub upload {
     my $c = shift;
 
@@ -225,6 +235,20 @@ sub download {
                         {
                             success => false,
                             msg     => $c->l('Error: the file existed but was deleted.')
+                        }
+                    )));
+                }
+            );
+        } elsif (defined($ldfile->abuse)) {
+            my $abuse_msg = $c->l('This file has been deactivated by the admins. Contact them to know why.');
+            $abuse_msg    = $c->app->config('abuse')->{$ldfile->abuse} if ($c->app->config('abuse') && $c->app->config('abuse')->{$ldfile->abuse});
+            $c->on(
+                message => sub {
+                    my ($ws, $json) = @_;
+                    $c->send(decode('UTF-8', encode_json(
+                        {
+                            success => false,
+                            msg     => $abuse_msg
                         }
                     )));
                 }

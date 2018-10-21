@@ -56,7 +56,7 @@ msgstr ""
 msgid "As Lufi is a free software licensed under of the terms of the <a href=\"https://gnu.org/licenses/agpl.html\" class=\"classic\">AGPLv3</a>, you can install it on you own server. Have a look on the <a href=\"https://framagit.org/luc/lufi/wikis/home\" class=\"classic\">Wiki</a> for the procedure."
 msgstr "Como Lufi é um programa livre sob os termos da licença <a href=\"https://gnu.org/licenses/agpl.html\" class=\"classic\">AGPLv3</a>, pode instalar-lo no seu prórpio servidor. Para saber mais clique aqui <a href=\"https://framagit.org/luc/lufi/wikis/home\" class=\"classic\">Wiki</a> para ver o procedimento."
 
-#. (stash('f')
+#. (stash('nbslices')
 #: themes/default/templates/partial/render.js.ep:9
 msgid "Asking for file part XX1 of %1"
 msgstr "Pedido de recuperação de um fragmento do ficheiro XX1 de %1"
@@ -93,15 +93,15 @@ msgstr "Copiar todos os links para a área de transferência"
 msgid "Copy to clipboard"
 msgstr "Copiar para a área de transferência"
 
-#: lib/Lufi/Controller/Files.pm:431
+#: lib/Lufi/Controller/Files.pm:455
 msgid "Could not delete the file. You are not authenticated."
 msgstr "Impossível apagar o ficheiro. Não está conectado."
 
-#: lib/Lufi/Controller/Files.pm:413
+#: lib/Lufi/Controller/Files.pm:437
 msgid "Could not find the file. Are you sure of the URL and the token?"
 msgstr "Impossível encontrar o ficheiro.Tem a certeza que o URL e os símbolos estão corretos?"
 
-#: lib/Lufi/Controller/Files.pm:324
+#: lib/Lufi/Controller/Files.pm:348
 msgid "Could not find the file. Are you sure of the URL?"
 msgstr "Impossível encontar o ficheiro. Tem a certeza de que o URL está correto?"
 
@@ -165,15 +165,15 @@ msgstr "E-mails"
 msgid "Encrypting part XX1 of XX2"
 msgstr "Codificação do fragmento XX1 de XX2"
 
-#: lib/Lufi/Controller/Files.pm:227
+#: lib/Lufi/Controller/Files.pm:237
 msgid "Error: the file existed but was deleted."
 msgstr "Erro: o ficheiro existia mas foi apagado."
 
-#: lib/Lufi/Controller/Files.pm:293
+#: lib/Lufi/Controller/Files.pm:317
 msgid "Error: the file has not been sent entirely."
 msgstr "Erro: o ficheiro não foi enviado na totalidade."
 
-#: lib/Lufi/Controller/Files.pm:303
+#: lib/Lufi/Controller/Files.pm:327
 msgid "Error: unable to find the file. Are you sure of your URL?"
 msgstr "Erro: impossível encontrar o ficheiro. Tem a certeza do URL?"
 
@@ -189,7 +189,7 @@ msgstr "Expira no"
 msgid "Export localStorage data"
 msgstr "Exportar os dados localStorage"
 
-#: lib/Lufi/Controller/Files.pm:395
+#: lib/Lufi/Controller/Files.pm:419
 msgid "File deleted"
 msgstr "Ficheiro apagado"
 
@@ -290,7 +290,7 @@ msgid "My files"
 msgstr "Meus ficheiros"
 
 #. (format_bytes($json->{size})
-#: lib/Lufi/Controller/Files.pm:69
+#: lib/Lufi/Controller/Files.pm:79
 msgid "No enough space available on the server for this file (size: %1)."
 msgstr "O servidor não tem espaço suficiente para este ficheiro (tamanho: %1)."
 
@@ -315,8 +315,8 @@ msgstr "Contacte o administrador: %1"
 msgid "Please wait while we are getting your file. We first need to download and decrypt all parts before you can get it."
 msgstr "Por favor aguarde durante a recuperação do seu ficheiro. Primeiro devemos recuperar e descodificar todos os fragmentos e depois poderá descarregar o ficheiro."
 
-#: lib/Lufi.pm:143
-msgid "Please, check your credentials: unable to authenticate."
+#: lib/Lufi/Controller/Auth.pm:24
+msgid "Please, check your credentials or your right to access this service: unable to authenticate."
 msgstr ""
 
 #: themes/default/templates/about.html.ep:5
@@ -356,15 +356,11 @@ msgstr "Partilhe os seus ficheiros com toda a privacidade em %1"
 msgid "Signin"
 msgstr "Conexão"
 
-#: lib/Lufi.pm:146
-msgid "Sorry mate, you are not authorised to use that service. Contact your sysadmin if you think there's a glitch in the matrix."
-msgstr ""
-
 #: themes/default/templates/index.html.ep:30
 msgid "Sorry, the uploading is currently disabled. Please try again later."
 msgstr "Desculpe, o envio do ficheiro está atualmente desativado. Tente mais tarde."
 
-#: lib/Lufi/Controller/Files.pm:43
+#: lib/Lufi/Controller/Files.pm:53
 msgid "Sorry, uploading is disabled."
 msgstr "Desculpe, o envio do ficheiro está desativado."
 
@@ -384,7 +380,7 @@ msgstr "A mensagem do e-mail não pode estar vazia."
 msgid "The email subject can't be empty."
 msgstr "O assunto do e-mail não pode estar vazio."
 
-#: lib/Lufi/Controller/Files.pm:392
+#: lib/Lufi/Controller/Files.pm:416
 msgid "The file has already been deleted"
 msgstr "O ficheiro já foi apagado"
 
@@ -409,9 +405,13 @@ msgstr "O e-mail foi enviado."
 msgid "The original (and only for now) author is <a href=\"https://fiat-tux.fr\" class=\"classic\">Luc Didry</a>. If you want to support him, you can do it via <a href=\"https://www.tipeee.com/fiat-tux\" class=\"classic\">Tipeee</a> or via <a href=\"https://liberapay.com/sky/\" class=\"classic\">Liberapay</a>."
 msgstr "O autor original (e por agora, o único) é <a href=\"https://fiat-tux.fr\" class=\"classic\">Luc Didry</a>. Se o desejar apoiar pode fazer-lo via <a href=\"https://www.tipeee.com/fiat-tux\" class=\"classic\">Tipeee</a> ou via <a href=\"https://liberapay.com/sky/\" class=\"classic\">Liberapay</a>."
 
-#: lib/Lufi/Controller/Files.pm:181
+#: lib/Lufi/Controller/Files.pm:191
 msgid "The server was unable to find the file record to add your file part to. Please, contact the administrator."
 msgstr "O servidor foi incapaz de encontrar o registo do ficheiro no qual devia-se juntar o fragmento do seu ficheiro. Contacte o administrador."
+
+#: lib/Lufi/Controller/Files.pm:243
+msgid "This file has been deactivated by the admins. Contact them to know why."
+msgstr ""
 
 #: themes/default/templates/delays.html.ep:10
 msgid "This server sets limitations according to the file size. The expiration delay of your file will be the minimum between what you choose and the following limitations:"
@@ -422,17 +422,17 @@ msgid "Unable to copy the link(s) to your clipboard"
 msgstr "Impossível copiar o(s) link(s) na sua área de transferência"
 
 #. ($short)
-#: lib/Lufi/Controller/Files.pm:363
+#: lib/Lufi/Controller/Files.pm:387
 msgid "Unable to get counter for %1. The file does not exists. It will be removed from your localStorage."
 msgstr "Impossível recuperar o contador para %1. O ficheiro não existe. Isso vai apagar a sua localStorage."
 
 #. ($short)
-#: lib/Lufi/Controller/Files.pm:353
+#: lib/Lufi/Controller/Files.pm:377
 msgid "Unable to get counter for %1. The token is invalid."
 msgstr "Impossível recuperar o contador para %1. O símbolo é inválido."
 
 #. ($short)
-#: lib/Lufi/Controller/Files.pm:373
+#: lib/Lufi/Controller/Files.pm:397
 msgid "Unable to get counter for %1. You are not authenticated."
 msgstr "Impossível recuperar o contador para %1. Não está conectado."
 
@@ -493,11 +493,11 @@ msgid "You must give email addresses."
 msgstr "Deve escrever os e-mails."
 
 #. (format_bytes($json->{size})
-#: lib/Lufi/Controller/Files.pm:56
+#: lib/Lufi/Controller/Files.pm:66
 msgid "Your file is too big: %1 (maximum size allowed: %2)"
 msgstr "O seu ficheiro é grande de mais: %1 (o tamanho máximo autorizado é de %2)"
 
-#: lib/Lufi/Controller/Files.pm:275
+#: lib/Lufi/Controller/Files.pm:299
 msgid "Your password is not valid. Please refresh the page to retry."
 msgstr ""
 

@@ -46,5 +46,5 @@
         <a href="#" class="btn btn-primary" id="mailto"><%= l('Send with your own mail software') %></a>
     </form>
 <div>
-%= javascript '/partial/mail.js'
+%= javascript url_for('/partial/mail.js')->query(populate => (!defined(stash('msg')) && !defined(stash('values'))), links => $links)
 %= javascript '/js/moment-with-locales.min.js'

@@ -23,7 +23,7 @@ function updateMailtoLink() {
 }
 function populateBody() {
     var links = [
-    % for my $link (@{$links}) {
+    % for my $link (@{stash('links')}) {
         '<%= $link %>',
     % }
     ];
@@ -45,7 +45,7 @@ function populateBody() {
     updateMailtoLink();
 }
 document.addEventListener('DOMContentLoaded', function() {
-% unless (defined(stash('msg')) || defined(stash('values'))) {
+% if (stash('populate')) {
     populateBody();
 % }
 

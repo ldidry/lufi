@@ -25,6 +25,7 @@ has 'slices' => sub {
     return Mojo::Collection->new();
 };
 has 'passwd';
+has 'abuse';
 has 'record' => 0;
 has 'app';
 
@@ -74,6 +75,8 @@ Have a look at Lufi::DB::File::SQLite's code: it's simple and may be more unders
 =item B<slices>               : Mojo::Collection of Lufi::DB::Slice
 
 =item B<passwd>               : string
+
+=item B<abuse>                : integer
 
 =item B<app>                  : a Mojolicious object
 
@@ -169,9 +172,9 @@ sub write {
     my $c = shift;
 
     if ($c->record) {
-        $c->app->dbi->db->query('UPDATE files SET short = ?, deleted = ?, mediatype = ?, filename = ?, filesize = ?, counter = ?, delete_at_first_view = ?, delete_at_day = ?, created_at = ?, created_by = ?, last_access_at = ?, mod_token = ?, nbslices = ?, complete = ?, passwd = ? WHERE short = ?', $c->short, $c->deleted, $c->mediatype, $c->filename, $c->filesize, $c->counter, $c->delete_at_first_view, $c->delete_at_day, $c->created_at, $c->created_by, $c->last_access_at, $c->mod_token, $c->nbslices, $c->complete, $c->passwd, $c->short);
+        $c->app->dbi->db->query('UPDATE files SET short = ?, deleted = ?, mediatype = ?, filename = ?, filesize = ?, counter = ?, delete_at_first_view = ?, delete_at_day = ?, created_at = ?, created_by = ?, last_access_at = ?, mod_token = ?, nbslices = ?, complete = ?, passwd = ?, abuse = ? WHERE short = ?', $c->short, $c->deleted, $c->mediatype, $c->filename, $c->filesize, $c->counter, $c->delete_at_first_view, $c->delete_at_day, $c->created_at, $c->created_by, $c->last_access_at, $c->mod_token, $c->nbslices, $c->complete, $c->passwd, $c->abuse, $c->short);
     } else {
-        $c->app->dbi->db->query('INSERT INTO files (short, deleted, mediatype, filename, filesize, counter, delete_at_first_view, delete_at_day, created_at, created_by, last_access_at, mod_token, nbslices, complete, passwd) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)', $c->short, $c->deleted, $c->mediatype, $c->filename, $c->filesize, $c->counter, $c->delete_at_first_view, $c->delete_at_day, $c->created_at, $c->created_by, $c->last_access_at, $c->mod_token, $c->nbslices, $c->complete, $c->passwd);
+        $c->app->dbi->db->query('INSERT INTO files (short, deleted, mediatype, filename, filesize, counter, delete_at_first_view, delete_at_day, created_at, created_by, last_access_at, mod_token, nbslices, complete, passwd, abuse) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)', $c->short, $c->deleted, $c->mediatype, $c->filename, $c->filesize, $c->counter, $c->delete_at_first_view, $c->delete_at_day, $c->created_at, $c->created_by, $c->last_access_at, $c->mod_token, $c->nbslices, $c->complete, $c->passwd, $c->abuse);
         $c->record(1);
     }
 
@@ -475,6 +478,7 @@ sub _slurp {
         $c->nbslices($file->{nbslices});
         $c->complete($file->{complete});
         $c->passwd($file->{passwd});
+        $c->abuse($file->{abuse});
 
         $c->record(1) unless $c->record;
     }

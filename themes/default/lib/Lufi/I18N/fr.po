@@ -55,7 +55,7 @@ msgstr "Ajouter un mot de passe au(x) fichier(s)"
 msgid "As Lufi is a free software licensed under of the terms of the <a href=\"https://gnu.org/licenses/agpl.html\" class=\"classic\">AGPLv3</a>, you can install it on you own server. Have a look on the <a href=\"https://framagit.org/luc/lufi/wikis/home\" class=\"classic\">Wiki</a> for the procedure."
 msgstr "Comme Lufi est un logiciel libre soumis aux termes de la license <a href=\"https://gnu.org/licenses/agpl.html\" class=\"classic\">AGPLv3</a>, vous pouvez l’installer sur votre propre serveur. Veuillez consulter le <a href=\"https://framagit.org/luc/lufi/wikis/home\" class=\"classic\">Wiki</a> pour voir la procédure."
 
-#. (stash('f')
+#. (stash('nbslices')
 #: themes/default/templates/partial/render.js.ep:9
 msgid "Asking for file part XX1 of %1"
 msgstr "Demande de récupération du fragment de fichier XX1 sur %1"
@@ -92,15 +92,15 @@ msgstr "Copier tous les liens dans le presse-papier"
 msgid "Copy to clipboard"
 msgstr "Copier dans le presse-papier"
 
-#: lib/Lufi/Controller/Files.pm:431
+#: lib/Lufi/Controller/Files.pm:455
 msgid "Could not delete the file. You are not authenticated."
 msgstr "Impossible de supprimer le fichier. Vous n’êtes pas connecté·e."
 
-#: lib/Lufi/Controller/Files.pm:413
+#: lib/Lufi/Controller/Files.pm:437
 msgid "Could not find the file. Are you sure of the URL and the token?"
 msgstr "Impossible de retrouver le fichier. Êtes-vous sûr(e) que l’URL et le jeton sont les bons ?"
 
-#: lib/Lufi/Controller/Files.pm:324
+#: lib/Lufi/Controller/Files.pm:348
 msgid "Could not find the file. Are you sure of the URL?"
 msgstr "Impossible de retrouver le fichier. Êtes-vous sûr(e) que l’URL est la bonne ?"
 
@@ -160,15 +160,15 @@ msgstr "Mails"
 msgid "Encrypting part XX1 of XX2"
 msgstr "Chiffrement du fragment XX1 sur XX2"
 
-#: lib/Lufi/Controller/Files.pm:227
+#: lib/Lufi/Controller/Files.pm:237
 msgid "Error: the file existed but was deleted."
 msgstr "Erreur : le fichier existait mais a été supprimé"
 
-#: lib/Lufi/Controller/Files.pm:293
+#: lib/Lufi/Controller/Files.pm:317
 msgid "Error: the file has not been sent entirely."
 msgstr "Erreur : le fichier n’a pas été envoyé dans son intégralité"
 
-#: lib/Lufi/Controller/Files.pm:303
+#: lib/Lufi/Controller/Files.pm:327
 msgid "Error: unable to find the file. Are you sure of your URL?"
 msgstr "Erreur : impossible de retrouver le fichier. Êtes-vous sûr(e) de l’URL ?"
 
@@ -184,7 +184,7 @@ msgstr "Expire le"
 msgid "Export localStorage data"
 msgstr "Exporter les données localStorage"
 
-#: lib/Lufi/Controller/Files.pm:395
+#: lib/Lufi/Controller/Files.pm:419
 msgid "File deleted"
 msgstr "Fichier supprimé"
 
@@ -274,14 +274,14 @@ msgstr "Lufi est un logiciel libre d’hébergement de fichiers."
 
 #: themes/default/templates/files.html.ep:33
 msgid "Mail"
-msgstr ""
+msgstr "Mail"
 
 #: themes/default/templates/files.html.ep:3 themes/default/templates/layouts/default.html.ep:31 themes/default/templates/layouts/default.html.ep:43
 msgid "My files"
 msgstr "Mes fichiers"
 
 #. (format_bytes($json->{size})
-#: lib/Lufi/Controller/Files.pm:69
+#: lib/Lufi/Controller/Files.pm:79
 msgid "No enough space available on the server for this file (size: %1)."
 msgstr "Espace disque insuffisant sur le serveur pour ce fichier (taille du fichier : %1)."
 
@@ -306,9 +306,9 @@ msgstr "Veuillez contacter l’administrateur : %1"
 msgid "Please wait while we are getting your file. We first need to download and decrypt all parts before you can get it."
 msgstr "Veuillez patientez pendant la récupération de votre fichier. Nous devons d’abord récupérer et déchiffrer tous les fragments avant que vous puissiez le télécharger."
 
-#: lib/Lufi.pm:143
-msgid "Please, check your credentials: unable to authenticate."
-msgstr "Veuillez vérifier vos identifiants : impossible de vous authentifier."
+#: lib/Lufi/Controller/Auth.pm:24
+msgid "Please, check your credentials or your right to access this service: unable to authenticate."
+msgstr "Veuillez vérifier vos identifiants ou votre droit d’accès à ce service : impossible de vous authentifier."
 
 #: themes/default/templates/about.html.ep:5
 msgid "Privacy"
@@ -347,7 +347,7 @@ msgstr "Partagez vos fichiers en toute confidentialité sur %1"
 msgid "Signin"
 msgstr "Connexion"
 
-#: lib/Lufi.pm:146
+#:
 msgid "Sorry mate, you are not authorised to use that service. Contact your sysadmin if you think there's a glitch in the matrix."
 msgstr "Désolé, vous n’êtes pas autorisé à utiliser ce service. Contactez votre administrateur si vous pensez qu’il s’agit d’une erreur."
 
@@ -355,7 +355,7 @@ msgstr "Désolé, vous n’êtes pas autorisé à utiliser ce service. Contactez
 msgid "Sorry, the uploading is currently disabled. Please try again later."
 msgstr "Désolé, l’envoi de fichier est actuellement désactivé. Veuillez réessayer plus tard."
 
-#: lib/Lufi/Controller/Files.pm:43
+#: lib/Lufi/Controller/Files.pm:53
 msgid "Sorry, uploading is disabled."
 msgstr "Désolé, l’envoi de fichier est désactivé."
 
@@ -375,7 +375,7 @@ msgstr "Le corps du mail ne peut être vide."
 msgid "The email subject can't be empty."
 msgstr "Le sujet du mail ne peut être vide."
 
-#: lib/Lufi/Controller/Files.pm:392
+#: lib/Lufi/Controller/Files.pm:416
 msgid "The file has already been deleted"
 msgstr "Le fichier a déjà été supprimé"
 
@@ -400,9 +400,13 @@ msgstr "Le mail a été envoyé."
 msgid "The original (and only for now) author is <a href=\"https://fiat-tux.fr\" class=\"classic\">Luc Didry</a>. If you want to support him, you can do it via <a href=\"https://www.tipeee.com/fiat-tux\" class=\"classic\">Tipeee</a> or via <a href=\"https://liberapay.com/sky/\" class=\"classic\">Liberapay</a>."
 msgstr "L’auteur originel (et pour l’instant, le seul) est <a href=\"https://fiat-tux.fr\" class=\"classic\">Luc Didry</a>. Si vous avez envie de le supporter, vous pouvez le faire via <a href=\"https://www.tipeee.com/fiat-tux\" class=\"classic\">Tipeee</a> ou via <a href=\"https://liberapay.com/sky/\" class=\"classic\">Liberapay</a>."
 
-#: lib/Lufi/Controller/Files.pm:181
+#: lib/Lufi/Controller/Files.pm:191
 msgid "The server was unable to find the file record to add your file part to. Please, contact the administrator."
 msgstr "Le serveur a été incapable de retrouver l’enregistrement du fichier auquel ajouter votre fragment de fichier. Veuillez contacter l’administrateur."
+
+#: lib/Lufi/Controller/Files.pm:243
+msgid "This file has been deactivated by the admins. Contact them to know why."
+msgstr ""
 
 #: themes/default/templates/delays.html.ep:10
 msgid "This server sets limitations according to the file size. The expiration delay of your file will be the minimum between what you choose and the following limitations:"
@@ -413,17 +417,17 @@ msgid "Unable to copy the link(s) to your clipboard"
 msgstr "Impossible de copier le(s) lien(s) dans votre presse-papier"
 
 #. ($short)
-#: lib/Lufi/Controller/Files.pm:363
+#: lib/Lufi/Controller/Files.pm:387
 msgid "Unable to get counter for %1. The file does not exists. It will be removed from your localStorage."
 msgstr "Impossible de récupérer le compteur pour %1. Le fichier n’existe pas. Il va être supprimé de votre localStorage."
 
 #. ($short)
-#: lib/Lufi/Controller/Files.pm:353
+#: lib/Lufi/Controller/Files.pm:377
 msgid "Unable to get counter for %1. The token is invalid."
 msgstr "Impossible de récupérer le compteur pour %1. Le jeton est invalide."
 
 #. ($short)
-#: lib/Lufi/Controller/Files.pm:373
+#: lib/Lufi/Controller/Files.pm:397
 msgid "Unable to get counter for %1. You are not authenticated."
 msgstr "Impossible de récupérer le compteur pour %1. Vous n’êtes pas connecté·e."
 
@@ -480,11 +484,11 @@ msgid "You must give email addresses."
 msgstr "Vous devez envoyer des adresses mail."
 
 #. (format_bytes($json->{size})
-#: lib/Lufi/Controller/Files.pm:56
+#: lib/Lufi/Controller/Files.pm:66
 msgid "Your file is too big: %1 (maximum size allowed: %2)"
 msgstr "Votre fichier est trop volumineux : %1 (la taille maximum autorisée est %2)"
 
-#: lib/Lufi/Controller/Files.pm:275
+#: lib/Lufi/Controller/Files.pm:299
 msgid "Your password is not valid. Please refresh the page to retry."
 msgstr "Votre mot de passe est invalide. Veuillez rafraîchir la page pour réessayer."
 

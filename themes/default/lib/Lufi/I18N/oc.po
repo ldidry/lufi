@@ -55,7 +55,7 @@ msgstr "Apondre un senhal al(s) fichièr(s)"
 msgid "As Lufi is a free software licensed under of the terms of the <a href=\"https://gnu.org/licenses/agpl.html\" class=\"classic\">AGPLv3</a>, you can install it on you own server. Have a look on the <a href=\"https://framagit.org/luc/lufi/wikis/home\" class=\"classic\">Wiki</a> for the procedure."
 msgstr "Ja que Lufi es un logicial liure somés als tèrmes de la licéncia <a href=\"https://gnu.org/licenses/agpl.html\" class=\"classic\">AGPLv3</a>, podètz l’installar sus vòstre pròpri servidor. Mercés de consultar lo <a href=\"https://framagit.org/luc/lufi/wikis/home\" class=\"classic\">Wiki</a> per veire la procedura."
 
-#. (stash('f')
+#. (stash('nbslices')
 #: themes/default/templates/partial/render.js.ep:9
 msgid "Asking for file part XX1 of %1"
 msgstr "Demanda del tròç XX1 sus %1 del fichièr"
@@ -92,15 +92,15 @@ msgstr "Copiar totes los ligams al quicha-papièrs"
 msgid "Copy to clipboard"
 msgstr "Copiar al quicha-papièrs"
 
-#: lib/Lufi/Controller/Files.pm:431
+#: lib/Lufi/Controller/Files.pm:455
 msgid "Could not delete the file. You are not authenticated."
 msgstr "Impossible de suprimir lo fichièr. Sètz pas connectat-ada."
 
-#: lib/Lufi/Controller/Files.pm:413
+#: lib/Lufi/Controller/Files.pm:437
 msgid "Could not find the file. Are you sure of the URL and the token?"
 msgstr "Impossible de trobar lo fichièr. Sètz segur-a que l’URL e lo geton son bons ?"
 
-#: lib/Lufi/Controller/Files.pm:324
+#: lib/Lufi/Controller/Files.pm:348
 msgid "Could not find the file. Are you sure of the URL?"
 msgstr "Impossible de trobar lo fichièr. Sètz segur-a que l’URL es bona ?"
 
@@ -160,15 +160,15 @@ msgstr "Corrièl"
 msgid "Encrypting part XX1 of XX2"
 msgstr "Chiframent del tròç XX1 sus XX2"
 
-#: lib/Lufi/Controller/Files.pm:227
+#: lib/Lufi/Controller/Files.pm:237
 msgid "Error: the file existed but was deleted."
 msgstr "Error : lo fichièr existissiá mas es estat suprimit"
 
-#: lib/Lufi/Controller/Files.pm:293
+#: lib/Lufi/Controller/Files.pm:317
 msgid "Error: the file has not been sent entirely."
 msgstr "Error : lo fichièr es pas estat mandat completament"
 
-#: lib/Lufi/Controller/Files.pm:303
+#: lib/Lufi/Controller/Files.pm:327
 msgid "Error: unable to find the file. Are you sure of your URL?"
 msgstr "Error : impossible de trobar lo fichièr. Sètz segur-a de l’URL ?"
 
@@ -184,7 +184,7 @@ msgstr "Expira lo"
 msgid "Export localStorage data"
 msgstr "Exportar las donadas localStorage"
 
-#: lib/Lufi/Controller/Files.pm:395
+#: lib/Lufi/Controller/Files.pm:419
 msgid "File deleted"
 msgstr "Fichièr suprimit"
 
@@ -281,7 +281,7 @@ msgid "My files"
 msgstr "Mos fichièrs"
 
 #. (format_bytes($json->{size})
-#: lib/Lufi/Controller/Files.pm:69
+#: lib/Lufi/Controller/Files.pm:79
 msgid "No enough space available on the server for this file (size: %1)."
 msgstr "Espaci disc insufisent sul servidor per aqueste fichièr (talha del fichièr : \"%1)."
 
@@ -306,7 +306,11 @@ msgstr "Mercés de contactar l’administrator : %1"
 msgid "Please wait while we are getting your file. We first need to download and decrypt all parts before you can get it."
 msgstr "Mercés d’esperar pendent la recuperacion de vòstre fichièr. Nos cal d’en primièr recuperar e deschifrar totes los fragaments abans que poscatz o telecargar."
 
-#: lib/Lufi.pm:143
+#: lib/Lufi/Controller/Auth.pm:24
+msgid "Please, check your credentials or your right to access this service: unable to authenticate."
+msgstr ""
+
+#:
 msgid "Please, check your credentials: unable to authenticate."
 msgstr "Mercés de verificar vòstres identificants : impossible de vos autentificar."
 
@@ -347,7 +351,7 @@ msgstr "Partejatz vòstres fichièrs en tota confidencialitat sus %1"
 msgid "Signin"
 msgstr "Connexion"
 
-#: lib/Lufi.pm:146
+#:
 msgid "Sorry mate, you are not authorised to use that service. Contact your sysadmin if you think there's a glitch in the matrix."
 msgstr "O planhèm collèga, sètz pas autorizat a utilizar aqueste servici. Contactatz vòstre administrator sistèma se pensatz que i a un problèma."
 
@@ -355,7 +359,7 @@ msgstr "O planhèm collèga, sètz pas autorizat a utilizar aqueste servici. Con
 msgid "Sorry, the uploading is currently disabled. Please try again later."
 msgstr "O planhèm, la foncion per mandar de fichièr es desactivada pel moment. Mercés de tornar ensajar mai tard."
 
-#: lib/Lufi/Controller/Files.pm:43
+#: lib/Lufi/Controller/Files.pm:53
 msgid "Sorry, uploading is disabled."
 msgstr "O planhèm, la foncion per mandar de fichièr es desactivada."
 
@@ -375,7 +379,7 @@ msgstr "Lo contengut del corrièl pòt pas èsser void."
 msgid "The email subject can't be empty."
 msgstr "Lo sujècte del corrièl pòt pas èsser void."
 
-#: lib/Lufi/Controller/Files.pm:392
+#: lib/Lufi/Controller/Files.pm:416
 msgid "The file has already been deleted"
 msgstr "Lo fichièr es ja estat suprimit"
 
@@ -400,9 +404,13 @@ msgstr "Lo corrièl es estat mandat."
 msgid "The original (and only for now) author is <a href=\"https://fiat-tux.fr\" class=\"classic\">Luc Didry</a>. If you want to support him, you can do it via <a href=\"https://www.tipeee.com/fiat-tux\" class=\"classic\">Tipeee</a> or via <a href=\"https://liberapay.com/sky/\" class=\"classic\">Liberapay</a>."
 msgstr "L’autor original (e pel moment, lo sol) es <a href=\"https://fiat-tux.fr\" class=\"classic\">Luc Didry</a>. S’avètz enveja de lo sostenir, podètz o far via <a href=\"https://www.tipeee.com/fiat-tux\" class=\"classic\">Tipeee</a> o via <a href=\"https://liberapay.com/sky/\" class=\"classic\">Liberapay</a>."
 
-#: lib/Lufi/Controller/Files.pm:181
+#: lib/Lufi/Controller/Files.pm:191
 msgid "The server was unable to find the file record to add your file part to. Please, contact the administrator."
 msgstr "Lo servidor es pas estat capable de retrobar l’enregistrament del fichièr que li cal ajustar vòstre tròç de fichièr. Mercés de contactar l’administrator."
+
+#: lib/Lufi/Controller/Files.pm:243
+msgid "This file has been deactivated by the admins. Contact them to know why."
+msgstr ""
 
 #: themes/default/templates/delays.html.ep:10
 msgid "This server sets limitations according to the file size. The expiration delay of your file will be the minimum between what you choose and the following limitations:"
@@ -413,17 +421,17 @@ msgid "Unable to copy the link(s) to your clipboard"
 msgstr "Impossible de copiar lo(s) ligams(s) dins vòstre quicha-papièrs"
 
 #. ($short)
-#: lib/Lufi/Controller/Files.pm:363
+#: lib/Lufi/Controller/Files.pm:387
 msgid "Unable to get counter for %1. The file does not exists. It will be removed from your localStorage."
 msgstr "Impossible de recuperar lo comptador per %1. Lo fichièr existís pas. Serà levat de vòstre localStorage."
 
 #. ($short)
-#: lib/Lufi/Controller/Files.pm:353
+#: lib/Lufi/Controller/Files.pm:377
 msgid "Unable to get counter for %1. The token is invalid."
 msgstr "Impossible de recuperar lo comptador per %1. Lo geton es invalid."
 
 #. ($short)
-#: lib/Lufi/Controller/Files.pm:373
+#: lib/Lufi/Controller/Files.pm:397
 msgid "Unable to get counter for %1. You are not authenticated."
 msgstr "Impossible de recuperar lo comptador per %1. Sètz pas connectat·ada."
 
@@ -480,11 +488,11 @@ msgid "You must give email addresses."
 msgstr "Vos cal donar d’adreças."
 
 #. (format_bytes($json->{size})
-#: lib/Lufi/Controller/Files.pm:56
+#: lib/Lufi/Controller/Files.pm:66
 msgid "Your file is too big: %1 (maximum size allowed: %2)"
 msgstr "Vòstre fichièr es tròp voluminós : %1 (la talha maximum autorizada es %2)"
 
-#: lib/Lufi/Controller/Files.pm:275
+#: lib/Lufi/Controller/Files.pm:299
 msgid "Your password is not valid. Please refresh the page to retry."
 msgstr "Lo senhal es pas valid. Mercés d’actualizar la pagina e ensajar tornamai."
 
