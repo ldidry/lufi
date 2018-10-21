@@ -1,5 +1,8 @@
 Revision history for Lufi
 
+0.03 2018-??-??
+	- Use Mojo::SQLite instead of ORLite
+
 0.02.2 2017-09-18
 	- Fix cron tasks bug
 

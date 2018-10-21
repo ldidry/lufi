@@ -1,7 +1,10 @@
 local/*
 files/*
 lufi.conf
-lufi.db
+*.db
+*.db-shm
+*.db-wal
+*.bak
 *.swp
 script/hypnotoad.pid
 stop-upload

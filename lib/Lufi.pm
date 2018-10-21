@@ -31,6 +31,7 @@ sub startup {
             session_duration   => 3600,
             allow_pwd_on_files => 0,
             dbtype             => 'sqlite',
+            db_path            => 'lufi.db',
         }
     });
 

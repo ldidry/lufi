@@ -24,7 +24,7 @@ podcheck:
 	podchecker lib/Lufi/DB/File.pm lib/Lufi/DB/Slice.pm
 
 test:
-	$(CARTON) $(REAL_LUFI) test
+	$(CARTON) prove -l -f -o t/basic.t
 
 clean:
 	rm -rf lufi.db files/

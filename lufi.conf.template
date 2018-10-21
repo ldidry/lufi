@@ -7,7 +7,7 @@
     hypnotoad => {
         # array of IP addresses and ports you want to listen to
         listen => ['http://127.0.0.1:8081'],
-        # if you use Lufi behind a reverse proxy like Nginx, you want ro set proxy to 1
+        # if you use Lufi behind a reverse proxy like Nginx, you want to set proxy to 1
         # if you use Lufi directly, let it commented
         #proxy  => 1,
 

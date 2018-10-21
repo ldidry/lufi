@@ -7,47 +7,64 @@ use Data::Entropy qw(entropy_source);
 sub register {
     my ($self, $app) = @_;
 
-    $app->plugin('PgURLHelper');
+    # PgURL helper
+    if ($app->config('dbtype') eq 'postgresql' || $app->config('dbtype') eq 'mysql') {
+        $app->plugin('PgURLHelper');
+    }
+
 
     if ($app->config('dbtype') eq 'postgresql') {
-        use Mojo::Pg;
-        $app->helper(pg => \&_pg);
+        require Mojo::Pg;
+        $app->helper(dbi => \&_pg);
 
         # Database migration
-        my $migrations = Mojo::Pg::Migrations->new(pg => $app->pg);
+        my $migrations = Mojo::Pg::Migrations->new(pg => $app->dbi);
         if ($app->mode eq 'development' && $ENV{LUFI_DEV}) {
-            $migrations->from_file('utilities/migrations_pg.sql')->migrate(0)->migrate(1);
+            $migrations->from_file('utilities/migrations/pg.sql')->migrate(0)->migrate(1);
         } else {
-            $migrations->from_file('utilities/migrations_pg.sql')->migrate(1);
+            $migrations->from_file('utilities/migrations/pg.sql')->migrate(1);
         }
     } elsif ($app->config('dbtype') eq 'sqlite') {
-        # SQLite database migration if needed
-        use Lufi::DB::SQLite;
-        my $columns = Lufi::DB::SQLite::Files->table_info;
-        my $pwd_col = 0;
-        foreach my $col (@{$columns}) {
-            $pwd_col = 1 if $col->{name} eq 'passwd';
+        require Mojo::SQLite;
+        $app->helper(dbi => \&_sqlite);
+
+        # Database migration
+        # Have to create $sql before using its migrations attribute, otherwise, it won't work
+        my $sql        = $app->dbi;
+        my $migrations = $sql->migrations;
+        if ($app->mode eq 'development' && $ENV{LUFI_DEV}) {
+            $migrations->from_file('utilities/migrations/sqlite.sql')->migrate(0)->migrate(1);
+        } else {
+            $migrations->from_file('utilities/migrations/sqlite.sql')->migrate(1);
         }
-        unless ($pwd_col) {
-            Lufi::DB::SQLite->do('ALTER TABLE files ADD COLUMN passwd TEXT;');
+        my $columns = $app->dbi->db->query('PRAGMA table_info(files)')->hashes;
+        if ($columns->size == 14) { # Missing passwd column
+            $app->dbi->db->query('ALTER TABLE files ADD COLUMN passwd TEXT');
         }
     }
 
-    $app->helper(provisioning => \&_provisioning);
-    $app->helper(get_empty => \&_get_empty);
-    $app->helper(shortener => \&_shortener);
-    $app->helper(ip => \&_ip);
+    $app->helper(provisioning  => \&_provisioning);
+    $app->helper(get_empty     => \&_get_empty);
+    $app->helper(shortener     => \&_shortener);
+    $app->helper(ip            => \&_ip);
     $app->helper(default_delay => \&_default_delay);
-    $app->helper(max_delay => \&_max_delay);
-    $app->helper(is_selected => \&_is_selected);
-    $app->helper(stop_upload => \&_stop_upload);
+    $app->helper(max_delay     => \&_max_delay);
+    $app->helper(is_selected   => \&_is_selected);
+    $app->helper(stop_upload   => \&_stop_upload);
 }
 
 sub _pg {
-    my $c     = shift;
+    my $c = shift;
 
     state $pg = Mojo::Pg->new($c->app->pg_url($c->app->config('pgdb')));
     return $pg;
+}
+
+sub _sqlite {
+    my $c = shift;
+
+    state $sqlite = Mojo::SQLite->new('sqlite:'.$c->app->config('db_path'));
+    return $sqlite;
 }
 
 sub _provisioning {

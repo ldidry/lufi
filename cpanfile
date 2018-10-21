@@ -28,5 +28,5 @@ feature 'postgresql', 'PostgreSQL support' => sub {
     requires 'Mojolicious::Plugin::PgURLHelper';
 };
 feature 'sqlite', 'SQLite support' => sub {
-    requires 'ORLite';
+    requires 'Mojo::SQLite', '>= 3.000';
 }

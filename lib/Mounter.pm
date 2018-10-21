@@ -23,6 +23,24 @@ sub startup {
                 prefix => '/',
                 theme  => 'default',
                 dbtype => 'sqlite',
+                prefix             => '/',
+                provisioning       => 100,
+                provis_step        => 5,
+                length             => 10,
+                token_length       => 32,
+                secrets            => ['hfudsifdsih'],
+                default_delay      => 0,
+                max_delay          => 0,
+                mail               => {
+                    how => 'sendmail'
+                },
+                mail_sender        => 'no-reply@lufi.io',
+                theme              => 'default',
+                upload_dir         => 'files',
+                session_duration   => 3600,
+                allow_pwd_on_files => 0,
+                dbtype             => 'sqlite',
+                db_path            => 'lufi.db',
             }
         }
     );
