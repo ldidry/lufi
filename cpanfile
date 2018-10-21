@@ -3,6 +3,8 @@ requires 'Mojolicious', '>= 7.31';
 requires 'Mojolicious::Plugin::DebugDumperHelper';
 requires 'Mojolicious::Plugin::I18N';
 requires 'Mojolicious::Plugin::Mail';
+requires 'Mojolicious::Plugin::GzipStatic';
+requires 'Mojolicious::Plugin::StaticCache';
 requires 'Mojolicious::Plugin::FiatTux::Helpers', '== 0.01', url => 'https://framagit.org/luc/mojolicious-plugin-fiattux-helpers/-/archive/0.01/mojolicious-plugin-fiattux-helpers-0.01.tar.gz';
 requires 'Mojolicious::Plugin::FiatTux::GrantAccess', '== 0.05', url => 'https://framagit.org/luc/mojolicious-plugin-fiattux-grantaccess/-/archive/0.05/mojolicious-plugin-fiattux-grantaccess-0.05.tar.gz';
 requires 'EV';

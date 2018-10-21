@@ -67,6 +67,12 @@ sub startup {
     # Debug
     $self->plugin('DebugDumperHelper');
 
+    # Compress static assets
+    $self->plugin('GzipStatic');
+
+    # Cache static assets
+    $self->plugin('StaticCache');
+
     # Fiat Tux helpers
     $self->plugin('FiatTux::Helpers');
 

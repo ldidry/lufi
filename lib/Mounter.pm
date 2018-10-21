@@ -46,6 +46,12 @@ sub startup {
         }
     );
 
+    # Compress static assets
+    $self->plugin('GzipStatic');
+
+    # Cache static assets
+    $self->plugin('StaticCache');
+
     # Helpers
     $self->plugin('Lufi::Plugin::Helpers');
 
