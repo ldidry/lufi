@@ -19,7 +19,7 @@ msgstr ""
 
 #. ($delay)
 #. (max_delay)
-#: themes/default/templates/index.html.ep:40 themes/default/templates/index.html.ep:49 themes/default/templates/index.html.ep:50
+#: themes/default/templates/index.html.ep:47 themes/default/templates/index.html.ep:56 themes/default/templates/index.html.ep:57
 msgid "%1 days"
 msgstr "%1 jorns"
 
@@ -27,7 +27,7 @@ msgstr "%1 jorns"
 msgid "1 year"
 msgstr "1 an"
 
-#: themes/default/templates/index.html.ep:4 themes/default/templates/index.html.ep:49
+#: themes/default/templates/index.html.ep:4 themes/default/templates/index.html.ep:56
 msgid "24 hours"
 msgstr "24 oras"
 
@@ -47,7 +47,7 @@ msgstr "Anullar"
 msgid "About"
 msgstr "A prepaus"
 
-#: themes/default/templates/index.html.ep:81
+#: themes/default/templates/index.html.ep:88
 msgid "Add a password to file(s)"
 msgstr "Apondre un senhal al(s) fichièr(s)"
 
@@ -72,7 +72,7 @@ msgstr "Marrit geton CSRF !"
 msgid "Click here to refresh the page and restart the download."
 msgstr "Clicatz aquí per actualizar la pagina e tornar començar lo telecargament."
 
-#: themes/default/templates/index.html.ep:90
+#: themes/default/templates/index.html.ep:97
 msgid "Click to open the file browser"
 msgstr "Clicatz per dobrir lo navigator de fichièr"
 
@@ -108,7 +108,7 @@ msgstr "Impossible de trobar lo fichièr. Sètz segur-a que l’URL es bona ?"
 msgid "Counter"
 msgstr "Comptador"
 
-#: themes/default/templates/files.html.ep:29 themes/default/templates/index.html.ep:74
+#: themes/default/templates/files.html.ep:29 themes/default/templates/index.html.ep:81
 msgid "Delete at first download?"
 msgstr "Suprimir aprèp lo primièr telecargament ?"
 
@@ -140,7 +140,7 @@ msgstr "Ligam de telecargament"
 msgid "Drag and drop files in the appropriate area or use the traditional way to send files and the files will be chunked, encrypted and sent to the server. You will get two links per file: a download link, that you give to the people you want to share the file with and a deletion link, allowing you to delete the file whenever you want."
 msgstr "Fasètz lisar de fichièrs dins la zòna prevista per aquò far o seleccionatz un fichièr de faiçon classica e los fichièrs seràn descopats a tròces, chifrats e mandats al servidor. Recuperaretz dos ligams per fichièr : un ligam de telecargament e un ligam per suprimir lo fichièr quand o volètz."
 
-#: themes/default/templates/index.html.ep:87
+#: themes/default/templates/index.html.ep:94
 msgid "Drop files here"
 msgstr "Lisatz vòstres fichièrs aquí"
 
@@ -192,7 +192,7 @@ msgstr "Fichièr suprimit"
 msgid "File name"
 msgstr "Nom del fichièr"
 
-#: themes/default/templates/index.html.ep:64
+#: themes/default/templates/index.html.ep:71
 msgid "Files deleted at first download"
 msgstr ""
 
@@ -244,7 +244,7 @@ msgstr "Se mandatz lo corrièl d’aqueste servidor, los ligams seràn mandat al
 msgid "Import localStorage data"
 msgstr "Importar las donadas localStorage"
 
-#: themes/default/templates/index.html.ep:37
+#: themes/default/templates/index.html.ep:44
 msgid "Important: more information on delays"
 msgstr "Important : mai d’informacions suls relambis"
 
@@ -293,7 +293,7 @@ msgstr "Pas cap de relambi d’expiracion"
 msgid "Only the files sent with this browser will be listed here. This list is stored in localStorage: if you delete your localStorage data, you'll lose this list."
 msgstr "Sols los fichièrs mandats amb aqueste navigador web son listats aicí. Las informacions son gardadas en localStorage : se suprimissètz vòstras donadas localStorage, perdretz aquelas informacions."
 
-#: themes/default/templates/index.html.ep:80 themes/default/templates/login.html.ep:21 themes/default/templates/render.html.ep:26
+#: themes/default/templates/index.html.ep:87 themes/default/templates/login.html.ep:21 themes/default/templates/render.html.ep:26
 msgid "Password"
 msgstr "Senhal"
 
@@ -355,7 +355,7 @@ msgstr "Connexion"
 msgid "Sorry mate, you are not authorised to use that service. Contact your sysadmin if you think there's a glitch in the matrix."
 msgstr "O planhèm collèga, sètz pas autorizat a utilizar aqueste servici. Contactatz vòstre administrator sistèma se pensatz que i a un problèma."
 
-#: themes/default/templates/index.html.ep:30
+#: themes/default/templates/index.html.ep:37
 msgid "Sorry, the uploading is currently disabled. Please try again later."
 msgstr "O planhèm, la foncion per mandar de fichièr es desactivada pel moment. Mercés de tornar ensajar mai tard."
 
@@ -443,7 +443,7 @@ msgstr "Mandar de fichièrs"
 msgid "Uploaded at"
 msgstr "Mandat lo"
 
-#: themes/default/templates/index.html.ep:95
+#: themes/default/templates/index.html.ep:102
 msgid "Uploaded files"
 msgstr "Fichièrs mandats"
 
@@ -487,6 +487,10 @@ msgstr "Sètz ben estat desconnectat."
 msgid "You must give email addresses."
 msgstr "Vos cal donar d’adreças."
 
+#: themes/default/templates/index.html.ep:29
+msgid "Your browser has not enough entropy to generate a strong encryption key. Please wait (it's better if you do things on your computer while waiting)."
+msgstr ""
+
 #. (format_bytes($json->{size})
 #: lib/Lufi/Controller/Files.pm:66
 msgid "Your file is too big: %1 (maximum size allowed: %2)"
@@ -524,6 +528,6 @@ msgstr "per %1 e mai, lo fichièr serà gardat per totjorn."
 msgid "no time limit"
 msgstr "Pas cap de relambi d’expiracion"
 
-#: themes/default/templates/index.html.ep:88
+#: themes/default/templates/index.html.ep:95
 msgid "or"
 msgstr "o"

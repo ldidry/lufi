@@ -8,6 +8,8 @@ Revision history for Lufi
 	- Allow to block files by setting an abuse field in DB
 	- Display file size when uploading
 	- Add Content-Security-Policy header
+	- Update sjcl.js
+	- Mitigate genRandomKey exception risk
 
 0.02.2 2017-09-18
 	- Fix cron tasks bug

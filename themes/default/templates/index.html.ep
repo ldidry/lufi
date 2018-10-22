@@ -23,6 +23,13 @@
             </div>
         </div>
 % }
+        <div class="col s12 hiddendiv" id="not-enough-entropy">
+            <div class="card pink">
+                <div class="card-content white-text">
+                    <strong><%= l('Your browser has not enough entropy to generate a strong encryption key. Please wait (it\'s better if you do things on your computer while waiting).') %></strong>
+                </div>
+            </div>
+        </div>
 % if (stop_upload) {
         <div class="col s12">
             <div class="card pink">
@@ -87,8 +94,8 @@
         <h2><%= l('Drop files here') %></h2>
         <p><small><%= l('or') %></small></p>
         <label>
-            <span class="btn cyan waves-effect waves-light"><%= l('Click to open the file browser') %></span>
-            <input type="file" onchange="handleFiles(this.files)" multiple>
+            <span id="file-browser-span" class="btn disabled waves-effect waves-light"><%= l('Click to open the file browser') %></span>
+            <input type="file" id="file-browser-button" multiple disabled>
         </label>
     </div>
     <div id="results">

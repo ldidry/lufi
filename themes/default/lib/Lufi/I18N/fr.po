@@ -19,7 +19,7 @@ msgstr ""
 
 #. ($delay)
 #. (max_delay)
-#: themes/default/templates/index.html.ep:40 themes/default/templates/index.html.ep:49 themes/default/templates/index.html.ep:50
+#: themes/default/templates/index.html.ep:47 themes/default/templates/index.html.ep:56 themes/default/templates/index.html.ep:57
 msgid "%1 days"
 msgstr "%1 jours"
 
@@ -27,7 +27,7 @@ msgstr "%1 jours"
 msgid "1 year"
 msgstr "1 an"
 
-#: themes/default/templates/index.html.ep:4 themes/default/templates/index.html.ep:49
+#: themes/default/templates/index.html.ep:4 themes/default/templates/index.html.ep:56
 msgid "24 hours"
 msgstr "24 heures"
 
@@ -47,7 +47,7 @@ msgstr "Abandonner"
 msgid "About"
 msgstr "À propos"
 
-#: themes/default/templates/index.html.ep:81
+#: themes/default/templates/index.html.ep:88
 msgid "Add a password to file(s)"
 msgstr "Ajouter un mot de passe au(x) fichier(s)"
 
@@ -72,7 +72,7 @@ msgstr "Mauvais jeton CSRF !"
 msgid "Click here to refresh the page and restart the download."
 msgstr "Cliquez ici pour rafraîchir la page et redémarrer le téléchargement."
 
-#: themes/default/templates/index.html.ep:90
+#: themes/default/templates/index.html.ep:97
 msgid "Click to open the file browser"
 msgstr "Cliquez pour ouvrir le navigateur de fichiers"
 
@@ -108,7 +108,7 @@ msgstr "Impossible de retrouver le fichier. Êtes-vous sûr(e) que l’URL est l
 msgid "Counter"
 msgstr "Compteur"
 
-#: themes/default/templates/files.html.ep:29 themes/default/templates/index.html.ep:74
+#: themes/default/templates/files.html.ep:29 themes/default/templates/index.html.ep:81
 msgid "Delete at first download?"
 msgstr "Supprimer après le premier téléchargement ?"
 
@@ -140,7 +140,7 @@ msgstr "Lien de téléchargement"
 msgid "Drag and drop files in the appropriate area or use the traditional way to send files and the files will be chunked, encrypted and sent to the server. You will get two links per file: a download link, that you give to the people you want to share the file with and a deletion link, allowing you to delete the file whenever you want."
 msgstr "Faites glisser des fichiers dans la zone prévue à cet effet ou sélectionnez un fichier de façon classique et les fichiers seront découpés en morceaux, chiffrés et envoyés au serveur. Vous récupérerez deux liens par fichier : un lien de téléchargement et un lien pour supprimer le fichier quand vous le souhaitez."
 
-#: themes/default/templates/index.html.ep:87
+#: themes/default/templates/index.html.ep:94
 msgid "Drop files here"
 msgstr "Glissez vos fichiers ici"
 
@@ -192,7 +192,7 @@ msgstr "Fichier supprimé"
 msgid "File name"
 msgstr "Nom du fichier"
 
-#: themes/default/templates/index.html.ep:64
+#: themes/default/templates/index.html.ep:71
 msgid "Files deleted at first download"
 msgstr "Fichiers supprimés au premier téléchargement"
 
@@ -244,7 +244,7 @@ msgstr "Si vous envoyez le mail depuis ce serveur, les liens seront envoyés au 
 msgid "Import localStorage data"
 msgstr "Importer des données localStorage"
 
-#: themes/default/templates/index.html.ep:37
+#: themes/default/templates/index.html.ep:44
 msgid "Important: more information on delays"
 msgstr "Important : plus d’informations sur les délais"
 
@@ -293,7 +293,7 @@ msgstr "Pas de délai d’expiration"
 msgid "Only the files sent with this browser will be listed here. This list is stored in localStorage: if you delete your localStorage data, you'll lose this list."
 msgstr "Seuls les fichiers envoyés avec ce navigateur web sont listés ici. Les informations sont stockées en localStorage : si vous supprimez vos données localStorage, vous perdrez ces informations."
 
-#: themes/default/templates/index.html.ep:80 themes/default/templates/login.html.ep:21 themes/default/templates/render.html.ep:26
+#: themes/default/templates/index.html.ep:87 themes/default/templates/login.html.ep:21 themes/default/templates/render.html.ep:26
 msgid "Password"
 msgstr "Mot de passe"
 
@@ -351,7 +351,7 @@ msgstr "Connexion"
 msgid "Sorry mate, you are not authorised to use that service. Contact your sysadmin if you think there's a glitch in the matrix."
 msgstr "Désolé, vous n’êtes pas autorisé à utiliser ce service. Contactez votre administrateur si vous pensez qu’il s’agit d’une erreur."
 
-#: themes/default/templates/index.html.ep:30
+#: themes/default/templates/index.html.ep:37
 msgid "Sorry, the uploading is currently disabled. Please try again later."
 msgstr "Désolé, l’envoi de fichier est actuellement désactivé. Veuillez réessayer plus tard."
 
@@ -406,7 +406,7 @@ msgstr "Le serveur a été incapable de retrouver l’enregistrement du fichier 
 
 #: lib/Lufi/Controller/Files.pm:243
 msgid "This file has been deactivated by the admins. Contact them to know why."
-msgstr ""
+msgstr "The fichier a été désactivé par les administrateurs ou administratrices. Veuillez les contacter pour savoir pourquoi."
 
 #: themes/default/templates/delays.html.ep:10
 msgid "This server sets limitations according to the file size. The expiration delay of your file will be the minimum between what you choose and the following limitations:"
@@ -439,7 +439,7 @@ msgstr "Envoyer des fichiers"
 msgid "Uploaded at"
 msgstr "Envoyé le"
 
-#: themes/default/templates/index.html.ep:95
+#: themes/default/templates/index.html.ep:102
 msgid "Uploaded files"
 msgstr "Fichiers envoyés"
 
@@ -483,6 +483,10 @@ msgstr "Vous avez été déconnecté·e avec succès."
 msgid "You must give email addresses."
 msgstr "Vous devez envoyer des adresses mail."
 
+#: themes/default/templates/index.html.ep:29
+msgid "Your browser has not enough entropy to generate a strong encryption key. Please wait (it's better if you do things on your computer while waiting)."
+msgstr "Votre navigateur n’a pas assez d’entropie pour générer une clé de chiffrement forte. Veuillez attendre (il est préférable que vous fassiez quelque chose sur votre ordinateur en attendant)."
+
 #. (format_bytes($json->{size})
 #: lib/Lufi/Controller/Files.pm:66
 msgid "Your file is too big: %1 (maximum size allowed: %2)"
@@ -520,6 +524,6 @@ msgstr "pour %1 et plus, le fichier sera conservé indéfiniment."
 msgid "no time limit"
 msgstr "Pas de délai d'expiration"
 
-#: themes/default/templates/index.html.ep:88
+#: themes/default/templates/index.html.ep:95
 msgid "or"
 msgstr "ou"

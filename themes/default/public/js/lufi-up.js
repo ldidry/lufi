@@ -162,7 +162,7 @@ function uploadFile(i, delay, del_at_first_view) {
                         '</div>',
                     '</div>',
             '<div>'].join(''));
-    r.append(w);
+    r.prepend(w);
     $('#destroy-'+window.fc).on('click', function(event) {
         event.preventDefault();
         destroyBlock(this)
@@ -425,12 +425,34 @@ function spawnWebsocket(i, callback) {
     return ws;
 }
 
-// When it's ready
-$(document).ready(function(){
-    // Dropzone events binding
+// Dropzone events binding
+function bindDropZone() {
     var dropZone = document.getElementById('files');
     dropZone.addEventListener('dragover', handleDragOver, false);
     dropZone.addEventListener('drop', handleDrop, false);
+    $('#file-browser-span').removeClass('disabled');
+    $('#file-browser-span').addClass('cyan');
+    $('#file-browser-button').attr('disabled', null);
+    $('#file-browser-button').on('change', function(e) {
+        handleFiles(this.files);
+    });
+}
+
+// When it's ready
+$(document).ready(function(){
+    if (!sjcl.random.isReady(10)) {
+        var loop = setInterval(function() {
+            if (!sjcl.random.isReady(10)) {
+                $('#not-enough-entropy').removeClass('hiddendiv');
+            } else {
+                $('#not-enough-entropy').addClass('hiddendiv');
+                bindDropZone();
+                clearInterval(loop);
+            }
+        }, 1000);
+    } else {
+        bindDropZone();
+    }
     $('label[for="first-view"]').on('click', function(){
         if ($('#first-view').attr('data-checked') && $('#first-view').attr('data-checked') === 'data-checked') {
             $('#first-view').attr('data-checked', null);

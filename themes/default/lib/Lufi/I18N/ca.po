@@ -20,7 +20,7 @@ msgstr ""
 
 #. ($delay)
 #. (max_delay)
-#: themes/default/templates/index.html.ep:40 themes/default/templates/index.html.ep:49 themes/default/templates/index.html.ep:50
+#: themes/default/templates/index.html.ep:47 themes/default/templates/index.html.ep:56 themes/default/templates/index.html.ep:57
 msgid "%1 days"
 msgstr "%1 dies"
 
@@ -28,7 +28,7 @@ msgstr "%1 dies"
 msgid "1 year"
 msgstr "1 any"
 
-#: themes/default/templates/index.html.ep:4 themes/default/templates/index.html.ep:49
+#: themes/default/templates/index.html.ep:4 themes/default/templates/index.html.ep:56
 msgid "24 hours"
 msgstr "24 hores"
 
@@ -48,7 +48,7 @@ msgstr "Avorta"
 msgid "About"
 msgstr "Quant a"
 
-#: themes/default/templates/index.html.ep:81
+#: themes/default/templates/index.html.ep:88
 msgid "Add a password to file(s)"
 msgstr ""
 
@@ -73,7 +73,7 @@ msgstr "Mal testimoni CSRF!"
 msgid "Click here to refresh the page and restart the download."
 msgstr "Premeu aquí per tal de refrescar la pàgina i reiniciar la descàrrega"
 
-#: themes/default/templates/index.html.ep:90
+#: themes/default/templates/index.html.ep:97
 msgid "Click to open the file browser"
 msgstr "Premeu per obrir la selecció de fitxer."
 
@@ -109,7 +109,7 @@ msgstr "No trobo el fitxer. Esteu segurs de la URL?"
 msgid "Counter"
 msgstr "Comptador"
 
-#: themes/default/templates/files.html.ep:29 themes/default/templates/index.html.ep:74
+#: themes/default/templates/files.html.ep:29 themes/default/templates/index.html.ep:81
 msgid "Delete at first download?"
 msgstr "Eliminar-lo a la primera descàrrega?"
 
@@ -141,7 +141,7 @@ msgstr "Enllaç per a descàrrega"
 msgid "Drag and drop files in the appropriate area or use the traditional way to send files and the files will be chunked, encrypted and sent to the server. You will get two links per file: a download link, that you give to the people you want to share the file with and a deletion link, allowing you to delete the file whenever you want."
 msgstr "Arrossegueu i deixeu anar fitxers a l'àrea apropiada o useu el sistema tradicional per enviar fitxers, i seran trossejats, xifrats i enviats al servidor. Obtindreu dos enllaços per a cada fitxer: un enllaç per a la descàrrega, que doneu a la gent amb qui voleu compartir el fitxer, i un enllaç per a l'eliminació, que us permet eliminar el fitxer del servidor quan vulgueu. "
 
-#: themes/default/templates/index.html.ep:87
+#: themes/default/templates/index.html.ep:94
 msgid "Drop files here"
 msgstr "Deixeu anar aquí fitxers."
 
@@ -193,7 +193,7 @@ msgstr "Fitxer eliminat"
 msgid "File name"
 msgstr "Nom de fitxer"
 
-#: themes/default/templates/index.html.ep:64
+#: themes/default/templates/index.html.ep:71
 msgid "Files deleted at first download"
 msgstr ""
 
@@ -246,7 +246,7 @@ msgstr "Si envieu el correu des d'aquest servidor, els enllaços s'enviaran al s
 msgid "Import localStorage data"
 msgstr "Importar dades de l'emmagatzematge local"
 
-#: themes/default/templates/index.html.ep:37
+#: themes/default/templates/index.html.ep:44
 msgid "Important: more information on delays"
 msgstr "Importat: més informació sobre moratòries"
 
@@ -295,7 +295,7 @@ msgstr "Sense moratòria d'expiració"
 msgid "Only the files sent with this browser will be listed here. This list is stored in localStorage: if you delete your localStorage data, you'll lose this list."
 msgstr "Aquí només apareixen els fitxers enviats amb aquest navegador. La llista es desa en emmagatzematge local: si netegeu l'emmagatzematge local perdreu aquesta llista."
 
-#: themes/default/templates/index.html.ep:80 themes/default/templates/login.html.ep:21 themes/default/templates/render.html.ep:26
+#: themes/default/templates/index.html.ep:87 themes/default/templates/login.html.ep:21 themes/default/templates/render.html.ep:26
 msgid "Password"
 msgstr "Contrasenya"
 
@@ -349,7 +349,7 @@ msgstr "Compartiu fitxers amb total privacitat a %1"
 msgid "Signin"
 msgstr "Autenticació"
 
-#: themes/default/templates/index.html.ep:30
+#: themes/default/templates/index.html.ep:37
 msgid "Sorry, the uploading is currently disabled. Please try again later."
 msgstr "Disculpeu, les pujades estan actualment desactivades. Si us plau proveu-ho més tard."
 
@@ -439,7 +439,7 @@ msgstr "Pujar fitxers"
 msgid "Uploaded at"
 msgstr "Pujat a les"
 
-#: themes/default/templates/index.html.ep:95
+#: themes/default/templates/index.html.ep:102
 msgid "Uploaded files"
 msgstr "Fitxers pujats"
 
@@ -483,6 +483,10 @@ msgstr "Heu sortit correctament."
 msgid "You must give email addresses."
 msgstr "Heu de donar l'adreça de correu electrònic."
 
+#: themes/default/templates/index.html.ep:29
+msgid "Your browser has not enough entropy to generate a strong encryption key. Please wait (it's better if you do things on your computer while waiting)."
+msgstr ""
+
 #. (format_bytes($json->{size})
 #: lib/Lufi/Controller/Files.pm:66
 msgid "Your file is too big: %1 (maximum size allowed: %2)"
@@ -520,6 +524,6 @@ msgstr "a partir de %1, el fitxer es mantindrà per sempre al servidor."
 msgid "no time limit"
 msgstr "no hi ha límit de temps"
 
-#: themes/default/templates/index.html.ep:88
+#: themes/default/templates/index.html.ep:95
 msgid "or"
 msgstr "o"

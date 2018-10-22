@@ -19,7 +19,7 @@ msgstr ""
 
 #. ($delay)
 #. (max_delay)
-#: themes/default/templates/index.html.ep:40 themes/default/templates/index.html.ep:49 themes/default/templates/index.html.ep:50
+#: themes/default/templates/index.html.ep:47 themes/default/templates/index.html.ep:56 themes/default/templates/index.html.ep:57
 msgid "%1 days"
 msgstr "%1 giorni"
 
@@ -27,7 +27,7 @@ msgstr "%1 giorni"
 msgid "1 year"
 msgstr "1 anno"
 
-#: themes/default/templates/index.html.ep:4 themes/default/templates/index.html.ep:49
+#: themes/default/templates/index.html.ep:4 themes/default/templates/index.html.ep:56
 msgid "24 hours"
 msgstr "24 ore"
 
@@ -47,7 +47,7 @@ msgstr "Annulla"
 msgid "About"
 msgstr "A proposito"
 
-#: themes/default/templates/index.html.ep:81
+#: themes/default/templates/index.html.ep:88
 msgid "Add a password to file(s)"
 msgstr ""
 
@@ -72,7 +72,7 @@ msgstr "Token CSRF errato!"
 msgid "Click here to refresh the page and restart the download."
 msgstr "Click qui per aggiornare la pagina e ricominciare il download."
 
-#: themes/default/templates/index.html.ep:90
+#: themes/default/templates/index.html.ep:97
 msgid "Click to open the file browser"
 msgstr "Click per aprire il file browser"
 
@@ -108,7 +108,7 @@ msgstr "Impossibile trovare il file. Sei sicuro che l'URL sia corretto?"
 msgid "Counter"
 msgstr "Contatore"
 
-#: themes/default/templates/files.html.ep:29 themes/default/templates/index.html.ep:74
+#: themes/default/templates/files.html.ep:29 themes/default/templates/index.html.ep:81
 msgid "Delete at first download?"
 msgstr "Cancellare al primo download?"
 
@@ -140,7 +140,7 @@ msgstr "Link per il download"
 msgid "Drag and drop files in the appropriate area or use the traditional way to send files and the files will be chunked, encrypted and sent to the server. You will get two links per file: a download link, that you give to the people you want to share the file with and a deletion link, allowing you to delete the file whenever you want."
 msgstr "Trascinare e lasciare il file nell'are prevista o selezionare i file nel modo classico ed i file saranno divisi,cifrati ed inviati al server. Otterrete 2 link per ogni file : uno per il download ed uno per eliminare il file quando vorrete."
 
-#: themes/default/templates/index.html.ep:87
+#: themes/default/templates/index.html.ep:94
 msgid "Drop files here"
 msgstr "Lasciare i file qui"
 
@@ -192,7 +192,7 @@ msgstr "File cancellato"
 msgid "File name"
 msgstr "Nome del file"
 
-#: themes/default/templates/index.html.ep:64
+#: themes/default/templates/index.html.ep:71
 msgid "Files deleted at first download"
 msgstr ""
 
@@ -244,7 +244,7 @@ msgstr "Se inviaste l'email da questo server, i link sarebbero inviati al server
 msgid "Import localStorage data"
 msgstr "Importare i dati del localStorage"
 
-#: themes/default/templates/index.html.ep:37
+#: themes/default/templates/index.html.ep:44
 msgid "Important: more information on delays"
 msgstr "Importante : più informazioni sulle scadenze"
 
@@ -293,7 +293,7 @@ msgstr "Nessun ritardo per la scadenza"
 msgid "Only the files sent with this browser will be listed here. This list is stored in localStorage: if you delete your localStorage data, you'll lose this list."
 msgstr "Solo i file inviati con questo browser web sono nella lista. Le informazioni sono memorizzate nel localStorage: se cancellaste i dati dal vostro localStorage, perdereste questa lista."
 
-#: themes/default/templates/index.html.ep:80 themes/default/templates/login.html.ep:21 themes/default/templates/render.html.ep:26
+#: themes/default/templates/index.html.ep:87 themes/default/templates/login.html.ep:21 themes/default/templates/render.html.ep:26
 msgid "Password"
 msgstr "Password"
 
@@ -351,7 +351,7 @@ msgstr "Condividi tutti i file in totale riservatezza su %1"
 msgid "Signin"
 msgstr "Autenticazione"
 
-#: themes/default/templates/index.html.ep:30
+#: themes/default/templates/index.html.ep:37
 msgid "Sorry, the uploading is currently disabled. Please try again later."
 msgstr "L'invio del file è attualemente disattivato. Riprovare più tardi."
 
@@ -443,7 +443,7 @@ msgstr "Invio dei file"
 msgid "Uploaded at"
 msgstr "Invio il"
 
-#: themes/default/templates/index.html.ep:95
+#: themes/default/templates/index.html.ep:102
 msgid "Uploaded files"
 msgstr "File inviati"
 
@@ -487,6 +487,10 @@ msgstr "Logout avvenuto con successo."
 msgid "You must give email addresses."
 msgstr "Devi fornire gli indirizzi email."
 
+#: themes/default/templates/index.html.ep:29
+msgid "Your browser has not enough entropy to generate a strong encryption key. Please wait (it's better if you do things on your computer while waiting)."
+msgstr ""
+
 #. (format_bytes($json->{size})
 #: lib/Lufi/Controller/Files.pm:66
 msgid "Your file is too big: %1 (maximum size allowed: %2)"
@@ -524,6 +528,6 @@ msgstr "per %1 e più, il file sarà conservato per sempre."
 msgid "no time limit"
 msgstr "nessuna limitazione temporale"
 
-#: themes/default/templates/index.html.ep:88
+#: themes/default/templates/index.html.ep:95
 msgid "or"
 msgstr "o"
