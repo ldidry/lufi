@@ -43,7 +43,7 @@ msgstr "Un grazie con una foto di un gattino sur <a href=\"https://framasphere.o
 msgid "Abort"
 msgstr "Annulla"
 
-#: themes/default/templates/layouts/default.html.ep:35 themes/default/templates/layouts/default.html.ep:47
+#: themes/default/templates/layouts/default.html.ep:36 themes/default/templates/layouts/default.html.ep:49
 msgid "About"
 msgstr "A proposito"
 
@@ -264,7 +264,7 @@ msgstr "Javascript è disattivato. Lufi non può funzionare."
 msgid "Login"
 msgstr "Login"
 
-#: themes/default/templates/layouts/default.html.ep:37 themes/default/templates/layouts/default.html.ep:49
+#: themes/default/templates/layouts/default.html.ep:38 themes/default/templates/layouts/default.html.ep:51
 msgid "Logout"
 msgstr "Logout"
 
@@ -276,7 +276,7 @@ msgstr "Lufi è un software libero di file hosting."
 msgid "Mail"
 msgstr ""
 
-#: themes/default/templates/files.html.ep:3 themes/default/templates/layouts/default.html.ep:31 themes/default/templates/layouts/default.html.ep:43
+#: themes/default/templates/files.html.ep:3 themes/default/templates/layouts/default.html.ep:32 themes/default/templates/layouts/default.html.ep:45
 msgid "My files"
 msgstr "I miei file"
 
@@ -318,6 +318,10 @@ msgstr "Riservatezza"
 msgid "Purge expired files from localStorage"
 msgstr "Eliminare dal localStorage i file scaduti"
 
+#: themes/default/templates/layouts/default.html.ep:29 themes/default/templates/layouts/default.html.ep:42
+msgid "Report file"
+msgstr ""
+
 #:
 msgid "Rows in purple mean that the files have expired and are no longer available."
 msgstr "Le righe in viola indicano che il file è scaduto e non è più disponibile."
@@ -347,7 +351,7 @@ msgstr "Invio della parte XX1 su XX2. Prego attendere, la barra di avanzamento p
 msgid "Share your files in total privacy on %1"
 msgstr "Condividi tutti i file in totale riservatezza su %1"
 
-#: themes/default/templates/layouts/default.html.ep:33 themes/default/templates/layouts/default.html.ep:45 themes/default/templates/login.html.ep:26 themes/default/templates/logout.html.ep:8
+#: themes/default/templates/layouts/default.html.ep:34 themes/default/templates/layouts/default.html.ep:47 themes/default/templates/login.html.ep:26 themes/default/templates/logout.html.ep:8
 msgid "Signin"
 msgstr "Autenticazione"
 
@@ -435,7 +439,7 @@ msgstr "Impossibile recuperare il contatore per %1. Il token non è valido."
 msgid "Unable to get counter for %1. You are not authenticated."
 msgstr "Impossibile recuperare il contatore per %1. Non sei autenticato."
 
-#: themes/default/templates/layouts/default.html.ep:30 themes/default/templates/layouts/default.html.ep:42
+#: themes/default/templates/layouts/default.html.ep:31 themes/default/templates/layouts/default.html.ep:44
 msgid "Upload files"
 msgstr "Invio dei file"
 

@@ -44,7 +44,7 @@ msgstr "Um obrigado com a foto de um gatinho no <a href=\"https://framasphere.or
 msgid "Abort"
 msgstr "Interromper"
 
-#: themes/default/templates/layouts/default.html.ep:35 themes/default/templates/layouts/default.html.ep:47
+#: themes/default/templates/layouts/default.html.ep:36 themes/default/templates/layouts/default.html.ep:49
 msgid "About"
 msgstr "Sobre"
 
@@ -273,7 +273,7 @@ msgstr "Javascript está desativado. Lufi não funcionará."
 msgid "Login"
 msgstr "Utilizador"
 
-#: themes/default/templates/layouts/default.html.ep:37 themes/default/templates/layouts/default.html.ep:49
+#: themes/default/templates/layouts/default.html.ep:38 themes/default/templates/layouts/default.html.ep:51
 msgid "Logout"
 msgstr "Encerrar sessão"
 
@@ -285,7 +285,7 @@ msgstr "Lufi é um programa de reserva gratuita (como na liberdade de expressão
 msgid "Mail"
 msgstr ""
 
-#: themes/default/templates/files.html.ep:3 themes/default/templates/layouts/default.html.ep:31 themes/default/templates/layouts/default.html.ep:43
+#: themes/default/templates/files.html.ep:3 themes/default/templates/layouts/default.html.ep:32 themes/default/templates/layouts/default.html.ep:45
 msgid "My files"
 msgstr "Meus ficheiros"
 
@@ -327,6 +327,10 @@ msgstr "Privacidade"
 msgid "Purge expired files from localStorage"
 msgstr "Apagar do localStorage os ficheiros expirados"
 
+#: themes/default/templates/layouts/default.html.ep:29 themes/default/templates/layouts/default.html.ep:42
+msgid "Report file"
+msgstr ""
+
 #: themes/default/templates/files.html.ep:9
 msgid "Rows in red mean that the files have expired and are no longer available."
 msgstr "As linhas a vermelho indicam que o ficheiro expirou e já não está disponível."
@@ -352,7 +356,7 @@ msgstr "Envio do fragmento XX1 de XX2. Por favor aguarde, a barra de progressão
 msgid "Share your files in total privacy on %1"
 msgstr "Partilhe os seus ficheiros com toda a privacidade em %1"
 
-#: themes/default/templates/layouts/default.html.ep:33 themes/default/templates/layouts/default.html.ep:45 themes/default/templates/login.html.ep:26 themes/default/templates/logout.html.ep:8
+#: themes/default/templates/layouts/default.html.ep:34 themes/default/templates/layouts/default.html.ep:47 themes/default/templates/login.html.ep:26 themes/default/templates/logout.html.ep:8
 msgid "Signin"
 msgstr "Conexão"
 
@@ -436,7 +440,7 @@ msgstr "Impossível recuperar o contador para %1. O símbolo é inválido."
 msgid "Unable to get counter for %1. You are not authenticated."
 msgstr "Impossível recuperar o contador para %1. Não está conectado."
 
-#: themes/default/templates/layouts/default.html.ep:30 themes/default/templates/layouts/default.html.ep:42
+#: themes/default/templates/layouts/default.html.ep:31 themes/default/templates/layouts/default.html.ep:44
 msgid "Upload files"
 msgstr "Enviar os ficheiros"
 

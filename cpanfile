@@ -18,6 +18,7 @@ requires 'Number::Bytes::Human';
 requires 'Filesys::DfPortable';
 requires 'Data::Entropy';
 requires 'Crypt::SaltedHash';
+requires 'Data::Validate::URI';
 
 feature 'ldap', 'LDAP authentication support' => sub {
     requires 'Net::LDAP';

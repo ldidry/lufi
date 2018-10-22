@@ -43,7 +43,7 @@ msgstr "Un mercé amb una fotografia de caton sus <a href=\"https://framasphere.
 msgid "Abort"
 msgstr "Anullar"
 
-#: themes/default/templates/layouts/default.html.ep:35 themes/default/templates/layouts/default.html.ep:47
+#: themes/default/templates/layouts/default.html.ep:36 themes/default/templates/layouts/default.html.ep:49
 msgid "About"
 msgstr "A prepaus"
 
@@ -264,7 +264,7 @@ msgstr "Javascript es desactivat. Lufi foncionarà pas."
 msgid "Login"
 msgstr "Identificant"
 
-#: themes/default/templates/layouts/default.html.ep:37 themes/default/templates/layouts/default.html.ep:49
+#: themes/default/templates/layouts/default.html.ep:38 themes/default/templates/layouts/default.html.ep:51
 msgid "Logout"
 msgstr "Desconnexion"
 
@@ -276,7 +276,7 @@ msgstr "Lufi es un logicial liure d’albèrgament de fichièrs."
 msgid "Mail"
 msgstr "Corrièl"
 
-#: themes/default/templates/files.html.ep:3 themes/default/templates/layouts/default.html.ep:31 themes/default/templates/layouts/default.html.ep:43
+#: themes/default/templates/files.html.ep:3 themes/default/templates/layouts/default.html.ep:32 themes/default/templates/layouts/default.html.ep:45
 msgid "My files"
 msgstr "Mos fichièrs"
 
@@ -322,6 +322,10 @@ msgstr "Confidencialitat"
 msgid "Purge expired files from localStorage"
 msgstr "Suprimir del localStorage los fichièrs expirats"
 
+#: themes/default/templates/layouts/default.html.ep:29 themes/default/templates/layouts/default.html.ep:42
+msgid "Report file"
+msgstr ""
+
 #: themes/default/templates/files.html.ep:9
 msgid "Rows in red mean that the files have expired and are no longer available."
 msgstr "Las linhas en roge indican que lo fichièr a expirat e es pas mai disponible."
@@ -347,7 +351,7 @@ msgstr "Mandadís del fragment XX1 sus XX2. Pacientatz, la barra de progression 
 msgid "Share your files in total privacy on %1"
 msgstr "Partejatz vòstres fichièrs en tota confidencialitat sus %1"
 
-#: themes/default/templates/layouts/default.html.ep:33 themes/default/templates/layouts/default.html.ep:45 themes/default/templates/login.html.ep:26 themes/default/templates/logout.html.ep:8
+#: themes/default/templates/layouts/default.html.ep:34 themes/default/templates/layouts/default.html.ep:47 themes/default/templates/login.html.ep:26 themes/default/templates/logout.html.ep:8
 msgid "Signin"
 msgstr "Connexion"
 
@@ -435,7 +439,7 @@ msgstr "Impossible de recuperar lo comptador per %1. Lo geton es invalid."
 msgid "Unable to get counter for %1. You are not authenticated."
 msgstr "Impossible de recuperar lo comptador per %1. Sètz pas connectat·ada."
 
-#: themes/default/templates/layouts/default.html.ep:30 themes/default/templates/layouts/default.html.ep:42
+#: themes/default/templates/layouts/default.html.ep:31 themes/default/templates/layouts/default.html.ep:44
 msgid "Upload files"
 msgstr "Mandar de fichièrs"
 

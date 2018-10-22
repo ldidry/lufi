@@ -18,8 +18,14 @@
     },
 
     # put a way to contact you here and uncomment it
+    # you can put some HTML in it
     # MANDATORY
-    #contact       => 'admin[at]example.com',
+    #contact       => '<a href="https://contact.example.com">Contact page</a>',
+
+    # put an URL or an email address to receive file reports and uncomment it
+    # it's for make reporting illegal files easy for users
+    # MANDATORY
+    #report => 'report@example.com',
 
     # array of random strings used to encrypt cookies
     # optional, default is ['fdjsofjoihrei'], PLEASE, CHANGE IT

@@ -265,6 +265,37 @@ DISTRIBUTIONS
       perl 5.006
       strict 0
       warnings 0
+  Data-Validate-Domain-0.14
+    pathname: D/DR/DROLSKY/Data-Validate-Domain-0.14.tar.gz
+    provides:
+      Data::Validate::Domain 0.14
+    requirements:
+      Exporter 0
+      ExtUtils::MakeMaker 0
+      Net::Domain::TLD 1.74
+      strict 0
+      warnings 0
+  Data-Validate-IP-0.27
+    pathname: D/DR/DROLSKY/Data-Validate-IP-0.27.tar.gz
+    provides:
+      Data::Validate::IP 0.27
+    requirements:
+      Exporter 0
+      ExtUtils::MakeMaker 0
+      NetAddr::IP 4
+      Scalar::Util 0
+      base 0
+      perl 5.008
+      strict 0
+      warnings 0
+  Data-Validate-URI-0.07
+    pathname: S/SO/SONNEN/Data-Validate-URI-0.07.tar.gz
+    provides:
+      Data::Validate::URI 0.07
+    requirements:
+      Data::Validate::Domain 0
+      Data::Validate::IP 0
+      ExtUtils::MakeMaker 0
   Devel-GlobalDestruction-0.14
     pathname: H/HA/HAARG/Devel-GlobalDestruction-0.14.tar.gz
     provides:
@@ -1236,6 +1267,14 @@ DISTRIBUTIONS
       Test::More 0.52
       Time::Local 1.19
       perl 5.006
+  Net-Domain-TLD-1.75
+    pathname: A/AL/ALEXP/Net-Domain-TLD-1.75.tar.gz
+    provides:
+      Net::Domain::TLD 1.75
+    requirements:
+      Carp 0
+      ExtUtils::MakeMaker 0
+      Storable 0
   Net-HTTP-6.18
     pathname: O/OA/OALDERS/Net-HTTP-6.18.tar.gz
     provides:
@@ -1265,6 +1304,19 @@ DISTRIBUTIONS
       MIME::Base64 0
       Test::More 0.60_01
       perl 5.005
+  NetAddr-IP-4.079
+    pathname: M/MI/MIKER/NetAddr-IP-4.079.tar.gz
+    provides:
+      NetAddr::IP 4.079
+      NetAddr::IP::InetBase 0.08
+      NetAddr::IP::Lite 1.57
+      NetAddr::IP::Util 1.53
+      NetAddr::IP::UtilPP 1.09
+      NetAddr::IP::UtilPolluted 1.53
+      NetAddr::IP::Util_IS 1
+    requirements:
+      ExtUtils::MakeMaker 0
+      Test::More 0
   Number-Bytes-Human-0.11
     pathname: F/FE/FERREIRA/Number-Bytes-Human-0.11.tar.gz
     provides:

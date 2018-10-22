@@ -10,6 +10,7 @@ Revision history for Lufi
 	- Add Content-Security-Policy header
 	- Update sjcl.js
 	- Mitigate genRandomKey exception risk
+	- Add report file link in the navbar
 
 0.02.2 2017-09-18
 	- Fix cron tasks bug

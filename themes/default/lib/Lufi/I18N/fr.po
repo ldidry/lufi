@@ -43,7 +43,7 @@ msgstr "Un merci avec une photo de chaton sur <a href=\"https://framasphere.org/
 msgid "Abort"
 msgstr "Abandonner"
 
-#: themes/default/templates/layouts/default.html.ep:35 themes/default/templates/layouts/default.html.ep:47
+#: themes/default/templates/layouts/default.html.ep:36 themes/default/templates/layouts/default.html.ep:49
 msgid "About"
 msgstr "À propos"
 
@@ -264,7 +264,7 @@ msgstr "Javascript est désactivé. Lufi ne fonctionnera pas."
 msgid "Login"
 msgstr "Identifiant"
 
-#: themes/default/templates/layouts/default.html.ep:37 themes/default/templates/layouts/default.html.ep:49
+#: themes/default/templates/layouts/default.html.ep:38 themes/default/templates/layouts/default.html.ep:51
 msgid "Logout"
 msgstr "Déconnexion"
 
@@ -276,7 +276,7 @@ msgstr "Lufi est un logiciel libre d’hébergement de fichiers."
 msgid "Mail"
 msgstr "Mail"
 
-#: themes/default/templates/files.html.ep:3 themes/default/templates/layouts/default.html.ep:31 themes/default/templates/layouts/default.html.ep:43
+#: themes/default/templates/files.html.ep:3 themes/default/templates/layouts/default.html.ep:32 themes/default/templates/layouts/default.html.ep:45
 msgid "My files"
 msgstr "Mes fichiers"
 
@@ -318,6 +318,10 @@ msgstr "Confidentialité"
 msgid "Purge expired files from localStorage"
 msgstr "Supprimer du localStorage les fichiers expirés"
 
+#: themes/default/templates/layouts/default.html.ep:29 themes/default/templates/layouts/default.html.ep:42
+msgid "Report file"
+msgstr "Signaler un fichier"
+
 #: themes/default/templates/files.html.ep:9
 msgid "Rows in red mean that the files have expired and are no longer available."
 msgstr "Les lignes en rouge indiquent que le fichier a expiré et n’est plus disponible."
@@ -343,7 +347,7 @@ msgstr "Envoi du fragment XX1 sur XX2. Veuillez patienter, la barre de progressi
 msgid "Share your files in total privacy on %1"
 msgstr "Partagez vos fichiers en toute confidentialité sur %1"
 
-#: themes/default/templates/layouts/default.html.ep:33 themes/default/templates/layouts/default.html.ep:45 themes/default/templates/login.html.ep:26 themes/default/templates/logout.html.ep:8
+#: themes/default/templates/layouts/default.html.ep:34 themes/default/templates/layouts/default.html.ep:47 themes/default/templates/login.html.ep:26 themes/default/templates/logout.html.ep:8
 msgid "Signin"
 msgstr "Connexion"
 
@@ -431,7 +435,7 @@ msgstr "Impossible de récupérer le compteur pour %1. Le jeton est invalide."
 msgid "Unable to get counter for %1. You are not authenticated."
 msgstr "Impossible de récupérer le compteur pour %1. Vous n’êtes pas connecté·e."
 
-#: themes/default/templates/layouts/default.html.ep:30 themes/default/templates/layouts/default.html.ep:42
+#: themes/default/templates/layouts/default.html.ep:31 themes/default/templates/layouts/default.html.ep:44
 msgid "Upload files"
 msgstr "Envoyer des fichiers"
 

@@ -4,6 +4,8 @@ use Mojo::Base 'Mojolicious';
 use Net::LDAP;
 use Apache::Htpasswd;
 use Mojolicious::Sessions;
+use Email::Valid;
+use Data::Validate::URI qw(is_web_uri);
 
 $ENV{MOJO_MAX_WEBSOCKET_SIZE} = 100485760; # 10 * 1024 * 1024 = 10MiB
 
@@ -38,7 +40,15 @@ sub startup {
         }
     });
 
-    die "You need to provide a contact information in lufi.conf!" unless (defined($self->config('contact')));
+    die 'You need to provide a contact information in lufi.conf!' unless (defined($self->config('contact')));
+    die 'You need to provide a **report** information in lufi.conf!' unless (defined($self->config('report')));
+
+    if (Email::Valid->address($self->config('report'))) {
+        $self->config('report' => 'mailto:'.$self->config('report'));
+    } elsif (!is_web_uri($self->config('report'))) {
+        die 'You need to provide an email address or an URL as report information in lufi.conf!';
+    }
+
 
     # Themes handling
     shift @{$self->renderer->paths};
