@@ -128,6 +128,10 @@ sub startup {
       ->to('Misc#index')
       ->name('index');
 
+    $r->get('/lang/:l')
+      ->to('Misc#change_lang')
+      ->name('lang');
+
     if (defined $self->config('ldap') || defined $self->config('htpasswd')) {
         # Login page
         $r->get('/login')

@@ -11,6 +11,7 @@ Revision history for Lufi
 	- Update sjcl.js
 	- Mitigate genRandomKey exception risk
 	- Add report file link in the navbar
+	- Allow to choose your language
 
 0.02.2 2017-09-18
 	- Fix cron tasks bug

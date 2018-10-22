@@ -13,6 +13,19 @@ sub index {
     }
 }
 
+sub change_lang {
+    my $c = shift;
+    my $l = $c->param('l');
+
+    $c->cookie($c->app->moniker.'_lang' => $l, { path => $c->config('prefix') });
+
+    if ($c->req->headers->referrer) {
+        return $c->redirect_to($c->req->headers->referrer);
+    } else {
+        return $c->redirect_to('/');
+    }
+}
+
 sub about {
     shift->render(template => 'about');
 }

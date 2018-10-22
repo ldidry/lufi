@@ -428,10 +428,10 @@ DISTRIBUTIONS
       Filesys::DfPortable 0.85
     requirements:
       ExtUtils::MakeMaker 0
-  Filesys-DiskUsage-0.11
-    pathname: M/MA/MANWAR/Filesys-DiskUsage-0.11.tar.gz
+  Filesys-DiskUsage-0.12
+    pathname: M/MA/MANWAR/Filesys-DiskUsage-0.12.tar.gz
     provides:
-      Filesys::DiskUsage 0.11
+      Filesys::DiskUsage 0.12
     requirements:
       ExtUtils::MakeMaker 0
       File::Basename 0
@@ -601,6 +601,13 @@ DISTRIBUTIONS
       Mozilla::CA 0
       Net::SSLeay 1.46
       Scalar::Util 0
+  ISO-639_1-0.02
+    pathname: L/LD/LDIDRY/ISO-639_1-0.02.tar.gz
+    provides:
+      ISO::639_1 0.02
+    requirements:
+      Module::Build::Tiny 0.035
+      perl 5.008001
   JSON-2.97001
     pathname: I/IS/ISHIGAKI/JSON-2.97001.tar.gz
     provides:
@@ -925,8 +932,8 @@ DISTRIBUTIONS
       URI::db 0.15
       URI::file 4.21
       perl 5.010001
-  Mojolicious-8.03
-    pathname: S/SR/SRI/Mojolicious-8.03.tar.gz
+  Mojolicious-8.04
+    pathname: S/SR/SRI/Mojolicious-8.04.tar.gz
     provides:
       Mojo undef
       Mojo::Asset undef
@@ -946,6 +953,7 @@ DISTRIBUTIONS
       Mojo::DOM::CSS undef
       Mojo::DOM::HTML undef
       Mojo::Date undef
+      Mojo::DynamicMethods undef
       Mojo::EventEmitter undef
       Mojo::Exception undef
       Mojo::File undef
@@ -995,7 +1003,7 @@ DISTRIBUTIONS
       Mojo::UserAgent::Transactor undef
       Mojo::Util undef
       Mojo::WebSocket undef
-      Mojolicious 8.03
+      Mojolicious 8.04
       Mojolicious::Command undef
       Mojolicious::Command::Author::cpanify undef
       Mojolicious::Command::Author::generate undef

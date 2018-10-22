@@ -43,7 +43,7 @@ msgstr "Un mercé amb una fotografia de caton sus <a href=\"https://framasphere.
 msgid "Abort"
 msgstr "Anullar"
 
-#: themes/default/templates/layouts/default.html.ep:36 themes/default/templates/layouts/default.html.ep:49
+#: themes/default/templates/layouts/default.html.ep:48 themes/default/templates/layouts/default.html.ep:71
 msgid "About"
 msgstr "A prepaus"
 
@@ -84,11 +84,11 @@ msgstr "Tampar"
 msgid "Comma-separated email addresses"
 msgstr "Adreças de corrièl separadas per de virgulas"
 
-#: themes/default/templates/partial/index.js.ep:15
+#: themes/default/templates/partial/index.js.ep:14
 msgid "Copy all links to clipboard"
 msgstr "Copiar totes los ligams al quicha-papièrs"
 
-#: themes/default/templates/partial/index.js.ep:18
+#: themes/default/templates/partial/index.js.ep:17
 msgid "Copy to clipboard"
 msgstr "Copiar al quicha-papièrs"
 
@@ -116,7 +116,7 @@ msgstr "Suprimir aprèp lo primièr telecargament ?"
 msgid "Delete selected files"
 msgstr "Suprimir los fichièrs seleccionats"
 
-#: themes/default/templates/files.html.ep:32 themes/default/templates/partial/index.js.ep:19
+#: themes/default/templates/files.html.ep:32 themes/default/templates/partial/index.js.ep:18
 msgid "Deletion link"
 msgstr "Ligam de supression"
 
@@ -124,7 +124,7 @@ msgstr "Ligam de supression"
 msgid "Don't worry: if a user begins to download the file before the expiration and the download ends after the expiration, he will be able to get the file."
 msgstr "Vos copetz pas lo cap : se un utilizaire comença a telecargar lo fichièr abans son expiracion e que lo telecargament s’acaba aprèp l’expiracion, utilizaire poirà recuperar lo fichièr."
 
-#: themes/default/templates/partial/index.js.ep:21 themes/default/templates/render.html.ep:28
+#: themes/default/templates/partial/index.js.ep:20 themes/default/templates/render.html.ep:28
 msgid "Download"
 msgstr "Telecargar"
 
@@ -132,7 +132,7 @@ msgstr "Telecargar"
 msgid "Download aborted."
 msgstr "Telecargament abandonat."
 
-#: themes/default/templates/files.html.ep:27 themes/default/templates/partial/index.js.ep:20
+#: themes/default/templates/files.html.ep:27 themes/default/templates/partial/index.js.ep:19
 msgid "Download link"
 msgstr "Ligam de telecargament"
 
@@ -156,7 +156,7 @@ msgstr "Subjècte del corrièl"
 msgid "Emails"
 msgstr "Corrièl"
 
-#: themes/default/templates/partial/index.js.ep:22
+#: themes/default/templates/partial/index.js.ep:21
 msgid "Encrypting part XX1 of XX2"
 msgstr "Chiframent del tròç XX1 sus XX2"
 
@@ -172,7 +172,7 @@ msgstr "Error : lo fichièr es pas estat mandat completament"
 msgid "Error: unable to find the file. Are you sure of your URL?"
 msgstr "Error : impossible de trobar lo fichièr. Sètz segur-a de l’URL ?"
 
-#: themes/default/templates/partial/index.js.ep:23
+#: themes/default/templates/partial/index.js.ep:22
 msgid "Expiration:"
 msgstr "Expiracion :"
 
@@ -212,11 +212,11 @@ msgstr "Bonjorn,\\n\\nVaquí qualques fichièrs que desiri partejar amb tu :\\
 msgid "Here's some files"
 msgstr "Vaquí qualques fichièrs"
 
-#: themes/default/templates/partial/index.js.ep:25
+#: themes/default/templates/partial/index.js.ep:24
 msgid "Hit Enter, then Ctrl+C to copy all the download links"
 msgstr "Picatz sus Entrada puèi fasètz Ctrl+C per copiar totes los ligams per telecargar"
 
-#: themes/default/templates/partial/index.js.ep:24
+#: themes/default/templates/partial/index.js.ep:23
 msgid "Hit Enter, then Ctrl+C to copy the download link"
 msgstr "Picatz sus Entrada puèi fasètz Ctrl+C per copiar lo ligam per telecargar"
 
@@ -260,11 +260,15 @@ msgstr "Sembla que la clau dins vòstra URL siá incorrècta. Mercés de verific
 msgid "Javascript is disabled. You won't be able to use Lufi."
 msgstr "Javascript es desactivat. Lufi foncionarà pas."
 
+#: themes/default/templates/layouts/default.html.ep:40 themes/default/templates/layouts/default.html.ep:63
+msgid "Language"
+msgstr ""
+
 #: themes/default/templates/login.html.ep:15
 msgid "Login"
 msgstr "Identificant"
 
-#: themes/default/templates/layouts/default.html.ep:38 themes/default/templates/layouts/default.html.ep:51
+#: themes/default/templates/layouts/default.html.ep:50 themes/default/templates/layouts/default.html.ep:73
 msgid "Logout"
 msgstr "Desconnexion"
 
@@ -276,7 +280,7 @@ msgstr "Lufi es un logicial liure d’albèrgament de fichièrs."
 msgid "Mail"
 msgstr "Corrièl"
 
-#: themes/default/templates/files.html.ep:3 themes/default/templates/layouts/default.html.ep:32 themes/default/templates/layouts/default.html.ep:45
+#: themes/default/templates/files.html.ep:3 themes/default/templates/layouts/default.html.ep:34 themes/default/templates/layouts/default.html.ep:57
 msgid "My files"
 msgstr "Mos fichièrs"
 
@@ -285,7 +289,7 @@ msgstr "Mos fichièrs"
 msgid "No enough space available on the server for this file (size: %1)."
 msgstr "Espaci disc insufisent sul servidor per aqueste fichièr (talha del fichièr : \"%1)."
 
-#: themes/default/templates/partial/files.js.ep:10 themes/default/templates/partial/index.js.ep:27
+#: themes/default/templates/partial/files.js.ep:10 themes/default/templates/partial/index.js.ep:26
 msgid "No expiration delay"
 msgstr "Pas cap de relambi d’expiracion"
 
@@ -322,7 +326,7 @@ msgstr "Confidencialitat"
 msgid "Purge expired files from localStorage"
 msgstr "Suprimir del localStorage los fichièrs expirats"
 
-#: themes/default/templates/layouts/default.html.ep:29 themes/default/templates/layouts/default.html.ep:42
+#: themes/default/templates/layouts/default.html.ep:31 themes/default/templates/layouts/default.html.ep:54
 msgid "Report file"
 msgstr ""
 
@@ -330,7 +334,7 @@ msgstr ""
 msgid "Rows in red mean that the files have expired and are no longer available."
 msgstr "Las linhas en roge indican que lo fichièr a expirat e es pas mai disponible."
 
-#: themes/default/templates/partial/index.js.ep:26
+#: themes/default/templates/partial/index.js.ep:25
 msgid "Send all links by email"
 msgstr "Mandar totes los ligams per corrièl"
 
@@ -342,7 +346,7 @@ msgstr "Mandar amb aqueste servidor"
 msgid "Send with your own mail software"
 msgstr "Mandar amb vòstre pròpri logicial de corrièl"
 
-#: themes/default/templates/partial/index.js.ep:28
+#: themes/default/templates/partial/index.js.ep:27
 msgid "Sending part XX1 of XX2. Please, be patient, the progress bar can take a while to move."
 msgstr "Mandadís del fragment XX1 sus XX2. Pacientatz, la barra de progression pòt metre de temps abans d’avançar."
 
@@ -351,7 +355,7 @@ msgstr "Mandadís del fragment XX1 sus XX2. Pacientatz, la barra de progression 
 msgid "Share your files in total privacy on %1"
 msgstr "Partejatz vòstres fichièrs en tota confidencialitat sus %1"
 
-#: themes/default/templates/layouts/default.html.ep:34 themes/default/templates/layouts/default.html.ep:47 themes/default/templates/login.html.ep:26 themes/default/templates/logout.html.ep:8
+#: themes/default/templates/layouts/default.html.ep:36 themes/default/templates/layouts/default.html.ep:59 themes/default/templates/login.html.ep:26 themes/default/templates/logout.html.ep:8
 msgid "Signin"
 msgstr "Connexion"
 
@@ -396,7 +400,7 @@ msgstr "Los fichièrs mandats amb una instància Lufi son chifrats abans la mand
 msgid "The following email addresses are not valid: %1"
 msgstr "Las adreças de corrièl seguentas son pas validas : %1"
 
-#: themes/default/templates/partial/index.js.ep:16
+#: themes/default/templates/partial/index.js.ep:15
 msgid "The link(s) has been copied to your clipboard"
 msgstr "Lo(s) ligam(s) es/son estat(s) copiat(s) dins vòstre quicha-papièrs"
 
@@ -420,7 +424,7 @@ msgstr ""
 msgid "This server sets limitations according to the file size. The expiration delay of your file will be the minimum between what you choose and the following limitations:"
 msgstr "Aqueste servidor impausa de limitacions segon la talha dels fichièrs. Lo relambi d’expiracion de vòstre fichièr serà lo minimum entre çò qu’avètz causit e los limits seguents :"
 
-#: themes/default/templates/partial/index.js.ep:17
+#: themes/default/templates/partial/index.js.ep:16
 msgid "Unable to copy the link(s) to your clipboard"
 msgstr "Impossible de copiar lo(s) ligams(s) dins vòstre quicha-papièrs"
 
@@ -439,7 +443,7 @@ msgstr "Impossible de recuperar lo comptador per %1. Lo geton es invalid."
 msgid "Unable to get counter for %1. You are not authenticated."
 msgstr "Impossible de recuperar lo comptador per %1. Sètz pas connectat·ada."
 
-#: themes/default/templates/layouts/default.html.ep:31 themes/default/templates/layouts/default.html.ep:44
+#: themes/default/templates/layouts/default.html.ep:33 themes/default/templates/layouts/default.html.ep:56
 msgid "Upload files"
 msgstr "Mandar de fichièrs"
 
@@ -451,7 +455,7 @@ msgstr "Mandat lo"
 msgid "Uploaded files"
 msgstr "Fichièrs mandats"
 
-#: themes/default/templates/partial/index.js.ep:29
+#: themes/default/templates/partial/index.js.ep:28
 msgid "Websocket communication error"
 msgstr "Error de comunicacion WebSocket"
 
@@ -479,7 +483,7 @@ msgstr "Sembla qu’avètz pas la bona clau dins l’URL. Poiretz pas deschifrar
 msgid "You have attempted to leave this page. The download will be canceled. Are you sure?"
 msgstr "Ensajatz de partir de la pagina. Lo telecargament serà anullat. Sètz segur-a ?"
 
-#: themes/default/templates/partial/index.js.ep:14
+#: themes/default/templates/partial/index.js.ep:13
 msgid "You have attempted to leave this page. The upload will be canceled. Are you sure?"
 msgstr "Ensajatz de partir de la pagina. Lo mandadís serà anullat. Sètz segur-a ?"
 

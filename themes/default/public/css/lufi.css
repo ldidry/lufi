@@ -112,6 +112,25 @@ a.classic:focus {
     color: #9e9e9e;
     font-size: 1.5rem;
 }
+.select-lang .select-wrapper span.caret {
+    top: -10px;
+    color: #FFF;
+}
+.select-lang .select-wrapper input.select-dropdown {
+    margin-top: 10px;
+    margin-bottom: 0;
+    border-bottom: 1px solid #FFF;
+}
+.select-lang-mobile .select-wrapper input.select-dropdown {
+    color: #444;
+}
+.select-lang-mobile .select-wrapper span.caret {
+    top: -10px;
+}
+.select-lang {
+    padding-left: 15px !important;
+    padding-right: 15px !important;
+}
 .white-background {
     background-color: #FFF;
 }

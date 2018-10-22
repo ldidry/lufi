@@ -1,7 +1,6 @@
 % # vim:set sts=4 sw=4 ts=4 ft=javascript expandtab:
 $(document).ready(function(){
     $('.modal-trigger').leanModal();
-    $('select').material_select();
 });
 var ws_url  = '<%= url_for('upload')->to_abs() %>';
 % if (defined($self->config('fixed_domain')) && $self->config('fixed_domain')) {

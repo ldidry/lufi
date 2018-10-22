@@ -14,3 +14,11 @@ function escapeHtml(string) {
         return entityMap[s];
     });
 }
+function changeLang() {
+    window.location = langUrl+$(this).val();
+}
+$(document).ready(function(){
+    $('select').material_select();
+    $(".select-lang select").on('change', changeLang);
+    $(".select-lang-mobile select").on('change', changeLang);
+});

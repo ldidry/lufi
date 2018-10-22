@@ -43,7 +43,7 @@ msgstr "Un merci avec une photo de chaton sur <a href=\"https://framasphere.org/
 msgid "Abort"
 msgstr "Abandonner"
 
-#: themes/default/templates/layouts/default.html.ep:36 themes/default/templates/layouts/default.html.ep:49
+#: themes/default/templates/layouts/default.html.ep:48 themes/default/templates/layouts/default.html.ep:71
 msgid "About"
 msgstr "À propos"
 
@@ -84,11 +84,11 @@ msgstr "Fermer"
 msgid "Comma-separated email addresses"
 msgstr "Adresses mails séparées par des virgules"
 
-#: themes/default/templates/partial/index.js.ep:15
+#: themes/default/templates/partial/index.js.ep:14
 msgid "Copy all links to clipboard"
 msgstr "Copier tous les liens dans le presse-papier"
 
-#: themes/default/templates/partial/index.js.ep:18
+#: themes/default/templates/partial/index.js.ep:17
 msgid "Copy to clipboard"
 msgstr "Copier dans le presse-papier"
 
@@ -116,7 +116,7 @@ msgstr "Supprimer après le premier téléchargement ?"
 msgid "Delete selected files"
 msgstr "Supprimer les fichiers sélectionnés"
 
-#: themes/default/templates/files.html.ep:32 themes/default/templates/partial/index.js.ep:19
+#: themes/default/templates/files.html.ep:32 themes/default/templates/partial/index.js.ep:18
 msgid "Deletion link"
 msgstr "Lien de suppression"
 
@@ -124,7 +124,7 @@ msgstr "Lien de suppression"
 msgid "Don't worry: if a user begins to download the file before the expiration and the download ends after the expiration, he will be able to get the file."
 msgstr "Ne vous inquiétez pas : si un utilisateur commence à télécharger le fichier avant son expiration et que le téléchargement se termine après l’expiration, l’utilisateur pourra quand même récupérer le fichier."
 
-#: themes/default/templates/partial/index.js.ep:21 themes/default/templates/render.html.ep:28
+#: themes/default/templates/partial/index.js.ep:20 themes/default/templates/render.html.ep:28
 msgid "Download"
 msgstr "Télécharger"
 
@@ -132,7 +132,7 @@ msgstr "Télécharger"
 msgid "Download aborted."
 msgstr "Téléchargement abandonné."
 
-#: themes/default/templates/files.html.ep:27 themes/default/templates/partial/index.js.ep:20
+#: themes/default/templates/files.html.ep:27 themes/default/templates/partial/index.js.ep:19
 msgid "Download link"
 msgstr "Lien de téléchargement"
 
@@ -156,7 +156,7 @@ msgstr "Sujet du mail"
 msgid "Emails"
 msgstr "Mails"
 
-#: themes/default/templates/partial/index.js.ep:22
+#: themes/default/templates/partial/index.js.ep:21
 msgid "Encrypting part XX1 of XX2"
 msgstr "Chiffrement du fragment XX1 sur XX2"
 
@@ -172,7 +172,7 @@ msgstr "Erreur : le fichier n’a pas été envoyé dans son intégralité"
 msgid "Error: unable to find the file. Are you sure of your URL?"
 msgstr "Erreur : impossible de retrouver le fichier. Êtes-vous sûr(e) de l’URL ?"
 
-#: themes/default/templates/partial/index.js.ep:23
+#: themes/default/templates/partial/index.js.ep:22
 msgid "Expiration:"
 msgstr "Expiration :"
 
@@ -212,11 +212,11 @@ msgstr "Bonjour,\\n\\nVoici quelques fichiers que je souhaite partager avec toi�
 msgid "Here's some files"
 msgstr "Voici quelques fichiers"
 
-#: themes/default/templates/partial/index.js.ep:25
+#: themes/default/templates/partial/index.js.ep:24
 msgid "Hit Enter, then Ctrl+C to copy all the download links"
 msgstr "Appuyez sur la touche Entrée puis faites Ctrl+C pour copier tous les liens de téléchargement"
 
-#: themes/default/templates/partial/index.js.ep:24
+#: themes/default/templates/partial/index.js.ep:23
 msgid "Hit Enter, then Ctrl+C to copy the download link"
 msgstr "Appuyez sur la touche Entrée puis faites Ctrl+C pour copier le lien de téléchargement"
 
@@ -260,11 +260,15 @@ msgstr "Il semble que la clé dans votre URL soit incorrecte. Veuillez vérifier
 msgid "Javascript is disabled. You won't be able to use Lufi."
 msgstr "Javascript est désactivé. Lufi ne fonctionnera pas."
 
+#: themes/default/templates/layouts/default.html.ep:40 themes/default/templates/layouts/default.html.ep:63
+msgid "Language"
+msgstr "Langue"
+
 #: themes/default/templates/login.html.ep:15
 msgid "Login"
 msgstr "Identifiant"
 
-#: themes/default/templates/layouts/default.html.ep:38 themes/default/templates/layouts/default.html.ep:51
+#: themes/default/templates/layouts/default.html.ep:50 themes/default/templates/layouts/default.html.ep:73
 msgid "Logout"
 msgstr "Déconnexion"
 
@@ -276,7 +280,7 @@ msgstr "Lufi est un logiciel libre d’hébergement de fichiers."
 msgid "Mail"
 msgstr "Mail"
 
-#: themes/default/templates/files.html.ep:3 themes/default/templates/layouts/default.html.ep:32 themes/default/templates/layouts/default.html.ep:45
+#: themes/default/templates/files.html.ep:3 themes/default/templates/layouts/default.html.ep:34 themes/default/templates/layouts/default.html.ep:57
 msgid "My files"
 msgstr "Mes fichiers"
 
@@ -285,7 +289,7 @@ msgstr "Mes fichiers"
 msgid "No enough space available on the server for this file (size: %1)."
 msgstr "Espace disque insuffisant sur le serveur pour ce fichier (taille du fichier : %1)."
 
-#: themes/default/templates/partial/files.js.ep:10 themes/default/templates/partial/index.js.ep:27
+#: themes/default/templates/partial/files.js.ep:10 themes/default/templates/partial/index.js.ep:26
 msgid "No expiration delay"
 msgstr "Pas de délai d’expiration"
 
@@ -318,7 +322,7 @@ msgstr "Confidentialité"
 msgid "Purge expired files from localStorage"
 msgstr "Supprimer du localStorage les fichiers expirés"
 
-#: themes/default/templates/layouts/default.html.ep:29 themes/default/templates/layouts/default.html.ep:42
+#: themes/default/templates/layouts/default.html.ep:31 themes/default/templates/layouts/default.html.ep:54
 msgid "Report file"
 msgstr "Signaler un fichier"
 
@@ -326,7 +330,7 @@ msgstr "Signaler un fichier"
 msgid "Rows in red mean that the files have expired and are no longer available."
 msgstr "Les lignes en rouge indiquent que le fichier a expiré et n’est plus disponible."
 
-#: themes/default/templates/partial/index.js.ep:26
+#: themes/default/templates/partial/index.js.ep:25
 msgid "Send all links by email"
 msgstr "Envoyer tous les liens par mail"
 
@@ -338,7 +342,7 @@ msgstr "Envoyer avec ce serveur"
 msgid "Send with your own mail software"
 msgstr "Envoyer avec votre propre logiciel de mail"
 
-#: themes/default/templates/partial/index.js.ep:28
+#: themes/default/templates/partial/index.js.ep:27
 msgid "Sending part XX1 of XX2. Please, be patient, the progress bar can take a while to move."
 msgstr "Envoi du fragment XX1 sur XX2. Veuillez patienter, la barre de progression peut mettre du temps avant d’avancer."
 
@@ -347,7 +351,7 @@ msgstr "Envoi du fragment XX1 sur XX2. Veuillez patienter, la barre de progressi
 msgid "Share your files in total privacy on %1"
 msgstr "Partagez vos fichiers en toute confidentialité sur %1"
 
-#: themes/default/templates/layouts/default.html.ep:34 themes/default/templates/layouts/default.html.ep:47 themes/default/templates/login.html.ep:26 themes/default/templates/logout.html.ep:8
+#: themes/default/templates/layouts/default.html.ep:36 themes/default/templates/layouts/default.html.ep:59 themes/default/templates/login.html.ep:26 themes/default/templates/logout.html.ep:8
 msgid "Signin"
 msgstr "Connexion"
 
@@ -392,7 +396,7 @@ msgstr "Les fichiers envoyés sur une instance de Lufi sont chiffrés avant l’
 msgid "The following email addresses are not valid: %1"
 msgstr "Les adresses mail suivantes ne sont pas valides : %1"
 
-#: themes/default/templates/partial/index.js.ep:16
+#: themes/default/templates/partial/index.js.ep:15
 msgid "The link(s) has been copied to your clipboard"
 msgstr "Le(s) lien(s) a/ont été copié dans votre presse-papier"
 
@@ -416,7 +420,7 @@ msgstr "The fichier a été désactivé par les administrateurs ou administratri
 msgid "This server sets limitations according to the file size. The expiration delay of your file will be the minimum between what you choose and the following limitations:"
 msgstr "Ce serveur impose des limitations selon la taille des fichiers. Le délai d’expiration de votre fichier sera le minimum entre ce que vous avez choisi et les limites suivantes :"
 
-#: themes/default/templates/partial/index.js.ep:17
+#: themes/default/templates/partial/index.js.ep:16
 msgid "Unable to copy the link(s) to your clipboard"
 msgstr "Impossible de copier le(s) lien(s) dans votre presse-papier"
 
@@ -435,7 +439,7 @@ msgstr "Impossible de récupérer le compteur pour %1. Le jeton est invalide."
 msgid "Unable to get counter for %1. You are not authenticated."
 msgstr "Impossible de récupérer le compteur pour %1. Vous n’êtes pas connecté·e."
 
-#: themes/default/templates/layouts/default.html.ep:31 themes/default/templates/layouts/default.html.ep:44
+#: themes/default/templates/layouts/default.html.ep:33 themes/default/templates/layouts/default.html.ep:56
 msgid "Upload files"
 msgstr "Envoyer des fichiers"
 
@@ -447,7 +451,7 @@ msgstr "Envoyé le"
 msgid "Uploaded files"
 msgstr "Fichiers envoyés"
 
-#: themes/default/templates/partial/index.js.ep:29
+#: themes/default/templates/partial/index.js.ep:28
 msgid "Websocket communication error"
 msgstr "Erreur de communication WebSocket"
 
@@ -475,7 +479,7 @@ msgstr "Il semble que vous n’ayez pas de clé dans votre URL. Vous ne serez pa
 msgid "You have attempted to leave this page. The download will be canceled. Are you sure?"
 msgstr "Vous essayez de quitter la page. Le téléchargement sera annulé. Êtes-vous sûr(e) ?"
 
-#: themes/default/templates/partial/index.js.ep:14
+#: themes/default/templates/partial/index.js.ep:13
 msgid "You have attempted to leave this page. The upload will be canceled. Are you sure?"
 msgstr "Vous essayez de quitter la page. L’envoi sera annulé. Êtes-vous sûr(e) ?"
 
