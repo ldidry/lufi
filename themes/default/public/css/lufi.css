@@ -119,15 +119,17 @@ a.classic:focus {
 .select-lang .select-wrapper input.select-dropdown {
     margin-top: 10px;
     margin-bottom: 0;
-    border-bottom: 1px solid #FFF;
+    border-bottom: 0;
 }
 .select-lang-mobile .select-wrapper input.select-dropdown {
     color: #444;
+    border-bottom: 0;
 }
 .select-lang-mobile .select-wrapper span.caret {
     top: -10px;
 }
-.select-lang {
+.select-lang,
+.select-lang-mobile {
     padding-left: 15px !important;
     padding-right: 15px !important;
 }
