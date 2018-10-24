@@ -6,7 +6,7 @@ lufi.conf
 *.db-wal
 *.bak
 *.swp
-script/hypnotoad.pid
+script/*.pid
 stop-upload
 themes/*
 !themes/default
