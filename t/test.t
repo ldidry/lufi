@@ -20,7 +20,7 @@ my $msg = to_json {
     "name"              => "foobar.txt",
     "type"              => "text/plain",
     "delay"             => "0",
-    "del_at_first_view" => 0,
+    "del_at_first_view" => 1,
     "id"                => undef,
     "i"                 => 0
 };
@@ -109,7 +109,7 @@ sub test_upload_file {
       ->send_ok($msg.'XXMOJOXX'.$encrypted)
       ->message_ok
       ->message_like(qr@"created_at":\d+@)
-      ->message_like(qr@"del_at_first_view":false@)
+      ->message_like(qr@"del_at_first_view":true@)
       ->message_like(qr@"delay":"0"@)
       ->message_like(qr@"duration":\d+@)
       ->message_like(qr@"i":0@)
@@ -150,13 +150,22 @@ sub test_download_file {
       ->message_like(qr@"part":0@)
       ->message_like(qr@"i":0@)
       ->message_like(qr@"id":null@)
-      ->message_like(qr@"del_at_first_view":0@)
+      ->message_like(qr@"del_at_first_view":1@)
       ->message_like(qr@"delay":"0"@)
       ->message_like(qr@"name":"foobar\.txt"@)
       ->message_like(qr@"size":7@)
       ->message_like(qr@"type":"text\\/plain"@)
       ->message_like(qr@XXMOJOXX@)
       ->message_like(qr@$encrypted_rgx@)
+      ->send_ok(to_json({ended => true}))
+      ->finish_ok;
+
+    # The file is not supposed to be available anymore
+    $t->websocket_ok('/download/'.$ws_msg->{short})
+      ->send_ok(to_json({part => 0}))
+      ->message_ok
+      ->message_like(qr@"msg":"Error: the file existed but was deleted\."@)
+      ->message_like(qr@"success":false@)
       ->send_ok(to_json({ended => true}))
       ->finish_ok;
 }
