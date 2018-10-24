@@ -431,6 +431,28 @@ sub delete_creator_before {
     $c->app->dbi->db->query('UPDATE files SET created_by = NULL WHERE created_by IS NOT NULL AND created_at < ?', $separation);
 }
 
+=head2 delete_all
+
+=over 1
+
+=item B<Usage>     : C<$c-E<gt>delete_all()>
+
+=item B<Arguments> : none
+
+=item B<Purpose>   : delete all file records from database unconditionnally
+
+=item B<Returns>   : nothing
+
+=back
+
+=cut
+
+sub delete_all {
+    my $c = shift;
+
+    $c->app->dbi->db->delete('files');
+}
+
 =head2 _slurp
 
 =over 1

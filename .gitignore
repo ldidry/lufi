@@ -1,5 +1,6 @@
 local/*
 files/*
+cover_db/*
 lufi.conf
 *.db
 *.db-shm

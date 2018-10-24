@@ -93,15 +93,15 @@ msgstr "Copia tots els enllaços al porta-retalls"
 msgid "Copy to clipboard"
 msgstr "Copia al porta-retalls"
 
-#: lib/Lufi/Controller/Files.pm:453
+#: lib/Lufi/Controller/Files.pm:460
 msgid "Could not delete the file. You are not authenticated."
 msgstr "No es pot esborrar el fitxer. No esteu autenticat."
 
-#: lib/Lufi/Controller/Files.pm:435
+#: lib/Lufi/Controller/Files.pm:442
 msgid "Could not find the file. Are you sure of the URL and the token?"
 msgstr "No es troba el fitxer. Esteu segur de la URL i el testimoni?"
 
-#: lib/Lufi/Controller/Files.pm:346
+#: lib/Lufi/Controller/Files.pm:353
 msgid "Could not find the file. Are you sure of the URL?"
 msgstr "No trobo el fitxer. Esteu segurs de la URL?"
 
@@ -161,15 +161,15 @@ msgstr "correus electrònics"
 msgid "Encrypting part XX1 of XX2"
 msgstr "S'està xifrant la part XX1 de XX2"
 
-#: lib/Lufi/Controller/Files.pm:235
+#: lib/Lufi/Controller/Files.pm:242
 msgid "Error: the file existed but was deleted."
 msgstr "Error: el fitxer existia però va ser eliminat."
 
-#: lib/Lufi/Controller/Files.pm:315
+#: lib/Lufi/Controller/Files.pm:322
 msgid "Error: the file has not been sent entirely."
 msgstr "Error: el fitxer no s'ha enviat del tot."
 
-#: lib/Lufi/Controller/Files.pm:325
+#: lib/Lufi/Controller/Files.pm:332
 msgid "Error: unable to find the file. Are you sure of your URL?"
 msgstr "Error: no trobo el fitxer. Esteu segur de la URL ?"
 
@@ -185,7 +185,7 @@ msgstr "Expira el"
 msgid "Export localStorage data"
 msgstr "Exporta dades a l'emmagatzematge local"
 
-#: lib/Lufi/Controller/Files.pm:417
+#: lib/Lufi/Controller/Files.pm:424
 msgid "File deleted"
 msgstr "Fitxer eliminat"
 
@@ -383,7 +383,7 @@ msgstr "El cos del correu no pot estar buit."
 msgid "The email subject can't be empty."
 msgstr "L'assumpte dle correu no pot estar buit."
 
-#: lib/Lufi/Controller/Files.pm:414
+#: lib/Lufi/Controller/Files.pm:421
 msgid "The file has already been deleted"
 msgstr "El fitxer ja ha estat esborrat"
 
@@ -412,7 +412,7 @@ msgstr "L'autor original (i per ara l'únic) és <a href=\"https://fiat-tux.fr\"
 msgid "The server was unable to find the file record to add your file part to. Please, contact the administrator."
 msgstr "El servidor no ha pogut trobar el registre del fitxer per afegir-hi el tros del fitxer. Si us plau, contacteu l'administrador."
 
-#: lib/Lufi/Controller/Files.pm:241
+#: lib/Lufi/Controller/Files.pm:248
 msgid "This file has been deactivated by the admins. Contact them to know why."
 msgstr ""
 
@@ -425,17 +425,17 @@ msgid "Unable to copy the link(s) to your clipboard"
 msgstr "No s'han pogut copiar l'enllaç o els enllaços al porta-retalls."
 
 #. ($short)
-#: lib/Lufi/Controller/Files.pm:385
+#: lib/Lufi/Controller/Files.pm:392
 msgid "Unable to get counter for %1. The file does not exists. It will be removed from your localStorage."
 msgstr "No he pogut obtenir el comptador de %1. El fitxer no existeix. Serà eliminat del teu emmagatzematge local."
 
 #. ($short)
-#: lib/Lufi/Controller/Files.pm:375
+#: lib/Lufi/Controller/Files.pm:382
 msgid "Unable to get counter for %1. The token is invalid."
 msgstr "No he pogut obtenir el comptador de %1. El testimoni no és vàlid."
 
 #. ($short)
-#: lib/Lufi/Controller/Files.pm:395
+#: lib/Lufi/Controller/Files.pm:402
 msgid "Unable to get counter for %1. You are not authenticated."
 msgstr "No he pogut obtenir el comptador de %1. No esteu autenticat."
 
@@ -500,7 +500,7 @@ msgstr ""
 msgid "Your file is too big: %1 (maximum size allowed: %2)"
 msgstr "El fitxer és massa gran: %1 (mida màxima admesa: %2)"
 
-#: lib/Lufi/Controller/Files.pm:297
+#: lib/Lufi/Controller/Files.pm:304
 msgid "Your password is not valid. Please refresh the page to retry."
 msgstr ""
 

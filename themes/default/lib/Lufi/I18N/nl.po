@@ -79,15 +79,15 @@ msgstr "Kopieer alle links naar klembord"
 msgid "Copy to clipboard"
 msgstr "Kopieer naar klembord"
 
-#: lib/Lufi/Controller/Files.pm:453
+#: lib/Lufi/Controller/Files.pm:460
 msgid "Could not delete the file. You are not authenticated."
 msgstr "Kan het bestand niet verwijderen. Je bent niet geautoriseerd."
 
-#: lib/Lufi/Controller/Files.pm:435
+#: lib/Lufi/Controller/Files.pm:442
 msgid "Could not find the file. Are you sure of the URL and the token?"
 msgstr "Kan het bestand niet vinden. Klopt de URL en token wel?"
 
-#: lib/Lufi/Controller/Files.pm:346
+#: lib/Lufi/Controller/Files.pm:353
 msgid "Could not find the file. Are you sure of the URL?"
 msgstr "Kan het bestand niet vinden. Klopt de URL?"
 
@@ -147,15 +147,15 @@ msgstr "Emails"
 msgid "Encrypting part XX1 of XX2"
 msgstr "Encrypten deel XX1 van XX2 "
 
-#: lib/Lufi/Controller/Files.pm:235
+#: lib/Lufi/Controller/Files.pm:242
 msgid "Error: the file existed but was deleted."
 msgstr "Fout: het bestand bestond wel maar is verwijderd."
 
-#: lib/Lufi/Controller/Files.pm:315
+#: lib/Lufi/Controller/Files.pm:322
 msgid "Error: the file has not been sent entirely."
 msgstr "Fout: het bestand is niet volledig opgestuurd."
 
-#: lib/Lufi/Controller/Files.pm:325
+#: lib/Lufi/Controller/Files.pm:332
 msgid "Error: unable to find the file. Are you sure of your URL?"
 msgstr "Fout: kan het bestand niet vinden. Is de URL juist?"
 
@@ -171,7 +171,7 @@ msgstr "Vervalt op"
 msgid "Export localStorage data"
 msgstr "Exporteer opgeslagen data"
 
-#: lib/Lufi/Controller/Files.pm:417
+#: lib/Lufi/Controller/Files.pm:424
 msgid "File deleted"
 msgstr "Bestand verwijderd"
 
@@ -370,7 +370,7 @@ msgstr "Mail inhoud kan niet leeg zijn."
 msgid "The email subject can't be empty."
 msgstr "Onderwerp kan niet leeg zijn."
 
-#: lib/Lufi/Controller/Files.pm:414
+#: lib/Lufi/Controller/Files.pm:421
 msgid "The file has already been deleted"
 msgstr "Bestand is reeds verwijderd"
 
@@ -399,7 +399,7 @@ msgstr "De oorspronkelijke auteur is <a href=\"https://fiat-tux.fr\" class=\"cla
 msgid "The server was unable to find the file record to add your file part to. Please, contact the administrator."
 msgstr "Server kon een deel van het bestand niet vinden. Neem contact op met beheerder."
 
-#: lib/Lufi/Controller/Files.pm:241
+#: lib/Lufi/Controller/Files.pm:248
 msgid "This file has been deactivated by the admins. Contact them to know why."
 msgstr ""
 
@@ -412,17 +412,17 @@ msgid "Unable to copy the link(s) to your clipboard"
 msgstr "Kan de link(s) niet naar je klembord kopieeren"
 
 #. ($short)
-#: lib/Lufi/Controller/Files.pm:385
+#: lib/Lufi/Controller/Files.pm:392
 msgid "Unable to get counter for %1. The file does not exists. It will be removed from your localStorage."
 msgstr "Kan geen teller verkrijgen voor %1. Bestand bestaat niet. Het zal verwijderd worden van opgeslagen data."
 
 #. ($short)
-#: lib/Lufi/Controller/Files.pm:375
+#: lib/Lufi/Controller/Files.pm:382
 msgid "Unable to get counter for %1. The token is invalid."
 msgstr "Kan geen teller verkrijgen voor %1. De token is ongeldig."
 
 #. ($short)
-#: lib/Lufi/Controller/Files.pm:395
+#: lib/Lufi/Controller/Files.pm:402
 msgid "Unable to get counter for %1. You are not authenticated."
 msgstr "Kan geen teller verkrijgen voor %1. Je bent niet geauthenticeerd."
 
@@ -487,7 +487,7 @@ msgstr ""
 msgid "Your file is too big: %1 (maximum size allowed: %2)"
 msgstr "Je bestand is te groot: %1 (max: %2)"
 
-#: lib/Lufi/Controller/Files.pm:297
+#: lib/Lufi/Controller/Files.pm:304
 msgid "Your password is not valid. Please refresh the page to retry."
 msgstr ""
 

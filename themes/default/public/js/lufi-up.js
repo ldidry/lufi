@@ -195,7 +195,9 @@ function sliceAndUpload(randomkey, i, parts, j, delay, del_at_first_view, short)
 
         // Prepare json
         var data = {
+            // number of parts
             total: parts,
+            // part X of total
             part: j,
             size: file.size,
             name: file.name,
@@ -203,6 +205,7 @@ function sliceAndUpload(randomkey, i, parts, j, delay, del_at_first_view, short)
             delay: delay,
             del_at_first_view: del_at_first_view,
             id: short,
+            // number of the sent file in the queue
             i: i
         };
         if ($('#file_pwd').length === 1) {

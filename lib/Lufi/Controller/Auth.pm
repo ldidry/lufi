@@ -26,7 +26,7 @@ sub login {
     }
 }
 
-sub logout {
+sub log_out {
     my $c = shift;
 
     if ($c->is_user_authenticated) {

@@ -136,6 +136,28 @@ sub get_slices_of_file {
     return c(@slices);
 }
 
+=head2 delete_all
+
+=over 1
+
+=item B<Usage>     : C<$c-E<gt>delete_all()>
+
+=item B<Arguments> : none
+
+=item B<Purpose>   : delete all file records from database unconditionnally
+
+=item B<Returns>   : nothing
+
+=back
+
+=cut
+
+sub delete_all {
+    my $c = shift;
+
+    $c->app->dbi->db->delete('slices');
+}
+
 =head2 _slurp
 
 =over 1

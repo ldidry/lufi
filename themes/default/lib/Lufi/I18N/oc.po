@@ -92,15 +92,15 @@ msgstr "Copiar totes los ligams al quicha-papièrs"
 msgid "Copy to clipboard"
 msgstr "Copiar al quicha-papièrs"
 
-#: lib/Lufi/Controller/Files.pm:453
+#: lib/Lufi/Controller/Files.pm:460
 msgid "Could not delete the file. You are not authenticated."
 msgstr "Impossible de suprimir lo fichièr. Sètz pas connectat-ada."
 
-#: lib/Lufi/Controller/Files.pm:435
+#: lib/Lufi/Controller/Files.pm:442
 msgid "Could not find the file. Are you sure of the URL and the token?"
 msgstr "Impossible de trobar lo fichièr. Sètz segur-a que l’URL e lo geton son bons ?"
 
-#: lib/Lufi/Controller/Files.pm:346
+#: lib/Lufi/Controller/Files.pm:353
 msgid "Could not find the file. Are you sure of the URL?"
 msgstr "Impossible de trobar lo fichièr. Sètz segur-a que l’URL es bona ?"
 
@@ -160,15 +160,15 @@ msgstr "Corrièl"
 msgid "Encrypting part XX1 of XX2"
 msgstr "Chiframent del tròç XX1 sus XX2"
 
-#: lib/Lufi/Controller/Files.pm:235
+#: lib/Lufi/Controller/Files.pm:242
 msgid "Error: the file existed but was deleted."
 msgstr "Error : lo fichièr existissiá mas es estat suprimit"
 
-#: lib/Lufi/Controller/Files.pm:315
+#: lib/Lufi/Controller/Files.pm:322
 msgid "Error: the file has not been sent entirely."
 msgstr "Error : lo fichièr es pas estat mandat completament"
 
-#: lib/Lufi/Controller/Files.pm:325
+#: lib/Lufi/Controller/Files.pm:332
 msgid "Error: unable to find the file. Are you sure of your URL?"
 msgstr "Error : impossible de trobar lo fichièr. Sètz segur-a de l’URL ?"
 
@@ -184,7 +184,7 @@ msgstr "Expira lo"
 msgid "Export localStorage data"
 msgstr "Exportar las donadas localStorage"
 
-#: lib/Lufi/Controller/Files.pm:417
+#: lib/Lufi/Controller/Files.pm:424
 msgid "File deleted"
 msgstr "Fichièr suprimit"
 
@@ -387,7 +387,7 @@ msgstr "Lo contengut del corrièl pòt pas èsser void."
 msgid "The email subject can't be empty."
 msgstr "Lo sujècte del corrièl pòt pas èsser void."
 
-#: lib/Lufi/Controller/Files.pm:414
+#: lib/Lufi/Controller/Files.pm:421
 msgid "The file has already been deleted"
 msgstr "Lo fichièr es ja estat suprimit"
 
@@ -416,7 +416,7 @@ msgstr "L’autor original (e pel moment, lo sol) es <a href=\"https://fiat-tux.
 msgid "The server was unable to find the file record to add your file part to. Please, contact the administrator."
 msgstr "Lo servidor es pas estat capable de retrobar l’enregistrament del fichièr que li cal ajustar vòstre tròç de fichièr. Mercés de contactar l’administrator."
 
-#: lib/Lufi/Controller/Files.pm:241
+#: lib/Lufi/Controller/Files.pm:248
 msgid "This file has been deactivated by the admins. Contact them to know why."
 msgstr ""
 
@@ -429,17 +429,17 @@ msgid "Unable to copy the link(s) to your clipboard"
 msgstr "Impossible de copiar lo(s) ligams(s) dins vòstre quicha-papièrs"
 
 #. ($short)
-#: lib/Lufi/Controller/Files.pm:385
+#: lib/Lufi/Controller/Files.pm:392
 msgid "Unable to get counter for %1. The file does not exists. It will be removed from your localStorage."
 msgstr "Impossible de recuperar lo comptador per %1. Lo fichièr existís pas. Serà levat de vòstre localStorage."
 
 #. ($short)
-#: lib/Lufi/Controller/Files.pm:375
+#: lib/Lufi/Controller/Files.pm:382
 msgid "Unable to get counter for %1. The token is invalid."
 msgstr "Impossible de recuperar lo comptador per %1. Lo geton es invalid."
 
 #. ($short)
-#: lib/Lufi/Controller/Files.pm:395
+#: lib/Lufi/Controller/Files.pm:402
 msgid "Unable to get counter for %1. You are not authenticated."
 msgstr "Impossible de recuperar lo comptador per %1. Sètz pas connectat·ada."
 
@@ -504,7 +504,7 @@ msgstr ""
 msgid "Your file is too big: %1 (maximum size allowed: %2)"
 msgstr "Vòstre fichièr es tròp voluminós : %1 (la talha maximum autorizada es %2)"
 
-#: lib/Lufi/Controller/Files.pm:297
+#: lib/Lufi/Controller/Files.pm:304
 msgid "Your password is not valid. Please refresh the page to retry."
 msgstr "Lo senhal es pas valid. Mercés d’actualizar la pagina e ensajar tornamai."
 

@@ -21,6 +21,9 @@ requires 'Crypt::SaltedHash';
 requires 'Data::Validate::URI';
 requires 'Term::ProgressBar';
 
+feature 'test' => sub {
+    requires 'Devel::Cover';
+};
 feature 'ldap', 'LDAP authentication support' => sub {
     requires 'Net::LDAP';
     requires 'Mojolicious::Plugin::Authentication';

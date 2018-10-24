@@ -200,6 +200,13 @@ sub upload {
                 $c->app->log->debug('Client disconnected');
             }
         );
+    } else {
+        $c->on(
+            message => sub {
+                $c->app->log->info(sprintf('Someone unauthenticated tried to upload a file. IP: %s', $c->ip));
+                $c->finish;
+            }
+        );
     }
 }
 

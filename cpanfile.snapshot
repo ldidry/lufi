@@ -323,6 +323,65 @@ DISTRIBUTIONS
       Data::Validate::Domain 0
       Data::Validate::IP 0
       ExtUtils::MakeMaker 0
+  Devel-Cover-1.31
+    pathname: P/PJ/PJCJ/Devel-Cover-1.31.tar.gz
+    provides:
+      Devel::Cover 1.31
+      Devel::Cover::Annotation::Git 1.31
+      Devel::Cover::Annotation::Random 1.31
+      Devel::Cover::Annotation::Svk 1.31
+      Devel::Cover::Branch 1.31
+      Devel::Cover::Collection 1.31
+      Devel::Cover::Collection::Template::Provider 1.31
+      Devel::Cover::Condition 1.31
+      Devel::Cover::Condition_and_2 1.31
+      Devel::Cover::Condition_and_3 1.31
+      Devel::Cover::Condition_or_2 1.31
+      Devel::Cover::Condition_or_3 1.31
+      Devel::Cover::Condition_xor_4 1.31
+      Devel::Cover::Criterion 1.31
+      Devel::Cover::DB 1.31
+      Devel::Cover::DB::Criterion 1.31
+      Devel::Cover::DB::Digests 1.31
+      Devel::Cover::DB::File 1.31
+      Devel::Cover::DB::IO 1.31
+      Devel::Cover::DB::IO::Base 1.31
+      Devel::Cover::DB::IO::JSON 1.31
+      Devel::Cover::DB::IO::Sereal 1.31
+      Devel::Cover::DB::IO::Storable 1.31
+      Devel::Cover::DB::Run 1.31
+      Devel::Cover::DB::Structure 1.31
+      Devel::Cover::Html_Common 1.31
+      Devel::Cover::Op 1.31
+      Devel::Cover::Pod 1.31
+      Devel::Cover::Report::Compilation 1.31
+      Devel::Cover::Report::Html 1.31
+      Devel::Cover::Report::Html_basic 1.31
+      Devel::Cover::Report::Html_basic::Template::Provider 1.31
+      Devel::Cover::Report::Html_minimal 1.31
+      Devel::Cover::Report::Html_subtle 1.31
+      Devel::Cover::Report::Html_subtle::Template::Provider 1.31
+      Devel::Cover::Report::Json 1.31
+      Devel::Cover::Report::Sort 1.31
+      Devel::Cover::Report::Text 1.31
+      Devel::Cover::Report::Text2 1.31
+      Devel::Cover::Report::Vim 1.31
+      Devel::Cover::Report::Vim::Template::Provider 1.31
+      Devel::Cover::Statement 1.31
+      Devel::Cover::Subroutine 1.31
+      Devel::Cover::Test 1.31
+      Devel::Cover::Time 1.31
+      Devel::Cover::Truth_Table 1.31
+      Devel::Cover::Truth_Table::Row 1.31
+      Devel::Cover::Util 1.31
+      Devel::Cover::Web 1.31
+    requirements:
+      B::Debug 0
+      Digest::MD5 0
+      ExtUtils::MakeMaker 0
+      HTML::Entities 3.69
+      Storable 0
+      Test::More 0
   Devel-GlobalDestruction-0.14
     pathname: H/HA/HAARG/Devel-GlobalDestruction-0.14.tar.gz
     provides:
