@@ -36,6 +36,21 @@ DISTRIBUTIONS
       Canary::Stability 2012
     requirements:
       ExtUtils::MakeMaker 0
+  Capture-Tiny-0.48
+    pathname: D/DA/DAGOLDEN/Capture-Tiny-0.48.tar.gz
+    provides:
+      Capture::Tiny 0.48
+    requirements:
+      Carp 0
+      Exporter 0
+      ExtUtils::MakeMaker 6.17
+      File::Spec 0
+      File::Temp 0
+      IO::Handle 0
+      Scalar::Util 0
+      perl 5.006
+      strict 0
+      warnings 0
   Class-Method-Modifiers-2.12
     pathname: E/ET/ETHER/Class-Method-Modifiers-2.12.tar.gz
     provides:
@@ -49,6 +64,18 @@ DISTRIBUTIONS
       perl 5.006
       strict 0
       warnings 0
+  Class-MethodMaker-2.24
+    pathname: S/SC/SCHWIGON/class-methodmaker/Class-MethodMaker-2.24.tar.gz
+    provides:
+      Class::MethodMaker 2.24
+      Class::MethodMaker::Constants undef
+      Class::MethodMaker::Engine 2.24
+      Class::MethodMaker::OptExt undef
+      Class::MethodMaker::V1Compat undef
+      Generate undef
+    requirements:
+      ExtUtils::MakeMaker 0
+      perl 5.006
   Clone-Choose-0.010
     pathname: H/HE/HERMES/Clone-Choose-0.010.tar.gz
     provides:
@@ -1408,6 +1435,46 @@ DISTRIBUTIONS
       Text::Balanced 2
       if 0
       perl 5.005
+  Term-ProgressBar-2.22
+    pathname: M/MA/MANWAR/Term-ProgressBar-2.22.tar.gz
+    provides:
+      Term::ProgressBar 2.22
+      Term::ProgressBar::IO 2.22
+    requirements:
+      Capture::Tiny 0.13
+      Carp 0
+      Class::MethodMaker 1.02
+      ExtUtils::MakeMaker 0
+      Fatal 0
+      File::Temp 0
+      POSIX 0
+      Term::ReadKey 2.14
+      Test::Exception 0.31
+      Test::More 0.80
+      Test::Warnings 0
+      perl 5.006
+  TermReadKey-2.37
+    pathname: J/JS/JSTOWE/TermReadKey-2.37.tar.gz
+    provides:
+      Term::ReadKey 2.37
+    requirements:
+      ExtUtils::MakeMaker 6.58
+  Test-Exception-0.43
+    pathname: E/EX/EXODIST/Test-Exception-0.43.tar.gz
+    provides:
+      Test::Exception 0.43
+    requirements:
+      Carp 0
+      Exporter 0
+      ExtUtils::MakeMaker 0
+      Sub::Uplevel 0.18
+      Test::Builder 0.7
+      Test::Builder::Tester 1.07
+      Test::Harness 2.03
+      base 0
+      perl 5.006001
+      strict 0
+      warnings 0
   Test-Fatal-0.014
     pathname: R/RJ/RJBS/Test-Fatal-0.014.tar.gz
     provides:
@@ -1431,6 +1498,19 @@ DISTRIBUTIONS
       Test::Builder 0.13
       Test::Builder::Tester 1.02
       perl 5.006
+  Test-Warnings-0.026
+    pathname: E/ET/ETHER/Test-Warnings-0.026.tar.gz
+    provides:
+      Test::Warnings 0.026
+    requirements:
+      Carp 0
+      Exporter 0
+      ExtUtils::MakeMaker 0
+      Test::Builder 0
+      parent 0
+      perl 5.006
+      strict 0
+      warnings 0
   Text-Soundex-3.05
     pathname: R/RJ/RJBS/Text-Soundex-3.05.tar.gz
     provides:
