@@ -115,6 +115,9 @@ sub new {
         } elsif ($dbtype eq 'postgresql') {
             use Lufi::DB::File::Pg;
             $c = Lufi::DB::File::Pg->new(@_);
+        } elsif ($dbtype eq 'mysql') {
+            use Lufi::DB::File::Mysql;
+            $c = Lufi::DB::File::Mysql->new(@_);
         }
     }
 

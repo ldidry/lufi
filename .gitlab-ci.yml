@@ -78,7 +78,7 @@ carton:
     expire_in: 1 week
   dependencies: []
   script:
-    - carton install --deployment --without=sqlite --without=postgresql
+    - carton install --deployment --without=sqlite --without=postgresql --without=mysql
   when: always
   retry: 2
 
@@ -88,15 +88,15 @@ carton:
 carton_sqlite:
   <<: *carton_bdd_definition
   script:
-    - carton install --deployment --without=postgresql
+    - carton install --deployment --without=postgresql --without=mysql
 carton_postgresql:
   <<: *carton_bdd_definition
   script:
-    - carton install --deployment --without=sqlite
-#carton_mysql:
-#  <<: *carton_bdd_definition
-#  script:
-#    - carton install --deployment --without=sqlite --without=postgresql
+    - carton install --deployment --without=sqlite --without=mysql
+carton_mysql:
+  <<: *carton_bdd_definition
+  script:
+    - carton install --deployment --without=sqlite --without=postgresql
 
 ### SQLite tests
 ##
@@ -119,8 +119,8 @@ postgresql:
 ### MySQL tests
 ##
 #
-#mysql:
-#  <<: *mysql_definition
-#  script:
-#    - MOJO_CONFIG=t/mysql.conf make test
-#    - MOJO_CONFIG=t/mysql.conf make cover
+mysql:
+  <<: *mysql_definition
+  script:
+    - MOJO_CONFIG=t/mysql.conf make test
+    - MOJO_CONFIG=t/mysql.conf make cover

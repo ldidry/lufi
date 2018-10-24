@@ -24,6 +24,17 @@ sub register {
         } else {
             $migrations->from_file('utilities/migrations/pg.sql')->migrate(2);
         }
+    } elsif ($app->config('dbtype') eq 'mysql') {
+        require Mojo::mysql;
+        $app->helper(dbi => \&_mysql);
+
+        # Database migration
+        my $migrations = Mojo::mysql::Migrations->new(mysql => $app->dbi);
+        if ($app->mode eq 'development' && $ENV{LUFI_DEV}) {
+            $migrations->from_file('utilities/migrations/mysql.sql')->migrate(0)->migrate(1);
+        } else {
+            $migrations->from_file('utilities/migrations/mysql.sql')->migrate(1);
+        }
     } elsif ($app->config('dbtype') eq 'sqlite') {
         require Mojo::SQLite;
         $app->helper(dbi => \&_sqlite);
@@ -61,8 +72,28 @@ sub register {
 sub _pg {
     my $c = shift;
 
-    state $pg = Mojo::Pg->new($c->app->pg_url($c->app->config('pgdb')));
+    my $pgdb  = $c->config('pgdb');
+    my $port  = (defined $pgdb->{port}) ? $pgdb->{port}: 5432;
+    my $addr  = $c->pg_url({
+        host => $pgdb->{host}, port => $port, database => $pgdb->{database}, user => $pgdb->{user}, pwd => $pgdb->{pwd}
+    });
+    state $pg = Mojo::Pg->new($addr);
+    $pg->max_connections($pgdb->{max_connections}) if defined $pgdb->{max_connections};
     return $pg;
+}
+
+sub _mysql {
+    my $c     = shift;
+
+    my $mysqldb  = $c->config('mysqldb');
+    my $port  = (defined $mysqldb->{port}) ? $mysqldb->{port}: 3306;
+    my $addr  = $c->pg_url({
+        host => $mysqldb->{host}, port => $port, database => $mysqldb->{database}, user => $mysqldb->{user}, pwd => $mysqldb->{pwd}
+    });
+    $addr =~ s/postgresql/mysql/;
+    state $mysql = Mojo::mysql->new($addr);
+    $mysql->max_connections($mysqldb->{max_connections}) if defined $mysqldb->{max_connections};
+    return $mysql;
 }
 
 sub _sqlite {

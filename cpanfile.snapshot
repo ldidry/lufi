@@ -148,6 +148,20 @@ DISTRIBUTIONS
       Test::More 0.47
       Tie::Hash 0
       perl 5.006
+  DBD-mysql-4.046
+    pathname: C/CA/CAPTTOFU/DBD-mysql-4.046.tar.gz
+    provides:
+      Bundle::DBD::mysql 4.046
+      DBD::mysql 4.046
+      DBD::mysql::GetInfo undef
+      DBD::mysql::db 4.046
+      DBD::mysql::dr 4.046
+      DBD::mysql::st 4.046
+    requirements:
+      DBI 1.609
+      Data::Dumper 0
+      ExtUtils::MakeMaker 0
+      perl 5.008001
   DBI-1.641
     pathname: T/TI/TIMB/DBI-1.641.tar.gz
     provides:
@@ -323,6 +337,16 @@ DISTRIBUTIONS
       Data::Validate::Domain 0
       Data::Validate::IP 0
       ExtUtils::MakeMaker 0
+  Devel-CheckLib-1.13
+    pathname: M/MA/MATTN/Devel-CheckLib-1.13.tar.gz
+    provides:
+      Devel::CheckLib 1.13
+    requirements:
+      Exporter 0
+      ExtUtils::MakeMaker 0
+      File::Spec 0
+      File::Temp 0.16
+      perl 5.00405
   Devel-Cover-1.31
     pathname: P/PJ/PJCJ/Devel-Cover-1.31.tar.gz
     provides:
@@ -1018,6 +1042,23 @@ DISTRIBUTIONS
       URI::db 0.15
       URI::file 4.21
       perl 5.010001
+  Mojo-mysql-1.07
+    pathname: J/JH/JHTHORSEN/Mojo-mysql-1.07.tar.gz
+    provides:
+      Blog undef
+      Blog::Controller::Posts undef
+      Blog::Model::Posts undef
+      Mojo::mysql 1.07
+      Mojo::mysql::Database undef
+      Mojo::mysql::Migrations undef
+      Mojo::mysql::PubSub undef
+      Mojo::mysql::Results undef
+      Mojo::mysql::Transaction undef
+    requirements:
+      DBD::mysql 4.042
+      ExtUtils::MakeMaker 0
+      Mojolicious 7.55
+      SQL::Abstract 1.81
   Mojolicious-8.04
     pathname: S/SR/SRI/Mojolicious-8.04.tar.gz
     provides:

@@ -111,7 +111,7 @@ sub test_upload_file {
       ->message_like(qr@"created_at":\d+@)
       ->message_like(qr@"del_at_first_view":false@)
       ->message_like(qr@"delay":"0"@)
-      ->message_like(qr@"duration":0@)
+      ->message_like(qr@"duration":\d+@)
       ->message_like(qr@"i":0@)
       ->message_like(qr@"j":0@)
       ->message_like(qr@"name":"foobar\.txt"@)

@@ -67,6 +67,9 @@ sub new {
         } elsif ($dbtype eq 'postgresql') {
             use Lufi::DB::Slice::Pg;
             $c = Lufi::DB::Slice::Pg->new(@_);
+        } elsif ($dbtype eq 'mysql') {
+            use Lufi::DB::Slice::Mysql;
+            $c = Lufi::DB::Slice::Mysql->new(@_);
         }
     }
 

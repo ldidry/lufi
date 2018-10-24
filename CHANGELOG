@@ -15,6 +15,7 @@ Revision history for Lufi
 	- Use a recurrent task to provision shorts
 	- Add a command to migrate data from SQLite to an other database
 	- Add a test suite
+	- MySQL support
 
 0.02.2 2017-09-18
 	- Fix cron tasks bug
