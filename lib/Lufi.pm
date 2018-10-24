@@ -97,12 +97,12 @@ sub startup {
     # Helpers
     $self->plugin('Lufi::Plugin::Helpers');
 
-    # Hooks
-    $self->hook(
-        after_dispatch => sub {
-            shift->provisioning();
-        }
-    );
+    # Recurrent task
+    Mojo::IOLoop->recurring(2 => sub {
+        my $loop = shift;
+
+        $self->provisioning();
+    });
 
     # For the first launch (after, this isn't really useful)
     $self->provisioning();

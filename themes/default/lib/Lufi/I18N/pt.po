@@ -93,15 +93,15 @@ msgstr "Copiar todos os links para a área de transferência"
 msgid "Copy to clipboard"
 msgstr "Copiar para a área de transferência"
 
-#: lib/Lufi/Controller/Files.pm:455
+#: lib/Lufi/Controller/Files.pm:453
 msgid "Could not delete the file. You are not authenticated."
 msgstr "Impossível apagar o ficheiro. Não está conectado."
 
-#: lib/Lufi/Controller/Files.pm:437
+#: lib/Lufi/Controller/Files.pm:435
 msgid "Could not find the file. Are you sure of the URL and the token?"
 msgstr "Impossível encontrar o ficheiro.Tem a certeza que o URL e os símbolos estão corretos?"
 
-#: lib/Lufi/Controller/Files.pm:348
+#: lib/Lufi/Controller/Files.pm:346
 msgid "Could not find the file. Are you sure of the URL?"
 msgstr "Impossível encontar o ficheiro. Tem a certeza de que o URL está correto?"
 
@@ -165,15 +165,15 @@ msgstr "E-mails"
 msgid "Encrypting part XX1 of XX2"
 msgstr "Codificação do fragmento XX1 de XX2"
 
-#: lib/Lufi/Controller/Files.pm:237
+#: lib/Lufi/Controller/Files.pm:235
 msgid "Error: the file existed but was deleted."
 msgstr "Erro: o ficheiro existia mas foi apagado."
 
-#: lib/Lufi/Controller/Files.pm:317
+#: lib/Lufi/Controller/Files.pm:315
 msgid "Error: the file has not been sent entirely."
 msgstr "Erro: o ficheiro não foi enviado na totalidade."
 
-#: lib/Lufi/Controller/Files.pm:327
+#: lib/Lufi/Controller/Files.pm:325
 msgid "Error: unable to find the file. Are you sure of your URL?"
 msgstr "Erro: impossível encontrar o ficheiro. Tem a certeza do URL?"
 
@@ -189,7 +189,7 @@ msgstr "Expira no"
 msgid "Export localStorage data"
 msgstr "Exportar os dados localStorage"
 
-#: lib/Lufi/Controller/Files.pm:419
+#: lib/Lufi/Controller/Files.pm:417
 msgid "File deleted"
 msgstr "Ficheiro apagado"
 
@@ -388,7 +388,7 @@ msgstr "A mensagem do e-mail não pode estar vazia."
 msgid "The email subject can't be empty."
 msgstr "O assunto do e-mail não pode estar vazio."
 
-#: lib/Lufi/Controller/Files.pm:416
+#: lib/Lufi/Controller/Files.pm:414
 msgid "The file has already been deleted"
 msgstr "O ficheiro já foi apagado"
 
@@ -413,11 +413,11 @@ msgstr "O e-mail foi enviado."
 msgid "The original (and only for now) author is <a href=\"https://fiat-tux.fr\" class=\"classic\">Luc Didry</a>. If you want to support him, you can do it via <a href=\"https://www.tipeee.com/fiat-tux\" class=\"classic\">Tipeee</a> or via <a href=\"https://liberapay.com/sky/\" class=\"classic\">Liberapay</a>."
 msgstr "O autor original (e por agora, o único) é <a href=\"https://fiat-tux.fr\" class=\"classic\">Luc Didry</a>. Se o desejar apoiar pode fazer-lo via <a href=\"https://www.tipeee.com/fiat-tux\" class=\"classic\">Tipeee</a> ou via <a href=\"https://liberapay.com/sky/\" class=\"classic\">Liberapay</a>."
 
-#: lib/Lufi/Controller/Files.pm:191
+#: lib/Lufi/Controller/Files.pm:189
 msgid "The server was unable to find the file record to add your file part to. Please, contact the administrator."
 msgstr "O servidor foi incapaz de encontrar o registo do ficheiro no qual devia-se juntar o fragmento do seu ficheiro. Contacte o administrador."
 
-#: lib/Lufi/Controller/Files.pm:243
+#: lib/Lufi/Controller/Files.pm:241
 msgid "This file has been deactivated by the admins. Contact them to know why."
 msgstr ""
 
@@ -430,17 +430,17 @@ msgid "Unable to copy the link(s) to your clipboard"
 msgstr "Impossível copiar o(s) link(s) na sua área de transferência"
 
 #. ($short)
-#: lib/Lufi/Controller/Files.pm:387
+#: lib/Lufi/Controller/Files.pm:385
 msgid "Unable to get counter for %1. The file does not exists. It will be removed from your localStorage."
 msgstr "Impossível recuperar o contador para %1. O ficheiro não existe. Isso vai apagar a sua localStorage."
 
 #. ($short)
-#: lib/Lufi/Controller/Files.pm:377
+#: lib/Lufi/Controller/Files.pm:375
 msgid "Unable to get counter for %1. The token is invalid."
 msgstr "Impossível recuperar o contador para %1. O símbolo é inválido."
 
 #. ($short)
-#: lib/Lufi/Controller/Files.pm:397
+#: lib/Lufi/Controller/Files.pm:395
 msgid "Unable to get counter for %1. You are not authenticated."
 msgstr "Impossível recuperar o contador para %1. Não está conectado."
 
@@ -509,7 +509,7 @@ msgstr ""
 msgid "Your file is too big: %1 (maximum size allowed: %2)"
 msgstr "O seu ficheiro é grande de mais: %1 (o tamanho máximo autorizado é de %2)"
 
-#: lib/Lufi/Controller/Files.pm:299
+#: lib/Lufi/Controller/Files.pm:297
 msgid "Your password is not valid. Please refresh the page to retry."
 msgstr ""
 

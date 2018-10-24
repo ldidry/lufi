@@ -92,15 +92,15 @@ msgstr "Copier tous les liens dans le presse-papier"
 msgid "Copy to clipboard"
 msgstr "Copier dans le presse-papier"
 
-#: lib/Lufi/Controller/Files.pm:455
+#: lib/Lufi/Controller/Files.pm:453
 msgid "Could not delete the file. You are not authenticated."
 msgstr "Impossible de supprimer le fichier. Vous n’êtes pas connecté·e."
 
-#: lib/Lufi/Controller/Files.pm:437
+#: lib/Lufi/Controller/Files.pm:435
 msgid "Could not find the file. Are you sure of the URL and the token?"
 msgstr "Impossible de retrouver le fichier. Êtes-vous sûr(e) que l’URL et le jeton sont les bons ?"
 
-#: lib/Lufi/Controller/Files.pm:348
+#: lib/Lufi/Controller/Files.pm:346
 msgid "Could not find the file. Are you sure of the URL?"
 msgstr "Impossible de retrouver le fichier. Êtes-vous sûr(e) que l’URL est la bonne ?"
 
@@ -160,15 +160,15 @@ msgstr "Mails"
 msgid "Encrypting part XX1 of XX2"
 msgstr "Chiffrement du fragment XX1 sur XX2"
 
-#: lib/Lufi/Controller/Files.pm:237
+#: lib/Lufi/Controller/Files.pm:235
 msgid "Error: the file existed but was deleted."
 msgstr "Erreur : le fichier existait mais a été supprimé"
 
-#: lib/Lufi/Controller/Files.pm:317
+#: lib/Lufi/Controller/Files.pm:315
 msgid "Error: the file has not been sent entirely."
 msgstr "Erreur : le fichier n’a pas été envoyé dans son intégralité"
 
-#: lib/Lufi/Controller/Files.pm:327
+#: lib/Lufi/Controller/Files.pm:325
 msgid "Error: unable to find the file. Are you sure of your URL?"
 msgstr "Erreur : impossible de retrouver le fichier. Êtes-vous sûr(e) de l’URL ?"
 
@@ -184,7 +184,7 @@ msgstr "Expire le"
 msgid "Export localStorage data"
 msgstr "Exporter les données localStorage"
 
-#: lib/Lufi/Controller/Files.pm:419
+#: lib/Lufi/Controller/Files.pm:417
 msgid "File deleted"
 msgstr "Fichier supprimé"
 
@@ -383,7 +383,7 @@ msgstr "Le corps du mail ne peut être vide."
 msgid "The email subject can't be empty."
 msgstr "Le sujet du mail ne peut être vide."
 
-#: lib/Lufi/Controller/Files.pm:416
+#: lib/Lufi/Controller/Files.pm:414
 msgid "The file has already been deleted"
 msgstr "Le fichier a déjà été supprimé"
 
@@ -408,11 +408,11 @@ msgstr "Le mail a été envoyé."
 msgid "The original (and only for now) author is <a href=\"https://fiat-tux.fr\" class=\"classic\">Luc Didry</a>. If you want to support him, you can do it via <a href=\"https://www.tipeee.com/fiat-tux\" class=\"classic\">Tipeee</a> or via <a href=\"https://liberapay.com/sky/\" class=\"classic\">Liberapay</a>."
 msgstr "L’auteur originel (et pour l’instant, le seul) est <a href=\"https://fiat-tux.fr\" class=\"classic\">Luc Didry</a>. Si vous avez envie de le supporter, vous pouvez le faire via <a href=\"https://www.tipeee.com/fiat-tux\" class=\"classic\">Tipeee</a> ou via <a href=\"https://liberapay.com/sky/\" class=\"classic\">Liberapay</a>."
 
-#: lib/Lufi/Controller/Files.pm:191
+#: lib/Lufi/Controller/Files.pm:189
 msgid "The server was unable to find the file record to add your file part to. Please, contact the administrator."
 msgstr "Le serveur a été incapable de retrouver l’enregistrement du fichier auquel ajouter votre fragment de fichier. Veuillez contacter l’administrateur."
 
-#: lib/Lufi/Controller/Files.pm:243
+#: lib/Lufi/Controller/Files.pm:241
 msgid "This file has been deactivated by the admins. Contact them to know why."
 msgstr "The fichier a été désactivé par les administrateurs ou administratrices. Veuillez les contacter pour savoir pourquoi."
 
@@ -425,17 +425,17 @@ msgid "Unable to copy the link(s) to your clipboard"
 msgstr "Impossible de copier le(s) lien(s) dans votre presse-papier"
 
 #. ($short)
-#: lib/Lufi/Controller/Files.pm:387
+#: lib/Lufi/Controller/Files.pm:385
 msgid "Unable to get counter for %1. The file does not exists. It will be removed from your localStorage."
 msgstr "Impossible de récupérer le compteur pour %1. Le fichier n’existe pas. Il va être supprimé de votre localStorage."
 
 #. ($short)
-#: lib/Lufi/Controller/Files.pm:377
+#: lib/Lufi/Controller/Files.pm:375
 msgid "Unable to get counter for %1. The token is invalid."
 msgstr "Impossible de récupérer le compteur pour %1. Le jeton est invalide."
 
 #. ($short)
-#: lib/Lufi/Controller/Files.pm:397
+#: lib/Lufi/Controller/Files.pm:395
 msgid "Unable to get counter for %1. You are not authenticated."
 msgstr "Impossible de récupérer le compteur pour %1. Vous n’êtes pas connecté·e."
 
@@ -500,7 +500,7 @@ msgstr "Votre navigateur n’a pas assez d’entropie pour générer une clé de
 msgid "Your file is too big: %1 (maximum size allowed: %2)"
 msgstr "Votre fichier est trop volumineux : %1 (la taille maximum autorisée est %2)"
 
-#: lib/Lufi/Controller/Files.pm:299
+#: lib/Lufi/Controller/Files.pm:297
 msgid "Your password is not valid. Please refresh the page to retry."
 msgstr "Votre mot de passe est invalide. Veuillez rafraîchir la page pour réessayer."
 

@@ -165,8 +165,6 @@ sub upload {
                             }
                         }
 
-                        $c->provisioning;
-
                         $ws->send(to_json(
                             {
                                 success           => true,
