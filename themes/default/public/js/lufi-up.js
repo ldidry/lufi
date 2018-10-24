@@ -456,6 +456,9 @@ $(document).ready(function(){
     } else {
         bindDropZone();
     }
+    if (maxSize > 0) {
+        $('#max-file-size').text(i18n.maxSize.replace('XXX', filesize(maxSize)));
+    }
     $('label[for="first-view"]').on('click', function(){
         if ($('#first-view').attr('data-checked') && $('#first-view').attr('data-checked') === 'data-checked') {
             $('#first-view').attr('data-checked', null);

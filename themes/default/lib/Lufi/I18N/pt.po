@@ -24,6 +24,10 @@ msgstr ""
 msgid "%1 days"
 msgstr "%1 dias"
 
+#: themes/default/templates/partial/index.js.ep:26
+msgid "(max size: XXX)"
+msgstr ""
+
 #: themes/default/templates/index.html.ep:5
 msgid "1 year"
 msgstr "1 ano"
@@ -73,7 +77,7 @@ msgstr "Símbolo errado CSRF !"
 msgid "Click here to refresh the page and restart the download."
 msgstr "Clique aqui para atualizar a página e começar o download."
 
-#: themes/default/templates/index.html.ep:97
+#: themes/default/templates/index.html.ep:98
 msgid "Click to open the file browser"
 msgstr "Clique para abrir o navegador de ficheiros"
 
@@ -298,7 +302,7 @@ msgstr "Meus ficheiros"
 msgid "No enough space available on the server for this file (size: %1)."
 msgstr "O servidor não tem espaço suficiente para este ficheiro (tamanho: %1)."
 
-#: themes/default/templates/partial/files.js.ep:10 themes/default/templates/partial/index.js.ep:26
+#: themes/default/templates/partial/files.js.ep:10 themes/default/templates/partial/index.js.ep:27
 msgid "No expiration delay"
 msgstr "Não tem prazo de expiração"
 
@@ -351,7 +355,7 @@ msgstr "Enviar com este servidor"
 msgid "Send with your own mail software"
 msgstr "Enviar com o seu e-mail pessoal"
 
-#: themes/default/templates/partial/index.js.ep:27
+#: themes/default/templates/partial/index.js.ep:28
 msgid "Sending part XX1 of XX2. Please, be patient, the progress bar can take a while to move."
 msgstr "Envio do fragmento XX1 de XX2. Por favor aguarde, a barra de progressão pode levar algum tempo antes de avançar."
 
@@ -452,11 +456,11 @@ msgstr "Enviar os ficheiros"
 msgid "Uploaded at"
 msgstr "Enviar a"
 
-#: themes/default/templates/index.html.ep:102
+#: themes/default/templates/index.html.ep:103
 msgid "Uploaded files"
 msgstr "Ficheiros enviados"
 
-#: themes/default/templates/partial/index.js.ep:28
+#: themes/default/templates/partial/index.js.ep:29
 msgid "Websocket communication error"
 msgstr "Erro de comunicação com WebSocket"
 
@@ -541,6 +545,6 @@ msgstr "para %1 e mais, o ficheiro será conservado por um tempo indeterminado."
 msgid "no time limit"
 msgstr "Não tem limite de expiração"
 
-#: themes/default/templates/index.html.ep:95
+#: themes/default/templates/index.html.ep:96
 msgid "or"
 msgstr "ou"

@@ -10,6 +10,10 @@
 msgid "%1 days"
 msgstr "%1 dagen"
 
+#: themes/default/templates/partial/index.js.ep:26
+msgid "(max size: XXX)"
+msgstr ""
+
 #: themes/default/templates/index.html.ep:5
 msgid "1 year"
 msgstr "1 jaar"
@@ -59,7 +63,7 @@ msgstr "Verkeerde CSRF token!"
 msgid "Click here to refresh the page and restart the download."
 msgstr "Klik hier om de pagina te verversen en opnieuw te downloaden."
 
-#: themes/default/templates/index.html.ep:97
+#: themes/default/templates/index.html.ep:98
 msgid "Click to open the file browser"
 msgstr "Klik voor bestandbrowser"
 
@@ -276,7 +280,7 @@ msgstr "Mijn bestanden"
 msgid "No enough space available on the server for this file (size: %1)."
 msgstr "Geen genoeg ruimte op de server voor deze bestand (grootte: %1)."
 
-#: themes/default/templates/partial/files.js.ep:10 themes/default/templates/partial/index.js.ep:26
+#: themes/default/templates/partial/files.js.ep:10 themes/default/templates/partial/index.js.ep:27
 msgid "No expiration delay"
 msgstr "Geen verloop uitstel"
 
@@ -333,7 +337,7 @@ msgstr "Verstuur via deze server"
 msgid "Send with your own mail software"
 msgstr "Verstuur via eigen mail software"
 
-#: themes/default/templates/partial/index.js.ep:27
+#: themes/default/templates/partial/index.js.ep:28
 msgid "Sending part XX1 of XX2. Please, be patient, the progress bar can take a while to move."
 msgstr "Versturen deel XX1 van XX2. Een ogenblik geduld..."
 
@@ -434,11 +438,11 @@ msgstr "Upload bestanden"
 msgid "Uploaded at"
 msgstr "Geupload op"
 
-#: themes/default/templates/index.html.ep:102
+#: themes/default/templates/index.html.ep:103
 msgid "Uploaded files"
 msgstr "Geuploade bestanden"
 
-#: themes/default/templates/partial/index.js.ep:28
+#: themes/default/templates/partial/index.js.ep:29
 msgid "Websocket communication error"
 msgstr "Websocket communicatie fout"
 
@@ -551,6 +555,6 @@ msgstr "voor %1 en meer, bestand zal voor altijd bewaard worden."
 msgid "no time limit"
 msgstr "geen tijdslimiet"
 
-#: themes/default/templates/index.html.ep:95
+#: themes/default/templates/index.html.ep:96
 msgid "or"
 msgstr "of"

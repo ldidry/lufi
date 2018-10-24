@@ -23,6 +23,10 @@ msgstr ""
 msgid "%1 days"
 msgstr "%1 jours"
 
+#: themes/default/templates/partial/index.js.ep:26
+msgid "(max size: XXX)"
+msgstr "(taille max: XXX)"
+
 #: themes/default/templates/index.html.ep:5
 msgid "1 year"
 msgstr "1 an"
@@ -72,7 +76,7 @@ msgstr "Mauvais jeton CSRF !"
 msgid "Click here to refresh the page and restart the download."
 msgstr "Cliquez ici pour rafraîchir la page et redémarrer le téléchargement."
 
-#: themes/default/templates/index.html.ep:97
+#: themes/default/templates/index.html.ep:98
 msgid "Click to open the file browser"
 msgstr "Cliquez pour ouvrir le navigateur de fichiers"
 
@@ -289,7 +293,7 @@ msgstr "Mes fichiers"
 msgid "No enough space available on the server for this file (size: %1)."
 msgstr "Espace disque insuffisant sur le serveur pour ce fichier (taille du fichier : %1)."
 
-#: themes/default/templates/partial/files.js.ep:10 themes/default/templates/partial/index.js.ep:26
+#: themes/default/templates/partial/files.js.ep:10 themes/default/templates/partial/index.js.ep:27
 msgid "No expiration delay"
 msgstr "Pas de délai d’expiration"
 
@@ -342,7 +346,7 @@ msgstr "Envoyer avec ce serveur"
 msgid "Send with your own mail software"
 msgstr "Envoyer avec votre propre logiciel de mail"
 
-#: themes/default/templates/partial/index.js.ep:27
+#: themes/default/templates/partial/index.js.ep:28
 msgid "Sending part XX1 of XX2. Please, be patient, the progress bar can take a while to move."
 msgstr "Envoi du fragment XX1 sur XX2. Veuillez patienter, la barre de progression peut mettre du temps avant d’avancer."
 
@@ -447,11 +451,11 @@ msgstr "Envoyer des fichiers"
 msgid "Uploaded at"
 msgstr "Envoyé le"
 
-#: themes/default/templates/index.html.ep:102
+#: themes/default/templates/index.html.ep:103
 msgid "Uploaded files"
 msgstr "Fichiers envoyés"
 
-#: themes/default/templates/partial/index.js.ep:28
+#: themes/default/templates/partial/index.js.ep:29
 msgid "Websocket communication error"
 msgstr "Erreur de communication WebSocket"
 
@@ -532,6 +536,6 @@ msgstr "pour %1 et plus, le fichier sera conservé indéfiniment."
 msgid "no time limit"
 msgstr "Pas de délai d’expiration"
 
-#: themes/default/templates/index.html.ep:95
+#: themes/default/templates/index.html.ep:96
 msgid "or"
 msgstr "ou"

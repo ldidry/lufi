@@ -21,6 +21,10 @@ msgstr ""
 msgid "%1 days"
 msgstr "%1 days"
 
+#: themes/default/templates/partial/index.js.ep:26
+msgid "(max size: XXX)"
+msgstr ""
+
 #: themes/default/templates/index.html.ep:5
 msgid "1 year"
 msgstr ""
@@ -70,7 +74,7 @@ msgstr ""
 msgid "Click here to refresh the page and restart the download."
 msgstr ""
 
-#: themes/default/templates/index.html.ep:97
+#: themes/default/templates/index.html.ep:98
 msgid "Click to open the file browser"
 msgstr ""
 
@@ -287,7 +291,7 @@ msgstr ""
 msgid "No enough space available on the server for this file (size: %1)."
 msgstr ""
 
-#: themes/default/templates/partial/files.js.ep:10 themes/default/templates/partial/index.js.ep:26
+#: themes/default/templates/partial/files.js.ep:10 themes/default/templates/partial/index.js.ep:27
 msgid "No expiration delay"
 msgstr ""
 
@@ -340,7 +344,7 @@ msgstr ""
 msgid "Send with your own mail software"
 msgstr ""
 
-#: themes/default/templates/partial/index.js.ep:27
+#: themes/default/templates/partial/index.js.ep:28
 msgid "Sending part XX1 of XX2. Please, be patient, the progress bar can take a while to move."
 msgstr ""
 
@@ -441,11 +445,11 @@ msgstr ""
 msgid "Uploaded at"
 msgstr ""
 
-#: themes/default/templates/index.html.ep:102
+#: themes/default/templates/index.html.ep:103
 msgid "Uploaded files"
 msgstr ""
 
-#: themes/default/templates/partial/index.js.ep:28
+#: themes/default/templates/partial/index.js.ep:29
 msgid "Websocket communication error"
 msgstr ""
 
@@ -526,6 +530,6 @@ msgstr ""
 msgid "no time limit"
 msgstr ""
 
-#: themes/default/templates/index.html.ep:95
+#: themes/default/templates/index.html.ep:96
 msgid "or"
 msgstr ""

@@ -92,6 +92,7 @@
     </form>
     <div id="files">
         <h2><%= l('Drop files here') %></h2>
+        <p id="max-file-size"></p>
         <p><small><%= l('or') %></small></p>
         <label>
             <span id="file-browser-span" class="btn disabled waves-effect waves-light"><%= l('Click to open the file browser') %></span>
