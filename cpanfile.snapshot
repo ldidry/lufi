@@ -92,6 +92,14 @@ DISTRIBUTIONS
       ExtUtils::MakeMaker 6.30
       Math::BigInt 1.997
       Test::More 0.90
+  Cpanel-JSON-XS-4.06
+    pathname: R/RU/RURBAN/Cpanel-JSON-XS-4.06.tar.gz
+    provides:
+      Cpanel::JSON::XS 4.06
+      Cpanel::JSON::XS::Type undef
+    requirements:
+      ExtUtils::MakeMaker 0
+      Pod::Text 2.08
   Crypt-PasswdMD5-1.40
     pathname: R/RS/RSAVAGE/Crypt-PasswdMD5-1.40.tgz
     provides:
@@ -337,16 +345,6 @@ DISTRIBUTIONS
       Data::Validate::Domain 0
       Data::Validate::IP 0
       ExtUtils::MakeMaker 0
-  Devel-CheckLib-1.13
-    pathname: M/MA/MATTN/Devel-CheckLib-1.13.tar.gz
-    provides:
-      Devel::CheckLib 1.13
-    requirements:
-      Exporter 0
-      ExtUtils::MakeMaker 0
-      File::Spec 0
-      File::Temp 0.16
-      perl 5.00405
   Devel-Cover-1.31
     pathname: P/PJ/PJCJ/Devel-Cover-1.31.tar.gz
     provides:
@@ -711,6 +709,20 @@ DISTRIBUTIONS
       Mozilla::CA 0
       Net::SSLeay 1.46
       Scalar::Util 0
+  IO-Socket-Socks-0.74
+    pathname: O/OL/OLEG/IO-Socket-Socks-0.74.tar.gz
+    provides:
+      IO::Socket::Socks 0.74
+      IO::Socket::Socks::Debug 0.74
+      IO::Socket::Socks::Error 0.74
+      IO::Socket::Socks::ReadOnlyVar 0.74
+      IO::Socket::Socks::SocketClassVar 0.74
+    requirements:
+      ExtUtils::MakeMaker 6.52
+      IO::Select 0
+      Socket 1.94
+      Test::More 0.88
+      constant 1.03
   ISO-639_1-0.02
     pathname: L/LD/LDIDRY/ISO-639_1-0.02.tar.gz
     provides:
@@ -1873,7 +1885,7 @@ DISTRIBUTIONS
       HTTP::Request 6
       HTTP::Request::Common 6
       HTTP::Response 6
-      HTTP::Status 6.18
+      HTTP::Status 6
       IO::Select 0
       IO::Socket 0
       LWP::MediaTypes 6

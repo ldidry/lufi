@@ -8,7 +8,6 @@ requires 'Mojolicious::Plugin::StaticCache';
 requires 'Mojolicious::Plugin::CSPHeader';
 requires 'Mojolicious::Plugin::FiatTux::Helpers', '== 0.06', url => 'https://framagit.org/fiat-tux/mojolicious/mojolicious-plugin-fiattux-helpers/-/archive/0.06/mojolicious-plugin-fiattux-helpers-0.06.tar.gz';
 requires 'Mojolicious::Plugin::FiatTux::GrantAccess', '== 0.05', url => 'https://framagit.org/fiat-tux/mojolicious/mojolicious-plugin-fiattux-grantaccess/-/archive/0.05/mojolicious-plugin-fiattux-grantaccess-0.05.tar.gz';
-requires 'EV';
 requires 'Filesys::DiskUsage';
 requires 'Switch';
 requires 'Locale::Maketext';
@@ -20,6 +19,14 @@ requires 'Data::Entropy';
 requires 'Crypt::SaltedHash';
 requires 'Data::Validate::URI';
 requires 'Term::ProgressBar';
+
+# Mojolicious optional deps
+feature 'optional_deps' => sub {
+    requires 'Cpanel::JSON::XS';
+    requires 'EV';
+    requires 'IO::Socket::Socks';
+    requires 'Role::Tiny';
+};
 
 feature 'test' => sub {
     requires 'Devel::Cover';
