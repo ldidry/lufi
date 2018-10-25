@@ -51,15 +51,7 @@ sub startup {
 
 
     # Themes handling
-    shift @{$self->renderer->paths};
-    shift @{$self->static->paths};
-    if ($config->{theme} ne 'default') {
-        my $theme = $self->home->rel_file('themes/'.$config->{theme});
-        push @{$self->renderer->paths}, $theme.'/templates' if -d $theme.'/templates';
-        push @{$self->static->paths}, $theme.'/public' if -d $theme.'/public';
-    }
-    push @{$self->renderer->paths}, $self->home->rel_file('themes/default/templates');
-    push @{$self->static->paths}, $self->home->rel_file('themes/default/public');
+    $self->plugin('FiatTux::Themes');
 
     # Mail config
     my $mail_config = {
