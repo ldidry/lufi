@@ -2,7 +2,6 @@
 package Lufi::Plugin::Helpers;
 use Mojo::Base 'Mojolicious::Plugin';
 use Lufi::DB::File;
-use Data::Entropy qw(entropy_source);
 
 sub register {
     my ($self, $app) = @_;
@@ -61,7 +60,6 @@ sub register {
 
     $app->helper(provisioning  => \&_provisioning);
     $app->helper(get_empty     => \&_get_empty);
-    $app->helper(shortener     => \&_shortener);
     $app->helper(ip            => \&_ip);
     $app->helper(default_delay => \&_default_delay);
     $app->helper(max_delay     => \&_max_delay);
@@ -126,18 +124,6 @@ sub _get_empty {
     my $ldfile = Lufi::DB::File->new(app => $c->app)->get_empty;
 
     return $ldfile;
-}
-
-sub _shortener {
-    my $c      = shift;
-    my $length = shift;
-
-    my @chars  = ('a'..'z','A'..'Z','0'..'9', '-', '_');
-    my $result = '';
-    foreach (1..$length) {
-        $result .= $chars[entropy_source->get_int(scalar(@chars))];
-    }
-    return $result;
 }
 
 sub _ip {
