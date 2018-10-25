@@ -2,6 +2,7 @@ package Mounter;
 use Mojo::Base 'Mojolicious';
 use FindBin qw($Bin);
 use File::Spec qw(catfile);
+use Lufi::DefaultConfig qw($default_config);
 
 # This method will run once at server start
 sub startup {
@@ -19,33 +20,7 @@ sub startup {
     my $config = $self->plugin('Config' =>
         {
             file    => $cfile,
-            default => {
-                prefix        => '/',
-                theme         => 'default',
-                dbtype        => 'sqlite',
-                prefix        => '/',
-                provisioning  => 100,
-                provis_step   => 5,
-                length        => 10,
-                token_length  => 32,
-                secrets       => ['hfudsifdsih'],
-                default_delay => 0,
-                max_delay     => 0,
-                mail          => {
-                    how => 'sendmail'
-                },
-                mail_sender              => 'no-reply@lufi.io',
-                theme                    => 'default',
-                upload_dir               => 'files',
-                session_duration         => 3600,
-                allow_pwd_on_files       => 0,
-                dbtype                   => 'sqlite',
-                db_path                  => 'lufi.db',
-                force_burn_after_reading => 0,
-                x_frame_options          => 'DENY',
-                x_content_type_options   => 'nosniff',
-                x_xss_protection         => '1; mode=block',
-            }
+            default => $default_config
         }
     );
 
