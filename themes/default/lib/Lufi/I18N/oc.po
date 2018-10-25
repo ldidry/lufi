@@ -25,7 +25,7 @@ msgstr "%1 jorns"
 
 #: themes/default/templates/partial/index.js.ep:26
 msgid "(max size: XXX)"
-msgstr ""
+msgstr "(talha max : XXX)"
 
 #: themes/default/templates/index.html.ep:5
 msgid "1 year"
@@ -78,7 +78,7 @@ msgstr "Clicatz aquí per actualizar la pagina e tornar començar lo telecargame
 
 #: themes/default/templates/index.html.ep:98
 msgid "Click to open the file browser"
-msgstr "Clicatz per dobrir lo navigator de fichièr"
+msgstr "Clicatz per dobrir lo navigador de fichièr"
 
 #: themes/default/templates/delays.html.ep:38
 msgid "Close"
@@ -166,15 +166,15 @@ msgstr "Chiframent del tròç XX1 sus XX2"
 
 #: lib/Lufi/Controller/Files.pm:242
 msgid "Error: the file existed but was deleted."
-msgstr "Error : lo fichièr existissiá mas es estat suprimit"
+msgstr "Error : lo fichièr existissiá mas es estat suprimit"
 
 #: lib/Lufi/Controller/Files.pm:322
 msgid "Error: the file has not been sent entirely."
-msgstr "Error : lo fichièr es pas estat mandat completament"
+msgstr "Error : lo fichièr es pas estat mandat completament"
 
 #: lib/Lufi/Controller/Files.pm:332
 msgid "Error: unable to find the file. Are you sure of your URL?"
-msgstr "Error : impossible de trobar lo fichièr. Sètz segur-a de l’URL ?"
+msgstr "Error : impossible de trobar lo fichièr. Sètz segur-a de l’URL ?"
 
 #: themes/default/templates/partial/index.js.ep:22
 msgid "Expiration:"
@@ -198,7 +198,7 @@ msgstr "Nom del fichièr"
 
 #: themes/default/templates/index.html.ep:71
 msgid "Files deleted at first download"
-msgstr ""
+msgstr "Fichièr suprimit al primièr telecargament"
 
 #: themes/default/templates/partial/render.js.ep:8
 msgid "Get the file"
@@ -266,7 +266,7 @@ msgstr "Javascript es desactivat. Lufi foncionarà pas."
 
 #: themes/default/templates/layouts/default.html.ep:40 themes/default/templates/layouts/default.html.ep:63
 msgid "Language"
-msgstr ""
+msgstr "Lenga"
 
 #: themes/default/templates/login.html.ep:15
 msgid "Login"
@@ -316,11 +316,11 @@ msgstr "Mercés d’esperar pendent la recuperacion de vòstre fichièr. Nos cal
 
 #: lib/Lufi/Controller/Auth.pm:24
 msgid "Please, check your credentials or your right to access this service: unable to authenticate."
-msgstr ""
+msgstr "Mercés de verificar vòstres identificants o vòstres dreches d’accès a aqueste servici : autentificacion impossibla."
 
 #:
 msgid "Please, check your credentials: unable to authenticate."
-msgstr "Mercés de verificar vòstres identificants : impossible de vos autentificar."
+msgstr "Mercés de verificar vòstres identificants : impossible de vos autentificar."
 
 #: themes/default/templates/about.html.ep:5
 msgid "Privacy"
@@ -332,7 +332,7 @@ msgstr "Suprimir del localStorage los fichièrs expirats"
 
 #: themes/default/templates/layouts/default.html.ep:31 themes/default/templates/layouts/default.html.ep:54
 msgid "Report file"
-msgstr ""
+msgstr "Senhalar un fichièr"
 
 #: themes/default/templates/files.html.ep:9
 msgid "Rows in red mean that the files have expired and are no longer available."
@@ -402,7 +402,7 @@ msgstr "Los fichièrs mandats amb una instància Lufi son chifrats abans la mand
 #. (join(', ', @bad)
 #: lib/Lufi/Controller/Mail.pm:38
 msgid "The following email addresses are not valid: %1"
-msgstr "Las adreças de corrièl seguentas son pas validas : %1"
+msgstr "Las adreças de corrièl seguentas son pas validas : %1"
 
 #: themes/default/templates/partial/index.js.ep:15
 msgid "The link(s) has been copied to your clipboard"
@@ -422,7 +422,7 @@ msgstr "Lo servidor es pas estat capable de retrobar l’enregistrament del fich
 
 #: lib/Lufi/Controller/Files.pm:248
 msgid "This file has been deactivated by the admins. Contact them to know why."
-msgstr ""
+msgstr "Aqueste fichièr es estat desactivat pels administrators. Contactatz-los per saber perque."
 
 #: themes/default/templates/delays.html.ep:10
 msgid "This server sets limitations according to the file size. The expiration delay of your file will be the minimum between what you choose and the following limitations:"
@@ -501,7 +501,7 @@ msgstr "Vos cal donar d’adreças."
 
 #: themes/default/templates/index.html.ep:29
 msgid "Your browser has not enough entropy to generate a strong encryption key. Please wait (it's better if you do things on your computer while waiting)."
-msgstr ""
+msgstr "Vòstre navigador a pas pro d’entropia per generar una clau de chiframent fòrta. Mercés d’esperar (es de bon far de realizar de causas a l’ordenador d’aquel temps)."
 
 #. (format_bytes($json->{size})
 #: lib/Lufi/Controller/Files.pm:66
