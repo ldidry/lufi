@@ -182,7 +182,15 @@ sub auth_test_suite {
     test_upload_file();
     test_download_file();
 
-    $t->get_ok('/logout')
+    my $token = '';
+
+    $t->post_ok('/logout' => form => { csrf_token => $token })
+      ->status_is(200)
+      ->content_like(qr@Bad CSRF token\.@);
+
+    $token = $t->ua->get('/')->res->dom->find('input[name="csrf_token"]')->first->attr('value');
+
+    $t->post_ok('/logout' => form => { csrf_token => $token })
       ->status_is(200)
       ->content_like(qr@You have been successfully logged out\.@);
 

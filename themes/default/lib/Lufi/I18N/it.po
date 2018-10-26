@@ -47,7 +47,7 @@ msgstr "Un grazie con una foto di un gattino sur <a href=\"https://framasphere.o
 msgid "Abort"
 msgstr "Annulla"
 
-#: themes/default/templates/layouts/default.html.ep:48 themes/default/templates/layouts/default.html.ep:71
+#: themes/default/templates/layouts/default.html.ep:48 themes/default/templates/layouts/default.html.ep:76
 msgid "About"
 msgstr "A proposito"
 
@@ -71,6 +71,10 @@ msgstr "Ritorna all'homepage"
 #: lib/Lufi/Controller/Mail.pm:21
 msgid "Bad CSRF token!"
 msgstr "Token CSRF errato!"
+
+#: lib/Lufi/Controller/Auth.pm:22 lib/Lufi/Controller/Auth.pm:39
+msgid "Bad CSRF token."
+msgstr ""
 
 #: themes/default/templates/partial/render.js.ep:5
 msgid "Click here to refresh the page and restart the download."
@@ -264,7 +268,7 @@ msgstr "Sembra che la chiave nel tuo URL sia errata. Controllare il tuo URL."
 msgid "Javascript is disabled. You won't be able to use Lufi."
 msgstr "Javascript è disattivato. Lufi non può funzionare."
 
-#: themes/default/templates/layouts/default.html.ep:40 themes/default/templates/layouts/default.html.ep:63
+#: themes/default/templates/layouts/default.html.ep:40 themes/default/templates/layouts/default.html.ep:68
 msgid "Language"
 msgstr ""
 
@@ -272,7 +276,7 @@ msgstr ""
 msgid "Login"
 msgstr "Login"
 
-#: themes/default/templates/layouts/default.html.ep:50 themes/default/templates/layouts/default.html.ep:73
+#: themes/default/templates/layouts/default.html.ep:53 themes/default/templates/layouts/default.html.ep:78
 msgid "Logout"
 msgstr "Logout"
 
@@ -284,7 +288,7 @@ msgstr "Lufi è un software libero di file hosting."
 msgid "Mail"
 msgstr ""
 
-#: themes/default/templates/files.html.ep:3 themes/default/templates/layouts/default.html.ep:34 themes/default/templates/layouts/default.html.ep:57
+#: themes/default/templates/files.html.ep:3 themes/default/templates/layouts/default.html.ep:34 themes/default/templates/layouts/default.html.ep:62
 msgid "My files"
 msgstr "I miei file"
 
@@ -314,7 +318,7 @@ msgstr "Contattare l'amministratore : %1"
 msgid "Please wait while we are getting your file. We first need to download and decrypt all parts before you can get it."
 msgstr "Attendere mentre otteniamo il vostro file. Dobbiamo prima scaricare e decifrare tutte le parti prima che possiate averlo."
 
-#: lib/Lufi/Controller/Auth.pm:24
+#: lib/Lufi/Controller/Auth.pm:28
 msgid "Please, check your credentials or your right to access this service: unable to authenticate."
 msgstr ""
 
@@ -326,7 +330,7 @@ msgstr "Riservatezza"
 msgid "Purge expired files from localStorage"
 msgstr "Eliminare dal localStorage i file scaduti"
 
-#: themes/default/templates/layouts/default.html.ep:31 themes/default/templates/layouts/default.html.ep:54
+#: themes/default/templates/layouts/default.html.ep:31 themes/default/templates/layouts/default.html.ep:59
 msgid "Report file"
 msgstr ""
 
@@ -359,7 +363,7 @@ msgstr "Invio della parte XX1 su XX2. Prego attendere, la barra di avanzamento p
 msgid "Share your files in total privacy on %1"
 msgstr "Condividi tutti i file in totale riservatezza su %1"
 
-#: themes/default/templates/layouts/default.html.ep:36 themes/default/templates/layouts/default.html.ep:59 themes/default/templates/login.html.ep:26 themes/default/templates/logout.html.ep:8
+#: themes/default/templates/layouts/default.html.ep:36 themes/default/templates/layouts/default.html.ep:64 themes/default/templates/login.html.ep:27 themes/default/templates/logout.html.ep:17
 msgid "Signin"
 msgstr "Autenticazione"
 
@@ -447,7 +451,7 @@ msgstr "Impossibile recuperare il contatore per %1. Il token non è valido."
 msgid "Unable to get counter for %1. You are not authenticated."
 msgstr "Impossibile recuperare il contatore per %1. Non sei autenticato."
 
-#: themes/default/templates/layouts/default.html.ep:33 themes/default/templates/layouts/default.html.ep:56
+#: themes/default/templates/layouts/default.html.ep:33 themes/default/templates/layouts/default.html.ep:61
 msgid "Upload files"
 msgstr "Invio dei file"
 
@@ -491,7 +495,7 @@ msgstr "Hai cercato di uscire da questa pagina. Il download sarà cancellato. Se
 msgid "You have attempted to leave this page. The upload will be canceled. Are you sure?"
 msgstr "Hai cercato di uscire da questa pagina. L'invio sarà cancellato. Sei sicuro?"
 
-#: themes/default/templates/logout.html.ep:5
+#: themes/default/templates/logout.html.ep:14
 msgid "You have been successfully logged out."
 msgstr "Logout avvenuto con successo."
 

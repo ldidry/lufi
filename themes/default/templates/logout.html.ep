@@ -1,4 +1,13 @@
 % # vim:set sw=4 ts=4 sts=4 ft=html.epl expandtab:
+% if (defined stash('msg')) {
+<div class="col s12">
+    <div class="card pink">
+        <div class="card-content white-text">
+            <strong><%= stash('msg') %></strong>
+        </div>
+    </div>
+</div>
+% } else {
 <div class="col s12">
     <div class="card blue-grey darken-1">
         <div class="card-content white-text">
@@ -9,3 +18,4 @@
         </div>
     </div>
 </div>
+% }

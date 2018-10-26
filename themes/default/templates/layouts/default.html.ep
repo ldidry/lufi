@@ -47,7 +47,12 @@
                     </li>
                     <li<%== ' class="active"' if (current_route eq 'about') %>><a href="<%= url_for('/about') %>"><%= l('About') %></a></li>
                 % if ((defined(config('ldap')) || defined(config('htpasswd'))) && is_user_authenticated()) {
-                    <li><a href="<%= url_for('/logout') %>"><%= l('Logout') %></a></li>
+                    <li>
+                        <form action="<%= url_for('/logout') %>" method="POST">
+                            %= csrf_field
+                            <button class="btn-flat" type="submit"><%= l('Logout') %></button>
+                        </form>
+                    </li>
                 % }
                 </ul>
                 <ul id="mobile" class="side-nav">

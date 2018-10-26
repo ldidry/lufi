@@ -47,7 +47,7 @@ msgstr "Un merci avec une photo de chaton sur <a href=\"https://framasphere.org/
 msgid "Abort"
 msgstr "Abandonner"
 
-#: themes/default/templates/layouts/default.html.ep:48 themes/default/templates/layouts/default.html.ep:71
+#: themes/default/templates/layouts/default.html.ep:48 themes/default/templates/layouts/default.html.ep:76
 msgid "About"
 msgstr "À propos"
 
@@ -71,6 +71,10 @@ msgstr "Retour à la page d’accueil"
 #: lib/Lufi/Controller/Mail.pm:21
 msgid "Bad CSRF token!"
 msgstr "Mauvais jeton CSRF !"
+
+#: lib/Lufi/Controller/Auth.pm:22 lib/Lufi/Controller/Auth.pm:39
+msgid "Bad CSRF token."
+msgstr ""
 
 #: themes/default/templates/partial/render.js.ep:5
 msgid "Click here to refresh the page and restart the download."
@@ -264,7 +268,7 @@ msgstr "Il semble que la clé dans votre URL soit incorrecte. Veuillez vérifier
 msgid "Javascript is disabled. You won't be able to use Lufi."
 msgstr "Javascript est désactivé. Lufi ne fonctionnera pas."
 
-#: themes/default/templates/layouts/default.html.ep:40 themes/default/templates/layouts/default.html.ep:63
+#: themes/default/templates/layouts/default.html.ep:40 themes/default/templates/layouts/default.html.ep:68
 msgid "Language"
 msgstr "Langue"
 
@@ -272,7 +276,7 @@ msgstr "Langue"
 msgid "Login"
 msgstr "Identifiant"
 
-#: themes/default/templates/layouts/default.html.ep:50 themes/default/templates/layouts/default.html.ep:73
+#: themes/default/templates/layouts/default.html.ep:53 themes/default/templates/layouts/default.html.ep:78
 msgid "Logout"
 msgstr "Déconnexion"
 
@@ -284,7 +288,7 @@ msgstr "Lufi est un logiciel libre d’hébergement de fichiers."
 msgid "Mail"
 msgstr "Mail"
 
-#: themes/default/templates/files.html.ep:3 themes/default/templates/layouts/default.html.ep:34 themes/default/templates/layouts/default.html.ep:57
+#: themes/default/templates/files.html.ep:3 themes/default/templates/layouts/default.html.ep:34 themes/default/templates/layouts/default.html.ep:62
 msgid "My files"
 msgstr "Mes fichiers"
 
@@ -314,7 +318,7 @@ msgstr "Veuillez contacter l’administrateur : %1"
 msgid "Please wait while we are getting your file. We first need to download and decrypt all parts before you can get it."
 msgstr "Veuillez patientez pendant la récupération de votre fichier. Nous devons d’abord récupérer et déchiffrer tous les fragments avant que vous puissiez le télécharger."
 
-#: lib/Lufi/Controller/Auth.pm:24
+#: lib/Lufi/Controller/Auth.pm:28
 msgid "Please, check your credentials or your right to access this service: unable to authenticate."
 msgstr "Veuillez vérifier vos identifiants ou votre droit d’accès à ce service : impossible de vous authentifier."
 
@@ -326,7 +330,7 @@ msgstr "Confidentialité"
 msgid "Purge expired files from localStorage"
 msgstr "Supprimer du localStorage les fichiers expirés"
 
-#: themes/default/templates/layouts/default.html.ep:31 themes/default/templates/layouts/default.html.ep:54
+#: themes/default/templates/layouts/default.html.ep:31 themes/default/templates/layouts/default.html.ep:59
 msgid "Report file"
 msgstr "Signaler un fichier"
 
@@ -355,7 +359,7 @@ msgstr "Envoi du fragment XX1 sur XX2. Veuillez patienter, la barre de progressi
 msgid "Share your files in total privacy on %1"
 msgstr "Partagez vos fichiers en toute confidentialité sur %1"
 
-#: themes/default/templates/layouts/default.html.ep:36 themes/default/templates/layouts/default.html.ep:59 themes/default/templates/login.html.ep:26 themes/default/templates/logout.html.ep:8
+#: themes/default/templates/layouts/default.html.ep:36 themes/default/templates/layouts/default.html.ep:64 themes/default/templates/login.html.ep:27 themes/default/templates/logout.html.ep:17
 msgid "Signin"
 msgstr "Connexion"
 
@@ -443,7 +447,7 @@ msgstr "Impossible de récupérer le compteur pour %1. Le jeton est invalide."
 msgid "Unable to get counter for %1. You are not authenticated."
 msgstr "Impossible de récupérer le compteur pour %1. Vous n’êtes pas connecté·e."
 
-#: themes/default/templates/layouts/default.html.ep:33 themes/default/templates/layouts/default.html.ep:56
+#: themes/default/templates/layouts/default.html.ep:33 themes/default/templates/layouts/default.html.ep:61
 msgid "Upload files"
 msgstr "Envoyer des fichiers"
 
@@ -487,7 +491,7 @@ msgstr "Vous essayez de quitter la page. Le téléchargement sera annulé. Êtes
 msgid "You have attempted to leave this page. The upload will be canceled. Are you sure?"
 msgstr "Vous essayez de quitter la page. L’envoi sera annulé. Êtes-vous sûr(e) ?"
 
-#: themes/default/templates/logout.html.ep:5
+#: themes/default/templates/logout.html.ep:14
 msgid "You have been successfully logged out."
 msgstr "Vous avez été déconnecté·e avec succès."
 

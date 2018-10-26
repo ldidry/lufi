@@ -34,7 +34,7 @@ msgstr "Een bedankt foto met een katje op <a href=\"https://framasphere.org/peop
 msgid "Abort"
 msgstr "Annuleren"
 
-#: themes/default/templates/layouts/default.html.ep:48 themes/default/templates/layouts/default.html.ep:71
+#: themes/default/templates/layouts/default.html.ep:48 themes/default/templates/layouts/default.html.ep:76
 msgid "About"
 msgstr "Over"
 
@@ -58,6 +58,10 @@ msgstr "Terug naar home"
 #: lib/Lufi/Controller/Mail.pm:21
 msgid "Bad CSRF token!"
 msgstr "Verkeerde CSRF token!"
+
+#: lib/Lufi/Controller/Auth.pm:22 lib/Lufi/Controller/Auth.pm:39
+msgid "Bad CSRF token."
+msgstr ""
 
 #: themes/default/templates/partial/render.js.ep:5
 msgid "Click here to refresh the page and restart the download."
@@ -251,7 +255,7 @@ msgstr "Het lijkt er op dat de sleutel in je URL niet klopt. Controleer je URL."
 msgid "Javascript is disabled. You won't be able to use Lufi."
 msgstr "Javascript is uitgeschakeld. Je kan geen gebruik maken van Lufi."
 
-#: themes/default/templates/layouts/default.html.ep:40 themes/default/templates/layouts/default.html.ep:63
+#: themes/default/templates/layouts/default.html.ep:40 themes/default/templates/layouts/default.html.ep:68
 msgid "Language"
 msgstr ""
 
@@ -259,7 +263,7 @@ msgstr ""
 msgid "Login"
 msgstr "Login"
 
-#: themes/default/templates/layouts/default.html.ep:50 themes/default/templates/layouts/default.html.ep:73
+#: themes/default/templates/layouts/default.html.ep:53 themes/default/templates/layouts/default.html.ep:78
 msgid "Logout"
 msgstr "Logout"
 
@@ -271,7 +275,7 @@ msgstr "Lufi is een gratis bestand hosting software."
 msgid "Mail"
 msgstr ""
 
-#: themes/default/templates/files.html.ep:3 themes/default/templates/layouts/default.html.ep:34 themes/default/templates/layouts/default.html.ep:57
+#: themes/default/templates/files.html.ep:3 themes/default/templates/layouts/default.html.ep:34 themes/default/templates/layouts/default.html.ep:62
 msgid "My files"
 msgstr "Mijn bestanden"
 
@@ -301,7 +305,7 @@ msgstr "Neem contact op met administrator: %1"
 msgid "Please wait while we are getting your file. We first need to download and decrypt all parts before you can get it."
 msgstr "Een ogenblik geduld, we pakken je bestand er bij. We moeten alle delen downloaden en decrypten voordat je het kan downloaden."
 
-#: lib/Lufi/Controller/Auth.pm:24
+#: lib/Lufi/Controller/Auth.pm:28
 msgid "Please, check your credentials or your right to access this service: unable to authenticate."
 msgstr ""
 
@@ -317,7 +321,7 @@ msgstr "Verwijder verlopen data"
 msgid "Register"
 msgstr "Registreer"
 
-#: themes/default/templates/layouts/default.html.ep:31 themes/default/templates/layouts/default.html.ep:54
+#: themes/default/templates/layouts/default.html.ep:31 themes/default/templates/layouts/default.html.ep:59
 msgid "Report file"
 msgstr ""
 
@@ -346,7 +350,7 @@ msgstr "Versturen deel XX1 van XX2. Een ogenblik geduld..."
 msgid "Share your files in total privacy on %1"
 msgstr "Deel je bestanden met volledige privacy op %1"
 
-#: themes/default/templates/layouts/default.html.ep:36 themes/default/templates/layouts/default.html.ep:59 themes/default/templates/login.html.ep:26 themes/default/templates/logout.html.ep:8
+#: themes/default/templates/layouts/default.html.ep:36 themes/default/templates/layouts/default.html.ep:64 themes/default/templates/login.html.ep:27 themes/default/templates/logout.html.ep:17
 msgid "Signin"
 msgstr "Inloggen"
 
@@ -430,7 +434,7 @@ msgstr "Kan geen teller verkrijgen voor %1. De token is ongeldig."
 msgid "Unable to get counter for %1. You are not authenticated."
 msgstr "Kan geen teller verkrijgen voor %1. Je bent niet geauthenticeerd."
 
-#: themes/default/templates/layouts/default.html.ep:33 themes/default/templates/layouts/default.html.ep:56
+#: themes/default/templates/layouts/default.html.ep:33 themes/default/templates/layouts/default.html.ep:61
 msgid "Upload files"
 msgstr "Upload bestanden"
 
@@ -474,7 +478,7 @@ msgstr "Je verlaat deze pagina. Download zal geannuleerd worden. Weet je het zek
 msgid "You have attempted to leave this page. The upload will be canceled. Are you sure?"
 msgstr "Je verlaat deze pagina. Upload zal geannuleerd worden. Weet je het zeker? "
 
-#: themes/default/templates/logout.html.ep:5
+#: themes/default/templates/logout.html.ep:14
 msgid "You have been successfully logged out."
 msgstr "Je bent succesvol uitgelogd."
 

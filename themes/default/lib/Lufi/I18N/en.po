@@ -45,7 +45,7 @@ msgstr ""
 msgid "Abort"
 msgstr ""
 
-#: themes/default/templates/layouts/default.html.ep:48 themes/default/templates/layouts/default.html.ep:71
+#: themes/default/templates/layouts/default.html.ep:48 themes/default/templates/layouts/default.html.ep:76
 msgid "About"
 msgstr ""
 
@@ -68,6 +68,10 @@ msgstr ""
 
 #: lib/Lufi/Controller/Mail.pm:21
 msgid "Bad CSRF token!"
+msgstr ""
+
+#: lib/Lufi/Controller/Auth.pm:22 lib/Lufi/Controller/Auth.pm:39
+msgid "Bad CSRF token."
 msgstr ""
 
 #: themes/default/templates/partial/render.js.ep:5
@@ -262,7 +266,7 @@ msgstr ""
 msgid "Javascript is disabled. You won't be able to use Lufi."
 msgstr ""
 
-#: themes/default/templates/layouts/default.html.ep:40 themes/default/templates/layouts/default.html.ep:63
+#: themes/default/templates/layouts/default.html.ep:40 themes/default/templates/layouts/default.html.ep:68
 msgid "Language"
 msgstr ""
 
@@ -270,7 +274,7 @@ msgstr ""
 msgid "Login"
 msgstr ""
 
-#: themes/default/templates/layouts/default.html.ep:50 themes/default/templates/layouts/default.html.ep:73
+#: themes/default/templates/layouts/default.html.ep:53 themes/default/templates/layouts/default.html.ep:78
 msgid "Logout"
 msgstr ""
 
@@ -282,7 +286,7 @@ msgstr ""
 msgid "Mail"
 msgstr ""
 
-#: themes/default/templates/files.html.ep:3 themes/default/templates/layouts/default.html.ep:34 themes/default/templates/layouts/default.html.ep:57
+#: themes/default/templates/files.html.ep:3 themes/default/templates/layouts/default.html.ep:34 themes/default/templates/layouts/default.html.ep:62
 msgid "My files"
 msgstr ""
 
@@ -312,7 +316,7 @@ msgstr ""
 msgid "Please wait while we are getting your file. We first need to download and decrypt all parts before you can get it."
 msgstr ""
 
-#: lib/Lufi/Controller/Auth.pm:24
+#: lib/Lufi/Controller/Auth.pm:28
 msgid "Please, check your credentials or your right to access this service: unable to authenticate."
 msgstr ""
 
@@ -324,7 +328,7 @@ msgstr ""
 msgid "Purge expired files from localStorage"
 msgstr ""
 
-#: themes/default/templates/layouts/default.html.ep:31 themes/default/templates/layouts/default.html.ep:54
+#: themes/default/templates/layouts/default.html.ep:31 themes/default/templates/layouts/default.html.ep:59
 msgid "Report file"
 msgstr ""
 
@@ -353,7 +357,7 @@ msgstr ""
 msgid "Share your files in total privacy on %1"
 msgstr ""
 
-#: themes/default/templates/layouts/default.html.ep:36 themes/default/templates/layouts/default.html.ep:59 themes/default/templates/login.html.ep:26 themes/default/templates/logout.html.ep:8
+#: themes/default/templates/layouts/default.html.ep:36 themes/default/templates/layouts/default.html.ep:64 themes/default/templates/login.html.ep:27 themes/default/templates/logout.html.ep:17
 msgid "Signin"
 msgstr ""
 
@@ -437,7 +441,7 @@ msgstr ""
 msgid "Unable to get counter for %1. You are not authenticated."
 msgstr ""
 
-#: themes/default/templates/layouts/default.html.ep:33 themes/default/templates/layouts/default.html.ep:56
+#: themes/default/templates/layouts/default.html.ep:33 themes/default/templates/layouts/default.html.ep:61
 msgid "Upload files"
 msgstr ""
 
@@ -481,7 +485,7 @@ msgstr ""
 msgid "You have attempted to leave this page. The upload will be canceled. Are you sure?"
 msgstr ""
 
-#: themes/default/templates/logout.html.ep:5
+#: themes/default/templates/logout.html.ep:14
 msgid "You have been successfully logged out."
 msgstr ""
 

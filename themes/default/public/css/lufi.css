@@ -133,6 +133,13 @@ a.classic:focus {
     padding-left: 15px !important;
     padding-right: 15px !important;
 }
+nav .btn-flat {
+    color: #fff !important;
+    text-transform: initial !important;
+}
+nav .btn-flat:focus {
+    background-color: rgba(0,0,0,0.1) !important;
+}
 .white-background {
     background-color: #FFF;
 }

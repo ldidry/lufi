@@ -48,7 +48,7 @@ msgstr "Un agraïment amb la foto d'un gatet a <a href=\"https://framasphere.org
 msgid "Abort"
 msgstr "Avorta"
 
-#: themes/default/templates/layouts/default.html.ep:48 themes/default/templates/layouts/default.html.ep:71
+#: themes/default/templates/layouts/default.html.ep:48 themes/default/templates/layouts/default.html.ep:76
 msgid "About"
 msgstr "Quant a"
 
@@ -72,6 +72,10 @@ msgstr "Retorna a la pàgina d'inici"
 #: lib/Lufi/Controller/Mail.pm:21
 msgid "Bad CSRF token!"
 msgstr "Mal testimoni CSRF!"
+
+#: lib/Lufi/Controller/Auth.pm:22 lib/Lufi/Controller/Auth.pm:39
+msgid "Bad CSRF token."
+msgstr ""
 
 #: themes/default/templates/partial/render.js.ep:5
 msgid "Click here to refresh the page and restart the download."
@@ -266,7 +270,7 @@ msgstr "Sembla que la clau a l'URL és incorrecta. Si us plau, verifiqueu l'URL.
 msgid "Javascript is disabled. You won't be able to use Lufi."
 msgstr "Teniu el javascript deactivat. No podreu usar Lufi."
 
-#: themes/default/templates/layouts/default.html.ep:40 themes/default/templates/layouts/default.html.ep:63
+#: themes/default/templates/layouts/default.html.ep:40 themes/default/templates/layouts/default.html.ep:68
 msgid "Language"
 msgstr ""
 
@@ -274,7 +278,7 @@ msgstr ""
 msgid "Login"
 msgstr "Entrada"
 
-#: themes/default/templates/layouts/default.html.ep:50 themes/default/templates/layouts/default.html.ep:73
+#: themes/default/templates/layouts/default.html.ep:53 themes/default/templates/layouts/default.html.ep:78
 msgid "Logout"
 msgstr "Sortida"
 
@@ -286,7 +290,7 @@ msgstr "Lufi és programari lliure d'allotjament de fitxers."
 msgid "Mail"
 msgstr ""
 
-#: themes/default/templates/files.html.ep:3 themes/default/templates/layouts/default.html.ep:34 themes/default/templates/layouts/default.html.ep:57
+#: themes/default/templates/files.html.ep:3 themes/default/templates/layouts/default.html.ep:34 themes/default/templates/layouts/default.html.ep:62
 msgid "My files"
 msgstr "Els meus fitxers"
 
@@ -316,7 +320,7 @@ msgstr "Si us plau contacteu amb l'administrador: %1"
 msgid "Please wait while we are getting your file. We first need to download and decrypt all parts before you can get it."
 msgstr "Si us plau, espereu mentre obtenim el fitxer. Abans que el tingueu disponible primer cal descarregar i desxifrar tots els trossos."
 
-#: lib/Lufi/Controller/Auth.pm:24
+#: lib/Lufi/Controller/Auth.pm:28
 msgid "Please, check your credentials or your right to access this service: unable to authenticate."
 msgstr ""
 
@@ -328,7 +332,7 @@ msgstr "Privacitat"
 msgid "Purge expired files from localStorage"
 msgstr "Netegeu els fitxers expirats de l'emmagatzematge local."
 
-#: themes/default/templates/layouts/default.html.ep:31 themes/default/templates/layouts/default.html.ep:54
+#: themes/default/templates/layouts/default.html.ep:31 themes/default/templates/layouts/default.html.ep:59
 msgid "Report file"
 msgstr ""
 
@@ -357,7 +361,7 @@ msgstr "S'està enviant el tros XX1 de XX2. Si us plau, paciència; la barra de 
 msgid "Share your files in total privacy on %1"
 msgstr "Compartiu fitxers amb total privacitat a %1"
 
-#: themes/default/templates/layouts/default.html.ep:36 themes/default/templates/layouts/default.html.ep:59 themes/default/templates/login.html.ep:26 themes/default/templates/logout.html.ep:8
+#: themes/default/templates/layouts/default.html.ep:36 themes/default/templates/layouts/default.html.ep:64 themes/default/templates/login.html.ep:27 themes/default/templates/logout.html.ep:17
 msgid "Signin"
 msgstr "Autenticació"
 
@@ -443,7 +447,7 @@ msgstr "No he pogut obtenir el comptador de %1. El testimoni no és vàlid."
 msgid "Unable to get counter for %1. You are not authenticated."
 msgstr "No he pogut obtenir el comptador de %1. No esteu autenticat."
 
-#: themes/default/templates/layouts/default.html.ep:33 themes/default/templates/layouts/default.html.ep:56
+#: themes/default/templates/layouts/default.html.ep:33 themes/default/templates/layouts/default.html.ep:61
 msgid "Upload files"
 msgstr "Pujar fitxers"
 
@@ -487,7 +491,7 @@ msgstr "Heu intentat deixar aquesta pàgina. Es canceŀlarà la descàrrega. N'e
 msgid "You have attempted to leave this page. The upload will be canceled. Are you sure?"
 msgstr "Heu intentat deixar aquesta pàgina. Es canceŀlarà la pujada. N'esteu segur?"
 
-#: themes/default/templates/logout.html.ep:5
+#: themes/default/templates/logout.html.ep:14
 msgid "You have been successfully logged out."
 msgstr "Heu sortit correctament."
 

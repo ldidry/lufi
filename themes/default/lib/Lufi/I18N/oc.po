@@ -47,7 +47,7 @@ msgstr "Un mercé amb una fotografia de caton sus <a href=\"https://framasphere.
 msgid "Abort"
 msgstr "Anullar"
 
-#: themes/default/templates/layouts/default.html.ep:48 themes/default/templates/layouts/default.html.ep:71
+#: themes/default/templates/layouts/default.html.ep:48 themes/default/templates/layouts/default.html.ep:76
 msgid "About"
 msgstr "A prepaus"
 
@@ -71,6 +71,10 @@ msgstr "Retorn a la pagina d’acuèlh"
 #: lib/Lufi/Controller/Mail.pm:21
 msgid "Bad CSRF token!"
 msgstr "Marrit geton CSRF !"
+
+#: lib/Lufi/Controller/Auth.pm:22 lib/Lufi/Controller/Auth.pm:39
+msgid "Bad CSRF token."
+msgstr ""
 
 #: themes/default/templates/partial/render.js.ep:5
 msgid "Click here to refresh the page and restart the download."
@@ -264,7 +268,7 @@ msgstr "Sembla que la clau dins vòstra URL siá incorrècta. Mercés de verific
 msgid "Javascript is disabled. You won't be able to use Lufi."
 msgstr "Javascript es desactivat. Lufi foncionarà pas."
 
-#: themes/default/templates/layouts/default.html.ep:40 themes/default/templates/layouts/default.html.ep:63
+#: themes/default/templates/layouts/default.html.ep:40 themes/default/templates/layouts/default.html.ep:68
 msgid "Language"
 msgstr "Lenga"
 
@@ -272,7 +276,7 @@ msgstr "Lenga"
 msgid "Login"
 msgstr "Identificant"
 
-#: themes/default/templates/layouts/default.html.ep:50 themes/default/templates/layouts/default.html.ep:73
+#: themes/default/templates/layouts/default.html.ep:53 themes/default/templates/layouts/default.html.ep:78
 msgid "Logout"
 msgstr "Desconnexion"
 
@@ -284,7 +288,7 @@ msgstr "Lufi es un logicial liure d’albèrgament de fichièrs."
 msgid "Mail"
 msgstr "Corrièl"
 
-#: themes/default/templates/files.html.ep:3 themes/default/templates/layouts/default.html.ep:34 themes/default/templates/layouts/default.html.ep:57
+#: themes/default/templates/files.html.ep:3 themes/default/templates/layouts/default.html.ep:34 themes/default/templates/layouts/default.html.ep:62
 msgid "My files"
 msgstr "Mos fichièrs"
 
@@ -314,7 +318,7 @@ msgstr "Mercés de contactar l’administrator : %1"
 msgid "Please wait while we are getting your file. We first need to download and decrypt all parts before you can get it."
 msgstr "Mercés d’esperar pendent la recuperacion de vòstre fichièr. Nos cal d’en primièr recuperar e deschifrar totes los fragaments abans que poscatz o telecargar."
 
-#: lib/Lufi/Controller/Auth.pm:24
+#: lib/Lufi/Controller/Auth.pm:28
 msgid "Please, check your credentials or your right to access this service: unable to authenticate."
 msgstr "Mercés de verificar vòstres identificants o vòstres dreches d’accès a aqueste servici : autentificacion impossibla."
 
@@ -330,7 +334,7 @@ msgstr "Confidencialitat"
 msgid "Purge expired files from localStorage"
 msgstr "Suprimir del localStorage los fichièrs expirats"
 
-#: themes/default/templates/layouts/default.html.ep:31 themes/default/templates/layouts/default.html.ep:54
+#: themes/default/templates/layouts/default.html.ep:31 themes/default/templates/layouts/default.html.ep:59
 msgid "Report file"
 msgstr "Senhalar un fichièr"
 
@@ -359,7 +363,7 @@ msgstr "Mandadís del fragment XX1 sus XX2. Pacientatz, la barra de progression 
 msgid "Share your files in total privacy on %1"
 msgstr "Partejatz vòstres fichièrs en tota confidencialitat sus %1"
 
-#: themes/default/templates/layouts/default.html.ep:36 themes/default/templates/layouts/default.html.ep:59 themes/default/templates/login.html.ep:26 themes/default/templates/logout.html.ep:8
+#: themes/default/templates/layouts/default.html.ep:36 themes/default/templates/layouts/default.html.ep:64 themes/default/templates/login.html.ep:27 themes/default/templates/logout.html.ep:17
 msgid "Signin"
 msgstr "Connexion"
 
@@ -447,7 +451,7 @@ msgstr "Impossible de recuperar lo comptador per %1. Lo geton es invalid."
 msgid "Unable to get counter for %1. You are not authenticated."
 msgstr "Impossible de recuperar lo comptador per %1. Sètz pas connectat·ada."
 
-#: themes/default/templates/layouts/default.html.ep:33 themes/default/templates/layouts/default.html.ep:56
+#: themes/default/templates/layouts/default.html.ep:33 themes/default/templates/layouts/default.html.ep:61
 msgid "Upload files"
 msgstr "Mandar de fichièrs"
 
@@ -491,7 +495,7 @@ msgstr "Ensajatz de partir de la pagina. Lo telecargament serà anullat. Sètz s
 msgid "You have attempted to leave this page. The upload will be canceled. Are you sure?"
 msgstr "Ensajatz de partir de la pagina. Lo mandadís serà anullat. Sètz segur-a ?"
 
-#: themes/default/templates/logout.html.ep:5
+#: themes/default/templates/logout.html.ep:14
 msgid "You have been successfully logged out."
 msgstr "Sètz ben estat desconnectat."
 

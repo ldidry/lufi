@@ -112,7 +112,7 @@ sub startup {
           ->to('Auth#login');
 
         # Logout page
-        $r->get('/logout')
+        $r->post('/logout')
           ->to('Auth#log_out')
           ->name('logout');
     }

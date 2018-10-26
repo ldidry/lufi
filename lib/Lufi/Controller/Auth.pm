@@ -35,7 +35,11 @@ sub log_out {
     my $c = shift;
 
     if ($c->is_user_authenticated) {
-        $c->logout;
+        if ($c->validation->csrf_protect->has_error('csrf_token')) {
+            $c->stash(msg => $c->l('Bad CSRF token.'));
+        } else {
+            $c->logout;
+        }
     }
     $c->render(template => 'logout');
 }

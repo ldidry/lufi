@@ -18,6 +18,7 @@ Revision history for Lufi
 	- MySQL support
 	- Display max size on upload page
 	- Add CSRF token challenge on login
+	- Add CSRF token challenge on logout
 
 0.02.2 2017-09-18
 	- Fix cron tasks bug
