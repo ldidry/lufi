@@ -202,6 +202,10 @@ msgstr ""
 msgid "Files deleted at first download"
 msgstr ""
 
+#: themes/default/templates/mail.html.ep:46
+msgid "Free field"
+msgstr ""
+
 #: themes/default/templates/partial/render.js.ep:8
 msgid "Get the file"
 msgstr ""
@@ -340,11 +344,11 @@ msgstr ""
 msgid "Send all links by email"
 msgstr ""
 
-#: themes/default/templates/mail.html.ep:45
+#: themes/default/templates/mail.html.ep:53
 msgid "Send with this server"
 msgstr ""
 
-#: themes/default/templates/mail.html.ep:46
+#: themes/default/templates/mail.html.ep:54
 msgid "Send with your own mail software"
 msgstr ""
 

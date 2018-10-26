@@ -209,6 +209,10 @@ msgstr "Nome do ficheiro"
 msgid "Files deleted at first download"
 msgstr ""
 
+#: themes/default/templates/mail.html.ep:46
+msgid "Free field"
+msgstr ""
+
 #: themes/default/templates/partial/render.js.ep:8
 msgid "Get the file"
 msgstr "Recuperar o ficheiro"
@@ -351,11 +355,11 @@ msgstr "As linhas a vermelho indicam que o ficheiro expirou e já não está dis
 msgid "Send all links by email"
 msgstr "Enviar todos os links por e-mail"
 
-#: themes/default/templates/mail.html.ep:45
+#: themes/default/templates/mail.html.ep:53
 msgid "Send with this server"
 msgstr "Enviar com este servidor"
 
-#: themes/default/templates/mail.html.ep:46
+#: themes/default/templates/mail.html.ep:54
 msgid "Send with your own mail software"
 msgstr "Enviar com o seu e-mail pessoal"
 

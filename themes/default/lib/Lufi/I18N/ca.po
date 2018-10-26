@@ -205,6 +205,10 @@ msgstr "Nom de fitxer"
 msgid "Files deleted at first download"
 msgstr ""
 
+#: themes/default/templates/mail.html.ep:46
+msgid "Free field"
+msgstr ""
+
 #: themes/default/templates/partial/render.js.ep:8
 msgid "Get the file"
 msgstr "Obté el fitxer"
@@ -344,11 +348,11 @@ msgstr "Les files en vermell indiquen que els fitxers han expirat i ja no són d
 msgid "Send all links by email"
 msgstr "Envia tots els enllaços per correu electrònic"
 
-#: themes/default/templates/mail.html.ep:45
+#: themes/default/templates/mail.html.ep:53
 msgid "Send with this server"
 msgstr "Envia amb aquest servidor"
 
-#: themes/default/templates/mail.html.ep:46
+#: themes/default/templates/mail.html.ep:54
 msgid "Send with your own mail software"
 msgstr "Envia amb el vostre propi programa de correu"
 

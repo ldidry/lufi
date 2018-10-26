@@ -191,6 +191,10 @@ msgstr "Bestandsnaam"
 msgid "Files deleted at first download"
 msgstr ""
 
+#: themes/default/templates/mail.html.ep:46
+msgid "Free field"
+msgstr ""
+
 #: themes/default/templates/partial/render.js.ep:8
 msgid "Get the file"
 msgstr "Download bestand"
@@ -333,11 +337,11 @@ msgstr "Rode rijen betekenen dat deze bestanden verlopen en verwijderd zijn."
 msgid "Send all links by email"
 msgstr "Verstuur alle links via mail"
 
-#: themes/default/templates/mail.html.ep:45
+#: themes/default/templates/mail.html.ep:53
 msgid "Send with this server"
 msgstr "Verstuur via deze server"
 
-#: themes/default/templates/mail.html.ep:46
+#: themes/default/templates/mail.html.ep:54
 msgid "Send with your own mail software"
 msgstr "Verstuur via eigen mail software"
 
