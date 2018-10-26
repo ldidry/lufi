@@ -18,11 +18,16 @@ sub login {
     my $login = $c->param('login');
     my $pwd   = $c->param('password');
 
-    if($c->authenticate($login, $pwd)) {
-        $c->redirect_to('index');
-    } else {
-        $c->stash(msg => $c->l('Please, check your credentials or your right to access this service: unable to authenticate.'));
+    if ($c->validation->csrf_protect->has_error('csrf_token')) {
+        $c->stash(msg => $c->l('Bad CSRF token.'));
         $c->render(template => 'login');
+    } else {
+        if($c->authenticate($login, $pwd)) {
+            $c->redirect_to('index');
+        } else {
+            $c->stash(msg => $c->l('Please, check your credentials or your right to access this service: unable to authenticate.'));
+            $c->render(template => 'login');
+        }
     }
 }
 

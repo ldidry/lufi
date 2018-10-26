@@ -202,7 +202,15 @@ sub test_login {
       ->status_is(200)
       ->content_like(qr@Signin@);
 
-    $t->post_ok('/login' => form => { login => $login, password => $pass })
+    my $token = '';
+
+    $t->post_ok('/login' => form => { login => $login, password => $pass, csrf_token => $token })
+      ->status_is(200)
+      ->content_like(qr@Bad CSRF token\.@);
+
+    $token = $t->ua->get('/login')->res->dom->find('input[name="csrf_token"]')->first->attr('value');
+
+    $t->post_ok('/login' => form => { login => $login, password => $pass, csrf_token => $token })
       ->status_is(302)
       ->header_is(Location => '/');
 
