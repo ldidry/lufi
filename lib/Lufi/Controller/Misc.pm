@@ -2,6 +2,7 @@
 package Lufi::Controller::Misc;
 use Mojo::Base 'Mojolicious::Controller';
 use Mojo::File;
+use Mojo::URL;
 use Lufi::DB::File;
 
 sub index {
@@ -21,7 +22,8 @@ sub change_lang {
         $c->cookie($c->app->moniker.'_lang' => $l, { path => $c->config('prefix') });
     }
 
-    if ($c->req->headers->referrer) {
+    if ($c->req->headers->referrer
+        && Mojo::URL->new($c->req->headers->referrer)->host eq $c->req->url->host) {
         return $c->redirect_to($c->req->headers->referrer);
     } else {
         return $c->redirect_to('/');
