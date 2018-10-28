@@ -1,6 +1,6 @@
 Revision history for Lufi
 
-0.03 2018-??-??
+0.03 2018-10-28
 	- Use Mojo::SQLite instead of ORLite
 	- Use FiatTux plugins
 	- Option to force "Burn after reading" for each uploaded file
