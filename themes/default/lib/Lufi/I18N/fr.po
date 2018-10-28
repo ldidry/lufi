@@ -55,6 +55,10 @@ msgstr "À propos"
 msgid "Add a password to file(s)"
 msgstr "Ajouter un mot de passe au(x) fichier(s)"
 
+#: themes/default/templates/mail.html.ep:16
+msgid "Adding URLs not related to this Lufi instance to the mail body or subject is prohibited."
+msgstr "L’ajout d’URL non liées à cette instance Lufi au corps ou au sujet du mail est interdit."
+
 #: themes/default/templates/about.html.ep:18
 msgid "As Lufi is a free software licensed under of the terms of the <a href=\"https://gnu.org/licenses/agpl.html\" class=\"classic\">AGPLv3</a>, you can install it on you own server. Have a look on the <a href=\"https://framagit.org/luc/lufi/wikis/home\" class=\"classic\">Wiki</a> for the procedure."
 msgstr "Comme Lufi est un logiciel libre soumis aux termes de la license <a href=\"https://gnu.org/licenses/agpl.html\" class=\"classic\">AGPLv3</a>, vous pouvez l’installer sur votre propre serveur. Veuillez consulter le <a href=\"https://framagit.org/luc/lufi/wikis/home\" class=\"classic\">Wiki</a> pour voir la procédure."
@@ -68,13 +72,13 @@ msgstr "Demande de récupération du fragment de fichier XX1 sur %1"
 msgid "Back to homepage"
 msgstr "Retour à la page d’accueil"
 
-#: lib/Lufi/Controller/Mail.pm:21
+#: lib/Lufi/Controller/Mail.pm:25
 msgid "Bad CSRF token!"
 msgstr "Mauvais jeton CSRF !"
 
 #: lib/Lufi/Controller/Auth.pm:22 lib/Lufi/Controller/Auth.pm:39
 msgid "Bad CSRF token."
-msgstr ""
+msgstr "Jeton CSRF invalide."
 
 #: themes/default/templates/partial/render.js.ep:5
 msgid "Click here to refresh the page and restart the download."
@@ -88,7 +92,7 @@ msgstr "Cliquez pour ouvrir le navigateur de fichiers"
 msgid "Close"
 msgstr "Fermer"
 
-#: themes/default/templates/mail.html.ep:22
+#: themes/default/templates/mail.html.ep:23
 msgid "Comma-separated email addresses"
 msgstr "Adresses mails séparées par des virgules"
 
@@ -152,15 +156,15 @@ msgstr "Faites glisser des fichiers dans la zone prévue à cet effet ou sélect
 msgid "Drop files here"
 msgstr "Glissez vos fichiers ici"
 
-#: themes/default/templates/mail.html.ep:38
+#: themes/default/templates/mail.html.ep:39
 msgid "Email body"
 msgstr "Corps du mail"
 
-#: themes/default/templates/mail.html.ep:30
+#: themes/default/templates/mail.html.ep:31
 msgid "Email subject"
 msgstr "Sujet du mail"
 
-#: themes/default/templates/mail.html.ep:24 themes/default/templates/mail.html.ep:26
+#: themes/default/templates/mail.html.ep:25 themes/default/templates/mail.html.ep:27
 msgid "Emails"
 msgstr "Mails"
 
@@ -204,10 +208,6 @@ msgstr "Nom du fichier"
 msgid "Files deleted at first download"
 msgstr "Fichiers supprimés au premier téléchargement"
 
-#: themes/default/templates/mail.html.ep:46
-msgid "Free field"
-msgstr ""
-
 #: themes/default/templates/partial/render.js.ep:8
 msgid "Get the file"
 msgstr "Récupérer le fichier"
@@ -220,7 +220,7 @@ msgstr "Récupérez le code source sur <a href=\"https://framagit.org/luc/lufi\"
 msgid "Hello,\\n\\nHere's some files I want to share with you:\\n"
 msgstr "Bonjour,\\n\\nVoici quelques fichiers que je souhaite partager avec toi :\\n"
 
-#: themes/default/templates/mail.html.ep:34
+#: themes/default/templates/mail.html.ep:35
 msgid "Here's some files"
 msgstr "Voici quelques fichiers"
 
@@ -346,11 +346,11 @@ msgstr "Les lignes en rouge indiquent que le fichier a expiré et n’est plus d
 msgid "Send all links by email"
 msgstr "Envoyer tous les liens par mail"
 
-#: themes/default/templates/mail.html.ep:53
+#: themes/default/templates/mail.html.ep:46
 msgid "Send with this server"
 msgstr "Envoyer avec ce serveur"
 
-#: themes/default/templates/mail.html.ep:54
+#: themes/default/templates/mail.html.ep:47
 msgid "Send with your own mail software"
 msgstr "Envoyer avec votre propre logiciel de mail"
 
@@ -383,15 +383,19 @@ msgstr "Désolé, l’envoi de fichier est désactivé."
 msgid "The administrator can only see the file's name, its size and its mimetype (what kind of file it is: video, text, etc.)."
 msgstr "L’administrateur ne peut voir que le nom du fichier, sa taille et son type mime (son type de fichier : vidéo, texte, etc.)."
 
+#: lib/Lufi/Controller/Mail.pm:53
+msgid "The body of the mail must contain at least one URL pointing to a file hosted on this instance."
+msgstr "Le corps du mail doit contenir au moins une URL pointant vers un fichier hébergé sur cette instance."
+
 #: themes/default/templates/partial/files.js.ep:11
 msgid "The data has been successfully imported."
 msgstr "Les données ont été importées avec succès."
 
-#: lib/Lufi/Controller/Mail.pm:43
+#: lib/Lufi/Controller/Mail.pm:73
 msgid "The email body can't be empty."
 msgstr "Le corps du mail ne peut être vide."
 
-#: lib/Lufi/Controller/Mail.pm:42
+#: lib/Lufi/Controller/Mail.pm:72
 msgid "The email subject can't be empty."
 msgstr "Le sujet du mail ne peut être vide."
 
@@ -404,7 +408,7 @@ msgid "The files uploaded on a Lufi instance are encrypted before the upload to 
 msgstr "Les fichiers envoyés sur une instance de Lufi sont chiffrés avant l’envoi au serveur : l’administrateur du serveur ne peut pas voir le contenu de vos fichiers."
 
 #. (join(', ', @bad)
-#: lib/Lufi/Controller/Mail.pm:38
+#: lib/Lufi/Controller/Mail.pm:68
 msgid "The following email addresses are not valid: %1"
 msgstr "Les adresses mail suivantes ne sont pas valides : %1"
 
@@ -412,7 +416,7 @@ msgstr "Les adresses mail suivantes ne sont pas valides : %1"
 msgid "The link(s) has been copied to your clipboard"
 msgstr "Le(s) lien(s) a/ont été copié dans votre presse-papier"
 
-#: lib/Lufi/Controller/Mail.pm:66
+#: lib/Lufi/Controller/Mail.pm:97
 msgid "The mail has been sent."
 msgstr "Le mail a été envoyé."
 
@@ -479,6 +483,10 @@ msgstr "Qui a écrit ce logiciel ?"
 msgid "You can see the list of your files by clicking on the \"My files\" link at the top right of this page."
 msgstr "Vous pouvez voir la liste de vos fichiers en cliquant sur le lien « Mes fichiers » en haut à droite de cette page."
 
+#: lib/Lufi/Controller/Mail.pm:42
+msgid "You can't add URLs that are not related to this instance."
+msgstr "Vous ne pouvez pas ajouter d’URL non relatives à cette instance."
+
 #: themes/default/templates/about.html.ep:8
 msgid "You don't need to register yourself to upload files but be aware that, for legal reasons, your IP address will be stored when you send a file. Don't panic, this is normally the case for all sites on which you send files."
 msgstr "Vous n’avez pas besoin de vous enregistrer pour envoyer des fichiers mais notez que, pour des raisons légales, votre adresse IP sera enregistrée quand vous envoyez un fichier. Ne paniquez pas, c’est normalement le cas pour tous les sites où vous envoyez des fichiers."
@@ -499,7 +507,7 @@ msgstr "Vous essayez de quitter la page. L’envoi sera annulé. Êtes-vous sûr
 msgid "You have been successfully logged out."
 msgstr "Vous avez été déconnecté·e avec succès."
 
-#: lib/Lufi/Controller/Mail.pm:41
+#: lib/Lufi/Controller/Mail.pm:71
 msgid "You must give email addresses."
 msgstr "Vous devez envoyer des adresses mail."
 

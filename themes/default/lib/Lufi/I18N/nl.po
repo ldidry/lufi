@@ -42,6 +42,10 @@ msgstr "Over"
 msgid "Add a password to file(s)"
 msgstr ""
 
+#: themes/default/templates/mail.html.ep:16
+msgid "Adding URLs not related to this Lufi instance to the mail body or subject is prohibited."
+msgstr ""
+
 #: themes/default/templates/about.html.ep:18
 msgid "As Lufi is a free software licensed under of the terms of the <a href=\"https://gnu.org/licenses/agpl.html\" class=\"classic\">AGPLv3</a>, you can install it on you own server. Have a look on the <a href=\"https://framagit.org/luc/lufi/wikis/home\" class=\"classic\">Wiki</a> for the procedure."
 msgstr "Aangezien Lufi een gratis software id die gelicentieerd staat onder de voorwaarden van <a href=\"https://gnu.org/licenses/agpl.html\" class=\"classic\">AGPLv3</a>, kan je het installeren op je eigen server. Bekijk <a href=\"https://framagit.org/luc/lufi/wikis/home\" class=\"classic\">Wiki</a> voor de procedure."
@@ -55,7 +59,7 @@ msgstr "Deel XX1 van %1 wordt opgehaald"
 msgid "Back to homepage"
 msgstr "Terug naar home"
 
-#: lib/Lufi/Controller/Mail.pm:21
+#: lib/Lufi/Controller/Mail.pm:25
 msgid "Bad CSRF token!"
 msgstr "Verkeerde CSRF token!"
 
@@ -75,7 +79,7 @@ msgstr "Klik voor bestandbrowser"
 msgid "Close"
 msgstr "Sluiten"
 
-#: themes/default/templates/mail.html.ep:22
+#: themes/default/templates/mail.html.ep:23
 msgid "Comma-separated email addresses"
 msgstr "Komma gescheiden email adressen"
 
@@ -139,15 +143,15 @@ msgstr "Drag and drop bestanden in de daarvoor bestemde locatie of gebruik de tr
 msgid "Drop files here"
 msgstr "Sleep bestand(en) naar dit venster"
 
-#: themes/default/templates/mail.html.ep:38
+#: themes/default/templates/mail.html.ep:39
 msgid "Email body"
 msgstr "Email inhoud"
 
-#: themes/default/templates/mail.html.ep:30
+#: themes/default/templates/mail.html.ep:31
 msgid "Email subject"
 msgstr "Onderwerp"
 
-#: themes/default/templates/mail.html.ep:24 themes/default/templates/mail.html.ep:26
+#: themes/default/templates/mail.html.ep:25 themes/default/templates/mail.html.ep:27
 msgid "Emails"
 msgstr "Emails"
 
@@ -191,10 +195,6 @@ msgstr "Bestandsnaam"
 msgid "Files deleted at first download"
 msgstr ""
 
-#: themes/default/templates/mail.html.ep:46
-msgid "Free field"
-msgstr ""
-
 #: themes/default/templates/partial/render.js.ep:8
 msgid "Get the file"
 msgstr "Download bestand"
@@ -207,7 +207,7 @@ msgstr "Krijg de broncode op <a href=\"https://framagit.org/luc/lufi\" class=\"c
 msgid "Hello,\\n\\nHere's some files I want to share with you:\\n"
 msgstr "Hallo,\\n\\nHier zijn enkele bestanden die ik met je wil delen:\\n\\n"
 
-#: themes/default/templates/mail.html.ep:34
+#: themes/default/templates/mail.html.ep:35
 msgid "Here's some files"
 msgstr "Hier zijn enkele bestanden"
 
@@ -337,11 +337,11 @@ msgstr "Rode rijen betekenen dat deze bestanden verlopen en verwijderd zijn."
 msgid "Send all links by email"
 msgstr "Verstuur alle links via mail"
 
-#: themes/default/templates/mail.html.ep:53
+#: themes/default/templates/mail.html.ep:46
 msgid "Send with this server"
 msgstr "Verstuur via deze server"
 
-#: themes/default/templates/mail.html.ep:54
+#: themes/default/templates/mail.html.ep:47
 msgid "Send with your own mail software"
 msgstr "Verstuur via eigen mail software"
 
@@ -370,15 +370,19 @@ msgstr "SOrry, uploaden is uitgeschakeld."
 msgid "The administrator can only see the file's name, its size and its mimetype (what kind of file it is: video, text, etc.)."
 msgstr "Beheerders zien alleen bestandsnamen, grootte en mimetype (wat voor soort bestand het is: video, tekst etc.)."
 
+#: lib/Lufi/Controller/Mail.pm:53
+msgid "The body of the mail must contain at least one URL pointing to a file hosted on this instance."
+msgstr ""
+
 #: themes/default/templates/partial/files.js.ep:11
 msgid "The data has been successfully imported."
 msgstr "Data is succesvol geimporteerd."
 
-#: lib/Lufi/Controller/Mail.pm:43
+#: lib/Lufi/Controller/Mail.pm:73
 msgid "The email body can't be empty."
 msgstr "Mail inhoud kan niet leeg zijn."
 
-#: lib/Lufi/Controller/Mail.pm:42
+#: lib/Lufi/Controller/Mail.pm:72
 msgid "The email subject can't be empty."
 msgstr "Onderwerp kan niet leeg zijn."
 
@@ -391,7 +395,7 @@ msgid "The files uploaded on a Lufi instance are encrypted before the upload to 
 msgstr "Bestanden die geupload zijn naar Lufi worden voor de upload versleuteld: beheerders van de server kunnen de inhoud van het bestand niet zien."
 
 #. (join(', ', @bad)
-#: lib/Lufi/Controller/Mail.pm:38
+#: lib/Lufi/Controller/Mail.pm:68
 msgid "The following email addresses are not valid: %1"
 msgstr "Volgende email adressen zijn niet geldig: %1"
 
@@ -399,7 +403,7 @@ msgstr "Volgende email adressen zijn niet geldig: %1"
 msgid "The link(s) has been copied to your clipboard"
 msgstr "De link is gekopieerd naar je klembord"
 
-#: lib/Lufi/Controller/Mail.pm:66
+#: lib/Lufi/Controller/Mail.pm:97
 msgid "The mail has been sent."
 msgstr "Email is verzonden."
 
@@ -466,6 +470,10 @@ msgstr "Wie heeft deze software geschreven?"
 msgid "You can see the list of your files by clicking on the \"My files\" link at the top right of this page."
 msgstr "Je kan een lijst van je eigen bestanden zien door op \"Mijn bestanden\" link rechts boven te klikken."
 
+#: lib/Lufi/Controller/Mail.pm:42
+msgid "You can't add URLs that are not related to this instance."
+msgstr ""
+
 #: themes/default/templates/about.html.ep:8
 msgid "You don't need to register yourself to upload files but be aware that, for legal reasons, your IP address will be stored when you send a file. Don't panic, this is normally the case for all sites on which you send files."
 msgstr "U hoeft zich niet te registreren om bestanden te uploaden, maar wees ervan bewust dat uw IP-adres om juridische redenen zal worden opgeslagen wanneer u een bestand verzendt. Geen paniek, dit is normaal gesproken het geval voor alle sites waarnaar u bestanden verzendt."
@@ -486,7 +494,7 @@ msgstr "Je verlaat deze pagina. Upload zal geannuleerd worden. Weet je het zeker
 msgid "You have been successfully logged out."
 msgstr "Je bent succesvol uitgelogd."
 
-#: lib/Lufi/Controller/Mail.pm:41
+#: lib/Lufi/Controller/Mail.pm:71
 msgid "You must give email addresses."
 msgstr "Je moet een mail adres opgeven."
 

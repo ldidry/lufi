@@ -1749,6 +1749,16 @@ DISTRIBUTIONS
       strict 0
       utf8 0
       warnings 0
+  URI-Find-20160806
+    pathname: M/MS/MSCHWERN/URI-Find-20160806.tar.gz
+    provides:
+      URI::Find 20160806
+      URI::Find::Schemeless 20160806
+    requirements:
+      Module::Build 0.30
+      Test::More 0.88
+      URI 1.60
+      perl v5.8.8
   URI-Nested-0.10
     pathname: D/DW/DWHEELER/URI-Nested-0.10.tar.gz
     provides:

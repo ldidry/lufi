@@ -55,6 +55,10 @@ msgstr "A proposito"
 msgid "Add a password to file(s)"
 msgstr ""
 
+#: themes/default/templates/mail.html.ep:16
+msgid "Adding URLs not related to this Lufi instance to the mail body or subject is prohibited."
+msgstr ""
+
 #: themes/default/templates/about.html.ep:18
 msgid "As Lufi is a free software licensed under of the terms of the <a href=\"https://gnu.org/licenses/agpl.html\" class=\"classic\">AGPLv3</a>, you can install it on you own server. Have a look on the <a href=\"https://framagit.org/luc/lufi/wikis/home\" class=\"classic\">Wiki</a> for the procedure."
 msgstr "Poiché Lufi è un software libero soggetto ai termini della licenza <a href=\"https://gnu.org/licenses/agpl.html\" class=\"classic\">AGPLv3</a>, potete installarlo sul vostro  server. Si consulti <a href=\"https://framagit.org/luc/lufi/wikis/home\" class=\"classic\">Wiki</a> per vedere la procedura."
@@ -68,7 +72,7 @@ msgstr "Recupero della porzione del file XX1 su %1"
 msgid "Back to homepage"
 msgstr "Ritorna all'homepage"
 
-#: lib/Lufi/Controller/Mail.pm:21
+#: lib/Lufi/Controller/Mail.pm:25
 msgid "Bad CSRF token!"
 msgstr "Token CSRF errato!"
 
@@ -88,7 +92,7 @@ msgstr "Click per aprire il file browser"
 msgid "Close"
 msgstr "Chiudi"
 
-#: themes/default/templates/mail.html.ep:22
+#: themes/default/templates/mail.html.ep:23
 msgid "Comma-separated email addresses"
 msgstr "Indirizzi email separati da virgole"
 
@@ -152,15 +156,15 @@ msgstr "Trascinare e lasciare il file nell'are prevista o selezionare i file nel
 msgid "Drop files here"
 msgstr "Lasciare i file qui"
 
-#: themes/default/templates/mail.html.ep:38
+#: themes/default/templates/mail.html.ep:39
 msgid "Email body"
 msgstr "Corpo dell'email"
 
-#: themes/default/templates/mail.html.ep:30
+#: themes/default/templates/mail.html.ep:31
 msgid "Email subject"
 msgstr "Oggetto dell'email"
 
-#: themes/default/templates/mail.html.ep:24 themes/default/templates/mail.html.ep:26
+#: themes/default/templates/mail.html.ep:25 themes/default/templates/mail.html.ep:27
 msgid "Emails"
 msgstr "Email"
 
@@ -204,10 +208,6 @@ msgstr "Nome del file"
 msgid "Files deleted at first download"
 msgstr ""
 
-#: themes/default/templates/mail.html.ep:46
-msgid "Free field"
-msgstr ""
-
 #: themes/default/templates/partial/render.js.ep:8
 msgid "Get the file"
 msgstr "Ottenere il file"
@@ -220,7 +220,7 @@ msgstr "Ottenere il codice sorgente su <a href=\"https://framagit.org/luc/lufi\"
 msgid "Hello,\\n\\nHere's some files I want to share with you:\\n"
 msgstr "Buongiorno,\\n\\necco qualche file che vorrei condividere con te:\\n"
 
-#: themes/default/templates/mail.html.ep:34
+#: themes/default/templates/mail.html.ep:35
 msgid "Here's some files"
 msgstr "Ecco qualche file"
 
@@ -350,11 +350,11 @@ msgstr ""
 msgid "Send all links by email"
 msgstr "Inviare tutti i link tramite email"
 
-#: themes/default/templates/mail.html.ep:53
+#: themes/default/templates/mail.html.ep:46
 msgid "Send with this server"
 msgstr "Inviare tramite questo server"
 
-#: themes/default/templates/mail.html.ep:54
+#: themes/default/templates/mail.html.ep:47
 msgid "Send with your own mail software"
 msgstr "Inviare tramite il vostro programma di posta"
 
@@ -387,15 +387,19 @@ msgstr "L'amministratore pu vedere solo il nome del file, la sua dimensione e il
 msgid "The administrator can only see the file's name, its size and its mimetype (what kind of file it is: video, text, etc.)."
 msgstr ""
 
+#: lib/Lufi/Controller/Mail.pm:53
+msgid "The body of the mail must contain at least one URL pointing to a file hosted on this instance."
+msgstr ""
+
 #: themes/default/templates/partial/files.js.ep:11
 msgid "The data has been successfully imported."
 msgstr "I dati sono stati importati correttamente."
 
-#: lib/Lufi/Controller/Mail.pm:43
+#: lib/Lufi/Controller/Mail.pm:73
 msgid "The email body can't be empty."
 msgstr "Il corpo dell'email non può essere vuoto."
 
-#: lib/Lufi/Controller/Mail.pm:42
+#: lib/Lufi/Controller/Mail.pm:72
 msgid "The email subject can't be empty."
 msgstr "Il soggetto dell'email non può essere vuoto."
 
@@ -408,7 +412,7 @@ msgid "The files uploaded on a Lufi instance are encrypted before the upload to 
 msgstr "I file inviati su un istanza di Lufi sono cifrati prima dell'invio al server: l'amministratore del server non può vedere il contenuto dei vostri file."
 
 #. (join(', ', @bad)
-#: lib/Lufi/Controller/Mail.pm:38
+#: lib/Lufi/Controller/Mail.pm:68
 msgid "The following email addresses are not valid: %1"
 msgstr "I seguenti indirizzi email non sono validi: %1"
 
@@ -416,7 +420,7 @@ msgstr "I seguenti indirizzi email non sono validi: %1"
 msgid "The link(s) has been copied to your clipboard"
 msgstr "I link sono stati copiati negli appunti"
 
-#: lib/Lufi/Controller/Mail.pm:66
+#: lib/Lufi/Controller/Mail.pm:97
 msgid "The mail has been sent."
 msgstr "Email inviata."
 
@@ -483,6 +487,10 @@ msgstr "Chi ha scritto questo software?"
 msgid "You can see the list of your files by clicking on the \"My files\" link at the top right of this page."
 msgstr "Puoi consultare la lista dei vostri file cliccando sul link « I miei file » in alto a destra in questa pagina."
 
+#: lib/Lufi/Controller/Mail.pm:42
+msgid "You can't add URLs that are not related to this instance."
+msgstr ""
+
 #: themes/default/templates/about.html.ep:8
 msgid "You don't need to register yourself to upload files but be aware that, for legal reasons, your IP address will be stored when you send a file. Don't panic, this is normally the case for all sites on which you send files."
 msgstr "Non hai bisogno di registrarti per inviare i file ma devi essere consapevole che, per motivi legali, il tuo indirizzo IP sarà registrato quando invierai un file. Non ti preoccupare, avviene in tutti i siti su cui invii dei file."
@@ -503,7 +511,7 @@ msgstr "Hai cercato di uscire da questa pagina. L'invio sarà cancellato. Sei si
 msgid "You have been successfully logged out."
 msgstr "Logout avvenuto con successo."
 
-#: lib/Lufi/Controller/Mail.pm:41
+#: lib/Lufi/Controller/Mail.pm:71
 msgid "You must give email addresses."
 msgstr "Devi fornire gli indirizzi email."
 

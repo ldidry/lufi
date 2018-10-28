@@ -56,6 +56,10 @@ msgstr "Quant a"
 msgid "Add a password to file(s)"
 msgstr ""
 
+#: themes/default/templates/mail.html.ep:16
+msgid "Adding URLs not related to this Lufi instance to the mail body or subject is prohibited."
+msgstr ""
+
 #: themes/default/templates/about.html.ep:18
 msgid "As Lufi is a free software licensed under of the terms of the <a href=\"https://gnu.org/licenses/agpl.html\" class=\"classic\">AGPLv3</a>, you can install it on you own server. Have a look on the <a href=\"https://framagit.org/luc/lufi/wikis/home\" class=\"classic\">Wiki</a> for the procedure."
 msgstr "Com que Lufi és programari lliure, autoritzat sota els termes de l'<a href=\"https://gnu.org/licenses/agpl.html\" class=\"classic\">AGPLv3</a>, el podeu instal·lar al vostre propi servidor. Pel que fa a com fer-ho, feu un cop d'ull al <a href=\"https://framagit.org/luc/lufi/wikis/home\" class=\"classic\">Wiki</a>."
@@ -69,7 +73,7 @@ msgstr "Demanem la part XX1 de %1 del fitxer"
 msgid "Back to homepage"
 msgstr "Retorna a la pàgina d'inici"
 
-#: lib/Lufi/Controller/Mail.pm:21
+#: lib/Lufi/Controller/Mail.pm:25
 msgid "Bad CSRF token!"
 msgstr "Mal testimoni CSRF!"
 
@@ -89,7 +93,7 @@ msgstr "Premeu per obrir la selecció de fitxer."
 msgid "Close"
 msgstr "Tanca"
 
-#: themes/default/templates/mail.html.ep:22
+#: themes/default/templates/mail.html.ep:23
 msgid "Comma-separated email addresses"
 msgstr "Adreces de correu electrònic separades per comes"
 
@@ -153,15 +157,15 @@ msgstr "Arrossegueu i deixeu anar fitxers a l'àrea apropiada o useu el sistema 
 msgid "Drop files here"
 msgstr "Deixeu anar aquí fitxers."
 
-#: themes/default/templates/mail.html.ep:38
+#: themes/default/templates/mail.html.ep:39
 msgid "Email body"
 msgstr "Cos del correu electrònic"
 
-#: themes/default/templates/mail.html.ep:30
+#: themes/default/templates/mail.html.ep:31
 msgid "Email subject"
 msgstr "Assumpte del correu electrònic"
 
-#: themes/default/templates/mail.html.ep:24 themes/default/templates/mail.html.ep:26
+#: themes/default/templates/mail.html.ep:25 themes/default/templates/mail.html.ep:27
 msgid "Emails"
 msgstr "correus electrònics"
 
@@ -205,10 +209,6 @@ msgstr "Nom de fitxer"
 msgid "Files deleted at first download"
 msgstr ""
 
-#: themes/default/templates/mail.html.ep:46
-msgid "Free field"
-msgstr ""
-
 #: themes/default/templates/partial/render.js.ep:8
 msgid "Get the file"
 msgstr "Obté el fitxer"
@@ -221,7 +221,7 @@ msgstr "Obteniu el codi font al <a href=\"https://framagit.org/luc/lufi\" class=
 msgid "Hello,\\n\\nHere's some files I want to share with you:\\n"
 msgstr "Hola,\\n\\nVe't aquí uns fitxers que vull compartir amb tu:"
 
-#: themes/default/templates/mail.html.ep:34
+#: themes/default/templates/mail.html.ep:35
 msgid "Here's some files"
 msgstr "Ve't aquí uns fitxers"
 
@@ -348,11 +348,11 @@ msgstr "Les files en vermell indiquen que els fitxers han expirat i ja no són d
 msgid "Send all links by email"
 msgstr "Envia tots els enllaços per correu electrònic"
 
-#: themes/default/templates/mail.html.ep:53
+#: themes/default/templates/mail.html.ep:46
 msgid "Send with this server"
 msgstr "Envia amb aquest servidor"
 
-#: themes/default/templates/mail.html.ep:54
+#: themes/default/templates/mail.html.ep:47
 msgid "Send with your own mail software"
 msgstr "Envia amb el vostre propi programa de correu"
 
@@ -383,15 +383,19 @@ msgstr ""
 "L'administrador només pot veure el nom del fitxer, la seva mida i el seu\n"
 "mimetype (quina mena de fitxer és: vídeo, text, etc.)"
 
+#: lib/Lufi/Controller/Mail.pm:53
+msgid "The body of the mail must contain at least one URL pointing to a file hosted on this instance."
+msgstr ""
+
 #: themes/default/templates/partial/files.js.ep:11
 msgid "The data has been successfully imported."
 msgstr "La importació de les dades ha reeixit."
 
-#: lib/Lufi/Controller/Mail.pm:43
+#: lib/Lufi/Controller/Mail.pm:73
 msgid "The email body can't be empty."
 msgstr "El cos del correu no pot estar buit."
 
-#: lib/Lufi/Controller/Mail.pm:42
+#: lib/Lufi/Controller/Mail.pm:72
 msgid "The email subject can't be empty."
 msgstr "L'assumpte dle correu no pot estar buit."
 
@@ -404,7 +408,7 @@ msgid "The files uploaded on a Lufi instance are encrypted before the upload to 
 msgstr "Els fitxers que es pugen a una instaŀlació de Lufi són xifrats abans de pujar-los al servidor i l'administrador del servidor no pot veure el contingut del fitxer."
 
 #. (join(', ', @bad)
-#: lib/Lufi/Controller/Mail.pm:38
+#: lib/Lufi/Controller/Mail.pm:68
 msgid "The following email addresses are not valid: %1"
 msgstr "Les següents adreces de correu electrònic no són vàlides: %1"
 
@@ -412,7 +416,7 @@ msgstr "Les següents adreces de correu electrònic no són vàlides: %1"
 msgid "The link(s) has been copied to your clipboard"
 msgstr "L'enllaç/ els enllaços ja estan copiats al portaretalls"
 
-#: lib/Lufi/Controller/Mail.pm:66
+#: lib/Lufi/Controller/Mail.pm:97
 msgid "The mail has been sent."
 msgstr "El correu ja està enviat."
 
@@ -479,6 +483,10 @@ msgstr "Qui va escriure aquest programa?"
 msgid "You can see the list of your files by clicking on the \"My files\" link at the top right of this page."
 msgstr "Podeu veure la llista dels vostres fitxers amb a l'enllaç \"Els meus fitxers\" a dalt a la dreta d'aquesta pàgina."
 
+#: lib/Lufi/Controller/Mail.pm:42
+msgid "You can't add URLs that are not related to this instance."
+msgstr ""
+
 #: themes/default/templates/about.html.ep:8
 msgid "You don't need to register yourself to upload files but be aware that, for legal reasons, your IP address will be stored when you send a file. Don't panic, this is normally the case for all sites on which you send files."
 msgstr "No cal que us inscriviu per a pujar fitxers però tingueu en compte, que per raons legals, s'enregistrarà la vostra adreça IP quan envieu un fitxer. No us espanteu, això és el que normalment passa a tots els webs on pugeu fitxers."
@@ -499,7 +507,7 @@ msgstr "Heu intentat deixar aquesta pàgina. Es canceŀlarà la pujada. N'esteu 
 msgid "You have been successfully logged out."
 msgstr "Heu sortit correctament."
 
-#: lib/Lufi/Controller/Mail.pm:41
+#: lib/Lufi/Controller/Mail.pm:71
 msgid "You must give email addresses."
 msgstr "Heu de donar l'adreça de correu electrònic."
 

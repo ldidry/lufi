@@ -20,6 +20,7 @@ requires 'Data::Entropy';
 requires 'Crypt::SaltedHash';
 requires 'Data::Validate::URI';
 requires 'Term::ProgressBar';
+requires 'URI::Find';
 
 # Mojolicious optional deps
 feature 'optional_deps' => sub {
