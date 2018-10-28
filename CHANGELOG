@@ -22,6 +22,7 @@ Revision history for Lufi
 	- Add constraints on mail sending to prevent spam sending (not perfect, but
 	should be good enough)
 	- Add Code of Conduct
+	- Add arabic translation
 
 0.02.2 2017-09-18
 	- Fix cron tasks bug
