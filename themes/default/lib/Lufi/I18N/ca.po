@@ -3,19 +3,19 @@
 # This file is distributed under the same license as the PACKAGE package.
 # FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
 # xd <xdrudis@tinet.cat>, 2017.
-#
+# Luc Didry <luc@framasoft.org>, 2018. #zanata
 msgid ""
 msgstr ""
-"Project-Id-Version: Lufi 0.01\n"
+"Project-Id-Version: PACKAGE VERSION\n"
 "POT-Creation-Date: YEAR-MO-DA HO:MI+ZONE\n"
-"PO-Revision-Date: 2017-05-26 06:23-0000\n"
-"Last-Translator: xd <xdrudis@tinet.cat>\n"
-"Language-Team: català; valencià <>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"PO-Revision-Date: 2018-10-28 01:56+0000\n"
+"Last-Translator: Copied by Zanata <copied-by-zanata@zanata.org>\n"
+"Language-Team: català; valencià <>\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
-"X-Generator: Poedit 1.6.10\n"
+"X-Generator: Zanata 4.6.2\n"
 "Language: ca\n"
 
 #. ($delay)
@@ -41,8 +41,16 @@ msgid ":"
 msgstr ":"
 
 #: themes/default/templates/about.html.ep:16
-msgid "A thank you with a photo of kitten on <a href=\"https://framasphere.org/people/b13eb6b0beac0131e7e32a0000053625\" class=\"classic\">Diaspora*</a> or <a href=\"https://framapiaf.org/@framasky\" class=\"classic\">Mastodon</a> is cool too ;-)"
-msgstr "Un agraïment amb la foto d'un gatet a <a href=\"https://framasphere.org/people/b13eb6b0beac0131e7e32a0000053625\" class=\"classic\">Diaspora*</a> o a <a href=\"https://framapiaf.org/@framasky\" class=\"classic\">Mastodon</a> també fa goig ;-)"
+msgid ""
+"A thank you with a photo of kitten on <a href=\"https://framasphere.org/"
+"people/b13eb6b0beac0131e7e32a0000053625\" class=\"classic\">Diaspora*</a> or "
+"<a href=\"https://framapiaf.org/@framasky\" class=\"classic\">Mastodon</a> "
+"is cool too ;-)"
+msgstr ""
+"Un agraïment amb la foto d'un gatet a <a href=\"https://framasphere.org/"
+"people/b13eb6b0beac0131e7e32a0000053625\" class=\"classic\">Diaspora*</a> o "
+"a <a href=\"https://framapiaf.org/@framasky\" class=\"classic\">Mastodon</a> "
+"també fa goig ;-)"
 
 #: themes/default/templates/render.html.ep:42
 msgid "Abort"
@@ -57,12 +65,23 @@ msgid "Add a password to file(s)"
 msgstr ""
 
 #: themes/default/templates/mail.html.ep:16
-msgid "Adding URLs not related to this Lufi instance to the mail body or subject is prohibited."
+msgid ""
+"Adding URLs not related to this Lufi instance to the mail body or subject is "
+"prohibited."
 msgstr ""
 
 #: themes/default/templates/about.html.ep:18
-msgid "As Lufi is a free software licensed under of the terms of the <a href=\"https://gnu.org/licenses/agpl.html\" class=\"classic\">AGPLv3</a>, you can install it on you own server. Have a look on the <a href=\"https://framagit.org/luc/lufi/wikis/home\" class=\"classic\">Wiki</a> for the procedure."
-msgstr "Com que Lufi és programari lliure, autoritzat sota els termes de l'<a href=\"https://gnu.org/licenses/agpl.html\" class=\"classic\">AGPLv3</a>, el podeu instal·lar al vostre propi servidor. Pel que fa a com fer-ho, feu un cop d'ull al <a href=\"https://framagit.org/luc/lufi/wikis/home\" class=\"classic\">Wiki</a>."
+msgid ""
+"As Lufi is a free software licensed under of the terms of the <a href="
+"\"https://gnu.org/licenses/agpl.html\" class=\"classic\">AGPLv3</a>, you can "
+"install it on you own server. Have a look on the <a href=\"https://framagit."
+"org/luc/lufi/wikis/home\" class=\"classic\">Wiki</a> for the procedure."
+msgstr ""
+"Com que Lufi és programari lliure, autoritzat sota els termes de l'<a href="
+"\"https://gnu.org/licenses/agpl.html\" class=\"classic\">AGPLv3</a>, el "
+"podeu instal·lar al vostre propi servidor. Pel que fa a com fer-ho, feu un "
+"cop d'ull al <a href=\"https://framagit.org/luc/lufi/wikis/home\" class="
+"\"classic\">Wiki</a>."
 
 #. (stash('nbslices')
 #: themes/default/templates/partial/render.js.ep:9
@@ -134,8 +153,13 @@ msgid "Deletion link"
 msgstr "Enllaç per a eliminació"
 
 #: themes/default/templates/delays.html.ep:8
-msgid "Don't worry: if a user begins to download the file before the expiration and the download ends after the expiration, he will be able to get the file."
-msgstr "No patiu per si un usuari comença a descarregar el fitxer abans de l'expiració i la descàrrega acaba després de l'expiració, encara podrà obtenir el fitxer."
+msgid ""
+"Don't worry: if a user begins to download the file before the expiration and "
+"the download ends after the expiration, he will be able to get the file."
+msgstr ""
+"No patiu per si un usuari comença a descarregar el fitxer abans de "
+"l'expiració i la descàrrega acaba després de l'expiració, encara podrà "
+"obtenir el fitxer."
 
 #: themes/default/templates/partial/index.js.ep:20 themes/default/templates/render.html.ep:28
 msgid "Download"
@@ -150,8 +174,19 @@ msgid "Download link"
 msgstr "Enllaç per a descàrrega"
 
 #: themes/default/templates/about.html.ep:10
-msgid "Drag and drop files in the appropriate area or use the traditional way to send files and the files will be chunked, encrypted and sent to the server. You will get two links per file: a download link, that you give to the people you want to share the file with and a deletion link, allowing you to delete the file whenever you want."
-msgstr "Arrossegueu i deixeu anar fitxers a l'àrea apropiada o useu el sistema tradicional per enviar fitxers, i seran trossejats, xifrats i enviats al servidor. Obtindreu dos enllaços per a cada fitxer: un enllaç per a la descàrrega, que doneu a la gent amb qui voleu compartir el fitxer, i un enllaç per a l'eliminació, que us permet eliminar el fitxer del servidor quan vulgueu. "
+msgid ""
+"Drag and drop files in the appropriate area or use the traditional way to "
+"send files and the files will be chunked, encrypted and sent to the server. "
+"You will get two links per file: a download link, that you give to the "
+"people you want to share the file with and a deletion link, allowing you to "
+"delete the file whenever you want."
+msgstr ""
+"Arrossegueu i deixeu anar fitxers a l'àrea apropiada o useu el sistema "
+"tradicional per enviar fitxers, i seran trossejats, xifrats i enviats al "
+"servidor. Obtindreu dos enllaços per a cada fitxer: un enllaç per a la "
+"descàrrega, que doneu a la gent amb qui voleu compartir el fitxer, i un "
+"enllaç per a l'eliminació, que us permet eliminar el fitxer del servidor "
+"quan vulgueu. "
 
 #: themes/default/templates/index.html.ep:94
 msgid "Drop files here"
@@ -214,8 +249,14 @@ msgid "Get the file"
 msgstr "Obté el fitxer"
 
 #: themes/default/templates/about.html.ep:19
-msgid "Get the source code on <a href=\"https://framagit.org/luc/lufi\" class=\"classic\">the official repository</a> or on its <a href=\"https://github.com/ldidry/lufi\" class=\"classic\">Github mirror</a>"
-msgstr "Obteniu el codi font al <a href=\"https://framagit.org/luc/lufi\" class=\"classic\">repositori oficial</a> o a la seva <a href=\"https://github.com/ldidry/lufi\" class=\"classic\">rèplica a Github</a>"
+msgid ""
+"Get the source code on <a href=\"https://framagit.org/luc/lufi\" class="
+"\"classic\">the official repository</a> or on its <a href=\"https://github."
+"com/ldidry/lufi\" class=\"classic\">Github mirror</a>"
+msgstr ""
+"Obteniu el codi font al <a href=\"https://framagit.org/luc/lufi\" class="
+"\"classic\">repositori oficial</a> o a la seva <a href=\"https://github.com/"
+"ldidry/lufi\" class=\"classic\">rèplica a Github</a>"
 
 #: themes/default/templates/partial/mail.js.ep:35
 msgid "Hello,\\n\\nHere's some files I want to share with you:\\n"
@@ -227,7 +268,8 @@ msgstr "Ve't aquí uns fitxers"
 
 #: themes/default/templates/partial/index.js.ep:24
 msgid "Hit Enter, then Ctrl+C to copy all the download links"
-msgstr "Prem Retorn, i després Ctrl+C per copiar tots els enllaços de descàrrega"
+msgstr ""
+"Prem Retorn, i després Ctrl+C per copiar tots els enllaços de descàrrega"
 
 #: themes/default/templates/partial/index.js.ep:23
 msgid "Hit Enter, then Ctrl+C to copy the download link"
@@ -245,14 +287,18 @@ msgstr "Com instal·lo el programari al meu servidor?"
 msgid "How to report an illegal file?"
 msgstr "Com informo d'un fitxer iŀlegal?"
 
-# delay=temps/retard/dilació/demora/moratòria ?
 #: themes/default/templates/delays.html.ep:7
 msgid "If you choose a delay, the file will be deleted after that delay."
-msgstr "Si seleccioneu una moratòria, el fitxer s'eliminarà passada la moratòria."
+msgstr ""
+"Si seleccioneu una moratòria, el fitxer s'eliminarà passada la moratòria."
 
 #: themes/default/templates/mail.html.ep:15
-msgid "If you send the mail from this server, the links will be sent to the server, which may lower your privacy protection."
-msgstr "Si envieu el correu des d'aquest servidor, els enllaços s'enviaran al servidor, i això pot minvar la protecció de la vostra privacitat."
+msgid ""
+"If you send the mail from this server, the links will be sent to the server, "
+"which may lower your privacy protection."
+msgstr ""
+"Si envieu el correu des d'aquest servidor, els enllaços s'enviaran al "
+"servidor, i això pot minvar la protecció de la vostra privacitat."
 
 #: themes/default/templates/files.html.ep:14
 msgid "Import localStorage data"
@@ -267,8 +313,10 @@ msgid "Information about delays"
 msgstr "Informació sobre moratòries"
 
 #: themes/default/templates/partial/render.js.ep:6
-msgid "It seems that the key in your URL is incorrect. Please, verify your URL."
-msgstr "Sembla que la clau a l'URL és incorrecta. Si us plau, verifiqueu l'URL."
+msgid ""
+"It seems that the key in your URL is incorrect. Please, verify your URL."
+msgstr ""
+"Sembla que la clau a l'URL és incorrecta. Si us plau, verifiqueu l'URL."
 
 #: themes/default/templates/index.html.ep:12
 msgid "Javascript is disabled. You won't be able to use Lufi."
@@ -308,8 +356,14 @@ msgid "No expiration delay"
 msgstr "Sense moratòria d'expiració"
 
 #: themes/default/templates/files.html.ep:8
-msgid "Only the files sent with this browser will be listed here. This list is stored in localStorage: if you delete your localStorage data, you'll lose this list."
-msgstr "Aquí només apareixen els fitxers enviats amb aquest navegador. La llista es desa en emmagatzematge local: si netegeu l'emmagatzematge local perdreu aquesta llista."
+msgid ""
+"Only the files sent with this browser will be listed here. This list is "
+"stored in localStorage: if you delete your localStorage data, you'll lose "
+"this list."
+msgstr ""
+"Aquí només apareixen els fitxers enviats amb aquest navegador. La llista es "
+"desa en emmagatzematge local: si netegeu l'emmagatzematge local perdreu "
+"aquesta llista."
 
 #: themes/default/templates/index.html.ep:87 themes/default/templates/login.html.ep:21 themes/default/templates/render.html.ep:26
 msgid "Password"
@@ -321,11 +375,17 @@ msgid "Please contact the administrator: %1"
 msgstr "Si us plau contacteu amb l'administrador: %1"
 
 #: themes/default/templates/render.html.ep:33
-msgid "Please wait while we are getting your file. We first need to download and decrypt all parts before you can get it."
-msgstr "Si us plau, espereu mentre obtenim el fitxer. Abans que el tingueu disponible primer cal descarregar i desxifrar tots els trossos."
+msgid ""
+"Please wait while we are getting your file. We first need to download and "
+"decrypt all parts before you can get it."
+msgstr ""
+"Si us plau, espereu mentre obtenim el fitxer. Abans que el tingueu "
+"disponible primer cal descarregar i desxifrar tots els trossos."
 
 #: lib/Lufi/Controller/Auth.pm:28
-msgid "Please, check your credentials or your right to access this service: unable to authenticate."
+msgid ""
+"Please, check your credentials or your right to access this service: unable "
+"to authenticate."
 msgstr ""
 
 #: themes/default/templates/about.html.ep:5
@@ -341,8 +401,11 @@ msgid "Report file"
 msgstr ""
 
 #: themes/default/templates/files.html.ep:9
-msgid "Rows in red mean that the files have expired and are no longer available."
-msgstr "Les files en vermell indiquen que els fitxers han expirat i ja no són disponibles."
+msgid ""
+"Rows in red mean that the files have expired and are no longer available."
+msgstr ""
+"Les files en vermell indiquen que els fitxers han expirat i ja no són "
+"disponibles."
 
 #: themes/default/templates/partial/index.js.ep:25
 msgid "Send all links by email"
@@ -357,8 +420,12 @@ msgid "Send with your own mail software"
 msgstr "Envia amb el vostre propi programa de correu"
 
 #: themes/default/templates/partial/index.js.ep:28
-msgid "Sending part XX1 of XX2. Please, be patient, the progress bar can take a while to move."
-msgstr "S'està enviant el tros XX1 de XX2. Si us plau, paciència; la barra de progrés pot trigar una mica a bellugar-se. "
+msgid ""
+"Sending part XX1 of XX2. Please, be patient, the progress bar can take a "
+"while to move."
+msgstr ""
+"S'està enviant el tros XX1 de XX2. Si us plau, paciència; la barra de "
+"progrés pot trigar una mica a bellugar-se. "
 
 #. (url_for('/')
 #: themes/default/templates/partial/mail.js.ep:48
@@ -371,20 +438,26 @@ msgstr "Autenticació"
 
 #: themes/default/templates/index.html.ep:37
 msgid "Sorry, the uploading is currently disabled. Please try again later."
-msgstr "Disculpeu, les pujades estan actualment desactivades. Si us plau proveu-ho més tard."
+msgstr ""
+"Disculpeu, les pujades estan actualment desactivades. Si us plau proveu-ho "
+"més tard."
 
 #: lib/Lufi/Controller/Files.pm:53
 msgid "Sorry, uploading is disabled."
 msgstr "Disculpeu, les pujades estan deshabilitades"
 
 #: themes/default/templates/about.html.ep:7
-msgid "The administrator can only see the file's name, its size and its mimetype (what kind of file it is: video, text, etc.)."
+msgid ""
+"The administrator can only see the file's name, its size and its mimetype "
+"(what kind of file it is: video, text, etc.)."
 msgstr ""
 "L'administrador només pot veure el nom del fitxer, la seva mida i el seu\n"
 "mimetype (quina mena de fitxer és: vídeo, text, etc.)"
 
 #: lib/Lufi/Controller/Mail.pm:53
-msgid "The body of the mail must contain at least one URL pointing to a file hosted on this instance."
+msgid ""
+"The body of the mail must contain at least one URL pointing to a file hosted "
+"on this instance."
 msgstr ""
 
 #: themes/default/templates/partial/files.js.ep:11
@@ -404,8 +477,13 @@ msgid "The file has already been deleted"
 msgstr "El fitxer ja ha estat esborrat"
 
 #: themes/default/templates/about.html.ep:6
-msgid "The files uploaded on a Lufi instance are encrypted before the upload to the server: the administrator of the server can not see the file's content."
-msgstr "Els fitxers que es pugen a una instaŀlació de Lufi són xifrats abans de pujar-los al servidor i l'administrador del servidor no pot veure el contingut del fitxer."
+msgid ""
+"The files uploaded on a Lufi instance are encrypted before the upload to the "
+"server: the administrator of the server can not see the file's content."
+msgstr ""
+"Els fitxers que es pugen a una instaŀlació de Lufi són xifrats abans de "
+"pujar-los al servidor i l'administrador del servidor no pot veure el "
+"contingut del fitxer."
 
 #. (join(', ', @bad)
 #: lib/Lufi/Controller/Mail.pm:68
@@ -421,20 +499,40 @@ msgid "The mail has been sent."
 msgstr "El correu ja està enviat."
 
 #: themes/default/templates/about.html.ep:15
-msgid "The original (and only for now) author is <a href=\"https://fiat-tux.fr\" class=\"classic\">Luc Didry</a>. If you want to support him, you can do it via <a href=\"https://www.tipeee.com/fiat-tux\" class=\"classic\">Tipeee</a> or via <a href=\"https://liberapay.com/sky/\" class=\"classic\">Liberapay</a>."
-msgstr "L'autor original (i per ara l'únic) és <a href=\"https://fiat-tux.fr\" class=\"classic\">Luc Didry</a>. Si voleu fer una contribució podeu fer-ho via <a href=\"https://www.tipeee.com/fiat-tux\" class=\"classic\">Tipeee</a> o via <a href=\"https://liberapay.com/sky/\" class=\"classic\">Liberapay</a>."
+msgid ""
+"The original (and only for now) author is <a href=\"https://fiat-tux.fr\" "
+"class=\"classic\">Luc Didry</a>. If you want to support him, you can do it "
+"via <a href=\"https://www.tipeee.com/fiat-tux\" class=\"classic\">Tipeee</a> "
+"or via <a href=\"https://liberapay.com/sky/\" class=\"classic\">Liberapay</"
+"a>."
+msgstr ""
+"L'autor original (i per ara l'únic) és <a href=\"https://fiat-tux.fr\" class="
+"\"classic\">Luc Didry</a>. Si voleu fer una contribució podeu fer-ho via <a "
+"href=\"https://www.tipeee.com/fiat-tux\" class=\"classic\">Tipeee</a> o via "
+"<a href=\"https://liberapay.com/sky/\" class=\"classic\">Liberapay</a>."
 
 #: lib/Lufi/Controller/Files.pm:189
-msgid "The server was unable to find the file record to add your file part to. Please, contact the administrator."
-msgstr "El servidor no ha pogut trobar el registre del fitxer per afegir-hi el tros del fitxer. Si us plau, contacteu l'administrador."
+msgid ""
+"The server was unable to find the file record to add your file part to. "
+"Please, contact the administrator."
+msgstr ""
+"El servidor no ha pogut trobar el registre del fitxer per afegir-hi el tros "
+"del fitxer. Si us plau, contacteu l'administrador."
 
 #: lib/Lufi/Controller/Files.pm:248
-msgid "This file has been deactivated by the admins. Contact them to know why."
+msgid ""
+"This file has been deactivated by the admins. Contact them to know why."
 msgstr ""
 
 #: themes/default/templates/delays.html.ep:10
-msgid "This server sets limitations according to the file size. The expiration delay of your file will be the minimum between what you choose and the following limitations:"
-msgstr "Aquest servidor estableix limitacions segons la mida del fitxer. La moratòria d'expiració del fitxer serà el mínim de l'escollida i aquestes limitacions:"
+msgid ""
+"This server sets limitations according to the file size. The expiration "
+"delay of your file will be the minimum between what you choose and the "
+"following limitations:"
+msgstr ""
+"Aquest servidor estableix limitacions segons la mida del fitxer. La "
+"moratòria d'expiració del fitxer serà el mínim de l'escollida i aquestes "
+"limitacions:"
 
 #: themes/default/templates/partial/index.js.ep:16
 msgid "Unable to copy the link(s) to your clipboard"
@@ -442,8 +540,12 @@ msgstr "No s'han pogut copiar l'enllaç o els enllaços al porta-retalls."
 
 #. ($short)
 #: lib/Lufi/Controller/Files.pm:392
-msgid "Unable to get counter for %1. The file does not exists. It will be removed from your localStorage."
-msgstr "No he pogut obtenir el comptador de %1. El fitxer no existeix. Serà eliminat del teu emmagatzematge local."
+msgid ""
+"Unable to get counter for %1. The file does not exists. It will be removed "
+"from your localStorage."
+msgstr ""
+"No he pogut obtenir el comptador de %1. El fitxer no existeix. Serà eliminat "
+"del teu emmagatzematge local."
 
 #. ($short)
 #: lib/Lufi/Controller/Files.pm:382
@@ -480,28 +582,50 @@ msgid "Who wrote this software?"
 msgstr "Qui va escriure aquest programa?"
 
 #: themes/default/templates/about.html.ep:11
-msgid "You can see the list of your files by clicking on the \"My files\" link at the top right of this page."
-msgstr "Podeu veure la llista dels vostres fitxers amb a l'enllaç \"Els meus fitxers\" a dalt a la dreta d'aquesta pàgina."
+msgid ""
+"You can see the list of your files by clicking on the \"My files\" link at "
+"the top right of this page."
+msgstr ""
+"Podeu veure la llista dels vostres fitxers amb a l'enllaç \"Els meus "
+"fitxers\" a dalt a la dreta d'aquesta pàgina."
 
 #: lib/Lufi/Controller/Mail.pm:42
 msgid "You can't add URLs that are not related to this instance."
 msgstr ""
 
 #: themes/default/templates/about.html.ep:8
-msgid "You don't need to register yourself to upload files but be aware that, for legal reasons, your IP address will be stored when you send a file. Don't panic, this is normally the case for all sites on which you send files."
-msgstr "No cal que us inscriviu per a pujar fitxers però tingueu en compte, que per raons legals, s'enregistrarà la vostra adreça IP quan envieu un fitxer. No us espanteu, això és el que normalment passa a tots els webs on pugeu fitxers."
+msgid ""
+"You don't need to register yourself to upload files but be aware that, for "
+"legal reasons, your IP address will be stored when you send a file. Don't "
+"panic, this is normally the case for all sites on which you send files."
+msgstr ""
+"No cal que us inscriviu per a pujar fitxers però tingueu en compte, que per "
+"raons legals, s'enregistrarà la vostra adreça IP quan envieu un fitxer. No "
+"us espanteu, això és el que normalment passa a tots els webs on pugeu "
+"fitxers."
 
 #: themes/default/templates/partial/render.js.ep:10
-msgid "You don't seem to have a key in your URL. You won't be able to decrypt the file. Download canceled."
-msgstr "No sembla que hi hagi una clau a la URL. No podreu desxifrar el fitxer. Descàrrega canceŀlada."
+msgid ""
+"You don't seem to have a key in your URL. You won't be able to decrypt the "
+"file. Download canceled."
+msgstr ""
+"No sembla que hi hagi una clau a la URL. No podreu desxifrar el fitxer. "
+"Descàrrega canceŀlada."
 
 #: themes/default/templates/partial/render.js.ep:7
-msgid "You have attempted to leave this page. The download will be canceled. Are you sure?"
-msgstr "Heu intentat deixar aquesta pàgina. Es canceŀlarà la descàrrega. N'esteu segur?"
+msgid ""
+"You have attempted to leave this page. The download will be canceled. Are "
+"you sure?"
+msgstr ""
+"Heu intentat deixar aquesta pàgina. Es canceŀlarà la descàrrega. N'esteu "
+"segur?"
 
 #: themes/default/templates/partial/index.js.ep:13
-msgid "You have attempted to leave this page. The upload will be canceled. Are you sure?"
-msgstr "Heu intentat deixar aquesta pàgina. Es canceŀlarà la pujada. N'esteu segur?"
+msgid ""
+"You have attempted to leave this page. The upload will be canceled. Are you "
+"sure?"
+msgstr ""
+"Heu intentat deixar aquesta pàgina. Es canceŀlarà la pujada. N'esteu segur?"
 
 #: themes/default/templates/logout.html.ep:14
 msgid "You have been successfully logged out."
@@ -512,7 +636,9 @@ msgid "You must give email addresses."
 msgstr "Heu de donar l'adreça de correu electrònic."
 
 #: themes/default/templates/index.html.ep:29
-msgid "Your browser has not enough entropy to generate a strong encryption key. Please wait (it's better if you do things on your computer while waiting)."
+msgid ""
+"Your browser has not enough entropy to generate a strong encryption key. "
+"Please wait (it's better if you do things on your computer while waiting)."
 msgstr ""
 
 #. (format_bytes($json->{size})

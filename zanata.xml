@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<config xmlns="http://zanata.org/namespace/config/">
+  <url>https://trad.framasoft.org/</url>
+  <project>lufi</project>
+  <project-type>gettext</project-type>
+  <src-dir>themes/default/lib/Lufi/I18N/</src-dir>
+  <trans-dir>themes/default/lib/Lufi/I18N/</trans-dir>
+</config>

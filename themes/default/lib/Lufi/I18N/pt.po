@@ -3,18 +3,18 @@
 # This file is distributed under the same license as the Lufi package.
 # Luc Didry <luc@didry.org>, 2015.
 # Jéssica Da Cunha <dacunhajessica@hotmail.com>, 2017.
-#
+# Luc Didry <luc@framasoft.org>, 2018. #zanata
 msgid ""
 msgstr ""
-"Project-Id-Version: \n"
-"POT-Creation-Date: 2017-03-01 14:00+0100\n"
-"PO-Revision-Date: 2017-03-01 14:00+0100\n"
+"Project-Id-Version: PACKAGE VERSION\n"
+"POT-Creation-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"PO-Revision-Date: 2018-10-28 01:57+0000\n"
 "Language-Team: \n"
-"X-Generator: Poedit 1.8.5\n"
-"Last-Translator: Jéssica Da Cunha <dacunhajessica@hotmail.com>\n"
+"X-Generator: Zanata 4.6.2\n"
+"Last-Translator: Copied by Zanata <copied-by-zanata@zanata.org>\n"
 "Plural-Forms: nplurals=2; plural=(n > 1);\n"
 "Language: pt\n"
 
@@ -41,8 +41,16 @@ msgid ":"
 msgstr " :"
 
 #: themes/default/templates/about.html.ep:16
-msgid "A thank you with a photo of kitten on <a href=\"https://framasphere.org/people/b13eb6b0beac0131e7e32a0000053625\" class=\"classic\">Diaspora*</a> or <a href=\"https://framapiaf.org/@framasky\" class=\"classic\">Mastodon</a> is cool too ;-)"
-msgstr "Um obrigado com a foto de um gatinho no <a href=\"https://framasphere.org/people/b13eb6b0beac0131e7e32a0000053625\" class=\"classic\">Diaspora*</a> ou <a href=\"https://framapiaf.org/@framasky\" class=\"classic\">Mastodon</a> é também porreiro ;-)"
+msgid ""
+"A thank you with a photo of kitten on <a href=\"https://framasphere.org/"
+"people/b13eb6b0beac0131e7e32a0000053625\" class=\"classic\">Diaspora*</a> or "
+"<a href=\"https://framapiaf.org/@framasky\" class=\"classic\">Mastodon</a> "
+"is cool too ;-)"
+msgstr ""
+"Um obrigado com a foto de um gatinho no <a href=\"https://framasphere.org/"
+"people/b13eb6b0beac0131e7e32a0000053625\" class=\"classic\">Diaspora*</a> ou "
+"<a href=\"https://framapiaf.org/@framasky\" class=\"classic\">Mastodon</a> é "
+"também porreiro ;-)"
 
 #: themes/default/templates/render.html.ep:42
 msgid "Abort"
@@ -57,12 +65,23 @@ msgid "Add a password to file(s)"
 msgstr ""
 
 #: themes/default/templates/mail.html.ep:16
-msgid "Adding URLs not related to this Lufi instance to the mail body or subject is prohibited."
+msgid ""
+"Adding URLs not related to this Lufi instance to the mail body or subject is "
+"prohibited."
 msgstr ""
 
 #: themes/default/templates/about.html.ep:18
-msgid "As Lufi is a free software licensed under of the terms of the <a href=\"https://gnu.org/licenses/agpl.html\" class=\"classic\">AGPLv3</a>, you can install it on you own server. Have a look on the <a href=\"https://framagit.org/luc/lufi/wikis/home\" class=\"classic\">Wiki</a> for the procedure."
-msgstr "Como Lufi é um programa livre sob os termos da licença <a href=\"https://gnu.org/licenses/agpl.html\" class=\"classic\">AGPLv3</a>, pode instalar-lo no seu prórpio servidor. Para saber mais clique aqui <a href=\"https://framagit.org/luc/lufi/wikis/home\" class=\"classic\">Wiki</a> para ver o procedimento."
+msgid ""
+"As Lufi is a free software licensed under of the terms of the <a href="
+"\"https://gnu.org/licenses/agpl.html\" class=\"classic\">AGPLv3</a>, you can "
+"install it on you own server. Have a look on the <a href=\"https://framagit."
+"org/luc/lufi/wikis/home\" class=\"classic\">Wiki</a> for the procedure."
+msgstr ""
+"Como Lufi é um programa livre sob os termos da licença <a href=\"https://gnu."
+"org/licenses/agpl.html\" class=\"classic\">AGPLv3</a>, pode instalar-lo no "
+"seu prórpio servidor. Para saber mais clique aqui <a href=\"https://framagit."
+"org/luc/lufi/wikis/home\" class=\"classic\">Wiki</a> para ver o procedimento."
+""
 
 #. (stash('nbslices')
 #: themes/default/templates/partial/render.js.ep:9
@@ -111,11 +130,14 @@ msgstr "Impossível apagar o ficheiro. Não está conectado."
 
 #: lib/Lufi/Controller/Files.pm:442
 msgid "Could not find the file. Are you sure of the URL and the token?"
-msgstr "Impossível encontrar o ficheiro.Tem a certeza que o URL e os símbolos estão corretos?"
+msgstr ""
+"Impossível encontrar o ficheiro.Tem a certeza que o URL e os símbolos estão "
+"corretos?"
 
 #: lib/Lufi/Controller/Files.pm:353
 msgid "Could not find the file. Are you sure of the URL?"
-msgstr "Impossível encontar o ficheiro. Tem a certeza de que o URL está correto?"
+msgstr ""
+"Impossível encontar o ficheiro. Tem a certeza de que o URL está correto?"
 
 #: themes/default/templates/files.html.ep:28
 msgid "Counter"
@@ -134,8 +156,13 @@ msgid "Deletion link"
 msgstr "Eliminar o link"
 
 #: themes/default/templates/delays.html.ep:8
-msgid "Don't worry: if a user begins to download the file before the expiration and the download ends after the expiration, he will be able to get the file."
-msgstr "Não se preocupe: se um utilizador começa a descarregar um ficheiro antes a sua expiração e que o descarregamento acaba após a sua expiração, o utilizador pode ainda assim recuperar o ficheiro."
+msgid ""
+"Don't worry: if a user begins to download the file before the expiration and "
+"the download ends after the expiration, he will be able to get the file."
+msgstr ""
+"Não se preocupe: se um utilizador começa a descarregar um ficheiro antes a "
+"sua expiração e que o descarregamento acaba após a sua expiração, o "
+"utilizador pode ainda assim recuperar o ficheiro."
 
 #: themes/default/templates/partial/index.js.ep:20 themes/default/templates/render.html.ep:28
 msgid "Download"
@@ -150,16 +177,21 @@ msgid "Download link"
 msgstr "Link para o download"
 
 #: themes/default/templates/about.html.ep:10
-msgid "Drag and drop files in the appropriate area or use the traditional way to send files and the files will be chunked, encrypted and sent to the server. You will get two links per file: a download link, that you give to the people you want to share the file with and a deletion link, allowing you to delete the file whenever you want."
-msgstr "Deslize os ficheiros na zona própria e esse efeito ou selecione um ficheiro de forma tradicional, e os ficheiros serão fragmentados, codificados e enviados ao servidor. Vai receber dois links por ficheiro: um é de download e o outro para poder apagar o ficheiro quando quiser."
+msgid ""
+"Drag and drop files in the appropriate area or use the traditional way to "
+"send files and the files will be chunked, encrypted and sent to the server. "
+"You will get two links per file: a download link, that you give to the "
+"people you want to share the file with and a deletion link, allowing you to "
+"delete the file whenever you want."
+msgstr ""
+"Deslize os ficheiros na zona própria e esse efeito ou selecione um ficheiro "
+"de forma tradicional, e os ficheiros serão fragmentados, codificados e "
+"enviados ao servidor. Vai receber dois links por ficheiro: um é de download "
+"e o outro para poder apagar o ficheiro quando quiser."
 
 #: themes/default/templates/index.html.ep:94
 msgid "Drop files here"
 msgstr ""
-
-#:
-msgid "Drop files here (max. 4 Gb/file)"
-msgstr "Deslize os ficheiros aqui (max. 4 Gb/ficheiro)"
 
 #: themes/default/templates/mail.html.ep:39
 msgid "Email body"
@@ -218,12 +250,19 @@ msgid "Get the file"
 msgstr "Recuperar o ficheiro"
 
 #: themes/default/templates/about.html.ep:19
-msgid "Get the source code on <a href=\"https://framagit.org/luc/lufi\" class=\"classic\">the official repository</a> or on its <a href=\"https://github.com/ldidry/lufi\" class=\"classic\">Github mirror</a>"
-msgstr "Recupere o código-fonte no <a href=\"https://framagit.org/luc/lufi\" class=\"classic\">o depósito oficial</a> ou então <a href=\"https://github.com/ldidry/lufi\" class=\"classic\">réplicas Github</a>."
+msgid ""
+"Get the source code on <a href=\"https://framagit.org/luc/lufi\" class="
+"\"classic\">the official repository</a> or on its <a href=\"https://github."
+"com/ldidry/lufi\" class=\"classic\">Github mirror</a>"
+msgstr ""
+"Recupere o código-fonte no <a href=\"https://framagit.org/luc/lufi\" class="
+"\"classic\">o depósito oficial</a> ou então <a href=\"https://github.com/"
+"ldidry/lufi\" class=\"classic\">réplicas Github</a>."
 
 #: themes/default/templates/partial/mail.js.ep:35
 msgid "Hello,\\n\\nHere's some files I want to share with you:\\n"
-msgstr "Olá,\\n\\nAqui estão alguns ficheiros que gostaria de partilhar contigo:\\n"
+msgstr ""
+"Olá,\\n\\nAqui estão alguns ficheiros que gostaria de partilhar contigo:\\n"
 
 #: themes/default/templates/mail.html.ep:35
 msgid "Here's some files"
@@ -231,7 +270,8 @@ msgstr "Aqui estão alguns ficheiros"
 
 #: themes/default/templates/partial/index.js.ep:24
 msgid "Hit Enter, then Ctrl+C to copy all the download links"
-msgstr "Clique no Enter e depois Ctrl+C para copiar todos os links de download"
+msgstr ""
+"Clique no Enter e depois Ctrl+C para copiar todos os links de download"
 
 #: themes/default/templates/partial/index.js.ep:23
 msgid "Hit Enter, then Ctrl+C to copy the download link"
@@ -240,10 +280,6 @@ msgstr "Clique no Enter e depois Ctrl+C para copiar o link de download"
 #: themes/default/templates/about.html.ep:9
 msgid "How does it work?"
 msgstr "Como funciona?"
-
-#:
-msgid "How to install Lufi on my server?"
-msgstr "Como instalar Lufi no meu servidor?"
 
 #: themes/default/templates/about.html.ep:17
 msgid "How to install the software on my server?"
@@ -258,8 +294,12 @@ msgid "If you choose a delay, the file will be deleted after that delay."
 msgstr "Se escolher um prazo, o ficheiro será apagado após esse prazo."
 
 #: themes/default/templates/mail.html.ep:15
-msgid "If you send the mail from this server, the links will be sent to the server, which may lower your privacy protection."
-msgstr "Se enviar um e-mail a partir deste servidor, os links serão enviados ao servidor, o que poderá diminuir a proteção da confidencia."
+msgid ""
+"If you send the mail from this server, the links will be sent to the server, "
+"which may lower your privacy protection."
+msgstr ""
+"Se enviar um e-mail a partir deste servidor, os links serão enviados ao "
+"servidor, o que poderá diminuir a proteção da confidencia."
 
 #: themes/default/templates/files.html.ep:14
 msgid "Import localStorage data"
@@ -274,8 +314,10 @@ msgid "Information about delays"
 msgstr "Informação sobre os prazos"
 
 #: themes/default/templates/partial/render.js.ep:6
-msgid "It seems that the key in your URL is incorrect. Please, verify your URL."
-msgstr "Parece que a chave do seu URL está incorreta.Por favor, verifique o seu URL."
+msgid ""
+"It seems that the key in your URL is incorrect. Please, verify your URL."
+msgstr ""
+"Parece que a chave do seu URL está incorreta.Por favor, verifique o seu URL."
 
 #: themes/default/templates/index.html.ep:12
 msgid "Javascript is disabled. You won't be able to use Lufi."
@@ -295,7 +337,9 @@ msgstr "Encerrar sessão"
 
 #: themes/default/templates/about.html.ep:4
 msgid "Lufi is a free (as in free speech) file hosting software."
-msgstr "Lufi é um programa de reserva gratuita (como na liberdade de expressão) de ficheiros."
+msgstr ""
+"Lufi é um programa de reserva gratuita (como na liberdade de expressão) de "
+"ficheiros."
 
 #: themes/default/templates/files.html.ep:33
 msgid "Mail"
@@ -308,15 +352,22 @@ msgstr "Meus ficheiros"
 #. (format_bytes($json->{size})
 #: lib/Lufi/Controller/Files.pm:79
 msgid "No enough space available on the server for this file (size: %1)."
-msgstr "O servidor não tem espaço suficiente para este ficheiro (tamanho: %1)."
+msgstr ""
+"O servidor não tem espaço suficiente para este ficheiro (tamanho: %1)."
 
 #: themes/default/templates/partial/files.js.ep:10 themes/default/templates/partial/index.js.ep:27
 msgid "No expiration delay"
 msgstr "Não tem prazo de expiração"
 
 #: themes/default/templates/files.html.ep:8
-msgid "Only the files sent with this browser will be listed here. This list is stored in localStorage: if you delete your localStorage data, you'll lose this list."
-msgstr "Apenas os ficheiros enviados com este navegador web estão listados aqui. As informações são armazenadas no localStorage : se apagar os seus dados no LocalStorage, poedrá perder essa informação."
+msgid ""
+"Only the files sent with this browser will be listed here. This list is "
+"stored in localStorage: if you delete your localStorage data, you'll lose "
+"this list."
+msgstr ""
+"Apenas os ficheiros enviados com este navegador web estão listados aqui. As "
+"informações são armazenadas no localStorage : se apagar os seus dados no "
+"LocalStorage, poedrá perder essa informação."
 
 #: themes/default/templates/index.html.ep:87 themes/default/templates/login.html.ep:21 themes/default/templates/render.html.ep:26
 msgid "Password"
@@ -328,11 +379,18 @@ msgid "Please contact the administrator: %1"
 msgstr "Contacte o administrador: %1"
 
 #: themes/default/templates/render.html.ep:33
-msgid "Please wait while we are getting your file. We first need to download and decrypt all parts before you can get it."
-msgstr "Por favor aguarde durante a recuperação do seu ficheiro. Primeiro devemos recuperar e descodificar todos os fragmentos e depois poderá descarregar o ficheiro."
+msgid ""
+"Please wait while we are getting your file. We first need to download and "
+"decrypt all parts before you can get it."
+msgstr ""
+"Por favor aguarde durante a recuperação do seu ficheiro. Primeiro devemos "
+"recuperar e descodificar todos os fragmentos e depois poderá descarregar o "
+"ficheiro."
 
 #: lib/Lufi/Controller/Auth.pm:28
-msgid "Please, check your credentials or your right to access this service: unable to authenticate."
+msgid ""
+"Please, check your credentials or your right to access this service: unable "
+"to authenticate."
 msgstr ""
 
 #: themes/default/templates/about.html.ep:5
@@ -348,8 +406,11 @@ msgid "Report file"
 msgstr ""
 
 #: themes/default/templates/files.html.ep:9
-msgid "Rows in red mean that the files have expired and are no longer available."
-msgstr "As linhas a vermelho indicam que o ficheiro expirou e já não está disponível."
+msgid ""
+"Rows in red mean that the files have expired and are no longer available."
+msgstr ""
+"As linhas a vermelho indicam que o ficheiro expirou e já não está disponível."
+""
 
 #: themes/default/templates/partial/index.js.ep:25
 msgid "Send all links by email"
@@ -364,8 +425,12 @@ msgid "Send with your own mail software"
 msgstr "Enviar com o seu e-mail pessoal"
 
 #: themes/default/templates/partial/index.js.ep:28
-msgid "Sending part XX1 of XX2. Please, be patient, the progress bar can take a while to move."
-msgstr "Envio do fragmento XX1 de XX2. Por favor aguarde, a barra de progressão pode levar algum tempo antes de avançar."
+msgid ""
+"Sending part XX1 of XX2. Please, be patient, the progress bar can take a "
+"while to move."
+msgstr ""
+"Envio do fragmento XX1 de XX2. Por favor aguarde, a barra de progressão pode "
+"levar algum tempo antes de avançar."
 
 #. (url_for('/')
 #: themes/default/templates/partial/mail.js.ep:48
@@ -378,18 +443,25 @@ msgstr "Conexão"
 
 #: themes/default/templates/index.html.ep:37
 msgid "Sorry, the uploading is currently disabled. Please try again later."
-msgstr "Desculpe, o envio do ficheiro está atualmente desativado. Tente mais tarde."
+msgstr ""
+"Desculpe, o envio do ficheiro está atualmente desativado. Tente mais tarde."
 
 #: lib/Lufi/Controller/Files.pm:53
 msgid "Sorry, uploading is disabled."
 msgstr "Desculpe, o envio do ficheiro está desativado."
 
 #: themes/default/templates/about.html.ep:7
-msgid "The administrator can only see the file's name, its size and its mimetype (what kind of file it is: video, text, etc.)."
-msgstr "O administrador pode apenas ver o nome do ficheiro, o seu tamanho e o tipo de mime (o tipo de ficheiro: texto, vídeo, etc.)."
+msgid ""
+"The administrator can only see the file's name, its size and its mimetype "
+"(what kind of file it is: video, text, etc.)."
+msgstr ""
+"O administrador pode apenas ver o nome do ficheiro, o seu tamanho e o tipo "
+"de mime (o tipo de ficheiro: texto, vídeo, etc.)."
 
 #: lib/Lufi/Controller/Mail.pm:53
-msgid "The body of the mail must contain at least one URL pointing to a file hosted on this instance."
+msgid ""
+"The body of the mail must contain at least one URL pointing to a file hosted "
+"on this instance."
 msgstr ""
 
 #: themes/default/templates/partial/files.js.ep:11
@@ -409,8 +481,12 @@ msgid "The file has already been deleted"
 msgstr "O ficheiro já foi apagado"
 
 #: themes/default/templates/about.html.ep:6
-msgid "The files uploaded on a Lufi instance are encrypted before the upload to the server: the administrator of the server can not see the file's content."
-msgstr "Os ficheiros enviados no Lufi são codificados antes de serem enviados ao servidor: o administrador do servidor não pode ver o conteúdo dos ficheiros."
+msgid ""
+"The files uploaded on a Lufi instance are encrypted before the upload to the "
+"server: the administrator of the server can not see the file's content."
+msgstr ""
+"Os ficheiros enviados no Lufi são codificados antes de serem enviados ao "
+"servidor: o administrador do servidor não pode ver o conteúdo dos ficheiros."
 
 #. (join(', ', @bad)
 #: lib/Lufi/Controller/Mail.pm:68
@@ -426,20 +502,40 @@ msgid "The mail has been sent."
 msgstr "O e-mail foi enviado."
 
 #: themes/default/templates/about.html.ep:15
-msgid "The original (and only for now) author is <a href=\"https://fiat-tux.fr\" class=\"classic\">Luc Didry</a>. If you want to support him, you can do it via <a href=\"https://www.tipeee.com/fiat-tux\" class=\"classic\">Tipeee</a> or via <a href=\"https://liberapay.com/sky/\" class=\"classic\">Liberapay</a>."
-msgstr "O autor original (e por agora, o único) é <a href=\"https://fiat-tux.fr\" class=\"classic\">Luc Didry</a>. Se o desejar apoiar pode fazer-lo via <a href=\"https://www.tipeee.com/fiat-tux\" class=\"classic\">Tipeee</a> ou via <a href=\"https://liberapay.com/sky/\" class=\"classic\">Liberapay</a>."
+msgid ""
+"The original (and only for now) author is <a href=\"https://fiat-tux.fr\" "
+"class=\"classic\">Luc Didry</a>. If you want to support him, you can do it "
+"via <a href=\"https://www.tipeee.com/fiat-tux\" class=\"classic\">Tipeee</a> "
+"or via <a href=\"https://liberapay.com/sky/\" class=\"classic\">Liberapay</"
+"a>."
+msgstr ""
+"O autor original (e por agora, o único) é <a href=\"https://fiat-tux.fr\" "
+"class=\"classic\">Luc Didry</a>. Se o desejar apoiar pode fazer-lo via <a "
+"href=\"https://www.tipeee.com/fiat-tux\" class=\"classic\">Tipeee</a> ou via "
+"<a href=\"https://liberapay.com/sky/\" class=\"classic\">Liberapay</a>."
 
 #: lib/Lufi/Controller/Files.pm:189
-msgid "The server was unable to find the file record to add your file part to. Please, contact the administrator."
-msgstr "O servidor foi incapaz de encontrar o registo do ficheiro no qual devia-se juntar o fragmento do seu ficheiro. Contacte o administrador."
+msgid ""
+"The server was unable to find the file record to add your file part to. "
+"Please, contact the administrator."
+msgstr ""
+"O servidor foi incapaz de encontrar o registo do ficheiro no qual devia-se "
+"juntar o fragmento do seu ficheiro. Contacte o administrador."
 
 #: lib/Lufi/Controller/Files.pm:248
-msgid "This file has been deactivated by the admins. Contact them to know why."
+msgid ""
+"This file has been deactivated by the admins. Contact them to know why."
 msgstr ""
 
 #: themes/default/templates/delays.html.ep:10
-msgid "This server sets limitations according to the file size. The expiration delay of your file will be the minimum between what you choose and the following limitations:"
-msgstr "O servidor exige limites segundo o tamanho dos ficheiros. O prazo de expiração dos seu ficheiro sera o minimo entre o que você escolheu e os limites seguintes:"
+msgid ""
+"This server sets limitations according to the file size. The expiration "
+"delay of your file will be the minimum between what you choose and the "
+"following limitations:"
+msgstr ""
+"O servidor exige limites segundo o tamanho dos ficheiros. O prazo de "
+"expiração dos seu ficheiro sera o minimo entre o que você escolheu e os "
+"limites seguintes:"
 
 #: themes/default/templates/partial/index.js.ep:16
 msgid "Unable to copy the link(s) to your clipboard"
@@ -447,8 +543,12 @@ msgstr "Impossível copiar o(s) link(s) na sua área de transferência"
 
 #. ($short)
 #: lib/Lufi/Controller/Files.pm:392
-msgid "Unable to get counter for %1. The file does not exists. It will be removed from your localStorage."
-msgstr "Impossível recuperar o contador para %1. O ficheiro não existe. Isso vai apagar a sua localStorage."
+msgid ""
+"Unable to get counter for %1. The file does not exists. It will be removed "
+"from your localStorage."
+msgstr ""
+"Impossível recuperar o contador para %1. O ficheiro não existe. Isso vai "
+"apagar a sua localStorage."
 
 #. ($short)
 #: lib/Lufi/Controller/Files.pm:382
@@ -480,36 +580,50 @@ msgstr "Erro de comunicação com WebSocket"
 msgid "What is Lufi?"
 msgstr "O que é o Lufi?"
 
-#:
-msgid "Who wrote Lufi?"
-msgstr "Quem escreveu Lufi?"
-
 #: themes/default/templates/about.html.ep:14
 msgid "Who wrote this software?"
 msgstr ""
 
 #: themes/default/templates/about.html.ep:11
-msgid "You can see the list of your files by clicking on the \"My files\" link at the top right of this page."
-msgstr "Pode ver a lista dos seus ficheiros clicando no link « Meus ficheiros » em cima da página à direita."
+msgid ""
+"You can see the list of your files by clicking on the \"My files\" link at "
+"the top right of this page."
+msgstr ""
+"Pode ver a lista dos seus ficheiros clicando no link « Meus ficheiros » em "
+"cima da página à direita."
 
 #: lib/Lufi/Controller/Mail.pm:42
 msgid "You can't add URLs that are not related to this instance."
 msgstr ""
 
 #: themes/default/templates/about.html.ep:8
-msgid "You don't need to register yourself to upload files but be aware that, for legal reasons, your IP address will be stored when you send a file. Don't panic, this is normally the case for all sites on which you send files."
-msgstr "Não precisa registar-se para enviar ficheiros mas saiba que, por razões legais, o seu endereço IP ficará registrado quando envia um ficheiro. Não entre em pânico, é algo comum a todos os sites onde envia ficheiros."
+msgid ""
+"You don't need to register yourself to upload files but be aware that, for "
+"legal reasons, your IP address will be stored when you send a file. Don't "
+"panic, this is normally the case for all sites on which you send files."
+msgstr ""
+"Não precisa registar-se para enviar ficheiros mas saiba que, por razões "
+"legais, o seu endereço IP ficará registrado quando envia um ficheiro. Não "
+"entre em pânico, é algo comum a todos os sites onde envia ficheiros."
 
 #: themes/default/templates/partial/render.js.ep:10
-msgid "You don't seem to have a key in your URL. You won't be able to decrypt the file. Download canceled."
-msgstr "Parece que não tem a chave no seu URL. Não poderá descodificar o ficheiro. Download anulado."
+msgid ""
+"You don't seem to have a key in your URL. You won't be able to decrypt the "
+"file. Download canceled."
+msgstr ""
+"Parece que não tem a chave no seu URL. Não poderá descodificar o ficheiro. "
+"Download anulado."
 
 #: themes/default/templates/partial/render.js.ep:7
-msgid "You have attempted to leave this page. The download will be canceled. Are you sure?"
+msgid ""
+"You have attempted to leave this page. The download will be canceled. Are "
+"you sure?"
 msgstr "Está a tentar sair da página. O download será anulado. Tem a certeza?"
 
 #: themes/default/templates/partial/index.js.ep:13
-msgid "You have attempted to leave this page. The upload will be canceled. Are you sure?"
+msgid ""
+"You have attempted to leave this page. The upload will be canceled. Are you "
+"sure?"
 msgstr "Está a tentar sair da página. O envio será anulado. Tem a certeza?"
 
 #: themes/default/templates/logout.html.ep:14
@@ -521,13 +635,16 @@ msgid "You must give email addresses."
 msgstr "Deve escrever os e-mails."
 
 #: themes/default/templates/index.html.ep:29
-msgid "Your browser has not enough entropy to generate a strong encryption key. Please wait (it's better if you do things on your computer while waiting)."
+msgid ""
+"Your browser has not enough entropy to generate a strong encryption key. "
+"Please wait (it's better if you do things on your computer while waiting)."
 msgstr ""
 
 #. (format_bytes($json->{size})
 #: lib/Lufi/Controller/Files.pm:66
 msgid "Your file is too big: %1 (maximum size allowed: %2)"
-msgstr "O seu ficheiro é grande de mais: %1 (o tamanho máximo autorizado é de %2)"
+msgstr ""
+"O seu ficheiro é grande de mais: %1 (o tamanho máximo autorizado é de %2)"
 
 #: lib/Lufi/Controller/Files.pm:304
 msgid "Your password is not valid. Please refresh the page to retry."
@@ -555,7 +672,8 @@ msgstr "para %1 e mais, o ficheiro será conservado %2 dia(s)."
 #. (format_bytes($keys[$i])
 #: themes/default/templates/delays.html.ep:28
 msgid "for %1 and more, the file will be kept forever."
-msgstr "para %1 e mais, o ficheiro será conservado por um tempo indeterminado."
+msgstr ""
+"para %1 e mais, o ficheiro será conservado por um tempo indeterminado."
 
 #: themes/default/templates/index.html.ep:3
 msgid "no time limit"

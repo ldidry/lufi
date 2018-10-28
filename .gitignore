@@ -9,6 +9,7 @@ lufi.conf
 *.swp
 script/*.pid
 stop-upload
+.zanata-cache/
 themes/*
 !themes/default
 !themes/default/*
