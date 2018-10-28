@@ -93,7 +93,7 @@ function importStorage(f) {
             var hasImported = 0;
             for (i = 0; i < newFiles.length; i++) {
                 var item = newFiles[i];
-                if (!itemExists(item.short)) {
+                if (validURL(item.url) && !itemExists(item.short)) {
                     addItem(item);
                     hasImported++;
                 }
@@ -106,6 +106,19 @@ function importStorage(f) {
         }
     });
     reader.readAsArrayBuffer(f[0]);
+}
+
+function validURL(str) {
+    try {
+        var url = new URL(str);
+        if (url.host) {
+            return true;
+        } else {
+            return false;
+        }
+    } catch(e) {
+        return false;
+    }
 }
 
 function delFile() {
@@ -151,7 +164,12 @@ function massDelete(event) {
 function populateFilesTable() {
     $('#myfiles').empty();
 
-    var files = JSON.parse(localStorage.getItem('files'));
+    var files = localStorage.getItem('files');
+    if (files === null) {
+        files = new Array();
+    } else {
+        files = JSON.parse(files);
+    }
     files.sort(function(a, b) {
         if (a.created_at < b.created_at) {
             return -1;
