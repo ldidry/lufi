@@ -16,3 +16,4 @@
 * Ilker Kulgu (fix IE11 compatibility, Dutch translation)
 * Stéphane Baron (bugfix)
 * Butterfly of Fire (arabic translation)
+* Frju365 (german translation)
