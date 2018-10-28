@@ -23,7 +23,7 @@ sub change_lang {
     }
 
     if ($c->req->headers->referrer
-        && Mojo::URL->new($c->req->headers->referrer)->host eq $c->req->url->host) {
+        && Mojo::URL->new($c->req->headers->referrer)->host eq $c->req->url->to_abs->host) {
         return $c->redirect_to($c->req->headers->referrer);
     } else {
         return $c->redirect_to('/');
