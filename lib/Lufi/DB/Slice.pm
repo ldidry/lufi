@@ -1,10 +1,12 @@
 # vim:set sw=4 ts=4 sts=4 ft=perl expandtab:
 package Lufi::DB::Slice;
 use Mojo::Base -base;
+use Mojo::Collection 'c';
 
 has 'short';
 has 'j';
 has 'path';
+has 'record' => 0;
 has 'app';
 
 =head1 NAME
@@ -65,6 +67,9 @@ sub new {
         } elsif ($dbtype eq 'postgresql') {
             use Lufi::DB::Slice::Pg;
             $c = Lufi::DB::Slice::Pg->new(@_);
+        } elsif ($dbtype eq 'mysql') {
+            use Lufi::DB::Slice::Mysql;
+            $c = Lufi::DB::Slice::Mysql->new(@_);
         }
     }
 
@@ -85,6 +90,21 @@ sub new {
 
 =back
 
+=cut
+
+sub write {
+    my $c = shift;
+
+    if ($c->record) {
+        $c->app->dbi->db->query('UPDATE slices SET short = ?, j = ?, path = ? WHERE short = ? AND j = ?', $c->short, $c->j, $c->path, $c->short, $c->j);
+    } else {
+        $c->app->dbi->db->query('INSERT INTO slices (short, j, path) VALUES (?, ?, ?)', $c->short, $c->j, $c->path);
+        $c->record(1);
+    }
+
+    return $c;
+}
+
 =head2 get_slices_of_file
 
 =over 1
@@ -100,5 +120,87 @@ sub new {
 =back
 
 =cut
+
+sub get_slices_of_file {
+    my $c     = shift;
+    my $short = shift;
+
+    my @slices;
+    my $records = $c->app->dbi->db->query('SELECT * FROM slices WHERE short = ? ORDER BY j ASC', $short)->hashes;
+    $records->each(
+        sub {
+            my ($e, $num) = @_;
+            my $i = Lufi::DB::Slice->new(app => $c->app);
+
+            push @slices, $i->_slurp($e);
+        }
+    );
+
+    return c(@slices);
+}
+
+=head2 delete_all
+
+=over 1
+
+=item B<Usage>     : C<$c-E<gt>delete_all()>
+
+=item B<Arguments> : none
+
+=item B<Purpose>   : delete all file records from database unconditionnally
+
+=item B<Returns>   : nothing
+
+=back
+
+=cut
+
+sub delete_all {
+    my $c = shift;
+
+    $c->app->dbi->db->delete('slices');
+}
+
+=head2 _slurp
+
+=over 1
+
+=item B<Usage>     : C<$c-E<gt>_slurp>
+
+=item B<Arguments> : none
+
+=item B<Purpose>   : put a database record's columns into the Lufi::DB::Slice object's attributes
+
+=item B<Returns>   : the Lufi::DB::Slice object
+
+=back
+
+=cut
+
+sub _slurp {
+    my $c = shift;
+    my $r = shift;
+
+    my $slice;
+    if (defined $r) {
+        $slice = $r;
+    } else {
+        my $slices = $c->app->dbi->db->query('SELECT * FROM slices WHERE short = ? AND j = ?', $c->short, $c->j)->hashes;
+
+        if ($slices->size) {
+            $slice = $slices->first;
+        }
+    }
+
+    if ($slice) {
+        $c->short($slice->{short});
+        $c->j($slice->{j});
+        $c->path($slice->{path});
+
+        $c->record(1);
+    }
+
+    return $c;
+}
 
 1;

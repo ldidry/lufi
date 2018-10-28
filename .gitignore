@@ -1,10 +1,15 @@
 local/*
 files/*
+cover_db/*
 lufi.conf
-lufi.db
+*.db
+*.db-shm
+*.db-wal
+*.bak
 *.swp
-script/hypnotoad.pid
+script/*.pid
 stop-upload
+.zanata-cache/
 themes/*
 !themes/default
 !themes/default/*

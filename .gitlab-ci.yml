@@ -1,0 +1,126 @@
+image: hatsoftwares/lufi-test-ci:latest
+stages:
+  - podcheck
+  - carton
+  - carton_bdd
+  - tests
+before_script:
+  - rm -f *db
+variables:
+  POSTGRES_DB: lufi_db
+  POSTGRES_USER: lufi
+  POSTGRES_PASSWORD: lufi_pwd
+  MYSQL_DATABASE: lufi_db
+  MYSQL_USER: lufi
+  MYSQL_PASSWORD: lufi_pwd
+  MYSQL_ROOT_PASSWORD: root
+
+### Jobs templates
+##
+#
+.carton_bdd_template: &carton_bdd_definition
+  stage: carton_bdd
+  retry: 2
+  artifacts:
+    paths:
+      - local/
+    expire_in: 1 week
+  dependencies:
+    - carton
+.sqlite_template: &sqlite_definition
+  stage: tests
+  retry: 2
+  dependencies:
+    - carton_sqlite
+  services:
+    - name: rroemhild/test-openldap
+      alias: rroemhild-test-openldap
+  coverage: '/Total.* (\d+\.\d+)$/'
+.pg_template: &pg_definition
+  stage: tests
+  retry: 2
+  dependencies:
+    - carton_postgresql
+  services:
+    - name: postgres:9.6
+      alias: postgres
+    - name: rroemhild/test-openldap
+      alias: rroemhild-test-openldap
+  coverage: '/Total .*(\d+\.\d+)$/'
+.mysql_template: &mysql_definition
+  stage: tests
+  retry: 2
+  dependencies:
+    - carton_mysql
+  services:
+    - name: mariadb:10.1
+      alias: mariadb
+    - name: rroemhild/test-openldap
+      alias: rroemhild-test-openldap
+  coverage: '/Total .*(\d+\.\d+)$/'
+
+### Podcheck
+##
+#
+podcheck:
+  stage: podcheck
+  script:
+    - make podcheck
+
+### Install common dependencies
+##
+#
+carton:
+  stage: carton
+  artifacts:
+    paths:
+      - local/
+    expire_in: 1 week
+  dependencies: []
+  script:
+    - carton install --deployment --without=sqlite --without=postgresql --without=mysql
+  when: always
+  retry: 2
+
+### Install DB related dependencies
+##
+#
+carton_sqlite:
+  <<: *carton_bdd_definition
+  script:
+    - carton install --deployment --without=postgresql --without=mysql
+carton_postgresql:
+  <<: *carton_bdd_definition
+  script:
+    - carton install --deployment --without=sqlite --without=mysql
+carton_mysql:
+  <<: *carton_bdd_definition
+  script:
+    - carton install --deployment --without=sqlite --without=postgresql
+
+### SQLite tests
+##
+#
+sqlite:
+  <<: *sqlite_definition
+  script:
+    - MOJO_CONFIG=t/sqlite.conf make test
+    - MOJO_CONFIG=t/sqlite.conf make cover
+
+### PostgreSQL tests
+##
+#
+postgresql:
+  <<: *pg_definition
+  script:
+    - MOJO_CONFIG=t/postgresql.conf make test
+    - MOJO_CONFIG=t/postgresql.conf make cover
+
+### MySQL tests
+##
+#
+mysql:
+  <<: *mysql_definition
+  script:
+    - MOJO_CONFIG=t/mysql.conf make test
+    - MOJO_CONFIG=t/mysql.conf make cover

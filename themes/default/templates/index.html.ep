@@ -23,6 +23,13 @@
             </div>
         </div>
 % }
+        <div class="col s12 hiddendiv" id="not-enough-entropy">
+            <div class="card pink">
+                <div class="card-content white-text">
+                    <strong><%= l('Your browser has not enough entropy to generate a strong encryption key. Please wait (it\'s better if you do things on your computer while waiting).') %></strong>
+                </div>
+            </div>
+        </div>
 % if (stop_upload) {
         <div class="col s12">
             <div class="card pink">
@@ -59,8 +66,18 @@
             </div>
         </div>
         <div class="input-field">
-            <p class="col s12 m6 text-left">
-                <input type="checkbox" id="first-view" data-checked="">
+        % if ($self->config('force_burn_after_reading')) {
+            <p class="col s12 m6 text-left like-label">
+                <%= l('Files deleted at first download') %>
+            </p>
+        % }
+            <p class="col s12 m6 text-left<%= ' hiddendiv' if $self->config('force_burn_after_reading') %>">
+                <input
+                    type="checkbox"
+                    id="first-view"
+                    data-checked="<%= 'data-checked' if $self->config('force_burn_after_reading') %>"
+                    <%= 'disabled="disabled"' if $self->config('force_burn_after_reading') %>
+                >
                 <label for="first-view"><%= l('Delete at first download?') %></label>
             </p>
         </div>
@@ -75,10 +92,11 @@
     </form>
     <div id="files">
         <h2><%= l('Drop files here') %></h2>
+        <p id="max-file-size"></p>
         <p><small><%= l('or') %></small></p>
         <label>
-            <span class="btn cyan waves-effect waves-light"><%= l('Click to open the file browser') %></span>
-            <input type="file" onchange="handleFiles(this.files)" multiple>
+            <span id="file-browser-span" class="btn disabled waves-effect waves-light"><%= l('Click to open the file browser') %></span>
+            <input type="file" id="file-browser-button" multiple disabled>
         </label>
     </div>
     <div id="results">
@@ -88,33 +106,9 @@
         </ul>
     </div>
 %= include 'delays'
-%= javascript begin
-$(document).ready(function(){
-    $('.modal-trigger').leanModal();
-    $('select').material_select();
-});
-var ws_url  = '<%= url_for('upload')->to_abs() %>';
-var baseURL = '<%= url_for('/')->to_abs() %>';
-var i18n    = {
-    confirmExit: '<%= l('You have attempted to leave this page. The upload will be canceled. Are you sure?') %>',
-    copyAll:     '<%= l('Copy all links to clipboard') %>',
-    copySuccess: '<%= l('The link(s) has been copied to your clipboard') %>',
-    copyFail:    '<%= l('Unable to copy the link(s) to your clipboard') %>',
-    cpText:      '<%= l('Copy to clipboard') %>',
-    delText:     '<%= l('Deletion link') %>',
-    dlText:      '<%= l('Download link') %>',
-    download:    '<%= l('Download') %>',
-    encrypting:  '<%= l('Encrypting part XX1 of XX2') %>',
-    expiration:  '<%= l('Expiration:') %>',
-    hit:         '<%= l('Hit Enter, then Ctrl+C to copy the download link') %>',
-    hits:        '<%= l('Hit Enter, then Ctrl+C to copy all the download links') %>',
-    mailTo:      '<%= l('Send all links by email') %>',
-    noLimit:     '<%= l('No expiration delay') %>',
-    sending:     '<%= l('Sending part XX1 of XX2. Please, be patient, the progress bar can take a while to move.') %>',
-    wsProblem:   '<%= l('Websocket communication error') %>',
-};
-% end
+%= javascript '/partial/index.js'
 %= javascript '/js/sjcl.js'
 %= javascript '/js/moment-with-locales.min.js'
+%= javascript '/js/filesize.min.js'
 %= javascript '/js/lufi-up.js'
 % }

@@ -3,6 +3,7 @@ package Lufi::Command::cron::cleanbdd;
 use Mojo::Base 'Mojolicious::Command';
 use Lufi::DB::File;
 use FindBin qw($Bin);
+use Lufi::DefaultConfig qw($default_config);
 
 has description => 'Delete IP addresses from database after configured delay.';
 has usage => sub { shift->extract_usage };
@@ -19,10 +20,7 @@ sub run {
     }
     my $config = $c->app->plugin('Config', {
         file    => $cfile,
-        default => {
-            dbtype         => 'sqlite',
-            keep_ip_during => 365,
-        }
+        default => $default_config
     });
 
     my $separation = time() - $config->{keep_ip_during} * 86400;

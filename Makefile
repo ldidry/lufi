@@ -1,33 +1,34 @@
 EXTRACTDIR=-D lib -D themes/default/templates
-EN=themes/default/lib/Lufi/I18N/en.po
-FR=themes/default/lib/Lufi/I18N/fr.po
-IT=themes/default/lib/Lufi/I18N/it.po
-OC=themes/default/lib/Lufi/I18N/oc.po
-CA=themes/default/lib/Lufi/I18N/ca.po
-PT=themes/default/lib/Lufi/I18N/pt.po
-NL=themes/default/lib/Lufi/I18N/nl.po
-XGETTEXT=carton exec local/bin/xgettext.pl
+POT=themes/default/lib/Lufi/I18N/lufi.pot
+XGETTEXT=carton exec local/bin/xgettext.pl -u
 CARTON=carton exec
 REAL_LUFI=script/application
 LUFI=script/lufi
 
 locales:
-	$(XGETTEXT) $(EXTRACTDIR) -o $(EN) 2>/dev/null
-	$(XGETTEXT) $(EXTRACTDIR) -o $(FR) 2>/dev/null
-	$(XGETTEXT) $(EXTRACTDIR) -o $(IT) 2>/dev/null
-	$(XGETTEXT) $(EXTRACTDIR) -o $(OC) 2>/dev/null
-	$(XGETTEXT) $(EXTRACTDIR) -o $(CA) 2>/dev/null
-	$(XGETTEXT) $(EXTRACTDIR) -o $(PT) 2>/dev/null
-	$(XGETTEXT) $(EXTRACTDIR) -o $(NL) 2>/dev/null
+	$(XGETTEXT) $(EXTRACTDIR) -o $(POT) 2>/dev/null
+
+push-locales: locales
+	zanata-cli -q -B push --errors --project-version `git branch | grep \* | cut -d ' ' -f2-`
+
+pull-locales:
+	zanata-cli -q -B pull --min-doc-percent 50 --project-version `git branch | grep \* | cut -d ' ' -f2-`
+
+stats-locales:
+	zanata-cli -q stats --project-version `git branch | grep \* | cut -d ' ' -f2-`
 
 podcheck:
 	podchecker lib/Lufi/DB/File.pm lib/Lufi/DB/Slice.pm
 
+cover:
+	PERL5OPT='-Ilib/' HARNESS_PERL_SWITCHES='-MDevel::Cover' $(CARTON) cover --ignore_re '^local'
+
 test:
-	$(CARTON) $(REAL_LUFI) test
+	@PERL5OPT='-Ilib/' HARNESS_PERL_SWITCHES='-MDevel::Cover' $(CARTON) prove -l -f -o t/test.t
 
 clean:
 	rm -rf lufi.db files/
+
 dev: clean
 	$(CARTON) morbo $(LUFI) --listen http://0.0.0.0:3000 --watch lib/ --watch script/ --watch themes/ --watch lufi.conf
 

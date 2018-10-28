@@ -6,11 +6,12 @@
     # see http://mojolicio.us/perldoc/Mojo/Server/Hypnotoad for a full list of settings
     hypnotoad => {
         # array of IP addresses and ports you want to listen to
+        # you can specify a unix socket too, like 'http+unix://%2Ftmp%2Flufi.sock'
         listen => ['http://127.0.0.1:8081'],
-        # if you use Lufi behind a reverse proxy like Nginx, you want ro set proxy to 1
+        # if you use Lufi behind a reverse proxy like Nginx, you want to set proxy to 1
         # if you use Lufi directly, let it commented
         #proxy  => 1,
-        
+
         # Please read http://mojolicious.org/perldoc/Mojo/Server/Hypnotoad#workers
         # to adjust this to your server
         workers => 30,
@@ -18,8 +19,14 @@
     },
 
     # put a way to contact you here and uncomment it
+    # you can put some HTML in it
     # MANDATORY
-    #contact       => 'admin[at]example.com',
+    #contact       => '<a href="https://contact.example.com">Contact page</a>',
+
+    # put an URL or an email address to receive file reports and uncomment it
+    # it's for make reporting illegal files easy for users
+    # MANDATORY
+    #report => 'report@example.com',
 
     # array of random strings used to encrypt cookies
     # optional, default is ['fdjsofjoihrei'], PLEASE, CHANGE IT
@@ -108,7 +115,7 @@
     #mail_sender => 'no-reply@lufi.io',
 
     # choose what database you want to use
-    # valid choices are sqlite and postgresql (all lowercase)
+    # valid choices are sqlite, postgresql and mysql (all lowercase)
     # optional, default is sqlite
     #dbtype => 'sqlite',
 
@@ -125,8 +132,28 @@
     #pgdb => {
     #    database => 'lufi',
     #    host     => 'localhost',
-    #    #user     => 'DBUSER',
-    #    #pwd      => 'DBPASSWORD'
+    #    # optional, default is 5432
+    #    #port     => 5432,
+    #    user     => 'DBUSER',
+    #    pwd      => 'DBPASSWORD',
+    #    # https://mojolicious.org/perldoc/Mojo/Pg#max_connections
+    #    # optional, default is 1
+    #    #max_connections => 1,
+    #},
+
+    # MySQL ONLY - only used if dbtype is set to mysql
+    # these are the credentials to access the MySQL database
+    # mandatory if you choosed mysql as dbtype
+    #mysqldb => {
+    #    database => 'lufi',
+    #    host     => 'localhost',
+    #    # optional, default is 3306
+    #    #port     => 3306,
+    #    user     => 'DBUSER',
+    #    pwd      => 'DBPASSWORD',
+    #    # https://metacpan.org/pod/Mojo::mysql#max_connections
+    #    # optional, default is 5 (set to 0 to disable persistent connections)
+    #    #max_connections => 5,
     #},
 
     # define a path to the upload directory, where the uploaded files will be stored
@@ -140,12 +167,18 @@
     # please note that everybody can still download files
     # optional, no default
     #ldap => {
-    #    uri         => 'ldaps://ldap.example.org',
-    #    user_tree   => 'ou=users,dc=example,dc=org',
-    #    bind_dn     => ',ou=users,dc=example,dc=org',
-    #    bind_user   => 'uid=ldap_user',
-    #    bind_pwd    => 'secr3t',
-    #    user_filter => '!(uid=ldap_user)'
+    #    uri         => 'ldaps://ldap.example.org',                 # server URI
+    #    user_tree   => 'ou=users,dc=example,dc=org',               # search base DN
+    #    bind_dn     => 'uid=ldap_user,ou=users,dc=example,dc=org', # search bind DN
+    #    bind_pwd    => 'secr3t',                                   # search bind password
+    #    user_attr   => 'uid',                                      # user attribute (uid, mail, sAMAccountName, etc.)
+    #    user_filter => '(!(uid=ldap_user))',                       # user filter (to exclude some users, etc.)
+    #    # optional start_tls configuration. See https://metacpan.org/pod/distribution/perl-ldap/lib/Net/LDAP.pod#start_tls
+    #    # don't set or uncomment if you don't want to configure it
+    #    start_tls => {
+    #       verify     => 'optional',
+    #       clientcert => '/etc/ssl/certs/ca-bundle.pem'
+    #    }
     #},
 
     # set `htpasswd` if you want to use an htpasswd file instead of ldap
@@ -158,8 +191,54 @@
     #session_duration => 3600,
 
     # allow to add a password on files, asked before allowing to download files
-    # optional, default to 0
+    # optional, default is 0
     #allow_pwd_on_files => 0,
+
+    # force all files to be in "Burn after reading mode"
+    # optional, default is 0
+    #force_burn_after_reading => 0,
+
+    # if set, the files' URLs will always use this domain
+    # optional, no default
+    #fixed_domain => 'example.org',
+
+    # abuse reasons
+    # set an integer in the abuse field of a file in the database and it will not be downloadable anymore
+    # the reason will be displayed to the downloader, according to the reasons you will configure here.
+    # optional, no default
+    #abuse => {
+    #   0 => 'Copyright infringment',
+    #   1 => 'Illegal content',
+    #},
+
+    # Content-Security-Policy header that will be sent by Lufi
+    # Set to '' to disable CSP header
+    # https://content-security-policy.com/ provides a good documentation about CSP.
+    # https://report-uri.com/home/generate provides a tool to generate a CSP header.
+    # optional, default is "base-uri 'self'; connect-src 'self'; default-src 'none'; font-src 'self'; form-action 'self'; frame-ancestors 'none'; img-src 'self' blob:; media-src blob:; script-src 'self' 'unsafe-inline' 'unsafe-eval'; style-src 'self' 'unsafe-inline'"
+    # the default value is good for `default` and `milligram` themes
+    #csp => "base-uri 'self'; connect-src 'self'; default-src 'none'; font-src 'self'; form-action 'self'; frame-ancestors 'none'; img-src 'self' blob:; media-src blob:; script-src 'self' 'unsafe-inline' 'unsafe-eval'; style-src 'self' 'unsafe-inline'"
+
+    # X-Frame-Options header that will be sent by Lufi
+    # Valid values are: 'DENY', 'SAMEORIGIN', 'ALLOW-FROM https://example.com/'
+    # Set to '' to disable X-Frame-Options header
+    # See https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/X-Frame-Options
+    # Please note that this will add a "frame-ancestors" directive to the CSP header (see above) accordingly
+    # to the chosen setting (See https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Content-Security-Policy/frame-ancestors)
+    # optional, default is 'DENY'
+    #x_frame_options => 'DENY',
+
+    # X-Content-Type-Options that will be sent by Lufi
+    # See https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/X-Content-Type-Options
+    # Set to '' to disable X-Content-Type-Options header
+    # optional, default is 'nosniff'
+    #x_content_type_options => 'nosniff',
+
+    # X-XSS-Protection that will be sent by Lufi
+    # See https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/X-XSS-Protection
+    # Set to '' to disable X-XSS-Protection header
+    # optional, default is '1; mode=block'
+    #x_xss_protection => '1; mode=block',
 
     #########################
     # Lufi cron jobs settings

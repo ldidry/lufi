@@ -4,6 +4,7 @@ use Filesys::DiskUsage qw/du/;
 use Lufi::DB::File;
 use Switch;
 use FindBin qw($Bin);
+use Lufi::DefaultConfig qw($default_config);
 
 has description => 'Watch the files directory and take action when over quota';
 has usage => sub { shift->extract_usage };
@@ -20,11 +21,7 @@ sub run {
     }
     my $config = $c->app->plugin('Config', {
         file    => $cfile,
-        default => {
-            dbtype           => 'sqlite',
-            upload_dir       => 'files',
-            policy_when_full => 'warn'
-        }
+        default => $default_config
     });
 
     if (defined($config->{max_total_size})) {

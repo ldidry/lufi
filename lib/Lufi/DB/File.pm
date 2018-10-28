@@ -1,7 +1,9 @@
 # vim:set sw=4 ts=4 sts=4 ft=perl expandtab:
 package Lufi::DB::File;
 use Mojo::Base -base;
-use Mojo::Collection;
+use Mojo::File;
+use Mojo::Collection 'c';
+use Lufi::DB::Slice;
 
 has 'short';
 has 'deleted' => 0;
@@ -23,6 +25,8 @@ has 'slices' => sub {
     return Mojo::Collection->new();
 };
 has 'passwd';
+has 'abuse';
+has 'record' => 0;
 has 'app';
 
 =head1 NAME
@@ -72,6 +76,8 @@ Have a look at Lufi::DB::File::SQLite's code: it's simple and may be more unders
 
 =item B<passwd>               : string
 
+=item B<abuse>                : integer
+
 =item B<app>                  : a Mojolicious object
 
 =back
@@ -109,6 +115,9 @@ sub new {
         } elsif ($dbtype eq 'postgresql') {
             use Lufi::DB::File::Pg;
             $c = Lufi::DB::File::Pg->new(@_);
+        } elsif ($dbtype eq 'mysql') {
+            use Lufi::DB::File::Mysql;
+            $c = Lufi::DB::File::Mysql->new(@_);
         }
     }
 
@@ -160,6 +169,21 @@ sub delete {
 
 =back
 
+=cut
+
+sub write {
+    my $c = shift;
+
+    if ($c->record) {
+        $c->app->dbi->db->query('UPDATE files SET short = ?, deleted = ?, mediatype = ?, filename = ?, filesize = ?, counter = ?, delete_at_first_view = ?, delete_at_day = ?, created_at = ?, created_by = ?, last_access_at = ?, mod_token = ?, nbslices = ?, complete = ?, passwd = ?, abuse = ? WHERE short = ?', $c->short, $c->deleted, $c->mediatype, $c->filename, $c->filesize, $c->counter, $c->delete_at_first_view, $c->delete_at_day, $c->created_at, $c->created_by, $c->last_access_at, $c->mod_token, $c->nbslices, $c->complete, $c->passwd, $c->abuse, $c->short);
+    } else {
+        $c->app->dbi->db->query('INSERT INTO files (short, deleted, mediatype, filename, filesize, counter, delete_at_first_view, delete_at_day, created_at, created_by, last_access_at, mod_token, nbslices, complete, passwd, abuse) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)', $c->short, $c->deleted, $c->mediatype, $c->filename, $c->filesize, $c->counter, $c->delete_at_first_view, $c->delete_at_day, $c->created_at, $c->created_by, $c->last_access_at, $c->mod_token, $c->nbslices, $c->complete, $c->passwd, $c->abuse);
+        $c->record(1);
+    }
+
+    return $c;
+}
+
 =head2 count_empty
 
 =over 1
@@ -173,6 +197,14 @@ sub delete {
 =item B<Returns>   : integer
 
 =back
+
+=cut
+
+sub count_empty {
+    my $c = shift;
+
+    return $c->app->dbi->db->query('SELECT count(short) AS count FROM files WHERE created_at IS NULL')->hashes->first->{count};
+}
 
 =head2 already_exists
 
@@ -188,6 +220,15 @@ sub delete {
 
 =back
 
+=cut
+
+sub already_exists {
+    my $c     = shift;
+    my $short = shift;
+
+    return $c->app->dbi->db->query('SELECT count(short) AS count FROM files WHERE short = ?', $short)->hashes->first->{count};
+}
+
 =head2 get_empty
 
 =over 1
@@ -201,6 +242,16 @@ sub delete {
 =item B<Returns>   : a db accessor object
 
 =back
+
+=cut
+
+sub get_empty {
+    my $c     = shift;
+
+    my $r = $c->app->dbi->db->query('SELECT * FROM files WHERE created_at IS NULL')->hashes->shuffle->first;
+
+    return $c->_slurp($r)->created_at(time)->write;
+}
 
 =head2 get_stats
 
@@ -216,6 +267,18 @@ sub delete {
 
 =back
 
+=cut
+
+sub get_stats {
+    my $c = shift;
+
+    my $files   = $c->app->dbi->db->query('SELECT count(short) AS count FROM files WHERE created_at IS NOT null AND deleted = ?', 0)->hashes->first->{count};
+    my $deleted = $c->app->dbi->db->query('SELECT count(short) AS count FROM files WHERE created_at IS NOT null AND deleted = ?', 1)->hashes->first->{count};
+    my $empty   = $c->app->dbi->db->query('SELECT count(short) AS count FROM files WHERE created_at IS null')->hashes->first->{count};
+
+    return { files => $files, deleted => $deleted, empty => $empty };
+}
+
 =head2 from_short
 
 =over 1
@@ -229,6 +292,21 @@ sub delete {
 =item B<Returns>   : a db accessor object
 
 =back
+
+=cut
+
+sub from_short {
+    my $c     = shift;
+    my $short = shift;
+
+    my $r = $c->app->dbi->db->query('SELECT * FROM files WHERE short = ?', $short)->hashes;
+
+    if ($r->size) {
+        return $c->_slurp($r->first)->record(1);
+    } else {
+        return undef;
+    }
+}
 
 =head2 get_oldest_undeleted_files
 
@@ -244,6 +322,26 @@ sub delete {
 
 =back
 
+=cut
+
+sub get_oldest_undeleted_files {
+    my $c   = shift;
+    my $num = shift;
+
+    my @files;
+    my $records = $c->app->dbi->db->query('SELECT * FROM files WHERE deleted = ? ORDER BY created_at ASC LIMIT ?', 0, $num)->hashes;
+    $records->each(
+        sub {
+            my ($e, $num) = @_;
+            my $i = Lufi::DB::File->new(app => $c->app);
+
+            push @files, $i->_slurp($e);
+        }
+    );
+
+    return c(@files);
+}
+
 =head2 get_expired
 
 =over 1
@@ -258,6 +356,27 @@ sub delete {
 
 =back
 
+=cut
+
+sub get_expired {
+    my $c    = shift;
+    my $time = shift;
+
+    my @files;
+    ## Select only files expired since two days, to be sure that nobody is still downloading it
+    my $records = $c->app->dbi->db->query('SELECT * FROM files WHERE deleted = ? AND ((delete_at_day + 2) * 86400) < (? - created_at) AND delete_at_day != 0', 0, $time)->hashes;
+    $records->each(
+        sub {
+            my ($e, $num) = @_;
+            my $i = Lufi::DB::File->new(app => $c->app);
+
+            push @files, $i->_slurp($e);
+        }
+    );
+
+    return c(@files);
+}
+
 =head2 get_no_longer_viewed
 
 =over 1
@@ -271,6 +390,26 @@ sub delete {
 =item B<Returns>   : a Mojo::Collection of Lufi::DB::File objects
 
 =back
+
+=cut
+
+sub get_no_longer_viewed {
+    my $c    = shift;
+    my $time = shift;
+
+    my @files;
+    my $records = $c->app->dbi->db->query('SELECT * FROM files WHERE deleted = ? AND last_access_at < ?', 0, $time)->hashes;
+    $records->each(
+        sub {
+            my ($e, $num) = @_;
+            my $i = Lufi::DB::File->new(app => $c->app);
+
+            push @files, $i->_slurp($e);
+        }
+    );
+
+    return c(@files);
+}
 
 =head2 delete_creator_before
 
@@ -287,5 +426,91 @@ sub delete {
 =back
 
 =cut
+
+sub delete_creator_before {
+    my $c          = shift;
+    my $separation = shift;
+
+    $c->app->dbi->db->query('UPDATE files SET created_by = NULL WHERE created_by IS NOT NULL AND created_at < ?', $separation);
+}
+
+=head2 delete_all
+
+=over 1
+
+=item B<Usage>     : C<$c-E<gt>delete_all()>
+
+=item B<Arguments> : none
+
+=item B<Purpose>   : delete all file records from database unconditionnally
+
+=item B<Returns>   : nothing
+
+=back
+
+=cut
+
+sub delete_all {
+    my $c = shift;
+
+    $c->app->dbi->db->delete('files');
+}
+
+=head2 _slurp
+
+=over 1
+
+=item B<Usage>     : C<$c-E<gt>_slurp>
+
+=item B<Arguments> : none
+
+=item B<Purpose>   : put a database record's columns into the Lufi::DB::File object's attributes
+
+=item B<Returns>   : the Lufi::DB::File object
+
+=back
+
+=cut
+
+sub _slurp {
+    my $c = shift;
+    my $r = shift;
+
+    my $file;
+    if (defined $r) {
+        $file = $r;
+    } else {
+        my $files = $c->app->dbi->db->query('SELECT * FROM files WHERE short = ?', $c->short)->hashes;
+
+        if ($files->size) {
+            $file = $files->first;
+        }
+    }
+
+    if ($file) {
+        $c->short($file->{short});
+        $c->deleted($file->{deleted});
+        $c->mediatype($file->{mediatype});
+        $c->filename($file->{filename});
+        $c->filesize($file->{filesize});
+        $c->counter($file->{counter});
+        $c->delete_at_first_view($file->{delete_at_first_view});
+        $c->delete_at_day($file->{delete_at_day});
+        $c->created_at($file->{created_at});
+        $c->created_by($file->{created_by});
+        $c->last_access_at($file->{last_access_at});
+        $c->mod_token($file->{mod_token});
+        $c->nbslices($file->{nbslices});
+        $c->complete($file->{complete});
+        $c->passwd($file->{passwd});
+        $c->abuse($file->{abuse});
+
+        $c->record(1) unless $c->record;
+    }
+
+    $c->slices(Lufi::DB::Slice->new(app => $c->app)->get_slices_of_file($c->short));
+
+    return $c;
+}
 
 1;

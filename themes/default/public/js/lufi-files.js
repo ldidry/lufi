@@ -43,7 +43,8 @@ function itemExists(name) {
     }
 }
 
-function purgeExpired() {
+function purgeExpired(event) {
+    event.preventDefault();
     var files = JSON.parse(localStorage.getItem('files'));
 
     files.forEach(function(element, index, array) {
@@ -67,7 +68,8 @@ function purgeExpired() {
     });
 }
 
-function exportStorage() {
+function exportStorage(event) {
+    event.preventDefault();
     var a   = $('<a id="data-json">');
     a.hide();
     $('body').append(a);
@@ -91,7 +93,7 @@ function importStorage(f) {
             var hasImported = 0;
             for (i = 0; i < newFiles.length; i++) {
                 var item = newFiles[i];
-                if (!itemExists(item.short)) {
+                if (validURL(item.url) && !itemExists(item.short)) {
                     addItem(item);
                     hasImported++;
                 }
@@ -104,6 +106,19 @@ function importStorage(f) {
         }
     });
     reader.readAsArrayBuffer(f[0]);
+}
+
+function validURL(str) {
+    try {
+        var url = new URL(str);
+        if (url.host) {
+            return true;
+        } else {
+            return false;
+        }
+    } catch(e) {
+        return false;
+    }
 }
 
 function delFile() {
@@ -122,6 +137,7 @@ function delFile() {
             } else {
                 alert(data.msg);
             }
+            evaluateMassDelete();
         },
         error: function() {
         },
@@ -140,14 +156,20 @@ function evaluateMassDelete() {
     }
 }
 
-function massDelete() {
+function massDelete(event) {
+    event.preventDefault();
     $('input[data-checked="data-checked"]').each(delFile);
 }
 
 function populateFilesTable() {
     $('#myfiles').empty();
 
-    var files = JSON.parse(localStorage.getItem('files'));
+    var files = localStorage.getItem('files');
+    if (files === null) {
+        files = new Array();
+    } else {
+        files = JSON.parse(files);
+    }
     files.sort(function(a, b) {
         if (a.created_at < b.created_at) {
             return -1;
@@ -159,7 +181,7 @@ function populateFilesTable() {
     });
     files.forEach(function(element, index, array) {
         var del_view   = (element.del_at_first_view) ? '<i class="small mdi-action-done"></i>' : '<i class="small mdi-navigation-close"></i>';
-        var dlink      = baseURL+'d/'+element.short+'/'+element.token;
+        var dlink      = actionURL+'d/'+element.short+'/'+element.token;
         var limit      = (element.delay === 0) ? i18n.noExpiration : moment.unix(element.delay * 86400 + element.created_at).locale(window.navigator.language).format('LLLL');
         var created_at = moment.unix(element.created_at).locale(window.navigator.language).format('LLLL');
 
@@ -189,7 +211,7 @@ function populateFilesTable() {
                       '<a id="del-', element.short, '" data-short="', element.short, '" data-dlink="', dlink, '" href="#" class="classic"><i class="small mdi-action-delete"></i></a>',
                   '</td>',
                   '<td class="center-align">',
-                      '<a href="'+baseURL+'m?links=[&quot;'+element.short+'&quot;]" class="classic"><i class="small mdi-communication-email"></i></a>',
+                      '<a href="'+actionURL+'m?links=[&quot;'+element.short+'&quot;]" class="classic"><i class="small mdi-communication-email"></i></a>',
                   '</td>'].join(''));
         $('#myfiles').append(tr);
         $('#del-'+element.short).on('click', delFile);
@@ -226,4 +248,9 @@ function populateFilesTable() {
             }
         });
     });
+}
+
+function clickImport(event) {
+    event.preventDefault();
+    $('#import').click();
 }

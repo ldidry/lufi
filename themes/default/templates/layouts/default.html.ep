@@ -1,4 +1,6 @@
 % # vim:set sw=4 ts=4 sts=4 ft=html.epl expandtab:
+% my $lang = $self->languages;
+%    $lang =~ s/-(.*)/_\U$1/;
 <!DOCTYPE html>
 <html>
     <head>
@@ -17,63 +19,62 @@
         <link rel="apple-touch-icon-precomposed" sizes="128x128" href="<%= url_for('/img/lufi128.png') %>">
         %= stylesheet '/css/materialize.min.css'
         %= stylesheet '/css/lufi.css'
-        %= javascript begin
-            function confirmExit() {
-                console.log(i18n.confirmExit);
-                return i18n.confirmExit;
-            }
-
-            // Is the browser IE?
-            var isIE = /*@cc_on!@*/false || !!document.documentMode;
-
-            // If the browser is IE, add readAsBinaryString function and store the data
-            if (isIE == true){
-                if (FileReader.prototype.readAsBinaryString === undefined) {
-                    FileReader.prototype.readAsBinaryString = function (fileData) {
-                            var binary = "";
-                            var pt = this;
-                            var reader = new FileReader();
-                            reader.onload = function (e) {
-                                var bytes = new Uint8Array(reader.result);
-                                var length = bytes.byteLength;
-                                for (var i = 0; i < length; i++) {
-                                    binary += String.fromCharCode(bytes[i]);
-                                }
-                                //pt.result  - readonly so assign content to another property
-                                pt.content = binary;
-                                $(pt).trigger('onloadend');
-                            }
-                        reader.readAsArrayBuffer(fileData);
-                    }
-                }
-            }
-        % end
+        %= javascript '/js/ie-detection.js'
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
     </head>
     <body>
         <nav class="cyan">
             <div class="nav-wrapper container">
                 <a href="<%= url_for('/') %>" class="brand-logo">&nbsp;<img src="<%= url_for('/img/lufi-min.png') %>" alt="logo"> Lufi</a>
-                <a href="#" data-activates="mobile-demo" class="button-collapse"><i class="mdi-navigation-menu"></i></a>
+                <a href="#" data-activates="mobile" class="button-collapse"><i class="mdi-navigation-menu"></i></a>
                 <ul id="nav-mobile" class="right hide-on-med-and-down">
+                    <li><a href="<%= $self->config('report') %>"><%= l('Report file') %></a></li>
                 % if ((!defined(config('ldap')) && !defined(config('htpasswd'))) || is_user_authenticated()) {
                     <li<%== ' class="active"' if (current_route eq 'index') %>><a href="<%= url_for('/') %>"><%= l('Upload files') %></a></li>
                     <li<%== ' class="active"' if (current_route eq 'files') %>><a href="<%= url_for('/files') %>"><%= l('My files') %></a></li>
                 % } else {
                     <li><a href="<%= url_for('/login') %>"><%= l('Signin') %></a></li>
                 % }
+                    <li>
+                        <div class="input-field select-lang">
+                            <label class="hiddendiv"><%= l('Language') %></label>
+                            <select>
+                                <option value="" disabled selected><%= l('Language') %></option>
+                            % for my $i (@{$self->available_langs}) {
+                                <option value="<%= $i %>"><%= iso639_native_name($i) %></option>
+                            % }
+                            </select>
+                        </div>
+                    </li>
                     <li<%== ' class="active"' if (current_route eq 'about') %>><a href="<%= url_for('/about') %>"><%= l('About') %></a></li>
                 % if ((defined(config('ldap')) || defined(config('htpasswd'))) && is_user_authenticated()) {
-                    <li><a href="<%= url_for('/logout') %>"><%= l('Logout') %></a></li>
+                    <li>
+                        <form action="<%= url_for('/logout') %>" method="POST">
+                            %= csrf_field
+                            <button class="btn-flat" type="submit"><%= l('Logout') %></button>
+                        </form>
+                    </li>
                 % }
                 </ul>
-                <ul id="mobile-demo" class="side-nav">
+                <ul id="mobile" class="side-nav">
+                    <li><a href="<%= $self->config('report') %>"><%= l('Report file') %></a></li>
                 % if ((!defined(config('ldap')) && !defined(config('htpasswd'))) || is_user_authenticated()) {
                     <li<%== ' class="active"' if (current_route eq 'index') %>><a href="<%= url_for('/') %>"><%= l('Upload files') %></a></li>
                     <li<%== ' class="active"' if (current_route eq 'files') %>><a href="<%= url_for('/files') %>"><%= l('My files') %></a></li>
                 % } else {
                     <li><a href="<%= url_for('/login') %>"><%= l('Signin') %></a></li>
                 % }
+                    <li>
+                        <div class="input-field select-lang-mobile">
+                            <label class="hiddendiv"><%= l('Language') %></label>
+                            <select>
+                                <option value="" disabled selected><%= l('Language') %></option>
+                            % for my $i (@{$self->available_langs}) {
+                                <option value="<%= $i %>"><%= iso639_native_name($i) %></option>
+                            % }
+                            </select>
+                        </div>
+                    </li>
                     <li<%== ' class="active"' if (current_route eq 'about') %>><a href="<%= url_for('/about') %>"><%= l('About') %></a></li>
                 % if ((defined(config('ldap')) || defined(config('htpasswd'))) && is_user_authenticated()) {
                     <li><a href="<%= url_for('/logout') %>"><%= l('Logout') %></a></li>
@@ -82,18 +83,15 @@
             </div>
         </nav>
         <div class="container">
-            %= javascript '/js/jquery-2.1.1.min.js'
+            %= javascript '/js/jquery-2.2.4.min.js'
+            %= javascript '/partial/layout.js'
             %= javascript '/js/lufi-common.js'
             <%= content %>
         </div>
 % if (defined(config('piwik_img'))) {
-        <img src="<%== config('piwik_img') %>" style="border:0" alt="" />
+        <img src="<%== config('piwik_img') %>" class="no_border" alt="" />
 % }
             %= javascript '/js/materialize.js'
-            %= javascript begin
-                $(document).ready(function() {
-                    $(".button-collapse").sideNav();
-                });
-            %end
+            %= javascript '/js/sidenav.js'
     </body>
 </html>

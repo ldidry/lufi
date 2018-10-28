@@ -1,5 +1,30 @@
 Revision history for Lufi
 
+0.03 2018-??-??
+	- Use Mojo::SQLite instead of ORLite
+	- Use FiatTux plugins
+	- Option to force "Burn after reading" for each uploaded file
+	- Use GzipStatic and StaticCache plugins for speed
+	- Allow to block files by setting an abuse field in DB
+	- Display file size when uploading
+	- Add Content-Security-Policy header
+	- Update sjcl.js
+	- Mitigate genRandomKey exception risk
+	- Add report file link in the navbar
+	- Allow to choose your language
+	- Use a recurrent task to provision shorts
+	- Add a command to migrate data from SQLite to an other database
+	- Add a test suite
+	- MySQL support
+	- Display max size on upload page
+	- Add CSRF token challenge on login
+	- Add CSRF token challenge on logout
+	- Add constraints on mail sending to prevent spam sending (not perfect, but
+	should be good enough)
+	- Add Code of Conduct
+	- Add arabic translation
+	- Add german translation
+
 0.02.2 2017-09-18
 	- Fix cron tasks bug
 

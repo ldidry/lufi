@@ -30,7 +30,8 @@ function copyToClipboard(txt) {
 }
 
 // Copy all links to clipboard
-function copyAllToClipboard() {
+function copyAllToClipboard(event) {
+    event.preventDefault();
     var text = new Array();
     var a = $('.link-input');
     var i;
@@ -49,9 +50,8 @@ function copyAllToClipboard() {
         var msg = successful ? i18n.copySuccess : i18n.copyFail;
         Materialize.toast(msg, 4000);
     } catch (err) {
-        textArea.css('width', '');
-        textArea.css('height', '');
-        textArea.css('background', '#FFFFFF');
+        textArea.removeClass('textarea-hidden');
+        textArea.addClass('white-background');
         alert(i18n.hits);
     }
 
@@ -94,7 +94,7 @@ function updateMailLink() {
     for (i = 0; i < a.length; i++) {
         l.push(a[i].id);
     }
-    var u = baseURL+'m?links='+JSON.stringify(l);
+    var u = actionURL+'m?links='+JSON.stringify(l);
     $('#mailto').attr('href', u);
 }
 
@@ -137,6 +137,7 @@ function uploadFile(i, delay, del_at_first_view) {
     // Get the file and properties
     var file  = window.fileList[i];
     var name  = escapeHtml(file.name);
+    var size  = filesize(file.size);
     var parts = Math.ceil(file.size/window.sliceLength);
     if (parts === 0) {
         parts = 1;
@@ -148,20 +149,24 @@ function uploadFile(i, delay, del_at_first_view) {
     w.addClass('list-group-item');
     w.html(['<div class="card">',
                 '<div>',
-                    '<a href="#" onclick="destroyBlock(this);">',
+                    '<a href="#" id="destroy-', window.fc, '">',
                         '<i class="right mdi-navigation-close small"></i>',
                     '</a>',
                     '<div class="card-content">',
-                        '<span class="card-title" id="name-', window.fc, '">', name, '</span>',
+                        '<span class="card-title" id="name-', window.fc, '">', name, '</span> <span id="size-', window.fc ,'">(', size,')</span>',
                         '<p id="parts-', window.fc, '"></p>',
                     '</div>',
                     '<div class="progress">',
-                        '<div id="progress-', window.fc, '" style="width: 0%;" data-key="', randomkey, '" data-name="', name, '" aria-valuemax="100" aria-valuemin="0" aria-valuenow="0" role="progressbar" class="determinate">',
+                        '<div id="progress-', window.fc, '" data-key="', randomkey, '" data-name="', name, '" aria-valuemax="100" aria-valuemin="0" aria-valuenow="0" role="progressbar" class="determinate width-0">',
                             '<span class="sr-only">', name, '0%</span>',
                         '</div>',
                     '</div>',
             '<div>'].join(''));
-    r.append(w);
+    r.prepend(w);
+    $('#destroy-'+window.fc).on('click', function(event) {
+        event.preventDefault();
+        destroyBlock(this)
+    });
 
     sliceAndUpload(randomkey, i, parts, 0, delay, del_at_first_view, null);
 }
@@ -190,7 +195,9 @@ function sliceAndUpload(randomkey, i, parts, j, delay, del_at_first_view, short)
 
         // Prepare json
         var data = {
+            // number of parts
             total: parts,
+            // part X of total
             part: j,
             size: file.size,
             name: file.name,
@@ -198,6 +205,7 @@ function sliceAndUpload(randomkey, i, parts, j, delay, del_at_first_view, short)
             delay: delay,
             del_at_first_view: del_at_first_view,
             id: short,
+            // number of the sent file in the queue
             i: i
         };
         if ($('#file_pwd').length === 1) {
@@ -266,33 +274,35 @@ function updateProgressBar(data) {
 
             $('#parts-'+window.fc).remove();
             var n       = $('#name-'+window.fc);
+            var s       = $('#size-'+window.fc);
             var d       = $('<div>');
             var url     = baseURL+'r/'+short+'#'+key;
-            var del_url = baseURL+'d/'+short+'/'+data.token;
+            var del_url = actionURL+'d/'+short+'/'+data.token;
             var links   = encodeURIComponent('["'+short+'"]');
             var limit   = (delay === 0) ? i18n.noLimit : i18n.expiration+' '+moment.unix(delay * 86400 + created_at).locale(window.navigator.language).format('LLLL');
-            n.html(n.html()+' <a href="'+baseURL+'m?links='+links+'"><i class="mdi-communication-email"></i></a><br>'+limit);
+            n.html(n.html()+' '+s.html()+' <a href="'+actionURL+'m?links='+links+'"><i class="mdi-communication-email"></i></a><br>'+limit);
             d.html(['<div class="card-action">',
                         '<div class="input-field">',
                             '<span class="prefix big-prefix">',
                                 '<a href="', url, '" target="_blank">',
                                     '<i class="mdi-file-file-download small" title="', i18n.dlText, '"></i>',
                                 '</a>',
-                                '<a href="#" onclick="copyToClipboard(\'', url, '\');" title="', i18n.cpText, '">',
+                                '<a href="#" id="copyurl-', window.fc, '" title="', i18n.cpText, '">',
                                     '<i class="mdi-content-content-copy small"></i>',
                                 '</a>',
                             '</span>',
-                            '<input id="', short, '" class="form-control link-input" value="', url, '" readonly="" type="text" style="background-color: #FFF;">',
+                            '<input id="', short, '" class="form-control link-input white-background" value="', url, '" readonly="" type="text">',
                             '<label class="active" for="', short, '">', i18n.dlText, '</label>',
                         '</div>',
                         '<div class="input-field">',
                             '<a href="', del_url, '" target="_blank" class="prefix big-prefix">',
                                 '<i class="mdi-action-delete small" title="', i18n.delText, '"></i>',
                             '</a>',
-                            '<input id="delete-', short, '" class="form-control" value="', del_url, '" readonly="" type="text" style="background-color: #FFF;">',
+                            '<input id="delete-', short, '" class="form-control white-background" value="', del_url, '" readonly="" type="text">',
                             '<label class="active" for="delete-', short, '">', i18n.delText, '</label>',
                         '</div>',
                     '</div>'].join(''));
+            s.remove();
 
             var p2 = dp.parent();
             var p1 = p2.parent();
@@ -300,13 +310,18 @@ function updateProgressBar(data) {
             p2.remove();
             p1.append(d);
 
+            $('#copyurl-'+window.fc).on('click', function(e) {
+                e.preventDefault();
+                copyToClipboard(url);
+            });
             $("input[type='text']").on("click", function () {
                 $(this).select();
             });
             // Add copy all and mailto buttons
             var misc = $('#misc');
             if (misc.html() === '') {
-                misc.html('<a href="#" onclick="copyAllToClipboard();" class="btn btn-info">'+i18n.copyAll+'</a> <a id="mailto" href="'+baseURL+'m?links='+links+'" class="btn btn-info">'+i18n.mailTo+'</a>');
+                misc.html('<a href="#" id="copyall" class="btn btn-info">'+i18n.copyAll+'</a> <a id="mailto" href="'+actionURL+'m?links='+links+'" class="btn btn-info">'+i18n.mailTo+'</a>');
+                $('#copyall').on('click', copyAllToClipboard);
             } else {
                 updateMailLink();
             }
@@ -330,7 +345,9 @@ function updateProgressBar(data) {
             j++;
             // Update progress bar
             var percent    = Math.round(100 * j/parts);
-            dp.css('width', percent+'%');
+            dp.removeClass();
+            dp.addClass('determinate');
+            dp.addClass('width-'+percent);
             dp.attr('aria-valuenow', percent);
 
             // Encrypt and upload next slice
@@ -411,12 +428,37 @@ function spawnWebsocket(i, callback) {
     return ws;
 }
 
-// When it's ready
-$(document).ready(function(){
-    // Dropzone events binding
+// Dropzone events binding
+function bindDropZone() {
     var dropZone = document.getElementById('files');
     dropZone.addEventListener('dragover', handleDragOver, false);
     dropZone.addEventListener('drop', handleDrop, false);
+    $('#file-browser-span').removeClass('disabled');
+    $('#file-browser-span').addClass('cyan');
+    $('#file-browser-button').attr('disabled', null);
+    $('#file-browser-button').on('change', function(e) {
+        handleFiles(this.files);
+    });
+}
+
+// When it's ready
+$(document).ready(function(){
+    if (!sjcl.random.isReady(10)) {
+        var loop = setInterval(function() {
+            if (!sjcl.random.isReady(10)) {
+                $('#not-enough-entropy').removeClass('hiddendiv');
+            } else {
+                $('#not-enough-entropy').addClass('hiddendiv');
+                bindDropZone();
+                clearInterval(loop);
+            }
+        }, 1000);
+    } else {
+        bindDropZone();
+    }
+    if (maxSize > 0) {
+        $('#max-file-size').text(i18n.maxSize.replace('XXX', filesize(maxSize)));
+    }
     $('label[for="first-view"]').on('click', function(){
         if ($('#first-view').attr('data-checked') && $('#first-view').attr('data-checked') === 'data-checked') {
             $('#first-view').attr('data-checked', null);

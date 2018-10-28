@@ -11,6 +11,16 @@ use Number::Bytes::Human qw(format_bytes);
 use Filesys::DfPortable;
 use Crypt::SaltedHash;
 
+sub files {
+    my $c = shift;
+
+    if ((!defined($c->config('ldap')) && !defined($c->config('htpasswd'))) || $c->is_user_authenticated) {
+        $c->render(template => 'files');
+    } else {
+        $c->redirect_to('login');
+    }
+}
+
 sub upload {
     my $c = shift;
 
@@ -111,9 +121,11 @@ sub upload {
                         if (defined($c->config('ldap')) || defined($c->config('htpasswd'))) {
                             $creator = 'User: '.$c->current_user.', IP: '.$creator;
                         }
+                        my $delete_at_first_view = ($json->{del_at_first_view}) ? 1 : 0;
+                        $delete_at_first_view    = 1 if $c->app->config('force_burn_after_reading');
                         $f = Lufi::DB::File->new(app => $c->app)->get_empty()
                                 ->created_by($creator)
-                                ->delete_at_first_view(($json->{del_at_first_view}) ? 1 : 0)
+                                ->delete_at_first_view($delete_at_first_view)
                                 ->delete_at_day($delay)
                                 ->mediatype($json->{type})
                                 ->filename($json->{name})
@@ -153,8 +165,6 @@ sub upload {
                             }
                         }
 
-                        $c->provisioning;
-
                         $ws->send(to_json(
                             {
                                 success           => true,
@@ -190,6 +200,13 @@ sub upload {
                 $c->app->log->debug('Client disconnected');
             }
         );
+    } else {
+        $c->on(
+            message => sub {
+                $c->app->log->info(sprintf('Someone unauthenticated tried to upload a file. IP: %s', $c->ip));
+                $c->finish;
+            }
+        );
     }
 }
 
@@ -223,6 +240,20 @@ sub download {
                         {
                             success => false,
                             msg     => $c->l('Error: the file existed but was deleted.')
+                        }
+                    )));
+                }
+            );
+        } elsif (defined($ldfile->abuse)) {
+            my $abuse_msg = $c->l('This file has been deactivated by the admins. Contact them to know why.');
+            $abuse_msg    = $c->app->config('abuse')->{$ldfile->abuse} if ($c->app->config('abuse') && $c->app->config('abuse')->{$ldfile->abuse});
+            $c->on(
+                message => sub {
+                    my ($ws, $json) = @_;
+                    $c->send(decode('UTF-8', encode_json(
+                        {
+                            success => false,
+                            msg     => $abuse_msg
                         }
                     )));
                 }

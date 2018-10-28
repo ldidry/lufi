@@ -173,8 +173,12 @@ $(document).ready(function(){
         window.ws.onclose = function() {};
         window.ws.close();
         $('#please-wait, #loading, #pbd, #abort').remove();
-        $('#filesize').parent().append('<h4>'+i18n.aborted1+'</h4><a onClick="window.location.reload();" class="waves-effect waves-light btn">'+i18n.aborted2+'</a></p>');
+        $('#filesize').parent().append('<h4>'+i18n.aborted1+'</h4><a id="reloadLocation" class="waves-effect waves-light btn">'+i18n.aborted2+'</a></p>');
         window.onbeforeunload = null;
+        $('#reloadLocation').on('click', function(e) {
+            e.preventDefault();
+            window.location.reload();
+        })
     });
     $('#filesize').html(filesize($('#filesize').attr('data-filesize'), {base: 10}));
     window.a         = new Array();

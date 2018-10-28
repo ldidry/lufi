@@ -2,7 +2,7 @@
 
 ## What does Lufi mean?
 
-Lufi means Let's Upload that FIle.
+Lufi means Let's Upload that FIle. It's a E2E encrypted file sharing software.
 
 ## Which browsers are compatible?
 
@@ -62,9 +62,9 @@ There is the web interface, but you can use a CLI client too! Have a look at <ht
 
 ## Internationalization
 
-Lufi comes with English and French languages. It will choose the language to display from the browser's settings.
+Lufi comes with several languages.
 
-If you want to add a language, merge-requests are welcome.
+Please, see [this wiki page](https://framagit.org/fiat-tux/hat-softwares/lufi/wikis/contribute#internationalization) to know how to contribute to internationalization.
 
 ## Authors
 
@@ -75,6 +75,8 @@ See [AUTHORS.md](AUTHORS.md) file.
 Please consider contributing, either by [reporting issues](https://framagit.org/luc/lufi/issues) or by helping the internationalization. And of course, code contributions are welcome!
 
 The details on how to contribute are on the [wiki](https://framagit.org/luc/lufi/wikis/contribute).
+
+This software uses [Fiat Tux Code of conduct](https://framagit.org/fiat-tux/code-of-conduct/blob/master/README.md).
 
 ## Make a donation
 

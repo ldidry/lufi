@@ -4,7 +4,7 @@
     <div class="col s12">
         <div class="card pink">
             <div class="card-content white-text">
-                <strong><%= stash('msg')%></strong>
+                <strong><%== stash('msg')%></strong>
             </div>
         </div>
     </div>
@@ -13,6 +13,7 @@
         <div class="card cyan">
             <div class="card-content white-text">
                 <p><%= l('If you send the mail from this server, the links will be sent to the server, which may lower your privacy protection.') %></p>
+                <p><%= l('Adding URLs not related to this Lufi instance to the mail body or subject is prohibited.') %></p>
             </div>
         </div>
     </div>
@@ -46,63 +47,5 @@
         <a href="#" class="btn btn-primary" id="mailto"><%= l('Send with your own mail software') %></a>
     </form>
 <div>
-%= javascript begin
-    function findItem(name) {
-        var files = localStorage.getItem('files');
-        if (files === null) {
-            files = new Array();
-        } else {
-            files = JSON.parse(files);
-        }
-        var i;
-        for (i = 0; i < files.length; i++) {
-            if (files[i].short === name) {
-                return files[i];
-            }
-        }
-    }
-    function updateMailtoLink() {
-        var btn     = document.getElementById('mailto');
-        var emails  = document.getElementById('emails');
-        var subject = document.getElementById('subject');
-        var text    = document.getElementById('body');
-
-        btn.href = 'mailto:'+encodeURIComponent(emails.value)+'?subject='+encodeURIComponent(subject.value)+'&body='+encodeURIComponent(text.value);
-    }
-    function populateBody() {
-        var links = [
-        % for my $link (@{$links}) {
-            '<%= $link %>',
-        % }
-        ];
-        var text = "<%== l('Hello,\n\nHere\'s some files I want to share with you:\n') %>";
-        links.forEach(function(name, index, array) {
-            var item = findItem(name);
-            if (item !== null && item !== undefined) {
-                var limit = (item.delay === 0) ? null : moment.unix(item.delay * 86400 + item.created_at).locale(window.navigator.language).format('LLLL');
-                text = text+'- '+item.name+'<%= l(':') %> '+item.url;
-                if (limit !== null) {
-                    text = text+"\n  (<%= l('deadline: ') %>"+limit+')';
-                }
-                text = text+"\n";
-            }
-        });
-
-        text  = text+"\n--\n<%= l('Share your files in total privacy on %1', url_for('/')->to_abs) %>";
-        tArea = document.getElementById('body').value = text;
-        updateMailtoLink();
-    }
-    document.addEventListener('DOMContentLoaded', function() {
-% unless (defined(stash('msg')) || defined(stash('values'))) {
-        populateBody();
-% }
-
-        var emails  = document.getElementById('emails');
-        var subject = document.getElementById('subject');
-        var text    = document.getElementById('body');
-        emails.addEventListener('change', updateMailtoLink);
-        subject.addEventListener('change', updateMailtoLink);
-        text.addEventListener('change', updateMailtoLink);
-    });
-% end
+%= javascript url_for('/partial/mail.js')->query(populate => (!defined(stash('msg')) && !defined(stash('values'))), links => $links)
 %= javascript '/js/moment-with-locales.min.js'

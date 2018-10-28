@@ -3,6 +3,7 @@ package Lufi::Command::cron::cleanfiles;
 use Mojo::Base 'Mojolicious::Command';
 use Lufi::DB::File;
 use FindBin qw($Bin);
+use Lufi::DefaultConfig qw($default_config);
 
 has description => 'Delete expired files.';
 has usage => sub { shift->extract_usage };
@@ -19,10 +20,7 @@ sub run {
     }
     my $config = $c->app->plugin('Config', {
         file    => $cfile,
-        default => {
-            dbtype     => 'sqlite',
-            upload_dir => 'files',
-        }
+        default => $default_config
     });
 
     my $time = time();
