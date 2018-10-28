@@ -4,6 +4,7 @@
 # Luc Didry <luc@didry.org>, 2015.
 # Cédric VALMARY <cvalmary@yahoo.fr>, 2016.
 # Luc Didry <luc@framasoft.org>, 2018. #zanata
+# Quentí, 2018. #zanata
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
@@ -11,8 +12,8 @@ msgstr ""
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"PO-Revision-Date: 2018-10-28 01:57+0000\n"
-"Last-Translator: Copied by Zanata <copied-by-zanata@zanata.org>\n"
+"PO-Revision-Date: 2018-10-28 06:34+0000\n"
+"Last-Translator: Quentí <quentinantonin@free.fr>\n"
 "Language-Team: Tot en òc (totenoc.eu)\n"
 "Language: oc\n"
 "Plural-Forms: nplurals=2; plural=(n > 1);\n"
@@ -69,6 +70,8 @@ msgid ""
 "Adding URLs not related to this Lufi instance to the mail body or subject is "
 "prohibited."
 msgstr ""
+"Ajustar d’URL pas ligadas a aquesta instància pel còr o subjècte d’un "
+"corrièl es defendut."
 
 #: themes/default/templates/about.html.ep:18
 msgid ""
@@ -90,7 +93,7 @@ msgstr "Demanda del tròç XX1 sus %1 del fichièr"
 
 #: themes/default/templates/about.html.ep:21
 msgid "Back to homepage"
-msgstr "Retorn a la pagina d’acuèlh"
+msgstr "Tornar a la pagina d’acuèlh"
 
 #: lib/Lufi/Controller/Mail.pm:25
 msgid "Bad CSRF token!"
@@ -98,7 +101,7 @@ msgstr "Marrit geton CSRF !"
 
 #: lib/Lufi/Controller/Auth.pm:22 lib/Lufi/Controller/Auth.pm:39
 msgid "Bad CSRF token."
-msgstr ""
+msgstr "Marrit geton CSRF."
 
 #: themes/default/templates/partial/render.js.ep:5
 msgid "Click here to refresh the page and restart the download."
@@ -133,7 +136,7 @@ msgstr "Impossible de suprimir lo fichièr. Sètz pas connectat-ada."
 msgid "Could not find the file. Are you sure of the URL and the token?"
 msgstr ""
 "Impossible de trobar lo fichièr. Sètz segur-a que l’URL e lo geton son "
-"bons ?"
+"bons ?"
 
 #: lib/Lufi/Controller/Files.pm:353
 msgid "Could not find the file. Are you sure of the URL?"
@@ -270,13 +273,13 @@ msgstr "Vaquí qualques fichièrs"
 #: themes/default/templates/partial/index.js.ep:24
 msgid "Hit Enter, then Ctrl+C to copy all the download links"
 msgstr ""
-"Picatz sus Entrada puèi fasètz Ctrl+C per copiar totes los ligams per "
+"Quichatz Entrada puèi fasètz Ctrl+C per copiar totes los ligams per "
 "telecargar"
 
 #: themes/default/templates/partial/index.js.ep:23
 msgid "Hit Enter, then Ctrl+C to copy the download link"
 msgstr ""
-"Picatz sus Entrada puèi fasètz Ctrl+C per copiar lo ligam per telecargar"
+"Quichatz Entrada puèi fasètz Ctrl+C per copiar lo ligam per telecargar"
 
 #: themes/default/templates/about.html.ep:9
 msgid "How does it work?"
@@ -386,7 +389,7 @@ msgid ""
 "decrypt all parts before you can get it."
 msgstr ""
 "Mercés d’esperar pendent la recuperacion de vòstre fichièr. Nos cal d’en "
-"primièr recuperar e deschifrar totes los fragaments abans que poscatz o "
+"primièr recuperar e deschifrar totes los tròces abans que poscatz o "
 "telecargar."
 
 #: lib/Lufi/Controller/Auth.pm:28
@@ -432,8 +435,8 @@ msgid ""
 "Sending part XX1 of XX2. Please, be patient, the progress bar can take a "
 "while to move."
 msgstr ""
-"Mandadís del fragment XX1 sus XX2. Pacientatz, la barra de progression pòt "
-"metre de temps abans d’avançar."
+"Mandadís del tròç XX1 sus XX2. Pacientatz, la barra de progression pòt metre "
+"de temps abans d’avançar."
 
 #. (url_for('/')
 #: themes/default/templates/partial/mail.js.ep:48
@@ -467,6 +470,8 @@ msgid ""
 "The body of the mail must contain at least one URL pointing to a file hosted "
 "on this instance."
 msgstr ""
+"Lo còr del messatge deu conténer almens una URL menant a un fichièr albergat "
+"a aquesta instància."
 
 #: themes/default/templates/partial/files.js.ep:11
 msgid "The data has been successfully imported."
@@ -478,7 +483,7 @@ msgstr "Lo contengut del corrièl pòt pas èsser void."
 
 #: lib/Lufi/Controller/Mail.pm:72
 msgid "The email subject can't be empty."
-msgstr "Lo sujècte del corrièl pòt pas èsser void."
+msgstr "Lo subjècte del corrièl pòt pas èsser void."
 
 #: lib/Lufi/Controller/Files.pm:421
 msgid "The file has already been deleted"
@@ -500,7 +505,7 @@ msgstr "Las adreças de corrièl seguentas son pas validas : %1"
 
 #: themes/default/templates/partial/index.js.ep:15
 msgid "The link(s) has been copied to your clipboard"
-msgstr "Lo(s) ligam(s) es/son estat(s) copiat(s) dins vòstre quicha-papièrs"
+msgstr "Lo(s) ligam(s) es/son estat(s) copiat(s) al quicha-papièrs"
 
 #: lib/Lufi/Controller/Mail.pm:97
 msgid "The mail has been sent."
@@ -548,7 +553,7 @@ msgstr ""
 
 #: themes/default/templates/partial/index.js.ep:16
 msgid "Unable to copy the link(s) to your clipboard"
-msgstr "Impossible de copiar lo(s) ligams(s) dins vòstre quicha-papièrs"
+msgstr "Impossible de copiar lo(s) ligams(s) al quicha-papièrs"
 
 #. ($short)
 #: lib/Lufi/Controller/Files.pm:392
@@ -603,7 +608,7 @@ msgstr ""
 
 #: lib/Lufi/Controller/Mail.pm:42
 msgid "You can't add URLs that are not related to this instance."
-msgstr ""
+msgstr "Podètz pas ajustar d’URL que son pas ligadas a aquesta instància."
 
 #: themes/default/templates/about.html.ep:8
 msgid ""
