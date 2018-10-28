@@ -45,7 +45,7 @@ msgstr ""
 msgid "Abort"
 msgstr ""
 
-#: themes/default/templates/layouts/default.html.ep:48 themes/default/templates/layouts/default.html.ep:76
+#: themes/default/templates/layouts/default.html.ep:49 themes/default/templates/layouts/default.html.ep:78
 msgid "About"
 msgstr ""
 
@@ -270,7 +270,7 @@ msgstr ""
 msgid "Javascript is disabled. You won't be able to use Lufi."
 msgstr ""
 
-#: themes/default/templates/layouts/default.html.ep:40 themes/default/templates/layouts/default.html.ep:68
+#: themes/default/templates/layouts/default.html.ep:40 themes/default/templates/layouts/default.html.ep:42 themes/default/templates/layouts/default.html.ep:69 themes/default/templates/layouts/default.html.ep:71
 msgid "Language"
 msgstr ""
 
@@ -278,7 +278,7 @@ msgstr ""
 msgid "Login"
 msgstr ""
 
-#: themes/default/templates/layouts/default.html.ep:53 themes/default/templates/layouts/default.html.ep:78
+#: themes/default/templates/layouts/default.html.ep:54 themes/default/templates/layouts/default.html.ep:80
 msgid "Logout"
 msgstr ""
 
@@ -290,7 +290,7 @@ msgstr ""
 msgid "Mail"
 msgstr ""
 
-#: themes/default/templates/files.html.ep:3 themes/default/templates/layouts/default.html.ep:34 themes/default/templates/layouts/default.html.ep:62
+#: themes/default/templates/files.html.ep:3 themes/default/templates/layouts/default.html.ep:34 themes/default/templates/layouts/default.html.ep:63
 msgid "My files"
 msgstr ""
 
@@ -332,7 +332,7 @@ msgstr ""
 msgid "Purge expired files from localStorage"
 msgstr ""
 
-#: themes/default/templates/layouts/default.html.ep:31 themes/default/templates/layouts/default.html.ep:59
+#: themes/default/templates/layouts/default.html.ep:31 themes/default/templates/layouts/default.html.ep:60
 msgid "Report file"
 msgstr ""
 
@@ -361,7 +361,7 @@ msgstr ""
 msgid "Share your files in total privacy on %1"
 msgstr ""
 
-#: themes/default/templates/layouts/default.html.ep:36 themes/default/templates/layouts/default.html.ep:64 themes/default/templates/login.html.ep:27 themes/default/templates/logout.html.ep:17
+#: themes/default/templates/layouts/default.html.ep:36 themes/default/templates/layouts/default.html.ep:65 themes/default/templates/login.html.ep:27 themes/default/templates/logout.html.ep:17
 msgid "Signin"
 msgstr ""
 
@@ -449,7 +449,7 @@ msgstr ""
 msgid "Unable to get counter for %1. You are not authenticated."
 msgstr ""
 
-#: themes/default/templates/layouts/default.html.ep:33 themes/default/templates/layouts/default.html.ep:61
+#: themes/default/templates/layouts/default.html.ep:33 themes/default/templates/layouts/default.html.ep:62
 msgid "Upload files"
 msgstr ""
 

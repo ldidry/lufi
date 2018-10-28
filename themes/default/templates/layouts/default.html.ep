@@ -39,8 +39,9 @@
                         <div class="input-field select-lang">
                             <label class="hiddendiv"><%= l('Language') %></label>
                             <select>
+                                <option value="" disabled selected><%= l('Language') %></option>
                             % for my $i (@{$self->available_langs}) {
-                                <option value="<%= $i %>"<%= ($i eq $lang) ? ' selected' : '' %>><%= iso639_native_name($i) %></option>
+                                <option value="<%= $i %>"><%= iso639_native_name($i) %></option>
                             % }
                             </select>
                         </div>
@@ -67,8 +68,9 @@
                         <div class="input-field select-lang-mobile">
                             <label class="hiddendiv"><%= l('Language') %></label>
                             <select>
+                                <option value="" disabled selected><%= l('Language') %></option>
                             % for my $i (@{$self->available_langs}) {
-                                <option value="<%= $i %>"<%= ($i eq $lang) ? ' selected' : '' %>><%= iso639_native_name($i) %></option>
+                                <option value="<%= $i %>"><%= iso639_native_name($i) %></option>
                             % }
                             </select>
                         </div>
