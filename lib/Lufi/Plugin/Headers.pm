@@ -18,7 +18,10 @@ sub register {
             'font-src'        => "'self'",
             'form-action'     => "'self'",
             'base-uri'        => "'self'",
-            'connect-src'     => "'self'",
+            'connect-src'     => {
+                base => "'self'",
+                ws   => 1
+            }
         };
 
         my $frame_ancestors = '';

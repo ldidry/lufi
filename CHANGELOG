@@ -1,5 +1,8 @@
 Revision history for Lufi
 
+0.03.1 2018-10-29
+	- Fix default CSP Header
+
 0.03 2018-10-28
 	- Use Mojo::SQLite instead of ORLite
 	- Use FiatTux plugins

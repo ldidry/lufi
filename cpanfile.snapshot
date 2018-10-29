@@ -170,8 +170,8 @@ DISTRIBUTIONS
       Data::Dumper 0
       ExtUtils::MakeMaker 0
       perl 5.008001
-  DBI-1.641
-    pathname: T/TI/TIMB/DBI-1.641.tar.gz
+  DBI-1.642
+    pathname: T/TI/TIMB/DBI-1.642.tar.gz
     provides:
       Bundle::DBI 12.008696
       DBD::DBM 0.08
@@ -227,7 +227,7 @@ DISTRIBUTIONS
       DBD::Sponge::dr 12.010003
       DBD::Sponge::st 12.010003
       DBDI 12.015129
-      DBI 1.641
+      DBI 1.642
       DBI::Const::GetInfo::ANSI 2.008697
       DBI::Const::GetInfo::ODBC 2.011374
       DBI::Const::GetInfoReturn 2.008697
@@ -267,7 +267,7 @@ DISTRIBUTIONS
       DBI::SQL::Nano::Table_ 1.015544
       DBI::Util::CacheMemory 0.010315
       DBI::Util::_accessor 0.009479
-      DBI::common 1.641
+      DBI::common 1.642
     requirements:
       ExtUtils::MakeMaker 6.48
       Test::Simple 0.90
@@ -1203,10 +1203,10 @@ DISTRIBUTIONS
       perl 5.010
       strict 0
       warnings 0
-  Mojolicious-Plugin-CSPHeader-0.03
-    pathname: L/LD/LDIDRY/Mojolicious-Plugin-CSPHeader-0.03.tar.gz
+  Mojolicious-Plugin-CSPHeader-0.05
+    pathname: L/LD/LDIDRY/Mojolicious-Plugin-CSPHeader-0.05.tar.gz
     provides:
-      Mojolicious::Plugin::CSPHeader 0.03
+      Mojolicious::Plugin::CSPHeader 0.05
     requirements:
       ExtUtils::MakeMaker 0
       Mojolicious 7.75
@@ -1895,7 +1895,7 @@ DISTRIBUTIONS
       HTTP::Request 6
       HTTP::Request::Common 6
       HTTP::Response 6
-      HTTP::Status 6
+      HTTP::Status 6.18
       IO::Select 0
       IO::Socket 0
       LWP::MediaTypes 6
