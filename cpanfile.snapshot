@@ -1203,10 +1203,10 @@ DISTRIBUTIONS
       perl 5.010
       strict 0
       warnings 0
-  Mojolicious-Plugin-CSPHeader-0.05
-    pathname: L/LD/LDIDRY/Mojolicious-Plugin-CSPHeader-0.05.tar.gz
+  Mojolicious-Plugin-CSPHeader-0.06
+    pathname: L/LD/LDIDRY/Mojolicious-Plugin-CSPHeader-0.06.tar.gz
     provides:
-      Mojolicious::Plugin::CSPHeader 0.05
+      Mojolicious::Plugin::CSPHeader 0.06
     requirements:
       ExtUtils::MakeMaker 0
       Mojolicious 7.75
