@@ -81,8 +81,18 @@
                 <label for="first-view"><%= l('Delete at first download?') %></label>
             </p>
         </div>
+        <div class="input-field">
+            <p class="col s12 m6 text-left">
+                <input
+                    type="checkbox"
+                    id="zip-files"
+                    data-checked=""
+                >
+                <label for="zip-files"><%= l('Create a zip archive with the files before uploading?') %></label>
+            </p>
+        </div>
     % if (config('allow_pwd_on_files')) {
-        <div class="col s12 m12">
+        <div class="col s12 m6">
             <div class="input-field">
                 <input type="password" id="file_pwd" placeholder="<%= l('Password') %>" class="validate" autocomplete="off">
                 <label for="file_pwd"><%= l('Add a password to file(s)') %></label>
@@ -99,6 +109,7 @@
             <input type="file" id="file-browser-button" multiple disabled>
         </label>
     </div>
+    <p id="zipping" class="hiddendiv"><%= l('Zip archive creation…') %></p>
     <div id="results">
         <h2><%= l('Uploaded files') %></h2>
         <div id="misc"></div>
@@ -110,5 +121,6 @@
 %= javascript '/js/sjcl.js'
 %= javascript '/js/moment-with-locales.min.js'
 %= javascript '/js/filesize.min.js'
+%= javascript '/js/jszip.min.js'
 %= javascript '/js/lufi-up.js'
 % }

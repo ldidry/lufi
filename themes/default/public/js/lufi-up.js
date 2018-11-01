@@ -100,24 +100,42 @@ function updateMailLink() {
 
 // Start uploading the files (called from <input> and from drop zone)
 function handleFiles(f) {
-    var go = true;
-    if (window.fileList === undefined || window.fileList === null) {
-        window.fileList = Array.prototype.slice.call(f);
-    } else {
-        go = false;
-        window.fileList = window.fileList.concat(Array.prototype.slice.call(f));
-    }
-
-    var r = $('#results');
-    r.show();
-
     var delay             = $('#delete-day');
+    var zip_files         = $('#zip-files');
     var del_at_first_view = $('#first-view');
+
     delay.attr('disabled', 'disabled');
+    zip_files.attr('disabled', 'disabled');
     del_at_first_view.attr('disabled', 'disabled');
 
-    if (go) {
-        uploadFile(0, delay.val(), del_at_first_view.is(':checked'));
+    if (zip_files.is(':checked')) {
+        var zip = new JSZip();
+        $('#zipping').show();
+        for (var i = 0; i < f.length; i++) {
+            var element = f.item(i);
+            zip.file(element.name, new Blob([element]));
+        }
+        zip.generateAsync({type:"blob"})
+            .then(function(zipFile) {
+                $('#zipping').hide();
+                $('#results').show();
+                var file = new File([zipFile], 'documents.zip', {type: 'application/zip'});
+
+                if (window.fileList === undefined || window.fileList === null) {
+                    window.fileList = [file];
+                    uploadFile(0, delay.val(), del_at_first_view.is(':checked'));
+                } else {
+                    window.fileList.push(file);
+                }
+            });
+    } else {
+        if (window.fileList === undefined || window.fileList === null) {
+            window.fileList = Array.prototype.slice.call(f);
+            $('#results').show();
+            uploadFile(0, delay.val(), del_at_first_view.is(':checked'));
+        } else {
+            window.fileList = window.fileList.concat(Array.prototype.slice.call(f));
+        }
     }
 }
 
@@ -338,6 +356,7 @@ function updateProgressBar(data) {
                 // We have finished
                 window.fileList = null;
                 window.onbeforeunload = null;
+                $('#zip-files').attr('disabled', null);
                 $('#delete-day').attr('disabled', null);
                 $('#first-view').attr('disabled', null);
             }
@@ -381,6 +400,7 @@ function addAlertOnFile(msg, i, sent_delay, del_at_first_view) {
     } else {
         // We have finished
         window.onbeforeunload = null;
+        $('#zip-files').attr('disabled', null);
         $('#delete-day').attr('disabled', null);
         $('#first-view').attr('disabled', null);
     }
@@ -464,6 +484,13 @@ $(document).ready(function(){
             $('#first-view').attr('data-checked', null);
         } else {
             $('#first-view').attr('data-checked', 'data-checked');
+        }
+    });
+    $('label[for="zip-files"]').on('click', function(){
+        if ($('#zip-files').attr('data-checked') && $('#zip-files').attr('data-checked') === 'data-checked') {
+            $('#zip-files').attr('data-checked', null);
+        } else {
+            $('#zip-files').attr('data-checked', 'data-checked');
         }
     });
 });

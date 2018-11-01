@@ -3,7 +3,6 @@
 # This file is distributed under the same license as the Lufi package.
 # Luc Didry <luc@didry.org>, 2015.
 # Luc Didry <luc@framasoft.org>, 2018. #zanata
-# Paolo Mauri <paolo@paolomauri.it>, 2018. #zanata
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
@@ -11,10 +10,10 @@ msgstr ""
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"PO-Revision-Date: 2018-12-06 11:40+0000\n"
+"PO-Revision-Date: 2018-10-28 01:57+0000\n"
 "Language-Team: \n"
 "X-Generator: Zanata 4.6.2\n"
-"Last-Translator: Paolo Mauri <paolo@paolomauri.it>\n"
+"Last-Translator: Copied by Zanata <copied-by-zanata@zanata.org>\n"
 "Plural-Forms: nplurals=2; plural=(n > 1);\n"
 "Language: it\n"
 
@@ -26,7 +25,7 @@ msgstr "%1 giorni"
 
 #: themes/default/templates/partial/index.js.ep:26
 msgid "(max size: XXX)"
-msgstr "(dimensione massima:XXX)"
+msgstr ""
 
 #: themes/default/templates/index.html.ep:5
 msgid "1 year"
@@ -56,21 +55,19 @@ msgstr ""
 msgid "Abort"
 msgstr "Annulla"
 
-#: themes/default/templates/layouts/default.html.ep:48 themes/default/templates/layouts/default.html.ep:76
+#: themes/default/templates/layouts/default.html.ep:49 themes/default/templates/layouts/default.html.ep:78
 msgid "About"
 msgstr "A proposito"
 
-#: themes/default/templates/index.html.ep:88
+#: themes/default/templates/index.html.ep:98
 msgid "Add a password to file(s)"
-msgstr "Aggiungi una password al file"
+msgstr ""
 
 #: themes/default/templates/mail.html.ep:16
 msgid ""
 "Adding URLs not related to this Lufi instance to the mail body or subject is "
 "prohibited."
 msgstr ""
-"Non è possibile aggiungere un URL non relativo a questa istanza di Lufi nel "
-"testo o nel soggetto della mail."
 
 #: themes/default/templates/about.html.ep:18
 msgid ""
@@ -99,13 +96,13 @@ msgstr "Token CSRF errato!"
 
 #: lib/Lufi/Controller/Auth.pm:22 lib/Lufi/Controller/Auth.pm:39
 msgid "Bad CSRF token."
-msgstr "Token CSRF errato."
+msgstr ""
 
 #: themes/default/templates/partial/render.js.ep:5
 msgid "Click here to refresh the page and restart the download."
 msgstr "Click qui per aggiornare la pagina e ricominciare il download."
 
-#: themes/default/templates/index.html.ep:98
+#: themes/default/templates/index.html.ep:108
 msgid "Click to open the file browser"
 msgstr "Click per aprire il file browser"
 
@@ -142,13 +139,17 @@ msgstr "Impossibile trovare il file. Sei sicuro che l'URL sia corretto?"
 msgid "Counter"
 msgstr "Contatore"
 
+#: themes/default/templates/index.html.ep:91
+msgid "Create a zip archive with the files before uploading?"
+msgstr ""
+
 #: themes/default/templates/files.html.ep:29 themes/default/templates/index.html.ep:81
 msgid "Delete at first download?"
 msgstr "Cancellare al primo download?"
 
 #: themes/default/templates/files.html.ep:18
 msgid "Delete selected files"
-msgstr "Cancellare i file selezionati"
+msgstr ""
 
 #: themes/default/templates/files.html.ep:32 themes/default/templates/partial/index.js.ep:18
 msgid "Deletion link"
@@ -188,7 +189,7 @@ msgstr ""
 "Otterrete 2 link per ogni file : uno per il download ed uno per eliminare il "
 "file quando vorrete."
 
-#: themes/default/templates/index.html.ep:94
+#: themes/default/templates/index.html.ep:104
 msgid "Drop files here"
 msgstr "Lasciare i file qui"
 
@@ -242,7 +243,7 @@ msgstr "Nome del file"
 
 #: themes/default/templates/index.html.ep:71
 msgid "Files deleted at first download"
-msgstr "File cancellati al primo download"
+msgstr ""
 
 #: themes/default/templates/partial/render.js.ep:8
 msgid "Get the file"
@@ -320,15 +321,15 @@ msgstr "Sembra che la chiave nel tuo URL sia errata. Controllare il tuo URL."
 msgid "Javascript is disabled. You won't be able to use Lufi."
 msgstr "Javascript è disattivato. Lufi non può funzionare."
 
-#: themes/default/templates/layouts/default.html.ep:40 themes/default/templates/layouts/default.html.ep:68
+#: themes/default/templates/layouts/default.html.ep:40 themes/default/templates/layouts/default.html.ep:42 themes/default/templates/layouts/default.html.ep:69 themes/default/templates/layouts/default.html.ep:71
 msgid "Language"
-msgstr "Lingua"
+msgstr ""
 
 #: themes/default/templates/login.html.ep:15
 msgid "Login"
 msgstr "Login"
 
-#: themes/default/templates/layouts/default.html.ep:53 themes/default/templates/layouts/default.html.ep:78
+#: themes/default/templates/layouts/default.html.ep:54 themes/default/templates/layouts/default.html.ep:80
 msgid "Logout"
 msgstr "Logout"
 
@@ -338,9 +339,9 @@ msgstr "Lufi è un software libero di file hosting."
 
 #: themes/default/templates/files.html.ep:33
 msgid "Mail"
-msgstr "Email"
+msgstr ""
 
-#: themes/default/templates/files.html.ep:3 themes/default/templates/layouts/default.html.ep:34 themes/default/templates/layouts/default.html.ep:62
+#: themes/default/templates/files.html.ep:3 themes/default/templates/layouts/default.html.ep:34 themes/default/templates/layouts/default.html.ep:63
 msgid "My files"
 msgstr "I miei file"
 
@@ -364,7 +365,7 @@ msgstr ""
 "sono memorizzate nel localStorage: se cancellaste i dati dal vostro "
 "localStorage, perdereste questa lista."
 
-#: themes/default/templates/index.html.ep:87 themes/default/templates/login.html.ep:21 themes/default/templates/render.html.ep:26
+#: themes/default/templates/index.html.ep:97 themes/default/templates/login.html.ep:21 themes/default/templates/render.html.ep:26
 msgid "Password"
 msgstr "Password"
 
@@ -386,8 +387,6 @@ msgid ""
 "Please, check your credentials or your right to access this service: unable "
 "to authenticate."
 msgstr ""
-"Controlla le tue credenziali o il corretto accesso a questo servizio: "
-"impossibile l'autenticazione."
 
 #: themes/default/templates/about.html.ep:5
 msgid "Privacy"
@@ -397,15 +396,14 @@ msgstr "Riservatezza"
 msgid "Purge expired files from localStorage"
 msgstr "Eliminare dal localStorage i file scaduti"
 
-#: themes/default/templates/layouts/default.html.ep:31 themes/default/templates/layouts/default.html.ep:59
+#: themes/default/templates/layouts/default.html.ep:31 themes/default/templates/layouts/default.html.ep:60
 msgid "Report file"
-msgstr "Report file"
+msgstr ""
 
 #: themes/default/templates/files.html.ep:9
 msgid ""
 "Rows in red mean that the files have expired and are no longer available."
 msgstr ""
-"Le righe rosse indicano che i file sono scaduti e non sono più disponibili."
 
 #: themes/default/templates/partial/index.js.ep:25
 msgid "Send all links by email"
@@ -432,7 +430,7 @@ msgstr ""
 msgid "Share your files in total privacy on %1"
 msgstr "Condividi tutti i file in totale riservatezza su %1"
 
-#: themes/default/templates/layouts/default.html.ep:36 themes/default/templates/layouts/default.html.ep:64 themes/default/templates/login.html.ep:27 themes/default/templates/logout.html.ep:17
+#: themes/default/templates/layouts/default.html.ep:36 themes/default/templates/layouts/default.html.ep:65 themes/default/templates/login.html.ep:27 themes/default/templates/logout.html.ep:17
 msgid "Signin"
 msgstr "Autenticazione"
 
@@ -449,16 +447,12 @@ msgid ""
 "The administrator can only see the file's name, its size and its mimetype "
 "(what kind of file it is: video, text, etc.)."
 msgstr ""
-"Solo l'amministratore può visualizzare il nome del file, la sua dimensione e "
-"i mimetype (che tipo di file è: video, testo, ecc...)."
 
 #: lib/Lufi/Controller/Mail.pm:53
 msgid ""
 "The body of the mail must contain at least one URL pointing to a file hosted "
 "on this instance."
 msgstr ""
-"Il testo della mail deve contenere almeno un URL che reindirizza ad un file "
-"ospitato in questa istanza."
 
 #: themes/default/templates/partial/files.js.ep:11
 msgid "The data has been successfully imported."
@@ -523,8 +517,6 @@ msgstr ""
 msgid ""
 "This file has been deactivated by the admins. Contact them to know why."
 msgstr ""
-"Questi file sono stati cancellati dall'amministratore. Contattalo per sapere "
-"il motivo."
 
 #: themes/default/templates/delays.html.ep:10
 msgid ""
@@ -559,7 +551,7 @@ msgstr "Impossibile recuperare il contatore per %1. Il token non è valido."
 msgid "Unable to get counter for %1. You are not authenticated."
 msgstr "Impossibile recuperare il contatore per %1. Non sei autenticato."
 
-#: themes/default/templates/layouts/default.html.ep:33 themes/default/templates/layouts/default.html.ep:61
+#: themes/default/templates/layouts/default.html.ep:33 themes/default/templates/layouts/default.html.ep:62
 msgid "Upload files"
 msgstr "Invio dei file"
 
@@ -567,7 +559,7 @@ msgstr "Invio dei file"
 msgid "Uploaded at"
 msgstr "Invio il"
 
-#: themes/default/templates/index.html.ep:103
+#: themes/default/templates/index.html.ep:114
 msgid "Uploaded files"
 msgstr "File inviati"
 
@@ -594,7 +586,6 @@ msgstr ""
 #: lib/Lufi/Controller/Mail.pm:42
 msgid "You can't add URLs that are not related to this instance."
 msgstr ""
-"Non è possibile aggiungere URL che non sono relativi a questa istanza."
 
 #: themes/default/templates/about.html.ep:8
 msgid ""
@@ -642,9 +633,6 @@ msgid ""
 "Your browser has not enough entropy to generate a strong encryption key. "
 "Please wait (it's better if you do things on your computer while waiting)."
 msgstr ""
-"Il tuo browser non ha abbastanza entropia per generare una chiave "
-"crittografica forte. Attendi (puoi fare altre cose al computer mentre "
-"attendi)"
 
 #. (format_bytes($json->{size})
 #: lib/Lufi/Controller/Files.pm:66
@@ -654,7 +642,11 @@ msgstr ""
 
 #: lib/Lufi/Controller/Files.pm:304
 msgid "Your password is not valid. Please refresh the page to retry."
-msgstr "La tua password non è valida. Ricarica la pagina e riprova."
+msgstr ""
+
+#: themes/default/templates/index.html.ep:112
+msgid "Zip archive creation…"
+msgstr ""
 
 #. (format_bytes($keys[$i])
 #: themes/default/templates/delays.html.ep:20
@@ -684,6 +676,6 @@ msgstr "per %1 e più, il file sarà conservato per sempre."
 msgid "no time limit"
 msgstr "nessuna limitazione temporale"
 
-#: themes/default/templates/index.html.ep:96
+#: themes/default/templates/index.html.ep:106
 msgid "or"
 msgstr "o"

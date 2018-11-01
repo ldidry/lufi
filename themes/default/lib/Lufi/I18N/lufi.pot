@@ -49,7 +49,7 @@ msgstr ""
 msgid "About"
 msgstr ""
 
-#: themes/default/templates/index.html.ep:88
+#: themes/default/templates/index.html.ep:98
 msgid "Add a password to file(s)"
 msgstr ""
 
@@ -82,7 +82,7 @@ msgstr ""
 msgid "Click here to refresh the page and restart the download."
 msgstr ""
 
-#: themes/default/templates/index.html.ep:98
+#: themes/default/templates/index.html.ep:108
 msgid "Click to open the file browser"
 msgstr ""
 
@@ -118,6 +118,10 @@ msgstr ""
 msgid "Counter"
 msgstr ""
 
+#: themes/default/templates/index.html.ep:91
+msgid "Create a zip archive with the files before uploading?"
+msgstr ""
+
 #: themes/default/templates/files.html.ep:29 themes/default/templates/index.html.ep:81
 msgid "Delete at first download?"
 msgstr ""
@@ -150,7 +154,7 @@ msgstr ""
 msgid "Drag and drop files in the appropriate area or use the traditional way to send files and the files will be chunked, encrypted and sent to the server. You will get two links per file: a download link, that you give to the people you want to share the file with and a deletion link, allowing you to delete the file whenever you want."
 msgstr ""
 
-#: themes/default/templates/index.html.ep:94
+#: themes/default/templates/index.html.ep:104
 msgid "Drop files here"
 msgstr ""
 
@@ -307,7 +311,7 @@ msgstr ""
 msgid "Only the files sent with this browser will be listed here. This list is stored in localStorage: if you delete your localStorage data, you'll lose this list."
 msgstr ""
 
-#: themes/default/templates/index.html.ep:87 themes/default/templates/login.html.ep:21 themes/default/templates/render.html.ep:26
+#: themes/default/templates/index.html.ep:97 themes/default/templates/login.html.ep:21 themes/default/templates/render.html.ep:26
 msgid "Password"
 msgstr ""
 
@@ -457,7 +461,7 @@ msgstr ""
 msgid "Uploaded at"
 msgstr ""
 
-#: themes/default/templates/index.html.ep:103
+#: themes/default/templates/index.html.ep:114
 msgid "Uploaded files"
 msgstr ""
 
@@ -518,6 +522,10 @@ msgstr ""
 msgid "Your password is not valid. Please refresh the page to retry."
 msgstr ""
 
+#: themes/default/templates/index.html.ep:112
+msgid "Zip archive creation…"
+msgstr ""
+
 #. (format_bytes($keys[$i])
 #: themes/default/templates/delays.html.ep:20
 msgid "between %1 and %2, the file will be kept %3 day(s)."
@@ -546,6 +554,6 @@ msgstr ""
 msgid "no time limit"
 msgstr ""
 
-#: themes/default/templates/index.html.ep:96
+#: themes/default/templates/index.html.ep:106
 msgid "or"
 msgstr ""

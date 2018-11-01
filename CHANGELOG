@@ -1,5 +1,8 @@
 Revision history for Lufi
 
+0.04.0 2019-??-??
+	- Allow to zip the files before upload
+
 0.03.7 2019-08-01
 	- Fix missing default values for some settings (mildis)
 

@@ -10,10 +10,10 @@ msgstr ""
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"PO-Revision-Date: 2018-10-28 01:58+0000\n"
+"PO-Revision-Date: 2018-11-01 04:53+0000\n"
 "Language-Team: \n"
 "X-Generator: Zanata 4.6.2\n"
-"Last-Translator: Copied by Zanata <copied-by-zanata@zanata.org>\n"
+"Last-Translator: Luc Didry <luc@framasoft.org>\n"
 "Plural-Forms: nplurals=2; plural=(n > 1);\n"
 "Language: fr_FR\n"
 
@@ -55,11 +55,11 @@ msgstr ""
 msgid "Abort"
 msgstr "Abandonner"
 
-#: themes/default/templates/layouts/default.html.ep:48 themes/default/templates/layouts/default.html.ep:76
+#: themes/default/templates/layouts/default.html.ep:49 themes/default/templates/layouts/default.html.ep:78
 msgid "About"
 msgstr "À propos"
 
-#: themes/default/templates/index.html.ep:88
+#: themes/default/templates/index.html.ep:98
 msgid "Add a password to file(s)"
 msgstr "Ajouter un mot de passe au(x) fichier(s)"
 
@@ -105,7 +105,7 @@ msgstr "Jeton CSRF invalide."
 msgid "Click here to refresh the page and restart the download."
 msgstr "Cliquez ici pour rafraîchir la page et redémarrer le téléchargement."
 
-#: themes/default/templates/index.html.ep:98
+#: themes/default/templates/index.html.ep:108
 msgid "Click to open the file browser"
 msgstr "Cliquez pour ouvrir le navigateur de fichiers"
 
@@ -144,6 +144,10 @@ msgstr ""
 #: themes/default/templates/files.html.ep:28
 msgid "Counter"
 msgstr "Compteur"
+
+#: themes/default/templates/index.html.ep:91
+msgid "Create a zip archive with the files before uploading?"
+msgstr "Créer une archive zip avec les fichiers avant l’envoi ?"
 
 #: themes/default/templates/files.html.ep:29 themes/default/templates/index.html.ep:81
 msgid "Delete at first download?"
@@ -192,7 +196,7 @@ msgstr ""
 "lien de téléchargement et un lien pour supprimer le fichier quand vous le "
 "souhaitez."
 
-#: themes/default/templates/index.html.ep:94
+#: themes/default/templates/index.html.ep:104
 msgid "Drop files here"
 msgstr "Glissez vos fichiers ici"
 
@@ -331,7 +335,7 @@ msgstr ""
 msgid "Javascript is disabled. You won't be able to use Lufi."
 msgstr "Javascript est désactivé. Lufi ne fonctionnera pas."
 
-#: themes/default/templates/layouts/default.html.ep:40 themes/default/templates/layouts/default.html.ep:68
+#: themes/default/templates/layouts/default.html.ep:40 themes/default/templates/layouts/default.html.ep:42 themes/default/templates/layouts/default.html.ep:69 themes/default/templates/layouts/default.html.ep:71
 msgid "Language"
 msgstr "Langue"
 
@@ -339,7 +343,7 @@ msgstr "Langue"
 msgid "Login"
 msgstr "Identifiant"
 
-#: themes/default/templates/layouts/default.html.ep:53 themes/default/templates/layouts/default.html.ep:78
+#: themes/default/templates/layouts/default.html.ep:54 themes/default/templates/layouts/default.html.ep:80
 msgid "Logout"
 msgstr "Déconnexion"
 
@@ -351,7 +355,7 @@ msgstr "Lufi est un logiciel libre d’hébergement de fichiers."
 msgid "Mail"
 msgstr "Mail"
 
-#: themes/default/templates/files.html.ep:3 themes/default/templates/layouts/default.html.ep:34 themes/default/templates/layouts/default.html.ep:62
+#: themes/default/templates/files.html.ep:3 themes/default/templates/layouts/default.html.ep:34 themes/default/templates/layouts/default.html.ep:63
 msgid "My files"
 msgstr "Mes fichiers"
 
@@ -376,7 +380,7 @@ msgstr ""
 "informations sont stockées en localStorage : si vous supprimez vos données "
 "localStorage, vous perdrez ces informations."
 
-#: themes/default/templates/index.html.ep:87 themes/default/templates/login.html.ep:21 themes/default/templates/render.html.ep:26
+#: themes/default/templates/index.html.ep:97 themes/default/templates/login.html.ep:21 themes/default/templates/render.html.ep:26
 msgid "Password"
 msgstr "Mot de passe"
 
@@ -410,7 +414,7 @@ msgstr "Confidentialité"
 msgid "Purge expired files from localStorage"
 msgstr "Supprimer du localStorage les fichiers expirés"
 
-#: themes/default/templates/layouts/default.html.ep:31 themes/default/templates/layouts/default.html.ep:59
+#: themes/default/templates/layouts/default.html.ep:31 themes/default/templates/layouts/default.html.ep:60
 msgid "Report file"
 msgstr "Signaler un fichier"
 
@@ -446,7 +450,7 @@ msgstr ""
 msgid "Share your files in total privacy on %1"
 msgstr "Partagez vos fichiers en toute confidentialité sur %1"
 
-#: themes/default/templates/layouts/default.html.ep:36 themes/default/templates/layouts/default.html.ep:64 themes/default/templates/login.html.ep:27 themes/default/templates/logout.html.ep:17
+#: themes/default/templates/layouts/default.html.ep:36 themes/default/templates/layouts/default.html.ep:65 themes/default/templates/login.html.ep:27 themes/default/templates/logout.html.ep:17
 msgid "Signin"
 msgstr "Connexion"
 
@@ -577,7 +581,7 @@ msgid "Unable to get counter for %1. You are not authenticated."
 msgstr ""
 "Impossible de récupérer le compteur pour %1. Vous n’êtes pas connecté·e."
 
-#: themes/default/templates/layouts/default.html.ep:33 themes/default/templates/layouts/default.html.ep:61
+#: themes/default/templates/layouts/default.html.ep:33 themes/default/templates/layouts/default.html.ep:62
 msgid "Upload files"
 msgstr "Envoyer des fichiers"
 
@@ -585,7 +589,7 @@ msgstr "Envoyer des fichiers"
 msgid "Uploaded at"
 msgstr "Envoyé le"
 
-#: themes/default/templates/index.html.ep:103
+#: themes/default/templates/index.html.ep:114
 msgid "Uploaded files"
 msgstr "Fichiers envoyés"
 
@@ -675,6 +679,10 @@ msgid "Your password is not valid. Please refresh the page to retry."
 msgstr ""
 "Votre mot de passe est invalide. Veuillez rafraîchir la page pour réessayer."
 
+#: themes/default/templates/index.html.ep:112
+msgid "Zip archive creation…"
+msgstr "Création de l’archive zip…"
+
 #. (format_bytes($keys[$i])
 #: themes/default/templates/delays.html.ep:20
 msgid "between %1 and %2, the file will be kept %3 day(s)."
@@ -703,6 +711,6 @@ msgstr "pour %1 et plus, le fichier sera conservé indéfiniment."
 msgid "no time limit"
 msgstr "Pas de délai d’expiration"
 
-#: themes/default/templates/index.html.ep:96
+#: themes/default/templates/index.html.ep:106
 msgid "or"
 msgstr "ou"
