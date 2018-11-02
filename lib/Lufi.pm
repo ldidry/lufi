@@ -1,8 +1,6 @@
 # vim:set sw=4 ts=4 sts=4 ft=perl expandtab:
 package Lufi;
 use Mojo::Base 'Mojolicious';
-use Net::LDAP;
-use Apache::Htpasswd;
 use Mojolicious::Sessions;
 use Email::Valid;
 use Data::Validate::URI qw(is_web_uri);

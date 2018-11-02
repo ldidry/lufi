@@ -1,5 +1,8 @@
 Revision history for Lufi
 
+0.03.2 2018-11-02
+	- Fix dependences in Lufi.pm
+
 0.03.1 2018-10-29
 	- Fix default CSP Header
 
