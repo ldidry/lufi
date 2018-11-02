@@ -1,5 +1,8 @@
 Revision history for Lufi
 
+0.03.3 2018-11-02
+	- Update deps, seems to fix install on Debian Jessie
+
 0.03.2 2018-11-02
 	- Fix dependences in Lufi.pm
 

@@ -1071,8 +1071,8 @@ DISTRIBUTIONS
       ExtUtils::MakeMaker 0
       Mojolicious 7.55
       SQL::Abstract 1.81
-  Mojolicious-8.04
-    pathname: S/SR/SRI/Mojolicious-8.04.tar.gz
+  Mojolicious-8.05
+    pathname: S/SR/SRI/Mojolicious-8.05.tar.gz
     provides:
       Mojo undef
       Mojo::Asset undef
@@ -1142,7 +1142,7 @@ DISTRIBUTIONS
       Mojo::UserAgent::Transactor undef
       Mojo::Util undef
       Mojo::WebSocket undef
-      Mojolicious 8.04
+      Mojolicious 8.05
       Mojolicious::Command undef
       Mojolicious::Command::Author::cpanify undef
       Mojolicious::Command::Author::generate undef
@@ -1190,7 +1190,6 @@ DISTRIBUTIONS
       IO::Socket::IP 0.37
       JSON::PP 2.27103
       List::Util 1.41
-      Pod::Simple 3.09
       Time::Local 1.2
       perl 5.010001
   Mojolicious-Plugin-Authentication-1.33
@@ -1510,6 +1509,17 @@ DISTRIBUTIONS
       Scalar::Util 0
       Sub::Quote 2.000001
       Text::Balanced 2.00
+      perl 5.006
+  Scalar-List-Utils-1.50
+    pathname: P/PE/PEVANS/Scalar-List-Utils-1.50.tar.gz
+    provides:
+      List::Util 1.50
+      List::Util::XS 1.50
+      Scalar::Util 1.50
+      Sub::Util 1.50
+    requirements:
+      ExtUtils::MakeMaker 0
+      Test::More 0
       perl 5.006
   Sub-Exporter-Progressive-0.001013
     pathname: F/FR/FREW/Sub-Exporter-Progressive-0.001013.tar.gz
