@@ -25,7 +25,7 @@ variables:
   artifacts:
     paths:
       - local/
-    expire_in: 1 week
+    expire_in: 3 days
   dependencies:
     - carton
   except:
@@ -41,6 +41,8 @@ variables:
   coverage: '/Total.* (\d+\.\d+)$/'
   except:
     - tags
+  artifacts:
+    expire_in: 3 days
 .pg_template: &pg_definition
   stage: tests
   retry: 2
@@ -54,6 +56,8 @@ variables:
   coverage: '/Total .*(\d+\.\d+)$/'
   except:
     - tags
+  artifacts:
+    expire_in: 3 days
 .mysql_template: &mysql_definition
   stage: tests
   retry: 2
@@ -67,6 +71,8 @@ variables:
   coverage: '/Total .*(\d+\.\d+)$/'
   except:
     - tags
+  artifacts:
+    expire_in: 3 days
 
 ### Publish tag changelog
 ##
@@ -91,6 +97,8 @@ podcheck:
     - make podcheck
   except:
     - tags
+  artifacts:
+    expire_in: 3 days
 
 ### Install common dependencies
 ##
@@ -100,7 +108,7 @@ carton:
   artifacts:
     paths:
       - local/
-    expire_in: 1 week
+    expire_in: 3 days
   dependencies: []
   script:
     - carton install --deployment --without=sqlite --without=postgresql --without=mysql
