@@ -33,7 +33,7 @@ $encrypted_rgx    =~ s@(\{|\})@\\$1@g;
 BEGIN {
     use lib 'lib';
     $m = Mojolicious->new;
-    $cfile = Mojo::File->new($Bin, '..', 'lutim.conf');
+    $cfile = Mojo::File->new($Bin, '..', 'lufi.conf');
     if (defined $ENV{MOJO_CONFIG}) {
         $cfile = Mojo::File->new($ENV{MOJO_CONFIG});
         unless (-e $cfile->to_abs) {
