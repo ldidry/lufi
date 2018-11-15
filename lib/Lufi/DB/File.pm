@@ -272,11 +272,12 @@ sub get_empty {
 sub get_stats {
     my $c = shift;
 
-    my $files   = $c->app->dbi->db->query('SELECT count(short) AS count FROM files WHERE created_at IS NOT null AND deleted = ?', 0)->hashes->first->{count};
-    my $deleted = $c->app->dbi->db->query('SELECT count(short) AS count FROM files WHERE created_at IS NOT null AND deleted = ?', 1)->hashes->first->{count};
-    my $empty   = $c->app->dbi->db->query('SELECT count(short) AS count FROM files WHERE created_at IS null')->hashes->first->{count};
+    my $files     = $c->app->dbi->db->query('SELECT count(short) AS count FROM files WHERE created_at IS NOT null AND deleted = ?', 0)->hashes->first->{count};
+    my $deleted   = $c->app->dbi->db->query('SELECT count(short) AS count FROM files WHERE created_at IS NOT null AND deleted = ?', 1)->hashes->first->{count};
+    my $empty     = $c->app->dbi->db->query('SELECT count(short) AS count FROM files WHERE created_at IS null')->hashes->first->{count};
+    my $downloads = $c->app->dbi->db->query('SELECT SUM(counter) AS sum FROM files')->hashes->first->{sum};
 
-    return { files => $files, deleted => $deleted, empty => $empty };
+    return { files => $files, deleted => $deleted, empty => $empty, downloads => $downloads };
 }
 
 =head2 from_short
