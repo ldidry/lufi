@@ -1,12 +1,9 @@
 image: hatsoftwares/lufi-test-ci:latest
 stages:
   - publish_changelog
-  - podcheck
   - carton
   - carton_bdd
   - tests
-before_script:
-  - rm -f *db
 variables:
   POSTGRES_DB: lufi_db
   POSTGRES_USER: lufi
@@ -19,33 +16,44 @@ variables:
 ### Jobs templates
 ##
 #
-.carton_bdd_template: &carton_bdd_definition
-  stage: carton_bdd
+.retry: &retry
   retry: 2
-  artifacts:
-    paths:
-      - local/
-    expire_in: 3 days
-  dependencies:
-    - carton
   except:
     - tags
-.sqlite_template: &sqlite_definition
+.carton_bdd_template: &carton_bdd_definition
+  <<: *retry
+  stage: carton_bdd
+  cache:
+    key: "$CI_COMMIT_REF_NAME"
+    paths:
+      - local/
+    policy: pull
+  artifacts:
+    paths:
+      - local.tar
+    expire_in: 3 hours
+  after_script:
+    - tar cf local.tar local/
+
+.tests_template: &tests_template
+  <<: *retry
   stage: tests
-  retry: 2
+  coverage: '/Total.* (\d+\.\d+)$/'
+  before_script:
+    - tar xf local.tar && rm local.tar
+  script:
+    - MOJO_CONFIG="t/${CI_JOB_NAME}.conf" make test
+    - MOJO_CONFIG="t/${CI_JOB_NAME}.conf" make cover
+
+.sqlite_template: &sqlite_definition
+  <<: *tests_template
   dependencies:
     - carton_sqlite
   services:
     - name: rroemhild/test-openldap
       alias: rroemhild-test-openldap
-  coverage: '/Total.* (\d+\.\d+)$/'
-  except:
-    - tags
-  artifacts:
-    expire_in: 3 days
 .pg_template: &pg_definition
-  stage: tests
-  retry: 2
+  <<: *tests_template
   dependencies:
     - carton_postgresql
   services:
@@ -53,14 +61,8 @@ variables:
       alias: postgres
     - name: rroemhild/test-openldap
       alias: rroemhild-test-openldap
-  coverage: '/Total .*(\d+\.\d+)$/'
-  except:
-    - tags
-  artifacts:
-    expire_in: 3 days
 .mysql_template: &mysql_definition
-  stage: tests
-  retry: 2
+  <<: *tests_template
   dependencies:
     - carton_mysql
   services:
@@ -68,11 +70,6 @@ variables:
       alias: mariadb
     - name: rroemhild/test-openldap
       alias: rroemhild-test-openldap
-  coverage: '/Total .*(\d+\.\d+)$/'
-  except:
-    - tags
-  artifacts:
-    expire_in: 3 days
 
 ### Publish tag changelog
 ##
@@ -92,30 +89,24 @@ publish_changelog:
 ##
 #
 podcheck:
-  stage: podcheck
+  stage: carton
   script:
     - make podcheck
   except:
     - tags
-  artifacts:
-    expire_in: 3 days
 
 ### Install common dependencies
 ##
 #
 carton:
+  <<: *retry
   stage: carton
-  artifacts:
+  cache:
+    key: "$CI_COMMIT_REF_NAME"
     paths:
       - local/
-    expire_in: 3 days
-  dependencies: []
   script:
     - carton install --deployment --without=sqlite --without=postgresql --without=mysql
-  when: always
-  retry: 2
-  except:
-    - tags
 
 ### Install DB related dependencies
 ##
@@ -133,29 +124,12 @@ carton_mysql:
   script:
     - carton install --deployment --without=sqlite --without=postgresql
 
-### SQLite tests
+### Tests
 ##
 #
 sqlite:
   <<: *sqlite_definition
-  script:
-    - MOJO_CONFIG=t/sqlite.conf make test
-    - MOJO_CONFIG=t/sqlite.conf make cover
-
-### PostgreSQL tests
-##
-#
 postgresql:
   <<: *pg_definition
-  script:
-    - MOJO_CONFIG=t/postgresql.conf make test
-    - MOJO_CONFIG=t/postgresql.conf make cover
-
-### MySQL tests
-##
-#
 mysql:
   <<: *mysql_definition
-  script:
-    - MOJO_CONFIG=t/mysql.conf make test
-    - MOJO_CONFIG=t/mysql.conf make cover
