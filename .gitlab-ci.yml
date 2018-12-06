@@ -1,5 +1,6 @@
 image: hatsoftwares/lufi-test-ci:latest
 stages:
+  - publish_changelog
   - podcheck
   - carton
   - carton_bdd
@@ -27,6 +28,8 @@ variables:
     expire_in: 1 week
   dependencies:
     - carton
+  except:
+    - tags
 .sqlite_template: &sqlite_definition
   stage: tests
   retry: 2
@@ -36,6 +39,8 @@ variables:
     - name: rroemhild/test-openldap
       alias: rroemhild-test-openldap
   coverage: '/Total.* (\d+\.\d+)$/'
+  except:
+    - tags
 .pg_template: &pg_definition
   stage: tests
   retry: 2
@@ -47,6 +52,8 @@ variables:
     - name: rroemhild/test-openldap
       alias: rroemhild-test-openldap
   coverage: '/Total .*(\d+\.\d+)$/'
+  except:
+    - tags
 .mysql_template: &mysql_definition
   stage: tests
   retry: 2
@@ -58,6 +65,22 @@ variables:
     - name: rroemhild/test-openldap
       alias: rroemhild-test-openldap
   coverage: '/Total .*(\d+\.\d+)$/'
+  except:
+    - tags
+
+### Publish tag changelog
+##
+#
+publish_changelog:
+  stage: publish_changelog
+  script:
+    - export PROJECT_API_URL="https://framagit.org/api/v4/projects/${CI_PROJECT_ID}"
+    - export DESCRIPTION_URL="${PROJECT_API_URL}/repository/tags/${CI_COMMIT_TAG}/release"
+    - 'export HEADER="Private-Token: ${GITLAB_API_TOKEN}"'
+    - sed -n '/^'$CI_COMMIT_TAG'[[:space:]]/,/^[^\t]/p' CHANGELOG | sed -e 's/^[^\t].*//' -e 's/\t//g' | sed '/^[[:space:]]*$/d' > /tmp/text
+    - if [[ ! -z $GITLAB_API_TOKEN ]]; then curl -s --request POST --data-urlencode "description@/tmp/text" --header "${HEADER}" "${RELEASE_URL}"; fi
+  only:
+    - tags
 
 ### Podcheck
 ##
@@ -66,6 +89,8 @@ podcheck:
   stage: podcheck
   script:
     - make podcheck
+  except:
+    - tags
 
 ### Install common dependencies
 ##
@@ -81,6 +106,8 @@ carton:
     - carton install --deployment --without=sqlite --without=postgresql --without=mysql
   when: always
   retry: 2
+  except:
+    - tags
 
 ### Install DB related dependencies
 ##

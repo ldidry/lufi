@@ -1,5 +1,8 @@
 Revision history for Lufi
 
+0.03.4 2018-12-06
+	- Update arabic, german and italian translations
+
 0.03.3 2018-11-02
 	- Update deps, seems to fix install on Debian Jessie
 

@@ -1,4 +1,4 @@
-# frju365 <abld@tutanota.com>, 2018. #zanata
+# frju365 <abld@abld.info>, 2018. #zanata
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
@@ -6,8 +6,8 @@ msgstr ""
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"PO-Revision-Date: 2018-10-28 07:34+0000\n"
-"Last-Translator: frju365 <abld@tutanota.com>\n"
+"PO-Revision-Date: 2018-10-28 11:20+0000\n"
+"Last-Translator: frju365 <abld@abld.info>\n"
 "Language-Team: German\n"
 "Language: de\n"
 "X-Generator: Zanata 4.6.2\n"
@@ -516,10 +516,10 @@ msgid ""
 "a>."
 msgstr ""
 "Die Originalautor (und vorerst einzige) ist <a href=\"https://fiat-tux.fr\" "
-"class=\"classic\">Luc Didry</a>. Wenn Sie ihn unterschützen wollen, können "
-"Sie dies über  <a href=\"https://www.tipeee.com/fiat-tux\" class="
-"\"classic\">Tipeee</a> oder über <a href=\"https://liberapay.com/sky/\" "
-"class=\"classic\">Liberapay</a> tun."
+"class=\"classic\">Luc Didry</a>. Wenn Sie ihn unterstützen wollen, können "
+"Sie dies bei  <a href=\"https://www.tipeee.com/fiat-tux\" class="
+"\"classic\">Tipeee</a> oder bei <a href=\"https://liberapay.com/sky/\" class="
+"\"classic\">Liberapay</a> tun."
 
 #: lib/Lufi/Controller/Files.pm:189
 msgid ""
@@ -607,8 +607,7 @@ msgstr ""
 #: lib/Lufi/Controller/Mail.pm:42
 msgid "You can't add URLs that are not related to this instance."
 msgstr ""
-"Sie können keine URLs hinzufügen, die nicht mit dieser Instanz verknüpft "
-"sind."
+"Sie können keine URL hinzufügen, die nicht mit dieser Instanz verknüpft ist."
 
 #: themes/default/templates/about.html.ep:8
 msgid ""

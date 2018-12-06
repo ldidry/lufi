@@ -6,7 +6,7 @@ msgstr ""
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"PO-Revision-Date: 2018-10-28 08:31+0000\n"
+"PO-Revision-Date: 2018-10-31 09:02+0000\n"
 "Last-Translator: ButterflyOfFire <butterflyoffire@protonmail.com>\n"
 "Language: ar\n"
 "Plural-Forms: nplurals=6; plural=n==0 ? 0 : n==1 ? 1 : n==2 ? 2 : n%100>=3 "
@@ -208,7 +208,7 @@ msgstr "تنتهي صلاحيته في"
 
 #: themes/default/templates/files.html.ep:12
 msgid "Export localStorage data"
-msgstr ""
+msgstr "تصدير بيانات مساحة التخزين المحلية"
 
 #: lib/Lufi/Controller/Files.pm:424
 msgid "File deleted"
@@ -232,6 +232,9 @@ msgid ""
 "\"classic\">the official repository</a> or on its <a href=\"https://github."
 "com/ldidry/lufi\" class=\"classic\">Github mirror</a>"
 msgstr ""
+"تحصّل على الشيفرة المصدرية من <a href=\"https://framagit.org/luc/lufi\" "
+"class=\"classic\">المستودع الرسمي</a> أو على <a href=\"https://github.com/"
+"ldidry/lufi\" class=\"classic\">المستودع المرآة على غيت هب</a>"
 
 #: themes/default/templates/partial/mail.js.ep:35
 msgid "Hello,\\n\\nHere's some files I want to share with you:\\n"
@@ -275,7 +278,7 @@ msgstr ""
 
 #: themes/default/templates/files.html.ep:14
 msgid "Import localStorage data"
-msgstr ""
+msgstr "استيراد بيانات مساحة التخزين المحلية"
 
 #: themes/default/templates/index.html.ep:44
 msgid "Important: more information on delays"
@@ -540,7 +543,7 @@ msgstr ""
 
 #: lib/Lufi/Controller/Mail.pm:42
 msgid "You can't add URLs that are not related to this instance."
-msgstr ""
+msgstr "لا يمكنك إضافة روابط غير متعلقة بمثيل الخادوم هذا."
 
 #: themes/default/templates/about.html.ep:8
 msgid ""
@@ -557,6 +560,8 @@ msgid ""
 "You don't seem to have a key in your URL. You won't be able to decrypt the "
 "file. Download canceled."
 msgstr ""
+"يبدو أنّ رابطك لا يحتوي على مفتاح. لذا لن يكون بإمكانك فك تشفير الملف. جارٍ "
+"إلغاء التنزيل."
 
 #: themes/default/templates/partial/render.js.ep:7
 msgid ""
