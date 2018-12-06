@@ -75,6 +75,7 @@ variables:
 ##
 #
 publish_changelog:
+  image: hatsoftwares/curl-jq:latest
   stage: publish_changelog
   script:
     - export PROJECT_API_URL="https://framagit.org/api/v4/projects/${CI_PROJECT_ID}"
