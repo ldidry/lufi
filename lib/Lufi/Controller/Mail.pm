@@ -29,7 +29,7 @@ sub send_mail {
     my $subject = $c->param('subject');
     my $msg     = '';
 
-    my $base_url  = $c->req->url->to_abs->path('/r/');
+    my $base_url  = $c->req->url->to_abs->path('r/');
     my $fixed_url = $base_url;
     if ($c->config('fixed_domain')) {
         $fixed_url->host($c->config('fixed_domain'));
