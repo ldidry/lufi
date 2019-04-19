@@ -130,7 +130,7 @@ function spawnWebsocket(pa) {
                             .then(function (zip) {
                                 var innerHTML = ['<h3>Zip content:</h3><ul>'];
                                 zip.forEach(function (relativePath, zipEntry) {
-                                    innerHTML.push('<li>', zipEntry.name, '</li>');
+                                    innerHTML.push('<li>', zipEntry.name, ' (', filesize(zipEntry._data.uncompressedSize, {base: 10}), ')</li>');
                                 });
                                 innerHTML.push('</ul>');
                                 pbd.append(innerHTML.join(''));
