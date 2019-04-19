@@ -30,3 +30,7 @@ DROP TABLE files;
 ALTER TABLE files ADD COLUMN abuse integer;
 -- 2 down
 ALTER TABLE files DROP COLUMN abuse;
+-- 3 up
+ALTER TABLE files ADD COLUMN zipped boolean default false;
+-- 3 down
+ALTER TABLE files DROP COLUMN zipped;

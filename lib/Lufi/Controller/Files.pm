@@ -133,6 +133,7 @@ sub upload {
                                 ->nbslices($json->{total})
                                 ->mod_token($c->shortener($c->config('token_length')))
                                 ->passwd($salted_pwd)
+                                ->zipped($json->{zipped})
                                 ->write;
                     }
 

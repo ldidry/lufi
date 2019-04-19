@@ -29,7 +29,7 @@
         </div>
         %   }
         <div class="file-progress col s12<%= (stash('file_pwd')) ? ' hide' : '' %>">
-            <p id="filesize" data-filesize="<%= stash('f')->filesize %>"></p>
+            <p id="filesize" data-filesize="<%= stash('f')->filesize %>" data-zipped="<%= (stash('f')->zipped) ? 'true' : 'false' %>"></p>
             <p id="please-wait"><%= l('Please wait while we are getting your file. We first need to download and decrypt all parts before you can get it.') %></p>
             <p id="loading"></p>
             <div class="progress" id="pbd">

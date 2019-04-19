@@ -27,3 +27,7 @@ CREATE TABLE IF NOT EXISTS slices (
 -- 1 down
 DROP TABLE slices;
 DROP TABLE files;
+-- 2 up
+ALTER TABLE files ADD COLUMN zipped boolean default false;
+-- 2 down
+ALTER TABLE files DROP COLUMN zipped;

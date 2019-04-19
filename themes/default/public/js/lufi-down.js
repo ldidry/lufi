@@ -106,7 +106,7 @@ function spawnWebsocket(pa) {
                     }
                     var innerHTML = ['<p><a href="', blobURL, '" class="btn btn-primary" download="', escapeHtml(data.name), '">', i18n.download, '</a></p>'];
 
-                    var isZip = false;
+                    var isZip = ($('#filesize').attr('data-zipped') === 'true');
                     if (data.type.match(/^image\//) !== null) {
                         innerHTML.push('<img id="render-image" class="responsive-img" alt="', escapeHtml(data.name), '" src="', blobURL, '">');
                     } else if (data.type.match(/^video\//) !== null) {
@@ -117,9 +117,8 @@ function spawnWebsocket(pa) {
                         innerHTML.push('<audio class="responsive-video" controls>',
                                            '<source src="', blobURL, '" type="', data.type, '">',
                                        '</audio>');
-                    } else if (data.type.match(/^application\/zip/) !== null) {
+                    } else if (isZip) {
                         innerHTML.push('<p><a class="btn btn-primary" id="showZipContent">', i18n.showZipContent, '</a></p>');
-                        isZip = true;
                     }
 
                     pbd.html(innerHTML.join(''));
@@ -130,10 +129,28 @@ function spawnWebsocket(pa) {
                             .then(function (zip) {
                                 var innerHTML = ['<h3>Zip content:</h3><ul>'];
                                 zip.forEach(function (relativePath, zipEntry) {
-                                    innerHTML.push('<li>', zipEntry.name, ' (', filesize(zipEntry._data.uncompressedSize, {base: 10}), ')</li>');
+                                    innerHTML.push(
+                                        '<li>',
+                                            zipEntry.name,
+                                            ' (', filesize(zipEntry._data.uncompressedSize, {base: 10}), ') ',
+                                            '<a href="#" download="', zipEntry.name, '" class="download-zip-content" title="', i18n.download, '">',
+                                                '<i class="mdi-file-file-download"></i>',
+                                            '</a>',
+                                        '</li>'
+                                    );
                                 });
                                 innerHTML.push('</ul>');
                                 pbd.append(innerHTML.join(''));
+                                $('.download-zip-content').click(function(e) {
+                                    e.preventDefault();
+                                    var t = $(this);
+                                    var filename = t.attr('download');
+                                    zip.files[filename].async('blob').then(function(blob) {
+                                        t.unbind('click');
+                                        t.attr('href', URL.createObjectURL(blob));
+                                        t[0].click();
+                                    });
+                                })
                                 $('#showZipContent').hide();
                                 $('#showZipContent').unbind('click');
                             });

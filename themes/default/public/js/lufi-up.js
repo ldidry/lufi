@@ -113,7 +113,7 @@ function handleFiles(f) {
         $('#zipping').show();
         for (var i = 0; i < f.length; i++) {
             var element = f.item(i);
-            zip.file(element.name, new Blob([element]));
+            zip.file(element.name, element);
         }
         zip.generateAsync({type:"blob"})
             .then(function(zipFile) {
@@ -222,6 +222,7 @@ function sliceAndUpload(randomkey, i, parts, j, delay, del_at_first_view, short)
             type: file.type,
             delay: delay,
             del_at_first_view: del_at_first_view,
+            zipped: $('#zip-files').is(':checked'),
             id: short,
             // number of the sent file in the queue
             i: i
