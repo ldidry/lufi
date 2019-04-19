@@ -4,7 +4,8 @@
 # FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
 # xd <xdrudis@tinet.cat>, 2017.
 # Luc Didry <luc@framasoft.org>, 2018. #zanata
-# Quentí <quentinantonin@free.fr>, 2018. #zanata
+# Quentí, 2018. #zanata
+# Luc Didry <luc@framasoft.org>, 2019. #zanata
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
@@ -12,8 +13,8 @@ msgstr ""
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"PO-Revision-Date: 2018-10-28 06:24+0000\n"
-"Last-Translator: Quentí <quentinantonin@free.fr>\n"
+"PO-Revision-Date: 2019-04-19 04:55+0000\n"
+"Last-Translator: Luc Didry <luc@framasoft.org>\n"
 "Language-Team: català; valencià <>\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 "X-Generator: Zanata 4.6.2\n"
@@ -41,18 +42,6 @@ msgstr "24 hores"
 msgid ":"
 msgstr ":"
 
-#: themes/default/templates/about.html.ep:16
-msgid ""
-"A thank you with a photo of kitten on <a href=\"https://framasphere.org/"
-"people/b13eb6b0beac0131e7e32a0000053625\" class=\"classic\">Diaspora*</a> or "
-"<a href=\"https://framapiaf.org/@framasky\" class=\"classic\">Mastodon</a> "
-"is cool too ;-)"
-msgstr ""
-"Un agraïment amb la foto d'un gatet a <a href=\"https://framasphere.org/"
-"people/b13eb6b0beac0131e7e32a0000053625\" class=\"classic\">Diaspora*</a> o "
-"a <a href=\"https://framapiaf.org/@framasky\" class=\"classic\">Mastodon</a> "
-"també fa goig ;-)"
-
 #: themes/default/templates/render.html.ep:42
 msgid "Abort"
 msgstr "Avorta"
@@ -71,7 +60,7 @@ msgid ""
 "prohibited."
 msgstr ""
 
-#: themes/default/templates/about.html.ep:18
+#: themes/default/templates/about.html.ep:17
 msgid ""
 "As Lufi is a free software licensed under of the terms of the <a href="
 "\"https://gnu.org/licenses/agpl.html\" class=\"classic\">AGPLv3</a>, you can "
@@ -89,7 +78,7 @@ msgstr ""
 msgid "Asking for file part XX1 of %1"
 msgstr "Demanem la part XX1 de %1 del fitxer"
 
-#: themes/default/templates/about.html.ep:21
+#: themes/default/templates/about.html.ep:20
 msgid "Back to homepage"
 msgstr "Retorna a la pàgina d'inici"
 
@@ -253,7 +242,7 @@ msgstr "Fitxers suprimits a la primera descàrrega"
 msgid "Get the file"
 msgstr "Obté el fitxer"
 
-#: themes/default/templates/about.html.ep:19
+#: themes/default/templates/about.html.ep:18
 msgid ""
 "Get the source code on <a href=\"https://framagit.org/luc/lufi\" class="
 "\"classic\">the official repository</a> or on its <a href=\"https://github."
@@ -284,7 +273,7 @@ msgstr "Prem Retorn, i després Ctrl+C per copiar l'enllaç de descàrrega"
 msgid "How does it work?"
 msgstr "Com funciona?"
 
-#: themes/default/templates/about.html.ep:17
+#: themes/default/templates/about.html.ep:16
 msgid "How to install the software on my server?"
 msgstr "Com instal·lo el programari al meu servidor?"
 
@@ -508,15 +497,10 @@ msgstr "El correu ja està enviat."
 #: themes/default/templates/about.html.ep:15
 msgid ""
 "The original (and only for now) author is <a href=\"https://fiat-tux.fr\" "
-"class=\"classic\">Luc Didry</a>. If you want to support him, you can do it "
-"via <a href=\"https://www.tipeee.com/fiat-tux\" class=\"classic\">Tipeee</a> "
-"or via <a href=\"https://liberapay.com/sky/\" class=\"classic\">Liberapay</"
-"a>."
+"class=\"classic\">Luc Didry</a>."
 msgstr ""
 "L'autor original (i per ara l'únic) és <a href=\"https://fiat-tux.fr\" class="
-"\"classic\">Luc Didry</a>. Si voleu fer una contribució podeu fer-ho via <a "
-"href=\"https://www.tipeee.com/fiat-tux\" class=\"classic\">Tipeee</a> o via "
-"<a href=\"https://liberapay.com/sky/\" class=\"classic\">Liberapay</a>."
+"\"classic\">Luc Didry</a>."
 
 #: lib/Lufi/Controller/Files.pm:189
 msgid ""

@@ -3,6 +3,7 @@
 # This file is distributed under the same license as the Lufi package.
 # Luc Didry <luc@didry.org>, 2015.
 # Luc Didry <luc@framasoft.org>, 2018. #zanata
+# Luc Didry <luc@framasoft.org>, 2019. #zanata
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
@@ -10,7 +11,7 @@ msgstr ""
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"PO-Revision-Date: 2018-11-01 04:53+0000\n"
+"PO-Revision-Date: 2019-04-19 04:54+0000\n"
 "Language-Team: \n"
 "X-Generator: Zanata 4.6.2\n"
 "Last-Translator: Luc Didry <luc@framasoft.org>\n"
@@ -39,18 +40,6 @@ msgstr "24 heures"
 msgid ":"
 msgstr " :"
 
-#: themes/default/templates/about.html.ep:16
-msgid ""
-"A thank you with a photo of kitten on <a href=\"https://framasphere.org/"
-"people/b13eb6b0beac0131e7e32a0000053625\" class=\"classic\">Diaspora*</a> or "
-"<a href=\"https://framapiaf.org/@framasky\" class=\"classic\">Mastodon</a> "
-"is cool too ;-)"
-msgstr ""
-"Un merci avec une photo de chaton sur <a href=\"https://framasphere.org/"
-"people/b13eb6b0beac0131e7e32a0000053625\" class=\"classic\">Diaspora*</a> ou "
-"<a href=\"https://framapiaf.org/@framasky\" class=\"classic\">Mastodon</a> "
-"fait aussi l’affaire ;-)"
-
 #: themes/default/templates/render.html.ep:42
 msgid "Abort"
 msgstr "Abandonner"
@@ -71,7 +60,7 @@ msgstr ""
 "L’ajout d’URL non liées à cette instance Lufi au corps ou au sujet du mail "
 "est interdit."
 
-#: themes/default/templates/about.html.ep:18
+#: themes/default/templates/about.html.ep:17
 msgid ""
 "As Lufi is a free software licensed under of the terms of the <a href="
 "\"https://gnu.org/licenses/agpl.html\" class=\"classic\">AGPLv3</a>, you can "
@@ -89,7 +78,7 @@ msgstr ""
 msgid "Asking for file part XX1 of %1"
 msgstr "Demande de récupération du fragment de fichier XX1 sur %1"
 
-#: themes/default/templates/about.html.ep:21
+#: themes/default/templates/about.html.ep:20
 msgid "Back to homepage"
 msgstr "Retour à la page d’accueil"
 
@@ -257,7 +246,7 @@ msgstr "Fichiers supprimés au premier téléchargement"
 msgid "Get the file"
 msgstr "Récupérer le fichier"
 
-#: themes/default/templates/about.html.ep:19
+#: themes/default/templates/about.html.ep:18
 msgid ""
 "Get the source code on <a href=\"https://framagit.org/luc/lufi\" class="
 "\"classic\">the official repository</a> or on its <a href=\"https://github."
@@ -292,7 +281,7 @@ msgstr ""
 msgid "How does it work?"
 msgstr "Comment ça marche ?"
 
-#: themes/default/templates/about.html.ep:17
+#: themes/default/templates/about.html.ep:16
 msgid "How to install the software on my server?"
 msgstr "Comment installer le logiciel sur mon serveur ?"
 
@@ -521,16 +510,10 @@ msgstr "Le mail a été envoyé."
 #: themes/default/templates/about.html.ep:15
 msgid ""
 "The original (and only for now) author is <a href=\"https://fiat-tux.fr\" "
-"class=\"classic\">Luc Didry</a>. If you want to support him, you can do it "
-"via <a href=\"https://www.tipeee.com/fiat-tux\" class=\"classic\">Tipeee</a> "
-"or via <a href=\"https://liberapay.com/sky/\" class=\"classic\">Liberapay</"
-"a>."
+"class=\"classic\">Luc Didry</a>."
 msgstr ""
 "L’auteur originel (et pour l’instant, le seul) est <a href=\"https://fiat-"
-"tux.fr\" class=\"classic\">Luc Didry</a>. Si vous avez envie de le "
-"supporter, vous pouvez le faire via <a href=\"https://www.tipeee.com/fiat-"
-"tux\" class=\"classic\">Tipeee</a> ou via <a href=\"https://liberapay.com/"
-"sky/\" class=\"classic\">Liberapay</a>."
+"tux.fr\" class=\"classic\">Luc Didry</a>."
 
 #: lib/Lufi/Controller/Files.pm:189
 msgid ""

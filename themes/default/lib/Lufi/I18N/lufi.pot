@@ -37,10 +37,6 @@ msgstr ""
 msgid ":"
 msgstr ""
 
-#: themes/default/templates/about.html.ep:16
-msgid "A thank you with a photo of kitten on <a href=\"https://framasphere.org/people/b13eb6b0beac0131e7e32a0000053625\" class=\"classic\">Diaspora*</a> or <a href=\"https://framapiaf.org/@framasky\" class=\"classic\">Mastodon</a> is cool too ;-)"
-msgstr ""
-
 #: themes/default/templates/render.html.ep:42
 msgid "Abort"
 msgstr ""
@@ -57,7 +53,7 @@ msgstr ""
 msgid "Adding URLs not related to this Lufi instance to the mail body or subject is prohibited."
 msgstr ""
 
-#: themes/default/templates/about.html.ep:18
+#: themes/default/templates/about.html.ep:17
 msgid "As Lufi is a free software licensed under of the terms of the <a href=\"https://gnu.org/licenses/agpl.html\" class=\"classic\">AGPLv3</a>, you can install it on you own server. Have a look on the <a href=\"https://framagit.org/luc/lufi/wikis/home\" class=\"classic\">Wiki</a> for the procedure."
 msgstr ""
 
@@ -66,7 +62,7 @@ msgstr ""
 msgid "Asking for file part XX1 of %1"
 msgstr ""
 
-#: themes/default/templates/about.html.ep:21
+#: themes/default/templates/about.html.ep:20
 msgid "Back to homepage"
 msgstr ""
 
@@ -214,7 +210,7 @@ msgstr ""
 msgid "Get the file"
 msgstr ""
 
-#: themes/default/templates/about.html.ep:19
+#: themes/default/templates/about.html.ep:18
 msgid "Get the source code on <a href=\"https://framagit.org/luc/lufi\" class=\"classic\">the official repository</a> or on its <a href=\"https://github.com/ldidry/lufi\" class=\"classic\">Github mirror</a>"
 msgstr ""
 
@@ -238,7 +234,7 @@ msgstr ""
 msgid "How does it work?"
 msgstr ""
 
-#: themes/default/templates/about.html.ep:17
+#: themes/default/templates/about.html.ep:16
 msgid "How to install the software on my server?"
 msgstr ""
 
@@ -419,7 +415,7 @@ msgid "The mail has been sent."
 msgstr ""
 
 #: themes/default/templates/about.html.ep:15
-msgid "The original (and only for now) author is <a href=\"https://fiat-tux.fr\" class=\"classic\">Luc Didry</a>. If you want to support him, you can do it via <a href=\"https://www.tipeee.com/fiat-tux\" class=\"classic\">Tipeee</a> or via <a href=\"https://liberapay.com/sky/\" class=\"classic\">Liberapay</a>."
+msgid "The original (and only for now) author is <a href=\"https://fiat-tux.fr\" class=\"classic\">Luc Didry</a>."
 msgstr ""
 
 #: lib/Lufi/Controller/Files.pm:189

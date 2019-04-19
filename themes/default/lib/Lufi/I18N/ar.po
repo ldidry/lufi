@@ -36,14 +36,6 @@ msgstr "24 ساعة"
 msgid ":"
 msgstr ":"
 
-#: themes/default/templates/about.html.ep:16
-msgid ""
-"A thank you with a photo of kitten on <a href=\"https://framasphere.org/"
-"people/b13eb6b0beac0131e7e32a0000053625\" class=\"classic\">Diaspora*</a> or "
-"<a href=\"https://framapiaf.org/@framasky\" class=\"classic\">Mastodon</a> "
-"is cool too ;-)"
-msgstr ""
-
 #: themes/default/templates/render.html.ep:42
 msgid "Abort"
 msgstr "إلغاء"
@@ -62,7 +54,7 @@ msgid ""
 "prohibited."
 msgstr ""
 
-#: themes/default/templates/about.html.ep:18
+#: themes/default/templates/about.html.ep:17
 msgid ""
 "As Lufi is a free software licensed under of the terms of the <a href="
 "\"https://gnu.org/licenses/agpl.html\" class=\"classic\">AGPLv3</a>, you can "
@@ -75,7 +67,7 @@ msgstr ""
 msgid "Asking for file part XX1 of %1"
 msgstr ""
 
-#: themes/default/templates/about.html.ep:21
+#: themes/default/templates/about.html.ep:20
 msgid "Back to homepage"
 msgstr "العودة إلى الصفحة الرئيسة"
 
@@ -230,7 +222,7 @@ msgstr "تم حذف الملفات عند أول تنزيل"
 msgid "Get the file"
 msgstr "تحصّل على الملف"
 
-#: themes/default/templates/about.html.ep:19
+#: themes/default/templates/about.html.ep:18
 msgid ""
 "Get the source code on <a href=\"https://framagit.org/luc/lufi\" class="
 "\"classic\">the official repository</a> or on its <a href=\"https://github."
@@ -257,7 +249,7 @@ msgstr "اضغط على Enter، ثم Ctrl+C لنسخ رابط التحميل"
 msgid "How does it work?"
 msgstr "كيف يعمل؟"
 
-#: themes/default/templates/about.html.ep:17
+#: themes/default/templates/about.html.ep:16
 msgid "How to install the software on my server?"
 msgstr "كيف يمكنني تثبيت البرنامج على خادومي؟"
 
@@ -465,10 +457,7 @@ msgstr "لقد تم إرسال الرسالة الإلكترونية."
 #: themes/default/templates/about.html.ep:15
 msgid ""
 "The original (and only for now) author is <a href=\"https://fiat-tux.fr\" "
-"class=\"classic\">Luc Didry</a>. If you want to support him, you can do it "
-"via <a href=\"https://www.tipeee.com/fiat-tux\" class=\"classic\">Tipeee</a> "
-"or via <a href=\"https://liberapay.com/sky/\" class=\"classic\">Liberapay</"
-"a>."
+"class=\"classic\">Luc Didry</a>."
 msgstr ""
 
 #: lib/Lufi/Controller/Files.pm:189
