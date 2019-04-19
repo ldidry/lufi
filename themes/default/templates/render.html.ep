@@ -44,6 +44,7 @@
 %= javascript '/partial/render.js?nbslices='.stash('f')->nbslices.'&file='.stash('f')->short
 %= javascript '/js/filesize.min.js'
 %= javascript '/js/sjcl.js'
+%= javascript '/js/jszip.min.js'
 %= javascript '/js/lufi-down.js'
     % }
 % }

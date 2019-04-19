@@ -361,6 +361,10 @@ msgstr ""
 msgid "Share your files in total privacy on %1"
 msgstr ""
 
+#: themes/default/templates/partial/render.js.ep:11
+msgid "Show zip content"
+msgstr ""
+
 #: themes/default/templates/layouts/default.html.ep:36 themes/default/templates/layouts/default.html.ep:65 themes/default/templates/login.html.ep:27 themes/default/templates/logout.html.ep:17
 msgid "Signin"
 msgstr ""

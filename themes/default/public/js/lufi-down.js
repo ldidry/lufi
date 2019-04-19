@@ -106,6 +106,7 @@ function spawnWebsocket(pa) {
                     }
                     var innerHTML = ['<p><a href="', blobURL, '" class="btn btn-primary" download="', escapeHtml(data.name), '">', i18n.download, '</a></p>'];
 
+                    var isZip = false;
                     if (data.type.match(/^image\//) !== null) {
                         innerHTML.push('<img id="render-image" class="responsive-img" alt="', escapeHtml(data.name), '" src="', blobURL, '">');
                     } else if (data.type.match(/^video\//) !== null) {
@@ -116,9 +117,28 @@ function spawnWebsocket(pa) {
                         innerHTML.push('<audio class="responsive-video" controls>',
                                            '<source src="', blobURL, '" type="', data.type, '">',
                                        '</audio>');
+                    } else if (data.type.match(/^application\/zip/) !== null) {
+                        innerHTML.push('<p><a class="btn btn-primary" id="showZipContent">', i18n.showZipContent, '</a></p>');
+                        isZip = true;
                     }
+
                     pbd.html(innerHTML.join(''));
 
+                    if (isZip) {
+                        $('#showZipContent').click(function() {
+                            JSZip.loadAsync(blob)
+                            .then(function (zip) {
+                                var innerHTML = ['<h3>Zip content:</h3><ul>'];
+                                zip.forEach(function (relativePath, zipEntry) {
+                                    innerHTML.push('<li>', zipEntry.name, '</li>');
+                                });
+                                innerHTML.push('</ul>');
+                                pbd.append(innerHTML.join(''));
+                                $('#showZipContent').hide();
+                                $('#showZipContent').unbind('click');
+                            });
+                        });
+                    }
                     if ($('#file_pwd').length === 1) {
                         window.ws.send('{"ended":true, "file_pwd": "'+$('#file_pwd').val()+'"}');
                     } else {

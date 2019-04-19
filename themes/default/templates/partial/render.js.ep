@@ -1,11 +1,12 @@
 % # vim:set sts=4 sw=4 ts=4 ft=javascript expandtab:
 var ws_url = '<%= url_for('download')->to_abs().stash('file') %>';
 var i18n   = {
-    aborted1:    '<%= l('Download aborted.') %>',
-    aborted2:    '<%= l('Click here to refresh the page and restart the download.') %>',
-    badkey:      '<%= l('It seems that the key in your URL is incorrect. Please, verify your URL.') %>',
-    confirmExit: '<%= l('You have attempted to leave this page. The download will be canceled. Are you sure?') %>',
-    download:    '<%= l('Get the file') %>',
-    loading:     '<%= l('Asking for file part XX1 of %1', stash('nbslices')) %>',
-    nokey:       '<%= l('You don\'t seem to have a key in your URL. You won\'t be able to decrypt the file. Download canceled.') %>',
+    aborted1:       '<%= l('Download aborted.') %>',
+    aborted2:       '<%= l('Click here to refresh the page and restart the download.') %>',
+    badkey:         '<%= l('It seems that the key in your URL is incorrect. Please, verify your URL.') %>',
+    confirmExit:    '<%= l('You have attempted to leave this page. The download will be canceled. Are you sure?') %>',
+    download:       '<%= l('Get the file') %>',
+    loading:        '<%= l('Asking for file part XX1 of %1', stash('nbslices')) %>',
+    nokey:          '<%= l('You don\'t seem to have a key in your URL. You won\'t be able to decrypt the file. Download canceled.') %>',
+    showZipContent: '<%= l('Show zip content') %>'
 }
