@@ -7,7 +7,7 @@ msgstr ""
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"PO-Revision-Date: 2019-04-19 04:53+0000\n"
+"PO-Revision-Date: 2019-04-21 11:09+0000\n"
 "Last-Translator: Luc Didry <luc@framasoft.org>\n"
 "Language-Team: English\n"
 "Language: en\n"
@@ -109,15 +109,15 @@ msgstr "Copy all links to clipboard"
 msgid "Copy to clipboard"
 msgstr "Copy to clipboard"
 
-#: lib/Lufi/Controller/Files.pm:460
+#: lib/Lufi/Controller/Files.pm:461
 msgid "Could not delete the file. You are not authenticated."
 msgstr "Could not delete the file. You are not authenticated."
 
-#: lib/Lufi/Controller/Files.pm:442
+#: lib/Lufi/Controller/Files.pm:443
 msgid "Could not find the file. Are you sure of the URL and the token?"
 msgstr "Could not find the file. Are you sure of the URL and the token?"
 
-#: lib/Lufi/Controller/Files.pm:353
+#: lib/Lufi/Controller/Files.pm:354
 msgid "Could not find the file. Are you sure of the URL?"
 msgstr "Could not find the file. Are you sure of the URL?"
 
@@ -195,15 +195,15 @@ msgstr "Emails"
 msgid "Encrypting part XX1 of XX2"
 msgstr "Encrypting part XX1 of XX2"
 
-#: lib/Lufi/Controller/Files.pm:242
+#: lib/Lufi/Controller/Files.pm:243
 msgid "Error: the file existed but was deleted."
 msgstr "Error: the file existed but was deleted."
 
-#: lib/Lufi/Controller/Files.pm:322
+#: lib/Lufi/Controller/Files.pm:323
 msgid "Error: the file has not been sent entirely."
 msgstr "Error: the file has not been sent entirely."
 
-#: lib/Lufi/Controller/Files.pm:332
+#: lib/Lufi/Controller/Files.pm:333
 msgid "Error: unable to find the file. Are you sure of your URL?"
 msgstr "Error: unable to find the file. Are you sure of your URL?"
 
@@ -219,7 +219,7 @@ msgstr "Expires at"
 msgid "Export localStorage data"
 msgstr "Export localStorage data"
 
-#: lib/Lufi/Controller/Files.pm:424
+#: lib/Lufi/Controller/Files.pm:425
 msgid "File deleted"
 msgstr "File deleted"
 
@@ -418,6 +418,10 @@ msgstr ""
 msgid "Share your files in total privacy on %1"
 msgstr "Share your files in total privacy on %1"
 
+#: themes/default/templates/partial/render.js.ep:11
+msgid "Show zip content"
+msgstr "Show zip content"
+
 #: themes/default/templates/layouts/default.html.ep:36 themes/default/templates/layouts/default.html.ep:65 themes/default/templates/login.html.ep:27 themes/default/templates/logout.html.ep:17
 msgid "Signin"
 msgstr "Signin"
@@ -458,7 +462,7 @@ msgstr "The email body can't be empty."
 msgid "The email subject can't be empty."
 msgstr "The email subject can't be empty."
 
-#: lib/Lufi/Controller/Files.pm:421
+#: lib/Lufi/Controller/Files.pm:422
 msgid "The file has already been deleted"
 msgstr "The file has already been deleted"
 
@@ -491,7 +495,7 @@ msgstr ""
 "The original (and only for now) author is <a href=\"https://fiat-tux.fr\" "
 "class=\"classic\">Luc Didry</a>."
 
-#: lib/Lufi/Controller/Files.pm:189
+#: lib/Lufi/Controller/Files.pm:190
 msgid ""
 "The server was unable to find the file record to add your file part to. "
 "Please, contact the administrator."
@@ -499,7 +503,7 @@ msgstr ""
 "The server was unable to find the file record to add your file part to. "
 "Please, contact the administrator."
 
-#: lib/Lufi/Controller/Files.pm:248
+#: lib/Lufi/Controller/Files.pm:249
 msgid ""
 "This file has been deactivated by the admins. Contact them to know why."
 msgstr ""
@@ -520,7 +524,7 @@ msgid "Unable to copy the link(s) to your clipboard"
 msgstr "Unable to copy the link(s) to your clipboard"
 
 #. ($short)
-#: lib/Lufi/Controller/Files.pm:392
+#: lib/Lufi/Controller/Files.pm:393
 msgid ""
 "Unable to get counter for %1. The file does not exists. It will be removed "
 "from your localStorage."
@@ -529,12 +533,12 @@ msgstr ""
 "from your localStorage."
 
 #. ($short)
-#: lib/Lufi/Controller/Files.pm:382
+#: lib/Lufi/Controller/Files.pm:383
 msgid "Unable to get counter for %1. The token is invalid."
 msgstr "Unable to get counter for %1. The token is invalid."
 
 #. ($short)
-#: lib/Lufi/Controller/Files.pm:402
+#: lib/Lufi/Controller/Files.pm:403
 msgid "Unable to get counter for %1. You are not authenticated."
 msgstr "Unable to get counter for %1. You are not authenticated."
 
@@ -629,7 +633,7 @@ msgstr ""
 msgid "Your file is too big: %1 (maximum size allowed: %2)"
 msgstr "Your file is too big: %1 (maximum size allowed: %2)"
 
-#: lib/Lufi/Controller/Files.pm:304
+#: lib/Lufi/Controller/Files.pm:305
 msgid "Your password is not valid. Please refresh the page to retry."
 msgstr "Your password is not valid. Please refresh the page to retry."
 

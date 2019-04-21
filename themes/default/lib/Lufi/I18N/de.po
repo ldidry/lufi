@@ -113,18 +113,18 @@ msgstr "Alle Links in die Zwischenablage kopieren"
 msgid "Copy to clipboard"
 msgstr "In die Zwischenablage kopieren"
 
-#: lib/Lufi/Controller/Files.pm:460
+#: lib/Lufi/Controller/Files.pm:461
 msgid "Could not delete the file. You are not authenticated."
 msgstr ""
 "Die Datei konnte nicht gelöscht werden. Sie sind nicht authentifiziert."
 
-#: lib/Lufi/Controller/Files.pm:442
+#: lib/Lufi/Controller/Files.pm:443
 msgid "Could not find the file. Are you sure of the URL and the token?"
 msgstr ""
 "Die Datei konnte nicht gefunden werden. Sind Sie sich der URL und des Token "
 "sicher?"
 
-#: lib/Lufi/Controller/Files.pm:353
+#: lib/Lufi/Controller/Files.pm:354
 msgid "Could not find the file. Are you sure of the URL?"
 msgstr "Die Datei konnte nicht gefunden werden. Sind Sie sich der URL sicher?"
 
@@ -204,15 +204,15 @@ msgstr "E-Mails"
 msgid "Encrypting part XX1 of XX2"
 msgstr "Verschlüsselung von Teil XX1 von XX2"
 
-#: lib/Lufi/Controller/Files.pm:242
+#: lib/Lufi/Controller/Files.pm:243
 msgid "Error: the file existed but was deleted."
 msgstr "Error: Die Datei existierte, aber es wurde gelöscht."
 
-#: lib/Lufi/Controller/Files.pm:322
+#: lib/Lufi/Controller/Files.pm:323
 msgid "Error: the file has not been sent entirely."
 msgstr "Error: Die Datei wurde nicht vollständig gesendet."
 
-#: lib/Lufi/Controller/Files.pm:332
+#: lib/Lufi/Controller/Files.pm:333
 msgid "Error: unable to find the file. Are you sure of your URL?"
 msgstr "Error: Datei nicht gefunden. Sind Sie sich Ihrer URL sicher?"
 
@@ -228,7 +228,7 @@ msgstr "Verfällt am"
 msgid "Export localStorage data"
 msgstr "Exportieren von localStorage-Daten"
 
-#: lib/Lufi/Controller/Files.pm:424
+#: lib/Lufi/Controller/Files.pm:425
 msgid "File deleted"
 msgstr "Datei gelöscht"
 
@@ -434,6 +434,10 @@ msgstr ""
 msgid "Share your files in total privacy on %1"
 msgstr "Teilen Sie Ihre Dateien in der absoluten Vertraulichkeit auf %1"
 
+#: themes/default/templates/partial/render.js.ep:11
+msgid "Show zip content"
+msgstr ""
+
 #: themes/default/templates/layouts/default.html.ep:36 themes/default/templates/layouts/default.html.ep:65 themes/default/templates/login.html.ep:27 themes/default/templates/logout.html.ep:17
 msgid "Signin"
 msgstr "Anmelden"
@@ -474,7 +478,7 @@ msgstr "Der E-Mail-Inhalt darf nicht leer sein."
 msgid "The email subject can't be empty."
 msgstr "Der E-Mail-Betreff kann nicht leer sein."
 
-#: lib/Lufi/Controller/Files.pm:421
+#: lib/Lufi/Controller/Files.pm:422
 msgid "The file has already been deleted"
 msgstr "Die Datei wurde schon gelöscht."
 
@@ -508,7 +512,7 @@ msgstr ""
 "Die Originalautor (und vorerst einzige) ist <a href=\"https://fiat-tux.fr\" "
 "class=\"classic\">Luc Didry</a>."
 
-#: lib/Lufi/Controller/Files.pm:189
+#: lib/Lufi/Controller/Files.pm:190
 msgid ""
 "The server was unable to find the file record to add your file part to. "
 "Please, contact the administrator."
@@ -516,7 +520,7 @@ msgstr ""
 "Der Server konnte den Datensatz nicht finden, zu dem Sie Ihr Dateiteil "
 "hinzufügen können. Bitte kontaktieren Sie den Administrator."
 
-#: lib/Lufi/Controller/Files.pm:248
+#: lib/Lufi/Controller/Files.pm:249
 msgid ""
 "This file has been deactivated by the admins. Contact them to know why."
 msgstr ""
@@ -538,7 +542,7 @@ msgid "Unable to copy the link(s) to your clipboard"
 msgstr "Es ist nicht möglich, die Links in die Zwischenablage zu kopieren."
 
 #. ($short)
-#: lib/Lufi/Controller/Files.pm:392
+#: lib/Lufi/Controller/Files.pm:393
 msgid ""
 "Unable to get counter for %1. The file does not exists. It will be removed "
 "from your localStorage."
@@ -547,13 +551,13 @@ msgstr ""
 "Sie wird aus deinem localStorage gelöscht."
 
 #. ($short)
-#: lib/Lufi/Controller/Files.pm:382
+#: lib/Lufi/Controller/Files.pm:383
 msgid "Unable to get counter for %1. The token is invalid."
 msgstr ""
 "Der Zähler für %1 konnte nicht gefunden werden. Das Token ist ungültig."
 
 #. ($short)
-#: lib/Lufi/Controller/Files.pm:402
+#: lib/Lufi/Controller/Files.pm:403
 msgid "Unable to get counter for %1. You are not authenticated."
 msgstr ""
 "Der Zähler für %1 konnte nicht gefunden werden. Sie sind nicht "
@@ -653,7 +657,7 @@ msgstr ""
 msgid "Your file is too big: %1 (maximum size allowed: %2)"
 msgstr "Ihre Datei ist zu groß: %1 (maximal erlaubte Größe: %2)"
 
-#: lib/Lufi/Controller/Files.pm:304
+#: lib/Lufi/Controller/Files.pm:305
 msgid "Your password is not valid. Please refresh the page to retry."
 msgstr ""
 "Ihr Passwort ist ungültig. Bitte aktualisieren Sie die Seite, um es "

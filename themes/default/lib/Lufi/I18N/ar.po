@@ -103,15 +103,15 @@ msgstr "نسخ كافة الروابط إلى الحافظة"
 msgid "Copy to clipboard"
 msgstr "انسخ إلى الحافظة"
 
-#: lib/Lufi/Controller/Files.pm:460
+#: lib/Lufi/Controller/Files.pm:461
 msgid "Could not delete the file. You are not authenticated."
 msgstr "لا يمكن حذف الملف. إنك لم تقم بتسجيل الدخول."
 
-#: lib/Lufi/Controller/Files.pm:442
+#: lib/Lufi/Controller/Files.pm:443
 msgid "Could not find the file. Are you sure of the URL and the token?"
 msgstr ""
 
-#: lib/Lufi/Controller/Files.pm:353
+#: lib/Lufi/Controller/Files.pm:354
 msgid "Could not find the file. Are you sure of the URL?"
 msgstr ""
 
@@ -182,15 +182,15 @@ msgstr "عناوين البريد الإلكترونية"
 msgid "Encrypting part XX1 of XX2"
 msgstr "تعمية الجزء XX1 مِن XX2"
 
-#: lib/Lufi/Controller/Files.pm:242
+#: lib/Lufi/Controller/Files.pm:243
 msgid "Error: the file existed but was deleted."
 msgstr "خطأ: لقد كان الملف موجودا بالفعل و لكن تم حذفه."
 
-#: lib/Lufi/Controller/Files.pm:322
+#: lib/Lufi/Controller/Files.pm:323
 msgid "Error: the file has not been sent entirely."
 msgstr "خطأ: لم يتم إرسال الملف كاملا."
 
-#: lib/Lufi/Controller/Files.pm:332
+#: lib/Lufi/Controller/Files.pm:333
 msgid "Error: unable to find the file. Are you sure of your URL?"
 msgstr "خطأ: غير قادر على العثور على الملف. هل أنت متأكد من العنوان؟"
 
@@ -206,7 +206,7 @@ msgstr "تنتهي صلاحيته في"
 msgid "Export localStorage data"
 msgstr ""
 
-#: lib/Lufi/Controller/Files.pm:424
+#: lib/Lufi/Controller/Files.pm:425
 msgid "File deleted"
 msgstr "تم حذف الملف"
 
@@ -393,6 +393,10 @@ msgstr ""
 msgid "Share your files in total privacy on %1"
 msgstr "شارك ملفاتك بخصوصية تامة على %1"
 
+#: themes/default/templates/partial/render.js.ep:11
+msgid "Show zip content"
+msgstr ""
+
 #: themes/default/templates/layouts/default.html.ep:36 themes/default/templates/layouts/default.html.ep:65 themes/default/templates/login.html.ep:27 themes/default/templates/logout.html.ep:17
 msgid "Signin"
 msgstr "تسجيل الدخول"
@@ -429,7 +433,7 @@ msgstr "لا يمكن أن يُترك مضمون الرسالة فارغًا."
 msgid "The email subject can't be empty."
 msgstr "لا يمكن أن يُترك موضوع الرسالة فارغًا."
 
-#: lib/Lufi/Controller/Files.pm:421
+#: lib/Lufi/Controller/Files.pm:422
 msgid "The file has already been deleted"
 msgstr "لقد تم حذف الملف مِن قبلُ"
 
@@ -460,13 +464,13 @@ msgid ""
 "class=\"classic\">Luc Didry</a>."
 msgstr ""
 
-#: lib/Lufi/Controller/Files.pm:189
+#: lib/Lufi/Controller/Files.pm:190
 msgid ""
 "The server was unable to find the file record to add your file part to. "
 "Please, contact the administrator."
 msgstr ""
 
-#: lib/Lufi/Controller/Files.pm:248
+#: lib/Lufi/Controller/Files.pm:249
 msgid ""
 "This file has been deactivated by the admins. Contact them to know why."
 msgstr "لقد تم تعطيل الملف من طرف المشرفين. الرجاء الإتصال بهم لمعرفة السبب."
@@ -483,19 +487,19 @@ msgid "Unable to copy the link(s) to your clipboard"
 msgstr "تعذر نسخ كافة الروابط إلى الحافظة"
 
 #. ($short)
-#: lib/Lufi/Controller/Files.pm:392
+#: lib/Lufi/Controller/Files.pm:393
 msgid ""
 "Unable to get counter for %1. The file does not exists. It will be removed "
 "from your localStorage."
 msgstr ""
 
 #. ($short)
-#: lib/Lufi/Controller/Files.pm:382
+#: lib/Lufi/Controller/Files.pm:383
 msgid "Unable to get counter for %1. The token is invalid."
 msgstr "لا يمكن جلب عداد %1. إن الرمز غير صالح."
 
 #. ($short)
-#: lib/Lufi/Controller/Files.pm:402
+#: lib/Lufi/Controller/Files.pm:403
 msgid "Unable to get counter for %1. You are not authenticated."
 msgstr "لا يمكن جلب عداد %1. إنك لم تقم بتسجيل الدخول."
 
@@ -587,7 +591,7 @@ msgstr "لا يحتوي متصفحك على قدر كافٍ من الإنترو�
 msgid "Your file is too big: %1 (maximum size allowed: %2)"
 msgstr "الملف كبير جدًا: %1 (الحد الأقصى المسموح به للحجم هو: %2)"
 
-#: lib/Lufi/Controller/Files.pm:304
+#: lib/Lufi/Controller/Files.pm:305
 msgid "Your password is not valid. Please refresh the page to retry."
 msgstr "الكلمة السرية غير صالحة. يرجى تحديث الصفحة لإعادة المحاولة."
 
