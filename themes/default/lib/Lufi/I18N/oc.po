@@ -4,8 +4,9 @@
 # Luc Didry <luc@didry.org>, 2015.
 # Cédric VALMARY <cvalmary@yahoo.fr>, 2016.
 # Luc Didry <luc@framasoft.org>, 2018. #zanata
-# Quentí, 2018. #zanata
+# Quentí <quentinantonin@free.fr>, 2018. #zanata
 # Luc Didry <luc@framasoft.org>, 2019. #zanata
+# Quentí, 2019. #zanata
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
@@ -13,8 +14,8 @@ msgstr ""
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"PO-Revision-Date: 2019-04-19 04:55+0000\n"
-"Last-Translator: Luc Didry <luc@framasoft.org>\n"
+"PO-Revision-Date: 2019-04-21 05:48+0000\n"
+"Last-Translator: Quentí\n"
 "Language-Team: Tot en òc (totenoc.eu)\n"
 "Language: oc\n"
 "Plural-Forms: nplurals=2; plural=(n > 1);\n"
@@ -137,7 +138,7 @@ msgstr "Comptador"
 
 #: themes/default/templates/index.html.ep:91
 msgid "Create a zip archive with the files before uploading?"
-msgstr ""
+msgstr "Crear un archiu zip amb los fichièr abans lo mandadís ?"
 
 #: themes/default/templates/files.html.ep:29 themes/default/templates/index.html.ep:81
 msgid "Delete at first download?"
@@ -438,7 +439,7 @@ msgstr "Partejatz vòstres fichièrs en tota confidencialitat sus %1"
 
 #: themes/default/templates/partial/render.js.ep:11
 msgid "Show zip content"
-msgstr ""
+msgstr "Mostrar lo contengut del zip"
 
 #: themes/default/templates/layouts/default.html.ep:36 themes/default/templates/layouts/default.html.ep:65 themes/default/templates/login.html.ep:27 themes/default/templates/logout.html.ep:17
 msgid "Signin"
@@ -665,7 +666,7 @@ msgstr ""
 
 #: themes/default/templates/index.html.ep:112
 msgid "Zip archive creation…"
-msgstr ""
+msgstr "Creacion de l’archiu zip…"
 
 #. (format_bytes($keys[$i])
 #: themes/default/templates/delays.html.ep:20
