@@ -119,7 +119,7 @@ sub upload {
 
                         my $creator = $c->ip;
                         if (defined($c->config('ldap')) || defined($c->config('htpasswd'))) {
-                            $creator = 'User: '.$c->current_user.', IP: '.$creator;
+                            $creator = 'User: '.$c->current_user->{username}.', IP: '.$creator;
                         }
                         my $delete_at_first_view = ($json->{del_at_first_view}) ? 1 : 0;
                         $delete_at_first_view    = 1 if $c->app->config('force_burn_after_reading');
