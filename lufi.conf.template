@@ -181,6 +181,18 @@
     #    }
     #},
 
+    # if you use `ldap` for authentication, you can map some attributes from LDAP to be able to access them in Lufi
+    # those attributes will be accessible with:
+    #   $c->current_user->{lufi_attribute_name} in Lufi backend files (all that is in `lib` directory)
+    #   <%= $self->current_user->{lufi_attribute_name} %> in templates files (in `themes` directory)
+    #
+    # define the attributes like this: `lufi_attribute_name => 'LDAP_attribute_name'`
+    # note that you can’t use `username` as a Lufi attribute name: this name is reserved and will contain the login of the user
+    #ldap_map_attr => {
+    #    displayname => 'cn',
+    #    mail        => 'mail'
+    #},
+
     # set `htpasswd` if you want to use an htpasswd file instead of ldap
     # see 'man htpasswd' to know how to create such file
     #htpasswd => 'lufi.passwd',
