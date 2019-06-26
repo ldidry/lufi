@@ -101,6 +101,38 @@
     # optional
     #fixed_domain => 'example.org',
 
+    # Define a path to the upload directory, where the uploaded files will be stored
+    # You can define it relative to lufi directory or set an absolute path
+    # Remember that it has to be in a directory writable by Lufi user
+    # DO NOT CHANGE THIS IF FILES HAVE BEEN ALREADY UPLOADED: THEY WILL NOT BE DOWNLOADABLE ANYMORE
+    # optional, default is 'files'
+    #upload_dir           => 'files',
+
+    # Allow to add a password on files, asked before allowing to download files
+    # optional, default is 0
+    #allow_pwd_on_files => 0,
+
+    # Force all files to be in "Burn after reading mode"
+    # optional, default is 0
+    #force_burn_after_reading => 0,
+
+    # If set, the files' URLs will always use this domain
+    # optional, no default
+    #fixed_domain => 'example.org',
+
+    # Abuse reasons
+    # Set an integer in the abuse field of a file in the database and it will not be downloadable anymore
+    # The reason will be displayed to the downloader, according to the reasons you will configure here.
+    # optional, no default
+    #abuse => {
+    #   0 => 'Copyright infringment',
+    #   1 => 'Illegal content',
+    #},
+
+    ###############
+    # Mail settings
+    ###############
+
     # Mail configuration
     # See https://metacpan.org/pod/Mojolicious::Plugin::Mail#EXAMPLES
     # optional, default to sendmail method with no arguments
@@ -113,6 +145,10 @@
     # Email sender address
     # optional, default to no-reply@lufi.io
     #mail_sender => 'no-reply@lufi.io',
+
+    #############
+    # DB settings
+    #############
 
     # Choose what database you want to use
     # Valid choices are sqlite, postgresql and mysql (all lowercase)
@@ -156,12 +192,9 @@
     #    #max_connections => 5,
     #},
 
-    # Define a path to the upload directory, where the uploaded files will be stored
-    # You can define it relative to lufi directory or set an absolute path
-    # Remember that it has to be in a directory writable by Lufi user
-    # DO NOT CHANGE THIS IF FILES HAVE BEEN ALREADY UPLOADED: THEY WILL NOT BE DOWNLOADABLE ANYMORE
-    # optional, default is 'files'
-    #upload_dir           => 'files',
+    #############################################
+    # LDAP settings (authentication and features)
+    #############################################
 
     # Set `ldap` if you want that only authenticated users can upload files
     # Please note that everybody can still download files
@@ -181,6 +214,11 @@
     #    }
     #},
 
+    # If you've set ldap above, the session will last `session_duration` seconds before
+    # the user needs to reauthenticate
+    # optional, default is 3600
+    #session_duration => 3600,
+
     # If you use `ldap` for authentication, you can map some attributes from LDAP to be able to access them in Lufi
     # Those attributes will be accessible with:
     #   $c->current_user->{lufi_attribute_name} in Lufi backend files (all that is in `lib` directory)
@@ -193,35 +231,17 @@
     #    mail        => 'mail'
     #},
 
+    #########################
+    # Htpasswd authentication
+    #########################
+
     # Set `htpasswd` if you want to use an htpasswd file instead of ldap
     # See 'man htpasswd' to know how to create such file
     #htpasswd => 'lufi.passwd',
 
-    # If you've set ldap above, the session will last `session_duration` seconds before
-    # the user needs to reauthenticate
-    # optional, default is 3600
-    #session_duration => 3600,
-
-    # Allow to add a password on files, asked before allowing to download files
-    # optional, default is 0
-    #allow_pwd_on_files => 0,
-
-    # Force all files to be in "Burn after reading mode"
-    # optional, default is 0
-    #force_burn_after_reading => 0,
-
-    # If set, the files' URLs will always use this domain
-    # optional, no default
-    #fixed_domain => 'example.org',
-
-    # Abuse reasons
-    # Set an integer in the abuse field of a file in the database and it will not be downloadable anymore
-    # The reason will be displayed to the downloader, according to the reasons you will configure here.
-    # optional, no default
-    #abuse => {
-    #   0 => 'Copyright infringment',
-    #   1 => 'Illegal content',
-    #},
+    #######################
+    # HTTP Headers settings
+    #######################
 
     # Content-Security-Policy header that will be sent by Lufi
     # Set to '' to disable CSP header
