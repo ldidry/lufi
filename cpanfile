@@ -33,6 +33,7 @@ feature 'optional_deps' => sub {
 
 feature 'test' => sub {
     requires 'Devel::Cover';
+    requires 'B::Debug';
 };
 feature 'ldap', 'LDAP authentication support' => sub {
     requires 'Net::LDAP';

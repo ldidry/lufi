@@ -30,6 +30,15 @@ DISTRIBUTIONS
       ExtUtils::MakeMaker 6.42
       Test::More 0
       perl 5.005
+  B-Debug-1.26
+    pathname: R/RU/RURBAN/B-Debug-1.26.tar.gz
+    provides:
+      B::Debug 1.26
+    requirements:
+      B 0
+      ExtUtils::MakeMaker 0
+      Test::More 0
+      deprecate 0.03
   Canary-Stability-2012
     pathname: M/ML/MLEHMANN/Canary-Stability-2012.tar.gz
     provides:
