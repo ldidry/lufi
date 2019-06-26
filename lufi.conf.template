@@ -18,67 +18,67 @@
         clients => 1,
     },
 
-    # put a way to contact you here and uncomment it
-    # you can put some HTML in it
+    # Put a way to contact you here and uncomment it
+    # You can put some HTML in it
     # MANDATORY
     #contact       => '<a href="https://contact.example.com">Contact page</a>',
 
-    # put an URL or an email address to receive file reports and uncomment it
-    # it's for make reporting illegal files easy for users
+    # Put an URL or an email address to receive file reports and uncomment it
+    # It's for make reporting illegal files easy for users
     # MANDATORY
     #report => 'report@example.com',
 
-    # array of random strings used to encrypt cookies
+    # Array of random strings used to encrypt cookies
     # optional, default is ['fdjsofjoihrei'], PLEASE, CHANGE IT
     #secrets        => ['fdjsofjoihrei'],
 
-    # choose a theme. See the available themes in `themes` directory
-    # optional, default is 'default'
+    # Choose a theme. See the available themes in `themes` directory
+    # Optional, default is 'default'
     #theme         => 'default',
 
-    # length of the random URL
+    # Length of the random URL
     # optional, default is 8
     #length            => 8,
 
-    # how many URLs will be provisioned in a batch ?
+    # How many URLs will be provisioned in a batch ?
     # optional, default is 5
     #provis_step       => 5,
 
-    # max number of URLs to be provisioned
+    # Max number of URLs to be provisioned
     # optional, default is 100
     #provisioning      => 100,
 
-    # length of the modify/delete token
+    # Length of the modify/delete token
     # optional, default is 32
     #token_length      => 32,
 
-    # max file size, in octets
-    # you can write it 100*1024*1024
+    # Max file size, in octets
+    # You can write it 100*1024*1024
     # optional, no default
     #max_file_size     => 104857600,
 
-    # if you want to have piwik statistics, provide a piwik image tracker
-    # only the image tracker is allowed, no javascript
+    # If you want to have piwik statistics, provide a piwik image tracker
+    # Only the image tracker is allowed, no javascript
     # optional, no default
     #piwik_img         => 'https://piwik.example.org/piwik.php?idsite=1&amp;rec=1',
 
-    # broadcast_message which will displayed on the index page
+    # Broadcast_message which will displayed on the index page
     # optional, no default
     #broadcast_message => 'Maintenance',
 
-    # default time limit for files
-    # valid values are 0, 1, 7, 30 and 365
+    # Default time limit for files
+    # Valid values are 0, 1, 7, 30 and 365
     # optional, default is 0 (no limit)
     #default_delay     => 0,
 
-    # number of days after which the images will be deleted, even if they were uploaded with "no delay" (or value superior to max_delay)
-    # a warning message will be displayed on homepage
+    # Number of days after which the images will be deleted, even if they were uploaded with "no delay" (or value superior to max_delay)
+    # A warning message will be displayed on homepage
     # optional, default is 0 (no limit)
     #max_delay         => 0,
 
-    # size thresholds: if you want to define max delays for different sizes of file
-    # the keys are size in Bytes, you can't have 10*1000*10000 as key
-    # if a file is smaller than the smallest configured size, it will have a expiration delay of max_delay (see above)
+    # Size thresholds: if you want to define max delays for different sizes of file
+    # The keys are size in Bytes, you can't have 10*1000*10000 as key
+    # If a file is smaller than the smallest configured size, it will have a expiration delay of max_delay (see above)
     # optional, default is using max_delay (see above) for all sizes
     #delay_for_size  => {
     #    10000000   => 90, # between 10MB and 50MB => max is 90 days, less than 10MB => max is max_delay (see above)
@@ -92,18 +92,18 @@
     # optional, defaut is /
     #prefix        => '/',
 
-    # array of authorized domains for API calls.
-    # if you want to authorize everyone to use the API: ['*']
+    # Array of authorized domains for API calls.
+    # If you want to authorize everyone to use the API: ['*']
     # optional, no domains allowed by default
     #allowed_domains   => ['http://1.example.com', 'http://2.example.com'],
 
-    # if set, the shortened URLs will use this domain
+    # If set, the shortened URLs will use this domain
     # optional
     #fixed_domain => 'example.org',
 
     # Mail configuration
     # See https://metacpan.org/pod/Mojolicious::Plugin::Mail#EXAMPLES
-    # Optional, default to sendmail method with no arguments
+    # optional, default to sendmail method with no arguments
     #mail => {
     #    # Valid values are 'sendmail' and 'smtp'
     #    how => 'smtp',
@@ -111,23 +111,23 @@
     #},
 
     # Email sender address
-    # Optional, default to no-reply@lufi.io
+    # optional, default to no-reply@lufi.io
     #mail_sender => 'no-reply@lufi.io',
 
-    # choose what database you want to use
-    # valid choices are sqlite, postgresql and mysql (all lowercase)
+    # Choose what database you want to use
+    # Valid choices are sqlite, postgresql and mysql (all lowercase)
     # optional, default is sqlite
     #dbtype => 'sqlite',
 
     # SQLite ONLY - only used if dbtype is set to sqlite
-    # define a path to the SQLite database
-    # you can define it relative to lufi directory or set an absolute path
-    # remember that it has to be in a directory writable by Lufi user
+    # Define a path to the SQLite database
+    # You can define it relative to lufi directory or set an absolute path
+    # Remember that it has to be in a directory writable by Lufi user
     # optional, default is lufi.db
     #db_path           => 'lufi.db',
 
     # PostgreSQL ONLY - only used if dbtype is set to postgresql
-    # these are the credentials to access the PostgreSQL database
+    # These are the credentials to access the PostgreSQL database
     # mandatory if you choosed postgresql as dbtype
     #pgdb => {
     #    database => 'lufi',
@@ -142,7 +142,7 @@
     #},
 
     # MySQL ONLY - only used if dbtype is set to mysql
-    # these are the credentials to access the MySQL database
+    # These are the credentials to access the MySQL database
     # mandatory if you choosed mysql as dbtype
     #mysqldb => {
     #    database => 'lufi',
@@ -156,15 +156,15 @@
     #    #max_connections => 5,
     #},
 
-    # define a path to the upload directory, where the uploaded files will be stored
-    # you can define it relative to lufi directory or set an absolute path
-    # remember that it has to be in a directory writable by Lufi user
+    # Define a path to the upload directory, where the uploaded files will be stored
+    # You can define it relative to lufi directory or set an absolute path
+    # Remember that it has to be in a directory writable by Lufi user
     # DO NOT CHANGE THIS IF FILES HAVE BEEN ALREADY UPLOADED: THEY WILL NOT BE DOWNLOADABLE ANYMORE
     # optional, default is 'files'
     #upload_dir           => 'files',
 
-    # set `ldap` if you want that only authenticated users can upload files
-    # please note that everybody can still download files
+    # Set `ldap` if you want that only authenticated users can upload files
+    # Please note that everybody can still download files
     # optional, no default
     #ldap => {
     #    uri         => 'ldaps://ldap.example.org',                 # server URI
@@ -181,42 +181,42 @@
     #    }
     #},
 
-    # if you use `ldap` for authentication, you can map some attributes from LDAP to be able to access them in Lufi
-    # those attributes will be accessible with:
+    # If you use `ldap` for authentication, you can map some attributes from LDAP to be able to access them in Lufi
+    # Those attributes will be accessible with:
     #   $c->current_user->{lufi_attribute_name} in Lufi backend files (all that is in `lib` directory)
     #   <%= $self->current_user->{lufi_attribute_name} %> in templates files (in `themes` directory)
     #
-    # define the attributes like this: `lufi_attribute_name => 'LDAP_attribute_name'`
-    # note that you can’t use `username` as a Lufi attribute name: this name is reserved and will contain the login of the user
+    # Define the attributes like this: `lufi_attribute_name => 'LDAP_attribute_name'`
+    # Note that you can’t use `username` as a Lufi attribute name: this name is reserved and will contain the login of the user
     #ldap_map_attr => {
     #    displayname => 'cn',
     #    mail        => 'mail'
     #},
 
-    # set `htpasswd` if you want to use an htpasswd file instead of ldap
-    # see 'man htpasswd' to know how to create such file
+    # Set `htpasswd` if you want to use an htpasswd file instead of ldap
+    # See 'man htpasswd' to know how to create such file
     #htpasswd => 'lufi.passwd',
 
-    # if you've set ldap above, the session will last `session_duration` seconds before
+    # If you've set ldap above, the session will last `session_duration` seconds before
     # the user needs to reauthenticate
     # optional, default is 3600
     #session_duration => 3600,
 
-    # allow to add a password on files, asked before allowing to download files
+    # Allow to add a password on files, asked before allowing to download files
     # optional, default is 0
     #allow_pwd_on_files => 0,
 
-    # force all files to be in "Burn after reading mode"
+    # Force all files to be in "Burn after reading mode"
     # optional, default is 0
     #force_burn_after_reading => 0,
 
-    # if set, the files' URLs will always use this domain
+    # If set, the files' URLs will always use this domain
     # optional, no default
     #fixed_domain => 'example.org',
 
-    # abuse reasons
-    # set an integer in the abuse field of a file in the database and it will not be downloadable anymore
-    # the reason will be displayed to the downloader, according to the reasons you will configure here.
+    # Abuse reasons
+    # Set an integer in the abuse field of a file in the database and it will not be downloadable anymore
+    # The reason will be displayed to the downloader, according to the reasons you will configure here.
     # optional, no default
     #abuse => {
     #   0 => 'Copyright infringment',
@@ -255,24 +255,24 @@
     # Lufi cron jobs settings
     #########################
 
-    # number of days senders' IP addresses are kept in database
-    # after that delay, they will be deleted from database (used with script/lufi cron cleanbdd)
+    # Number of days senders' IP addresses are kept in database
+    # After that delay, they will be deleted from database (used with script/lufi cron cleanbdd)
     # optional, default is 365
     #keep_ip_during    => 365,
 
-    # max size of the files directory, in octets
-    # used by script/lufi cron watch to trigger an action
+    # Max size of the files directory, in octets
+    # Used by script/lufi cron watch to trigger an action
     # optional, no default
     #max_total_size    => 10*1024*1024*1024,
 
-    # default action when files directory is over max_total_size (used with script/lufi cron watch)
-    # valid values are 'warn', 'stop-upload' and 'delete'
-    # please, see readme
+    # Default action when files directory is over max_total_size (used with script/lufi cron watch)
+    # Valid values are 'warn', 'stop-upload' and 'delete'
+    # Please, see README.md
     # optional, default is 'warn'
     #policy_when_full  => 'warn',
 
-    # images which are not viewed since delete_no_longer_viewed_files days will be deleted by the cron cleanfiles task
-    # if delete_no_longer_viewed_files is not set, the no longer viewed files will NOT be deleted
+    # Files which are not viewed since delete_no_longer_viewed_files days will be deleted by the cron cleanfiles task
+    # If delete_no_longer_viewed_files is not set, the no longer viewed files will NOT be deleted
     # optional, no default
     #delete_no_longer_viewed_files => 90,
 };
