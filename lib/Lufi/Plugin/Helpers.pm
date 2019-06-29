@@ -19,9 +19,9 @@ sub register {
         # Database migration
         my $migrations = Mojo::Pg::Migrations->new(pg => $app->dbi);
         if ($app->mode eq 'development' && $ENV{LUFI_DEV}) {
-            $migrations->from_file('utilities/migrations/pg.sql')->migrate(0)->migrate(3);
+            $migrations->from_file('utilities/migrations/pg.sql')->migrate(0)->migrate($migrations->latest);
         } else {
-            $migrations->from_file('utilities/migrations/pg.sql')->migrate(3);
+            $migrations->from_file('utilities/migrations/pg.sql')->migrate($migrations->latest);
         }
     } elsif ($app->config('dbtype') eq 'mysql') {
         require Mojo::mysql;
@@ -30,9 +30,9 @@ sub register {
         # Database migration
         my $migrations = Mojo::mysql::Migrations->new(mysql => $app->dbi);
         if ($app->mode eq 'development' && $ENV{LUFI_DEV}) {
-            $migrations->from_file('utilities/migrations/mysql.sql')->migrate(0)->migrate(2);
+            $migrations->from_file('utilities/migrations/mysql.sql')->migrate(0)->migrate($migrations->latest);
         } else {
-            $migrations->from_file('utilities/migrations/mysql.sql')->migrate(2);
+            $migrations->from_file('utilities/migrations/mysql.sql')->migrate($migrations->latest);
         }
     } elsif ($app->config('dbtype') eq 'sqlite') {
         require Mojo::SQLite;
@@ -43,9 +43,9 @@ sub register {
         my $sql        = $app->dbi;
         my $migrations = $sql->migrations;
         if ($app->mode eq 'development' && $ENV{LUFI_DEV}) {
-            $migrations->from_file('utilities/migrations/sqlite.sql')->migrate(0)->migrate(3);
+            $migrations->from_file('utilities/migrations/sqlite.sql')->migrate(0)->migrate($migrations->latest);
         } else {
-            $migrations->from_file('utilities/migrations/sqlite.sql')->migrate(3);
+            $migrations->from_file('utilities/migrations/sqlite.sql')->migrate($migrations->latest);
         }
 
         # Check if passwd column is missing
