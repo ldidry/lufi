@@ -41,6 +41,7 @@ variables:
   coverage: '/Total.* (\d+\.\d+)$/'
   before_script:
     - tar xf local.tar && rm local.tar
+    - which mariadb_config && cd $(dirname $(which mariadb_config)) && ln -s mariadb_config mysql_config
   script:
     - MOJO_CONFIG="t/${CI_JOB_NAME}.conf" make test
     - MOJO_CONFIG="t/${CI_JOB_NAME}.conf" make cover
@@ -95,6 +96,19 @@ podcheck:
     - make podcheck
   except:
     - tags
+
+### Cpanfile.snapshot
+## Used to get a cpanfile.snapshot from a fresh server (not like my dev VM)
+#
+#cpanfile_snapshot:
+#  stage: carton
+#  script:
+#    - rm cpanfile.snapshot
+#    - which mariadb_config && cd $(dirname $(which mariadb_config)) && ln -s mariadb_config mysql_config
+#    - carton install
+#    - cat cpanfile.snapshot
+#  except:
+#    - tags
 
 ### Install common dependencies
 ##
