@@ -369,7 +369,7 @@ msgid ""
 "this list."
 msgstr ""
 "Nur die mit diesem Browser geschickten Dateien werden hier aufgelistet. "
-"Diese Liste wird in localStorage gespeichert: Wenn Sie Ihre localStorage-"
+"Diese Liste wird im localStorage gespeichert: Wenn Sie Ihre localStorage-"
 "Daten löschen, verlieren Sie diese Liste.  "
 
 #: themes/default/templates/index.html.ep:87 themes/default/templates/login.html.ep:21 themes/default/templates/render.html.ep:26
@@ -618,7 +618,7 @@ msgstr ""
 "Sie müssen sich nicht registrieren, um Dateien hochzuladen, aber beachten "
 "Sie, dass Ihre IP-Adresse aus rechtlichen Gründen beim Senden einer Datei "
 "gespeichert wird. Keine Panik, dies ist normalerweise der Fall für alle "
-"Websites, zu denen Sie Dateien senden."
+"Internetseiten, zu denen Sie Dateien senden."
 
 #: themes/default/templates/partial/render.js.ep:10
 msgid ""
