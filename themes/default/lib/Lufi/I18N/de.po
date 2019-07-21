@@ -434,7 +434,7 @@ msgid ""
 "while to move."
 msgstr ""
 "Senden von Teil XX1 von XX2. Bitte haben Sie Geduld, es kann eine Weile "
-dauern, bis sich der Fortschrittsbalken bewegt."
+"dauern, bis sich der Fortschrittsbalken bewegt."
 
 #. (url_for('/')
 #: themes/default/templates/partial/mail.js.ep:48
