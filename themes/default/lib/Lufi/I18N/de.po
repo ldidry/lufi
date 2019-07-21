@@ -17,7 +17,7 @@ msgstr ""
 #. (max_delay)
 #: themes/default/templates/index.html.ep:47 themes/default/templates/index.html.ep:56 themes/default/templates/index.html.ep:57
 msgid "%1 days"
-msgstr "%1 Tag(e)"
+msgstr "%1 Tage"
 
 #: themes/default/templates/partial/index.js.ep:26
 msgid "(max size: XXX)"
