@@ -25,7 +25,7 @@ msgstr "(maximale Größe: XXX)"
 
 #: themes/default/templates/index.html.ep:5
 msgid "1 year"
-msgstr "1 Jahre"
+msgstr "1 Jahr"
 
 #: themes/default/templates/index.html.ep:4 themes/default/templates/index.html.ep:56
 msgid "24 hours"
