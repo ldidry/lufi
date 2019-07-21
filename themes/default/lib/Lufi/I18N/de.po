@@ -333,7 +333,7 @@ msgstr "Sprache"
 
 #: themes/default/templates/login.html.ep:15
 msgid "Login"
-msgstr "Anmelden"
+msgstr "Nutzername"
 
 #: themes/default/templates/layouts/default.html.ep:53 themes/default/templates/layouts/default.html.ep:78
 msgid "Logout"
