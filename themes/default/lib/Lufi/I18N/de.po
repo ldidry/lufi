@@ -379,7 +379,7 @@ msgstr "Passwort"
 #. (config('contact')
 #: themes/default/templates/about.html.ep:13
 msgid "Please contact the administrator: %1"
-msgstr "Bitte kontaktieren sie den Administrator: %1"
+msgstr "Bitte kontaktieren Sie den Administrator: %1"
 
 #: themes/default/templates/render.html.ep:33
 msgid ""
