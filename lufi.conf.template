@@ -71,7 +71,7 @@
     # optional, default is 0 (no limit)
     #default_delay     => 0,
 
-    # Number of days after which the images will be deleted, even if they were uploaded with "no delay" (or value superior to max_delay)
+    # Number of days after which the files will be deleted, even if they were uploaded with "no delay" (or value superior to max_delay)
     # A warning message will be displayed on homepage
     # optional, default is 0 (no limit)
     #max_delay         => 0,
@@ -238,10 +238,13 @@
     # You may need to fetch some attributes from LDAP to use some invitations settings. See `ldap_map_attr` above.
     # optional, no default
     #invitations => {
+    #   # The name of the key set in `ldap_map_attr` (above) that corresponds to the mail of the LDAP user
+    #   # optional, default is `mail`
+    #   mail_attr => 'mail',
     #   # The `From` header of invitation mail can be the mail of the LDAP user
-    #   # To enable this feature, set it to the `ldap_map_attr` attribute containing his or her mail.
+    #   # To enable this feature, set it to 1
     #   # optional, disabled by default
-    #   send_invitation_with_ldap_user_mail => 'mail',
+    #   send_invitation_with_ldap_user_mail => 1,
     #   # The user is able to set an expiration delay for the invitation.
     #   # This expiration delay can’t be more than this setting (in days).
     #   # optional, default is 30 days
@@ -260,7 +263,7 @@
     #   # set this option to 1.
     #   # optional, default is 0 (disabled)
     #   extend_invitation_expiration_on_resend => 0,
-    #}
+    #},
 
     #########################
     # Htpasswd authentication
