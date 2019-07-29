@@ -11,6 +11,8 @@ window.sliceLength = 2000000;
 // Global zip objects for currently created zip file
 window.zip = null;
 window.zipSize = 0;
+// Init the list of files (used by LDAP invitation feature)
+window.filesURLs = [];
 
 // Copy a link to clipboard
 function copyToClipboard(txt) {
@@ -184,6 +186,28 @@ function updateMailLink() {
     $('#mailto').attr('href', u);
 }
 
+// [Invitation feature] Send URLs of files to server
+function sendFilesURLs() {
+    if (window.filesURLs.length > 0) {
+        $.ajax({
+            url: sendFilesURLsURL,
+            method: 'POST',
+            dataType: 'json',
+            data: {
+                urls: window.filesURLs
+            },
+            success: function(data, textStatus, jqXHR) {
+                if (data.success) {
+                    Materialize.toast(data.msg, 6000, 'teal accent-3');
+                } else {
+                    Materialize.toast(data.msg, 10000, 'red accent-2');
+                }
+            }
+        });
+    }
+}
+
+
 // Start uploading the files (called from <input> and from drop zone)
 function handleFiles(f) {
     var delay             = $('#delete-day');
@@ -221,6 +245,7 @@ function handleFiles(f) {
     } else {
         if (window.fileList === undefined || window.fileList === null) {
             window.fileList = Array.prototype.slice.call(f);
+            window.nbFiles  = window.fileList.length;
             $('#results').show();
             uploadFile(0, delay.val(), del_at_first_view.is(':checked'));
         } else {
@@ -492,6 +517,10 @@ function updateProgressBar(data) {
                 // Add the file to localStorage
                 addItem(data.name, url, data.size, del_at_first_view, created_at, delay, data.short, data.token);
 
+                if (isGuest && short !== null) {
+                    window.filesURLs.push(JSON.stringify({ name: data.name, short: data.short, url: url, size: data.size, created_at: created_at, delay: delay, token: data.token }));
+                }
+
                 // Upload next file
                 window.fc++;
                 i++;
@@ -505,6 +534,9 @@ function updateProgressBar(data) {
                     $('#first-view').attr('disabled', null);
                     if ($('#zip-files').is(':checked')) {
                         $('label[for="zip-files"]').click();
+                    }
+                    if (isGuest) {
+                        sendFilesURLs();
                     }
 
                 }
@@ -522,6 +554,9 @@ function updateProgressBar(data) {
             }
         } else {
             addAlertOnFile(data.msg, i, delay, del_at_first_view);
+            if (isGuest) {
+                sendFilesURLs();
+            }
         }
     }
 }

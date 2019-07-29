@@ -24,7 +24,10 @@ sub files {
 sub upload {
     my $c = shift;
 
-    if ((!defined($c->config('ldap')) && !defined($c->config('htpasswd'))) || $c->is_user_authenticated) {
+    my $invitation;
+    my $token = $c->session->{guest_token};
+    $invitation = Lufi::DB::Invitation->new(app => $c->app)->from_token($token) if $token;
+    if ((!defined($c->config('ldap')) && !defined($c->config('htpasswd'))) || $c->is_user_authenticated || $invitation) {
         $c->inactivity_timeout(30000000);
 
         $c->app->log->debug('Client connected');
@@ -32,6 +35,8 @@ sub upload {
         $c->on(
             message => sub {
                 my ($ws, $text) = @_;
+
+                my $invit = Lufi::DB::Invitation->new(app => $c->app)->from_token($token) if $token;
 
                 my $begin = time;
 
@@ -81,7 +86,7 @@ sub upload {
                     )));
                 }
                 # Check against max_size
-                elsif (defined $c->config('max_file_size')) {
+                if (defined $c->config('max_file_size')) {
                     if ($json->{size} > $c->config('max_file_size')) {
                         $stop = 1;
                         return $ws->send(decode('UTF-8', encode_json(
@@ -95,7 +100,7 @@ sub upload {
                     }
                 }
                 # Check that we have enough space (multiplying by 2 since it's encrypted, it takes more place that the original file)
-                elsif ($json->{part} == 0 && ($json->{size} * 2) >= dfportable($c->config('upload_dir'))->{bavail}) {
+                if ($json->{part} == 0 && ($json->{size} * 2) >= dfportable($c->config('upload_dir'))->{bavail}) {
                     $stop = 1;
                     return $ws->send(decode('UTF-8', encode_json(
                         {
@@ -103,6 +108,18 @@ sub upload {
                             msg        => $c->l('No enough space available on the server for this file (size: %1).', format_bytes($json->{size})),
                             sent_delay => $json->{delay},
                             i          => $json->{i}
+                        }
+                    )));
+                }
+                # Check that the invitation is still valid, but only if it's the first chunk
+                # (i.e. a new file, we don't want to stop a current uploading)
+                if ($json->{part} == 0 && $invit && !$invit->is_valid()) {
+                    $stop = 1;
+                    $c->app->log->info(sprintf('Someone (%s) tried to use an expired or deleted invitation.', $invit->guest_mail));
+                    $ws->send(decode('UTF-8', encode_json(
+                        {
+                            success    => false,
+                            msg        => $c->l('Sorry, your invitation has expired or has been deleted. Please contact %1 to have another invitation.', $invit->ldap_user_mail),
                         }
                     )));
                 }
@@ -142,9 +159,15 @@ sub upload {
                         }
 
                         my $creator = $c->ip;
-                        if (defined($c->config('ldap')) || defined($c->config('htpasswd'))) {
-                            $creator = 'User: '.$c->current_user->{username}.', IP: '.$creator;
+                        # Authenticated user logging
+                        if ((defined($c->config('ldap')) || defined($c->config('htpasswd'))) && !$invitation) {
+                            $creator = sprintf('User: %s, IP: %s', $c->current_user->{username}, $creator);
                         }
+                        # Guest user logging
+                        if ($invitation) {
+                            $creator = sprintf('User: %s, IP: %s', $invitation->guest_mail, $creator);
+                        }
+
                         my $delete_at_first_view = ($json->{del_at_first_view}) ? 1 : 0;
                         $delete_at_first_view    = 1 if $c->app->config('force_burn_after_reading');
                         $f = Lufi::DB::File->new(app => $c->app)->get_empty()
@@ -190,23 +213,22 @@ sub upload {
                             }
                         }
 
-                        $ws->send(to_json(
-                            {
-                                success           => true,
-                                i                 => $json->{i},
-                                j                 => $json->{part},
-                                parts             => $json->{total},
-                                short             => $f->short,
-                                name              => $f->filename,
-                                size              => $f->filesize,
-                                del_at_first_view => (($f->delete_at_first_view) ? true : false),
-                                created_at        => $f->created_at,
-                                delay             => $f->delete_at_day,
-                                token             => $f->mod_token,
-                                sent_delay        => $json->{delay},
-                                duration          => time - $begin
-                            }
-                        ));
+                        my $result = {
+                            success           => true,
+                            i                 => $json->{i},
+                            j                 => $json->{part},
+                            parts             => $json->{total},
+                            short             => $f->short,
+                            name              => $f->filename,
+                            size              => $f->filesize,
+                            del_at_first_view => (($f->delete_at_first_view) ? true : false),
+                            created_at        => $f->created_at,
+                            delay             => $f->delete_at_day,
+                            token             => $f->mod_token,
+                            sent_delay        => $json->{delay},
+                            duration          => time - $begin
+                        };
+                        $ws->send(to_json($result));
                     } else {
                         $ws->send(decode('UTF-8', encode_json(
                             {

@@ -2,6 +2,7 @@
 package Lufi::Plugin::Helpers;
 use Mojo::Base 'Mojolicious::Plugin';
 use Lufi::DB::File;
+use Lufi::DB::Invitation;
 
 sub register {
     my ($self, $app) = @_;
@@ -10,7 +11,6 @@ sub register {
     if ($app->config('dbtype') eq 'postgresql' || $app->config('dbtype') eq 'mysql') {
         $app->plugin('PgURLHelper');
     }
-
 
     if ($app->config('dbtype') eq 'postgresql') {
         require Mojo::Pg;
@@ -58,13 +58,15 @@ sub register {
         $app->dbi->db->query('ALTER TABLE files ADD COLUMN passwd TEXT') unless $pwd_col;
     }
 
-    $app->helper(provisioning  => \&_provisioning);
-    $app->helper(get_empty     => \&_get_empty);
-    $app->helper(ip            => \&_ip);
-    $app->helper(default_delay => \&_default_delay);
-    $app->helper(max_delay     => \&_max_delay);
-    $app->helper(is_selected   => \&_is_selected);
-    $app->helper(stop_upload   => \&_stop_upload);
+    $app->helper(provisioning            => \&_provisioning);
+    $app->helper(get_empty               => \&_get_empty);
+    $app->helper(ip                      => \&_ip);
+    $app->helper(default_delay           => \&_default_delay);
+    $app->helper(max_delay               => \&_max_delay);
+    $app->helper(is_selected             => \&_is_selected);
+    $app->helper(stop_upload             => \&_stop_upload);
+    $app->helper(create_invitation_token => \&_create_invitation_token);
+    $app->helper(is_guest                => \&_is_guest);
 }
 
 sub _pg {
@@ -167,6 +169,21 @@ sub _stop_upload {
     if (-f 'stop-upload' || -f 'stop-upload.manual') {
         return 1;
     }
+    return 0;
+}
+
+sub _create_invitation_token {
+    my $c = shift;
+
+    return $c->shortener(32);
+}
+
+sub _is_guest {
+    my $c     = shift;
+    my $token = shift;
+
+    my $invitation = Lufi::DB::Invitation->new(app => $c->app)->from_token($token);
+    return $invitation if ($invitation && $invitation->is_valid);
     return 0;
 }
 

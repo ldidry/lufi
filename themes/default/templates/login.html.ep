@@ -22,6 +22,7 @@
         </div>
     </div>
     %= csrf_field
+    <input name="redirect" value="<%= stash('redirect') %>" type="hidden">
     <div class="col s8 m8 offset-s2 offset-m2">
         <button class="btn waves-effect waves-light" type="submit" name="action">
             <%= l('Signin') %>

@@ -2,6 +2,7 @@ package Lufi::Command::sqliteToOtherDB;
 use Mojo::Base 'Mojolicious::Command';
 use Lufi::DB::File;
 use Lufi::DB::Slice;
+use Lufi::DB::Invitation;
 use Mojo::SQLite;
 use FindBin qw($Bin);
 use Term::ProgressBar;
@@ -31,11 +32,12 @@ sub run {
         exit 1;
     }
 
-    my $sqlite = Mojo::SQLite->new('sqlite:'.$config->{db_path});
-    my $files  = $sqlite->db->select('files', undef)->hashes;
-    my $slices = $sqlite->db->select('slices', undef)->hashes;
+    my $sqlite      = Mojo::SQLite->new('sqlite:'.$config->{db_path});
+    my $files       = $sqlite->db->select('files', undef)->hashes;
+    my $slices      = $sqlite->db->select('slices', undef)->hashes;
+    my $invitations = $sqlite->db->select('invitations', undef)->hashes;
 
-    my $progress = Term::ProgressBar->new({count => $files->size + $slices->size});
+    my $progress = Term::ProgressBar->new({count => $files->size + $slices->size + $invitations->size});
 
     $files->each(sub {
         my ($file, $num) = @_;
@@ -70,6 +72,24 @@ sub run {
                       ->path($slice->{path})
                       ->write();
 
+        $progress->update();
+    });
+    $invitations->each(sub {
+        my ($invitation, $num) = @_;
+
+        Lufi::DB::Invitation->new(app => $c->app)
+                            ->token($invitation->{token})
+                            ->ldap_user($invitation->{ldap_user})
+                            ->ldap_user_mail($invitation->{ldap_user_mail})
+                            ->guest_mail($invitation->{guest_mail})
+                            ->created_at($invitation->{created_at})
+                            ->expire_at($invitation->{expire_at})
+                            ->files_sent_at($invitation->{files_sent_at})
+                            ->expend_expire_at($invitation->{expend_expire_at})
+                            ->files($invitation->{files})
+                            ->show_in_list($invitation->{show_in_list})
+                            ->deleted($invitation->{deleted})
+                            ->write();
         $progress->update();
     });
 }

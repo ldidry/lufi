@@ -23,6 +23,15 @@
             </div>
         </div>
 % }
+% if (stash('invitation')) {
+        <div class="col s12">
+            <div class="card blue">
+                <div class="card-content white-text">
+                    <strong><%= l('The link(s) of your file(s) will automatically be sent by mail to %1 (%2)', stash('invitation')->ldap_user, stash('invitation')->ldap_user_mail) %></strong>
+                </div>
+            </div>
+        </div>
+% }
         <div class="col s12 hiddendiv" id="not-enough-entropy">
             <div class="card pink">
                 <div class="card-content white-text">
@@ -71,12 +80,12 @@
                 <%= l('Files deleted at first download') %>
             </p>
         % }
-            <p class="col s12 m6 text-left<%= ' hiddendiv' if $self->config('force_burn_after_reading') %>">
+            <p class="col s12 m6 text-left<%= ' hiddendiv' if (config('force_burn_after_reading') || stash('invitation')) %>">
                 <input
                     type="checkbox"
                     id="first-view"
-                    data-checked="<%= 'data-checked' if $self->config('force_burn_after_reading') %>"
-                    <%= 'disabled="disabled"' if $self->config('force_burn_after_reading') %>
+                    data-checked="<%= 'data-checked' if config('force_burn_after_reading') %>"
+                    <%= 'disabled="disabled"' if config('force_burn_after_reading') %>
                 >
                 <label for="first-view"><%= l('Delete at first download?') %></label>
             </p>
@@ -91,7 +100,7 @@
                 <label for="zip-files"><%= l('Create a zip archive with the files before uploading?') %></label>
             </p>
         </div>
-    % if (config('allow_pwd_on_files')) {
+    % if (config('allow_pwd_on_files') && (!stash('invitation'))) {
         <div class="col s12 m6">
             <div class="input-field">
                 <input type="password" id="file_pwd" placeholder="<%= l('Password') %>" class="validate" autocomplete="off">
@@ -145,7 +154,11 @@
         </ul>
     </div>
 %= include 'delays'
+% if (defined stash('invitation')) {
+%= javascript '/partial/index.js?token=' . stash('invitation')->token
+% } else {
 %= javascript '/partial/index.js'
+% }
 %= javascript '/js/sjcl.js'
 %= javascript '/js/moment-with-locales.min.js'
 %= javascript '/js/filesize.min.js'

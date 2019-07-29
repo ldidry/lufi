@@ -32,6 +32,10 @@
                 % if ((!defined(config('ldap')) && !defined(config('htpasswd'))) || is_user_authenticated()) {
                     <li<%== ' class="active"' if (current_route eq 'index') %>><a href="<%= url_for('/') %>"><%= l('Upload files') %></a></li>
                     <li<%== ' class="active"' if (current_route eq 'files') %>><a href="<%= url_for('/files') %>"><%= l('My files') %></a></li>
+                    % if (defined $self->config('ldap') && defined $self->config('invitations')) {
+                        <li<%== ' class="active"' if (current_route eq 'invite') %>><a href="<%= url_for('/invite') %>"><%= l('Invite a guest') %></a></li>
+                        <li<%== ' class="active"' if (current_route eq 'invite/list') %>><a href="<%= url_for('/invite/list') %>"><%= l('My invitations') %></a></li>
+                    % }
                 % } else {
                     <li><a href="<%= url_for('/login') %>"><%= l('Signin') %></a></li>
                 % }

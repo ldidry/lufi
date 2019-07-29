@@ -8,9 +8,7 @@ has 'token';
 has 'ldap_user';
 has 'ldap_user_mail';
 has 'guest_mail';
-has 'created_at' => sub {
-    return time;
-};
+has 'created_at';
 has 'expire_at';
 has 'files_sent_at';
 has 'expend_expire_at';
@@ -199,6 +197,32 @@ sub show {
     return $c;
 }
 
+=head2 toggle_visibility
+
+=over 1
+
+=item B<Usage>     : C<$c-E<gt>toggle_visibility>
+
+=item B<Arguments> : none
+
+=item B<Purpose>   : toggle the C<show_in_list> flag
+
+=item B<Returns>   : the db accessor object
+
+=back
+
+=cut
+
+sub toggle_visibility {
+    my $c = shift;
+
+    if ($c->show_in_list) {
+        return $c->hide;
+    } else {
+        return $c->show;
+    }
+}
+
 =head2 write
 
 =over 1
@@ -236,7 +260,7 @@ sub write {
 
 =item B<Arguments> : string
 
-=item B<Purpose>   : find an invitation in the database from its token attribute
+=item B<Purpose>   : find an invitation in the database from its C<token> attribute
 
 =item B<Returns>   : a db accessor object
 
@@ -257,11 +281,49 @@ sub from_token {
     }
 }
 
+=head2 from_user
+
+=over 1
+
+=item B<Usage>     : C<$c-E<gt>from_user($mail)>
+
+=item B<Arguments> : string
+
+=item B<Purpose>   : find invitations in the database from their C<ldap_user_mail> attribute
+
+=item B<Returns>   : a Mojo::Collection of Lufi::DB::Invitation objects, sorted by creation date
+
+=back
+
+=cut
+
+sub from_user {
+    my $c    = shift;
+    my $user = shift;
+
+    my $r = $c->app->dbi->db
+              ->select('invitations', undef, { ldap_user => $user })
+              ->hashes;
+
+    if ($r->size) {
+        my @invitations;
+        $r->each(sub {
+            my ($e, $num) = @_;
+            $e->{app}    = $c->app;
+            $e->{record} = 1;
+            push @invitations, Lufi::DB::Invitation->new($e);
+        });
+        return c(@invitations);
+    } else {
+        return undef;
+    }
+}
+
 =head2 is_token_used
 
 =over 1
 
-=item B<Usage>     : C<$c-E<gt>does_token_exists($token)>
+=item B<Usage>     : C<$c-E<gt>is_token_used($token)>
 
 =item B<Arguments> : string
 
@@ -285,6 +347,30 @@ sub is_token_used {
         $c->app->dbi->db->insert('invitations', { token => $token });
         return 0;
     }
+}
+
+=head2 is_valid
+
+=over 1
+
+=item B<Usage>     : C<$c-E<gt>is_valid()>
+
+=item B<Arguments> : none
+
+=item B<Purpose>   : tells if an invitation is still valid
+
+=item B<Returns>   : a boolean
+
+=back
+
+=cut
+
+sub is_valid {
+    my $c = shift;
+
+    my $time = time;
+    #       Active          After creation date        Before expiration date   Before files send date plus extension delay
+    return (!$c->deleted && $time >= $c->created_at && $time < $c->expire_at && (!defined($c->files_sent_at) || $time < ($c->files_sent_at + $c->expend_expire_at * 60)));
 }
 
 =head2 _slurp

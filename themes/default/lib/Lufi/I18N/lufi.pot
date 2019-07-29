@@ -17,8 +17,32 @@ msgstr ""
 
 #. ($delay)
 #. (max_delay)
-#: themes/default/templates/index.html.ep:47 themes/default/templates/index.html.ep:56 themes/default/templates/index.html.ep:57
+#: themes/default/templates/index.html.ep:56 themes/default/templates/index.html.ep:65 themes/default/templates/index.html.ep:66
 msgid "%1 days"
+msgstr ""
+
+#. (stash('invitation')
+#: themes/default/templates/invitations/notification_files_sent.mail.ep:4
+msgid "%1 have send you files"
+msgstr ""
+
+#. (stash('ldap_user')
+#: themes/default/templates/invitations/invite.mail.ep:2
+msgid "%1 invites you to send him/her files"
+msgstr ""
+
+#. (stash('ldap_user')
+#: themes/default/templates/invitations/invite.mail.ep:6
+msgid "%1 invites you to send him/her files through Lufi."
+msgstr ""
+
+#. (stash('invitation')
+#: themes/default/templates/invitations/notification_files_sent.mail.ep:8
+msgid "%1 used your invitation to send you files:"
+msgstr ""
+
+#: lib/Lufi/Controller/Invitation.pm:159 lib/Lufi/Controller/Invitation.pm:84 themes/default/templates/invitations/my_invitations.html.ep:51 themes/default/templates/invitations/my_invitations.html.ep:52 themes/default/templates/invitations/my_invitations.html.ep:53 themes/default/templates/invitations/notification_files_sent.mail.ep:12
+msgid "%A %d %B %Y at %T"
 msgstr ""
 
 #: themes/default/templates/partial/index.js.ep:26
@@ -29,7 +53,7 @@ msgstr ""
 msgid "1 year"
 msgstr ""
 
-#: themes/default/templates/index.html.ep:4 themes/default/templates/index.html.ep:56
+#: themes/default/templates/index.html.ep:4 themes/default/templates/index.html.ep:65
 msgid "24 hours"
 msgstr ""
 
@@ -41,16 +65,24 @@ msgstr ""
 msgid "Abort"
 msgstr ""
 
-#: themes/default/templates/layouts/default.html.ep:49 themes/default/templates/layouts/default.html.ep:78
+#: themes/default/templates/layouts/default.html.ep:53 themes/default/templates/layouts/default.html.ep:82
 msgid "About"
 msgstr ""
 
-#: themes/default/templates/index.html.ep:98
+#: themes/default/templates/index.html.ep:107
 msgid "Add a password to file(s)"
 msgstr ""
 
 #: themes/default/templates/mail.html.ep:16
 msgid "Adding URLs not related to this Lufi instance to the mail body or subject is prohibited."
+msgstr ""
+
+#: themes/default/templates/partial/invitations.js.ep:3
+msgid "Are you sure you want to delete the selected invitations?"
+msgstr ""
+
+#: themes/default/templates/partial/invitations.js.ep:4
+msgid "Are you sure you want to resend the invitation mail for the selected invitations?"
 msgstr ""
 
 #: themes/default/templates/about.html.ep:17
@@ -70,7 +102,7 @@ msgstr ""
 msgid "Bad CSRF token!"
 msgstr ""
 
-#: lib/Lufi/Controller/Auth.pm:22 lib/Lufi/Controller/Auth.pm:39
+#: lib/Lufi/Controller/Auth.pm:27 lib/Lufi/Controller/Auth.pm:49
 msgid "Bad CSRF token."
 msgstr ""
 
@@ -78,11 +110,15 @@ msgstr ""
 msgid "Click here to refresh the page and restart the download."
 msgstr ""
 
-#: themes/default/templates/index.html.ep:119
+#: themes/default/templates/invitations/invite.mail.ep:8
+msgid "Click on the following URL to upload files on Lufi:"
+msgstr ""
+
+#: themes/default/templates/index.html.ep:128
 msgid "Click to open the file browser"
 msgstr ""
 
-#: themes/default/templates/delays.html.ep:38
+#: themes/default/templates/delays.html.ep:38 themes/default/templates/invitations/my_invitations.html.ep:80
 msgid "Close"
 msgstr ""
 
@@ -90,7 +126,7 @@ msgstr ""
 msgid "Comma-separated email addresses"
 msgstr ""
 
-#: themes/default/templates/index.html.ep:133
+#: themes/default/templates/index.html.ep:142
 msgid "Compressing zip file…"
 msgstr ""
 
@@ -102,15 +138,15 @@ msgstr ""
 msgid "Copy to clipboard"
 msgstr ""
 
-#: lib/Lufi/Controller/Files.pm:485
+#: lib/Lufi/Controller/Files.pm:507
 msgid "Could not delete the file. You are not authenticated."
 msgstr ""
 
-#: lib/Lufi/Controller/Files.pm:467
+#: lib/Lufi/Controller/Files.pm:489
 msgid "Could not find the file. Are you sure of the URL and the token?"
 msgstr ""
 
-#: lib/Lufi/Controller/Files.pm:378
+#: lib/Lufi/Controller/Files.pm:400
 msgid "Could not find the file. Are you sure of the URL?"
 msgstr ""
 
@@ -118,11 +154,19 @@ msgstr ""
 msgid "Counter"
 msgstr ""
 
-#: themes/default/templates/index.html.ep:91
+#: themes/default/templates/index.html.ep:100
 msgid "Create a zip archive with the files before uploading?"
 msgstr ""
 
-#: themes/default/templates/files.html.ep:29 themes/default/templates/index.html.ep:81
+#: themes/default/templates/invitations/my_invitations.html.ep:26
+msgid "Created at"
+msgstr ""
+
+#: themes/default/templates/invitations/my_invitations.html.ep:14
+msgid "Delete"
+msgstr ""
+
+#: themes/default/templates/files.html.ep:29 themes/default/templates/index.html.ep:90
 msgid "Delete at first download?"
 msgstr ""
 
@@ -154,8 +198,12 @@ msgstr ""
 msgid "Drag and drop files in the appropriate area or use the traditional way to send files and the files will be chunked, encrypted and sent to the server. You will get two links per file: a download link, that you give to the people you want to share the file with and a deletion link, allowing you to delete the file whenever you want."
 msgstr ""
 
-#: themes/default/templates/index.html.ep:115
+#: themes/default/templates/index.html.ep:124
 msgid "Drop files here"
+msgstr ""
+
+#: themes/default/templates/invitations/invite.html.ep:40
+msgid "Email address of your guest"
 msgstr ""
 
 #: themes/default/templates/mail.html.ep:39
@@ -174,20 +222,24 @@ msgstr ""
 msgid "Encrypting part XX1 of XX2"
 msgstr ""
 
-#: lib/Lufi/Controller/Files.pm:267
+#: lib/Lufi/Controller/Files.pm:289
 msgid "Error: the file existed but was deleted."
 msgstr ""
 
-#: lib/Lufi/Controller/Files.pm:347
+#: lib/Lufi/Controller/Files.pm:369
 msgid "Error: the file has not been sent entirely."
 msgstr ""
 
-#: lib/Lufi/Controller/Files.pm:357
+#: lib/Lufi/Controller/Files.pm:379
 msgid "Error: unable to find the file. Are you sure of your URL?"
 msgstr ""
 
 #: themes/default/templates/partial/index.js.ep:22
 msgid "Expiration:"
+msgstr ""
+
+#: themes/default/templates/invitations/my_invitations.html.ep:27
+msgid "Expire at"
 msgstr ""
 
 #: themes/default/templates/files.html.ep:31
@@ -198,7 +250,7 @@ msgstr ""
 msgid "Export localStorage data"
 msgstr ""
 
-#: lib/Lufi/Controller/Files.pm:449
+#: lib/Lufi/Controller/Files.pm:471
 msgid "File deleted"
 msgstr ""
 
@@ -206,8 +258,20 @@ msgstr ""
 msgid "File name"
 msgstr ""
 
-#: themes/default/templates/index.html.ep:71
+#: themes/default/templates/invitations/my_invitations.html.ep:61
+msgid "Files"
+msgstr ""
+
+#: themes/default/templates/index.html.ep:80
 msgid "Files deleted at first download"
+msgstr ""
+
+#: themes/default/templates/invitations/my_invitations.html.ep:28
+msgid "Files sent at"
+msgstr ""
+
+#: themes/default/templates/partial/invitations.js.ep:8
+msgid "Files sent in invitation XX1 by XX2"
 msgstr ""
 
 #: themes/default/templates/partial/render.js.ep:8
@@ -218,12 +282,29 @@ msgstr ""
 msgid "Get the source code on <a href=\"https://framagit.org/luc/lufi\" class=\"classic\">the official repository</a> or on its <a href=\"https://github.com/ldidry/lufi\" class=\"classic\">Github mirror</a>"
 msgstr ""
 
+#: themes/default/templates/invitations/my_invitations.html.ep:24
+msgid "Guest mail"
+msgstr ""
+
+#. (ucfirst(stash('invitation')
+#: themes/default/templates/invitations/notification_files_sent.mail.ep:6
+msgid "Hello %1,"
+msgstr ""
+
+#: themes/default/templates/invitations/invite.mail.ep:4
+msgid "Hello,"
+msgstr ""
+
 #: themes/default/templates/partial/mail.js.ep:35
 msgid "Hello,\\n\\nHere's some files I want to share with you:\\n"
 msgstr ""
 
 #: themes/default/templates/mail.html.ep:35
 msgid "Here's some files"
+msgstr ""
+
+#: themes/default/templates/partial/invitations.js.ep:7
+msgid "Hide hidden invitations"
 msgstr ""
 
 #: themes/default/templates/partial/index.js.ep:24
@@ -236,6 +317,10 @@ msgstr ""
 
 #: themes/default/templates/about.html.ep:9
 msgid "How does it work?"
+msgstr ""
+
+#: themes/default/templates/invitations/invite.html.ep:46
+msgid "How many days would you like the invitation to be valid?"
 msgstr ""
 
 #: themes/default/templates/about.html.ep:16
@@ -258,12 +343,30 @@ msgstr ""
 msgid "Import localStorage data"
 msgstr ""
 
-#: themes/default/templates/index.html.ep:44
+#: themes/default/templates/index.html.ep:53
 msgid "Important: more information on delays"
 msgstr ""
 
 #: themes/default/templates/delays.html.ep:5
 msgid "Information about delays"
+msgstr ""
+
+#: themes/default/templates/invitations/my_invitations.html.ep:12
+msgid "Invert selection"
+msgstr ""
+
+#. ($i->guest_mail, $url)
+#: lib/Lufi/Controller/Invitation.pm:171
+msgid "Invitation resent to %1.<br> URL: %2"
+msgstr ""
+
+#. ($invitation->guest_mail, $url)
+#: lib/Lufi/Controller/Invitation.pm:87
+msgid "Invitation sent to %1.<br> URL: %2"
+msgstr ""
+
+#: themes/default/templates/invitations/invite.html.ep:27 themes/default/templates/layouts/default.html.ep:36
+msgid "Invite a guest"
 msgstr ""
 
 #: themes/default/templates/partial/render.js.ep:6
@@ -274,7 +377,7 @@ msgstr ""
 msgid "Javascript is disabled. You won't be able to use Lufi."
 msgstr ""
 
-#: themes/default/templates/layouts/default.html.ep:40 themes/default/templates/layouts/default.html.ep:42 themes/default/templates/layouts/default.html.ep:69 themes/default/templates/layouts/default.html.ep:71
+#: themes/default/templates/layouts/default.html.ep:44 themes/default/templates/layouts/default.html.ep:46 themes/default/templates/layouts/default.html.ep:73 themes/default/templates/layouts/default.html.ep:75
 msgid "Language"
 msgstr ""
 
@@ -282,7 +385,7 @@ msgstr ""
 msgid "Login"
 msgstr ""
 
-#: themes/default/templates/layouts/default.html.ep:54 themes/default/templates/layouts/default.html.ep:80
+#: themes/default/templates/layouts/default.html.ep:58 themes/default/templates/layouts/default.html.ep:84
 msgid "Logout"
 msgstr ""
 
@@ -294,16 +397,24 @@ msgstr ""
 msgid "Mail"
 msgstr ""
 
-#: themes/default/templates/files.html.ep:3 themes/default/templates/layouts/default.html.ep:34 themes/default/templates/layouts/default.html.ep:63
+#: themes/default/templates/files.html.ep:3 themes/default/templates/layouts/default.html.ep:34 themes/default/templates/layouts/default.html.ep:67
 msgid "My files"
 msgstr ""
 
-#: themes/default/templates/index.html.ep:106
+#: themes/default/templates/invitations/my_invitations.html.ep:5 themes/default/templates/layouts/default.html.ep:37
+msgid "My invitations"
+msgstr ""
+
+#: themes/default/templates/invitations/notification_files_sent.mail.ep:17
+msgid "NB: this list includes the list of files that have already been sent to you."
+msgstr ""
+
+#: themes/default/templates/index.html.ep:115
 msgid "Name of the zip file"
 msgstr ""
 
 #. (format_bytes($json->{size})
-#: lib/Lufi/Controller/Files.pm:103
+#: lib/Lufi/Controller/Files.pm:108
 msgid "No enough space available on the server for this file (size: %1)."
 msgstr ""
 
@@ -315,7 +426,7 @@ msgstr ""
 msgid "Only the files sent with this browser will be listed here. This list is stored in localStorage: if you delete your localStorage data, you'll lose this list."
 msgstr ""
 
-#: themes/default/templates/index.html.ep:97 themes/default/templates/login.html.ep:21 themes/default/templates/render.html.ep:26
+#: themes/default/templates/index.html.ep:106 themes/default/templates/login.html.ep:21 themes/default/templates/render.html.ep:26
 msgid "Password"
 msgstr ""
 
@@ -328,7 +439,7 @@ msgstr ""
 msgid "Please wait while we are getting your file. We first need to download and decrypt all parts before you can get it."
 msgstr ""
 
-#: lib/Lufi/Controller/Auth.pm:28
+#: lib/Lufi/Controller/Auth.pm:38
 msgid "Please, check your credentials or your right to access this service: unable to authenticate."
 msgstr ""
 
@@ -340,8 +451,24 @@ msgstr ""
 msgid "Purge expired files from localStorage"
 msgstr ""
 
-#: themes/default/templates/layouts/default.html.ep:31 themes/default/templates/layouts/default.html.ep:60
+#: themes/default/templates/invitations/notification_files_sent.mail.ep:20
+msgid "Regards,"
+msgstr ""
+
+#: themes/default/templates/invitations/invite.mail.ep:15
+msgid "Regards."
+msgstr ""
+
+#: themes/default/templates/layouts/default.html.ep:31 themes/default/templates/layouts/default.html.ep:64
 msgid "Report file"
+msgstr ""
+
+#: themes/default/templates/invitations/my_invitations.html.ep:15
+msgid "Resend invitation mail"
+msgstr ""
+
+#: themes/default/templates/invitations/my_invitations.html.ep:9
+msgid "Rows in purple mean that the invitations have expired."
 msgstr ""
 
 #: themes/default/templates/files.html.ep:9
@@ -350,6 +477,10 @@ msgstr ""
 
 #: themes/default/templates/partial/index.js.ep:25
 msgid "Send all links by email"
+msgstr ""
+
+#: themes/default/templates/invitations/invite.html.ep:50
+msgid "Send the invitation"
 msgstr ""
 
 #: themes/default/templates/mail.html.ep:46
@@ -369,20 +500,42 @@ msgstr ""
 msgid "Share your files in total privacy on %1"
 msgstr ""
 
+#: themes/default/templates/invitations/my_invitations.html.ep:13 themes/default/templates/partial/invitations.js.ep:9
+msgid "Show hidden invitations"
+msgstr ""
+
 #: themes/default/templates/partial/render.js.ep:11
 msgid "Show zip content"
 msgstr ""
 
-#: themes/default/templates/layouts/default.html.ep:36 themes/default/templates/layouts/default.html.ep:65 themes/default/templates/login.html.ep:27 themes/default/templates/logout.html.ep:17
+#: themes/default/templates/layouts/default.html.ep:40 themes/default/templates/layouts/default.html.ep:69 themes/default/templates/login.html.ep:28 themes/default/templates/logout.html.ep:17
 msgid "Signin"
 msgstr ""
 
-#: themes/default/templates/index.html.ep:37
+#: lib/Lufi/Controller/Invitation.pm:277 themes/default/templates/invitations/exception.html.ep:16
+msgid "Sorry, the invitation doesn’t exist. Are you sure you are on the right URL?"
+msgstr ""
+
+#: themes/default/templates/index.html.ep:46
 msgid "Sorry, the uploading is currently disabled. Please try again later."
 msgstr ""
 
-#: lib/Lufi/Controller/Files.pm:77
+#: lib/Lufi/Controller/Files.pm:82
 msgid "Sorry, uploading is disabled."
+msgstr ""
+
+#: themes/default/templates/invitations/exception.html.ep:7
+msgid "Sorry, your invitation has expired or has been deleted."
+msgstr ""
+
+#. ($invit->ldap_user_mail)
+#: lib/Lufi/Controller/Files.pm:122
+msgid "Sorry, your invitation has expired or has been deleted. Please contact %1 to have another invitation."
+msgstr ""
+
+#. ($invitation->ldap_user_mail)
+#: lib/Lufi/Controller/Invitation.pm:270
+msgid "The URLs of your files have been sent by email to %1."
 msgstr ""
 
 #: themes/default/templates/about.html.ep:7
@@ -405,7 +558,12 @@ msgstr ""
 msgid "The email subject can't be empty."
 msgstr ""
 
-#: lib/Lufi/Controller/Files.pm:446
+#. ($expire_at, $max_expire_at)
+#: lib/Lufi/Controller/Invitation.pm:51
+msgid "The expiration delay (%1) is not between 1 and %2 days."
+msgstr ""
+
+#: lib/Lufi/Controller/Files.pm:468
 msgid "The file has already been deleted"
 msgstr ""
 
@@ -418,8 +576,38 @@ msgstr ""
 msgid "The following email addresses are not valid: %1"
 msgstr ""
 
+#. ($guest_mail)
+#: lib/Lufi/Controller/Invitation.pm:48
+msgid "The guest email address (%1) is unvalid."
+msgstr ""
+
+#. ($i->token, $i->guest_mail)
+#: lib/Lufi/Controller/Invitation.pm:150
+msgid "The invitation %1 can’t be resend: %2 has already sent files.<br>Please create a new invitation."
+msgstr ""
+
+#. ($i->token)
+#: lib/Lufi/Controller/Invitation.pm:130
+msgid "The invitation %1 has been deleted."
+msgstr ""
+
+#. (stash('user_mail')
+#: themes/default/templates/invitations/invite.html.ep:34
+msgid "The invitation mail will be send from your email address (%1)."
+msgstr ""
+
 #: themes/default/templates/partial/index.js.ep:15
 msgid "The link(s) has been copied to your clipboard"
+msgstr ""
+
+#. (stash('invitation')
+#: themes/default/templates/index.html.ep:30
+msgid "The link(s) of your file(s) will automatically be sent by mail to %1 (%2)"
+msgstr ""
+
+#. (stash('ldap_user')
+#: themes/default/templates/invitations/invite.mail.ep:11
+msgid "The links of your file(s) will automatically be send by mail to %1."
 msgstr ""
 
 #: lib/Lufi/Controller/Mail.pm:97
@@ -430,16 +618,33 @@ msgstr ""
 msgid "The original (and only for now) author is <a href=\"https://fiat-tux.fr\" class=\"classic\">Luc Didry</a>."
 msgstr ""
 
-#: lib/Lufi/Controller/Files.pm:214
+#: lib/Lufi/Controller/Files.pm:236
 msgid "The server was unable to find the file record to add your file part to. Please, contact the administrator."
 msgstr ""
 
-#: lib/Lufi/Controller/Files.pm:273
+#: lib/Lufi/Controller/Files.pm:295
 msgid "This file has been deactivated by the admins. Contact them to know why."
+msgstr ""
+
+#: themes/default/templates/invitations/my_invitations.html.ep:46 themes/default/templates/partial/invitations.js.ep:6
+msgid "This invitation is normally hidden"
+msgstr ""
+
+#. (stash('expires')
+#: themes/default/templates/invitations/invite.mail.ep:13
+msgid "This invitation is valid until %1."
 msgstr ""
 
 #: themes/default/templates/delays.html.ep:10
 msgid "This server sets limitations according to the file size. The expiration delay of your file will be the minimum between what you choose and the following limitations:"
+msgstr ""
+
+#: themes/default/templates/invitations/my_invitations.html.ep:16
+msgid "Toggle visibility"
+msgstr ""
+
+#: themes/default/templates/invitations/my_invitations.html.ep:25
+msgid "URL"
 msgstr ""
 
 #: themes/default/templates/partial/index.js.ep:16
@@ -447,25 +652,25 @@ msgid "Unable to copy the link(s) to your clipboard"
 msgstr ""
 
 #. ($short)
-#: lib/Lufi/Controller/Files.pm:417
+#: lib/Lufi/Controller/Files.pm:439
 msgid "Unable to get counter for %1. The file does not exists. It will be removed from your localStorage."
 msgstr ""
 
 #. ($short)
-#: lib/Lufi/Controller/Files.pm:407
+#: lib/Lufi/Controller/Files.pm:429
 msgid "Unable to get counter for %1. The token is invalid."
 msgstr ""
 
 #. ($short)
-#: lib/Lufi/Controller/Files.pm:427
+#: lib/Lufi/Controller/Files.pm:449
 msgid "Unable to get counter for %1. You are not authenticated."
 msgstr ""
 
-#: themes/default/templates/layouts/default.html.ep:33 themes/default/templates/layouts/default.html.ep:62
+#: themes/default/templates/layouts/default.html.ep:33 themes/default/templates/layouts/default.html.ep:66
 msgid "Upload files"
 msgstr ""
 
-#: themes/default/templates/index.html.ep:110
+#: themes/default/templates/index.html.ep:119
 msgid "Upload generated zip file"
 msgstr ""
 
@@ -473,7 +678,7 @@ msgstr ""
 msgid "Uploaded at"
 msgstr ""
 
-#: themes/default/templates/index.html.ep:142
+#: themes/default/templates/index.html.ep:151
 msgid "Uploaded files"
 msgstr ""
 
@@ -487,6 +692,10 @@ msgstr ""
 
 #: themes/default/templates/about.html.ep:14
 msgid "Who wrote this software?"
+msgstr ""
+
+#: themes/default/templates/invitations/invite.html.ep:30
+msgid "You can invite someone to send you files through this Lufi instance even if they don’t have an account on it."
 msgstr ""
 
 #: themes/default/templates/about.html.ep:11
@@ -521,16 +730,16 @@ msgstr ""
 msgid "You must give email addresses."
 msgstr ""
 
-#: themes/default/templates/index.html.ep:29
+#: themes/default/templates/index.html.ep:38
 msgid "Your browser has not enough entropy to generate a strong encryption key. Please wait (it's better if you do things on your computer while waiting)."
 msgstr ""
 
 #. (format_bytes($json->{size})
-#: lib/Lufi/Controller/Files.pm:90
+#: lib/Lufi/Controller/Files.pm:95
 msgid "Your file is too big: %1 (maximum size allowed: %2)"
 msgstr ""
 
-#: lib/Lufi/Controller/Files.pm:329
+#: lib/Lufi/Controller/Files.pm:351
 msgid "Your password is not valid. Please refresh the page to retry."
 msgstr ""
 
@@ -548,6 +757,10 @@ msgstr ""
 msgid "deadline: "
 msgstr ""
 
+#: themes/default/templates/partial/invitations.js.ep:5
+msgid "expires on XXX"
+msgstr ""
+
 #. (format_bytes($keys[$i])
 #: themes/default/templates/delays.html.ep:26
 msgid "for %1 and more, the file will be kept %2 day(s)"
@@ -562,6 +775,11 @@ msgstr ""
 msgid "no time limit"
 msgstr ""
 
-#: themes/default/templates/index.html.ep:117
+#: themes/default/templates/index.html.ep:126
 msgid "or"
+msgstr ""
+
+#. ($e->{name}, format_bytes($e->{size})
+#: themes/default/templates/invitations/notification_files_sent.mail.ep:12
+msgid "— %1 (%2), that will expire on %3"
 msgstr ""
