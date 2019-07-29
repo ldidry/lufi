@@ -29,8 +29,11 @@ test:
 clean:
 	rm -rf lufi.db files/
 
-dev: clean
+dev: clean devldap
 	$(CARTON) morbo $(LUFI) --listen http://0.0.0.0:3000 --watch lib/ --watch script/ --watch themes/ --watch lufi.conf
+
+devldap:
+	sudo docker run --privileged -d -p 389:389 rroemhild/test-openldap; exit 0
 
 devlog:
 	multitail log/development.log
