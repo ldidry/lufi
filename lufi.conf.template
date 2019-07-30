@@ -242,6 +242,7 @@
     #   # optional, default is `mail`
     #   mail_attr => 'mail',
     #   # The `From` header of invitation mail can be the mail of the LDAP user
+    #   # Be sure to have a mail system that will correctly send the mail from your users! (DKIM, SPF…)
     #   # To enable this feature, set it to 1
     #   # optional, disabled by default
     #   send_invitation_with_ldap_user_mail => 1,
@@ -251,6 +252,7 @@
     #   max_invitation_expiration_delay => 30,
     #   # Once the guest has submitted his files, he has an additional period of time to submit forgotten files.
     #   # You can set that additional period of time in minutes here.
+    #   # To disable that feature, set it to 0 or less
     #   # optional, default is 10 minutes
     #   max_additional_period => 10,
     #   # Lufi follows privacy-by-design, so, by default, no files URLs (with the decode secret) are stored in database.
