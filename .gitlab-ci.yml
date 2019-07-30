@@ -1,4 +1,4 @@
-image: hatsoftwares/lufi-test-ci:latest
+image: hatsoftwares/lufi-test-ci:buster
 stages:
   - publish_changelog
   - carton
@@ -42,6 +42,8 @@ variables:
   before_script:
     - tar xf local.tar && rm local.tar
     - which mariadb_config && cd $(dirname $(which mariadb_config)) && ln -s mariadb_config mysql_config
+    - cd $CI_PROJECT_DIR
+    - pwd
   script:
     - MOJO_CONFIG="t/${CI_JOB_NAME}.conf" make test
     - MOJO_CONFIG="t/${CI_JOB_NAME}.conf" make cover
@@ -58,7 +60,7 @@ variables:
   dependencies:
     - carton_postgresql
   services:
-    - name: postgres:9.6
+    - name: postgres:11
       alias: postgres
     - name: rroemhild/test-openldap
       alias: rroemhild-test-openldap
@@ -67,7 +69,7 @@ variables:
   dependencies:
     - carton_mysql
   services:
-    - name: mariadb:10.1
+    - name: mariadb:10.3
       alias: mariadb
     - name: rroemhild/test-openldap
       alias: rroemhild-test-openldap
@@ -136,6 +138,9 @@ carton_postgresql:
     - carton install --deployment --without=sqlite --without=mysql
 carton_mysql:
   <<: *carton_bdd_definition
+  before_script:
+    - which mariadb_config && cd $(dirname $(which mariadb_config)) && ln -s mariadb_config mysql_config
+    - cd $CI_PROJECT_DIR
   script:
     - carton install --deployment --without=sqlite --without=postgresql
 
