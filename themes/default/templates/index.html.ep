@@ -84,7 +84,7 @@
     % if (config('allow_pwd_on_files')) {
         <div class="col s12 m12">
             <div class="input-field">
-                <input type="password" id="file_pwd" placeholder="<%= l('Password') %>" class="validate">
+                <input type="password" id="file_pwd" placeholder="<%= l('Password') %>" class="validate" autocomplete="off">
                 <label for="file_pwd"><%= l('Add a password to file(s)') %></label>
             </div>
         </div>
