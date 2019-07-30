@@ -1,5 +1,12 @@
 Revision history for Lufi
 
+0.03.6 2019-07-30
+	- Update german translation
+	- Use configured url prefix when using mail sending interface
+	- Avoid collision between startup and recurring provisionings
+	- Avoid files password autocomplete by browsers (tested with Firefox and
+	  Chromium) (#138)
+
 0.03.5 2018-12-06
 	- Fix CI
 
