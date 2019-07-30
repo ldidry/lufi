@@ -228,8 +228,12 @@ sub send_mail_to_ldap_user {
         my @files = ();
         if ($c->config('invitations')->{'save_files_url_in_db'} && $urls->size) {
             my $guest_files = $invitation->files;
+            my %list_token;
             if ($guest_files) {
                 $guest_files = decode_json($guest_files);
+                for my $file (@{$guest_files}) {
+                    $list_token{$file->{token}} = 1;
+                }
             } else {
                 $guest_files = [];
             }
@@ -237,8 +241,10 @@ sub send_mail_to_ldap_user {
             $urls->each(sub {
                 my ($e, $num) = @_;
                 $e = decode_json($e);
-                push @{$guest_files}, $e;
-                push @files, $e;
+                if (!defined($list_token{$e->{token}})) {
+                    push @{$guest_files}, $e;
+                    push @files, $e;
+                }
             });
             $invitation->files(encode_json($guest_files));
             $invitation->write;

@@ -512,7 +512,7 @@ msgstr ""
 msgid "Signin"
 msgstr ""
 
-#: lib/Lufi/Controller/Invitation.pm:277 themes/default/templates/invitations/exception.html.ep:16
+#: lib/Lufi/Controller/Invitation.pm:283 themes/default/templates/invitations/exception.html.ep:16
 msgid "Sorry, the invitation doesn’t exist. Are you sure you are on the right URL?"
 msgstr ""
 
@@ -534,7 +534,7 @@ msgid "Sorry, your invitation has expired or has been deleted. Please contact %1
 msgstr ""
 
 #. ($invitation->ldap_user_mail)
-#: lib/Lufi/Controller/Invitation.pm:270
+#: lib/Lufi/Controller/Invitation.pm:276
 msgid "The URLs of your files have been sent by email to %1."
 msgstr ""
 
