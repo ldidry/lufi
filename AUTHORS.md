@@ -18,6 +18,7 @@
 - Butterfly of Fire (arabic translation)
 - Frju365 (german translation)
 - pi2 (german translation)
+- alexandre.LG, http://inios.fr/
 
 ## Vulnerabilities / bug hunters
 
