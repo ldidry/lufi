@@ -135,11 +135,11 @@ DISTRIBUTIONS
       ExtUtils::MakeMaker 6.30
       Test::Fatal 0
       Test::More 0
-  DBD-Pg-3.8.0
-    pathname: T/TU/TURNSTEP/DBD-Pg-3.8.0.tar.gz
+  DBD-Pg-3.8.1
+    pathname: T/TU/TURNSTEP/DBD-Pg-3.8.1.tar.gz
     provides:
-      Bundle::DBD::Pg v3.8.0
-      DBD::Pg v3.8.0
+      Bundle::DBD::Pg v3.8.1
+      DBD::Pg v3.8.1
     requirements:
       DBI 1.614
       ExtUtils::MakeMaker 6.11
@@ -557,10 +557,10 @@ DISTRIBUTIONS
       Filesys::DfPortable 0.85
     requirements:
       ExtUtils::MakeMaker 0
-  Filesys-DiskUsage-0.12
-    pathname: M/MA/MANWAR/Filesys-DiskUsage-0.12.tar.gz
+  Filesys-DiskUsage-0.13
+    pathname: M/MA/MANWAR/Filesys-DiskUsage-0.13.tar.gz
     provides:
-      Filesys::DiskUsage 0.12
+      Filesys::DiskUsage 0.13
     requirements:
       ExtUtils::MakeMaker 0
       File::Basename 0
@@ -607,10 +607,10 @@ DISTRIBUTIONS
       perl 5.008001
       strict 0
       vars 0
-  HTTP-Daemon-6.04
-    pathname: O/OA/OALDERS/HTTP-Daemon-6.04.tar.gz
+  HTTP-Daemon-6.05
+    pathname: E/ET/ETHER/HTTP-Daemon-6.05.tar.gz
     provides:
-      HTTP::Daemon 6.04
+      HTTP::Daemon 6.05
     requirements:
       Carp 0
       ExtUtils::MakeMaker 0
@@ -618,9 +618,10 @@ DISTRIBUTIONS
       HTTP::Request 6
       HTTP::Response 6
       HTTP::Status 6
-      IO::Socket 0
+      IO::Socket::IP 0
       LWP::MediaTypes 6
       Module::Build::Tiny 0.034
+      Socket 0
       Sys::Hostname 0
       perl 5.006
       strict 0
@@ -1032,10 +1033,10 @@ DISTRIBUTIONS
       Text::ParseWords 0
       perl 5.008001
       version 0
-  Mojo-Pg-4.13
-    pathname: S/SR/SRI/Mojo-Pg-4.13.tar.gz
+  Mojo-Pg-4.15
+    pathname: S/SR/SRI/Mojo-Pg-4.15.tar.gz
     provides:
-      Mojo::Pg 4.13
+      Mojo::Pg 4.15
       Mojo::Pg::Database undef
       Mojo::Pg::Migrations undef
       Mojo::Pg::PubSub undef
@@ -1988,6 +1989,7 @@ DISTRIBUTIONS
     requirements:
       Authen::SASL 2.00
       Convert::ASN1 0.2
+      Digest::HMAC_MD5 0
       Digest::MD5 0
       ExtUtils::MakeMaker 6.59
       File::Basename 0
