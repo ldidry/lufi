@@ -17,7 +17,7 @@ msgstr ""
 #. (max_delay)
 #: themes/default/templates/index.html.ep:47 themes/default/templates/index.html.ep:56 themes/default/templates/index.html.ep:57
 msgid "%1 days"
-msgstr "%1 Tag"
+msgstr "%1 Tage"
 
 #: themes/default/templates/partial/index.js.ep:26
 msgid "(max size: XXX)"
@@ -25,7 +25,7 @@ msgstr "(maximale Größe: XXX)"
 
 #: themes/default/templates/index.html.ep:5
 msgid "1 year"
-msgstr "1 Jahre"
+msgstr "1 Jahr"
 
 #: themes/default/templates/index.html.ep:4 themes/default/templates/index.html.ep:56
 msgid "24 hours"
@@ -42,9 +42,9 @@ msgid ""
 "<a href=\"https://framapiaf.org/@framasky\" class=\"classic\">Mastodon</a> "
 "is cool too ;-)"
 msgstr ""
-"Ein Dankeschön mit einem Foto von Kätzchen von <a href=\"https://framasphere."
+"Ein Dankeschön mit einem Foto von Kätzchen an <a href=\"https://framasphere."
 "org/people/b13eb6b0beac0131e7e32a0000053625\" class=\"classic\">Diaspora*</"
-"a> oder von <a href=\"https://framapiaf.org/@framasky\" class="
+"a> oder an <a href=\"https://framapiaf.org/@framasky\" class="
 "\"classic\">Mastodon</a> ist auch cool ;)"
 
 #: themes/default/templates/render.html.ep:42
@@ -127,7 +127,7 @@ msgstr "In die Zwischenablage kopieren"
 #: lib/Lufi/Controller/Files.pm:460
 msgid "Could not delete the file. You are not authenticated."
 msgstr ""
-"Die Datei konnte nicht gelöscht werden. Du bist nicht authentifiziert."
+"Die Datei konnte nicht gelöscht werden. Sie sind nicht authentifiziert."
 
 #: lib/Lufi/Controller/Files.pm:442
 msgid "Could not find the file. Are you sure of the URL and the token?"
@@ -145,11 +145,11 @@ msgstr "Zähler"
 
 #: themes/default/templates/files.html.ep:29 themes/default/templates/index.html.ep:81
 msgid "Delete at first download?"
-msgstr "Beim ersten Download löschen?"
+msgstr "Nach dem ersten Download löschen?"
 
 #: themes/default/templates/files.html.ep:18
 msgid "Delete selected files"
-msgstr "Die ausgewählte Dateien löschen"
+msgstr "Die ausgewählten Dateien löschen"
 
 #: themes/default/templates/files.html.ep:32 themes/default/templates/partial/index.js.ep:18
 msgid "Deletion link"
@@ -186,18 +186,18 @@ msgid ""
 msgstr ""
 "Ziehen Sie Dateien per Drag-and-Drop in den entsprechenden Bereich oder "
 "verwenden Sie die traditionelle Methode zum Senden von Dateien und die "
-"Dateien werden verchromt, verschlüsselt und an den Server gesendet. Sie "
+"Dateien werden aufgeteilt, verschlüsselt und an den Server gesendet. Sie "
 "erhalten zwei Links pro Datei: einen Download-Link, den Sie den Personen "
 "geben, mit denen Sie die Datei teilen möchten, und einen Lösch-Link, mit dem "
 "Sie die Datei jederzeit löschen können."
 
 #: themes/default/templates/index.html.ep:94
 msgid "Drop files here"
-msgstr "Ablegen Sie Dateien hier"
+msgstr "Legen Sie Dateien hier ab"
 
 #: themes/default/templates/mail.html.ep:39
 msgid "Email body"
-msgstr "E-Mail-Body"
+msgstr "E-Mail-Inhalt"
 
 #: themes/default/templates/mail.html.ep:31
 msgid "Email subject"
@@ -229,7 +229,7 @@ msgstr "Ablaufdatum:"
 
 #: themes/default/templates/files.html.ep:31
 msgid "Expires at"
-msgstr "Verfallt bei"
+msgstr "Verfällt am"
 
 #: themes/default/templates/files.html.ep:12
 msgid "Export localStorage data"
@@ -257,8 +257,8 @@ msgid ""
 "\"classic\">the official repository</a> or on its <a href=\"https://github."
 "com/ldidry/lufi\" class=\"classic\">Github mirror</a>"
 msgstr ""
-"Holen Sie sich den Quellcode auf <a href=\"https://framagit.org/luc/lufi\" "
-"class=\"classic\">das offizielle Repository</a> oder auf dessen <a href="
+"Holen Sie sich den Quellcode von <a href=\"https://framagit.org/luc/lufi\" "
+"class=\"classic\">dem offiziellen Repository</a> oder auf dessen <a href="
 "\"https://github.com/ldidry/lufi\" class=\"classic\">Github mirror</a>."
 
 #: themes/default/templates/partial/mail.js.ep:35
@@ -280,15 +280,15 @@ msgstr "Drücken Sie Enter und dann Ctrl+C, um die Download-Links zu kopieren."
 
 #: themes/default/templates/about.html.ep:9
 msgid "How does it work?"
-msgstr "Wie fonktionniert es?"
+msgstr "Wie funktioniert es?"
 
 #: themes/default/templates/about.html.ep:17
 msgid "How to install the software on my server?"
-msgstr "Wie kann ich diesen Software auf meine Instanz installieren ?"
+msgstr "Wie kann ich diese Software auf meinem Server installieren ?"
 
 #: themes/default/templates/about.html.ep:12
 msgid "How to report an illegal file?"
-msgstr "Wie kann man eine illegale Datei melden?"
+msgstr "Wie kann ich eine illegale Datei melden?"
 
 #: themes/default/templates/delays.html.ep:7
 msgid "If you choose a delay, the file will be deleted after that delay."
@@ -301,8 +301,8 @@ msgid ""
 "If you send the mail from this server, the links will be sent to the server, "
 "which may lower your privacy protection."
 msgstr ""
-"When Sie der E-Mail von diesem Server schicken, der Links wurde an einen "
-"Server geschickt, der eine niedrigen Schutz der Privatsphäre haben kann."
+"Wenn Sie die E-Mail von diesem Server schicken, werden die Links an einem "
+"Server geschickt, der einen niedrigen Schutz der Privatsphäre haben kann."
 
 #: themes/default/templates/files.html.ep:14
 msgid "Import localStorage data"
@@ -314,7 +314,7 @@ msgstr "Wichtig: weitere Informationen zu den Verzögerungen"
 
 #: themes/default/templates/delays.html.ep:5
 msgid "Information about delays"
-msgstr "Informationen über den Verzörgerungen"
+msgstr "Informationen über die Verzögerungen"
 
 #: themes/default/templates/partial/render.js.ep:6
 msgid ""
@@ -325,7 +325,7 @@ msgstr ""
 
 #: themes/default/templates/index.html.ep:12
 msgid "Javascript is disabled. You won't be able to use Lufi."
-msgstr "Javascript ist desaktiviert. Du wirst Lufi nicht benutzen können."
+msgstr "Javascript ist deaktiviert. Sie werden Lufi nicht benutzen können."
 
 #: themes/default/templates/layouts/default.html.ep:40 themes/default/templates/layouts/default.html.ep:68
 msgid "Language"
@@ -333,7 +333,7 @@ msgstr "Sprache"
 
 #: themes/default/templates/login.html.ep:15
 msgid "Login"
-msgstr "Login"
+msgstr "Nutzername"
 
 #: themes/default/templates/layouts/default.html.ep:53 themes/default/templates/layouts/default.html.ep:78
 msgid "Logout"
@@ -341,7 +341,7 @@ msgstr "Abmelden"
 
 #: themes/default/templates/about.html.ep:4
 msgid "Lufi is a free (as in free speech) file hosting software."
-msgstr "Lufi is ein freier (wie in der Redefreiheit) Datei-Hosting-Software."
+msgstr "Lufi ist eine freie (wie Redefreiheit) Datei-Hosting-Software."
 
 #: themes/default/templates/files.html.ep:33
 msgid "Mail"
@@ -369,7 +369,7 @@ msgid ""
 "this list."
 msgstr ""
 "Nur die mit diesem Browser geschickten Dateien werden hier aufgelistet. "
-"Diese Liste wird in localStorage gespeichert: Wenn Sie Ihre localStorage-"
+"Diese Liste wird im localStorage gespeichert: Wenn Sie Ihre localStorage-"
 "Daten löschen, verlieren Sie diese Liste.  "
 
 #: themes/default/templates/index.html.ep:87 themes/default/templates/login.html.ep:21 themes/default/templates/render.html.ep:26
@@ -379,7 +379,7 @@ msgstr "Passwort"
 #. (config('contact')
 #: themes/default/templates/about.html.ep:13
 msgid "Please contact the administrator: %1"
-msgstr "Bitte kontaktieren sie den Administrator: %1"
+msgstr "Bitte kontaktieren Sie den Administrator: %1"
 
 #: themes/default/templates/render.html.ep:33
 msgid ""
@@ -394,7 +394,7 @@ msgid ""
 "Please, check your credentials or your right to access this service: unable "
 "to authenticate."
 msgstr ""
-"Bitte überprüffen sie Ihre Zugangsdaten oder Ihr Recht, auf diesen Dienst "
+"Bitte überprüffen Sie Ihre Zugangsdaten oder Ihr Recht, auf diesen Dienst "
 "zuzugreifen: keine Authentifizierung möglich."
 
 #: themes/default/templates/about.html.ep:5
@@ -403,7 +403,7 @@ msgstr "Privatsphäre"
 
 #: themes/default/templates/files.html.ep:13
 msgid "Purge expired files from localStorage"
-msgstr "Abgelaufener Dateien aus localStorage bereinigen"
+msgstr "Abgelaufene Dateien aus localStorage bereinigen"
 
 #: themes/default/templates/layouts/default.html.ep:31 themes/default/templates/layouts/default.html.ep:59
 msgid "Report file"
@@ -418,7 +418,7 @@ msgstr ""
 
 #: themes/default/templates/partial/index.js.ep:25
 msgid "Send all links by email"
-msgstr "Alle Links bei E-Mail schicken"
+msgstr "Alle Links per E-Mail schicken"
 
 #: themes/default/templates/mail.html.ep:46
 msgid "Send with this server"
@@ -426,15 +426,15 @@ msgstr "Mit diesem Server schicken"
 
 #: themes/default/templates/mail.html.ep:47
 msgid "Send with your own mail software"
-msgstr "Schicken mit Ihrer eigenen Mail-Software"
+msgstr "Mit Ihrem eigenen Mail-Programm versenden"
 
 #: themes/default/templates/partial/index.js.ep:28
 msgid ""
 "Sending part XX1 of XX2. Please, be patient, the progress bar can take a "
 "while to move."
 msgstr ""
-"Senden von Teil XX1 von XX2. Bitte haben Sie Geduld, der Fortschrittsbalken "
-"kann eine Weile dauern, bis er sich bewegt."
+"Senden von Teil XX1 von XX2. Bitte haben Sie Geduld, es kann eine Weile "
+"dauern, bis sich der Fortschrittsbalken bewegt."
 
 #. (url_for('/')
 #: themes/default/templates/partial/mail.js.ep:48
@@ -443,7 +443,7 @@ msgstr "Teilen Sie Ihre Dateien in der absoluten Vertraulichkeit auf %1"
 
 #: themes/default/templates/layouts/default.html.ep:36 themes/default/templates/layouts/default.html.ep:64 themes/default/templates/login.html.ep:27 themes/default/templates/logout.html.ep:17
 msgid "Signin"
-msgstr "Einloggen"
+msgstr "Anmelden"
 
 #: themes/default/templates/index.html.ep:37
 msgid "Sorry, the uploading is currently disabled. Please try again later."
@@ -466,16 +466,16 @@ msgid ""
 "The body of the mail must contain at least one URL pointing to a file hosted "
 "on this instance."
 msgstr ""
-"Der E-Mail-Body muss zu mindestens eine URL enhalten, die auf eine Datei "
-"verweist, die auf dieser Instanz gehosted wird."
+"Der E-Mail-Inhalt muss zu mindestens eine URL enhalten, die auf eine Datei "
+"verweist, die auf dieser Instanz gespeichert wird."
 
 #: themes/default/templates/partial/files.js.ep:11
 msgid "The data has been successfully imported."
-msgstr "DIe Daten wurden erfolgreich importiert."
+msgstr "Die Daten wurden erfolgreich importiert."
 
 #: lib/Lufi/Controller/Mail.pm:73
 msgid "The email body can't be empty."
-msgstr "Der E-Mail-Body darf nicht leer sein."
+msgstr "Der E-Mail-Inhalt darf nicht leer sein."
 
 #: lib/Lufi/Controller/Mail.pm:72
 msgid "The email subject can't be empty."
@@ -505,7 +505,7 @@ msgstr "Die Links wurde(n) in die Zwischenablage kopiert."
 
 #: lib/Lufi/Controller/Mail.pm:97
 msgid "The mail has been sent."
-msgstr "Der E-Mail wurde geschickt."
+msgstr "Die E-Mail wurde verschickt."
 
 #: themes/default/templates/about.html.ep:15
 msgid ""
@@ -515,7 +515,7 @@ msgid ""
 "or via <a href=\"https://liberapay.com/sky/\" class=\"classic\">Liberapay</"
 "a>."
 msgstr ""
-"Die Originalautor (und vorerst einzige) ist <a href=\"https://fiat-tux.fr\" "
+"Der Originalautor (und vorerst einzige) ist <a href=\"https://fiat-tux.fr\" "
 "class=\"classic\">Luc Didry</a>. Wenn Sie ihn unterstützen wollen, können "
 "Sie dies bei  <a href=\"https://www.tipeee.com/fiat-tux\" class="
 "\"classic\">Tipeee</a> oder bei <a href=\"https://liberapay.com/sky/\" class="
@@ -533,8 +533,8 @@ msgstr ""
 msgid ""
 "This file has been deactivated by the admins. Contact them to know why."
 msgstr ""
-"Diese Datei wurde von Admins deacktiviert. Kontaktieren SIe sie, um die "
-"Gründe zu kennen."
+"Diese Datei wurde von Admins deacktiviert. Kontaktieren Sie sie, um die "
+"Gründe zu erfahren."
 
 #: themes/default/templates/delays.html.ep:10
 msgid ""
@@ -557,7 +557,7 @@ msgid ""
 "from your localStorage."
 msgstr ""
 "Der Zähler für %1 konnte nicht ermittelt werden. Die Datei existiert nicht. "
-"Es wird aus deinem localStorage gelöscht."
+"Sie wird aus deinem localStorage gelöscht."
 
 #. ($short)
 #: lib/Lufi/Controller/Files.pm:382
@@ -578,7 +578,7 @@ msgstr "Dateien hochladen"
 
 #: themes/default/templates/files.html.ep:30
 msgid "Uploaded at"
-msgstr "Hochgeladen unter"
+msgstr "Hochgeladen am"
 
 #: themes/default/templates/index.html.ep:103
 msgid "Uploaded files"
@@ -618,14 +618,14 @@ msgstr ""
 "Sie müssen sich nicht registrieren, um Dateien hochzuladen, aber beachten "
 "Sie, dass Ihre IP-Adresse aus rechtlichen Gründen beim Senden einer Datei "
 "gespeichert wird. Keine Panik, dies ist normalerweise der Fall für alle "
-"Websites, auf denen Sie Dateien senden."
+"Internetseiten, zu denen Sie Dateien senden."
 
 #: themes/default/templates/partial/render.js.ep:10
 msgid ""
 "You don't seem to have a key in your URL. You won't be able to decrypt the "
 "file. Download canceled."
 msgstr ""
-"Sie scheinen keinen Schlüssel in Ihrer URL zu besitzen. Du wirst die Datei "
+"Sie scheinen keinen Schlüssel in Ihrer URL zu besitzen. Sie werden die Datei "
 "nicht entschlüsseln können. Der Download wurde abgebrochen."
 
 #: themes/default/templates/partial/render.js.ep:7
@@ -633,24 +633,24 @@ msgid ""
 "You have attempted to leave this page. The download will be canceled. Are "
 "you sure?"
 msgstr ""
-"Du hast versucht, diese Seite zu verlassen. Der Download wird abgebrochen. "
-"Bist du sicher?"
+"Sie haben versucht, diese Seite zu verlassen. Der Download wird abgebrochen. "
+"Sind Sie sicher?"
 
 #: themes/default/templates/partial/index.js.ep:13
 msgid ""
 "You have attempted to leave this page. The upload will be canceled. Are you "
 "sure?"
 msgstr ""
-"Du hast versucht, diese Seite zu verlassen. Der Hockladen wird abgebrochen. "
-"Bist du sicher?"
+"Sie haben versucht, diese Seite zu verlassen. Das Hochladen wird abgebrochen. "
+"Sind Sie sicher?"
 
 #: themes/default/templates/logout.html.ep:14
 msgid "You have been successfully logged out."
-msgstr "Sie wurden erfolgreich ausgeloggt."
+msgstr "Sie wurden erfolgreich abgemeldet."
 
 #: lib/Lufi/Controller/Mail.pm:71
 msgid "You must give email addresses."
-msgstr "Sie müssen E-Mail-Adressen geben."
+msgstr "Sie müssen E-Mail-Adressen eingeben."
 
 #: themes/default/templates/index.html.ep:29
 msgid ""
@@ -670,7 +670,7 @@ msgstr "Ihre Datei ist zu groß: %1 (maximal erlaubte Größe: %2)"
 msgid "Your password is not valid. Please refresh the page to retry."
 msgstr ""
 "Ihr Passwort ist ungültig. Bitte aktualisieren Sie die Seite, um es "
-"wiederzuversuchen."
+"erneut zu versuchen."
 
 #. (format_bytes($keys[$i])
 #: themes/default/templates/delays.html.ep:20
@@ -689,7 +689,7 @@ msgstr "Abgabetermin:"
 #. (format_bytes($keys[$i])
 #: themes/default/templates/delays.html.ep:26
 msgid "for %1 and more, the file will be kept %2 day(s)"
-msgstr "für %1 und mehr wird die Datei aufbewahrt %2 Tag(e)"
+msgstr "für %1 und mehr wird die Datei %2 Tag(e) aufbewahrt"
 
 #. (format_bytes($keys[$i])
 #: themes/default/templates/delays.html.ep:28
