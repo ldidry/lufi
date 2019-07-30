@@ -54,7 +54,7 @@ sub send_invite {
         unless (scalar(@fails)) {
             my $invitation       = Lufi::DB::Invitation->new(app => $c->app);
             my $mail_attr        = $c->config('invitations')->{'mail_attr'} // 'mail';
-            my $expend_expire_at = $c->config('invitations')->{'expend_expire_at'} // 10;
+            my $expend_expire_at = $c->config('invitations')->{'max_additional_period'} // 10;
 
             my $token;
             do {
