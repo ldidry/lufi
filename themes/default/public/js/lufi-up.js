@@ -433,7 +433,6 @@ function updateProgressBar(data) {
             if ($('#zip-files').is(':checked')) {
                 $('label[for="zip-files"]').click();
             }
-
         }
     } else {
         var i                 = data.i;
@@ -469,27 +468,31 @@ function updateProgressBar(data) {
                 var links   = encodeURIComponent('["'+short+'"]');
                 var limit   = (delay === 0) ? i18n.noLimit : i18n.expiration+' '+moment.unix(delay * 86400 + created_at).locale(window.navigator.language).format('LLLL');
                 n.html(n.html()+' '+s.html()+' <a href="'+actionURL+'m?links='+links+'"><i class="mdi-communication-email"></i></a><br>'+limit);
-                d.html(['<div class="card-action">',
-                            '<div class="input-field">',
-                                '<span class="prefix big-prefix">',
-                                    '<a href="', url, '" target="_blank">',
-                                        '<i class="mdi-file-file-download small" title="', i18n.dlText, '"></i>',
+                if (!isGuest) {
+                    d.html(['<div class="card-action">',
+                                '<div class="input-field">',
+                                    '<span class="prefix big-prefix">',
+                                        '<a href="', url, '" target="_blank">',
+                                            '<i class="mdi-file-file-download small" title="', i18n.dlText, '"></i>',
+                                        '</a>',
+                                        '<a href="#" id="copyurl-', window.fc, '" title="', i18n.cpText, '">',
+                                            '<i class="mdi-content-content-copy small"></i>',
+                                        '</a>',
+                                    '</span>',
+                                    '<input id="', short, '" class="form-control link-input white-background" value="', url, '" readonly="" type="text">',
+                                    '<label class="active" for="', short, '">', i18n.dlText, '</label>',
+                                '</div>',
+                                '<div class="input-field">',
+                                    '<a href="', del_url, '" target="_blank" class="prefix big-prefix">',
+                                        '<i class="mdi-action-delete small" title="', i18n.delText, '"></i>',
                                     '</a>',
-                                    '<a href="#" id="copyurl-', window.fc, '" title="', i18n.cpText, '">',
-                                        '<i class="mdi-content-content-copy small"></i>',
-                                    '</a>',
-                                '</span>',
-                                '<input id="', short, '" class="form-control link-input white-background" value="', url, '" readonly="" type="text">',
-                                '<label class="active" for="', short, '">', i18n.dlText, '</label>',
-                            '</div>',
-                            '<div class="input-field">',
-                                '<a href="', del_url, '" target="_blank" class="prefix big-prefix">',
-                                    '<i class="mdi-action-delete small" title="', i18n.delText, '"></i>',
-                                '</a>',
-                                '<input id="delete-', short, '" class="form-control white-background" value="', del_url, '" readonly="" type="text">',
-                                '<label class="active" for="delete-', short, '">', i18n.delText, '</label>',
-                            '</div>',
-                        '</div>'].join(''));
+                                    '<input id="delete-', short, '" class="form-control white-background" value="', del_url, '" readonly="" type="text">',
+                                    '<label class="active" for="delete-', short, '">', i18n.delText, '</label>',
+                                '</div>',
+                            '</div>'].join(''));
+                } else {
+                    n.html(n.html()+' '+s.html());
+                }
                 s.remove();
 
                 var p2 = dp.parent();
@@ -515,7 +518,9 @@ function updateProgressBar(data) {
                 }
 
                 // Add the file to localStorage
-                addItem(data.name, url, data.size, del_at_first_view, created_at, delay, data.short, data.token);
+                if (!isGuest) {
+                    addItem(data.name, url, data.size, del_at_first_view, created_at, delay, data.short, data.token);
+                }
 
                 if (isGuest && short !== null) {
                     window.filesURLs.push(JSON.stringify({ name: data.name, short: data.short, url: url, size: data.size, created_at: created_at, delay: delay, token: data.token }));
