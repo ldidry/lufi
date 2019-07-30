@@ -32,8 +32,10 @@ clean:
 dev: clean
 	$(CARTON) morbo $(LUFI) --listen http://0.0.0.0:3000 --watch lib/ --watch script/ --watch themes/ --watch lufi.conf
 
-devldap: dev
+ldap:
 	sudo docker run --privileged -d -p 389:389 rroemhild/test-openldap; exit 0
+
+ldapdev: ldap dev
 
 devlog:
 	multitail log/development.log
