@@ -467,8 +467,8 @@ function updateProgressBar(data) {
                 var del_url = actionURL+'d/'+short+'/'+data.token;
                 var links   = encodeURIComponent('["'+short+'"]');
                 var limit   = (delay === 0) ? i18n.noLimit : i18n.expiration+' '+moment.unix(delay * 86400 + created_at).locale(window.navigator.language).format('LLLL');
-                n.html(n.html()+' '+s.html()+' <a href="'+actionURL+'m?links='+links+'"><i class="mdi-communication-email"></i></a><br>'+limit);
                 if (!isGuest) {
+                    n.html(n.html()+' '+s.html()+' <a href="'+actionURL+'m?links='+links+'"><i class="mdi-communication-email"></i></a><br>'+limit);
                     d.html(['<div class="card-action">',
                                 '<div class="input-field">',
                                     '<span class="prefix big-prefix">',
@@ -510,7 +510,7 @@ function updateProgressBar(data) {
                 });
                 // Add copy all and mailto buttons
                 var misc = $('#misc');
-                if (misc.html() === '') {
+                if (misc.html() === '' && !isGuest) {
                     misc.html('<a href="#" id="copyall" class="btn btn-info">'+i18n.copyAll+'</a> <a id="mailto" href="'+actionURL+'m?links='+links+'" class="btn btn-info">'+i18n.mailTo+'</a>');
                     $('#copyall').on('click', copyAllToClipboard);
                 } else {
