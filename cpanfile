@@ -50,7 +50,7 @@ feature 'sqlite', 'SQLite support' => sub {
     requires 'Mojo::SQLite', '>= 3.000';
 };
 feature 'mysql', 'MySQL support' => sub {
-    requires 'DBD::mysql', '== 4.046';
+    requires 'DBD::mysql', '== 4.050';
     requires 'Mojo::mysql';
     requires 'Mojolicious::Plugin::PgURLHelper';
 };

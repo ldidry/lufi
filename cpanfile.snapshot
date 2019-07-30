@@ -156,18 +156,19 @@ DISTRIBUTIONS
       Test::More 0.47
       Tie::Hash 0
       perl 5.006
-  DBD-mysql-4.046
-    pathname: C/CA/CAPTTOFU/DBD-mysql-4.046.tar.gz
+  DBD-mysql-4.050
+    pathname: D/DV/DVEEDEN/DBD-mysql-4.050.tar.gz
     provides:
-      Bundle::DBD::mysql 4.046
-      DBD::mysql 4.046
+      Bundle::DBD::mysql 4.050
+      DBD::mysql 4.050
       DBD::mysql::GetInfo undef
-      DBD::mysql::db 4.046
-      DBD::mysql::dr 4.046
-      DBD::mysql::st 4.046
+      DBD::mysql::db 4.050
+      DBD::mysql::dr 4.050
+      DBD::mysql::st 4.050
     requirements:
       DBI 1.609
       Data::Dumper 0
+      Devel::CheckLib 1.09
       ExtUtils::MakeMaker 0
       perl 5.008001
   DBI-1.642
@@ -345,6 +346,16 @@ DISTRIBUTIONS
       Data::Validate::Domain 0
       Data::Validate::IP 0
       ExtUtils::MakeMaker 0
+  Devel-CheckLib-1.13
+    pathname: M/MA/MATTN/Devel-CheckLib-1.13.tar.gz
+    provides:
+      Devel::CheckLib 1.13
+    requirements:
+      Exporter 0
+      ExtUtils::MakeMaker 0
+      File::Spec 0
+      File::Temp 0.16
+      perl 5.00405
   Devel-Cover-1.31
     pathname: P/PJ/PJCJ/Devel-Cover-1.31.tar.gz
     provides:
@@ -684,14 +695,6 @@ DISTRIBUTIONS
       Encode 2.10
       Exporter 5.57
       ExtUtils::MakeMaker 6.30
-  IO-Socket-IP-0.39
-    pathname: P/PE/PEVANS/IO-Socket-IP-0.39.tar.gz
-    provides:
-      IO::Socket::IP 0.39
-    requirements:
-      IO::Socket 0
-      Socket 1.97
-      Test::More 0.88
   IO-Socket-SSL-2.060
     pathname: S/SU/SULLR/IO-Socket-SSL-2.060.tar.gz
     provides:
@@ -1510,17 +1513,6 @@ DISTRIBUTIONS
       Sub::Quote 2.000001
       Text::Balanced 2.00
       perl 5.006
-  Scalar-List-Utils-1.50
-    pathname: P/PE/PEVANS/Scalar-List-Utils-1.50.tar.gz
-    provides:
-      List::Util 1.50
-      List::Util::XS 1.50
-      Scalar::Util 1.50
-      Sub::Util 1.50
-    requirements:
-      ExtUtils::MakeMaker 0
-      Test::More 0
-      perl 5.006
   Sub-Exporter-Progressive-0.001013
     pathname: F/FR/FREW/Sub-Exporter-Progressive-0.001013.tar.gz
     provides:
@@ -1983,7 +1975,6 @@ DISTRIBUTIONS
     requirements:
       Authen::SASL 2.00
       Convert::ASN1 0.2
-      Digest::HMAC_MD5 0
       Digest::MD5 0
       ExtUtils::MakeMaker 6.42
       File::Basename 0

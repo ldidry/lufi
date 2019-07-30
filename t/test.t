@@ -79,7 +79,7 @@ Lufi::DB::File->new(app => $m)->delete_all;
 my $t = Test::Mojo->new('Lufi');
 
 ## Wait for short generation
-sleep 3;
+sleep 5;
 
 ## Let's go
 $t->get_ok('/')
@@ -244,7 +244,7 @@ sub switch_to_htpasswd {
     $t = Test::Mojo->new('Lufi');
 
     ## Wait for short generation
-    sleep 3;
+    sleep 5;
 }
 
 sub switch_to_ldap {
@@ -258,5 +258,5 @@ sub switch_to_ldap {
     $t = Test::Mojo->new('Lufi');
 
     ## Wait for short generation
-    sleep 3;
+    sleep 5;
 }
