@@ -90,6 +90,7 @@
                 <label for="first-view"><%= l('Delete at first download?') %></label>
             </p>
         </div>
+    % if (!stash('invitation')) {
         <div class="input-field">
             <p class="col s12 m6 text-left">
                 <input
@@ -100,6 +101,7 @@
                 <label for="zip-files"><%= l('Create a zip archive with the files before uploading?') %></label>
             </p>
         </div>
+    % }
     % if (config('allow_pwd_on_files') && (!stash('invitation'))) {
         <div class="col s12 m6">
             <div class="input-field">
