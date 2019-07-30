@@ -543,7 +543,6 @@ function updateProgressBar(data) {
                     if (isGuest) {
                         sendFilesURLs();
                     }
-
                 }
             } else {
                 j++;
