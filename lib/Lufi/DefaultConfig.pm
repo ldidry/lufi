@@ -26,6 +26,8 @@ our $default_config = {
     x_frame_options          => 'DENY',
     x_content_type_options   => 'nosniff',
     x_xss_protection         => '1; mode=block',
+    keep_ip_during           => 365,
+    policy_when_full         => 'warn',
 };
 
 1;
