@@ -42,12 +42,36 @@ sub upload {
 
                 $c->app->log->debug('Got message');
 
+                if (defined($json->{cancel}) && $json->{cancel}) {
+                    my $f = Lufi::DB::File->new(app => $c->app)->from_short($json->{id});
+                    if ($f && $f->mod_token && $f->mod_token eq $json->{mod_token}) {
+                        $f = $f->delete();
+                        return $ws->send(to_json(
+                            {
+                                action  => 'cancel',
+                                success => $f->deleted ? true : false,
+                                msg     => $f->deleted ? 'Lufi::DB::File->delete() was successfull' : 'Lufi::DB::File->delete() failed',
+                                i       => $json->{i}
+                            }
+                        ));
+                    } else {
+                        return $ws->send(to_json(
+                            {
+                                action  => 'cancel',
+                                success => false,
+                                msg     => 'Lufi::DB::File not found or invalid mod_token',
+                                i       => $json->{i}
+                            }
+                        ));
+                    }
+                }
+
                 my $stop = 0;
 
                 # Check if stop_upload file is present
                 if ($c->stop_upload) {
                     $stop = 1;
-                    $c->send(decode('UTF-8', encode_json(
+                    return $ws->send(decode('UTF-8', encode_json(
                         {
                             success    => false,
                             msg        => $c->l('Sorry, uploading is disabled.'),
@@ -60,7 +84,7 @@ sub upload {
                 elsif (defined $c->config('max_file_size')) {
                     if ($json->{size} > $c->config('max_file_size')) {
                         $stop = 1;
-                        $c->send(decode('UTF-8', encode_json(
+                        return $ws->send(decode('UTF-8', encode_json(
                             {
                                 success    => false,
                                 msg        => $c->l('Your file is too big: %1 (maximum size allowed: %2)', format_bytes($json->{size}), format_bytes($c->config('max_file_size'))),
@@ -73,7 +97,7 @@ sub upload {
                 # Check that we have enough space (multiplying by 2 since it's encrypted, it takes more place that the original file)
                 elsif ($json->{part} == 0 && ($json->{size} * 2) >= dfportable($c->config('upload_dir'))->{bavail}) {
                     $stop = 1;
-                    $c->send(decode('UTF-8', encode_json(
+                    return $ws->send(decode('UTF-8', encode_json(
                         {
                             success    => false,
                             msg        => $c->l('No enough space available on the server for this file (size: %1).', format_bytes($json->{size})),

@@ -78,7 +78,7 @@ msgstr ""
 msgid "Click here to refresh the page and restart the download."
 msgstr ""
 
-#: themes/default/templates/index.html.ep:108
+#: themes/default/templates/index.html.ep:119
 msgid "Click to open the file browser"
 msgstr ""
 
@@ -90,6 +90,10 @@ msgstr ""
 msgid "Comma-separated email addresses"
 msgstr ""
 
+#: themes/default/templates/index.html.ep:133
+msgid "Compressing zip file…"
+msgstr ""
+
 #: themes/default/templates/partial/index.js.ep:14
 msgid "Copy all links to clipboard"
 msgstr ""
@@ -98,15 +102,15 @@ msgstr ""
 msgid "Copy to clipboard"
 msgstr ""
 
-#: lib/Lufi/Controller/Files.pm:461
+#: lib/Lufi/Controller/Files.pm:485
 msgid "Could not delete the file. You are not authenticated."
 msgstr ""
 
-#: lib/Lufi/Controller/Files.pm:443
+#: lib/Lufi/Controller/Files.pm:467
 msgid "Could not find the file. Are you sure of the URL and the token?"
 msgstr ""
 
-#: lib/Lufi/Controller/Files.pm:354
+#: lib/Lufi/Controller/Files.pm:378
 msgid "Could not find the file. Are you sure of the URL?"
 msgstr ""
 
@@ -150,7 +154,7 @@ msgstr ""
 msgid "Drag and drop files in the appropriate area or use the traditional way to send files and the files will be chunked, encrypted and sent to the server. You will get two links per file: a download link, that you give to the people you want to share the file with and a deletion link, allowing you to delete the file whenever you want."
 msgstr ""
 
-#: themes/default/templates/index.html.ep:104
+#: themes/default/templates/index.html.ep:115
 msgid "Drop files here"
 msgstr ""
 
@@ -170,15 +174,15 @@ msgstr ""
 msgid "Encrypting part XX1 of XX2"
 msgstr ""
 
-#: lib/Lufi/Controller/Files.pm:243
+#: lib/Lufi/Controller/Files.pm:267
 msgid "Error: the file existed but was deleted."
 msgstr ""
 
-#: lib/Lufi/Controller/Files.pm:323
+#: lib/Lufi/Controller/Files.pm:347
 msgid "Error: the file has not been sent entirely."
 msgstr ""
 
-#: lib/Lufi/Controller/Files.pm:333
+#: lib/Lufi/Controller/Files.pm:357
 msgid "Error: unable to find the file. Are you sure of your URL?"
 msgstr ""
 
@@ -194,7 +198,7 @@ msgstr ""
 msgid "Export localStorage data"
 msgstr ""
 
-#: lib/Lufi/Controller/Files.pm:425
+#: lib/Lufi/Controller/Files.pm:449
 msgid "File deleted"
 msgstr ""
 
@@ -294,8 +298,12 @@ msgstr ""
 msgid "My files"
 msgstr ""
 
+#: themes/default/templates/index.html.ep:106
+msgid "Name of the zip file"
+msgstr ""
+
 #. (format_bytes($json->{size})
-#: lib/Lufi/Controller/Files.pm:79
+#: lib/Lufi/Controller/Files.pm:103
 msgid "No enough space available on the server for this file (size: %1)."
 msgstr ""
 
@@ -373,7 +381,7 @@ msgstr ""
 msgid "Sorry, the uploading is currently disabled. Please try again later."
 msgstr ""
 
-#: lib/Lufi/Controller/Files.pm:53
+#: lib/Lufi/Controller/Files.pm:77
 msgid "Sorry, uploading is disabled."
 msgstr ""
 
@@ -397,7 +405,7 @@ msgstr ""
 msgid "The email subject can't be empty."
 msgstr ""
 
-#: lib/Lufi/Controller/Files.pm:422
+#: lib/Lufi/Controller/Files.pm:446
 msgid "The file has already been deleted"
 msgstr ""
 
@@ -422,11 +430,11 @@ msgstr ""
 msgid "The original (and only for now) author is <a href=\"https://fiat-tux.fr\" class=\"classic\">Luc Didry</a>."
 msgstr ""
 
-#: lib/Lufi/Controller/Files.pm:190
+#: lib/Lufi/Controller/Files.pm:214
 msgid "The server was unable to find the file record to add your file part to. Please, contact the administrator."
 msgstr ""
 
-#: lib/Lufi/Controller/Files.pm:249
+#: lib/Lufi/Controller/Files.pm:273
 msgid "This file has been deactivated by the admins. Contact them to know why."
 msgstr ""
 
@@ -439,17 +447,17 @@ msgid "Unable to copy the link(s) to your clipboard"
 msgstr ""
 
 #. ($short)
-#: lib/Lufi/Controller/Files.pm:393
+#: lib/Lufi/Controller/Files.pm:417
 msgid "Unable to get counter for %1. The file does not exists. It will be removed from your localStorage."
 msgstr ""
 
 #. ($short)
-#: lib/Lufi/Controller/Files.pm:383
+#: lib/Lufi/Controller/Files.pm:407
 msgid "Unable to get counter for %1. The token is invalid."
 msgstr ""
 
 #. ($short)
-#: lib/Lufi/Controller/Files.pm:403
+#: lib/Lufi/Controller/Files.pm:427
 msgid "Unable to get counter for %1. You are not authenticated."
 msgstr ""
 
@@ -457,11 +465,15 @@ msgstr ""
 msgid "Upload files"
 msgstr ""
 
+#: themes/default/templates/index.html.ep:110
+msgid "Upload generated zip file"
+msgstr ""
+
 #: themes/default/templates/files.html.ep:30
 msgid "Uploaded at"
 msgstr ""
 
-#: themes/default/templates/index.html.ep:114
+#: themes/default/templates/index.html.ep:142
 msgid "Uploaded files"
 msgstr ""
 
@@ -514,16 +526,12 @@ msgid "Your browser has not enough entropy to generate a strong encryption key. 
 msgstr ""
 
 #. (format_bytes($json->{size})
-#: lib/Lufi/Controller/Files.pm:66
+#: lib/Lufi/Controller/Files.pm:90
 msgid "Your file is too big: %1 (maximum size allowed: %2)"
 msgstr ""
 
-#: lib/Lufi/Controller/Files.pm:305
+#: lib/Lufi/Controller/Files.pm:329
 msgid "Your password is not valid. Please refresh the page to retry."
-msgstr ""
-
-#: themes/default/templates/index.html.ep:112
-msgid "Zip archive creation…"
 msgstr ""
 
 #. (format_bytes($keys[$i])
@@ -554,6 +562,6 @@ msgstr ""
 msgid "no time limit"
 msgstr ""
 
-#: themes/default/templates/index.html.ep:106
+#: themes/default/templates/index.html.ep:117
 msgid "or"
 msgstr ""

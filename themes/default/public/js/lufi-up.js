@@ -1,10 +1,16 @@
 // vim:set sw=4 ts=4 sts=4 ft=javascript expandtab:
 
+// total file counter
 window.fc = 0;
+// Cancelled files indexes
+window.cancelled = [];
 // Set websocket
 window.ws = spawnWebsocket(0, function() {return null;});
 // Use slice of 2MB
 window.sliceLength = 2000000;
+// Global zip objects for currently created zip file
+window.zip = null;
+window.zipSize = 0;
 
 // Copy a link to clipboard
 function copyToClipboard(txt) {
@@ -78,12 +84,92 @@ function destroyBlock(el) {
     var l = $('#results li');
     if (a.length === 0) {
         $('#misc').empty();
-        if (l.length === 0) {
+        if (l.length === 0 && window.fileList === null) {
             $('#results').hide();
         }
     } else {
         updateMailLink();
     }
+}
+
+// When clicking on del at first view checkbox
+function firstViewClicking() {
+    if ($('#first-view').attr('data-checked') && $('#first-view').attr('data-checked') === 'data-checked') {
+        $('#first-view').attr('data-checked', null);
+    } else {
+        $('#first-view').attr('data-checked', 'data-checked');
+    }
+}
+
+// When clicking on zip checkbox
+function zipClicking () {
+    if ($('#zip-files').attr('data-checked') && $('#zip-files').attr('data-checked') === 'data-checked') {
+        window.zipSize = 0;
+        window.zip = null;
+        $('#zip-files').attr('data-checked', null);
+        $('#zipname').val('documents.zip');
+        $('#zipname-input').addClass('hide');
+        $('#zipping').addClass('hide');
+        $('#zip-parts').html('');
+        $('#delete-day').attr('disabled', null);
+        $('#first-view').attr('disabled', null);
+    } else {
+        $('#zip-files').attr('data-checked', 'data-checked');
+        $('#zipname-input').removeClass('hide');
+        $('#zip-size').text(filesize(window.zipSize));
+    }
+}
+
+// Get the zip file name
+function getZipname() {
+    var zipname = $('#zipname').val();
+    if (zipname === '') {
+        zipname = 'documents.zip';
+    }
+    if (!zipname.endsWith('.zip')) {
+        if (zipname.endsWith('.')) {
+            zipname += 'zip';
+        } else {
+            zipname += '.zip';
+        }
+    }
+
+    return zipname;
+}
+
+// Update the zip name
+function updateZipname() {
+    $('#zip-name').text(getZipname());
+}
+
+// Create blob from zip
+function uploadZip(e) {
+    e.preventDefault();
+    var delay             = $('#delete-day');
+    var del_at_first_view = $('#first-view');
+    $('#zip-files').attr('disabled', 'disabled');
+
+    $('#zip-compressing').removeClass('hide');
+    window.zip.generateAsync({type:"blob"})
+        .then(function(zipFile) {
+            // if $('#zipping') is hidden, the zipping has been aborted
+            if (!$('#zipping').hasClass('hide')) {
+                $('#zipping').addClass('hide');
+                $('#zipname-input').addClass('hide');
+                $('#zip-compressing').addClass('hide');
+                $('#results').show();
+
+                var zipname = getZipname();
+                var file = new File([zipFile], zipname, {type: 'application/zip'});
+
+                if (window.fileList === undefined || window.fileList === null) {
+                    window.fileList = [file];
+                    uploadFile(0, delay.val(), del_at_first_view.is(':checked'));
+                } else {
+                    window.fileList.push(file);
+                }
+            }
+        });
 }
 
 // Update the mail link
@@ -105,29 +191,33 @@ function handleFiles(f) {
     var del_at_first_view = $('#first-view');
 
     delay.attr('disabled', 'disabled');
-    zip_files.attr('disabled', 'disabled');
     del_at_first_view.attr('disabled', 'disabled');
 
     if (zip_files.is(':checked')) {
-        var zip = new JSZip();
-        $('#zipping').show();
-        for (var i = 0; i < f.length; i++) {
-            var element = f.item(i);
-            zip.file(element.name, element);
+        if (window.zip === null) {
+            window.zip = new JSZip();
         }
-        zip.generateAsync({type:"blob"})
-            .then(function(zipFile) {
-                $('#zipping').hide();
-                $('#results').show();
-                var file = new File([zipFile], 'documents.zip', {type: 'application/zip'});
+        $('#zipping').removeClass('hide');
+        for (var i = 0; i < f.length; i++) {
+            var element  = f.item(i);
+            var filename = element.name;
+            var origname = filename;
+            var counter  = 0;
+            while (typeof(window.zip.files[filename]) !== 'undefined') {
+                counter += 1;
+                filename = origname.substring(0, origname.lastIndexOf('.')) + '_(' + counter + ')' + origname.substring(origname.lastIndexOf('.'));
+            }
 
-                if (window.fileList === undefined || window.fileList === null) {
-                    window.fileList = [file];
-                    uploadFile(0, delay.val(), del_at_first_view.is(':checked'));
-                } else {
-                    window.fileList.push(file);
-                }
-            });
+            window.zip.file(filename, element);
+
+            window.zipSize += element.size;
+            $('#zip-size').text(filesize(window.zipSize));
+            $('#zip-parts').append([
+                '<li>',
+                    '— ', filename, ' (', filesize(element.size), ')',
+                '</li>'
+            ].join(''));
+        }
     } else {
         if (window.fileList === undefined || window.fileList === null) {
             window.fileList = Array.prototype.slice.call(f);
@@ -183,198 +273,256 @@ function uploadFile(i, delay, del_at_first_view) {
     r.prepend(w);
     $('#destroy-'+window.fc).on('click', function(event) {
         event.preventDefault();
-        destroyBlock(this)
+        window.cancelled.push(i);
+        destroyBlock(this);
     });
 
-    sliceAndUpload(randomkey, i, parts, 0, delay, del_at_first_view, null);
+    sliceAndUpload(randomkey, i, parts, 0, delay, del_at_first_view, null, null);
 }
 
 // Get a slice of file and send it
-function sliceAndUpload(randomkey, i, parts, j, delay, del_at_first_view, short) {
-    var file  = window.fileList[i];
-    var slice = file.slice(j * window.sliceLength, (j + 1) * window.sliceLength, file.type);
-    var fr = new FileReader();
-    fr.onloadend = function() {
-        var sl        = $('#parts-'+window.fc);
-
-        // Get the binary result, different result in IE browsers (see default.html.ep line 27:48)
-        if (isIE == true){
-            var bin = fr.content;
-        } else {
-            var bin = fr.result;
-        }
-
-        // Transform it in base64
-        var b         = window.btoa(bin);
-
-        // Encrypt it
-        sl.html(i18n.encrypting.replace(/XX1(.*)XX2/, (j+1)+'$1'+parts));
-        var encrypted = sjcl.encrypt(randomkey, b);
-
-        // Prepare json
-        var data = {
-            // number of parts
-            total: parts,
-            // part X of total
-            part: j,
-            size: file.size,
-            name: file.name,
-            type: file.type,
-            delay: delay,
-            del_at_first_view: del_at_first_view,
-            zipped: $('#zip-files').is(':checked'),
+function sliceAndUpload(randomkey, i, parts, j, delay, del_at_first_view, short, mod_token) {
+    if (mod_token !== null && window.cancelled.includes(i)) {
+        var data = JSON.stringify({
             id: short,
-            // number of the sent file in the queue
+            mod_token: mod_token,
+            cancel: true,
             i: i
-        };
-        if ($('#file_pwd').length === 1) {
-            var pwd = $('#file_pwd').val();
-            if (pwd !== undefined && pwd !== null && pwd !== '') {
-                data['file_pwd'] = $('#file_pwd').val();
-            }
-        }
-        data = JSON.stringify(data);
-
-        console.log('sending slice '+(j + 1)+'/'+parts+' of file '+file.name);
-
-        sl.html(i18n.sending.replace(/XX1(.*)XX2/, (j+1)+'$1'+parts));
-
+        })+'XXMOJOXXuseless';
         // Verify that we have a websocket and send json
         if (window.ws.readyState === 3) {
             window.ws = spawnWebsocket(0, function() {
-                window.ws.send(data+'XXMOJOXX'+JSON.stringify(encrypted));
+                window.ws.send(data);
             });
         } else {
             window.ws.onclose = function() {
                 console.log('Websocket closed, waiting 10sec.');
-                window.ws = spawnWebsocket(0, function() {
-                    console.log('sending again slice '+(j + 1)+'/'+parts+' of file '+file.name);
-                    window.ws.send(data+'XXMOJOXX'+JSON.stringify(encrypted));
-                });
+                window.ws = spawnWebsocket(0, function() {return null;});
             };
             window.ws.onerror = function() {
                 console.log('Error on Websocket, waiting 10sec.');
-                window.ws = spawnWebsocket(0, function() {
-                    console.log('sending again slice '+(j + 1)+'/'+parts+' of file '+file.name);
-                    window.ws.send(data+'XXMOJOXX'+JSON.stringify(encrypted));
-                });
+                window.ws = spawnWebsocket(0, function() {return null;});
             };
-            window.ws.send(data+'XXMOJOXX'+JSON.stringify(encrypted));
+            window.ws.send(data);
         }
+    } else {
+        var file  = window.fileList[i];
+        var slice = file.slice(j * window.sliceLength, (j + 1) * window.sliceLength, file.type);
+        var fr = new FileReader();
+        fr.onloadend = function() {
+            var sl        = $('#parts-'+window.fc);
+
+            // Get the binary result, different result in IE browsers (see default.html.ep line 27:48)
+            if (isIE == true){
+                var bin = fr.content;
+            } else {
+                var bin = fr.result;
+            }
+
+            // Transform it in base64
+            var b         = window.btoa(bin);
+
+            // Encrypt it
+            sl.html(i18n.encrypting.replace(/XX1(.*)XX2/, (j+1)+'$1'+parts));
+            var encrypted = sjcl.encrypt(randomkey, b);
+
+            // Prepare json
+            var data = {
+                // number of parts
+                total: parts,
+                // part X of total
+                part: j,
+                size: file.size,
+                name: file.name,
+                type: file.type,
+                delay: delay,
+                del_at_first_view: del_at_first_view,
+                zipped: $('#zip-files').is(':checked'),
+                id: short,
+                // number of the sent file in the queue
+                i: i
+            };
+            if ($('#file_pwd').length === 1) {
+                var pwd = $('#file_pwd').val();
+                if (pwd !== undefined && pwd !== null && pwd !== '') {
+                    data['file_pwd'] = $('#file_pwd').val();
+                }
+            }
+            data = JSON.stringify(data)+'XXMOJOXX'+JSON.stringify(encrypted);;
+
+            console.log('sending slice '+(j + 1)+'/'+parts+' of file '+file.name);
+
+            sl.html(i18n.sending.replace(/XX1(.*)XX2/, (j+1)+'$1'+parts));
+
+            // Verify that we have a websocket and send json
+            if (window.ws.readyState === 3) {
+                window.ws = spawnWebsocket(0, function() {
+                    window.ws.send(data);
+                });
+            } else {
+                window.ws.onclose = function() {
+                    console.log('Websocket closed, waiting 10sec.');
+                    window.ws = spawnWebsocket(0, function() {
+                        console.log('sending again slice '+(j + 1)+'/'+parts+' of file '+file.name);
+                        window.ws.send(data);
+                    });
+                };
+                window.ws.onerror = function() {
+                    console.log('Error on Websocket, waiting 10sec.');
+                    window.ws = spawnWebsocket(0, function() {
+                        console.log('sending again slice '+(j + 1)+'/'+parts+' of file '+file.name);
+                        window.ws.send(data);
+                    });
+                };
+                window.ws.send(data);
+            }
+        }
+        fr.readAsBinaryString(slice);
     }
-    fr.readAsBinaryString(slice);
 }
 
 // Update the progress bar
 function updateProgressBar(data) {
-    var i                 = data.i;
-    var sent_delay        = data.sent_delay;
-    var del_at_first_view = data.del_at_first_view;
-    if (data.success) {
-        var j          = data.j;
-        var delay      = data.delay;
-        var parts      = data.parts;
-        var short      = data.short;
-        var created_at = data.created_at;
-
-        console.log('getting response for slice '+(j + 1)+'/'+parts+' of file '+data.name+' ('+data.duration+' sec)');
-
-        var dp    = $('#progress-'+window.fc);
-        var key   = dp.attr('data-key');
-
-        if (j + 1 === parts) {
-            //
-            window.ws.onclose = function() {
-                console.log('Connection is closed.');
-            };
-            window.ws.onerror = function() {
-                console.log('Error on WebSocket connection but file has been fully send, so we don\'t care.');
-            }
-
-            $('#parts-'+window.fc).remove();
-            var n       = $('#name-'+window.fc);
-            var s       = $('#size-'+window.fc);
-            var d       = $('<div>');
-            var url     = baseURL+'r/'+short+'#'+key;
-            var del_url = actionURL+'d/'+short+'/'+data.token;
-            var links   = encodeURIComponent('["'+short+'"]');
-            var limit   = (delay === 0) ? i18n.noLimit : i18n.expiration+' '+moment.unix(delay * 86400 + created_at).locale(window.navigator.language).format('LLLL');
-            n.html(n.html()+' '+s.html()+' <a href="'+actionURL+'m?links='+links+'"><i class="mdi-communication-email"></i></a><br>'+limit);
-            d.html(['<div class="card-action">',
-                        '<div class="input-field">',
-                            '<span class="prefix big-prefix">',
-                                '<a href="', url, '" target="_blank">',
-                                    '<i class="mdi-file-file-download small" title="', i18n.dlText, '"></i>',
-                                '</a>',
-                                '<a href="#" id="copyurl-', window.fc, '" title="', i18n.cpText, '">',
-                                    '<i class="mdi-content-content-copy small"></i>',
-                                '</a>',
-                            '</span>',
-                            '<input id="', short, '" class="form-control link-input white-background" value="', url, '" readonly="" type="text">',
-                            '<label class="active" for="', short, '">', i18n.dlText, '</label>',
-                        '</div>',
-                        '<div class="input-field">',
-                            '<a href="', del_url, '" target="_blank" class="prefix big-prefix">',
-                                '<i class="mdi-action-delete small" title="', i18n.delText, '"></i>',
-                            '</a>',
-                            '<input id="delete-', short, '" class="form-control white-background" value="', del_url, '" readonly="" type="text">',
-                            '<label class="active" for="delete-', short, '">', i18n.delText, '</label>',
-                        '</div>',
-                    '</div>'].join(''));
-            s.remove();
-
-            var p2 = dp.parent();
-            var p1 = p2.parent();
-
-            p2.remove();
-            p1.append(d);
-
-            $('#copyurl-'+window.fc).on('click', function(e) {
-                e.preventDefault();
-                copyToClipboard(url);
-            });
-            $("input[type='text']").on("click", function () {
-                $(this).select();
-            });
-            // Add copy all and mailto buttons
-            var misc = $('#misc');
-            if (misc.html() === '') {
-                misc.html('<a href="#" id="copyall" class="btn btn-info">'+i18n.copyAll+'</a> <a id="mailto" href="'+actionURL+'m?links='+links+'" class="btn btn-info">'+i18n.mailTo+'</a>');
-                $('#copyall').on('click', copyAllToClipboard);
-            } else {
-                updateMailLink();
-            }
-
-            // Add the file to localStorage
-            addItem(data.name, url, data.size, del_at_first_view, created_at, delay, data.short, data.token);
-
-            // Upload next file
-            window.fc++;
-            i++;
-            if (i < window.fileList.length) {
-                uploadFile(i, sent_delay, del_at_first_view);
-            } else {
-                // We have finished
-                window.fileList = null;
-                window.onbeforeunload = null;
-                $('#zip-files').attr('disabled', null);
-                $('#delete-day').attr('disabled', null);
-                $('#first-view').attr('disabled', null);
-            }
+    if (typeof(data.action) !== 'undefined' && data.action === 'cancel') {
+        if (data.success) {
+            console.log('Upload successfully cancelled');
         } else {
-            j++;
-            // Update progress bar
-            var percent    = Math.round(100 * j/parts);
-            dp.removeClass();
-            dp.addClass('determinate');
-            dp.addClass('width-'+percent);
-            dp.attr('aria-valuenow', percent);
+            console.log('Upload cancellation failed: ' + data.msg);
+        }
 
-            // Encrypt and upload next slice
-            sliceAndUpload(key, i, parts, j, delay, del_at_first_view, short);
+        // Remove the cancelled index
+        window.cancelled.splice(window.cancelled.indexOf(window.fc), 1);
+
+        // Upload next file
+        window.fc++;
+        data.i++;
+        if (data.i < window.fileList.length) {
+            uploadFile(data.i, $('#delete-day').val(), $('#first-view').is(':checked'));
+        } else {
+            // We have finished
+            window.cancelled = [];
+            window.fileList = null;
+            window.onbeforeunload = null;
+            $('#delete-day').attr('disabled', null);
+            $('#first-view').attr('disabled', null);
+            if ($('#zip-files').is(':checked')) {
+                $('label[for="zip-files"]').click();
+            }
+
         }
     } else {
-        addAlertOnFile(data.msg, i, delay, del_at_first_view);
+        var i                 = data.i;
+        var sent_delay        = data.sent_delay;
+        var del_at_first_view = data.del_at_first_view;
+        if (data.success) {
+            var j          = data.j;
+            var delay      = data.delay;
+            var parts      = data.parts;
+            var short      = data.short;
+            var created_at = data.created_at;
+
+            console.log('getting response for slice '+(j + 1)+'/'+parts+' of file '+data.name+' ('+data.duration+' sec)');
+
+            var dp    = $('#progress-'+window.fc);
+            var key   = dp.attr('data-key');
+
+            if (j + 1 === parts) {
+                //
+                window.ws.onclose = function() {
+                    console.log('Connection is closed.');
+                };
+                window.ws.onerror = function() {
+                    console.log('Error on WebSocket connection but file has been fully send, so we don\'t care.');
+                }
+
+                $('#parts-'+window.fc).remove();
+                var n       = $('#name-'+window.fc);
+                var s       = $('#size-'+window.fc);
+                var d       = $('<div>');
+                var url     = baseURL+'r/'+short+'#'+key;
+                var del_url = actionURL+'d/'+short+'/'+data.token;
+                var links   = encodeURIComponent('["'+short+'"]');
+                var limit   = (delay === 0) ? i18n.noLimit : i18n.expiration+' '+moment.unix(delay * 86400 + created_at).locale(window.navigator.language).format('LLLL');
+                n.html(n.html()+' '+s.html()+' <a href="'+actionURL+'m?links='+links+'"><i class="mdi-communication-email"></i></a><br>'+limit);
+                d.html(['<div class="card-action">',
+                            '<div class="input-field">',
+                                '<span class="prefix big-prefix">',
+                                    '<a href="', url, '" target="_blank">',
+                                        '<i class="mdi-file-file-download small" title="', i18n.dlText, '"></i>',
+                                    '</a>',
+                                    '<a href="#" id="copyurl-', window.fc, '" title="', i18n.cpText, '">',
+                                        '<i class="mdi-content-content-copy small"></i>',
+                                    '</a>',
+                                '</span>',
+                                '<input id="', short, '" class="form-control link-input white-background" value="', url, '" readonly="" type="text">',
+                                '<label class="active" for="', short, '">', i18n.dlText, '</label>',
+                            '</div>',
+                            '<div class="input-field">',
+                                '<a href="', del_url, '" target="_blank" class="prefix big-prefix">',
+                                    '<i class="mdi-action-delete small" title="', i18n.delText, '"></i>',
+                                '</a>',
+                                '<input id="delete-', short, '" class="form-control white-background" value="', del_url, '" readonly="" type="text">',
+                                '<label class="active" for="delete-', short, '">', i18n.delText, '</label>',
+                            '</div>',
+                        '</div>'].join(''));
+                s.remove();
+
+                var p2 = dp.parent();
+                var p1 = p2.parent();
+
+                p2.remove();
+                p1.append(d);
+
+                $('#copyurl-'+window.fc).on('click', function(e) {
+                    e.preventDefault();
+                    copyToClipboard(url);
+                });
+                $("input[type='text']").on("click", function () {
+                    $(this).select();
+                });
+                // Add copy all and mailto buttons
+                var misc = $('#misc');
+                if (misc.html() === '') {
+                    misc.html('<a href="#" id="copyall" class="btn btn-info">'+i18n.copyAll+'</a> <a id="mailto" href="'+actionURL+'m?links='+links+'" class="btn btn-info">'+i18n.mailTo+'</a>');
+                    $('#copyall').on('click', copyAllToClipboard);
+                } else {
+                    updateMailLink();
+                }
+
+                // Add the file to localStorage
+                addItem(data.name, url, data.size, del_at_first_view, created_at, delay, data.short, data.token);
+
+                // Upload next file
+                window.fc++;
+                i++;
+                if (i < window.fileList.length) {
+                    uploadFile(i, sent_delay, del_at_first_view);
+                } else {
+                    // We have finished
+                    window.fileList = null;
+                    window.onbeforeunload = null;
+                    $('#delete-day').attr('disabled', null);
+                    $('#first-view').attr('disabled', null);
+                    if ($('#zip-files').is(':checked')) {
+                        $('label[for="zip-files"]').click();
+                    }
+
+                }
+            } else {
+                j++;
+                // Update progress bar
+                var percent    = Math.round(100 * j/parts);
+                dp.removeClass();
+                dp.addClass('determinate');
+                dp.addClass('width-'+percent);
+                dp.attr('aria-valuenow', percent);
+
+                // Encrypt and upload next slice
+                sliceAndUpload(key, i, parts, j, delay, del_at_first_view, short, data.token);
+            }
+        } else {
+            addAlertOnFile(data.msg, i, delay, del_at_first_view);
+        }
     }
 }
 
@@ -463,7 +611,10 @@ function bindDropZone() {
 }
 
 // When it's ready
-$(document).ready(function(){
+$(document).ready(function() {
+    $('#zip-files').prop('checked', false);
+    $('#first-view').prop('checked', false);
+    $('#zipname').val('documents.zip');
     if (!sjcl.random.isReady(10)) {
         var loop = setInterval(function() {
             if (!sjcl.random.isReady(10)) {
@@ -480,18 +631,12 @@ $(document).ready(function(){
     if (maxSize > 0) {
         $('#max-file-size').text(i18n.maxSize.replace('XXX', filesize(maxSize)));
     }
-    $('label[for="first-view"]').on('click', function(){
-        if ($('#first-view').attr('data-checked') && $('#first-view').attr('data-checked') === 'data-checked') {
-            $('#first-view').attr('data-checked', null);
-        } else {
-            $('#first-view').attr('data-checked', 'data-checked');
-        }
-    });
-    $('label[for="zip-files"]').on('click', function(){
-        if ($('#zip-files').attr('data-checked') && $('#zip-files').attr('data-checked') === 'data-checked') {
-            $('#zip-files').attr('data-checked', null);
-        } else {
-            $('#zip-files').attr('data-checked', 'data-checked');
-        }
+    $('label[for="first-view"]').on('click', firstViewClicking);
+    $('label[for="zip-files"]').on('click', zipClicking);
+    $('#zipname').on('input', updateZipname);
+    $('#uploadZip').on('click', uploadZip);
+    $('#reset-zipping').on('click', function() {
+        window.zip = null;
+        $('label[for="zip-files"]').click();
     });
 });

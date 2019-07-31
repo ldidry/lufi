@@ -99,6 +99,17 @@
             </div>
         </div>
     % }
+        <div class="col s12 m12 hide" id="zipname-input">
+            <div class="col s12 m6">
+                <div class="input-field">
+                    <input type="text" id="zipname" placeholder="documents.zip" value="documents.zip" class="validate">
+                    <label for="zipname"><%= l('Name of the zip file') %></label>
+                </div>
+            </div>
+            <div class="col s12 m6 text-left input-field">
+                <a href="#" id="uploadZip" class="btn waves-effect waves-light"><%= l('Upload generated zip file') %></a>
+            </div>
+        </div>
     </form>
     <div id="files">
         <h2><%= l('Drop files here') %></h2>
@@ -109,7 +120,24 @@
             <input type="file" id="file-browser-button" multiple disabled>
         </label>
     </div>
-    <p id="zipping" class="hiddendiv"><%= l('Zip archive creation…') %></p>
+    <div id="zipping" class="hide">
+        <div class="card">
+            <div>
+                <a href="#" id="reset-zipping">
+                    <i class="right mdi-navigation-close small"></i>
+                </a>
+                <div class="card-content">
+                    <span class="card-title" id="zip-name">documents.zip</span> (<span id="zip-size"></span>)
+                    <p id="zip-compressing" class="hide">
+                        <button class="btn-floating pulse"><i class="mdi-content-archive"></i></button>
+                        <%= l('Compressing zip file…') %>
+                    </p>
+                    <ul id="zip-parts">
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
     <div id="results">
         <h2><%= l('Uploaded files') %></h2>
         <div id="misc"></div>

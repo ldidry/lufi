@@ -131,7 +131,7 @@ sub new {
 
 =over 1
 
-=item B<Usage>     : C<$c-E<gt>delet>
+=item B<Usage>     : C<$c-E<gt>delete>
 
 =item B<Arguments> : none
 
