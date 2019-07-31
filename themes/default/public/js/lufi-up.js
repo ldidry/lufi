@@ -82,11 +82,9 @@ function addItem(name, url, size, del_at_first_view, created_at, delay, short, t
 function destroyBlock(el) {
     $(el).parents('li').remove();
 
-    var a = $('.link-input');
-    var l = $('#results li');
-    if (a.length === 0) {
+    if ($('.link-input').length === 0) {
         $('#misc').empty();
-        if (l.length === 0 && window.fileList === null) {
+        if ($('#results li').length === 0 && window.fileList === null) {
             $('#results').hide();
         }
     } else {
@@ -136,7 +134,7 @@ function getZipname() {
         }
     }
 
-    return zipname;
+    return escapeHtml(zipname);
 }
 
 // Update the zip name
@@ -150,20 +148,28 @@ function uploadZip(e) {
     var delay             = $('#delete-day');
     var del_at_first_view = $('#first-view');
     $('#zip-files').attr('disabled', 'disabled');
+    $('#file-browser-button').attr('disabled', 'disabled');
+    $('#file-browser-span').addClass('disabled');
+    $('#uploadZip').addClass('hide');
+    $('#zip-parts').text('');
 
     $('#zip-compressing').removeClass('hide');
     window.zip.generateAsync({type:"blob"})
         .then(function(zipFile) {
             // if $('#zipping') is hidden, the zipping has been aborted
             if (!$('#zipping').hasClass('hide')) {
+                window.zip = null;
                 $('#zipping').addClass('hide');
                 $('#zipname-input').addClass('hide');
                 $('#zip-compressing').addClass('hide');
+                $('#uploadZip').removeClass('hide');
                 $('#results').show();
+                $('#zip-files').attr('disabled', null);
 
                 var zipname = getZipname();
                 var file = new File([zipFile], zipname, {type: 'application/zip'});
 
+                Materialize.toast(i18n.enqueued.replace('XXX', zipname), 3000, 'teal accent-3');
                 if (window.fileList === undefined || window.fileList === null) {
                     window.fileList = [file];
                     uploadFile(0, delay.val(), del_at_first_view.is(':checked'));
@@ -171,6 +177,8 @@ function uploadZip(e) {
                     window.fileList.push(file);
                 }
             }
+            $('#file-browser-button').attr('disabled', null);
+            $('#file-browser-span').removeClass('disabled');
         });
 }
 
@@ -245,6 +253,10 @@ function handleFiles(f) {
     } else {
         if (window.fileList === undefined || window.fileList === null) {
             window.fileList = Array.prototype.slice.call(f);
+            for (var i = 0; i < window.fileList.length; i++) {
+                var file = window.fileList[i];
+                Materialize.toast(i18n.enqueued.replace('XXX', escapeHtml(file.name)), 3000, 'teal accent-3');
+            }
             window.nbFiles  = window.fileList.length;
             $('#results').show();
             uploadFile(0, delay.val(), del_at_first_view.is(':checked'));
@@ -430,9 +442,12 @@ function updateProgressBar(data) {
             window.onbeforeunload = null;
             $('#delete-day').attr('disabled', null);
             $('#first-view').attr('disabled', null);
-            if ($('#zip-files').is(':checked')) {
+            if ($('#zip-files').is(':checked') && window.zip === null) {
                 $('label[for="zip-files"]').click();
             }
+        }
+        if ($('#results li').length === 0 && window.fileList === null) {
+            $('#results').hide();
         }
     } else {
         var i                 = data.i;
@@ -537,12 +552,15 @@ function updateProgressBar(data) {
                     window.onbeforeunload = null;
                     $('#delete-day').attr('disabled', null);
                     $('#first-view').attr('disabled', null);
-                    if ($('#zip-files').is(':checked')) {
+                    if ($('#zip-files').is(':checked') && window.zip === null) {
                         $('label[for="zip-files"]').click();
                     }
                     if (isGuest) {
                         sendFilesURLs();
                     }
+                }
+                if ($('#results li').length === 0 && window.fileList === null) {
+                    $('#results').hide();
                 }
             } else {
                 j++;
@@ -677,5 +695,9 @@ $(document).ready(function() {
     $('#reset-zipping').on('click', function() {
         window.zip = null;
         $('label[for="zip-files"]').click();
+        $('#zip-files').attr('disabled', null);
+        $('#zip-compressing').addClass('hide');
+        $('#file-browser-button').attr('disabled', null);
+        $('#file-browser-span').removeClass('disabled');
     });
 });

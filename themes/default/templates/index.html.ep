@@ -90,7 +90,6 @@
                 <label for="first-view"><%= l('Delete at first download?') %></label>
             </p>
         </div>
-    % if (!stash('invitation')) {
         <div class="input-field">
             <p class="col s12 m6 text-left">
                 <input
@@ -101,7 +100,6 @@
                 <label for="zip-files"><%= l('Create a zip archive with the files before uploading?') %></label>
             </p>
         </div>
-    % }
     % if (config('allow_pwd_on_files') && (!stash('invitation'))) {
         <div class="col s12 m6">
             <div class="input-field">
@@ -116,9 +114,6 @@
                     <input type="text" id="zipname" placeholder="documents.zip" value="documents.zip" class="validate">
                     <label for="zipname"><%= l('Name of the zip file') %></label>
                 </div>
-            </div>
-            <div class="col s12 m6 text-left input-field">
-                <a href="#" id="uploadZip" class="btn waves-effect waves-light"><%= l('Upload generated zip file') %></a>
             </div>
         </div>
     </form>
@@ -143,6 +138,9 @@
                         <button class="btn-floating pulse"><i class="mdi-content-archive"></i></button>
                         <%= l('Compressing zip file…') %>
                     </p>
+                    <div class="col s12 m6 text-left input-field right">
+                        <a href="#" id="uploadZip" class="btn waves-effect waves-light"><%= l('Upload generated zip file') %></a>
+                    </div>
                     <ul id="zip-parts">
                     </ul>
                 </div>

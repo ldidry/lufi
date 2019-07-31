@@ -10,6 +10,7 @@ var baseURL = '<%= url_for('/')->to_abs() %>';
 % }
 var actionURL = '<%= url_for('/')->to_abs() %>';
 var i18n    = {
+    enqueued:    '<%= l('XXX file has been added to upload queue.') %>',
     confirmExit: '<%= l('You have attempted to leave this page. The upload will be canceled. Are you sure?') %>',
     copyAll:     '<%= l('Copy all links to clipboard') %>',
     copySuccess: '<%= l('The link(s) has been copied to your clipboard') %>',
