@@ -1,5 +1,8 @@
 Revision history for Lufi
 
+0.03.7 2019-08-01
+	- Fix missing default values for some settings (mildis)
+
 0.03.6 2019-07-30
 	- Update german translation
 	- Use configured url prefix when using mail sending interface

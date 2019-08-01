@@ -19,6 +19,7 @@
 - Frju365 (german translation)
 - pi2 (german translation)
 - alexandre.LG, http://inios.fr/
+- Mildis, (bugfix)
 
 ## Vulnerabilities / bug hunters
 
