@@ -203,6 +203,26 @@ button.pulse {
         transform: scale(1.5);
     }
 }
+.margin-bottom-35 {
+    margin-bottom: 35px;
+}
+.toast.teal.accent-3,
+.toast.red.accent-2 {
+    color: black;
+}
+.offscreen {
+    clip-path: inset(100%);
+    clip: rect(1px 1px 1px 1px); /* IE 6/7 */
+    clip: rect(1px, 1px, 1px, 1px);
+    height: 1px;
+    overflow: hidden;
+    position: absolute;
+    white-space: nowrap; /* added line */
+    width: 1px;
+}
+.small-h1 {
+    font-size: 2.2rem;
+}
 .white-background {
     background-color: #FFF;
 }

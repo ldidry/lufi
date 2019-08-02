@@ -78,3 +78,19 @@ BEGIN TRANSACTION;
     DROP TABLE files;
     ALTER TABLE files_backup RENAME TO files;
 COMMIT;
+-- 4 up
+CREATE TABLE IF NOT EXISTS invitations (
+       token                 TEXT PRIMARY KEY,
+       ldap_user             TEXT,
+       ldap_user_mail        TEXT,
+       guest_mail            TEXT,
+       created_at            INTEGER,
+       expire_at             INTEGER,
+       files_sent_at         INTEGER,
+       expend_expire_at      INTEGER,
+       files                 TEXT,
+       show_in_list          INTEGER,
+       deleted               INTEGER
+);
+-- 4 down
+DROP TABLE invitations;

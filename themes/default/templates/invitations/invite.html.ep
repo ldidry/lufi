@@ -1,0 +1,51 @@
+% # vim:set sw=4 ts=4 sts=4 ft=html.epl expandtab:
+
+% if (scalar(@{$self->stash('fails')})) {
+    <div class="col s12">
+        <div class="card pink">
+            <div class="card-content white-text">
+                % for my $msg (@{$self->stash('fails')}) {
+                    <strong><%= $msg %></strong>
+                % }
+            </div>
+        </div>
+    </div>
+% }
+% if (scalar(@{$self->stash('success')})) {
+    <div class="col s12">
+        <div class="card blue">
+            <div class="card-content white-text">
+                % for my $msg (@{$self->stash('success')}) {
+                    <strong><%== $msg %></strong>
+                % }
+            </div>
+        </div>
+    </div>
+% }
+
+<form class="row" method="post">
+    <h1><%= l('Invite a guest') %></h1>
+    <div class="margin-bottom-35">
+        <p>
+            <%= l('You can invite someone to send you files through this Lufi instance even if they don’t have an account on it.') %>
+        </p>
+        % if (stash('send_with_user_email')) {
+            <p>
+                <%= l('The invitation mail will be send from your email address (%1).', stash('user_mail')) %>
+            </p>
+        % }
+    </div>
+    <div class="input-field">
+        <label for="guest_mail">
+            <%= l('Email address of your guest') %>
+        </label>
+        <input id="guest_mail" name="guest_mail" type="email" placeholder="nami@example.org" required>
+    </div>
+    <div class="input-field">
+        <label for="expire_at">
+            <%= l('How many days would you like the invitation to be valid?') %>
+        </label>
+        <input id="expire_at" name="expire_at" type="number" min="1" max="<%= stash('max_expire_at') %>" step="1" value="<%= stash('max_expire_at') %>" required>
+    </div>
+    <button class="btn waves-effect waves-light" type="submit"><%= l('Send the invitation') %></button>
+</form>

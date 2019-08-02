@@ -1,5 +1,4 @@
 requires 'inc::Module::Install';
-requires 'List::Util', '>= 1.50';
 requires 'Mojolicious', '>= 8.05';
 requires 'Mojolicious::Plugin::DebugDumperHelper';
 requires 'Mojolicious::Plugin::I18N';
@@ -33,10 +32,12 @@ feature 'optional_deps' => sub {
 
 feature 'test' => sub {
     requires 'Devel::Cover';
+    requires 'B::Debug';
 };
 feature 'ldap', 'LDAP authentication support' => sub {
     requires 'Net::LDAP';
     requires 'Mojolicious::Plugin::Authentication';
+    requires 'Date::Format';
 };
 feature 'htpasswd', 'Htpasswd authentication support' => sub {
     requires 'Apache::Htpasswd';

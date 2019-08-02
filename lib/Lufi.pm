@@ -110,6 +110,47 @@ sub startup {
         $r->post('/logout')
           ->to('Auth#log_out')
           ->name('logout');
+
+        if (defined $self->config('ldap') && defined $self->config('invitations')) {
+            # Invitation creation page
+            $r->get('/invite')
+              ->name('invite')
+              ->to('Invitation#new_invite');
+
+            # Send invitation
+            $r->post('/invite')
+              ->to('Invitation#send_invite');
+
+            # Get my invitations
+            $r->get('/invite/list')
+              ->name('invite_list')
+              ->to('Invitation#my_invitations');
+
+            # Delete invitations
+            $r->post('/invite/list/delete')
+              ->name('invite_list_delete')
+              ->to('Invitation#delete_invitations');
+
+            # Resend invitation mail
+            $r->post('/invite/list/resend')
+              ->name('invite_list_resend')
+              ->to('Invitation#resend_invitations');
+
+            # Toggle invitations visibility
+            $r->post('/invite/list/visibility')
+              ->name('invite_list_visibility')
+              ->to('Invitation#toggle_invitations_visibility');
+
+            # I’m a guest
+            $r->get('/guest/:token')
+              ->name('guest')
+              ->to('Invitation#guest');
+
+            # I’m a guest and I sent all my files
+            $r->post('/guest/:token/send_mail')
+              ->name('guest_send_mail')
+              ->to('Invitation#send_mail_to_ldap_user');
+        }
     }
 
     # About page

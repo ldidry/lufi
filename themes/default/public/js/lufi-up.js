@@ -11,6 +11,8 @@ window.sliceLength = 2000000;
 // Global zip objects for currently created zip file
 window.zip = null;
 window.zipSize = 0;
+// Init the list of files (used by LDAP invitation feature)
+window.filesURLs = [];
 
 // Copy a link to clipboard
 function copyToClipboard(txt) {
@@ -80,11 +82,9 @@ function addItem(name, url, size, del_at_first_view, created_at, delay, short, t
 function destroyBlock(el) {
     $(el).parents('li').remove();
 
-    var a = $('.link-input');
-    var l = $('#results li');
-    if (a.length === 0) {
+    if ($('.link-input').length === 0) {
         $('#misc').empty();
-        if (l.length === 0 && window.fileList === null) {
+        if ($('#results li').length === 0 && window.fileList === null) {
             $('#results').hide();
         }
     } else {
@@ -134,7 +134,7 @@ function getZipname() {
         }
     }
 
-    return zipname;
+    return escapeHtml(zipname);
 }
 
 // Update the zip name
@@ -148,20 +148,28 @@ function uploadZip(e) {
     var delay             = $('#delete-day');
     var del_at_first_view = $('#first-view');
     $('#zip-files').attr('disabled', 'disabled');
+    $('#file-browser-button').attr('disabled', 'disabled');
+    $('#file-browser-span').addClass('disabled');
+    $('#uploadZip').addClass('hide');
+    $('#zip-parts').text('');
 
     $('#zip-compressing').removeClass('hide');
     window.zip.generateAsync({type:"blob"})
         .then(function(zipFile) {
             // if $('#zipping') is hidden, the zipping has been aborted
             if (!$('#zipping').hasClass('hide')) {
+                window.zip = null;
                 $('#zipping').addClass('hide');
                 $('#zipname-input').addClass('hide');
                 $('#zip-compressing').addClass('hide');
+                $('#uploadZip').removeClass('hide');
                 $('#results').show();
+                $('#zip-files').attr('disabled', null);
 
                 var zipname = getZipname();
                 var file = new File([zipFile], zipname, {type: 'application/zip'});
 
+                Materialize.toast(i18n.enqueued.replace('XXX', zipname), 3000, 'teal accent-3');
                 if (window.fileList === undefined || window.fileList === null) {
                     window.fileList = [file];
                     uploadFile(0, delay.val(), del_at_first_view.is(':checked'));
@@ -169,6 +177,8 @@ function uploadZip(e) {
                     window.fileList.push(file);
                 }
             }
+            $('#file-browser-button').attr('disabled', null);
+            $('#file-browser-span').removeClass('disabled');
         });
 }
 
@@ -183,6 +193,28 @@ function updateMailLink() {
     var u = actionURL+'m?links='+JSON.stringify(l);
     $('#mailto').attr('href', u);
 }
+
+// [Invitation feature] Send URLs of files to server
+function sendFilesURLs() {
+    if (window.filesURLs.length > 0) {
+        $.ajax({
+            url: sendFilesURLsURL,
+            method: 'POST',
+            dataType: 'json',
+            data: {
+                urls: window.filesURLs
+            },
+            success: function(data, textStatus, jqXHR) {
+                if (data.success) {
+                    Materialize.toast(data.msg, 6000, 'teal accent-3');
+                } else {
+                    Materialize.toast(data.msg, 10000, 'red accent-2');
+                }
+            }
+        });
+    }
+}
+
 
 // Start uploading the files (called from <input> and from drop zone)
 function handleFiles(f) {
@@ -221,6 +253,11 @@ function handleFiles(f) {
     } else {
         if (window.fileList === undefined || window.fileList === null) {
             window.fileList = Array.prototype.slice.call(f);
+            for (var i = 0; i < window.fileList.length; i++) {
+                var file = window.fileList[i];
+                Materialize.toast(i18n.enqueued.replace('XXX', escapeHtml(file.name)), 3000, 'teal accent-3');
+            }
+            window.nbFiles  = window.fileList.length;
             $('#results').show();
             uploadFile(0, delay.val(), del_at_first_view.is(':checked'));
         } else {
@@ -405,10 +442,12 @@ function updateProgressBar(data) {
             window.onbeforeunload = null;
             $('#delete-day').attr('disabled', null);
             $('#first-view').attr('disabled', null);
-            if ($('#zip-files').is(':checked')) {
+            if ($('#zip-files').is(':checked') && window.zip === null) {
                 $('label[for="zip-files"]').click();
             }
-
+        }
+        if ($('#results li').length === 0 && window.fileList === null) {
+            $('#results').hide();
         }
     } else {
         var i                 = data.i;
@@ -443,28 +482,32 @@ function updateProgressBar(data) {
                 var del_url = actionURL+'d/'+short+'/'+data.token;
                 var links   = encodeURIComponent('["'+short+'"]');
                 var limit   = (delay === 0) ? i18n.noLimit : i18n.expiration+' '+moment.unix(delay * 86400 + created_at).locale(window.navigator.language).format('LLLL');
-                n.html(n.html()+' '+s.html()+' <a href="'+actionURL+'m?links='+links+'"><i class="mdi-communication-email"></i></a><br>'+limit);
-                d.html(['<div class="card-action">',
-                            '<div class="input-field">',
-                                '<span class="prefix big-prefix">',
-                                    '<a href="', url, '" target="_blank">',
-                                        '<i class="mdi-file-file-download small" title="', i18n.dlText, '"></i>',
+                if (!isGuest) {
+                    n.html(n.html()+' '+s.html()+' <a href="'+actionURL+'m?links='+links+'"><i class="mdi-communication-email"></i></a><br>'+limit);
+                    d.html(['<div class="card-action">',
+                                '<div class="input-field">',
+                                    '<span class="prefix big-prefix">',
+                                        '<a href="', url, '" target="_blank">',
+                                            '<i class="mdi-file-file-download small" title="', i18n.dlText, '"></i>',
+                                        '</a>',
+                                        '<a href="#" id="copyurl-', window.fc, '" title="', i18n.cpText, '">',
+                                            '<i class="mdi-content-content-copy small"></i>',
+                                        '</a>',
+                                    '</span>',
+                                    '<input id="', short, '" class="form-control link-input white-background" value="', url, '" readonly="" type="text">',
+                                    '<label class="active" for="', short, '">', i18n.dlText, '</label>',
+                                '</div>',
+                                '<div class="input-field">',
+                                    '<a href="', del_url, '" target="_blank" class="prefix big-prefix">',
+                                        '<i class="mdi-action-delete small" title="', i18n.delText, '"></i>',
                                     '</a>',
-                                    '<a href="#" id="copyurl-', window.fc, '" title="', i18n.cpText, '">',
-                                        '<i class="mdi-content-content-copy small"></i>',
-                                    '</a>',
-                                '</span>',
-                                '<input id="', short, '" class="form-control link-input white-background" value="', url, '" readonly="" type="text">',
-                                '<label class="active" for="', short, '">', i18n.dlText, '</label>',
-                            '</div>',
-                            '<div class="input-field">',
-                                '<a href="', del_url, '" target="_blank" class="prefix big-prefix">',
-                                    '<i class="mdi-action-delete small" title="', i18n.delText, '"></i>',
-                                '</a>',
-                                '<input id="delete-', short, '" class="form-control white-background" value="', del_url, '" readonly="" type="text">',
-                                '<label class="active" for="delete-', short, '">', i18n.delText, '</label>',
-                            '</div>',
-                        '</div>'].join(''));
+                                    '<input id="delete-', short, '" class="form-control white-background" value="', del_url, '" readonly="" type="text">',
+                                    '<label class="active" for="delete-', short, '">', i18n.delText, '</label>',
+                                '</div>',
+                            '</div>'].join(''));
+                } else {
+                    n.html(n.html()+' '+s.html());
+                }
                 s.remove();
 
                 var p2 = dp.parent();
@@ -482,7 +525,7 @@ function updateProgressBar(data) {
                 });
                 // Add copy all and mailto buttons
                 var misc = $('#misc');
-                if (misc.html() === '') {
+                if (misc.html() === '' && !isGuest) {
                     misc.html('<a href="#" id="copyall" class="btn btn-info">'+i18n.copyAll+'</a> <a id="mailto" href="'+actionURL+'m?links='+links+'" class="btn btn-info">'+i18n.mailTo+'</a>');
                     $('#copyall').on('click', copyAllToClipboard);
                 } else {
@@ -490,7 +533,13 @@ function updateProgressBar(data) {
                 }
 
                 // Add the file to localStorage
-                addItem(data.name, url, data.size, del_at_first_view, created_at, delay, data.short, data.token);
+                if (!isGuest) {
+                    addItem(data.name, url, data.size, del_at_first_view, created_at, delay, data.short, data.token);
+                }
+
+                if (isGuest && short !== null) {
+                    window.filesURLs.push(JSON.stringify({ name: data.name, short: data.short, url: url, size: data.size, created_at: created_at, delay: delay, token: data.token }));
+                }
 
                 // Upload next file
                 window.fc++;
@@ -503,10 +552,15 @@ function updateProgressBar(data) {
                     window.onbeforeunload = null;
                     $('#delete-day').attr('disabled', null);
                     $('#first-view').attr('disabled', null);
-                    if ($('#zip-files').is(':checked')) {
+                    if ($('#zip-files').is(':checked') && window.zip === null) {
                         $('label[for="zip-files"]').click();
                     }
-
+                    if (isGuest) {
+                        sendFilesURLs();
+                    }
+                }
+                if ($('#results li').length === 0 && window.fileList === null) {
+                    $('#results').hide();
                 }
             } else {
                 j++;
@@ -522,6 +576,9 @@ function updateProgressBar(data) {
             }
         } else {
             addAlertOnFile(data.msg, i, delay, del_at_first_view);
+            if (isGuest) {
+                sendFilesURLs();
+            }
         }
     }
 }
@@ -638,5 +695,9 @@ $(document).ready(function() {
     $('#reset-zipping').on('click', function() {
         window.zip = null;
         $('label[for="zip-files"]').click();
+        $('#zip-files').attr('disabled', null);
+        $('#zip-compressing').addClass('hide');
+        $('#file-browser-button').attr('disabled', null);
+        $('#file-browser-span').removeClass('disabled');
     });
 });

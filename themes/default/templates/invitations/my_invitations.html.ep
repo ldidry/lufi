@@ -1,0 +1,87 @@
+% # vim:set sw=4 ts=4 sts=4 ft=html.epl expandtab:
+% use Number::Bytes::Human qw(format_bytes);
+% use Date::Format;
+
+<h2><%= l('My invitations') %></h2>
+<hr>
+
+<p>
+    <%= l('Rows in purple mean that the invitations have expired.') %>
+</p>
+<div class="invitations-buttons">
+    <a href="#" id="invertSelection"  class="btn left-mg cyan"><%= l('Invert selection') %></a>
+    <a href="#" id="toggleHidden"     class="btn left-mg cyan"><%= l('Show hidden invitations') %></a>
+    <a href="#" id="deleteInvit"      class="btn left-mg cyan disabled" disabled><%= l('Delete') %></a>
+    <a href="#" id="resendMail"       class="btn left-mg cyan disabled" disabled><%= l('Resend invitation mail') %></a>
+    <a href="#" id="toggleVisibility" class="btn left-mg cyan disabled" disabled><%= l('Toggle visibility') %></a>
+</div>
+
+<div>
+    <table class="responsive-table highlight">
+        <thead>
+            <tr>
+                <th class="center-align">&nbsp;</th>
+                <th class="center-align"><%= l('Guest mail') %></th>
+                <th class="center-align"><%= l('URL') %></th>
+                <th class="center-align"><%= l('Created at') %></th>
+                <th class="center-align"><%= l('Expire at') %></th>
+                <th class="center-align"><%= l('Files sent at') %></th>
+                <th class="center-align">&nbsp;</th>
+            </tr>
+        </thead>
+        <tbody id="myInvitations" data-visibility="hidden">
+        % my $time = time;
+        % $invitations->each(sub {
+            % my ($e, $num) = @_;
+            % return if $e->deleted;
+            % my $class = '';
+            % $class = 'purple lighten-4' unless $e->is_valid;
+            % $class .= ' hide' unless $e->show_in_list;
+            <tr id="row-<%= $e->token %>" class="<%= $class %>" data-visibility="<%= ($e->show_in_list) ? 1 : 0 %>">
+                <td>
+                    <input type="checkbox" id="<%= $e->token %>" data-checked="">
+                    <label for="<%= $e->token %>" hidden></label>
+
+                    % unless ($e->show_in_list) {
+                        <i class="mdi-navigation-cancel" title="<%= l('This invitation is normally hidden') %>"></i>
+                    % }
+                </td>
+                <td><%= $e->guest_mail %></td>
+                <td><%= url_for('guest', token => $e->token)->to_abs %></td>
+                <td><%= time2str(l('%A %d %B %Y at %T'), $e->created_at) %></td>
+                <td id="expire-<%= $e->token %>"><%= time2str(l('%A %d %B %Y at %T'), $e->expire_at) %></td>
+                <td><%= time2str(l('%A %d %B %Y at %T'), $e->files_sent_at) if $e->files_sent_at %></td>
+                <td>
+                    % if ($e->files) {
+                        <a href="#files-info"
+                           data-files="<%= $e->files %>"
+                           data-token="<%= $e->token %>"
+                           data-guest="<%= $e->guest_mail %>"
+                           class="btn left-mg cyan waves-effect waves-light modal-trigger prefix">
+                            <%= l('Files') %>
+                        </a>
+                    % }
+                </td>
+            </tr>
+        % });
+        </tbody>
+    </table>
+</div>
+
+<div id="files-info" class="modal">
+    <div class="modal-content">
+        <h1 class="small-h1"></h1>
+        <div class="text-left">
+            <ul id="files-ul">
+            </ul>
+        </div>
+    </div>
+    <div class="modal-footer">
+        <a href="#!" class="modal-action modal-close waves-effect waves-green btn-flat"><%= l('Close') %></a>
+    </div>
+</div>
+
+%= javascript '/partial/invitations.js'
+%= javascript '/js/lufi-list-invitations.js'
+%= javascript '/js/moment-with-locales.min.js'
+%= javascript '/js/filesize.min.js'
