@@ -208,6 +208,7 @@ my %date_langs = (
     it => 'Italian',
     nn => 'Norwegian',
     om => 'Oromo',
+    oc => 'Occitan',
     ro => 'Romanian',
     ru => 'Russian',
     so => 'Somali',
