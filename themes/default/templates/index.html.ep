@@ -117,32 +117,34 @@
             </div>
         </div>
     </form>
-    <div id="files">
-        <h2><%= l('Drop files here') %></h2>
-        <p id="max-file-size"></p>
-        <p><small><%= l('or') %></small></p>
-        <label>
-            <span id="file-browser-span" class="btn disabled waves-effect waves-light"><%= l('Click to open the file browser') %></span>
-            <input type="file" id="file-browser-button" multiple disabled>
-        </label>
-    </div>
-    <div id="zipping" class="hide">
-        <div class="card">
-            <div>
-                <a href="#" id="reset-zipping">
-                    <i class="right mdi-navigation-close small"></i>
-                </a>
-                <div class="card-content">
-                    <span class="card-title" id="zip-name">documents.zip</span> (<span id="zip-size"></span>)
-                    <p id="zip-compressing" class="hide">
-                        <button class="btn-floating pulse"><i class="mdi-content-archive"></i></button>
-                        <%= l('Compressing zip file…') %>
-                    </p>
-                    <div class="col s12 m6 text-left input-field right">
-                        <a href="#" id="uploadZip" class="btn waves-effect waves-light"><%= l('Upload generated zip file') %></a>
+    <div class="row">
+        <div id="files" class="col s12 m12">
+            <h2><%= l('Drop files here') %></h2>
+            <p id="max-file-size"></p>
+            <p><small><%= l('or') %></small></p>
+            <label>
+                <span id="file-browser-span" class="btn disabled waves-effect waves-light"><%= l('Click to open the file browser') %></span>
+                <input type="file" id="file-browser-button" multiple disabled>
+            </label>
+        </div>
+        <div id="zipping" class="col s12 m6 hide">
+            <div class="card">
+                <div>
+                    <a href="#" id="reset-zipping">
+                        <i class="right mdi-navigation-close small"></i>
+                    </a>
+                    <div class="card-content">
+                        <span class="card-title" id="zip-name">documents.zip</span> (<span id="zip-size"></span>)
+                        <p id="zip-compressing" class="hide">
+                            <button class="btn-floating pulse"><i class="mdi-content-archive"></i></button>
+                            <%= l('Compressing zip file…') %>
+                        </p>
+                        <ul id="zip-parts">
+                        </ul>
+                        <div class="right-align">
+                            <a href="#" id="uploadZip" class="btn waves-effect waves-light"><%= l('Upload generated zip file') %></a>
+                        </div>
                     </div>
-                    <ul id="zip-parts">
-                    </ul>
                 </div>
             </div>
         </div>
