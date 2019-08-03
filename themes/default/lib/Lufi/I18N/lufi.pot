@@ -114,7 +114,7 @@ msgstr ""
 msgid "Click on the following URL to upload files on Lufi:"
 msgstr ""
 
-#: themes/default/templates/index.html.ep:125
+#: themes/default/templates/index.html.ep:126
 msgid "Click to open the file browser"
 msgstr ""
 
@@ -126,7 +126,7 @@ msgstr ""
 msgid "Comma-separated email addresses"
 msgstr ""
 
-#: themes/default/templates/index.html.ep:139
+#: themes/default/templates/index.html.ep:140
 msgid "Compressing zip file…"
 msgstr ""
 
@@ -198,7 +198,7 @@ msgstr ""
 msgid "Drag and drop files in the appropriate area or use the traditional way to send files and the files will be chunked, encrypted and sent to the server. You will get two links per file: a download link, that you give to the people you want to share the file with and a deletion link, allowing you to delete the file whenever you want."
 msgstr ""
 
-#: themes/default/templates/index.html.ep:121
+#: themes/default/templates/index.html.ep:122
 msgid "Drop files here"
 msgstr ""
 
@@ -670,7 +670,7 @@ msgstr ""
 msgid "Upload files"
 msgstr ""
 
-#: themes/default/templates/index.html.ep:142
+#: themes/default/templates/index.html.ep:145
 msgid "Upload generated zip file"
 msgstr ""
 
@@ -678,7 +678,7 @@ msgstr ""
 msgid "Uploaded at"
 msgstr ""
 
-#: themes/default/templates/index.html.ep:151
+#: themes/default/templates/index.html.ep:153
 msgid "Uploaded files"
 msgstr ""
 
@@ -779,7 +779,7 @@ msgstr ""
 msgid "no time limit"
 msgstr ""
 
-#: themes/default/templates/index.html.ep:123
+#: themes/default/templates/index.html.ep:124
 msgid "or"
 msgstr ""
 
