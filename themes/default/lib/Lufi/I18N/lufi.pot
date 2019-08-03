@@ -583,7 +583,7 @@ msgstr ""
 
 #. ($i->token, $i->guest_mail)
 #: lib/Lufi/Controller/Invitation.pm:150
-msgid "The invitation %1 can’t be resend: %2 has already sent files.<br>Please create a new invitation."
+msgid "The invitation %1 can’t be resent: %2 has already sent files.<br>Please create a new invitation."
 msgstr ""
 
 #. ($i->token)
@@ -607,7 +607,7 @@ msgstr ""
 
 #. (stash('ldap_user')
 #: themes/default/templates/invitations/invite.mail.ep:11
-msgid "The links of your file(s) will automatically be send by mail to %1."
+msgid "The links of your file(s) will automatically be sent by mail to %1."
 msgstr ""
 
 #: lib/Lufi/Controller/Mail.pm:97

@@ -147,7 +147,7 @@ sub resend_invitations {
                                     ->from_token($token);
 
         if ($i->files_sent_at) {
-            push @failures, $c->l('The invitation %1 can’t be resend: %2 has already sent files.<br>Please create a new invitation.', $i->token, $i->guest_mail);
+            push @failures, $c->l('The invitation %1 can’t be resent: %2 has already sent files.<br>Please create a new invitation.', $i->token, $i->guest_mail);
         } else {
             if ($c->config('invitations')->{'extend_invitation_expiration_on_resend'}) {
                 $i->expire_at(time + $i->expire_at - $i->created_at)

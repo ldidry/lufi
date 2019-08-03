@@ -8,7 +8,7 @@
 %= l('Click on the following URL to upload files on Lufi:')
 %== stash('url')
 
-%= l('The links of your file(s) will automatically be send by mail to %1.', stash('ldap_user'))
+%= l('The links of your file(s) will automatically be sent by mail to %1.', stash('ldap_user'))
 
 %= l('This invitation is valid until %1.', stash('expires'))
 
