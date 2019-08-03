@@ -7,7 +7,7 @@ msgstr ""
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"PO-Revision-Date: 2019-08-03 11:10+0000\n"
+"PO-Revision-Date: 2019-08-03 11:38+0000\n"
 "Last-Translator: Luc Didry <luc@framasoft.org>\n"
 "Language-Team: English\n"
 "Language: en\n"
@@ -20,11 +20,6 @@ msgstr ""
 msgid "%1 days"
 msgstr "%1 days"
 
-#. (stash('invitation')
-#: themes/default/templates/invitations/notification_files_sent.mail.ep:4
-msgid "%1 have send you files"
-msgstr "%1 have send you files"
-
 #. (stash('ldap_user')
 #: themes/default/templates/invitations/invite.mail.ep:2
 msgid "%1 invites you to send him/her files"
@@ -34,6 +29,11 @@ msgstr "%1 invites you to send him/her files"
 #: themes/default/templates/invitations/invite.mail.ep:6
 msgid "%1 invites you to send him/her files through Lufi."
 msgstr "%1 invites you to send him/her files through Lufi."
+
+#. (stash('invitation')
+#: themes/default/templates/invitations/notification_files_sent.mail.ep:4
+msgid "%1 sent you files"
+msgstr "%1 sent you files"
 
 #. (stash('invitation')
 #: themes/default/templates/invitations/notification_files_sent.mail.ep:8

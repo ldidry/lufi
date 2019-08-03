@@ -1,6 +1,6 @@
 % # vim:set sw=4 ts=4 sts=4 ft=html.epl expandtab:
 % use Number::Bytes::Human qw(format_bytes);
-% use Date::Format;
+% my $lang = $self->get_date_lang();
 
 <h2><%= l('My invitations') %></h2>
 <hr>
@@ -48,9 +48,9 @@
                 </td>
                 <td><%= $e->guest_mail %></td>
                 <td><%= url_for('guest', token => $e->token)->to_abs %></td>
-                <td><%= time2str(l('%A %d %B %Y at %T'), $e->created_at) %></td>
-                <td id="expire-<%= $e->token %>"><%= time2str(l('%A %d %B %Y at %T'), $e->expire_at) %></td>
-                <td><%= time2str(l('%A %d %B %Y at %T'), $e->files_sent_at) if $e->files_sent_at %></td>
+                <td><%= $lang->time2str(l('%A %d %B %Y at %T'), $e->created_at) %></td>
+                <td id="expire-<%= $e->token %>"><%= $lang->time2str(l('%A %d %B %Y at %T'), $e->expire_at) %></td>
+                <td><%= $lang->time2str(l('%A %d %B %Y at %T'), $e->files_sent_at) if $e->files_sent_at %></td>
                 <td>
                     % if ($e->files) {
                         <a href="#files-info"

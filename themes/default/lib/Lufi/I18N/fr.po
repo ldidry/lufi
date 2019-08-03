@@ -11,10 +11,10 @@ msgstr ""
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"PO-Revision-Date: 2019-08-03 10:50+0000\n"
+"PO-Revision-Date: 2019-08-03 11:38+0000\n"
 "Language-Team: \n"
 "X-Generator: Zanata 4.6.2\n"
-"Last-Translator: Copied by Zanata <copied-by-zanata@zanata.org>\n"
+"Last-Translator: Luc Didry <luc@framasoft.org>\n"
 "Plural-Forms: nplurals=2; plural=(n > 1);\n"
 "Language: fr\n"
 
@@ -23,11 +23,6 @@ msgstr ""
 #: themes/default/templates/index.html.ep:56 themes/default/templates/index.html.ep:65 themes/default/templates/index.html.ep:66
 msgid "%1 days"
 msgstr "%1 jours"
-
-#. (stash('invitation')
-#: themes/default/templates/invitations/notification_files_sent.mail.ep:4
-msgid "%1 have send you files"
-msgstr "%1 vous a envoyé des fichiers"
 
 #. (stash('ldap_user')
 #: themes/default/templates/invitations/invite.mail.ep:2
@@ -38,6 +33,11 @@ msgstr "%1 vous invite à lui envoyer des fichiers"
 #: themes/default/templates/invitations/invite.mail.ep:6
 msgid "%1 invites you to send him/her files through Lufi."
 msgstr "%1 vous invite à lui envoyer des fichiers via Lufi."
+
+#. (stash('invitation')
+#: themes/default/templates/invitations/notification_files_sent.mail.ep:4
+msgid "%1 sent you files"
+msgstr "%1 vous a envoyé des fichiers"
 
 #. (stash('invitation')
 #: themes/default/templates/invitations/notification_files_sent.mail.ep:8

@@ -3,6 +3,7 @@ package Lufi::Plugin::Helpers;
 use Mojo::Base 'Mojolicious::Plugin';
 use Lufi::DB::File;
 use Lufi::DB::Invitation;
+use Date::Language;
 
 sub register {
     my ($self, $app) = @_;
@@ -67,6 +68,7 @@ sub register {
     $app->helper(stop_upload             => \&_stop_upload);
     $app->helper(create_invitation_token => \&_create_invitation_token);
     $app->helper(is_guest                => \&_is_guest);
+    $app->helper(get_date_lang           => \&_get_date_lang);
 }
 
 sub _pg {
@@ -185,6 +187,47 @@ sub _is_guest {
     my $invitation = Lufi::DB::Invitation->new(app => $c->app)->from_token($token);
     return $invitation if ($invitation && $invitation->is_valid);
     return 0;
+}
+
+my %date_langs = (
+    aa => 'Afar',
+    am => 'Amharic',
+    pt => 'Brazilian',
+    bg => 'Bulgarian',
+    zh => 'Chinese',
+    cs => 'Czech',
+    da => 'Danish',
+    nl => 'Dutch',
+    fi => 'Finnish',
+    en => 'English',
+    fr => 'French',
+    de => 'German',
+    el => 'Greek',
+    hu => 'Hungarian',
+    is => 'Icelandic',
+    it => 'Italian',
+    nn => 'Norwegian',
+    om => 'Oromo',
+    ro => 'Romanian',
+    ru => 'Russian',
+    so => 'Somali',
+    es => 'Spanish',
+    sv => 'Swedish',
+    ti => 'Tigrinya',
+    tk => 'Turkish',
+);
+
+sub _get_date_lang {
+    my $c     = shift;
+
+    my $l = $c->languages();
+
+    return Date::Language->new($date_langs{$l}) if $date_langs{$l};
+
+    $l =~ s/^(..).*/$1/;
+    return Date::Language->new($date_langs{$l}) if $date_langs{$l};
+
+    return Date::Language->new('English');
 }
 
 1;

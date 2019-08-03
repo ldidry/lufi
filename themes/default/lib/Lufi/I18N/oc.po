@@ -14,8 +14,8 @@ msgstr ""
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"PO-Revision-Date: 2019-04-21 05:48+0000\n"
-"Last-Translator: Quentí <quentinantonin@free.fr>\n"
+"PO-Revision-Date: 2019-08-03 11:38+0000\n"
+"Last-Translator: Quentí\n"
 "Language-Team: Tot en òc (totenoc.eu)\n"
 "Language: oc\n"
 "Plural-Forms: nplurals=2; plural=(n > 1);\n"
@@ -27,25 +27,25 @@ msgstr ""
 msgid "%1 days"
 msgstr "%1 jorns"
 
-#. (stash('invitation')
-#: themes/default/templates/invitations/notification_files_sent.mail.ep:4
-msgid "%1 have send you files"
-msgstr ""
-
 #. (stash('ldap_user')
 #: themes/default/templates/invitations/invite.mail.ep:2
 msgid "%1 invites you to send him/her files"
-msgstr ""
+msgstr "%1 vos convida a li mandar de fichièrs"
 
 #. (stash('ldap_user')
 #: themes/default/templates/invitations/invite.mail.ep:6
 msgid "%1 invites you to send him/her files through Lufi."
+msgstr "%1 vos convida a li mandar de fichièrs per Lufi"
+
+#. (stash('invitation')
+#: themes/default/templates/invitations/notification_files_sent.mail.ep:4
+msgid "%1 sent you files"
 msgstr ""
 
 #. (stash('invitation')
 #: themes/default/templates/invitations/notification_files_sent.mail.ep:8
 msgid "%1 used your invitation to send you files:"
-msgstr ""
+msgstr "%1 utilizèt vòstra invitacion per vos mandar de fichièrs :"
 
 #: lib/Lufi/Controller/Invitation.pm:159 lib/Lufi/Controller/Invitation.pm:84 themes/default/templates/invitations/my_invitations.html.ep:51 themes/default/templates/invitations/my_invitations.html.ep:52 themes/default/templates/invitations/my_invitations.html.ep:53 themes/default/templates/invitations/notification_files_sent.mail.ep:12
 msgid "%A %d %B %Y at %T"
@@ -419,7 +419,7 @@ msgstr ""
 
 #: themes/default/templates/invitations/invite.html.ep:27 themes/default/templates/layouts/default.html.ep:36 themes/default/templates/layouts/default.html.ep:69
 msgid "Invite a guest"
-msgstr ""
+msgstr "Convidar qualqu’un"
 
 #: themes/default/templates/partial/render.js.ep:6
 msgid ""

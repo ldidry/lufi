@@ -20,11 +20,6 @@ msgstr ""
 msgid "%1 days"
 msgstr "%1 أيام"
 
-#. (stash('invitation')
-#: themes/default/templates/invitations/notification_files_sent.mail.ep:4
-msgid "%1 have send you files"
-msgstr ""
-
 #. (stash('ldap_user')
 #: themes/default/templates/invitations/invite.mail.ep:2
 msgid "%1 invites you to send him/her files"
@@ -33,6 +28,11 @@ msgstr ""
 #. (stash('ldap_user')
 #: themes/default/templates/invitations/invite.mail.ep:6
 msgid "%1 invites you to send him/her files through Lufi."
+msgstr ""
+
+#. (stash('invitation')
+#: themes/default/templates/invitations/notification_files_sent.mail.ep:4
+msgid "%1 sent you files"
 msgstr ""
 
 #. (stash('invitation')

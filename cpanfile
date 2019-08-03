@@ -37,7 +37,7 @@ feature 'test' => sub {
 feature 'ldap', 'LDAP authentication support' => sub {
     requires 'Net::LDAP';
     requires 'Mojolicious::Plugin::Authentication';
-    requires 'Date::Format';
+    requires 'Date::Language';
 };
 feature 'htpasswd', 'Htpasswd authentication support' => sub {
     requires 'Apache::Htpasswd';
