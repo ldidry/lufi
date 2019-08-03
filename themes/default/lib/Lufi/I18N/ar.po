@@ -1,4 +1,6 @@
 # ButterflyOfFire <butterflyoffire@protonmail.com>, 2018. #zanata
+# ButterflyOfFire <butterflyoffire@protonmail.com>, 2019. #zanata
+# Luc Didry <luc@framasoft.org>, 2019. #zanata
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
@@ -6,8 +8,8 @@ msgstr ""
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"PO-Revision-Date: 2018-10-28 08:31+0000\n"
-"Last-Translator: ButterflyOfFire <butterflyoffire@protonmail.com>\n"
+"PO-Revision-Date: 2019-08-04 05:33+0000\n"
+"Last-Translator: Luc Didry <luc@framasoft.org>\n"
 "Language: ar\n"
 "Plural-Forms: nplurals=6; plural=n==0 ? 0 : n==1 ? 1 : n==2 ? 2 : n%100>=3 "
 "&& n%100<=10 ? 3 : n%100>=11 ? 4 : 5;\n"
@@ -33,16 +35,16 @@ msgstr ""
 #. (stash('invitation')
 #: themes/default/templates/invitations/notification_files_sent.mail.ep:4
 msgid "%1 sent you files"
-msgstr ""
+msgstr "أرسل إليك %1 ملفات"
 
 #. (stash('invitation')
 #: themes/default/templates/invitations/notification_files_sent.mail.ep:8
 msgid "%1 used your invitation to send you files:"
-msgstr ""
+msgstr "لقد استخدم %1 دعوتك ليرسل لك ملفات:"
 
 #: lib/Lufi/Controller/Invitation.pm:159 lib/Lufi/Controller/Invitation.pm:84 themes/default/templates/invitations/my_invitations.html.ep:51 themes/default/templates/invitations/my_invitations.html.ep:52 themes/default/templates/invitations/my_invitations.html.ep:53 themes/default/templates/invitations/notification_files_sent.mail.ep:12
 msgid "%A %d %B %Y at %T"
-msgstr ""
+msgstr "%A %d %B %Y على %T"
 
 #: themes/default/templates/partial/index.js.ep:27
 msgid "(max size: XXX)"
@@ -80,7 +82,7 @@ msgstr ""
 
 #: themes/default/templates/partial/invitations.js.ep:3
 msgid "Are you sure you want to delete the selected invitations?"
-msgstr ""
+msgstr "متأكد أنك تريد حذف كافة الدعوات المختارة؟"
 
 #: themes/default/templates/partial/invitations.js.ep:4
 msgid ""
@@ -119,7 +121,7 @@ msgstr "اضغط لتحديث الصفحة و إعادة التنزيل."
 
 #: themes/default/templates/invitations/invite.mail.ep:8
 msgid "Click on the following URL to upload files on Lufi:"
-msgstr ""
+msgstr "اضغط على الربط التالي قصد تحميل ملفات على لوفي :"
 
 #: themes/default/templates/index.html.ep:126
 msgid "Click to open the file browser"
@@ -135,7 +137,7 @@ msgstr "عناوين البريد الإلكترونية مُقسّمة بفاص
 
 #: themes/default/templates/index.html.ep:140
 msgid "Compressing zip file…"
-msgstr ""
+msgstr "جارٍ ضغط ملف zip..."
 
 #: themes/default/templates/partial/index.js.ep:15
 msgid "Copy all links to clipboard"
@@ -155,7 +157,7 @@ msgstr ""
 
 #: lib/Lufi/Controller/Files.pm:400
 msgid "Could not find the file. Are you sure of the URL?"
-msgstr ""
+msgstr "لا يمكن العثور على الملفات. متأكد مٍن الرابط؟"
 
 #: themes/default/templates/files.html.ep:28
 msgid "Counter"
@@ -167,11 +169,11 @@ msgstr ""
 
 #: themes/default/templates/invitations/my_invitations.html.ep:26
 msgid "Created at"
-msgstr ""
+msgstr "أنشئ في"
 
 #: themes/default/templates/invitations/my_invitations.html.ep:14
 msgid "Delete"
-msgstr ""
+msgstr "حذف"
 
 #: themes/default/templates/files.html.ep:29 themes/default/templates/index.html.ep:90
 msgid "Delete at first download?"
@@ -218,7 +220,7 @@ msgstr "قم بوضع الملفات هنا"
 
 #: themes/default/templates/invitations/invite.html.ep:40
 msgid "Email address of your guest"
-msgstr ""
+msgstr "عنوان البريد الإلكتروني لضيفك"
 
 #: themes/default/templates/mail.html.ep:39
 msgid "Email body"
@@ -254,7 +256,7 @@ msgstr "تاريخ نهاية الصلاحية:"
 
 #: themes/default/templates/invitations/my_invitations.html.ep:27
 msgid "Expire at"
-msgstr ""
+msgstr "تنتهي صلاحيتها في"
 
 #: themes/default/templates/files.html.ep:31
 msgid "Expires at"
@@ -274,7 +276,7 @@ msgstr "اسم الملف"
 
 #: themes/default/templates/invitations/my_invitations.html.ep:61
 msgid "Files"
-msgstr ""
+msgstr "الملفات"
 
 #: themes/default/templates/index.html.ep:80
 msgid "Files deleted at first download"
@@ -282,7 +284,7 @@ msgstr "تم حذف الملفات عند أول تنزيل"
 
 #: themes/default/templates/invitations/my_invitations.html.ep:28
 msgid "Files sent at"
-msgstr ""
+msgstr "تم إرسال الملف في"
 
 #: themes/default/templates/partial/invitations.js.ep:8
 msgid "Files sent in invitation XX1 by XX2"
@@ -301,16 +303,16 @@ msgstr ""
 
 #: themes/default/templates/invitations/my_invitations.html.ep:24
 msgid "Guest mail"
-msgstr ""
+msgstr "البريد الإلكتروني للضيف"
 
 #. (ucfirst(stash('invitation')
 #: themes/default/templates/invitations/notification_files_sent.mail.ep:6
 msgid "Hello %1,"
-msgstr ""
+msgstr "سلام %1,"
 
 #: themes/default/templates/invitations/invite.mail.ep:4
 msgid "Hello,"
-msgstr ""
+msgstr "سلام،"
 
 #: themes/default/templates/partial/mail.js.ep:35
 msgid "Hello,\\n\\nHere's some files I want to share with you:\\n"
@@ -322,7 +324,7 @@ msgstr "ها هي بعض الملفات"
 
 #: themes/default/templates/partial/invitations.js.ep:7
 msgid "Hide hidden invitations"
-msgstr ""
+msgstr "اخف الدعوات المخفية"
 
 #: themes/default/templates/partial/index.js.ep:25
 msgid "Hit Enter, then Ctrl+C to copy all the download links"
@@ -388,7 +390,7 @@ msgstr ""
 
 #: themes/default/templates/invitations/invite.html.ep:27 themes/default/templates/layouts/default.html.ep:36 themes/default/templates/layouts/default.html.ep:69
 msgid "Invite a guest"
-msgstr ""
+msgstr "أدع ضيفا"
 
 #: themes/default/templates/partial/render.js.ep:6
 msgid ""
@@ -427,7 +429,7 @@ msgstr "ملفاتي"
 
 #: themes/default/templates/invitations/my_invitations.html.ep:5 themes/default/templates/layouts/default.html.ep:37 themes/default/templates/layouts/default.html.ep:70
 msgid "My invitations"
-msgstr ""
+msgstr "دعواتي"
 
 #: themes/default/templates/invitations/notification_files_sent.mail.ep:17
 msgid ""
@@ -436,7 +438,7 @@ msgstr ""
 
 #: themes/default/templates/index.html.ep:115
 msgid "Name of the zip file"
-msgstr ""
+msgstr "اسم الملف المضغوط zip"
 
 #. (format_bytes($json->{size})
 #: lib/Lufi/Controller/Files.pm:108
@@ -485,11 +487,11 @@ msgstr "تطهير الملفات منتهية الصلاحية من مساحة 
 
 #: themes/default/templates/invitations/notification_files_sent.mail.ep:20
 msgid "Regards,"
-msgstr ""
+msgstr "تحياتي،"
 
 #: themes/default/templates/invitations/invite.mail.ep:15
 msgid "Regards."
-msgstr ""
+msgstr "تحياتي."
 
 #: themes/default/templates/layouts/default.html.ep:31 themes/default/templates/layouts/default.html.ep:64
 msgid "Report file"
@@ -497,7 +499,7 @@ msgstr "الإبلاغ عن ملف"
 
 #: themes/default/templates/invitations/my_invitations.html.ep:15
 msgid "Resend invitation mail"
-msgstr ""
+msgstr "أعد إرسال رسالة الدعوة"
 
 #: themes/default/templates/invitations/my_invitations.html.ep:9
 msgid "Rows in purple mean that the invitations have expired."
@@ -514,7 +516,7 @@ msgstr "إرسال كافة الروابط عبر البريد الإلكترو�
 
 #: themes/default/templates/invitations/invite.html.ep:50
 msgid "Send the invitation"
-msgstr ""
+msgstr "ابعث الدعوة"
 
 #: themes/default/templates/mail.html.ep:46
 msgid "Send with this server"
@@ -537,11 +539,11 @@ msgstr "شارك ملفاتك بخصوصية تامة على %1"
 
 #: themes/default/templates/invitations/my_invitations.html.ep:13 themes/default/templates/partial/invitations.js.ep:9
 msgid "Show hidden invitations"
-msgstr ""
+msgstr "أظهر الدعوات المخفية"
 
 #: themes/default/templates/partial/render.js.ep:11
 msgid "Show zip content"
-msgstr ""
+msgstr "أظهر محتوى الملف المضغوط  zip"
 
 #: themes/default/templates/layouts/default.html.ep:40 themes/default/templates/layouts/default.html.ep:73 themes/default/templates/login.html.ep:28 themes/default/templates/logout.html.ep:17
 msgid "Signin"
@@ -562,7 +564,7 @@ msgstr "عذرًا ، التحميل معطل."
 
 #: themes/default/templates/invitations/exception.html.ep:7
 msgid "Sorry, your invitation has expired or has been deleted."
-msgstr ""
+msgstr "المعذرة، إنّ دعوتك منتهية الصلاحية أو تم حذفها."
 
 #. ($invit->ldap_user_mail)
 #: lib/Lufi/Controller/Files.pm:122
@@ -630,7 +632,7 @@ msgstr ""
 #. ($i->token, $i->guest_mail)
 #: lib/Lufi/Controller/Invitation.pm:150
 msgid ""
-"The invitation %1 can’t be resend: %2 has already sent files.<br>Please "
+"The invitation %1 can’t be resent: %2 has already sent files.<br>Please "
 "create a new invitation."
 msgstr ""
 
@@ -656,7 +658,7 @@ msgstr ""
 
 #. (stash('ldap_user')
 #: themes/default/templates/invitations/invite.mail.ep:11
-msgid "The links of your file(s) will automatically be send by mail to %1."
+msgid "The links of your file(s) will automatically be sent by mail to %1."
 msgstr ""
 
 #: lib/Lufi/Controller/Mail.pm:97
@@ -702,7 +704,7 @@ msgstr ""
 
 #: themes/default/templates/invitations/my_invitations.html.ep:25
 msgid "URL"
-msgstr ""
+msgstr "الرابط"
 
 #: themes/default/templates/partial/index.js.ep:17
 msgid "Unable to copy the link(s) to your clipboard"
@@ -816,10 +818,10 @@ msgid "You must give email addresses."
 msgstr "يجب إدخال عناوين للبريد الإلكتروني."
 
 #: themes/default/templates/index.html.ep:38
-#, fuzzy
 msgid ""
-"Your browser has not enough entropy to generate a strong encryption key. "
-"Please wait (it's better if you do things on your computer while waiting)."
+"Your browser does not have enough entropy to generate a strong encryption "
+"key. Please wait (it's better if you do things on your computer while "
+"waiting)."
 msgstr "لا يحتوي متصفحك على قدر كافٍ من الإنتروبيا لإنشاء مفتاح تشفير قوي."
 
 #. (format_bytes($json->{size})
@@ -847,7 +849,7 @@ msgstr "آخر أجل: "
 
 #: themes/default/templates/partial/invitations.js.ep:5
 msgid "expires on XXX"
-msgstr ""
+msgstr "منتهية صلاحيتها في XXX"
 
 #. (format_bytes($keys[$i])
 #: themes/default/templates/delays.html.ep:26

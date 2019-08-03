@@ -14,8 +14,8 @@ msgstr ""
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"PO-Revision-Date: 2019-08-03 11:38+0000\n"
-"Last-Translator: Quentí\n"
+"PO-Revision-Date: 2019-08-04 05:34+0000\n"
+"Last-Translator: Luc Didry <luc@framasoft.org>\n"
 "Language-Team: Tot en òc (totenoc.eu)\n"
 "Language: oc\n"
 "Plural-Forms: nplurals=2; plural=(n > 1);\n"
@@ -40,7 +40,7 @@ msgstr "%1 vos convida a li mandar de fichièrs per Lufi"
 #. (stash('invitation')
 #: themes/default/templates/invitations/notification_files_sent.mail.ep:4
 msgid "%1 sent you files"
-msgstr ""
+msgstr "%1 vos mandèt de fichièrs"
 
 #. (stash('invitation')
 #: themes/default/templates/invitations/notification_files_sent.mail.ep:8
@@ -49,7 +49,7 @@ msgstr "%1 utilizèt vòstra invitacion per vos mandar de fichièrs :"
 
 #: lib/Lufi/Controller/Invitation.pm:159 lib/Lufi/Controller/Invitation.pm:84 themes/default/templates/invitations/my_invitations.html.ep:51 themes/default/templates/invitations/my_invitations.html.ep:52 themes/default/templates/invitations/my_invitations.html.ep:53 themes/default/templates/invitations/notification_files_sent.mail.ep:12
 msgid "%A %d %B %Y at %T"
-msgstr ""
+msgstr "%A %d %B %Y a %T"
 
 #: themes/default/templates/partial/index.js.ep:27
 msgid "(max size: XXX)"
@@ -89,13 +89,15 @@ msgstr ""
 
 #: themes/default/templates/partial/invitations.js.ep:3
 msgid "Are you sure you want to delete the selected invitations?"
-msgstr ""
+msgstr "Volètz vertadièrament suprimir l’invitacion seleccionada ?"
 
 #: themes/default/templates/partial/invitations.js.ep:4
 msgid ""
 "Are you sure you want to resend the invitation mail for the selected "
 "invitations?"
 msgstr ""
+"Volètz vertadièrament tornar mandar lo corrièl d’invitacion per las "
+"invitacions seleccionadas ?"
 
 #: themes/default/templates/about.html.ep:17
 msgid ""
@@ -134,7 +136,7 @@ msgstr ""
 
 #: themes/default/templates/invitations/invite.mail.ep:8
 msgid "Click on the following URL to upload files on Lufi:"
-msgstr ""
+msgstr "Clicatz l’URL seguenta per mandar de fichièrs sus Lufi :"
 
 #: themes/default/templates/index.html.ep:126
 msgid "Click to open the file browser"
@@ -150,7 +152,7 @@ msgstr "Adreças de corrièl separadas per de virgulas"
 
 #: themes/default/templates/index.html.ep:140
 msgid "Compressing zip file…"
-msgstr ""
+msgstr "Compression del fichièr zip…"
 
 #: themes/default/templates/partial/index.js.ep:15
 msgid "Copy all links to clipboard"
@@ -184,11 +186,11 @@ msgstr "Crear un archiu zip amb los fichièr abans lo mandadís ?"
 
 #: themes/default/templates/invitations/my_invitations.html.ep:26
 msgid "Created at"
-msgstr ""
+msgstr "Creada lo"
 
 #: themes/default/templates/invitations/my_invitations.html.ep:14
 msgid "Delete"
-msgstr ""
+msgstr "Suprimir"
 
 #: themes/default/templates/files.html.ep:29 themes/default/templates/index.html.ep:90
 msgid "Delete at first download?"
@@ -242,7 +244,7 @@ msgstr "Lisatz vòstres fichièrs aquí"
 
 #: themes/default/templates/invitations/invite.html.ep:40
 msgid "Email address of your guest"
-msgstr ""
+msgstr "Adreça electronica de vòstre convidat"
 
 #: themes/default/templates/mail.html.ep:39
 msgid "Email body"
@@ -278,7 +280,7 @@ msgstr "Expiracion :"
 
 #: themes/default/templates/invitations/my_invitations.html.ep:27
 msgid "Expire at"
-msgstr ""
+msgstr "Expira lo"
 
 #: themes/default/templates/files.html.ep:31
 msgid "Expires at"
@@ -298,7 +300,7 @@ msgstr "Nom del fichièr"
 
 #: themes/default/templates/invitations/my_invitations.html.ep:61
 msgid "Files"
-msgstr ""
+msgstr "Fichièrs"
 
 #: themes/default/templates/index.html.ep:80
 msgid "Files deleted at first download"
@@ -306,11 +308,11 @@ msgstr "Fichièr suprimit al primièr telecargament"
 
 #: themes/default/templates/invitations/my_invitations.html.ep:28
 msgid "Files sent at"
-msgstr ""
+msgstr "Fichièrs mandats a"
 
 #: themes/default/templates/partial/invitations.js.ep:8
 msgid "Files sent in invitation XX1 by XX2"
-msgstr ""
+msgstr "Fichièrs mandats dins l’invitacion XX1 per XX2"
 
 #: themes/default/templates/partial/render.js.ep:8
 msgid "Get the file"
@@ -328,16 +330,16 @@ msgstr ""
 
 #: themes/default/templates/invitations/my_invitations.html.ep:24
 msgid "Guest mail"
-msgstr ""
+msgstr "Corrièl del convidat"
 
 #. (ucfirst(stash('invitation')
 #: themes/default/templates/invitations/notification_files_sent.mail.ep:6
 msgid "Hello %1,"
-msgstr ""
+msgstr "Adiu %1,"
 
 #: themes/default/templates/invitations/invite.mail.ep:4
 msgid "Hello,"
-msgstr ""
+msgstr "Adiu,"
 
 #: themes/default/templates/partial/mail.js.ep:35
 msgid "Hello,\\n\\nHere's some files I want to share with you:\\n"
@@ -349,7 +351,7 @@ msgstr "Vaquí qualques fichièrs"
 
 #: themes/default/templates/partial/invitations.js.ep:7
 msgid "Hide hidden invitations"
-msgstr ""
+msgstr "Amagar las invitacions amagadas"
 
 #: themes/default/templates/partial/index.js.ep:25
 msgid "Hit Enter, then Ctrl+C to copy all the download links"
@@ -368,7 +370,7 @@ msgstr "Cossí aquò fonciona ?"
 
 #: themes/default/templates/invitations/invite.html.ep:46
 msgid "How many days would you like the invitation to be valid?"
-msgstr ""
+msgstr "Quant de jorns volriatz que l’invitacion siá valida ?"
 
 #: themes/default/templates/about.html.ep:16
 msgid "How to install the software on my server?"
@@ -405,17 +407,17 @@ msgstr "Informacion suls relambis"
 
 #: themes/default/templates/invitations/my_invitations.html.ep:12
 msgid "Invert selection"
-msgstr ""
+msgstr "Invertir la seleccion"
 
 #. ($i->guest_mail, $url)
 #: lib/Lufi/Controller/Invitation.pm:171
 msgid "Invitation resent to %1.<br> URL: %2"
-msgstr ""
+msgstr "Invitacion mandada tornamai a %1.<br> URL : %2"
 
 #. ($invitation->guest_mail, $url)
 #: lib/Lufi/Controller/Invitation.pm:87
 msgid "Invitation sent to %1.<br> URL: %2"
-msgstr ""
+msgstr "Invitacion mandada a %1.<br> URL : %2"
 
 #: themes/default/templates/invitations/invite.html.ep:27 themes/default/templates/layouts/default.html.ep:36 themes/default/templates/layouts/default.html.ep:69
 msgid "Invite a guest"
@@ -458,16 +460,18 @@ msgstr "Mos fichièrs"
 
 #: themes/default/templates/invitations/my_invitations.html.ep:5 themes/default/templates/layouts/default.html.ep:37 themes/default/templates/layouts/default.html.ep:70
 msgid "My invitations"
-msgstr ""
+msgstr "Mas invitacions"
 
 #: themes/default/templates/invitations/notification_files_sent.mail.ep:17
 msgid ""
 "NB: this list includes the list of files that have already been sent to you."
 msgstr ""
+"NB : aquesta lista inclutz la lista dels fichièrs que vos son estats mandats."
+""
 
 #: themes/default/templates/index.html.ep:115
 msgid "Name of the zip file"
-msgstr ""
+msgstr "Nom del fichièr zip"
 
 #. (format_bytes($json->{size})
 #: lib/Lufi/Controller/Files.pm:108
@@ -526,11 +530,11 @@ msgstr "Suprimir del localStorage los fichièrs expirats"
 
 #: themes/default/templates/invitations/notification_files_sent.mail.ep:20
 msgid "Regards,"
-msgstr ""
+msgstr "Coralament,"
 
 #: themes/default/templates/invitations/invite.mail.ep:15
 msgid "Regards."
-msgstr ""
+msgstr "Coralament."
 
 #: themes/default/templates/layouts/default.html.ep:31 themes/default/templates/layouts/default.html.ep:64
 msgid "Report file"
@@ -538,11 +542,11 @@ msgstr "Senhalar un fichièr"
 
 #: themes/default/templates/invitations/my_invitations.html.ep:15
 msgid "Resend invitation mail"
-msgstr ""
+msgstr "Tornar mandar lo corrièl d’invitacion"
 
 #: themes/default/templates/invitations/my_invitations.html.ep:9
 msgid "Rows in purple mean that the invitations have expired."
-msgstr ""
+msgstr "Las linhas en violet representan las invitacions expiradas."
 
 #: themes/default/templates/files.html.ep:9
 msgid ""
@@ -556,7 +560,7 @@ msgstr "Mandar totes los ligams per corrièl"
 
 #: themes/default/templates/invitations/invite.html.ep:50
 msgid "Send the invitation"
-msgstr ""
+msgstr "Mandar l’invitacion"
 
 #: themes/default/templates/mail.html.ep:46
 msgid "Send with this server"
@@ -581,7 +585,7 @@ msgstr "Partejatz vòstres fichièrs en tota confidencialitat sus %1"
 
 #: themes/default/templates/invitations/my_invitations.html.ep:13 themes/default/templates/partial/invitations.js.ep:9
 msgid "Show hidden invitations"
-msgstr ""
+msgstr "Far veire las invitacions amagadas"
 
 #: themes/default/templates/partial/render.js.ep:11
 msgid "Show zip content"
@@ -594,7 +598,7 @@ msgstr "Connexion"
 #: lib/Lufi/Controller/Invitation.pm:283 themes/default/templates/invitations/exception.html.ep:16
 msgid ""
 "Sorry, the invitation doesn’t exist. Are you sure you are on the right URL?"
-msgstr ""
+msgstr "O planhèm, l’invitacion existís pas. Avètz utilizat la bona URL ?"
 
 #: themes/default/templates/index.html.ep:46
 msgid "Sorry, the uploading is currently disabled. Please try again later."
@@ -608,7 +612,7 @@ msgstr "O planhèm, la foncion per mandar de fichièr es desactivada."
 
 #: themes/default/templates/invitations/exception.html.ep:7
 msgid "Sorry, your invitation has expired or has been deleted."
-msgstr ""
+msgstr "O planhèm, vòstra invitacion a expirada o es estada suprimida."
 
 #. ($invit->ldap_user_mail)
 #: lib/Lufi/Controller/Files.pm:122
@@ -616,11 +620,13 @@ msgid ""
 "Sorry, your invitation has expired or has been deleted. Please contact %1 to "
 "have another invitation."
 msgstr ""
+"O planhèm, vòstra invitacion a expirada o es estada suprimida. Contactatz %1 "
+"per n’aver una autra."
 
 #. ($invitation->ldap_user_mail)
 #: lib/Lufi/Controller/Invitation.pm:276
 msgid "The URLs of your files have been sent by email to %1."
-msgstr ""
+msgstr "Las URL de vòstres fichièrs son estadas mandadas per corrièl a %1."
 
 #: themes/default/templates/about.html.ep:7
 msgid ""
@@ -653,7 +659,7 @@ msgstr "Lo subjècte del corrièl pòt pas èsser void."
 #. ($expire_at, $max_expire_at)
 #: lib/Lufi/Controller/Invitation.pm:51
 msgid "The expiration delay (%1) is not between 1 and %2 days."
-msgstr ""
+msgstr "Lo relambi d’expiracion (%1) es pas entre 1 e %2 jorns."
 
 #: lib/Lufi/Controller/Files.pm:468
 msgid "The file has already been deleted"
@@ -676,24 +682,26 @@ msgstr "Las adreças de corrièl seguentas son pas validas : %1"
 #. ($guest_mail)
 #: lib/Lufi/Controller/Invitation.pm:48
 msgid "The guest email address (%1) is unvalid."
-msgstr ""
+msgstr "L’adreça del convida (%1) es pas valida."
 
 #. ($i->token, $i->guest_mail)
 #: lib/Lufi/Controller/Invitation.pm:150
 msgid ""
-"The invitation %1 can’t be resend: %2 has already sent files.<br>Please "
+"The invitation %1 can’t be resent: %2 has already sent files.<br>Please "
 "create a new invitation."
 msgstr ""
+"L’invitacion %1 pòt pas èsser tornada manda : %2 mandèt ja de fichièrs."
+"<br>Volgatz crear una nòva invitacion."
 
 #. ($i->token)
 #: lib/Lufi/Controller/Invitation.pm:130
 msgid "The invitation %1 has been deleted."
-msgstr ""
+msgstr "L’invitacion %1 es estada suprimida."
 
 #. (stash('user_mail')
 #: themes/default/templates/invitations/invite.html.ep:34
 msgid "The invitation mail will be send from your email address (%1)."
-msgstr ""
+msgstr "Lo messatge d’invitacion serà mandat a vòstra adreça electronica (%1)"
 
 #: themes/default/templates/partial/index.js.ep:16
 msgid "The link(s) has been copied to your clipboard"
@@ -704,11 +712,15 @@ msgstr "Lo(s) ligam(s) es/son estat(s) copiat(s) al quicha-papièrs"
 msgid ""
 "The link(s) of your file(s) will automatically be sent by mail to %1 (%2)"
 msgstr ""
+"Los ligams de vòstre(s) fichièr(s) seràn automaticament mandats per corrièl "
+"a %1 (%2)"
 
 #. (stash('ldap_user')
 #: themes/default/templates/invitations/invite.mail.ep:11
-msgid "The links of your file(s) will automatically be send by mail to %1."
+msgid "The links of your file(s) will automatically be sent by mail to %1."
 msgstr ""
+"Los ligams de vòstre(s) fichièr(s) seràn automaticament mandats per corrièl "
+"a %1."
 
 #: lib/Lufi/Controller/Mail.pm:97
 msgid "The mail has been sent."
@@ -740,12 +752,12 @@ msgstr ""
 
 #: themes/default/templates/invitations/my_invitations.html.ep:46 themes/default/templates/partial/invitations.js.ep:6
 msgid "This invitation is normally hidden"
-msgstr ""
+msgstr "Aquesta invitacion es normalament amagada"
 
 #. (stash('expires')
 #: themes/default/templates/invitations/invite.mail.ep:13
 msgid "This invitation is valid until %1."
-msgstr ""
+msgstr "L’invitacion es valida fins al %1."
 
 #: themes/default/templates/delays.html.ep:10
 msgid ""
@@ -759,11 +771,11 @@ msgstr ""
 
 #: themes/default/templates/invitations/my_invitations.html.ep:16
 msgid "Toggle visibility"
-msgstr ""
+msgstr "Bascular la visibilitat"
 
 #: themes/default/templates/invitations/my_invitations.html.ep:25
 msgid "URL"
-msgstr ""
+msgstr "URL"
 
 #: themes/default/templates/partial/index.js.ep:17
 msgid "Unable to copy the link(s) to your clipboard"
@@ -794,7 +806,7 @@ msgstr "Mandar de fichièrs"
 
 #: themes/default/templates/index.html.ep:145
 msgid "Upload generated zip file"
-msgstr ""
+msgstr "Mandar lo fichièr zip generat"
 
 #: themes/default/templates/files.html.ep:30
 msgid "Uploaded at"
@@ -818,13 +830,15 @@ msgstr "Qual escriguèt aqueste logicial ?"
 
 #: themes/default/templates/partial/index.js.ep:13
 msgid "XXX file has been added to upload queue."
-msgstr ""
+msgstr "XXX fichièrs son estats ajustats a la fila de mandadís"
 
 #: themes/default/templates/invitations/invite.html.ep:30
 msgid ""
 "You can invite someone to send you files through this Lufi instance even if "
 "they don’t have an account on it."
 msgstr ""
+"Podètz convidar qualqu’un per que vos mande de fichièrs per aquesta "
+"instància Lufi encara qu’ajan pas de compte sus aquela d’aquí."
 
 #: themes/default/templates/about.html.ep:11
 msgid ""
@@ -882,8 +896,9 @@ msgstr "Vos cal donar d’adreças."
 
 #: themes/default/templates/index.html.ep:38
 msgid ""
-"Your browser has not enough entropy to generate a strong encryption key. "
-"Please wait (it's better if you do things on your computer while waiting)."
+"Your browser does not have enough entropy to generate a strong encryption "
+"key. Please wait (it's better if you do things on your computer while "
+"waiting)."
 msgstr ""
 "Vòstre navigador a pas pro d’entropia per generar una clau de chiframent "
 "fòrta. Mercés d’esperar (es de bon far de realizar de causas a l’ordenador "
@@ -916,7 +931,7 @@ msgstr "darrièr relambi per telecargar :"
 
 #: themes/default/templates/partial/invitations.js.ep:5
 msgid "expires on XXX"
-msgstr ""
+msgstr "expira lo XXX"
 
 #. (format_bytes($keys[$i])
 #: themes/default/templates/delays.html.ep:26
@@ -939,4 +954,4 @@ msgstr "o"
 #. ($e->{name}, format_bytes($e->{size})
 #: themes/default/templates/invitations/notification_files_sent.mail.ep:12
 msgid "— %1 (%2), that will expire on %3"
-msgstr ""
+msgstr "— %1 (%2), qu’expirarà lo %3"

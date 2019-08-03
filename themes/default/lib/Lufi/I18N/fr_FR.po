@@ -11,7 +11,7 @@ msgstr ""
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"PO-Revision-Date: 2019-08-03 11:38+0000\n"
+"PO-Revision-Date: 2019-08-04 05:34+0000\n"
 "Language-Team: \n"
 "X-Generator: Zanata 4.6.2\n"
 "Last-Translator: Luc Didry <luc@framasoft.org>\n"
@@ -690,7 +690,7 @@ msgstr "L’adresse courriel de l’invité·e (%1) est invalide."
 #. ($i->token, $i->guest_mail)
 #: lib/Lufi/Controller/Invitation.pm:150
 msgid ""
-"The invitation %1 can’t be resend: %2 has already sent files.<br>Please "
+"The invitation %1 can’t be resent: %2 has already sent files.<br>Please "
 "create a new invitation."
 msgstr ""
 "L’invitation %1 ne peut pas être renvoyée : %2 a déjà envoyé des fichiers."
@@ -721,7 +721,7 @@ msgstr ""
 
 #. (stash('ldap_user')
 #: themes/default/templates/invitations/invite.mail.ep:11
-msgid "The links of your file(s) will automatically be send by mail to %1."
+msgid "The links of your file(s) will automatically be sent by mail to %1."
 msgstr ""
 "Les liens de vos fichiers seront automatiquement envoyés par courriel à %1."
 
@@ -899,8 +899,9 @@ msgstr "Vous devez envoyer des adresses mail."
 
 #: themes/default/templates/index.html.ep:38
 msgid ""
-"Your browser has not enough entropy to generate a strong encryption key. "
-"Please wait (it's better if you do things on your computer while waiting)."
+"Your browser does not have enough entropy to generate a strong encryption "
+"key. Please wait (it's better if you do things on your computer while "
+"waiting)."
 msgstr ""
 "Votre navigateur n’a pas assez d’entropie pour générer une clé de "
 "chiffrement forte. Veuillez attendre (il est préférable que vous fassiez "

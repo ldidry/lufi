@@ -735,7 +735,7 @@ msgid "You must give email addresses."
 msgstr ""
 
 #: themes/default/templates/index.html.ep:38
-msgid "Your browser has not enough entropy to generate a strong encryption key. Please wait (it's better if you do things on your computer while waiting)."
+msgid "Your browser does not have enough entropy to generate a strong encryption key. Please wait (it's better if you do things on your computer while waiting)."
 msgstr ""
 
 #. (format_bytes($json->{size})

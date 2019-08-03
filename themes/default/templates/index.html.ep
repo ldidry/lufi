@@ -35,7 +35,7 @@
         <div class="col s12 hiddendiv" id="not-enough-entropy">
             <div class="card pink">
                 <div class="card-content white-text">
-                    <strong><%= l('Your browser has not enough entropy to generate a strong encryption key. Please wait (it\'s better if you do things on your computer while waiting).') %></strong>
+                    <strong><%= l('Your browser does not have enough entropy to generate a strong encryption key. Please wait (it\'s better if you do things on your computer while waiting).') %></strong>
                 </div>
             </div>
         </div>

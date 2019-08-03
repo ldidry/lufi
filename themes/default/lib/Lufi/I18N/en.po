@@ -1,4 +1,5 @@
 # Luc Didry <luc@framasoft.org>, 2018. #zanata
+# Armando <armando@noplanman.ch>, 2019. #zanata
 # Luc Didry <luc@framasoft.org>, 2019. #zanata
 msgid ""
 msgstr ""
@@ -7,7 +8,7 @@ msgstr ""
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"PO-Revision-Date: 2019-08-03 11:38+0000\n"
+"PO-Revision-Date: 2019-08-04 05:31+0000\n"
 "Last-Translator: Luc Didry <luc@framasoft.org>\n"
 "Language-Team: English\n"
 "Language: en\n"
@@ -665,10 +666,10 @@ msgstr "The guest email address (%1) is unvalid."
 #. ($i->token, $i->guest_mail)
 #: lib/Lufi/Controller/Invitation.pm:150
 msgid ""
-"The invitation %1 can’t be resend: %2 has already sent files.<br>Please "
+"The invitation %1 can’t be resent: %2 has already sent files.<br>Please "
 "create a new invitation."
 msgstr ""
-"The invitation %1 can’t be resend: %2 has already sent files.<br>Please "
+"The invitation %1 can’t be resent: %2 has already sent files.<br>Please "
 "create a new invitation."
 
 #. ($i->token)
@@ -679,7 +680,7 @@ msgstr "The invitation %1 has been deleted."
 #. (stash('user_mail')
 #: themes/default/templates/invitations/invite.html.ep:34
 msgid "The invitation mail will be send from your email address (%1)."
-msgstr "The invitation mail will be send from your email address (%1)."
+msgstr "The invitation mail will be sent from your email address (%1)."
 
 #: themes/default/templates/partial/index.js.ep:16
 msgid "The link(s) has been copied to your clipboard"
@@ -694,8 +695,8 @@ msgstr ""
 
 #. (stash('ldap_user')
 #: themes/default/templates/invitations/invite.mail.ep:11
-msgid "The links of your file(s) will automatically be send by mail to %1."
-msgstr "The links of your file(s) will automatically be send by mail to %1."
+msgid "The links of your file(s) will automatically be sent by mail to %1."
+msgstr "The link(s) of your file(s) will automatically be sent by mail to %1."
 
 #: lib/Lufi/Controller/Mail.pm:97
 msgid "The mail has been sent."
@@ -869,11 +870,13 @@ msgstr "You must give email addresses."
 
 #: themes/default/templates/index.html.ep:38
 msgid ""
-"Your browser has not enough entropy to generate a strong encryption key. "
-"Please wait (it's better if you do things on your computer while waiting)."
+"Your browser does not have enough entropy to generate a strong encryption "
+"key. Please wait (it's better if you do things on your computer while "
+"waiting)."
 msgstr ""
-"Your browser has not enough entropy to generate a strong encryption key. "
-"Please wait (it's better if you do things on your computer while waiting)."
+"Your browser does not have enough entropy to generate a strong encryption "
+"key. Please wait (it's better if you do things on your computer while "
+"waiting)."
 
 #. (format_bytes($json->{size})
 #: lib/Lufi/Controller/Files.pm:95
