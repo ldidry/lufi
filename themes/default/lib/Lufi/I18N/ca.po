@@ -22,11 +22,35 @@ msgstr ""
 
 #. ($delay)
 #. (max_delay)
-#: themes/default/templates/index.html.ep:47 themes/default/templates/index.html.ep:56 themes/default/templates/index.html.ep:57
+#: themes/default/templates/index.html.ep:56 themes/default/templates/index.html.ep:65 themes/default/templates/index.html.ep:66
 msgid "%1 days"
 msgstr "%1 dies"
 
-#: themes/default/templates/partial/index.js.ep:26
+#. (stash('invitation')
+#: themes/default/templates/invitations/notification_files_sent.mail.ep:4
+msgid "%1 have send you files"
+msgstr ""
+
+#. (stash('ldap_user')
+#: themes/default/templates/invitations/invite.mail.ep:2
+msgid "%1 invites you to send him/her files"
+msgstr ""
+
+#. (stash('ldap_user')
+#: themes/default/templates/invitations/invite.mail.ep:6
+msgid "%1 invites you to send him/her files through Lufi."
+msgstr ""
+
+#. (stash('invitation')
+#: themes/default/templates/invitations/notification_files_sent.mail.ep:8
+msgid "%1 used your invitation to send you files:"
+msgstr ""
+
+#: lib/Lufi/Controller/Invitation.pm:159 lib/Lufi/Controller/Invitation.pm:84 themes/default/templates/invitations/my_invitations.html.ep:51 themes/default/templates/invitations/my_invitations.html.ep:52 themes/default/templates/invitations/my_invitations.html.ep:53 themes/default/templates/invitations/notification_files_sent.mail.ep:12
+msgid "%A %d %B %Y at %T"
+msgstr ""
+
+#: themes/default/templates/partial/index.js.ep:27
 msgid "(max size: XXX)"
 msgstr "(mida max: XXX)"
 
@@ -34,7 +58,7 @@ msgstr "(mida max: XXX)"
 msgid "1 year"
 msgstr "1 any"
 
-#: themes/default/templates/index.html.ep:4 themes/default/templates/index.html.ep:56
+#: themes/default/templates/index.html.ep:4 themes/default/templates/index.html.ep:65
 msgid "24 hours"
 msgstr "24 hores"
 
@@ -46,11 +70,11 @@ msgstr ":"
 msgid "Abort"
 msgstr "Avorta"
 
-#: themes/default/templates/layouts/default.html.ep:49 themes/default/templates/layouts/default.html.ep:78
+#: themes/default/templates/layouts/default.html.ep:53 themes/default/templates/layouts/default.html.ep:86
 msgid "About"
 msgstr "Quant a"
 
-#: themes/default/templates/index.html.ep:98
+#: themes/default/templates/index.html.ep:107
 msgid "Add a password to file(s)"
 msgstr "Afegir una contrasenya al(s) fitxer(s)"
 
@@ -58,6 +82,16 @@ msgstr "Afegir una contrasenya al(s) fitxer(s)"
 msgid ""
 "Adding URLs not related to this Lufi instance to the mail body or subject is "
 "prohibited."
+msgstr ""
+
+#: themes/default/templates/partial/invitations.js.ep:3
+msgid "Are you sure you want to delete the selected invitations?"
+msgstr ""
+
+#: themes/default/templates/partial/invitations.js.ep:4
+msgid ""
+"Are you sure you want to resend the invitation mail for the selected "
+"invitations?"
 msgstr ""
 
 #: themes/default/templates/about.html.ep:17
@@ -86,7 +120,7 @@ msgstr "Retorna a la pàgina d'inici"
 msgid "Bad CSRF token!"
 msgstr "Mal testimoni CSRF!"
 
-#: lib/Lufi/Controller/Auth.pm:22 lib/Lufi/Controller/Auth.pm:39
+#: lib/Lufi/Controller/Auth.pm:27 lib/Lufi/Controller/Auth.pm:49
 msgid "Bad CSRF token."
 msgstr "Token CSRF incorrect."
 
@@ -94,11 +128,15 @@ msgstr "Token CSRF incorrect."
 msgid "Click here to refresh the page and restart the download."
 msgstr "Premeu aquí per tal de refrescar la pàgina i reiniciar la descàrrega"
 
-#: themes/default/templates/index.html.ep:108
+#: themes/default/templates/invitations/invite.mail.ep:8
+msgid "Click on the following URL to upload files on Lufi:"
+msgstr ""
+
+#: themes/default/templates/index.html.ep:126
 msgid "Click to open the file browser"
 msgstr "Premeu per obrir la selecció de fitxer."
 
-#: themes/default/templates/delays.html.ep:38
+#: themes/default/templates/delays.html.ep:38 themes/default/templates/invitations/my_invitations.html.ep:80
 msgid "Close"
 msgstr "Tanca"
 
@@ -106,23 +144,27 @@ msgstr "Tanca"
 msgid "Comma-separated email addresses"
 msgstr "Adreces de correu electrònic separades per comes"
 
-#: themes/default/templates/partial/index.js.ep:14
+#: themes/default/templates/index.html.ep:140
+msgid "Compressing zip file…"
+msgstr ""
+
+#: themes/default/templates/partial/index.js.ep:15
 msgid "Copy all links to clipboard"
 msgstr "Copia tots els enllaços al porta-retalls"
 
-#: themes/default/templates/partial/index.js.ep:17
+#: themes/default/templates/partial/index.js.ep:18
 msgid "Copy to clipboard"
 msgstr "Copia al porta-retalls"
 
-#: lib/Lufi/Controller/Files.pm:461
+#: lib/Lufi/Controller/Files.pm:507
 msgid "Could not delete the file. You are not authenticated."
 msgstr "No es pot esborrar el fitxer. No esteu autenticat."
 
-#: lib/Lufi/Controller/Files.pm:443
+#: lib/Lufi/Controller/Files.pm:489
 msgid "Could not find the file. Are you sure of the URL and the token?"
 msgstr "No es troba el fitxer. Esteu segur de la URL i el testimoni?"
 
-#: lib/Lufi/Controller/Files.pm:354
+#: lib/Lufi/Controller/Files.pm:400
 msgid "Could not find the file. Are you sure of the URL?"
 msgstr "No trobo el fitxer. Esteu segurs de la URL?"
 
@@ -130,11 +172,19 @@ msgstr "No trobo el fitxer. Esteu segurs de la URL?"
 msgid "Counter"
 msgstr "Comptador"
 
-#: themes/default/templates/index.html.ep:91
+#: themes/default/templates/index.html.ep:100
 msgid "Create a zip archive with the files before uploading?"
 msgstr ""
 
-#: themes/default/templates/files.html.ep:29 themes/default/templates/index.html.ep:81
+#: themes/default/templates/invitations/my_invitations.html.ep:26
+msgid "Created at"
+msgstr ""
+
+#: themes/default/templates/invitations/my_invitations.html.ep:14
+msgid "Delete"
+msgstr ""
+
+#: themes/default/templates/files.html.ep:29 themes/default/templates/index.html.ep:90
 msgid "Delete at first download?"
 msgstr "Eliminar-lo a la primera descàrrega?"
 
@@ -142,7 +192,7 @@ msgstr "Eliminar-lo a la primera descàrrega?"
 msgid "Delete selected files"
 msgstr "Suprimir els fitxers seleccionats"
 
-#: themes/default/templates/files.html.ep:32 themes/default/templates/partial/index.js.ep:18
+#: themes/default/templates/files.html.ep:32 themes/default/templates/partial/index.js.ep:19
 msgid "Deletion link"
 msgstr "Enllaç per a eliminació"
 
@@ -155,7 +205,7 @@ msgstr ""
 "l'expiració i la descàrrega acaba després de l'expiració, encara podrà "
 "obtenir el fitxer."
 
-#: themes/default/templates/partial/index.js.ep:20 themes/default/templates/render.html.ep:28
+#: themes/default/templates/partial/index.js.ep:21 themes/default/templates/render.html.ep:28
 msgid "Download"
 msgstr "Descàrrega"
 
@@ -163,7 +213,7 @@ msgstr "Descàrrega"
 msgid "Download aborted."
 msgstr "Descàrrega avortada."
 
-#: themes/default/templates/files.html.ep:27 themes/default/templates/partial/index.js.ep:19
+#: themes/default/templates/files.html.ep:27 themes/default/templates/partial/index.js.ep:20
 msgid "Download link"
 msgstr "Enllaç per a descàrrega"
 
@@ -182,9 +232,13 @@ msgstr ""
 "enllaç per a l'eliminació, que us permet eliminar el fitxer del servidor "
 "quan vulgueu. "
 
-#: themes/default/templates/index.html.ep:104
+#: themes/default/templates/index.html.ep:122
 msgid "Drop files here"
 msgstr "Deixeu anar aquí fitxers."
+
+#: themes/default/templates/invitations/invite.html.ep:40
+msgid "Email address of your guest"
+msgstr ""
 
 #: themes/default/templates/mail.html.ep:39
 msgid "Email body"
@@ -198,25 +252,29 @@ msgstr "Assumpte del correu electrònic"
 msgid "Emails"
 msgstr "correus electrònics"
 
-#: themes/default/templates/partial/index.js.ep:21
+#: themes/default/templates/partial/index.js.ep:22
 msgid "Encrypting part XX1 of XX2"
 msgstr "S'està xifrant la part XX1 de XX2"
 
-#: lib/Lufi/Controller/Files.pm:243
+#: lib/Lufi/Controller/Files.pm:289
 msgid "Error: the file existed but was deleted."
 msgstr "Error: el fitxer existia però va ser eliminat."
 
-#: lib/Lufi/Controller/Files.pm:323
+#: lib/Lufi/Controller/Files.pm:369
 msgid "Error: the file has not been sent entirely."
 msgstr "Error: el fitxer no s'ha enviat del tot."
 
-#: lib/Lufi/Controller/Files.pm:333
+#: lib/Lufi/Controller/Files.pm:379
 msgid "Error: unable to find the file. Are you sure of your URL?"
 msgstr "Error: no trobo el fitxer. Esteu segur de la URL ?"
 
-#: themes/default/templates/partial/index.js.ep:22
+#: themes/default/templates/partial/index.js.ep:23
 msgid "Expiration:"
 msgstr "Expiració:"
+
+#: themes/default/templates/invitations/my_invitations.html.ep:27
+msgid "Expire at"
+msgstr ""
 
 #: themes/default/templates/files.html.ep:31
 msgid "Expires at"
@@ -226,7 +284,7 @@ msgstr "Expira el"
 msgid "Export localStorage data"
 msgstr "Exporta dades a l'emmagatzematge local"
 
-#: lib/Lufi/Controller/Files.pm:425
+#: lib/Lufi/Controller/Files.pm:471
 msgid "File deleted"
 msgstr "Fitxer eliminat"
 
@@ -234,9 +292,21 @@ msgstr "Fitxer eliminat"
 msgid "File name"
 msgstr "Nom de fitxer"
 
-#: themes/default/templates/index.html.ep:71
+#: themes/default/templates/invitations/my_invitations.html.ep:61
+msgid "Files"
+msgstr ""
+
+#: themes/default/templates/index.html.ep:80
 msgid "Files deleted at first download"
 msgstr "Fitxers suprimits a la primera descàrrega"
+
+#: themes/default/templates/invitations/my_invitations.html.ep:28
+msgid "Files sent at"
+msgstr ""
+
+#: themes/default/templates/partial/invitations.js.ep:8
+msgid "Files sent in invitation XX1 by XX2"
+msgstr ""
 
 #: themes/default/templates/partial/render.js.ep:8
 msgid "Get the file"
@@ -252,6 +322,19 @@ msgstr ""
 "\"classic\">repositori oficial</a> o a la seva <a href=\"https://github.com/"
 "ldidry/lufi\" class=\"classic\">rèplica a Github</a>"
 
+#: themes/default/templates/invitations/my_invitations.html.ep:24
+msgid "Guest mail"
+msgstr ""
+
+#. (ucfirst(stash('invitation')
+#: themes/default/templates/invitations/notification_files_sent.mail.ep:6
+msgid "Hello %1,"
+msgstr ""
+
+#: themes/default/templates/invitations/invite.mail.ep:4
+msgid "Hello,"
+msgstr ""
+
 #: themes/default/templates/partial/mail.js.ep:35
 msgid "Hello,\\n\\nHere's some files I want to share with you:\\n"
 msgstr "Hola,\\n\\nVe't aquí uns fitxers que vull compartir amb tu:"
@@ -260,18 +343,26 @@ msgstr "Hola,\\n\\nVe't aquí uns fitxers que vull compartir amb tu:"
 msgid "Here's some files"
 msgstr "Ve't aquí uns fitxers"
 
-#: themes/default/templates/partial/index.js.ep:24
+#: themes/default/templates/partial/invitations.js.ep:7
+msgid "Hide hidden invitations"
+msgstr ""
+
+#: themes/default/templates/partial/index.js.ep:25
 msgid "Hit Enter, then Ctrl+C to copy all the download links"
 msgstr ""
 "Prem Retorn, i després Ctrl+C per copiar tots els enllaços de descàrrega"
 
-#: themes/default/templates/partial/index.js.ep:23
+#: themes/default/templates/partial/index.js.ep:24
 msgid "Hit Enter, then Ctrl+C to copy the download link"
 msgstr "Prem Retorn, i després Ctrl+C per copiar l'enllaç de descàrrega"
 
 #: themes/default/templates/about.html.ep:9
 msgid "How does it work?"
 msgstr "Com funciona?"
+
+#: themes/default/templates/invitations/invite.html.ep:46
+msgid "How many days would you like the invitation to be valid?"
+msgstr ""
 
 #: themes/default/templates/about.html.ep:16
 msgid "How to install the software on my server?"
@@ -298,13 +389,31 @@ msgstr ""
 msgid "Import localStorage data"
 msgstr "Importar dades de l'emmagatzematge local"
 
-#: themes/default/templates/index.html.ep:44
+#: themes/default/templates/index.html.ep:53
 msgid "Important: more information on delays"
 msgstr "Importat: més informació sobre moratòries"
 
 #: themes/default/templates/delays.html.ep:5
 msgid "Information about delays"
 msgstr "Informació sobre moratòries"
+
+#: themes/default/templates/invitations/my_invitations.html.ep:12
+msgid "Invert selection"
+msgstr ""
+
+#. ($i->guest_mail, $url)
+#: lib/Lufi/Controller/Invitation.pm:171
+msgid "Invitation resent to %1.<br> URL: %2"
+msgstr ""
+
+#. ($invitation->guest_mail, $url)
+#: lib/Lufi/Controller/Invitation.pm:87
+msgid "Invitation sent to %1.<br> URL: %2"
+msgstr ""
+
+#: themes/default/templates/invitations/invite.html.ep:27 themes/default/templates/layouts/default.html.ep:36 themes/default/templates/layouts/default.html.ep:69
+msgid "Invite a guest"
+msgstr ""
 
 #: themes/default/templates/partial/render.js.ep:6
 msgid ""
@@ -316,7 +425,7 @@ msgstr ""
 msgid "Javascript is disabled. You won't be able to use Lufi."
 msgstr "Teniu el javascript deactivat. No podreu usar Lufi."
 
-#: themes/default/templates/layouts/default.html.ep:40 themes/default/templates/layouts/default.html.ep:42 themes/default/templates/layouts/default.html.ep:69 themes/default/templates/layouts/default.html.ep:71
+#: themes/default/templates/layouts/default.html.ep:44 themes/default/templates/layouts/default.html.ep:46 themes/default/templates/layouts/default.html.ep:77 themes/default/templates/layouts/default.html.ep:79
 msgid "Language"
 msgstr "Llengua"
 
@@ -324,7 +433,7 @@ msgstr "Llengua"
 msgid "Login"
 msgstr "Entrada"
 
-#: themes/default/templates/layouts/default.html.ep:54 themes/default/templates/layouts/default.html.ep:80
+#: themes/default/templates/layouts/default.html.ep:58 themes/default/templates/layouts/default.html.ep:91
 msgid "Logout"
 msgstr "Sortida"
 
@@ -336,16 +445,29 @@ msgstr "Lufi és programari lliure d'allotjament de fitxers."
 msgid "Mail"
 msgstr "Mail"
 
-#: themes/default/templates/files.html.ep:3 themes/default/templates/layouts/default.html.ep:34 themes/default/templates/layouts/default.html.ep:63
+#: themes/default/templates/files.html.ep:3 themes/default/templates/layouts/default.html.ep:34 themes/default/templates/layouts/default.html.ep:67
 msgid "My files"
 msgstr "Els meus fitxers"
 
+#: themes/default/templates/invitations/my_invitations.html.ep:5 themes/default/templates/layouts/default.html.ep:37 themes/default/templates/layouts/default.html.ep:70
+msgid "My invitations"
+msgstr ""
+
+#: themes/default/templates/invitations/notification_files_sent.mail.ep:17
+msgid ""
+"NB: this list includes the list of files that have already been sent to you."
+msgstr ""
+
+#: themes/default/templates/index.html.ep:115
+msgid "Name of the zip file"
+msgstr ""
+
 #. (format_bytes($json->{size})
-#: lib/Lufi/Controller/Files.pm:79
+#: lib/Lufi/Controller/Files.pm:108
 msgid "No enough space available on the server for this file (size: %1)."
 msgstr "No hi ha prou espai al servidor per a aquest fitxer (mida: %1)"
 
-#: themes/default/templates/partial/files.js.ep:10 themes/default/templates/partial/index.js.ep:27
+#: themes/default/templates/partial/files.js.ep:10 themes/default/templates/partial/index.js.ep:28
 msgid "No expiration delay"
 msgstr "Sense moratòria d'expiració"
 
@@ -359,7 +481,7 @@ msgstr ""
 "desa en emmagatzematge local: si netegeu l'emmagatzematge local perdreu "
 "aquesta llista."
 
-#: themes/default/templates/index.html.ep:97 themes/default/templates/login.html.ep:21 themes/default/templates/render.html.ep:26
+#: themes/default/templates/index.html.ep:106 themes/default/templates/login.html.ep:21 themes/default/templates/render.html.ep:26
 msgid "Password"
 msgstr "Contrasenya"
 
@@ -376,7 +498,7 @@ msgstr ""
 "Si us plau, espereu mentre obtenim el fitxer. Abans que el tingueu "
 "disponible primer cal descarregar i desxifrar tots els trossos."
 
-#: lib/Lufi/Controller/Auth.pm:28
+#: lib/Lufi/Controller/Auth.pm:38
 msgid ""
 "Please, check your credentials or your right to access this service: unable "
 "to authenticate."
@@ -390,9 +512,25 @@ msgstr "Privacitat"
 msgid "Purge expired files from localStorage"
 msgstr "Netegeu els fitxers expirats de l'emmagatzematge local."
 
-#: themes/default/templates/layouts/default.html.ep:31 themes/default/templates/layouts/default.html.ep:60
+#: themes/default/templates/invitations/notification_files_sent.mail.ep:20
+msgid "Regards,"
+msgstr ""
+
+#: themes/default/templates/invitations/invite.mail.ep:15
+msgid "Regards."
+msgstr ""
+
+#: themes/default/templates/layouts/default.html.ep:31 themes/default/templates/layouts/default.html.ep:64
 msgid "Report file"
 msgstr "Senyalar un fitxer"
+
+#: themes/default/templates/invitations/my_invitations.html.ep:15
+msgid "Resend invitation mail"
+msgstr ""
+
+#: themes/default/templates/invitations/my_invitations.html.ep:9
+msgid "Rows in purple mean that the invitations have expired."
+msgstr ""
 
 #: themes/default/templates/files.html.ep:9
 msgid ""
@@ -401,9 +539,13 @@ msgstr ""
 "Les files en vermell indiquen que els fitxers han expirat i ja no són "
 "disponibles."
 
-#: themes/default/templates/partial/index.js.ep:25
+#: themes/default/templates/partial/index.js.ep:26
 msgid "Send all links by email"
 msgstr "Envia tots els enllaços per correu electrònic"
+
+#: themes/default/templates/invitations/invite.html.ep:50
+msgid "Send the invitation"
+msgstr ""
 
 #: themes/default/templates/mail.html.ep:46
 msgid "Send with this server"
@@ -413,7 +555,7 @@ msgstr "Envia amb aquest servidor"
 msgid "Send with your own mail software"
 msgstr "Envia amb el vostre propi programa de correu"
 
-#: themes/default/templates/partial/index.js.ep:28
+#: themes/default/templates/partial/index.js.ep:29
 msgid ""
 "Sending part XX1 of XX2. Please, be patient, the progress bar can take a "
 "while to move."
@@ -426,23 +568,48 @@ msgstr ""
 msgid "Share your files in total privacy on %1"
 msgstr "Compartiu fitxers amb total privacitat a %1"
 
+#: themes/default/templates/invitations/my_invitations.html.ep:13 themes/default/templates/partial/invitations.js.ep:9
+msgid "Show hidden invitations"
+msgstr ""
+
 #: themes/default/templates/partial/render.js.ep:11
 msgid "Show zip content"
 msgstr ""
 
-#: themes/default/templates/layouts/default.html.ep:36 themes/default/templates/layouts/default.html.ep:65 themes/default/templates/login.html.ep:27 themes/default/templates/logout.html.ep:17
+#: themes/default/templates/layouts/default.html.ep:40 themes/default/templates/layouts/default.html.ep:73 themes/default/templates/login.html.ep:28 themes/default/templates/logout.html.ep:17
 msgid "Signin"
 msgstr "Autenticació"
 
-#: themes/default/templates/index.html.ep:37
+#: lib/Lufi/Controller/Invitation.pm:283 themes/default/templates/invitations/exception.html.ep:16
+msgid ""
+"Sorry, the invitation doesn’t exist. Are you sure you are on the right URL?"
+msgstr ""
+
+#: themes/default/templates/index.html.ep:46
 msgid "Sorry, the uploading is currently disabled. Please try again later."
 msgstr ""
 "Disculpeu, les pujades estan actualment desactivades. Si us plau proveu-ho "
 "més tard."
 
-#: lib/Lufi/Controller/Files.pm:53
+#: lib/Lufi/Controller/Files.pm:82
 msgid "Sorry, uploading is disabled."
 msgstr "Disculpeu, les pujades estan deshabilitades"
+
+#: themes/default/templates/invitations/exception.html.ep:7
+msgid "Sorry, your invitation has expired or has been deleted."
+msgstr ""
+
+#. ($invit->ldap_user_mail)
+#: lib/Lufi/Controller/Files.pm:122
+msgid ""
+"Sorry, your invitation has expired or has been deleted. Please contact %1 to "
+"have another invitation."
+msgstr ""
+
+#. ($invitation->ldap_user_mail)
+#: lib/Lufi/Controller/Invitation.pm:276
+msgid "The URLs of your files have been sent by email to %1."
+msgstr ""
 
 #: themes/default/templates/about.html.ep:7
 msgid ""
@@ -472,7 +639,12 @@ msgstr "El cos del correu no pot estar buit."
 msgid "The email subject can't be empty."
 msgstr "L'assumpte dle correu no pot estar buit."
 
-#: lib/Lufi/Controller/Files.pm:422
+#. ($expire_at, $max_expire_at)
+#: lib/Lufi/Controller/Invitation.pm:51
+msgid "The expiration delay (%1) is not between 1 and %2 days."
+msgstr ""
+
+#: lib/Lufi/Controller/Files.pm:468
 msgid "The file has already been deleted"
 msgstr "El fitxer ja ha estat esborrat"
 
@@ -490,9 +662,42 @@ msgstr ""
 msgid "The following email addresses are not valid: %1"
 msgstr "Les següents adreces de correu electrònic no són vàlides: %1"
 
-#: themes/default/templates/partial/index.js.ep:15
+#. ($guest_mail)
+#: lib/Lufi/Controller/Invitation.pm:48
+msgid "The guest email address (%1) is unvalid."
+msgstr ""
+
+#. ($i->token, $i->guest_mail)
+#: lib/Lufi/Controller/Invitation.pm:150
+msgid ""
+"The invitation %1 can’t be resend: %2 has already sent files.<br>Please "
+"create a new invitation."
+msgstr ""
+
+#. ($i->token)
+#: lib/Lufi/Controller/Invitation.pm:130
+msgid "The invitation %1 has been deleted."
+msgstr ""
+
+#. (stash('user_mail')
+#: themes/default/templates/invitations/invite.html.ep:34
+msgid "The invitation mail will be send from your email address (%1)."
+msgstr ""
+
+#: themes/default/templates/partial/index.js.ep:16
 msgid "The link(s) has been copied to your clipboard"
 msgstr "L'enllaç/ els enllaços ja estan copiats al portaretalls"
+
+#. (stash('invitation')
+#: themes/default/templates/index.html.ep:30
+msgid ""
+"The link(s) of your file(s) will automatically be sent by mail to %1 (%2)"
+msgstr ""
+
+#. (stash('ldap_user')
+#: themes/default/templates/invitations/invite.mail.ep:11
+msgid "The links of your file(s) will automatically be send by mail to %1."
+msgstr ""
 
 #: lib/Lufi/Controller/Mail.pm:97
 msgid "The mail has been sent."
@@ -506,7 +711,7 @@ msgstr ""
 "L'autor original (i per ara l'únic) és <a href=\"https://fiat-tux.fr\" class="
 "\"classic\">Luc Didry</a>."
 
-#: lib/Lufi/Controller/Files.pm:190
+#: lib/Lufi/Controller/Files.pm:236
 msgid ""
 "The server was unable to find the file record to add your file part to. "
 "Please, contact the administrator."
@@ -514,12 +719,21 @@ msgstr ""
 "El servidor no ha pogut trobar el registre del fitxer per afegir-hi el tros "
 "del fitxer. Si us plau, contacteu l'administrador."
 
-#: lib/Lufi/Controller/Files.pm:249
+#: lib/Lufi/Controller/Files.pm:295
 msgid ""
 "This file has been deactivated by the admins. Contact them to know why."
 msgstr ""
 "Aquest fitxer es estat desactivat pels administrators. Contacteu-los per "
 "saber perque."
+
+#: themes/default/templates/invitations/my_invitations.html.ep:46 themes/default/templates/partial/invitations.js.ep:6
+msgid "This invitation is normally hidden"
+msgstr ""
+
+#. (stash('expires')
+#: themes/default/templates/invitations/invite.mail.ep:13
+msgid "This invitation is valid until %1."
+msgstr ""
 
 #: themes/default/templates/delays.html.ep:10
 msgid ""
@@ -531,12 +745,20 @@ msgstr ""
 "moratòria d'expiració del fitxer serà el mínim de l'escollida i aquestes "
 "limitacions:"
 
-#: themes/default/templates/partial/index.js.ep:16
+#: themes/default/templates/invitations/my_invitations.html.ep:16
+msgid "Toggle visibility"
+msgstr ""
+
+#: themes/default/templates/invitations/my_invitations.html.ep:25
+msgid "URL"
+msgstr ""
+
+#: themes/default/templates/partial/index.js.ep:17
 msgid "Unable to copy the link(s) to your clipboard"
 msgstr "No s'han pogut copiar l'enllaç o els enllaços al porta-retalls."
 
 #. ($short)
-#: lib/Lufi/Controller/Files.pm:393
+#: lib/Lufi/Controller/Files.pm:439
 msgid ""
 "Unable to get counter for %1. The file does not exists. It will be removed "
 "from your localStorage."
@@ -545,28 +767,32 @@ msgstr ""
 "del teu emmagatzematge local."
 
 #. ($short)
-#: lib/Lufi/Controller/Files.pm:383
+#: lib/Lufi/Controller/Files.pm:429
 msgid "Unable to get counter for %1. The token is invalid."
 msgstr "No he pogut obtenir el comptador de %1. El testimoni no és vàlid."
 
 #. ($short)
-#: lib/Lufi/Controller/Files.pm:403
+#: lib/Lufi/Controller/Files.pm:449
 msgid "Unable to get counter for %1. You are not authenticated."
 msgstr "No he pogut obtenir el comptador de %1. No esteu autenticat."
 
-#: themes/default/templates/layouts/default.html.ep:33 themes/default/templates/layouts/default.html.ep:62
+#: themes/default/templates/layouts/default.html.ep:33 themes/default/templates/layouts/default.html.ep:66
 msgid "Upload files"
 msgstr "Pujar fitxers"
+
+#: themes/default/templates/index.html.ep:145
+msgid "Upload generated zip file"
+msgstr ""
 
 #: themes/default/templates/files.html.ep:30
 msgid "Uploaded at"
 msgstr "Pujat a les"
 
-#: themes/default/templates/index.html.ep:114
+#: themes/default/templates/index.html.ep:153
 msgid "Uploaded files"
 msgstr "Fitxers pujats"
 
-#: themes/default/templates/partial/index.js.ep:29
+#: themes/default/templates/partial/index.js.ep:30
 msgid "Websocket communication error"
 msgstr "Error de comunicacions del websocket"
 
@@ -577,6 +803,16 @@ msgstr "Què és Lufi?"
 #: themes/default/templates/about.html.ep:14
 msgid "Who wrote this software?"
 msgstr "Qui va escriure aquest programa?"
+
+#: themes/default/templates/partial/index.js.ep:13
+msgid "XXX file has been added to upload queue."
+msgstr ""
+
+#: themes/default/templates/invitations/invite.html.ep:30
+msgid ""
+"You can invite someone to send you files through this Lufi instance even if "
+"they don’t have an account on it."
+msgstr ""
 
 #: themes/default/templates/about.html.ep:11
 msgid ""
@@ -617,7 +853,7 @@ msgstr ""
 "Heu intentat deixar aquesta pàgina. Es canceŀlarà la descàrrega. N'esteu "
 "segur?"
 
-#: themes/default/templates/partial/index.js.ep:13
+#: themes/default/templates/partial/index.js.ep:14
 msgid ""
 "You have attempted to leave this page. The upload will be canceled. Are you "
 "sure?"
@@ -632,26 +868,22 @@ msgstr "Heu sortit correctament."
 msgid "You must give email addresses."
 msgstr "Heu de donar l'adreça de correu electrònic."
 
-#: themes/default/templates/index.html.ep:29
+#: themes/default/templates/index.html.ep:38
 msgid ""
 "Your browser has not enough entropy to generate a strong encryption key. "
 "Please wait (it's better if you do things on your computer while waiting)."
 msgstr ""
 
 #. (format_bytes($json->{size})
-#: lib/Lufi/Controller/Files.pm:66
+#: lib/Lufi/Controller/Files.pm:95
 msgid "Your file is too big: %1 (maximum size allowed: %2)"
 msgstr "El fitxer és massa gran: %1 (mida màxima admesa: %2)"
 
-#: lib/Lufi/Controller/Files.pm:305
+#: lib/Lufi/Controller/Files.pm:351
 msgid "Your password is not valid. Please refresh the page to retry."
 msgstr ""
 "La vostra contrasenya es incorrecta. Torneu cargar la pàgina per provar de "
 "nou."
-
-#: themes/default/templates/index.html.ep:112
-msgid "Zip archive creation…"
-msgstr ""
 
 #. (format_bytes($keys[$i])
 #: themes/default/templates/delays.html.ep:20
@@ -667,6 +899,10 @@ msgstr "entre %1 i %2, el fitxer es mantindrà per sempre al servidor."
 msgid "deadline: "
 msgstr "termini:"
 
+#: themes/default/templates/partial/invitations.js.ep:5
+msgid "expires on XXX"
+msgstr ""
+
 #. (format_bytes($keys[$i])
 #: themes/default/templates/delays.html.ep:26
 msgid "for %1 and more, the file will be kept %2 day(s)"
@@ -681,6 +917,11 @@ msgstr "a partir de %1, el fitxer es mantindrà per sempre al servidor."
 msgid "no time limit"
 msgstr "no hi ha límit de temps"
 
-#: themes/default/templates/index.html.ep:106
+#: themes/default/templates/index.html.ep:124
 msgid "or"
 msgstr "o"
+
+#. ($e->{name}, format_bytes($e->{size})
+#: themes/default/templates/invitations/notification_files_sent.mail.ep:12
+msgid "— %1 (%2), that will expire on %3"
+msgstr ""
