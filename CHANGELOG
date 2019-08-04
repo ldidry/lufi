@@ -1,6 +1,8 @@
 Revision history for Lufi
 
-0.04.0 2019-??-??
+?.??.? ????-??-??
+
+0.04.0 2019-08-04
 	- Allow to zip the files before upload
 	- Allow to see what’s in zip file on download page
 	- Allow to individually download files from zip file (only if zip created by Lufi)
