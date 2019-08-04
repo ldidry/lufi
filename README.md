@@ -40,10 +40,10 @@ Because Lufi is quite similar to Luffy, like in "[Monkey D. Luffy](https://en.wi
 
 ## Wiki (work in progress)
 
-The official wiki will contain all you need to know about Lufi (installation, configuration, etc.). Go to <https://framagit.org/luc/lufi/wikis/home> or clone it:
+The official wiki will contain all you need to know about Lufi (installation, configuration, etc.). Go to <https://framagit.org/fiat-tux/hat-softwares/lufi/wikis/home> or clone it:
 
 ```
-git clone https://framagit.org/luc/lufi.wiki.git
+git clone https://framagit.org/fiat-tux/hat-softwares/lufi.wiki.git
 ```
 
 ## Encryption
@@ -58,7 +58,9 @@ However please note that some metadata are sent unencrypted:
 
 ## Client
 
-There is the web interface, but you can use a CLI client too! Have a look at <https://framagit.org/luc/lufi-cli> or install it directly with `sudo npm install -g lufi-cli`.
+There is the web interface, but you can use a CLI client too! Have a look at [lufi-cli](https://framagit.org/fiat-tux/hat-softwares/lufi-cli) or install it directly with `sudo npm install -g lufi-cli`.
+
+There is another client in Python too: <https://framagit.org/setop/pylufic>.
 
 ## Internationalization
 
@@ -72,9 +74,9 @@ See [AUTHORS.md](AUTHORS.md) file.
 
 ## Contribute!
 
-Please consider contributing, either by [reporting issues](https://framagit.org/luc/lufi/issues) or by helping the internationalization. And of course, code contributions are welcome!
+Please consider contributing, either by [reporting issues](https://framagit.org/fiat-tux/hat-softwares/lufi/issues) or by helping the internationalization. And of course, code contributions are welcome!
 
-The details on how to contribute are on the [wiki](https://framagit.org/luc/lufi/wikis/contribute).
+The details on how to contribute are on the [wiki](https://framagit.org/fiat-tux/hat-softwares/lufi/wikis/contribute).
 
 This software uses [Fiat Tux Code of conduct](https://framagit.org/fiat-tux/code-of-conduct/blob/master/README.md).
 

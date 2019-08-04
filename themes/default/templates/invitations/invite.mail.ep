@@ -1,0 +1,15 @@
+% # vim:set sw=4 ts=4 sts=4 ft=mail.epl expandtab:
+% stash subject => l('%1 invites you to send him/her files', stash('ldap_user'));
+
+%= l('Hello,')
+
+%= l('%1 invites you to send him/her files through Lufi.', stash('ldap_user'))
+
+%= l('Click on the following URL to upload files on Lufi:')
+%== stash('url')
+
+%= l('The links of your file(s) will automatically be sent by mail to %1.', stash('ldap_user'))
+
+%= l('This invitation is valid until %1.', stash('expires'))
+
+%= l('Regards.')

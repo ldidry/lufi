@@ -1,5 +1,4 @@
 requires 'inc::Module::Install';
-requires 'List::Util', '>= 1.50';
 requires 'Mojolicious', '>= 8.05';
 requires 'Mojolicious::Plugin::DebugDumperHelper';
 requires 'Mojolicious::Plugin::I18N';
@@ -8,7 +7,7 @@ requires 'Mojolicious::Plugin::GzipStatic';
 requires 'Mojolicious::Plugin::StaticCache';
 requires 'Mojolicious::Plugin::CSPHeader', '>= 0.06';
 requires 'Mojolicious::Plugin::FiatTux::Helpers', '== 0.08', url => 'https://framagit.org/fiat-tux/mojolicious/mojolicious-plugin-fiattux-helpers/-/archive/0.08/mojolicious-plugin-fiattux-helpers-0.08.tar.gz';
-requires 'Mojolicious::Plugin::FiatTux::GrantAccess', '== 0.05', url => 'https://framagit.org/fiat-tux/mojolicious/mojolicious-plugin-fiattux-grantaccess/-/archive/0.05/mojolicious-plugin-fiattux-grantaccess-0.05.tar.gz';
+requires 'Mojolicious::Plugin::FiatTux::GrantAccess', '== 0.06', url => 'https://framagit.org/fiat-tux/mojolicious/mojolicious-plugin-fiattux-grantaccess/-/archive/0.06/mojolicious-plugin-fiattux-grantaccess-0.06.tar.gz';
 requires 'Mojolicious::Plugin::FiatTux::Themes', '== 0.02', url => 'https://framagit.org/fiat-tux/mojolicious/mojolicious-plugin-fiattux-themes/-/archive/0.02/mojolicious-plugin-fiattux-themes-0.02.tar.gz';
 requires 'Filesys::DiskUsage';
 requires 'Switch';
@@ -33,10 +32,12 @@ feature 'optional_deps' => sub {
 
 feature 'test' => sub {
     requires 'Devel::Cover';
+    requires 'B::Debug';
 };
 feature 'ldap', 'LDAP authentication support' => sub {
     requires 'Net::LDAP';
     requires 'Mojolicious::Plugin::Authentication';
+    requires 'Date::Language';
 };
 feature 'htpasswd', 'Htpasswd authentication support' => sub {
     requires 'Apache::Htpasswd';

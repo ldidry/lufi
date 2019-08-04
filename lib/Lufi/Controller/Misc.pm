@@ -49,14 +49,10 @@ sub fullstats {
     my $c = shift;
 
     my $stats = Lufi::DB::File->new(app => $c->app)->get_stats;
+    $stats->{timestamp} = time;
 
     return $c->render(
-        json => {
-            files     => $stats->{files},
-            deleted   => $stats->{deleted},
-            empty     => $stats->{empty},
-            timestamp => time,
-        }
+        json => $stats
     );
 }
 

@@ -23,10 +23,19 @@
             </div>
         </div>
 % }
+% if (stash('invitation')) {
+        <div class="col s12">
+            <div class="card blue">
+                <div class="card-content white-text">
+                    <strong><%= l('The link(s) of your file(s) will automatically be sent by mail to %1 (%2)', stash('invitation')->ldap_user, stash('invitation')->ldap_user_mail) %></strong>
+                </div>
+            </div>
+        </div>
+% }
         <div class="col s12 hiddendiv" id="not-enough-entropy">
             <div class="card pink">
                 <div class="card-content white-text">
-                    <strong><%= l('Your browser has not enough entropy to generate a strong encryption key. Please wait (it\'s better if you do things on your computer while waiting).') %></strong>
+                    <strong><%= l('Your browser does not have enough entropy to generate a strong encryption key. Please wait (it\'s better if you do things on your computer while waiting).') %></strong>
                 </div>
             </div>
         </div>
@@ -71,33 +80,74 @@
                 <%= l('Files deleted at first download') %>
             </p>
         % }
-            <p class="col s12 m6 text-left<%= ' hiddendiv' if $self->config('force_burn_after_reading') %>">
+            <p class="col s12 m6 text-left<%= ' hiddendiv' if (config('force_burn_after_reading') || stash('invitation')) %>">
                 <input
                     type="checkbox"
                     id="first-view"
-                    data-checked="<%= 'data-checked' if $self->config('force_burn_after_reading') %>"
-                    <%= 'disabled="disabled"' if $self->config('force_burn_after_reading') %>
+                    data-checked="<%= 'data-checked' if config('force_burn_after_reading') %>"
+                    <%= 'disabled="disabled"' if config('force_burn_after_reading') %>
                 >
                 <label for="first-view"><%= l('Delete at first download?') %></label>
             </p>
         </div>
-    % if (config('allow_pwd_on_files')) {
-        <div class="col s12 m12">
+        <div class="input-field">
+            <p class="col s12 m6 text-left">
+                <input
+                    type="checkbox"
+                    id="zip-files"
+                    data-checked=""
+                >
+                <label for="zip-files"><%= l('Create a zip archive with the files before uploading?') %></label>
+            </p>
+        </div>
+    % if (config('allow_pwd_on_files') && (!stash('invitation'))) {
+        <div class="col s12 m6">
             <div class="input-field">
                 <input type="password" id="file_pwd" placeholder="<%= l('Password') %>" class="validate" autocomplete="off">
                 <label for="file_pwd"><%= l('Add a password to file(s)') %></label>
             </div>
         </div>
     % }
+        <div class="col s12 m12 hide" id="zipname-input">
+            <div class="col s12 m6">
+                <div class="input-field">
+                    <input type="text" id="zipname" placeholder="documents.zip" value="documents.zip" class="validate">
+                    <label for="zipname"><%= l('Name of the zip file') %></label>
+                </div>
+            </div>
+        </div>
     </form>
-    <div id="files">
-        <h2><%= l('Drop files here') %></h2>
-        <p id="max-file-size"></p>
-        <p><small><%= l('or') %></small></p>
-        <label>
-            <span id="file-browser-span" class="btn disabled waves-effect waves-light"><%= l('Click to open the file browser') %></span>
-            <input type="file" id="file-browser-button" multiple disabled>
-        </label>
+    <div class="row">
+        <div id="files" class="col s12 m12">
+            <h2><%= l('Drop files here') %></h2>
+            <p id="max-file-size"></p>
+            <p><small><%= l('or') %></small></p>
+            <label>
+                <span id="file-browser-span" class="btn disabled waves-effect waves-light"><%= l('Click to open the file browser') %></span>
+                <input type="file" id="file-browser-button" multiple disabled>
+            </label>
+        </div>
+        <div id="zipping" class="col s12 m6 hide">
+            <div class="card">
+                <div>
+                    <a href="#" id="reset-zipping">
+                        <i class="right mdi-navigation-close small"></i>
+                    </a>
+                    <div class="card-content">
+                        <span class="card-title" id="zip-name">documents.zip</span> (<span id="zip-size"></span>)
+                        <p id="zip-compressing" class="hide">
+                            <button class="btn-floating pulse"><i class="mdi-content-archive"></i></button>
+                            <%= l('Compressing zip file…') %>
+                        </p>
+                        <ul id="zip-parts">
+                        </ul>
+                        <div class="right-align">
+                            <a href="#" id="uploadZip" class="btn waves-effect waves-light"><%= l('Upload generated zip file') %></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
     </div>
     <div id="results">
         <h2><%= l('Uploaded files') %></h2>
@@ -106,9 +156,14 @@
         </ul>
     </div>
 %= include 'delays'
+% if (defined stash('invitation')) {
+%= javascript '/partial/index.js?token=' . stash('invitation')->token
+% } else {
 %= javascript '/partial/index.js'
+% }
 %= javascript '/js/sjcl.js'
 %= javascript '/js/moment-with-locales.min.js'
 %= javascript '/js/filesize.min.js'
+%= javascript '/js/jszip.min.js'
 %= javascript '/js/lufi-up.js'
 % }

@@ -27,3 +27,23 @@ CREATE TABLE IF NOT EXISTS slices (
 -- 1 down
 DROP TABLE slices;
 DROP TABLE files;
+-- 2 up
+ALTER TABLE files ADD COLUMN zipped boolean default false;
+-- 2 down
+ALTER TABLE files DROP COLUMN zipped;
+-- 3 up
+CREATE TABLE IF NOT EXISTS invitations (
+       token                 varchar(255) PRIMARY KEY,
+       ldap_user             varchar(255),
+       ldap_user_mail        varchar(255),
+       guest_mail            varchar(255),
+       created_at            integer,
+       expire_at             integer,
+       files_sent_at         integer,
+       expend_expire_at      integer,
+       files                 text,
+       show_in_list          boolean,
+       deleted               boolean
+);
+-- 3 down
+DROP TABLE invitations;

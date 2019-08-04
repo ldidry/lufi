@@ -1,0 +1,14 @@
+% # vim:set sts=4 sw=4 ts=4 ft=javascript expandtab:
+var i18n = {
+    confirmDeleteInvit: '<%= l('Are you sure you want to delete the selected invitations?') %>',
+    confirmResendMail:  '<%= l('Are you sure you want to resend the invitation mail for the selected invitations?') %>',
+    expiration:         '<%= l('expires on XXX') %>',
+    hiddenMark:         '<i class="mdi-navigation-cancel" title="<%= l('This invitation is normally hidden') %>"></i>',
+    hideText:           '<%= l('Hide hidden invitations') %>',
+    listFiles:          '<%= l('Files sent in invitation XX1 by XX2') %>',
+    showText:           '<%= l('Show hidden invitations') %>'
+};
+
+var deleteURL = '<%= url_for('invite_list_delete') %>';
+var resendURL = '<%= url_for('invite_list_resend') %>';
+var toggleURL = '<%= url_for('invite_list_visibility') %>';

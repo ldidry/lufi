@@ -1,0 +1,22 @@
+% # vim:set sw=4 ts=4 sts=4 ft=mail.epl expandtab:
+% use Number::Bytes::Human qw(format_bytes);
+% my $lang = $self->get_date_lang();
+% stash subject => l('%1 sent you files', stash('invitation')->guest_mail);
+
+%= l('Hello %1,', ucfirst(stash('invitation')->ldap_user))
+
+%= l('%1 used your invitation to send you files:', stash('invitation')->guest_mail)
+
+% stash('files')->each(sub {
+%     my ($e, $num) = @_;
+%= l('— %1 (%2), that will expire on %3', $e->{name}, format_bytes($e->{size}), $lang->time2str(l('%A %d %B %Y at %T'), $e->{created_at} + $e->{delay} * 86400))
+%=   '  '.$e->{url}
+% });
+
+% if (config('invitations')->{'save_files_url_in_db'} && stash('already_notified')) {
+%=     l('NB: this list includes the list of files that have already been sent to you.')
+
+% }
+%= l('Regards,')
+-- 
+Lufi

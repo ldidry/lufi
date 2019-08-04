@@ -26,6 +26,7 @@ has 'slices' => sub {
 };
 has 'passwd';
 has 'abuse';
+has 'zipped' => 0;
 has 'record' => 0;
 has 'app';
 
@@ -78,6 +79,8 @@ Have a look at Lufi::DB::File::SQLite's code: it's simple and may be more unders
 
 =item B<abuse>                : integer
 
+=item B<zipped>               : boolean
+
 =item B<app>                  : a Mojolicious object
 
 =back
@@ -128,7 +131,7 @@ sub new {
 
 =over 1
 
-=item B<Usage>     : C<$c-E<gt>delet>
+=item B<Usage>     : C<$c-E<gt>delete>
 
 =item B<Arguments> : none
 
@@ -175,9 +178,9 @@ sub write {
     my $c = shift;
 
     if ($c->record) {
-        $c->app->dbi->db->query('UPDATE files SET short = ?, deleted = ?, mediatype = ?, filename = ?, filesize = ?, counter = ?, delete_at_first_view = ?, delete_at_day = ?, created_at = ?, created_by = ?, last_access_at = ?, mod_token = ?, nbslices = ?, complete = ?, passwd = ?, abuse = ? WHERE short = ?', $c->short, $c->deleted, $c->mediatype, $c->filename, $c->filesize, $c->counter, $c->delete_at_first_view, $c->delete_at_day, $c->created_at, $c->created_by, $c->last_access_at, $c->mod_token, $c->nbslices, $c->complete, $c->passwd, $c->abuse, $c->short);
+        $c->app->dbi->db->query('UPDATE files SET short = ?, deleted = ?, mediatype = ?, filename = ?, filesize = ?, counter = ?, delete_at_first_view = ?, delete_at_day = ?, created_at = ?, created_by = ?, last_access_at = ?, mod_token = ?, nbslices = ?, complete = ?, passwd = ?, abuse = ?, zipped = ? WHERE short = ?', $c->short, $c->deleted, $c->mediatype, $c->filename, $c->filesize, $c->counter, $c->delete_at_first_view, $c->delete_at_day, $c->created_at, $c->created_by, $c->last_access_at, $c->mod_token, $c->nbslices, $c->complete, $c->passwd, $c->abuse, $c->zipped, $c->short);
     } else {
-        $c->app->dbi->db->query('INSERT INTO files (short, deleted, mediatype, filename, filesize, counter, delete_at_first_view, delete_at_day, created_at, created_by, last_access_at, mod_token, nbslices, complete, passwd, abuse) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)', $c->short, $c->deleted, $c->mediatype, $c->filename, $c->filesize, $c->counter, $c->delete_at_first_view, $c->delete_at_day, $c->created_at, $c->created_by, $c->last_access_at, $c->mod_token, $c->nbslices, $c->complete, $c->passwd, $c->abuse);
+        $c->app->dbi->db->query('INSERT INTO files (short, deleted, mediatype, filename, filesize, counter, delete_at_first_view, delete_at_day, created_at, created_by, last_access_at, mod_token, nbslices, complete, passwd, abuse, zipped) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)', $c->short, $c->deleted, $c->mediatype, $c->filename, $c->filesize, $c->counter, $c->delete_at_first_view, $c->delete_at_day, $c->created_at, $c->created_by, $c->last_access_at, $c->mod_token, $c->nbslices, $c->complete, $c->passwd, $c->abuse, $c->zipped);
         $c->record(1);
     }
 
@@ -272,11 +275,12 @@ sub get_empty {
 sub get_stats {
     my $c = shift;
 
-    my $files   = $c->app->dbi->db->query('SELECT count(short) AS count FROM files WHERE created_at IS NOT null AND deleted = ?', 0)->hashes->first->{count};
-    my $deleted = $c->app->dbi->db->query('SELECT count(short) AS count FROM files WHERE created_at IS NOT null AND deleted = ?', 1)->hashes->first->{count};
-    my $empty   = $c->app->dbi->db->query('SELECT count(short) AS count FROM files WHERE created_at IS null')->hashes->first->{count};
+    my $files     = $c->app->dbi->db->query('SELECT count(short) AS count FROM files WHERE created_at IS NOT null AND deleted = ?', 0)->hashes->first->{count};
+    my $deleted   = $c->app->dbi->db->query('SELECT count(short) AS count FROM files WHERE created_at IS NOT null AND deleted = ?', 1)->hashes->first->{count};
+    my $empty     = $c->app->dbi->db->query('SELECT count(short) AS count FROM files WHERE created_at IS null')->hashes->first->{count};
+    my $downloads = $c->app->dbi->db->query('SELECT SUM(counter) AS sum FROM files')->hashes->first->{sum};
 
-    return { files => $files, deleted => $deleted, empty => $empty };
+    return { files => $files, deleted => $deleted, empty => $empty, downloads => $downloads };
 }
 
 =head2 from_short
@@ -504,6 +508,7 @@ sub _slurp {
         $c->complete($file->{complete});
         $c->passwd($file->{passwd});
         $c->abuse($file->{abuse});
+        $c->zipped($file->{zipped});
 
         $c->record(1) unless $c->record;
     }

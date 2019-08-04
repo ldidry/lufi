@@ -22,6 +22,7 @@ my $msg = to_json {
     "delay"             => "0",
     "del_at_first_view" => 1,
     "id"                => undef,
+    "zipped"            => 0,
     "i"                 => 0
 };
 my $encrypted     = '"{\\"iv\\":\\"2RGAviAeYybBqcLCmnqlgA==\\",\\"v\\":1,\\"iter\\":10000,\\"ks\\":128,\\"ts\\":64,\\"mode\\":\\"ccm\\",\\"adata\\":\\"\\",\\"cipher\\":\\"aes\\",\\"salt\\":\\"1dvKtbZ8hxA=\\",\\"ct\\":\\"w9wDZCwNSyH/yL7q1GW5fPSdi+w=\\"}"';
@@ -33,7 +34,7 @@ $encrypted_rgx    =~ s@(\{|\})@\\$1@g;
 BEGIN {
     use lib 'lib';
     $m = Mojolicious->new;
-    $cfile = Mojo::File->new($Bin, '..', 'lutim.conf');
+    $cfile = Mojo::File->new($Bin, '..', 'lufi.conf');
     if (defined $ENV{MOJO_CONFIG}) {
         $cfile = Mojo::File->new($ENV{MOJO_CONFIG});
         unless (-e $cfile->to_abs) {

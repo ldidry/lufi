@@ -1,0 +1,20 @@
+% # vim:set sw=4 ts=4 sts=4 ft=html.epl expandtab:
+
+% if (stash('expired_or_deleted_invitation')) {
+    <div class="col s12">
+        <div class="card pink">
+            <div class="card-content white-text">
+                <strong><%= l('Sorry, your invitation has expired or has been deleted.') %></strong>
+            </div>
+        </div>
+    </div>
+% }
+% if (stash('invitation_not_found')) {
+    <div class="col s12">
+        <div class="card pink">
+            <div class="card-content white-text">
+                <strong><%= l('Sorry, the invitation doesn’t exist. Are you sure you are on the right URL?') %></strong>
+            </div>
+        </div>
+    </div>
+% }
