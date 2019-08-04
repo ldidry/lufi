@@ -1,6 +1,7 @@
 image: hatsoftwares/lufi-test-ci:buster
 stages:
   - publish_changelog
+  - pouet_it
   - carton
   - carton_bdd
   - tests
@@ -74,20 +75,12 @@ variables:
     - name: rroemhild/test-openldap
       alias: rroemhild-test-openldap
 
-### Publish tag changelog
+### Publish tag changelog and create a toot
 ##
 #
-publish_changelog:
-  image: hatsoftwares/curl-jq:latest
-  stage: publish_changelog
-  script:
-    - export PROJECT_API_URL="https://framagit.org/api/v4/projects/${CI_PROJECT_ID}"
-    - export DESCRIPTION_URL="${PROJECT_API_URL}/repository/tags/${CI_COMMIT_TAG}/release"
-    - 'export HEADER="Private-Token: ${GITLAB_API_TOKEN}"'
-    - sed -n '/^'$CI_COMMIT_TAG'[[:space:]]/,/^[^\t]/p' CHANGELOG | sed -e 's/^[^\t].*//' -e 's/\t//g' | sed '/^[[:space:]]*$/d' > /tmp/text
-    - if [[ ! -z $GITLAB_API_TOKEN ]]; then curl -s --request POST --data-urlencode "description@/tmp/text" --header "${HEADER}" "${DESCRIPTION_URL}"; fi
-  only:
-    - tags
+include:
+  - 'https://framagit.org/fiat-tux/gitlabci-snippets/raw/master/publish_changelog.yml'
+  - 'https://framagit.org/fiat-tux/gitlabci-snippets/raw/master/pouet-it-from-ci.yml'
 
 ### Podcheck
 ##
