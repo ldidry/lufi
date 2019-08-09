@@ -448,7 +448,7 @@ msgid ""
 "Lufi recently changed its way to store files information.\\n\\nNo files have "
 "been found in the new localStorage location but we found files in the old "
 "one.\\nDo you want to import those informations?\\n\\nPlease note that this "
-"is the only time that we ask this question."
+"is the only time that we will ask you this."
 msgstr ""
 
 #: themes/default/templates/files.html.ep:33
