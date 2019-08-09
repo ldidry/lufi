@@ -79,8 +79,8 @@ variables:
 ##
 #
 include:
-  - 'https://framagit.org/fiat-tux/gitlabci-snippets/raw/master/publish_changelog.yml'
-  - 'https://framagit.org/fiat-tux/gitlabci-snippets/raw/master/pouet-it-from-ci.yml'
+  - 'https://framagit.org/fiat-tux/gitlabci-snippets/raw/4e4e03322e95e9b0124c714456ebf1bdc02ad43f/publish_changelog.gitlab-ci.yml'
+  - 'https://framagit.org/fiat-tux/gitlabci-snippets/raw/4e4e03322e95e9b0124c714456ebf1bdc02ad43f/pouet-it-from-ci.gitlab-ci.yml'
 
 ### Podcheck
 ##
