@@ -39,7 +39,7 @@
         <label for="guest_mail">
             <%= l('Email address of your guest') %>
         </label>
-        <input id="guest_mail" name="guest_mail" type="email" placeholder="nami@example.org" required>
+        <input id="guest_mail" name="guest_mail" type="email" placeholder="name@example.org" required>
     </div>
     <div class="input-field">
         <label for="expire_at">
