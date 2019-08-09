@@ -68,14 +68,14 @@ function copyAllToClipboard(event) {
 
 // Add item to localStorage
 function addItem(name, url, size, del_at_first_view, created_at, delay, short, token) {
-    var files = localStorage.getItem('files');
+    var files = localStorage.getItem(window.prefix + 'files');
     if (files === null) {
         files = new Array();
     } else {
         files = JSON.parse(files);
     }
     files.push({ name: name, short: short, url: url, size: size, del_at_first_view: del_at_first_view, created_at: created_at, delay: delay, token: token });
-    localStorage.setItem('files', JSON.stringify(files));
+    localStorage.setItem(window.prefix + 'files', JSON.stringify(files));
 }
 
 // Remove a file block
