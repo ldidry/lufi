@@ -28,6 +28,7 @@
 - alexandre.LG, http://inios.fr/
 - Mildis (bugfix)
 - TECH'advantage, https://www.tech-advantage.com/ (paid for LDAP invitations feature)
+- pi2 (typo)
 
 ## Vulnerabilities / bug hunters 🐛
 
