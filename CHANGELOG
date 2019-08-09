@@ -7,6 +7,8 @@ Revision history for Lufi
 	- Fix bug on cookie-based language choice when using two instances on same
 	  domain, with one’s path is the beginning of the other instance’s path.
 	  WARNING! You need to do a `carton install --deployment …` to have the fix.
+	- Fix navbar bug (there can be too much items in it, depending on Lufi
+	  settings (LDAP, invitations…), trouble beginning at screens < 1800px)
 
 0.04.0 2019-08-04
 	- Allow to zip the files before upload
