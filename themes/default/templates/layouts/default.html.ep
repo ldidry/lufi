@@ -25,7 +25,7 @@
     <body>
         <nav class="cyan">
             <div class="nav-wrapper container">
-                <a href="<%= url_for('/') %>" class="brand-logo">&nbsp;<img src="<%= url_for('/img/lufi-min.png') %>" alt="logo"> Lufi</a>
+                <a href="<%= url_for('/') %>" class="brand-logo">&nbsp;<img src="<%= url_for('/img/lufi-min.png') %>" alt="logo"> <%= config('instance_name')%></a>
                 <a href="#" data-activates="mobile" class="button-collapse"><i class="mdi-navigation-menu"></i></a>
                 <ul id="nav-mobile" class="right hide-on-med-and-down">
                     <li><a href="<%= $self->config('report') %>"><%= l('Report file') %></a></li>

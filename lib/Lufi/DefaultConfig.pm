@@ -4,6 +4,7 @@ require Exporter;
 @ISA = qw(Exporter);
 @EXPORT_OK = qw($default_config);
 our $default_config = {
+    instance_name => 'Lufi',
     prefix        => '/',
     provisioning  => 100,
     provis_step   => 5,

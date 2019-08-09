@@ -32,6 +32,10 @@
     # optional, default is ['fdjsofjoihrei'], PLEASE, CHANGE IT
     #secrets        => ['fdjsofjoihrei'],
 
+    # Name of the instance, displayed next to the logo
+    # optional, default is Lufi
+    #instance_name => 'Lufi',
+
     # Choose a theme. See the available themes in `themes` directory
     # Optional, default is 'default'
     #theme         => 'default',

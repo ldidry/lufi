@@ -9,6 +9,7 @@ Revision history for Lufi
 	  WARNING! You need to do a `carton install --deployment …` to have the fix.
 	- Fix navbar bug (there can be too much items in it, depending on Lufi
 	  settings (LDAP, invitations…), trouble beginning at screens < 1800px)
+	- Add setting to customize the instance name (#156)
 
 0.04.0 2019-08-04
 	- Allow to zip the files before upload
