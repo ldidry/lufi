@@ -1,18 +1,18 @@
 // vim:set sw=4 ts=4 sts=4 ft=javascript expandtab:
 // Add item to localStorage
 function addItem(item) {
-    var files = localStorage.getItem('files');
+    var files = localStorage.getItem(window.prefix + 'files');
     if (files === null) {
         files = new Array();
     } else {
         files = JSON.parse(files);
     }
     files.push(item);
-    localStorage.setItem('files', JSON.stringify(files));
+    localStorage.setItem(window.prefix + 'files', JSON.stringify(files));
 }
 
 function delItem(name) {
-    var files = localStorage.getItem('files');
+    var files = localStorage.getItem(window.prefix + 'files');
     if (files === null) {
         files = new Array();
     } else {
@@ -24,11 +24,11 @@ function delItem(name) {
             files.splice(i, 1);
         }
     }
-    localStorage.setItem('files', JSON.stringify(files));
+    localStorage.setItem(window.prefix + 'files', JSON.stringify(files));
 }
 
 function itemExists(name) {
-    var files = localStorage.getItem('files');
+    var files = localStorage.getItem(window.prefix + 'files');
     if (files === null) {
         return false;
     } else {
@@ -45,7 +45,7 @@ function itemExists(name) {
 
 function purgeExpired(event) {
     event.preventDefault();
-    var files = JSON.parse(localStorage.getItem('files'));
+    var files = JSON.parse(localStorage.getItem(window.prefix + 'files'));
 
     files.forEach(function(element, index, array) {
         $.ajax({
@@ -74,7 +74,7 @@ function exportStorage(event) {
     a.hide();
     $('body').append(a);
 
-    var storageData = [localStorage.getItem('files')];
+    var storageData = [localStorage.getItem(window.prefix + 'files')];
     var exportFile  = new Blob(storageData, {type : 'application/json'});
     var url         = window.URL.createObjectURL(exportFile);
 
@@ -164,9 +164,20 @@ function massDelete(event) {
 function populateFilesTable() {
     $('#myfiles').empty();
 
-    var files = localStorage.getItem('files');
+    var files = localStorage.getItem(window.prefix + 'files');
     if (files === null) {
-        files = new Array();
+        var filesWithoutPrefix = localStorage.getItem('files');
+        if (filesWithoutPrefix !== null) {
+            if (window.confirm(i18n.importFilesWithoutPrefix)) {
+                localStorage.setItem(window.prefix + 'files', filesWithoutPrefix);
+                files = JSON.parse(filesWithoutPrefix);
+            } else {
+                localStorage.setItem(window.prefix + 'files', JSON.stringify([]));
+                files = new Array();
+            }
+        } else {
+            files = new Array();
+        }
     } else {
         files = JSON.parse(files);
     }

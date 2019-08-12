@@ -441,6 +441,14 @@ msgstr "Sortida"
 msgid "Lufi is a free (as in free speech) file hosting software."
 msgstr "Lufi és programari lliure d'allotjament de fitxers."
 
+#: themes/default/templates/partial/files.js.ep:12
+msgid ""
+"Lufi recently changed its way to store files information.\\n\\nNo files have "
+"been found in the new localStorage location but we found files in the old "
+"one.\\nDo you want to import those informations?\\n\\nPlease note that this "
+"is the only time that we will ask you this."
+msgstr ""
+
 #: themes/default/templates/files.html.ep:33
 msgid "Mail"
 msgstr "Mail"

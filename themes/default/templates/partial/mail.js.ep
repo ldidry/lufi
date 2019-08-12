@@ -1,6 +1,6 @@
 % # vim:set sts=4 sw=4 ts=4 ft=javascript expandtab:
 function findItem(name) {
-    var files = localStorage.getItem('files');
+    var files = localStorage.getItem(window.prefix + 'files');
     if (files === null) {
         files = new Array();
     } else {

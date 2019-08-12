@@ -1,6 +1,15 @@
 Revision history for Lufi
 
 ?.??.? ????-??-??
+	- LocalStorage key is now prefix-dependant (#154)
+	  This allow to not mix up files in localStorage for two instances if they
+	  are on the same domain
+	- Fix bug on cookie-based language choice when using two instances on same
+	  domain, with one’s path is the beginning of the other instance’s path.
+	  WARNING! You need to do a `carton install --deployment …` to have the fix.
+	- Fix navbar bug (there can be too much items in it, depending on Lufi
+	  settings (LDAP, invitations…), trouble beginning at screens < 1800px)
+	- Add setting to customize the instance name (#156)
 
 0.04.0 2019-08-04
 	- Allow to zip the files before upload
