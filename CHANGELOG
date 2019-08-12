@@ -1,6 +1,8 @@
 Revision history for Lufi
 
 ?.??.? ????-??-??
+
+0.04.1 2019-08-12
 	- LocalStorage key is now prefix-dependant (#154)
 	  This allow to not mix up files in localStorage for two instances if they
 	  are on the same domain
