@@ -29,7 +29,7 @@ msgstr "%1 lädt Sie ein, ihm/ihr Dateien zu senden"
 #. (stash('ldap_user')
 #: themes/default/templates/invitations/invite.mail.ep:6
 msgid "%1 invites you to send him/her files through Lufi."
-msgstr "%1 lädt Sie ein, ihm/ihr Dateien über Lufi zu senden"
+msgstr "%1 lädt Sie ein, ihm/ihr Dateien über Lufi zu senden."
 
 #. (stash('invitation')
 #: themes/default/templates/invitations/notification_files_sent.mail.ep:4
@@ -101,7 +101,7 @@ msgid ""
 "install it on you own server. Have a look on the <a href=\"https://framagit."
 "org/luc/lufi/wikis/home\" class=\"classic\">Wiki</a> for the procedure."
 msgstr ""
-"Da es sich bei Lufi um eine kostenlose Software handelt, die unter den "
+"Da es sich bei Lufi um eine freie Software handelt, die unter den "
 "Bedingungen der <a href=\"https://gnu.org/licenses/agpl.html\" class="
 "\"classic\">AGPLv3</a> lizenziert ist, können Sie sie auf Ihrem eigenen "
 "Server installieren. Werfen Sie einen Blick auf die <a href=\"https://"
@@ -162,7 +162,7 @@ msgstr "In die Zwischenablage kopieren"
 #: lib/Lufi/Controller/Files.pm:507
 msgid "Could not delete the file. You are not authenticated."
 msgstr ""
-"Die Datei konnte nicht gelöscht werden. Sie sind nicht authentifiziert."
+"Die Datei konnte nicht gelöscht werden. Sie sind nicht angemeldet."
 
 #: lib/Lufi/Controller/Files.pm:489
 msgid "Could not find the file. Are you sure of the URL and the token?"
@@ -180,7 +180,7 @@ msgstr "Zähler"
 
 #: themes/default/templates/index.html.ep:100
 msgid "Create a zip archive with the files before uploading?"
-msgstr "Ein Zip-Archiv mit den Dateien erstellen, vor dem Hochladen?"
+msgstr "Ein Zip-Archiv mit den Dateien vor dem Hochladen erstellen?"
 
 #: themes/default/templates/invitations/my_invitations.html.ep:26
 msgid "Created at"
@@ -325,8 +325,8 @@ msgid ""
 "\"classic\">the official repository</a> or on its <a href=\"https://github."
 "com/ldidry/lufi\" class=\"classic\">Github mirror</a>"
 msgstr ""
-"Holen Sie sich den Quellcode auf <a href=\"https://framagit.org/luc/lufi\" "
-"class=\"classic\">das offizielle Repository</a> oder auf dessen <a href="
+"Holen Sie sich den Quellcode vom <a href=\"https://framagit.org/luc/lufi\" "
+"class=\"classic\">offiziellen Repository</a> oder von dessen <a href="
 "\"https://github.com/ldidry/lufi\" class=\"classic\">Github mirror</a>."
 
 #: themes/default/templates/invitations/my_invitations.html.ep:24
@@ -382,7 +382,7 @@ msgstr "Wie kann man eine illegale Datei melden?"
 #: themes/default/templates/delays.html.ep:7
 msgid "If you choose a delay, the file will be deleted after that delay."
 msgstr ""
-"Wenn Sie eine Verzögerung wählen, wird die Datei nach dieser Verzögerung "
+"Wenn Sie eine Frist wählen, wird die Datei nach diesem Zeitraum "
 "gelöscht."
 
 #: themes/default/templates/mail.html.ep:15
@@ -399,11 +399,11 @@ msgstr "Importieren von localStorage-Daten"
 
 #: themes/default/templates/index.html.ep:53
 msgid "Important: more information on delays"
-msgstr "Wichtig: weitere Informationen zu den Verzögerungen"
+msgstr "Wichtig: weitere Informationen zu den Fristen"
 
 #: themes/default/templates/delays.html.ep:5
 msgid "Information about delays"
-msgstr "Informationen über Verzögerungen"
+msgstr "Informationen zu den Fristen"
 
 #: themes/default/templates/invitations/my_invitations.html.ep:12
 msgid "Invert selection"
@@ -449,7 +449,7 @@ msgstr "Abmelden"
 #: themes/default/templates/about.html.ep:4
 msgid "Lufi is a free (as in free speech) file hosting software."
 msgstr ""
-"Lufi ist eine kostenlose (wie in der Redefreiheit) Datei-Hosting-Software."
+"Lufi ist eine freie (wie bei der Redefreiheit) Datei-Hosting-Software."
 
 #: themes/default/templates/partial/files.js.ep:12
 msgid ""
@@ -458,6 +458,10 @@ msgid ""
 "one.\\nDo you want to import those informations?\\n\\nPlease note that this "
 "is the only time that we will ask you this."
 msgstr ""
+"Die Art und Weise wie Lufi Datei-Informationen speichert, wurde kürzlich geändert.\\n\\n "
+"Am neuen localStorage-Speicherort konnten keine Dateien gefunden werden, allerdings wurden Dateien "
+"am alten Speicherort gefunden.\\nWollen Sie diese Informationen importieren?\\nBitte beachten "
+"Sie, dass diese Meldung nur ein einziges Mal angezeigt wird."
 
 #: themes/default/templates/files.html.ep:33
 msgid "Mail"
@@ -491,7 +495,7 @@ msgstr ""
 
 #: themes/default/templates/partial/files.js.ep:10 themes/default/templates/partial/index.js.ep:28
 msgid "No expiration delay"
-msgstr "Keine Ablaufverzögerung"
+msgstr "Keine Ablauffrist"
 
 #: themes/default/templates/files.html.ep:8
 msgid ""
@@ -510,7 +514,7 @@ msgstr "Passwort"
 #. (config('contact')
 #: themes/default/templates/about.html.ep:13
 msgid "Please contact the administrator: %1"
-msgstr "Bitte kontaktieren sie den Administrator: %1"
+msgstr "Bitte kontaktieren Sie den Administrator: %1"
 
 #: themes/default/templates/render.html.ep:33
 msgid ""
@@ -561,7 +565,7 @@ msgstr ""
 msgid ""
 "Rows in red mean that the files have expired and are no longer available."
 msgstr ""
-"Rot markierte Zeilen bedeuten, dass die Dateien abgelaufen sind und nicht "
+"Rot markierte Zeilen bedeuten, dass die Dateien abgelaufen und nicht "
 "mehr verfügbar sind."
 
 #: themes/default/templates/partial/index.js.ep:26
@@ -603,7 +607,7 @@ msgstr "Zip-Inhalt anzeigen"
 
 #: themes/default/templates/layouts/default.html.ep:40 themes/default/templates/layouts/default.html.ep:73 themes/default/templates/login.html.ep:28 themes/default/templates/logout.html.ep:17
 msgid "Signin"
-msgstr "Einloggen"
+msgstr "Anmelden"
 
 #: lib/Lufi/Controller/Invitation.pm:283 themes/default/templates/invitations/exception.html.ep:16
 msgid ""
@@ -638,7 +642,7 @@ msgstr ""
 #. ($invitation->ldap_user_mail)
 #: lib/Lufi/Controller/Invitation.pm:276
 msgid "The URLs of your files have been sent by email to %1."
-msgstr "Die URLs deiner Dateien wurden per E-Mail an %1 gesendet."
+msgstr "Die URLs Ihrer Dateien wurden per E-Mail an %1 gesendet."
 
 #: themes/default/templates/about.html.ep:7
 msgid ""
@@ -662,7 +666,7 @@ msgstr "Die Daten wurden erfolgreich importiert."
 
 #: lib/Lufi/Controller/Mail.pm:73
 msgid "The email body can't be empty."
-msgstr "Der Mailtext darf nicht leer sein."
+msgstr "Der E-Mail-Text darf nicht leer sein."
 
 #: lib/Lufi/Controller/Mail.pm:72
 msgid "The email subject can't be empty."
@@ -671,7 +675,7 @@ msgstr "Der E-Mail-Betreff darf nicht leer sein."
 #. ($expire_at, $max_expire_at)
 #: lib/Lufi/Controller/Invitation.pm:51
 msgid "The expiration delay (%1) is not between 1 and %2 days."
-msgstr "Die Ablaufverzögerung (%1) liegt nicht zwischen 1 und %2 Tagen."
+msgstr "Die Ablauffrist (%1) liegt nicht zwischen 1 und %2 Tagen."
 
 #: lib/Lufi/Controller/Files.pm:468
 msgid "The file has already been deleted"
@@ -733,7 +737,7 @@ msgstr "Die Links Ihrer Dateien werden automatisch per E-Mail an %1 gesendet."
 
 #: lib/Lufi/Controller/Mail.pm:97
 msgid "The mail has been sent."
-msgstr "Der E-Mail wurde gesendet."
+msgstr "Die E-Mail wurde gesendet."
 
 #: themes/default/templates/about.html.ep:15
 msgid ""
@@ -774,7 +778,7 @@ msgid ""
 "following limitations:"
 msgstr ""
 "Dieser Server setzt Einschränkungen bezüglich der Dateigröße. Die "
-"Ablaufverzögerung Ihrer Datei ist das Minimum zwischen dem, was Sie "
+"Ablauffrist Ihrer Datei ist das Minimum zwischen dem, was Sie "
 "auswählen, und den folgenden Einschränkungen:"
 
 #: themes/default/templates/invitations/my_invitations.html.ep:16
@@ -849,7 +853,7 @@ msgid ""
 "they don’t have an account on it."
 msgstr ""
 "Sie können jemanden einladen, Ihnen Dateien über diese Lufi-Instanz zu "
-"senden, auch wenn sie keinen Account haben."
+"senden, auch wenn diese Person keinen Account hat."
 
 #: themes/default/templates/about.html.ep:11
 msgid ""
