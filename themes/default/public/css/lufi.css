@@ -248,6 +248,12 @@ button.pulse {
   }
 }
 
+.side-nav .btn-flat {
+    color: #444 !important;
+    padding: 0 1rem;
+    text-transform: initial !important;
+}
+
 .white-background {
     background-color: #FFF;
 }
