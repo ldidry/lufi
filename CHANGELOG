@@ -2,6 +2,10 @@ Revision history for Lufi
 
 ?.??.? ????-??-??
 
+0.04.2 2019-08-14
+	- Update german language
+	- Fix logout button color on mobile view (#157)
+
 0.04.1 2019-08-12
 	- LocalStorage key is now prefix-dependant (#154)
 	  This allow to not mix up files in localStorage for two instances if they
