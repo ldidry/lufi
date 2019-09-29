@@ -1,6 +1,9 @@
 Revision history for Lufi
 
 ?.??.? ????-??-??
+	- Translate dates in invitations (#161)
+	- Ignore all .conf files in .gitignore
+	- Remove redundant fixed_domain setting in conf template
 
 0.04.2 2019-08-14
 	- Update german language

@@ -29,6 +29,7 @@
 - Mildis (bugfix)
 - TECH'advantage, https://www.tech-advantage.com/ (paid for LDAP invitations feature)
 - pi2 (typo)
+- Rain (bugfix)
 
 ## Vulnerabilities / bug hunters 🐛
 
