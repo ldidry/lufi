@@ -81,7 +81,7 @@ sub send_invite {
                 ldap_user  => ucfirst($invitation->ldap_user),
                 url        => $url,
                 invitation => $invitation,
-                expires    => time2str($c->l('%A %d %B %Y at %T'), $invitation->expire_at)
+                expires    => $c->get_date_lang()->time2str($c->l('%A %d %B %Y at %T'), $invitation->expire_at)
             );
 
             push @success, $c->l('Invitation sent to %1.<br> URL: %2', $invitation->guest_mail, $url);
@@ -156,7 +156,7 @@ sub resend_invitations {
 
             my $from   = ($c->config('invitations')->{'send_invitation_with_ldap_user_mail'}) ? $i->ldap_user_mail : $c->config('mail_sender');
             my $url    = $c->url_for('guest', token => $i->token)->to_abs;
-            my $expire = time2str($c->l('%A %d %B %Y at %T'), $i->expire_at);
+            my $expire = $c->get_date_lang()->time2str($c->l('%A %d %B %Y at %T'), $i->expire_at);
             $c->mail(
                 from       => $from,
                 to         => $i->guest_mail,

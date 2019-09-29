@@ -33,6 +33,8 @@ variables:
     paths:
       - local.tar
     expire_in: 3 hours
+  needs:
+    - carton
   after_script:
     - tar cf local.tar local/
 
@@ -51,14 +53,14 @@ variables:
 
 .sqlite_template: &sqlite_definition
   <<: *tests_template
-  dependencies:
+  needs:
     - carton_sqlite
   services:
     - name: rroemhild/test-openldap
       alias: rroemhild-test-openldap
 .pg_template: &pg_definition
   <<: *tests_template
-  dependencies:
+  needs:
     - carton_postgresql
   services:
     - name: postgres:11
@@ -67,7 +69,7 @@ variables:
       alias: rroemhild-test-openldap
 .mysql_template: &mysql_definition
   <<: *tests_template
-  dependencies:
+  needs:
     - carton_mysql
   services:
     - name: mariadb:10.3

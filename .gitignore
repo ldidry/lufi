@@ -1,7 +1,7 @@
 local/*
 files/*
 cover_db/*
-lufi.conf
+*.conf
 *.db
 *.db-shm
 *.db-wal
