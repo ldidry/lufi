@@ -1,6 +1,7 @@
 Revision history for Lufi
 
 ?.??.? ????-??-??
+	- Fix invitations sorting order (#163)
 
 0.04.3 2019-09 29
 	- Translate dates in invitations (#161)
