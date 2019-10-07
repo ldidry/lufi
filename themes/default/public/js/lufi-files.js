@@ -43,6 +43,20 @@ function itemExists(name) {
     }
 }
 
+function invertSelection(event) {
+    event.preventDefault();
+    $('input[type="checkbox"]').each(function() {
+        var el = $(this);
+        el.click();
+        if (el.attr('data-checked') && el.attr('data-checked') === 'data-checked') {
+            el.attr('data-checked', null);
+        } else {
+            el.attr('data-checked', 'data-checked');
+        }
+    });
+    evaluateMassDelete();
+}
+
 function purgeExpired(event) {
     event.preventDefault();
     var files = JSON.parse(localStorage.getItem(window.prefix + 'files'));

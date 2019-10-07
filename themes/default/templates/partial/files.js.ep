@@ -13,6 +13,7 @@ var i18n       = {
 };
 $(document).ready(function() {
     populateFilesTable();
+    $('#invertSelection').on('click', invertSelection);
     $('#exportStorage').on('click', exportStorage);
     $('#purgeExpired').on('click', purgeExpired);
     $('#clickImport').on('click', clickImport);
