@@ -240,7 +240,7 @@ function populateFilesTable() {
                   '</td>'].join(''));
         $('#myfiles').append(tr);
         $('#del-'+element.short).on('click', delFile);
-        $('label[for="check-'+element.short+'"').on('click', function(){
+        $('label[for="check-'+element.short+'"]').on('click', function(){
             if ($('#check-'+element.short).attr('data-checked') && $('#check-'+element.short).attr('data-checked') === 'data-checked') {
                 $('#check-'+element.short).attr('data-checked', null);
             } else {
