@@ -25,6 +25,7 @@ sub startup {
         die 'You need to provide an email address or an URL as report information in lufi.conf!';
     }
 
+    $self->config('prefix', $self->config('prefix').'/') unless substr($self->config('prefix'), -1) eq '/';
 
     # Themes handling
     $self->plugin('FiatTux::Themes');

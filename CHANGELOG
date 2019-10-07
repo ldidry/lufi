@@ -6,6 +6,8 @@ Revision history for Lufi
 	  button) (#166)
 	- Change row color on hover
 	- Fix typo that leads to error in Safari (#164)
+	- Fix (for good, I hope) the problem with badly detected URLs in mail
+	  sending (#159)
 
 0.04.3 2019-09 29
 	- Translate dates in invitations (#161)

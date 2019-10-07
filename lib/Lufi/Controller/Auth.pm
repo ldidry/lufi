@@ -4,10 +4,10 @@ use Mojo::Base 'Mojolicious::Controller';
 
 sub login_page {
     my $c = shift;
-    my $redirect = $c->param('redirect') // 'index';
+    my $redirect = $c->param('redirect') // '/';
 
     if ($c->is_user_authenticated) {
-        $c->redirect_to('index');
+        $c->redirect_to('/');
     } else {
         $c->render(
             template => 'login',
@@ -21,7 +21,7 @@ sub login {
 
     my $login    = $c->param('login');
     my $pwd      = $c->param('password');
-    my $redirect = $c->param('redirect') // 'index';
+    my $redirect = $c->param('redirect') // '/';
 
     if ($c->validation->csrf_protect->has_error('csrf_token')) {
         $c->stash(msg => $c->l('Bad CSRF token.'));
@@ -33,7 +33,7 @@ sub login {
             } elsif ($redirect eq 'my_invitations') {
                 return $c->redirect_to('invite_list');
             }
-            return $c->redirect_to('index');
+            return $c->redirect_to('/');
         } else {
             $c->stash(msg => $c->l('Please, check your credentials or your right to access this service: unable to authenticate.'));
             $c->render(template => 'login');
