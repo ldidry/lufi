@@ -168,7 +168,7 @@ msgstr "No es troba el fitxer. Esteu segur de la URL i el testimoni?"
 msgid "Could not find the file. Are you sure of the URL?"
 msgstr "No trobo el fitxer. Esteu segurs de la URL?"
 
-#: themes/default/templates/files.html.ep:28
+#: themes/default/templates/files.html.ep:29
 msgid "Counter"
 msgstr "Comptador"
 
@@ -184,15 +184,15 @@ msgstr ""
 msgid "Delete"
 msgstr ""
 
-#: themes/default/templates/files.html.ep:29 themes/default/templates/index.html.ep:90
+#: themes/default/templates/files.html.ep:30 themes/default/templates/index.html.ep:90
 msgid "Delete at first download?"
 msgstr "Eliminar-lo a la primera descàrrega?"
 
-#: themes/default/templates/files.html.ep:18
+#: themes/default/templates/files.html.ep:19
 msgid "Delete selected files"
 msgstr "Suprimir els fitxers seleccionats"
 
-#: themes/default/templates/files.html.ep:32 themes/default/templates/partial/index.js.ep:19
+#: themes/default/templates/files.html.ep:33 themes/default/templates/partial/index.js.ep:19
 msgid "Deletion link"
 msgstr "Enllaç per a eliminació"
 
@@ -213,7 +213,7 @@ msgstr "Descàrrega"
 msgid "Download aborted."
 msgstr "Descàrrega avortada."
 
-#: themes/default/templates/files.html.ep:27 themes/default/templates/partial/index.js.ep:20
+#: themes/default/templates/files.html.ep:28 themes/default/templates/partial/index.js.ep:20
 msgid "Download link"
 msgstr "Enllaç per a descàrrega"
 
@@ -276,7 +276,7 @@ msgstr "Expiració:"
 msgid "Expire at"
 msgstr ""
 
-#: themes/default/templates/files.html.ep:31
+#: themes/default/templates/files.html.ep:32
 msgid "Expires at"
 msgstr "Expira el"
 
@@ -288,7 +288,7 @@ msgstr "Exporta dades a l'emmagatzematge local"
 msgid "File deleted"
 msgstr "Fitxer eliminat"
 
-#: themes/default/templates/files.html.ep:26
+#: themes/default/templates/files.html.ep:27
 msgid "File name"
 msgstr "Nom de fitxer"
 
@@ -397,7 +397,7 @@ msgstr "Importat: més informació sobre moratòries"
 msgid "Information about delays"
 msgstr "Informació sobre moratòries"
 
-#: themes/default/templates/invitations/my_invitations.html.ep:12
+#: themes/default/templates/files.html.ep:18 themes/default/templates/invitations/my_invitations.html.ep:12
 msgid "Invert selection"
 msgstr ""
 
@@ -449,7 +449,7 @@ msgid ""
 "is the only time that we will ask you this."
 msgstr ""
 
-#: themes/default/templates/files.html.ep:33
+#: themes/default/templates/files.html.ep:34
 msgid "Mail"
 msgstr "Mail"
 
@@ -792,7 +792,7 @@ msgstr "Pujar fitxers"
 msgid "Upload generated zip file"
 msgstr ""
 
-#: themes/default/templates/files.html.ep:30
+#: themes/default/templates/files.html.ep:31
 msgid "Uploaded at"
 msgstr "Pujat a les"
 
@@ -893,6 +893,10 @@ msgid "Your password is not valid. Please refresh the page to retry."
 msgstr ""
 "La vostra contrasenya es incorrecta. Torneu cargar la pàgina per provar de "
 "nou."
+
+#: themes/default/templates/partial/render.js.ep:12
+msgid "Zip content:"
+msgstr ""
 
 #. (format_bytes($keys[$i])
 #: themes/default/templates/delays.html.ep:20

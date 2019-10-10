@@ -751,6 +751,10 @@ msgstr ""
 msgid "Your password is not valid. Please refresh the page to retry."
 msgstr ""
 
+#: themes/default/templates/partial/render.js.ep:12
+msgid "Zip content:"
+msgstr ""
+
 #. (format_bytes($keys[$i])
 #: themes/default/templates/delays.html.ep:20
 msgid "between %1 and %2, the file will be kept %3 day(s)."

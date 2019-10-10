@@ -8,7 +8,7 @@ msgstr ""
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"PO-Revision-Date: 2019-08-09 05:52+0000\n"
+"PO-Revision-Date: 2019-10-10 08:58+0000\n"
 "Last-Translator: Luc Didry <luc@framasoft.org>\n"
 "Language-Team: English\n"
 "Language: en\n"
@@ -166,7 +166,7 @@ msgstr "Could not find the file. Are you sure of the URL and the token?"
 msgid "Could not find the file. Are you sure of the URL?"
 msgstr "Could not find the file. Are you sure of the URL?"
 
-#: themes/default/templates/files.html.ep:28
+#: themes/default/templates/files.html.ep:29
 msgid "Counter"
 msgstr "Counter"
 
@@ -182,15 +182,15 @@ msgstr "Created at"
 msgid "Delete"
 msgstr "Delete"
 
-#: themes/default/templates/files.html.ep:29 themes/default/templates/index.html.ep:90
+#: themes/default/templates/files.html.ep:30 themes/default/templates/index.html.ep:90
 msgid "Delete at first download?"
 msgstr "Delete at first download?"
 
-#: themes/default/templates/files.html.ep:18
+#: themes/default/templates/files.html.ep:19
 msgid "Delete selected files"
 msgstr "Delete selected files"
 
-#: themes/default/templates/files.html.ep:32 themes/default/templates/partial/index.js.ep:19
+#: themes/default/templates/files.html.ep:33 themes/default/templates/partial/index.js.ep:19
 msgid "Deletion link"
 msgstr "Deletion link"
 
@@ -210,7 +210,7 @@ msgstr "Download"
 msgid "Download aborted."
 msgstr "Download aborted."
 
-#: themes/default/templates/files.html.ep:27 themes/default/templates/partial/index.js.ep:20
+#: themes/default/templates/files.html.ep:28 themes/default/templates/partial/index.js.ep:20
 msgid "Download link"
 msgstr "Download link"
 
@@ -272,7 +272,7 @@ msgstr "Expiration:"
 msgid "Expire at"
 msgstr "Expire at"
 
-#: themes/default/templates/files.html.ep:31
+#: themes/default/templates/files.html.ep:32
 msgid "Expires at"
 msgstr "Expires at"
 
@@ -284,7 +284,7 @@ msgstr "Export localStorage data"
 msgid "File deleted"
 msgstr "File deleted"
 
-#: themes/default/templates/files.html.ep:26
+#: themes/default/templates/files.html.ep:27
 msgid "File name"
 msgstr "File name"
 
@@ -391,7 +391,7 @@ msgstr "Important: more information on delays"
 msgid "Information about delays"
 msgstr "Information about delays"
 
-#: themes/default/templates/invitations/my_invitations.html.ep:12
+#: themes/default/templates/files.html.ep:18 themes/default/templates/invitations/my_invitations.html.ep:12
 msgid "Invert selection"
 msgstr "Invert selection"
 
@@ -447,7 +447,7 @@ msgstr ""
 "one.\\nDo you want to import those informations?\\n\\nPlease note that this "
 "is the only time that we will ask you this."
 
-#: themes/default/templates/files.html.ep:33
+#: themes/default/templates/files.html.ep:34
 msgid "Mail"
 msgstr "Mail"
 
@@ -794,7 +794,7 @@ msgstr "Upload files"
 msgid "Upload generated zip file"
 msgstr "Upload generated zip file"
 
-#: themes/default/templates/files.html.ep:30
+#: themes/default/templates/files.html.ep:31
 msgid "Uploaded at"
 msgstr "Uploaded at"
 
@@ -898,6 +898,10 @@ msgstr "Your file is too big: %1 (maximum size allowed: %2)"
 #: lib/Lufi/Controller/Files.pm:351
 msgid "Your password is not valid. Please refresh the page to retry."
 msgstr "Your password is not valid. Please refresh the page to retry."
+
+#: themes/default/templates/partial/render.js.ep:12
+msgid "Zip content:"
+msgstr "Zip content:"
 
 #. (format_bytes($keys[$i])
 #: themes/default/templates/delays.html.ep:20
