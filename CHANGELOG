@@ -1,6 +1,14 @@
 Revision history for Lufi
 
 ?.??.? ????-??-??
+	- Fix invitations sorting order (#163)
+	- Same behavior on files and invitations tables (striped, invert selection
+	  button) (#166)
+	- Change row color on hover
+	- Fix typo that leads to error in Safari (#164)
+	- Fix (for good, I hope) the problem with badly detected URLs in mail
+	  sending (#159)
+	- Fix unstranslated string (#167)
 
 0.04.3 2019-09 29
 	- Translate dates in invitations (#161)

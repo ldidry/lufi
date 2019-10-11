@@ -302,7 +302,7 @@ sub from_user {
     my $user = shift;
 
     my $r = $c->app->dbi->db
-              ->select('invitations', undef, { ldap_user => $user })
+              ->select('invitations', undef, { ldap_user => $user }, { -desc => 'created_at' })
               ->hashes;
 
     if ($r->size) {

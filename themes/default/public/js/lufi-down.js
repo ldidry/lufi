@@ -127,7 +127,7 @@ function spawnWebsocket(pa) {
                         $('#showZipContent').click(function() {
                             JSZip.loadAsync(blob)
                             .then(function (zip) {
-                                var innerHTML = ['<h3>Zip content:</h3><ul>'];
+                                var innerHTML = ['<h3>', i18n.zipContent, '</h3><ul>'];
                                 zip.forEach(function (relativePath, zipEntry) {
                                     innerHTML.push(
                                         '<li>',

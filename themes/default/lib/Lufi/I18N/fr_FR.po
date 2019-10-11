@@ -11,7 +11,7 @@ msgstr ""
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"PO-Revision-Date: 2019-08-09 05:52+0000\n"
+"PO-Revision-Date: 2019-10-10 08:58+0000\n"
 "Language-Team: \n"
 "X-Generator: Zanata 4.6.2\n"
 "Last-Translator: Luc Didry <luc@framasoft.org>\n"
@@ -174,7 +174,7 @@ msgstr ""
 "Impossible de retrouver le fichier. Êtes-vous sûr(e) que l’URL est la "
 "bonne ?"
 
-#: themes/default/templates/files.html.ep:28
+#: themes/default/templates/files.html.ep:29
 msgid "Counter"
 msgstr "Compteur"
 
@@ -190,15 +190,15 @@ msgstr "Créée le "
 msgid "Delete"
 msgstr "Supprimer"
 
-#: themes/default/templates/files.html.ep:29 themes/default/templates/index.html.ep:90
+#: themes/default/templates/files.html.ep:30 themes/default/templates/index.html.ep:90
 msgid "Delete at first download?"
 msgstr "Supprimer après le premier téléchargement ?"
 
-#: themes/default/templates/files.html.ep:18
+#: themes/default/templates/files.html.ep:19
 msgid "Delete selected files"
 msgstr "Supprimer les fichiers sélectionnés"
 
-#: themes/default/templates/files.html.ep:32 themes/default/templates/partial/index.js.ep:19
+#: themes/default/templates/files.html.ep:33 themes/default/templates/partial/index.js.ep:19
 msgid "Deletion link"
 msgstr "Lien de suppression"
 
@@ -219,7 +219,7 @@ msgstr "Télécharger"
 msgid "Download aborted."
 msgstr "Téléchargement abandonné."
 
-#: themes/default/templates/files.html.ep:27 themes/default/templates/partial/index.js.ep:20
+#: themes/default/templates/files.html.ep:28 themes/default/templates/partial/index.js.ep:20
 msgid "Download link"
 msgstr "Lien de téléchargement"
 
@@ -282,7 +282,7 @@ msgstr "Expiration :"
 msgid "Expire at"
 msgstr "Expire le"
 
-#: themes/default/templates/files.html.ep:31
+#: themes/default/templates/files.html.ep:32
 msgid "Expires at"
 msgstr "Expire le"
 
@@ -294,7 +294,7 @@ msgstr "Exporter les données localStorage"
 msgid "File deleted"
 msgstr "Fichier supprimé"
 
-#: themes/default/templates/files.html.ep:26
+#: themes/default/templates/files.html.ep:27
 msgid "File name"
 msgstr "Nom du fichier"
 
@@ -407,7 +407,7 @@ msgstr "Important : plus d’informations sur les délais"
 msgid "Information about delays"
 msgstr "Information sur les délais"
 
-#: themes/default/templates/invitations/my_invitations.html.ep:12
+#: themes/default/templates/files.html.ep:18 themes/default/templates/invitations/my_invitations.html.ep:12
 msgid "Invert selection"
 msgstr "Inverser la sélection"
 
@@ -465,7 +465,7 @@ msgstr ""
 "ces informations ?\\n\\nVeuillez noter que c’est la seule fois que nous vous "
 "poserons cette question."
 
-#: themes/default/templates/files.html.ep:33
+#: themes/default/templates/files.html.ep:34
 msgid "Mail"
 msgstr "Mail"
 
@@ -824,7 +824,7 @@ msgstr "Envoyer des fichiers"
 msgid "Upload generated zip file"
 msgstr "Envoyer le fichier zip généré"
 
-#: themes/default/templates/files.html.ep:30
+#: themes/default/templates/files.html.ep:31
 msgid "Uploaded at"
 msgstr "Envoyé le"
 
@@ -930,6 +930,10 @@ msgstr ""
 msgid "Your password is not valid. Please refresh the page to retry."
 msgstr ""
 "Votre mot de passe est invalide. Veuillez rafraîchir la page pour réessayer."
+
+#: themes/default/templates/partial/render.js.ep:12
+msgid "Zip content:"
+msgstr "Contenu de l’archive zip :"
 
 #. (format_bytes($keys[$i])
 #: themes/default/templates/delays.html.ep:20

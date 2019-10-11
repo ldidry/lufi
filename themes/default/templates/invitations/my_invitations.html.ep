@@ -17,7 +17,7 @@
 </div>
 
 <div>
-    <table class="responsive-table highlight">
+    <table class="responsive-table highlight striped">
         <thead>
             <tr>
                 <th class="center-align">&nbsp;</th>

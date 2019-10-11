@@ -8,8 +8,8 @@ msgstr ""
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"PO-Revision-Date: 2019-08-04 05:33+0000\n"
-"Last-Translator: Luc Didry <luc@framasoft.org>\n"
+"PO-Revision-Date: 2019-08-09 08:47+0000\n"
+"Last-Translator: ButterflyOfFire <butterflyoffire@protonmail.com>\n"
 "Language: ar\n"
 "Plural-Forms: nplurals=6; plural=n==0 ? 0 : n==1 ? 1 : n==2 ? 2 : n%100>=3 "
 "&& n%100<=10 ? 3 : n%100>=11 ? 4 : 5;\n"
@@ -25,12 +25,12 @@ msgstr "%1 أيام"
 #. (stash('ldap_user')
 #: themes/default/templates/invitations/invite.mail.ep:2
 msgid "%1 invites you to send him/her files"
-msgstr ""
+msgstr "لقد دعاك %1 لكي ترسل له ملفات"
 
 #. (stash('ldap_user')
 #: themes/default/templates/invitations/invite.mail.ep:6
 msgid "%1 invites you to send him/her files through Lufi."
-msgstr ""
+msgstr "لقد دعاك %1 لكي ترسل له ملفات عبر لوفي."
 
 #. (stash('invitation')
 #: themes/default/templates/invitations/notification_files_sent.mail.ep:4
@@ -88,7 +88,7 @@ msgstr "متأكد أنك تريد حذف كافة الدعوات المختار
 msgid ""
 "Are you sure you want to resend the invitation mail for the selected "
 "invitations?"
-msgstr ""
+msgstr "هل أنت متأكد أنك تريد إعادة إرسال الدعوة البريدية للدعوات المختارة؟"
 
 #: themes/default/templates/about.html.ep:17
 msgid ""
@@ -101,7 +101,7 @@ msgstr ""
 #. (stash('nbslices')
 #: themes/default/templates/partial/render.js.ep:9
 msgid "Asking for file part XX1 of %1"
-msgstr ""
+msgstr "طلب الجزء XX1 مِن %1 "
 
 #: themes/default/templates/about.html.ep:20
 msgid "Back to homepage"
@@ -153,19 +153,19 @@ msgstr "لا يمكن حذف الملف. إنك لم تقم بتسجيل الد�
 
 #: lib/Lufi/Controller/Files.pm:489
 msgid "Could not find the file. Are you sure of the URL and the token?"
-msgstr ""
+msgstr "تعذر العثور على الملف. هل أنت متأكد من الرابط والرمز؟"
 
 #: lib/Lufi/Controller/Files.pm:400
 msgid "Could not find the file. Are you sure of the URL?"
 msgstr "لا يمكن العثور على الملفات. متأكد مٍن الرابط؟"
 
-#: themes/default/templates/files.html.ep:28
+#: themes/default/templates/files.html.ep:29
 msgid "Counter"
 msgstr "العداد"
 
 #: themes/default/templates/index.html.ep:100
 msgid "Create a zip archive with the files before uploading?"
-msgstr ""
+msgstr "هل تريد إنشاء ملف مضغوط يحوي هذه الملفات قبل تحميلها؟"
 
 #: themes/default/templates/invitations/my_invitations.html.ep:26
 msgid "Created at"
@@ -175,15 +175,15 @@ msgstr "أنشئ في"
 msgid "Delete"
 msgstr "حذف"
 
-#: themes/default/templates/files.html.ep:29 themes/default/templates/index.html.ep:90
+#: themes/default/templates/files.html.ep:30 themes/default/templates/index.html.ep:90
 msgid "Delete at first download?"
 msgstr "هل تريد أن يُحذَف الملف عند أول تنزيل؟"
 
-#: themes/default/templates/files.html.ep:18
+#: themes/default/templates/files.html.ep:19
 msgid "Delete selected files"
 msgstr "حذف الملفات التي تم اختيارها"
 
-#: themes/default/templates/files.html.ep:32 themes/default/templates/partial/index.js.ep:19
+#: themes/default/templates/files.html.ep:33 themes/default/templates/partial/index.js.ep:19
 msgid "Deletion link"
 msgstr "رابط الحذف"
 
@@ -201,7 +201,7 @@ msgstr "تنزيل"
 msgid "Download aborted."
 msgstr "لقد ألغِيَ التنزيل."
 
-#: themes/default/templates/files.html.ep:27 themes/default/templates/partial/index.js.ep:20
+#: themes/default/templates/files.html.ep:28 themes/default/templates/partial/index.js.ep:20
 msgid "Download link"
 msgstr "رابط التنزيل"
 
@@ -258,7 +258,7 @@ msgstr "تاريخ نهاية الصلاحية:"
 msgid "Expire at"
 msgstr "تنتهي صلاحيتها في"
 
-#: themes/default/templates/files.html.ep:31
+#: themes/default/templates/files.html.ep:32
 msgid "Expires at"
 msgstr "تنتهي صلاحيته في"
 
@@ -270,7 +270,7 @@ msgstr ""
 msgid "File deleted"
 msgstr "تم حذف الملف"
 
-#: themes/default/templates/files.html.ep:26
+#: themes/default/templates/files.html.ep:27
 msgid "File name"
 msgstr "اسم الملف"
 
@@ -340,7 +340,7 @@ msgstr "كيف يعمل؟"
 
 #: themes/default/templates/invitations/invite.html.ep:46
 msgid "How many days would you like the invitation to be valid?"
-msgstr ""
+msgstr "ما هي مدة صلاحية الدعوة بالأيام؟"
 
 #: themes/default/templates/about.html.ep:16
 msgid "How to install the software on my server?"
@@ -374,19 +374,19 @@ msgstr "هام: مزيد من المعلومات عن التأخير"
 msgid "Information about delays"
 msgstr "معلومات حول التأخير"
 
-#: themes/default/templates/invitations/my_invitations.html.ep:12
+#: themes/default/templates/files.html.ep:18 themes/default/templates/invitations/my_invitations.html.ep:12
 msgid "Invert selection"
 msgstr ""
 
 #. ($i->guest_mail, $url)
 #: lib/Lufi/Controller/Invitation.pm:171
 msgid "Invitation resent to %1.<br> URL: %2"
-msgstr ""
+msgstr "تم إعادة إرسال الدعوة إلى %1.<br> الرابط: %2"
 
 #. ($invitation->guest_mail, $url)
 #: lib/Lufi/Controller/Invitation.pm:87
 msgid "Invitation sent to %1.<br> URL: %2"
-msgstr ""
+msgstr "تم إرسال الدعوة إلى %1.<br> الرابط: %2"
 
 #: themes/default/templates/invitations/invite.html.ep:27 themes/default/templates/layouts/default.html.ep:36 themes/default/templates/layouts/default.html.ep:69
 msgid "Invite a guest"
@@ -427,7 +427,7 @@ msgid ""
 "is the only time that we will ask you this."
 msgstr ""
 
-#: themes/default/templates/files.html.ep:33
+#: themes/default/templates/files.html.ep:34
 msgid "Mail"
 msgstr "البريد"
 
@@ -442,7 +442,7 @@ msgstr "دعواتي"
 #: themes/default/templates/invitations/notification_files_sent.mail.ep:17
 msgid ""
 "NB: this list includes the list of files that have already been sent to you."
-msgstr ""
+msgstr "ملاحظة: هذه القائمة تتضمن قائمة الملفات التي أرسِلت إليك."
 
 #: themes/default/templates/index.html.ep:115
 msgid "Name of the zip file"
@@ -478,6 +478,8 @@ msgid ""
 "Please wait while we are getting your file. We first need to download and "
 "decrypt all parts before you can get it."
 msgstr ""
+"يرجى الانتظار من فضلكم حتى نحصل على ملفكم. نحتاج أولا تنزيل وفك تشفير كل "
+"الأجزاء قبل أن تتمكنوا مِن الحصول عليه."
 
 #: lib/Lufi/Controller/Auth.pm:38
 msgid ""
@@ -511,7 +513,7 @@ msgstr "أعد إرسال رسالة الدعوة"
 
 #: themes/default/templates/invitations/my_invitations.html.ep:9
 msgid "Rows in purple mean that the invitations have expired."
-msgstr ""
+msgstr "الصفوف باللون الأرجواني تعني أن الدعوات انتهت صلاحيتها."
 
 #: themes/default/templates/files.html.ep:9
 msgid ""
@@ -560,7 +562,7 @@ msgstr "تسجيل الدخول"
 #: lib/Lufi/Controller/Invitation.pm:283 themes/default/templates/invitations/exception.html.ep:16
 msgid ""
 "Sorry, the invitation doesn’t exist. Are you sure you are on the right URL?"
-msgstr ""
+msgstr "آسف ، الدعوة غير موجودة. هل أنت متأكد مِن صحة العنوان؟"
 
 #: themes/default/templates/index.html.ep:46
 msgid "Sorry, the uploading is currently disabled. Please try again later."
@@ -580,17 +582,21 @@ msgid ""
 "Sorry, your invitation has expired or has been deleted. Please contact %1 to "
 "have another invitation."
 msgstr ""
+"المعذرة ، لقد انتهت مدة صلاحية دعوتك أو تم قد حذفها. الرجاء الاتصال بـ %1 "
+"للحصول على دعوة أخرى."
 
 #. ($invitation->ldap_user_mail)
 #: lib/Lufi/Controller/Invitation.pm:276
 msgid "The URLs of your files have been sent by email to %1."
-msgstr ""
+msgstr "لقد تم إرسال روابط ملفاتك بالبريد الإلكتروني إلى %1."
 
 #: themes/default/templates/about.html.ep:7
 msgid ""
 "The administrator can only see the file's name, its size and its mimetype "
 "(what kind of file it is: video, text, etc.)."
 msgstr ""
+"يمكن للمدير رؤية اسم الملف فقط ، وحجمه ونوع الملف (أي نوع من الملفات هو: "
+"فيديو ، نص ، وما إلى ذلك).)."
 
 #: lib/Lufi/Controller/Mail.pm:53
 msgid ""
@@ -635,7 +641,7 @@ msgstr "عناوين البريد الإلكترونية التالية غير �
 #. ($guest_mail)
 #: lib/Lufi/Controller/Invitation.pm:48
 msgid "The guest email address (%1) is unvalid."
-msgstr ""
+msgstr "عنوان البريد الإلكتروني للضيف (%1) غير صالح.."
 
 #. ($i->token, $i->guest_mail)
 #: lib/Lufi/Controller/Invitation.pm:150
@@ -647,7 +653,7 @@ msgstr ""
 #. ($i->token)
 #: lib/Lufi/Controller/Invitation.pm:130
 msgid "The invitation %1 has been deleted."
-msgstr ""
+msgstr "لقد تم حذف الدعوة %1."
 
 #. (stash('user_mail')
 #: themes/default/templates/invitations/invite.html.ep:34
@@ -678,6 +684,8 @@ msgid ""
 "The original (and only for now) author is <a href=\"https://fiat-tux.fr\" "
 "class=\"classic\">Luc Didry</a>."
 msgstr ""
+"المؤلف الأصلي (إلى غاية الآن) هو <a href=\"https://fiat-tux.fr\" class="
+"\"classic\">Luc Didry</a>."
 
 #: lib/Lufi/Controller/Files.pm:236
 msgid ""
@@ -692,7 +700,7 @@ msgstr "لقد تم تعطيل الملف من طرف المشرفين. الرج
 
 #: themes/default/templates/invitations/my_invitations.html.ep:46 themes/default/templates/partial/invitations.js.ep:6
 msgid "This invitation is normally hidden"
-msgstr ""
+msgstr "الدعوة مخفية بشكل عادي"
 
 #. (stash('expires')
 #: themes/default/templates/invitations/invite.mail.ep:13
@@ -741,9 +749,9 @@ msgstr "إرسال ملفات"
 
 #: themes/default/templates/index.html.ep:145
 msgid "Upload generated zip file"
-msgstr ""
+msgstr "حمّل الملف المضغوط الذي تم توليده"
 
-#: themes/default/templates/files.html.ep:30
+#: themes/default/templates/files.html.ep:31
 msgid "Uploaded at"
 msgstr "أرسِل بتاريخ"
 
@@ -765,7 +773,7 @@ msgstr "من قام بتطوير هذا البرنامج؟"
 
 #: themes/default/templates/partial/index.js.ep:13
 msgid "XXX file has been added to upload queue."
-msgstr ""
+msgstr "تم إضافة الملف XXX إلى قائمة الإنتظار للتحميل."
 
 #: themes/default/templates/invitations/invite.html.ep:30
 msgid ""
@@ -840,6 +848,10 @@ msgstr "الملف كبير جدًا: %1 (الحد الأقصى المسموح �
 #: lib/Lufi/Controller/Files.pm:351
 msgid "Your password is not valid. Please refresh the page to retry."
 msgstr "الكلمة السرية غير صالحة. يرجى تحديث الصفحة لإعادة المحاولة."
+
+#: themes/default/templates/partial/render.js.ep:12
+msgid "Zip content:"
+msgstr ""
 
 #. (format_bytes($keys[$i])
 #: themes/default/templates/delays.html.ep:20

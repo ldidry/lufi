@@ -254,6 +254,10 @@ button.pulse {
     text-transform: initial !important;
 }
 
+table.highlight > tbody > tr:hover {
+    background-color: #c6d4ee;
+}
+
 .white-background {
     background-color: #FFF;
 }

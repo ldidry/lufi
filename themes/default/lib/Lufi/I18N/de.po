@@ -8,8 +8,8 @@ msgstr ""
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"PO-Revision-Date: 2019-08-04 05:32+0000\n"
-"Last-Translator: Luc Didry <luc@framasoft.org>\n"
+"PO-Revision-Date: 2019-08-14 04:09+0000\n"
+"Last-Translator: Copied by Zanata <copied-by-zanata@zanata.org>\n"
 "Language-Team: German\n"
 "Language: de\n"
 "X-Generator: Zanata 4.6.2\n"
@@ -161,8 +161,7 @@ msgstr "In die Zwischenablage kopieren"
 
 #: lib/Lufi/Controller/Files.pm:507
 msgid "Could not delete the file. You are not authenticated."
-msgstr ""
-"Die Datei konnte nicht gelöscht werden. Sie sind nicht angemeldet."
+msgstr "Die Datei konnte nicht gelöscht werden. Sie sind nicht angemeldet."
 
 #: lib/Lufi/Controller/Files.pm:489
 msgid "Could not find the file. Are you sure of the URL and the token?"
@@ -174,7 +173,7 @@ msgstr ""
 msgid "Could not find the file. Are you sure of the URL?"
 msgstr "Die Datei konnte nicht gefunden werden. Sind Sie sich der URL sicher?"
 
-#: themes/default/templates/files.html.ep:28
+#: themes/default/templates/files.html.ep:29
 msgid "Counter"
 msgstr "Zähler"
 
@@ -190,15 +189,15 @@ msgstr "Erstellt am"
 msgid "Delete"
 msgstr "Löschen"
 
-#: themes/default/templates/files.html.ep:29 themes/default/templates/index.html.ep:90
+#: themes/default/templates/files.html.ep:30 themes/default/templates/index.html.ep:90
 msgid "Delete at first download?"
 msgstr "Beim ersten Download löschen?"
 
-#: themes/default/templates/files.html.ep:18
+#: themes/default/templates/files.html.ep:19
 msgid "Delete selected files"
 msgstr "Ausgewählte Dateien löschen"
 
-#: themes/default/templates/files.html.ep:32 themes/default/templates/partial/index.js.ep:19
+#: themes/default/templates/files.html.ep:33 themes/default/templates/partial/index.js.ep:19
 msgid "Deletion link"
 msgstr "Link zum Löschen"
 
@@ -219,7 +218,7 @@ msgstr "Herunterladen"
 msgid "Download aborted."
 msgstr "Herunterladen abgebrochen."
 
-#: themes/default/templates/files.html.ep:27 themes/default/templates/partial/index.js.ep:20
+#: themes/default/templates/files.html.ep:28 themes/default/templates/partial/index.js.ep:20
 msgid "Download link"
 msgstr "Link zum Herunterladen"
 
@@ -283,7 +282,7 @@ msgstr "Ablaufdatum:"
 msgid "Expire at"
 msgstr "Verfallen am"
 
-#: themes/default/templates/files.html.ep:31
+#: themes/default/templates/files.html.ep:32
 msgid "Expires at"
 msgstr "Verfällt am"
 
@@ -295,7 +294,7 @@ msgstr "Exportieren von localStorage-Daten"
 msgid "File deleted"
 msgstr "Datei gelöscht"
 
-#: themes/default/templates/files.html.ep:26
+#: themes/default/templates/files.html.ep:27
 msgid "File name"
 msgstr "Dateiname"
 
@@ -326,8 +325,8 @@ msgid ""
 "com/ldidry/lufi\" class=\"classic\">Github mirror</a>"
 msgstr ""
 "Holen Sie sich den Quellcode vom <a href=\"https://framagit.org/luc/lufi\" "
-"class=\"classic\">offiziellen Repository</a> oder von dessen <a href="
-"\"https://github.com/ldidry/lufi\" class=\"classic\">Github mirror</a>."
+"class=\"classic\">offiziellen Repository</a> oder von dessen <a href=\"https:"
+"//github.com/ldidry/lufi\" class=\"classic\">Github mirror</a>."
 
 #: themes/default/templates/invitations/my_invitations.html.ep:24
 msgid "Guest mail"
@@ -382,8 +381,7 @@ msgstr "Wie kann man eine illegale Datei melden?"
 #: themes/default/templates/delays.html.ep:7
 msgid "If you choose a delay, the file will be deleted after that delay."
 msgstr ""
-"Wenn Sie eine Frist wählen, wird die Datei nach diesem Zeitraum "
-"gelöscht."
+"Wenn Sie eine Frist wählen, wird die Datei nach diesem Zeitraum gelöscht."
 
 #: themes/default/templates/mail.html.ep:15
 msgid ""
@@ -405,7 +403,7 @@ msgstr "Wichtig: weitere Informationen zu den Fristen"
 msgid "Information about delays"
 msgstr "Informationen zu den Fristen"
 
-#: themes/default/templates/invitations/my_invitations.html.ep:12
+#: themes/default/templates/files.html.ep:18 themes/default/templates/invitations/my_invitations.html.ep:12
 msgid "Invert selection"
 msgstr "Auswahl umkehren"
 
@@ -458,12 +456,13 @@ msgid ""
 "one.\\nDo you want to import those informations?\\n\\nPlease note that this "
 "is the only time that we will ask you this."
 msgstr ""
-"Die Art und Weise wie Lufi Datei-Informationen speichert, wurde kürzlich geändert.\\n\\n "
-"Am neuen localStorage-Speicherort konnten keine Dateien gefunden werden, allerdings wurden Dateien "
-"am alten Speicherort gefunden.\\nWollen Sie diese Informationen importieren?\\nBitte beachten "
-"Sie, dass diese Meldung nur ein einziges Mal angezeigt wird."
+"Die Art und Weise wie Lufi Datei-Informationen speichert, wurde kürzlich "
+"geändert.\\n\\n Am neuen localStorage-Speicherort konnten keine Dateien "
+"gefunden werden, allerdings wurden Dateien am alten Speicherort gefunden."
+"\\nWollen Sie diese Informationen importieren?\\nBitte beachten Sie, dass "
+"diese Meldung nur ein einziges Mal angezeigt wird."
 
-#: themes/default/templates/files.html.ep:33
+#: themes/default/templates/files.html.ep:34
 msgid "Mail"
 msgstr "E-Mail"
 
@@ -565,8 +564,8 @@ msgstr ""
 msgid ""
 "Rows in red mean that the files have expired and are no longer available."
 msgstr ""
-"Rot markierte Zeilen bedeuten, dass die Dateien abgelaufen und nicht "
-"mehr verfügbar sind."
+"Rot markierte Zeilen bedeuten, dass die Dateien abgelaufen und nicht mehr "
+"verfügbar sind."
 
 #: themes/default/templates/partial/index.js.ep:26
 msgid "Send all links by email"
@@ -778,8 +777,8 @@ msgid ""
 "following limitations:"
 msgstr ""
 "Dieser Server setzt Einschränkungen bezüglich der Dateigröße. Die "
-"Ablauffrist Ihrer Datei ist das Minimum zwischen dem, was Sie "
-"auswählen, und den folgenden Einschränkungen:"
+"Ablauffrist Ihrer Datei ist das Minimum zwischen dem, was Sie auswählen, und "
+"den folgenden Einschränkungen:"
 
 #: themes/default/templates/invitations/my_invitations.html.ep:16
 msgid "Toggle visibility"
@@ -823,7 +822,7 @@ msgstr "Dateien hochladen"
 msgid "Upload generated zip file"
 msgstr "Generierte Zip-Datei hochladen"
 
-#: themes/default/templates/files.html.ep:30
+#: themes/default/templates/files.html.ep:31
 msgid "Uploaded at"
 msgstr "Hochgeladen am"
 
@@ -931,6 +930,10 @@ msgid "Your password is not valid. Please refresh the page to retry."
 msgstr ""
 "Ihr Passwort ist ungültig. Bitte aktualisieren Sie die Seite, um es erneut "
 "zu versuchen."
+
+#: themes/default/templates/partial/render.js.ep:12
+msgid "Zip content:"
+msgstr ""
 
 #. (format_bytes($keys[$i])
 #: themes/default/templates/delays.html.ep:20
