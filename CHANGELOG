@@ -1,6 +1,8 @@
 Revision history for Lufi
 
 ?.??.? ????-??-??
+
+0.04.4 2019-10-11
 	- Fix invitations sorting order (#163)
 	- Same behavior on files and invitations tables (striped, invert selection
 	  button) (#166)
