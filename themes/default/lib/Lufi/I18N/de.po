@@ -933,7 +933,7 @@ msgstr ""
 
 #: themes/default/templates/partial/render.js.ep:12
 msgid "Zip content:"
-msgstr ""
+msgstr "Zip-Inhalt:"
 
 #. (format_bytes($keys[$i])
 #: themes/default/templates/delays.html.ep:20
