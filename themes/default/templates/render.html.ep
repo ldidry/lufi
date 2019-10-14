@@ -33,7 +33,7 @@
             <p id="please-wait"><%= l('Please wait while we are getting your file. We first need to download and decrypt all parts before you can get it.') %></p>
             <p id="loading"></p>
             <div class="progress" id="pbd">
-                <div id="pb" class="determinate" role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100">
+                <div id="pb" class="determinate width-0" role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100">
                     <span id="pbt" class="sr-only">0%</span>
                 </div>
             </div>

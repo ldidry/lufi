@@ -6,8 +6,8 @@ window.fc = 0;
 window.cancelled = [];
 // Set websocket
 window.ws = spawnWebsocket(0, function() {return null;});
-// Use slice of 2MB
-window.sliceLength = 2000000;
+// Use slice of 0.75MB
+window.sliceLength = 750000;
 // Global zip objects for currently created zip file
 window.zip = null;
 window.zipSize = 0;
@@ -363,7 +363,6 @@ function sliceAndUpload(randomkey, i, parts, j, delay, del_at_first_view, short,
             var b         = window.btoa(bin);
 
             // Encrypt it
-            sl.html(i18n.encrypting.replace(/XX1(.*)XX2/, (j+1)+'$1'+parts));
             var encrypted = sjcl.encrypt(randomkey, b);
 
             // Prepare json
@@ -390,9 +389,10 @@ function sliceAndUpload(randomkey, i, parts, j, delay, del_at_first_view, short,
             }
             data = JSON.stringify(data)+'XXMOJOXX'+JSON.stringify(encrypted);;
 
-            console.log('sending slice '+(j + 1)+'/'+parts+' of file '+file.name);
+            var percent = Math.round(1000 * j/parts)/10;
+            console.log('sending slice '+(j + 1)+'/'+parts+' of file '+file.name+' ('+percent+'%)');
 
-            sl.html(i18n.sending.replace(/XX1(.*)XX2/, (j+1)+'$1'+parts));
+            sl.html(percent.toFixed(1)+'%');
 
             // Verify that we have a websocket and send json
             if (window.ws.readyState === 3) {
@@ -568,10 +568,11 @@ function updateProgressBar(data) {
             } else {
                 j++;
                 // Update progress bar
-                var percent    = Math.round(100 * j/parts);
+                var percent = Math.round(1000 * j/parts)/10;
+                var wClass  = percent.toString().replace('.', '-');
                 dp.removeClass();
                 dp.addClass('determinate');
-                dp.addClass('width-'+percent);
+                dp.addClass('width-'+wClass);
                 dp.attr('aria-valuenow', percent);
 
                 // Encrypt and upload next slice

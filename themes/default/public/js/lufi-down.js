@@ -81,9 +81,12 @@ function spawnWebsocket(pa) {
         } else {
             console.log('Getting slice '+(data.part + 1)+' of '+data.total);
             var slice   = JSON.parse(res.shift());
-            var percent = Math.round(100 * (data.part + 1)/data.total);
+            var percent = Math.round(1000 * (data.part + 1)/data.total)/10;
+            var wClass  = percent.toString().replace('.', '-');
             var pb      = $('#pb');
-            pb.css('width', percent+'%');
+            pb.removeClass();
+            pb.addClass('determinate');
+            pb.addClass('width-'+wClass);
             pb.attr('aria-valuenow', percent);
             $('#pbt').html(percent+'%');
             try {
