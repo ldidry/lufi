@@ -50,3 +50,7 @@ CREATE TABLE IF NOT EXISTS invitations (
 );
 -- 4 down
 DROP TABLE invitations;
+-- 5 up
+ALTER TABLE files ALTER COLUMN filesize TYPE bigint;
+-- 5 down
+ALTER TABLE files ALTER COLUMN filesize TYPE integer;

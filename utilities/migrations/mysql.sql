@@ -47,3 +47,7 @@ CREATE TABLE IF NOT EXISTS invitations (
 );
 -- 3 down
 DROP TABLE invitations;
+-- 4 up
+ALTER TABLE files MODIFY filesize bigint;
+-- 4 down
+ALTER TABLE files MODIFY filesize integer;
