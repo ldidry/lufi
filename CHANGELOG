@@ -1,6 +1,8 @@
 Revision history for Lufi
 
 ?.??.? ????-??-??
+
+0.04.5 2019-10-14
 	- Update german language
 	- Smoother progress of progress bar (use smaller chunks)
 
