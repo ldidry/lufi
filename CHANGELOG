@@ -1,6 +1,8 @@
 Revision history for Lufi
 
 ?.??.? ????-??-??
+	- Update german language
+	- Smoother progress of progress bar (use smaller chunks)
 
 0.04.4 2019-10-11
 	- Fix invitations sorting order (#163)
