@@ -1,6 +1,8 @@
 Revision history for Lufi
 
 ?.??.? ????-??-??
+	- Now can send large files (>2Gio) while using a DB other than SQLite (#165)
+	- Use customized instance name in <title>
 
 0.04.5 2019-10-14
 	- Update german language
