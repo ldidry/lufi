@@ -8,8 +8,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "POT-Creation-Date: YEAR-MO-DA HO:MI+ZONE\n"
-"PO-Revision-Date: 2019-11-18 10:05+0000\n"
-"Last-Translator: ButterflyOfFire <butterflyoffire@protonmail.com>\n"
+"PO-Revision-Date: 2019-11-18 10:21+0000\n"
+"Last-Translator: Luc Didry <luc@framasoft.org>\n"
 "Language-Team: French (France) <https://weblate.framasoft.org/projects/lufi/"
 "development/fr_FR/>\n"
 "Language: fr_FR\n"
@@ -264,11 +264,11 @@ msgstr "Chiffrement du fragment XX1 sur XX2"
 
 #: lib/Lufi/Controller/Files.pm:289
 msgid "Error: the file existed but was deleted."
-msgstr "Erreur : le fichier existait mais a été supprimé"
+msgstr "Erreur : le fichier existait mais a été supprimé."
 
 #: lib/Lufi/Controller/Files.pm:369
 msgid "Error: the file has not been sent entirely."
-msgstr "Erreur : le fichier n’a pas été envoyé dans son intégralité"
+msgstr "Erreur : le fichier n’a pas été envoyé dans son intégralité."
 
 #: lib/Lufi/Controller/Files.pm:379
 msgid "Error: unable to find the file. Are you sure of your URL?"
@@ -327,7 +327,7 @@ msgid ""
 msgstr ""
 "Récupérez le code source sur <a href=\"https://framagit.org/luc/lufi\" class="
 "\"classic\">le dépôt officiel</a> ou sur son <a href=\"https://github.com/"
-"ldidry/lufi\" class=\"classic\">miroir Github</a>."
+"ldidry/lufi\" class=\"classic\">miroir Github</a>"
 
 #: themes/default/templates/invitations/my_invitations.html.ep:24
 msgid "Guest mail"
@@ -957,7 +957,7 @@ msgstr "expire le XXX"
 #. (format_bytes($keys[$i])
 #: themes/default/templates/delays.html.ep:26
 msgid "for %1 and more, the file will be kept %2 day(s)"
-msgstr "pour %1 et plus, le fichier sera conservé %2 jour(s)."
+msgstr "pour %1 et plus, le fichier sera conservé %2 jour(s)"
 
 #. (format_bytes($keys[$i])
 #: themes/default/templates/delays.html.ep:28
