@@ -11,15 +11,16 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "POT-Creation-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"PO-Revision-Date: 2019-11-18 10:05+0000\n"
+"Last-Translator: ButterflyOfFire <butterflyoffire@protonmail.com>\n"
+"Language-Team: Occitan <https://weblate.framasoft.org/projects/lufi/"
+"development/oc/>\n"
+"Language: oc\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"PO-Revision-Date: 2019-10-11 05:26+0000\n"
-"Last-Translator: Quentí\n"
-"Language-Team: Tot en òc (totenoc.eu)\n"
-"Language: oc\n"
-"Plural-Forms: nplurals=2; plural=(n > 1);\n"
-"X-Generator: Zanata 4.6.2\n"
+"Plural-Forms: nplurals=2; plural=n > 1;\n"
+"X-Generator: Weblate 3.9.1\n"
 
 #. ($delay)
 #. (max_delay)
@@ -935,16 +936,16 @@ msgstr "Contengut ZIP :"
 #. (format_bytes($keys[$i])
 #: themes/default/templates/delays.html.ep:20
 msgid "between %1 and %2, the file will be kept %3 day(s)."
-msgstr "entre %1 e %2, lo fichièr serà gardat %3 jorn(s) ;"
+msgstr "entre %1 e %2, lo fichièr serà gardat %3 jorn(s)."
 
 #. (format_bytes($keys[$i])
 #: themes/default/templates/delays.html.ep:22
 msgid "between %1 and %2, the file will be kept forever."
-msgstr "entre %1 e %2, lo fichièr serà gardat per totjorn. ;"
+msgstr "entre %1 e %2, lo fichièr serà gardat per totjorn."
 
 #: themes/default/templates/partial/mail.js.ep:42
 msgid "deadline: "
-msgstr "darrièr relambi per telecargar :"
+msgstr "darrièr relambi per telecargar : "
 
 #: themes/default/templates/partial/invitations.js.ep:5
 msgid "expires on XXX"
