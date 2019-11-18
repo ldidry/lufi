@@ -5,16 +5,17 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "POT-Creation-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"PO-Revision-Date: 2019-11-18 10:05+0000\n"
+"Last-Translator: ButterflyOfFire <butterflyoffire@protonmail.com>\n"
+"Language-Team: Arabic <https://weblate.framasoft.org/projects/lufi/"
+"development/ar/>\n"
+"Language: ar\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"PO-Revision-Date: 2019-08-09 08:47+0000\n"
-"Last-Translator: ButterflyOfFire <butterflyoffire@protonmail.com>\n"
-"Language: ar\n"
 "Plural-Forms: nplurals=6; plural=n==0 ? 0 : n==1 ? 1 : n==2 ? 2 : n%100>=3 "
 "&& n%100<=10 ? 3 : n%100>=11 ? 4 : 5;\n"
-"X-Generator: Zanata 4.6.2\n"
-"Language-Team: Arabic\n"
+"X-Generator: Weblate 3.9.1\n"
 
 #. ($delay)
 #. (max_delay)
@@ -101,7 +102,7 @@ msgstr ""
 #. (stash('nbslices')
 #: themes/default/templates/partial/render.js.ep:9
 msgid "Asking for file part XX1 of %1"
-msgstr "طلب الجزء XX1 مِن %1 "
+msgstr "طلب الجزء XX1 مِن %1"
 
 #: themes/default/templates/about.html.ep:20
 msgid "Back to homepage"
@@ -137,7 +138,7 @@ msgstr "عناوين البريد الإلكترونية مُقسّمة بفاص
 
 #: themes/default/templates/index.html.ep:140
 msgid "Compressing zip file…"
-msgstr "جارٍ ضغط ملف zip..."
+msgstr "جارٍ ضغط ملف zip…"
 
 #: themes/default/templates/partial/index.js.ep:15
 msgid "Copy all links to clipboard"
@@ -213,6 +214,9 @@ msgid ""
 "people you want to share the file with and a deletion link, allowing you to "
 "delete the file whenever you want."
 msgstr ""
+"اسحب الملفات إلى الحقل المخصص لذلك أو حدد ملفًا بطريقة كلاسيكية وسيتم قص "
+"الملفات إلى أجزاء مشفرة وإرسالها إلى الخادم. ستحصل على روابط لكل ملف: رابط "
+"للتنزيل ورابط لحذف الملف عند الحاجة لذلك."
 
 #: themes/default/templates/index.html.ep:122
 msgid "Drop files here"
@@ -264,7 +268,7 @@ msgstr "تنتهي صلاحيته في"
 
 #: themes/default/templates/files.html.ep:12
 msgid "Export localStorage data"
-msgstr ""
+msgstr "تصدير بيانات localStorage"
 
 #: lib/Lufi/Controller/Files.pm:471
 msgid "File deleted"
@@ -364,7 +368,7 @@ msgstr ""
 
 #: themes/default/templates/files.html.ep:14
 msgid "Import localStorage data"
-msgstr ""
+msgstr "استيراد بيانات localStorage"
 
 #: themes/default/templates/index.html.ep:53
 msgid "Important: more information on delays"
@@ -851,7 +855,7 @@ msgstr "الكلمة السرية غير صالحة. يرجى تحديث الص�
 
 #: themes/default/templates/partial/render.js.ep:12
 msgid "Zip content:"
-msgstr ""
+msgstr "محتوى ملف Zip المضغوط:"
 
 #. (format_bytes($keys[$i])
 #: themes/default/templates/delays.html.ep:20
