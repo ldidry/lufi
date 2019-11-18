@@ -9,15 +9,16 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "POT-Creation-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"PO-Revision-Date: 2019-11-18 10:05+0000\n"
+"Last-Translator: ButterflyOfFire <butterflyoffire@protonmail.com>\n"
+"Language-Team: Portuguese <https://weblate.framasoft.org/projects/lufi/"
+"development/pt/>\n"
+"Language: pt\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"PO-Revision-Date: 2019-04-19 04:58+0000\n"
-"Language-Team: \n"
-"X-Generator: Zanata 4.6.2\n"
-"Last-Translator: Luc Didry <luc@framasoft.org>\n"
-"Plural-Forms: nplurals=2; plural=(n > 1);\n"
-"Language: pt\n"
+"Plural-Forms: nplurals=2; plural=n > 1;\n"
+"X-Generator: Weblate 3.9.1\n"
 
 #. ($delay)
 #. (max_delay)
@@ -894,7 +895,7 @@ msgstr ""
 #. (format_bytes($keys[$i])
 #: themes/default/templates/delays.html.ep:20
 msgid "between %1 and %2, the file will be kept %3 day(s)."
-msgstr "entre %1 e %2, o ficheiro será conservado %3 dia(s) ;"
+msgstr "entre %1 e %2, o ficheiro será conservado %3 dia(s)."
 
 #. (format_bytes($keys[$i])
 #: themes/default/templates/delays.html.ep:22
