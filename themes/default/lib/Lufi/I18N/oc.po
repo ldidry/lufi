@@ -11,8 +11,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "POT-Creation-Date: YEAR-MO-DA HO:MI+ZONE\n"
-"PO-Revision-Date: 2019-11-18 10:05+0000\n"
-"Last-Translator: ButterflyOfFire <butterflyoffire@protonmail.com>\n"
+"PO-Revision-Date: 2019-11-18 10:21+0000\n"
+"Last-Translator: Luc Didry <luc@framasoft.org>\n"
 "Language-Team: Occitan <https://weblate.framasoft.org/projects/lufi/"
 "development/oc/>\n"
 "Language: oc\n"
@@ -36,7 +36,7 @@ msgstr "%1 vos convida a li mandar de fichièrs"
 #. (stash('ldap_user')
 #: themes/default/templates/invitations/invite.mail.ep:6
 msgid "%1 invites you to send him/her files through Lufi."
-msgstr "%1 vos convida a li mandar de fichièrs per Lufi"
+msgstr "%1 vos convida a li mandar de fichièrs per Lufi."
 
 #. (stash('invitation')
 #: themes/default/templates/invitations/notification_files_sent.mail.ep:4
@@ -265,11 +265,11 @@ msgstr "Chiframent del tròç XX1 sus XX2"
 
 #: lib/Lufi/Controller/Files.pm:289
 msgid "Error: the file existed but was deleted."
-msgstr "Error : lo fichièr existissiá mas es estat suprimit"
+msgstr "Error : lo fichièr existissiá mas es estat suprimit."
 
 #: lib/Lufi/Controller/Files.pm:369
 msgid "Error: the file has not been sent entirely."
-msgstr "Error : lo fichièr es pas estat mandat completament"
+msgstr "Error : lo fichièr es pas estat mandat completament."
 
 #: lib/Lufi/Controller/Files.pm:379
 msgid "Error: unable to find the file. Are you sure of your URL?"
@@ -327,7 +327,7 @@ msgid ""
 msgstr ""
 "Recuperatz lo còdi font sul <a href=\"https://framagit.org/luc/lufi\" class="
 "\"classic\">depaus oficial</a> o sus son <a href=\"https://github.com/ldidry/"
-"lufi\" class=\"classic\">miralh Github</a>."
+"lufi\" class=\"classic\">miralh Github</a>"
 
 #: themes/default/templates/invitations/my_invitations.html.ep:24
 msgid "Guest mail"
@@ -715,7 +715,7 @@ msgstr "L’invitacion %1 es estada suprimida."
 #. (stash('user_mail')
 #: themes/default/templates/invitations/invite.html.ep:34
 msgid "The invitation mail will be send from your email address (%1)."
-msgstr "Lo messatge d’invitacion serà mandat a vòstra adreça electronica (%1)"
+msgstr "Lo messatge d’invitacion serà mandat a vòstra adreça electronica (%1)."
 
 #: themes/default/templates/partial/index.js.ep:16
 msgid "The link(s) has been copied to your clipboard"
@@ -844,7 +844,7 @@ msgstr "Qual escriguèt aqueste logicial ?"
 
 #: themes/default/templates/partial/index.js.ep:13
 msgid "XXX file has been added to upload queue."
-msgstr "XXX fichièrs son estats ajustats a la fila de mandadís"
+msgstr "XXX fichièrs son estats ajustats a la fila de mandadís."
 
 #: themes/default/templates/invitations/invite.html.ep:30
 msgid ""
@@ -954,7 +954,7 @@ msgstr "expira lo XXX"
 #. (format_bytes($keys[$i])
 #: themes/default/templates/delays.html.ep:26
 msgid "for %1 and more, the file will be kept %2 day(s)"
-msgstr "per %1 e mai, lo fichièr serà gardat %2 jorn(s)."
+msgstr "per %1 e mai, lo fichièr serà gardat %2 jorn(s)"
 
 #. (format_bytes($keys[$i])
 #: themes/default/templates/delays.html.ep:28
