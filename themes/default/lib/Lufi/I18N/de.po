@@ -5,15 +5,16 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "POT-Creation-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"PO-Revision-Date: 2019-11-18 10:05+0000\n"
+"Last-Translator: ButterflyOfFire <butterflyoffire@protonmail.com>\n"
+"Language-Team: German <https://weblate.framasoft.org/projects/lufi/"
+"development/de/>\n"
+"Language: de\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"PO-Revision-Date: 2019-08-14 04:09+0000\n"
-"Last-Translator: Copied by Zanata <copied-by-zanata@zanata.org>\n"
-"Language-Team: German\n"
-"Language: de\n"
-"X-Generator: Zanata 4.6.2\n"
-"Plural-Forms: nplurals=2; plural=(n != 1)\n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
+"X-Generator: Weblate 3.9.1\n"
 
 #. ($delay)
 #. (max_delay)
@@ -149,7 +150,7 @@ msgstr "Kommagetrennte E-Mail-Adressen"
 
 #: themes/default/templates/index.html.ep:140
 msgid "Compressing zip file…"
-msgstr "Komprimierung der Zip-Datei..."
+msgstr "Komprimierung der Zip-Datei…"
 
 #: themes/default/templates/partial/index.js.ep:15
 msgid "Copy all links to clipboard"
@@ -457,10 +458,13 @@ msgid ""
 "is the only time that we will ask you this."
 msgstr ""
 "Die Art und Weise wie Lufi Datei-Informationen speichert, wurde kürzlich "
-"geändert.\\n\\n Am neuen localStorage-Speicherort konnten keine Dateien "
-"gefunden werden, allerdings wurden Dateien am alten Speicherort gefunden."
-"\\nWollen Sie diese Informationen importieren?\\nBitte beachten Sie, dass "
-"diese Meldung nur ein einziges Mal angezeigt wird."
+"geändert.\\n"
+"\\n"
+"Am neuen localStorage-Speicherort konnten keine Dateien gefunden werden, "
+"allerdings wurden Dateien am alten Speicherort gefunden.\\n"
+"Wollen Sie diese Informationen importieren?\\n"
+"\\n"
+"Bitte beachten Sie, dass diese Meldung nur ein einziges Mal angezeigt wird."
 
 #: themes/default/templates/files.html.ep:34
 msgid "Mail"
@@ -947,7 +951,7 @@ msgstr "zwischen %1 und %2, wird die Datei für immer aufbewahrt."
 
 #: themes/default/templates/partial/mail.js.ep:42
 msgid "deadline: "
-msgstr "Frist:"
+msgstr "Frist: "
 
 #: themes/default/templates/partial/invitations.js.ep:5
 msgid "expires on XXX"
