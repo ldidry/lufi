@@ -5,7 +5,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "POT-Creation-Date: YEAR-MO-DA HO:MI+ZONE\n"
-"PO-Revision-Date: 2019-11-18 10:05+0000\n"
+"PO-Revision-Date: 2019-12-20 19:13+0000\n"
 "Last-Translator: ButterflyOfFire <butterflyoffire@protonmail.com>\n"
 "Language-Team: Arabic <https://weblate.framasoft.org/projects/lufi/"
 "development/ar/>\n"
@@ -709,7 +709,7 @@ msgstr "الدعوة مخفية بشكل عادي"
 #. (stash('expires')
 #: themes/default/templates/invitations/invite.mail.ep:13
 msgid "This invitation is valid until %1."
-msgstr ""
+msgstr "هذه الدعوة صالحة إلى غاية %1."
 
 #: themes/default/templates/delays.html.ep:10
 msgid ""
