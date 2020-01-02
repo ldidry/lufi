@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "POT-Creation-Date: YEAR-MO-DA HO:MI+ZONE\n"
-"PO-Revision-Date: 2020-01-01 17:14+0000\n"
+"PO-Revision-Date: 2020-01-03 22:14+0000\n"
 "Last-Translator: Filip Bengtsson <filip@libreradio.org>\n"
 "Language-Team: Swedish <https://weblate.framasoft.org/projects/lufi/"
 "development/sv/>\n"
@@ -27,12 +27,12 @@ msgstr "%1 dagar"
 #. (stash('ldap_user')
 #: themes/default/templates/invitations/invite.mail.ep:2
 msgid "%1 invites you to send him/her files"
-msgstr ""
+msgstr "%1 bjuder in dig att skicka filer till honom eller henne"
 
 #. (stash('ldap_user')
 #: themes/default/templates/invitations/invite.mail.ep:6
 msgid "%1 invites you to send him/her files through Lufi."
-msgstr ""
+msgstr "%1 bjuder in dig att skicka filer till honom eller henne via Lufi."
 
 #. (stash('invitation')
 #: themes/default/templates/invitations/notification_files_sent.mail.ep:4
@@ -79,6 +79,8 @@ msgstr "Lösenordsskydda filerna"
 #: themes/default/templates/mail.html.ep:16
 msgid "Adding URLs not related to this Lufi instance to the mail body or subject is prohibited."
 msgstr ""
+"Det är inte tillåtet att infoga länkar i ämnesraden eller meddelandet som "
+"inte går till den här Lufi-instansen."
 
 #: themes/default/templates/partial/invitations.js.ep:3
 msgid "Are you sure you want to delete the selected invitations?"
@@ -91,11 +93,15 @@ msgstr "Är du säker på att du vill skicka ut de markerade inbjudningarna igen
 #: themes/default/templates/about.html.ep:17
 msgid "As Lufi is a free software licensed under of the terms of the <a href=\"https://gnu.org/licenses/agpl.html\" class=\"classic\">AGPLv3</a>, you can install it on you own server. Have a look on the <a href=\"https://framagit.org/luc/lufi/wikis/home\" class=\"classic\">Wiki</a> for the procedure."
 msgstr ""
+"Du kan installera Lufi på din egen server eftersom det är en fri mjukvara "
+"publicerad under licensen <a href=\"https://gnu.org/licenses/agpl.html\" "
+"class=\"classic\">AGPLv3</a>. Ta en titt på <a href=\"https://framagit.org/"
+"luc/lufi/wikis/home\" class=\"classic\">wikin</a> för att se hur."
 
 #. (stash('nbslices')
 #: themes/default/templates/partial/render.js.ep:9
 msgid "Asking for file part XX1 of %1"
-msgstr ""
+msgstr "Frågar efter del XX1 av filen %1"
 
 #: themes/default/templates/about.html.ep:20
 msgid "Back to homepage"
@@ -115,7 +121,7 @@ msgstr "Klicka här för att uppdatera sidan och starta om nerladdningen."
 
 #: themes/default/templates/invitations/invite.mail.ep:8
 msgid "Click on the following URL to upload files on Lufi:"
-msgstr ""
+msgstr "Klicka på följande länk för att ladda upp filer till Lufi:"
 
 #: themes/default/templates/index.html.ep:126
 msgid "Click to open the file browser"
@@ -184,6 +190,9 @@ msgstr "Länk för radering"
 #: themes/default/templates/delays.html.ep:8
 msgid "Don't worry: if a user begins to download the file before the expiration and the download ends after the expiration, he will be able to get the file."
 msgstr ""
+"Oroa dig inte! Om en användare börjar ladda ner en fil innan dess "
+"utgångsdatum kommer hela filen kunna laddas ner, även om den skulle gå ut "
+"under tiden."
 
 #: themes/default/templates/partial/index.js.ep:21 themes/default/templates/render.html.ep:28
 msgid "Download"
@@ -227,27 +236,27 @@ msgstr "Krypterar del XX1 av XX1"
 
 #: lib/Lufi/Controller/Files.pm:289
 msgid "Error: the file existed but was deleted."
-msgstr ""
+msgstr "Fel: filen fanns men har raderats nu."
 
 #: lib/Lufi/Controller/Files.pm:369
 msgid "Error: the file has not been sent entirely."
-msgstr ""
+msgstr "Fel: hela filen har inte överförts."
 
 #: lib/Lufi/Controller/Files.pm:379
 msgid "Error: unable to find the file. Are you sure of your URL?"
-msgstr ""
+msgstr "Fel: kunde inte hitta filen. Är du säker på att du har rätt länk?"
 
 #: themes/default/templates/partial/index.js.ep:23
 msgid "Expiration:"
-msgstr ""
+msgstr "Går ut:"
 
 #: themes/default/templates/invitations/my_invitations.html.ep:27
 msgid "Expire at"
-msgstr ""
+msgstr "Förfaller"
 
 #: themes/default/templates/files.html.ep:32
 msgid "Expires at"
-msgstr ""
+msgstr "Förfaller"
 
 #: themes/default/templates/files.html.ep:12
 msgid "Export localStorage data"
@@ -271,15 +280,15 @@ msgstr "Filer raderade efter första nerladdning"
 
 #: themes/default/templates/invitations/my_invitations.html.ep:28
 msgid "Files sent at"
-msgstr ""
+msgstr "Filer skickade"
 
 #: themes/default/templates/partial/invitations.js.ep:8
 msgid "Files sent in invitation XX1 by XX2"
-msgstr ""
+msgstr "Filer skickade i inbjudan XX1 av XX2"
 
 #: themes/default/templates/partial/render.js.ep:8
 msgid "Get the file"
-msgstr ""
+msgstr "Hämta filen"
 
 #: themes/default/templates/about.html.ep:18
 msgid "Get the source code on <a href=\"https://framagit.org/luc/lufi\" class=\"classic\">the official repository</a> or on its <a href=\"https://github.com/ldidry/lufi\" class=\"classic\">Github mirror</a>"
@@ -290,7 +299,7 @@ msgstr ""
 
 #: themes/default/templates/invitations/my_invitations.html.ep:24
 msgid "Guest mail"
-msgstr ""
+msgstr "E-postadress till gäst"
 
 #. (ucfirst(stash('invitation')
 #: themes/default/templates/invitations/notification_files_sent.mail.ep:6
@@ -343,7 +352,7 @@ msgstr "Kan jag anmäla en olaglig fil?"
 
 #: themes/default/templates/delays.html.ep:7
 msgid "If you choose a delay, the file will be deleted after that delay."
-msgstr ""
+msgstr "Om du anger en fördröjning kommer filen raderas när den tiden gått ut."
 
 #: themes/default/templates/mail.html.ep:15
 msgid "If you send the mail from this server, the links will be sent to the server, which may lower your privacy protection."
@@ -363,17 +372,17 @@ msgstr "Information om fördröjningar"
 
 #: themes/default/templates/files.html.ep:18 themes/default/templates/invitations/my_invitations.html.ep:12
 msgid "Invert selection"
-msgstr ""
+msgstr "Omvänt val"
 
 #. ($i->guest_mail, $url)
 #: lib/Lufi/Controller/Invitation.pm:171
 msgid "Invitation resent to %1.<br> URL: %2"
-msgstr ""
+msgstr "Inbjudan har skickats till %1 igen.<br> Länk: %2"
 
 #. ($invitation->guest_mail, $url)
 #: lib/Lufi/Controller/Invitation.pm:87
 msgid "Invitation sent to %1.<br> URL: %2"
-msgstr ""
+msgstr "Inbjudan har skickats till %1.<br> Länk: %2"
 
 #: themes/default/templates/invitations/invite.html.ep:27 themes/default/templates/layouts/default.html.ep:36 themes/default/templates/layouts/default.html.ep:69
 msgid "Invite a guest"
@@ -382,6 +391,7 @@ msgstr "Bjud in en gäst"
 #: themes/default/templates/partial/render.js.ep:6
 msgid "It seems that the key in your URL is incorrect. Please, verify your URL."
 msgstr ""
+"Det verkar som att nyckeln i adressen är ogiltig. Kontrollera gärna din länk."
 
 #: themes/default/templates/index.html.ep:12
 msgid "Javascript is disabled. You won't be able to use Lufi."
