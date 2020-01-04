@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "POT-Creation-Date: YEAR-MO-DA HO:MI+ZONE\n"
-"PO-Revision-Date: 2020-01-03 22:14+0000\n"
+"PO-Revision-Date: 2020-01-05 17:14+0000\n"
 "Last-Translator: Filip Bengtsson <filip@libreradio.org>\n"
 "Language-Team: Swedish <https://weblate.framasoft.org/projects/lufi/"
 "development/sv/>\n"
@@ -435,16 +435,18 @@ msgstr ""
 
 #: themes/default/templates/index.html.ep:115
 msgid "Name of the zip file"
-msgstr ""
+msgstr "ZIP-arkivets namn"
 
 #. (format_bytes($json->{size})
 #: lib/Lufi/Controller/Files.pm:108
 msgid "No enough space available on the server for this file (size: %1)."
 msgstr ""
+"Servern har inte tillräckligt med ledigt utrymme för den här filen (storlek: "
+"%1)."
 
 #: themes/default/templates/partial/files.js.ep:10 themes/default/templates/partial/index.js.ep:28
 msgid "No expiration delay"
-msgstr ""
+msgstr "Ingen utgångsfördröjning"
 
 #: themes/default/templates/files.html.ep:8
 msgid "Only the files sent with this browser will be listed here. This list is stored in localStorage: if you delete your localStorage data, you'll lose this list."
@@ -469,7 +471,7 @@ msgstr ""
 
 #: themes/default/templates/about.html.ep:5
 msgid "Privacy"
-msgstr ""
+msgstr "Personuppgiftsskydd"
 
 #: themes/default/templates/files.html.ep:13
 msgid "Purge expired files from localStorage"
@@ -519,11 +521,13 @@ msgstr "Skicka från din egen e-posttjänst"
 #: themes/default/templates/partial/index.js.ep:29
 msgid "Sending part XX1 of XX2. Please, be patient, the progress bar can take a while to move."
 msgstr ""
+"Överför del XX1 av XX2. Det kan ta en stund  innan statsindikatorn börjar "
+"röra sig."
 
 #. (url_for('/')
 #: themes/default/templates/partial/mail.js.ep:48
 msgid "Share your files in total privacy on %1"
-msgstr ""
+msgstr "Dela dina filer helt skyddat med %1"
 
 #: themes/default/templates/invitations/my_invitations.html.ep:13 themes/default/templates/partial/invitations.js.ep:9
 msgid "Show hidden invitations"
@@ -531,7 +535,7 @@ msgstr "Visa dolda inbjudningar"
 
 #: themes/default/templates/partial/render.js.ep:11
 msgid "Show zip content"
-msgstr ""
+msgstr "Visa ZIP-arkivets innehåll"
 
 #: themes/default/templates/layouts/default.html.ep:40 themes/default/templates/layouts/default.html.ep:73 themes/default/templates/login.html.ep:28 themes/default/templates/logout.html.ep:17
 msgid "Signin"
@@ -545,25 +549,27 @@ msgstr ""
 
 #: themes/default/templates/index.html.ep:46
 msgid "Sorry, the uploading is currently disabled. Please try again later."
-msgstr ""
+msgstr "Uppladdning är inte tillåtet för tillfället. Försök gärna igen senare."
 
 #: lib/Lufi/Controller/Files.pm:82
 msgid "Sorry, uploading is disabled."
-msgstr ""
+msgstr "Det går tyvärr inte att ladda upp för tillfället."
 
 #: themes/default/templates/invitations/exception.html.ep:7
 msgid "Sorry, your invitation has expired or has been deleted."
-msgstr ""
+msgstr "Din inbjudan har antingen gått ut eller raderats."
 
 #. ($invit->ldap_user_mail)
 #: lib/Lufi/Controller/Files.pm:122
 msgid "Sorry, your invitation has expired or has been deleted. Please contact %1 to have another invitation."
 msgstr ""
+"Din inbjudan har dessvärre gått ut eller raderats. Du kan kontakta %1 för "
+"att få en ny inbjudan."
 
 #. ($invitation->ldap_user_mail)
 #: lib/Lufi/Controller/Invitation.pm:276
 msgid "The URLs of your files have been sent by email to %1."
-msgstr ""
+msgstr "Länken till dina filer har skickats med e-post till %1."
 
 #: themes/default/templates/about.html.ep:7
 msgid "The administrator can only see the file's name, its size and its mimetype (what kind of file it is: video, text, etc.)."
@@ -596,11 +602,13 @@ msgstr ""
 
 #: lib/Lufi/Controller/Files.pm:468
 msgid "The file has already been deleted"
-msgstr ""
+msgstr "Filen har redan raderats"
 
 #: themes/default/templates/about.html.ep:6
 msgid "The files uploaded on a Lufi instance are encrypted before the upload to the server: the administrator of the server can not see the file's content."
 msgstr ""
+"Filerna krypteras innan de laddas upp till Lufi-serveren. Därför kan inte "
+"ens serverns administratör se filens innehåll."
 
 #. (join(', ', @bad)
 #: lib/Lufi/Controller/Mail.pm:68
@@ -620,30 +628,31 @@ msgstr ""
 #. ($i->token)
 #: lib/Lufi/Controller/Invitation.pm:130
 msgid "The invitation %1 has been deleted."
-msgstr ""
+msgstr "Inbjudan %1 har raderats."
 
 #. (stash('user_mail')
 #: themes/default/templates/invitations/invite.html.ep:34
 msgid "The invitation mail will be send from your email address (%1)."
-msgstr ""
+msgstr "Inbjudan kommer skickas från din e-postadress (%1)."
 
 #: themes/default/templates/partial/index.js.ep:16
 msgid "The link(s) has been copied to your clipboard"
-msgstr ""
+msgstr "Länkarna har kopierats till urklipp"
 
 #. (stash('invitation')
 #: themes/default/templates/index.html.ep:30
 msgid "The link(s) of your file(s) will automatically be sent by mail to %1 (%2)"
 msgstr ""
+"Länkarna till dina filer kommer skickas per e-post till %1 (%2) automatiskt"
 
 #. (stash('ldap_user')
 #: themes/default/templates/invitations/invite.mail.ep:11
 msgid "The links of your file(s) will automatically be sent by mail to %1."
-msgstr ""
+msgstr "Länkarna till dina filer kommer skickas till %1 automatiskt."
 
 #: lib/Lufi/Controller/Mail.pm:97
 msgid "The mail has been sent."
-msgstr ""
+msgstr "E-postmeddelandet har skickats."
 
 #: themes/default/templates/about.html.ep:15
 msgid "The original (and only for now) author is <a href=\"https://fiat-tux.fr\" class=\"classic\">Luc Didry</a>."
@@ -666,7 +675,7 @@ msgstr ""
 #. (stash('expires')
 #: themes/default/templates/invitations/invite.mail.ep:13
 msgid "This invitation is valid until %1."
-msgstr ""
+msgstr "Den här inbjudan är giltig tills %1."
 
 #: themes/default/templates/delays.html.ep:10
 msgid "This server sets limitations according to the file size. The expiration delay of your file will be the minimum between what you choose and the following limitations:"
@@ -688,6 +697,8 @@ msgstr "Kunde inte kopiera länkarna till urklipp"
 #: lib/Lufi/Controller/Files.pm:439
 msgid "Unable to get counter for %1. The file does not exists. It will be removed from your localStorage."
 msgstr ""
+"Kunde inte hämta räknaren för %1 eftersom filen inte existerar. Den kommer "
+"tas bort från ditt localStorage."
 
 #. ($short)
 #: lib/Lufi/Controller/Files.pm:429
@@ -705,7 +716,7 @@ msgstr "Ladda upp filer"
 
 #: themes/default/templates/index.html.ep:145
 msgid "Upload generated zip file"
-msgstr ""
+msgstr "Ladda upp det genererade ZIP-arkivet"
 
 #: themes/default/templates/files.html.ep:31
 msgid "Uploaded at"
@@ -717,7 +728,7 @@ msgstr "Uppladdade filer"
 
 #: themes/default/templates/partial/index.js.ep:30
 msgid "Websocket communication error"
-msgstr ""
+msgstr "Kommunikationsfel (websocket)"
 
 #: themes/default/templates/about.html.ep:3
 msgid "What is Lufi?"
@@ -738,10 +749,12 @@ msgstr ""
 #: themes/default/templates/about.html.ep:11
 msgid "You can see the list of your files by clicking on the \"My files\" link at the top right of this page."
 msgstr ""
+"Du kan se en lista över dina filer genom att klicka på länken ”Mina filer” "
+"längst upp till höger på den här sidan."
 
 #: lib/Lufi/Controller/Mail.pm:42
 msgid "You can't add URLs that are not related to this instance."
-msgstr ""
+msgstr "Du kan inte lägga in länkar som inte går till den här instansen."
 
 #: themes/default/templates/about.html.ep:8
 msgid "You don't need to register yourself to upload files but be aware that, for legal reasons, your IP address will be stored when you send a file. Don't panic, this is normally the case for all sites on which you send files."
