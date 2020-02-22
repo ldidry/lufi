@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "POT-Creation-Date: YEAR-MO-DA HO:MI+ZONE\n"
-"PO-Revision-Date: 2020-01-05 17:14+0000\n"
+"PO-Revision-Date: 2020-02-23 21:08+0000\n"
 "Last-Translator: Filip Bengtsson <filip@libreradio.org>\n"
 "Language-Team: Swedish <https://weblate.framasoft.org/projects/lufi/"
 "development/sv/>\n"
@@ -16,7 +16,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 3.9.1\n"
+"X-Generator: Weblate 3.11\n"
 
 #. ($delay)
 #. (max_delay)
@@ -209,6 +209,10 @@ msgstr "Nerladdningslänk"
 #: themes/default/templates/about.html.ep:10
 msgid "Drag and drop files in the appropriate area or use the traditional way to send files and the files will be chunked, encrypted and sent to the server. You will get two links per file: a download link, that you give to the people you want to share the file with and a deletion link, allowing you to delete the file whenever you want."
 msgstr ""
+"Drag och släpp filerna på ytan eller skicka dem på det traditionella viset, "
+"så kommer de buntas ihop, krypteras och skickas till servern. Du kommer få "
+"två länkar per fil: en nerladdningslänk att ge till dem du vill dela filen "
+"med och en länk för att radera filen, så att du kan ta bort den när du vill."
 
 #: themes/default/templates/index.html.ep:122
 msgid "Drop files here"
@@ -357,6 +361,8 @@ msgstr "Om du anger en fördröjning kommer filen raderas när den tiden gått u
 #: themes/default/templates/mail.html.ep:15
 msgid "If you send the mail from this server, the links will be sent to the server, which may lower your privacy protection."
 msgstr ""
+"Om du skickar meddelandet från den här servern måste länkarna skickas till "
+"servern, vilket kan försämra skyddet av din identitet."
 
 #: themes/default/templates/files.html.ep:14
 msgid "Import localStorage data"
@@ -411,7 +417,7 @@ msgstr "Logga ut"
 
 #: themes/default/templates/about.html.ep:4
 msgid "Lufi is a free (as in free speech) file hosting software."
-msgstr ""
+msgstr "Lufi är en fri (som i frihet) mjukvara för att dela filer."
 
 #: themes/default/templates/partial/files.js.ep:12
 msgid "Lufi recently changed its way to store files information.\\n\\nNo files have been found in the new localStorage location but we found files in the old one.\\nDo you want to import those informations?\\n\\nPlease note that this is the only time that we will ask you this."
