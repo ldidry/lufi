@@ -28,6 +28,8 @@ var i18n    = {
     noLimit:     '<%= l('No expiration delay') %>',
     sending:     '<%= l('Sending part XX1 of XX2. Please, be patient, the progress bar can take a while to move.') %>',
     wsProblem:   '<%= l('Websocket communication error') %>',
+    fileDownloaded: '<%= l('File downloaded') %>',
+    fileUploaded: '<%= l('File uploaded') %>',
 };
 var maxSize = <%= config('max_file_size') || 0 %>;
 
