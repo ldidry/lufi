@@ -95,6 +95,7 @@ function spawnWebsocket(pa) {
                 if (data.part + 1 === data.total) {
                     var blob = new Blob(a, {type: data.type});
 
+                    notify('File downloaded', data.name);
                     $('#please-wait').remove();
                     $('#loading').remove();
 
