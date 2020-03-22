@@ -12,7 +12,7 @@ msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "POT-Creation-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "PO-Revision-Date: 2020-03-22 11:51+0000\n"
-"Last-Translator: Luc Didry <luc@framasoft.org>\n"
+"Last-Translator: Quentin PAGÈS <quentinantonin@free.fr>\n"
 "Language-Team: Occitan <https://weblate.framasoft.org/projects/lufi/"
 "default-theme/oc/>\n"
 "Language: oc\n"
@@ -989,3 +989,11 @@ msgstr ""
 "installar sus vòstre pròpri servidor. Mercés de consultar lo <a href=\""
 "https://framagit.org/fiat-tux/hat-softwares/lufi/wikis/home\" class=\""
 "classic\">Wiki</a> per veire la procedura."
+
+#: themes/default/templates/partial/index.js.ep:24
+msgid "File uploaded"
+msgstr "Fichièr mandat"
+
+#: themes/default/templates/partial/render.js.ep:9
+msgid "File downloaded"
+msgstr "Fichièr telecargat"
