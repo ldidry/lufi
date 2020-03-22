@@ -1,5 +1,6 @@
 function notify(title, body) {
     if (!Notification) {
+        console.log("This browser does not support desktop notification, cannot send following message: "+title+" "+body);
         return;
     }
 
@@ -19,6 +20,7 @@ document.addEventListener('DOMContentLoaded', function () {
         return;
     }
 
-    if (Notification.permission !== "granted")
+    if (Notification.permission !== "granted") {
         Notification.requestPermission();
+    }
 });
