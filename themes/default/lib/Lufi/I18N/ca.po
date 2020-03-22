@@ -10,8 +10,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "POT-Creation-Date: YEAR-MO-DA HO:MI+ZONE\n"
-"PO-Revision-Date: 2019-11-18 10:05+0000\n"
-"Last-Translator: ButterflyOfFire <butterflyoffire@protonmail.com>\n"
+"PO-Revision-Date: 2020-01-01 17:14+0000\n"
+"Last-Translator: Francesc <francescgali@protonmail.com>\n"
 "Language-Team: Catalan <https://weblate.framasoft.org/projects/lufi/"
 "development/ca/>\n"
 "Language: ca\n"
@@ -127,7 +127,7 @@ msgstr "Token CSRF incorrect."
 
 #: themes/default/templates/partial/render.js.ep:5
 msgid "Click here to refresh the page and restart the download."
-msgstr "Premeu aquí per tal de refrescar la pàgina i reiniciar la descàrrega"
+msgstr "Premeu aquí per tal de refrescar la pàgina i reiniciar la descàrrega."
 
 #: themes/default/templates/invitations/invite.mail.ep:8
 msgid "Click on the following URL to upload files on Lufi:"
@@ -135,7 +135,7 @@ msgstr ""
 
 #: themes/default/templates/index.html.ep:126
 msgid "Click to open the file browser"
-msgstr "Premeu per obrir la selecció de fitxer."
+msgstr "Premeu per obrir el navegador de fitxers"
 
 #: themes/default/templates/delays.html.ep:38 themes/default/templates/invitations/my_invitations.html.ep:80
 msgid "Close"
@@ -235,7 +235,7 @@ msgstr ""
 
 #: themes/default/templates/index.html.ep:122
 msgid "Drop files here"
-msgstr "Deixeu anar aquí fitxers."
+msgstr "Deixeu anar aquí fitxers"
 
 #: themes/default/templates/invitations/invite.html.ep:40
 msgid "Email address of your guest"
@@ -477,7 +477,7 @@ msgstr ""
 #. (format_bytes($json->{size})
 #: lib/Lufi/Controller/Files.pm:108
 msgid "No enough space available on the server for this file (size: %1)."
-msgstr "No hi ha prou espai al servidor per a aquest fitxer (mida: %1)"
+msgstr "No hi ha prou espai al servidor per a aquest fitxer (mida: %1)."
 
 #: themes/default/templates/partial/files.js.ep:10 themes/default/templates/partial/index.js.ep:28
 msgid "No expiration delay"
@@ -522,7 +522,7 @@ msgstr "Privacitat"
 
 #: themes/default/templates/files.html.ep:13
 msgid "Purge expired files from localStorage"
-msgstr "Netegeu els fitxers expirats de l'emmagatzematge local."
+msgstr "Netegeu els fitxers expirats de l'emmagatzematge local"
 
 #: themes/default/templates/invitations/notification_files_sent.mail.ep:20
 msgid "Regards,"
@@ -605,7 +605,7 @@ msgstr ""
 
 #: lib/Lufi/Controller/Files.pm:82
 msgid "Sorry, uploading is disabled."
-msgstr "Disculpeu, les pujades estan deshabilitades"
+msgstr "Disculpeu, les pujades estan deshabilitades."
 
 #: themes/default/templates/invitations/exception.html.ep:7
 msgid "Sorry, your invitation has expired or has been deleted."
@@ -629,7 +629,7 @@ msgid ""
 "(what kind of file it is: video, text, etc.)."
 msgstr ""
 "L'administrador només pot veure el nom del fitxer, la seva mida i el seu\n"
-"mimetype (quina mena de fitxer és: vídeo, text, etc.)"
+"mimetype (quina mena de fitxer és: vídeo, text, etc.)."
 
 #: lib/Lufi/Controller/Mail.pm:53
 msgid ""
@@ -767,7 +767,7 @@ msgstr ""
 
 #: themes/default/templates/partial/index.js.ep:17
 msgid "Unable to copy the link(s) to your clipboard"
-msgstr "No s'han pogut copiar l'enllaç o els enllaços al porta-retalls."
+msgstr "No s'han pogut copiar l'enllaç o els enllaços al porta-retalls"
 
 #. ($short)
 #: lib/Lufi/Controller/Files.pm:439
