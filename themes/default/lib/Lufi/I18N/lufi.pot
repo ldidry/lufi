@@ -45,7 +45,7 @@ msgstr ""
 msgid "%A %d %B %Y at %T"
 msgstr ""
 
-#: themes/default/templates/partial/index.js.ep:27
+#: themes/default/templates/partial/index.js.ep:28
 msgid "(max size: XXX)"
 msgstr ""
 
@@ -90,7 +90,7 @@ msgid "As Lufi is a free software licensed under of the terms of the <a href=\"h
 msgstr ""
 
 #. (stash('nbslices')
-#: themes/default/templates/partial/render.js.ep:9
+#: themes/default/templates/partial/render.js.ep:10
 msgid "Asking for file part XX1 of %1"
 msgstr ""
 
@@ -254,8 +254,16 @@ msgstr ""
 msgid "File deleted"
 msgstr ""
 
+#: themes/default/templates/partial/render.js.ep:9
+msgid "File downloaded"
+msgstr ""
+
 #: themes/default/templates/files.html.ep:27
 msgid "File name"
+msgstr ""
+
+#: themes/default/templates/partial/index.js.ep:24
+msgid "File uploaded"
 msgstr ""
 
 #: themes/default/templates/invitations/my_invitations.html.ep:61
@@ -307,11 +315,11 @@ msgstr ""
 msgid "Hide hidden invitations"
 msgstr ""
 
-#: themes/default/templates/partial/index.js.ep:25
+#: themes/default/templates/partial/index.js.ep:26
 msgid "Hit Enter, then Ctrl+C to copy all the download links"
 msgstr ""
 
-#: themes/default/templates/partial/index.js.ep:24
+#: themes/default/templates/partial/index.js.ep:25
 msgid "Hit Enter, then Ctrl+C to copy the download link"
 msgstr ""
 
@@ -422,7 +430,7 @@ msgstr ""
 msgid "No enough space available on the server for this file (size: %1)."
 msgstr ""
 
-#: themes/default/templates/partial/files.js.ep:10 themes/default/templates/partial/index.js.ep:28
+#: themes/default/templates/partial/files.js.ep:10 themes/default/templates/partial/index.js.ep:29
 msgid "No expiration delay"
 msgstr ""
 
@@ -479,7 +487,7 @@ msgstr ""
 msgid "Rows in red mean that the files have expired and are no longer available."
 msgstr ""
 
-#: themes/default/templates/partial/index.js.ep:26
+#: themes/default/templates/partial/index.js.ep:27
 msgid "Send all links by email"
 msgstr ""
 
@@ -495,7 +503,7 @@ msgstr ""
 msgid "Send with your own mail software"
 msgstr ""
 
-#: themes/default/templates/partial/index.js.ep:29
+#: themes/default/templates/partial/index.js.ep:30
 msgid "Sending part XX1 of XX2. Please, be patient, the progress bar can take a while to move."
 msgstr ""
 
@@ -508,7 +516,7 @@ msgstr ""
 msgid "Show hidden invitations"
 msgstr ""
 
-#: themes/default/templates/partial/render.js.ep:11
+#: themes/default/templates/partial/render.js.ep:12
 msgid "Show zip content"
 msgstr ""
 
@@ -686,7 +694,7 @@ msgstr ""
 msgid "Uploaded files"
 msgstr ""
 
-#: themes/default/templates/partial/index.js.ep:30
+#: themes/default/templates/partial/index.js.ep:31
 msgid "Websocket communication error"
 msgstr ""
 
@@ -718,7 +726,7 @@ msgstr ""
 msgid "You don't need to register yourself to upload files but be aware that, for legal reasons, your IP address will be stored when you send a file. Don't panic, this is normally the case for all sites on which you send files."
 msgstr ""
 
-#: themes/default/templates/partial/render.js.ep:10
+#: themes/default/templates/partial/render.js.ep:11
 msgid "You don't seem to have a key in your URL. You won't be able to decrypt the file. Download canceled."
 msgstr ""
 
@@ -751,7 +759,7 @@ msgstr ""
 msgid "Your password is not valid. Please refresh the page to retry."
 msgstr ""
 
-#: themes/default/templates/partial/render.js.ep:12
+#: themes/default/templates/partial/render.js.ep:13
 msgid "Zip content:"
 msgstr ""
 
