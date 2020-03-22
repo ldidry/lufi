@@ -7,16 +7,16 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "POT-Creation-Date: YEAR-MO-DA HO:MI+ZONE\n"
-"PO-Revision-Date: 2020-02-23 21:08+0000\n"
-"Last-Translator: Filip Bengtsson <filip@libreradio.org>\n"
+"PO-Revision-Date: 2020-03-22 18:28+0000\n"
+"Last-Translator: Luc Didry <luc@framasoft.org>\n"
 "Language-Team: Swedish <https://weblate.framasoft.org/projects/lufi/"
-"development/sv/>\n"
+"default-theme/sv/>\n"
 "Language: sv\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 3.11\n"
+"X-Generator: Weblate 3.11.2\n"
 
 #. ($delay)
 #. (max_delay)
@@ -843,3 +843,19 @@ msgstr "eller"
 #: themes/default/templates/invitations/notification_files_sent.mail.ep:12
 msgid "— %1 (%2), that will expire on %3"
 msgstr "— %1 (%2), som går ut den %3"
+
+#: themes/default/templates/about.html.ep:18
+msgid "Get the source code on <a href=\"https://framagit.org/fiat-tux/hat-softwares/lufi\" class=\"classic\">the official repository</a> or on its <a href=\"https://github.com/ldidry/lufi\" class=\"classic\">Github mirror</a>"
+msgstr ""
+"Hämta källkoden från <a href=\"https://framagit.org/fiat-tux/hat-softwares/"
+"lufi\" class=\"classic\">det officiella arkivet</a> eller från <a href=\""
+"https://github.com/ldidry/lufi\" class=\"classic\">spegelsidan på Github</a>"
+
+#: themes/default/templates/about.html.ep:17
+msgid "As Lufi is a free software licensed under of the terms of the <a href=\"https://gnu.org/licenses/agpl.html\" class=\"classic\">AGPLv3</a>, you can install it on you own server. Have a look on the <a href=\"https://framagit.org/fiat-tux/hat-softwares/lufi/wikis/home\" class=\"classic\">Wiki</a> for the procedure."
+msgstr ""
+"Du kan installera Lufi på din egen server eftersom det är en fri mjukvara "
+"publicerad under licensen <a href=\"https://gnu.org/licenses/agpl.html\" "
+"class=\"classic\">AGPLv3</a>. Ta en titt på <a href=\"https://framagit.org/"
+"fiat-tux/hat-softwares/lufi/wikis/home\" class=\"classic\">wikin</a> för att "
+"se hur."
