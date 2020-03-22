@@ -1,5 +1,6 @@
 EXTRACTDIR=-D lib -D themes/default/templates
 POT=themes/default/lib/Lufi/I18N/lufi.pot
+ENPO=themes/default/lib/Lufi/I18N/en.po
 XGETTEXT=carton exec local/bin/xgettext.pl -u
 CARTON=carton exec
 REAL_LUFI=script/application
@@ -7,6 +8,7 @@ LUFI=script/lufi
 
 locales:
 	$(XGETTEXT) $(EXTRACTDIR) -o $(POT) 2>/dev/null
+	$(XGETTEXT) $(EXTRACTDIR) -o $(ENPO) 2>/dev/null
 
 podcheck:
 	podchecker lib/Lufi/DB/File.pm lib/Lufi/DB/Slice.pm
