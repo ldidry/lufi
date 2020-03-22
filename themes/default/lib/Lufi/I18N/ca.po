@@ -10,16 +10,16 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "POT-Creation-Date: YEAR-MO-DA HO:MI+ZONE\n"
-"PO-Revision-Date: 2020-01-01 17:14+0000\n"
-"Last-Translator: Francesc <francescgali@protonmail.com>\n"
+"PO-Revision-Date: 2020-03-22 18:29+0000\n"
+"Last-Translator: Luc Didry <luc@framasoft.org>\n"
 "Language-Team: Catalan <https://weblate.framasoft.org/projects/lufi/"
-"development/ca/>\n"
+"default-theme/ca/>\n"
 "Language: ca\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 3.9.1\n"
+"X-Generator: Weblate 3.11.2\n"
 
 #. ($delay)
 #. (max_delay)
@@ -628,7 +628,7 @@ msgid ""
 "The administrator can only see the file's name, its size and its mimetype "
 "(what kind of file it is: video, text, etc.)."
 msgstr ""
-"L'administrador només pot veure el nom del fitxer, la seva mida i el seu\n"
+"L'administrador només pot veure el nom del fitxer, la seva mida i el seu "
 "mimetype (quina mena de fitxer és: vídeo, text, etc.)."
 
 #: lib/Lufi/Controller/Mail.pm:53
@@ -942,3 +942,20 @@ msgstr "o"
 #: themes/default/templates/invitations/notification_files_sent.mail.ep:12
 msgid "— %1 (%2), that will expire on %3"
 msgstr ""
+
+#: themes/default/templates/about.html.ep:18
+msgid "Get the source code on <a href=\"https://framagit.org/fiat-tux/hat-softwares/lufi\" class=\"classic\">the official repository</a> or on its <a href=\"https://github.com/ldidry/lufi\" class=\"classic\">Github mirror</a>"
+msgstr ""
+"Obteniu el codi font al <a href=\"https://framagit.org/fiat-tux/"
+"hat-softwares/lufi\" class=\"classic\">repositori oficial</a> o a la seva <a "
+"href=\"https://github.com/ldidry/lufi\" class=\"classic\">rèplica a "
+"Github</a>"
+
+#: themes/default/templates/about.html.ep:17
+msgid "As Lufi is a free software licensed under of the terms of the <a href=\"https://gnu.org/licenses/agpl.html\" class=\"classic\">AGPLv3</a>, you can install it on you own server. Have a look on the <a href=\"https://framagit.org/fiat-tux/hat-softwares/lufi/wikis/home\" class=\"classic\">Wiki</a> for the procedure."
+msgstr ""
+"Com que Lufi és programari lliure, autoritzat sota els termes de l’<a href=\""
+"https://gnu.org/licenses/agpl.html\" class=\"classic\">AGPLv3</a>, el podeu "
+"instal·lar al vostre propi servidor. Pel que fa a com fer-ho, feu un cop "
+"d'ull al <a href=\"https://framagit.org/fiat-tux/hat-softwares/lufi/wikis/"
+"home\" class=\"classic\">Wiki</a>."
