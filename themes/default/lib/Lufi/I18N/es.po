@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "POT-Creation-Date: YEAR-MO-DA HO:MI+ZONE\n"
-"PO-Revision-Date: 2020-03-22 11:51+0000\n"
-"Last-Translator: Luc Didry <luc@framasoft.org>\n"
+"PO-Revision-Date: 2020-03-24 03:08+0000\n"
+"Last-Translator: Berto Te <ateira@3fpj.com>\n"
 "Language-Team: Spanish <https://weblate.framasoft.org/projects/lufi/"
 "default-theme/es/>\n"
 "Language: es\n"
@@ -22,7 +22,7 @@ msgstr ""
 #. (max_delay)
 #: themes/default/templates/index.html.ep:56 themes/default/templates/index.html.ep:65 themes/default/templates/index.html.ep:66
 msgid "%1 days"
-msgstr "%1 día"
+msgstr "%1 días"
 
 #. (stash('ldap_user')
 #: themes/default/templates/invitations/invite.mail.ep:2
@@ -909,3 +909,11 @@ msgstr ""
 "puedes instalarlo en tu propio servidor. Echa un vistazo a la <a href=\""
 "https://framagit.org/fiat-tux/hat-softwares/lufi/wikis/home\" class=\""
 "classic\">Wiki</a> para el procedimiento."
+
+#: themes/default/templates/partial/index.js.ep:24
+msgid "File uploaded"
+msgstr "Archivo enviado"
+
+#: themes/default/templates/partial/render.js.ep:9
+msgid "File downloaded"
+msgstr "Archivo descargado"
