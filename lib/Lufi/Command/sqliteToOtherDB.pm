@@ -1,5 +1,6 @@
 package Lufi::Command::sqliteToOtherDB;
 use Mojo::Base 'Mojolicious::Command';
+use Lufi::DB::BreakingChange;
 use Lufi::DB::File;
 use Lufi::DB::Slice;
 use Lufi::DB::Invitation;
@@ -9,7 +10,7 @@ use Term::ProgressBar;
 use Lufi::DefaultConfig qw($default_config);
 
 has description => 'Migrate the records from a SQLite db to the currently configured database';
-has usage => sub { shift->extract_usage };
+has usage       => sub { shift->extract_usage };
 
 sub run {
     my $c = shift;
@@ -36,8 +37,9 @@ sub run {
     my $files       = $sqlite->db->select('files', undef)->hashes;
     my $slices      = $sqlite->db->select('slices', undef)->hashes;
     my $invitations = $sqlite->db->select('invitations', undef)->hashes;
+    my $changes     = $sqlite->db->select('breakingchanges', undef)->hashes;
 
-    my $progress = Term::ProgressBar->new({count => $files->size + $slices->size + $invitations->size});
+    my $progress = Term::ProgressBar->new({count => $files->size + $slices->size + $invitations->size + $changes->size});
 
     $files->each(sub {
         my ($file, $num) = @_;
@@ -92,13 +94,22 @@ sub run {
                             ->write();
         $progress->update();
     });
+    $changes->each(sub {
+        my ($change, $num) = @_;
+
+        Lufi::DB::BreakingChange->new(app => $c->app)
+                                ->change($change->{change})
+                                ->ack($change->{ack})
+                                ->write();
+        $progress->update();
+    });
 }
 
 =encoding utf8
 
 =head1 NAME
 
-Lufi::Command::cron::sqliteToOtherDB Migrate the records from a SQLite db to the currently configured database
+Lufi::Command::sqliteToOtherDB Migrate the records from a SQLite db to the currently configured database
 
 =head1 SYNOPSIS
 

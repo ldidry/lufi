@@ -138,15 +138,15 @@ msgstr ""
 msgid "Copy to clipboard"
 msgstr ""
 
-#: lib/Lufi/Controller/Files.pm:507
+#: lib/Lufi/Controller/Files.pm:502
 msgid "Could not delete the file. You are not authenticated."
 msgstr ""
 
-#: lib/Lufi/Controller/Files.pm:489
+#: lib/Lufi/Controller/Files.pm:484
 msgid "Could not find the file. Are you sure of the URL and the token?"
 msgstr ""
 
-#: lib/Lufi/Controller/Files.pm:400
+#: lib/Lufi/Controller/Files.pm:395
 msgid "Could not find the file. Are you sure of the URL?"
 msgstr ""
 
@@ -222,15 +222,15 @@ msgstr ""
 msgid "Encrypting part XX1 of XX2"
 msgstr ""
 
-#: lib/Lufi/Controller/Files.pm:289
+#: lib/Lufi/Controller/Files.pm:284
 msgid "Error: the file existed but was deleted."
 msgstr ""
 
-#: lib/Lufi/Controller/Files.pm:369
+#: lib/Lufi/Controller/Files.pm:364
 msgid "Error: the file has not been sent entirely."
 msgstr ""
 
-#: lib/Lufi/Controller/Files.pm:379
+#: lib/Lufi/Controller/Files.pm:374
 msgid "Error: unable to find the file. Are you sure of your URL?"
 msgstr ""
 
@@ -250,7 +250,7 @@ msgstr ""
 msgid "Export localStorage data"
 msgstr ""
 
-#: lib/Lufi/Controller/Files.pm:471
+#: lib/Lufi/Controller/Files.pm:466
 msgid "File deleted"
 msgstr ""
 
@@ -426,7 +426,7 @@ msgid "Name of the zip file"
 msgstr ""
 
 #. (format_bytes($json->{size})
-#: lib/Lufi/Controller/Files.pm:108
+#: lib/Lufi/Controller/Files.pm:109
 msgid "No enough space available on the server for this file (size: %1)."
 msgstr ""
 
@@ -541,7 +541,7 @@ msgid "Sorry, your invitation has expired or has been deleted."
 msgstr ""
 
 #. ($invit->ldap_user_mail)
-#: lib/Lufi/Controller/Files.pm:122
+#: lib/Lufi/Controller/Files.pm:123
 msgid "Sorry, your invitation has expired or has been deleted. Please contact %1 to have another invitation."
 msgstr ""
 
@@ -575,7 +575,7 @@ msgstr ""
 msgid "The expiration delay (%1) is not between 1 and %2 days."
 msgstr ""
 
-#: lib/Lufi/Controller/Files.pm:468
+#: lib/Lufi/Controller/Files.pm:463
 msgid "The file has already been deleted"
 msgstr ""
 
@@ -630,11 +630,11 @@ msgstr ""
 msgid "The original (and only for now) author is <a href=\"https://fiat-tux.fr\" class=\"classic\">Luc Didry</a>."
 msgstr ""
 
-#: lib/Lufi/Controller/Files.pm:236
+#: lib/Lufi/Controller/Files.pm:231
 msgid "The server was unable to find the file record to add your file part to. Please, contact the administrator."
 msgstr ""
 
-#: lib/Lufi/Controller/Files.pm:295
+#: lib/Lufi/Controller/Files.pm:290
 msgid "This file has been deactivated by the admins. Contact them to know why."
 msgstr ""
 
@@ -664,17 +664,17 @@ msgid "Unable to copy the link(s) to your clipboard"
 msgstr ""
 
 #. ($short)
-#: lib/Lufi/Controller/Files.pm:439
+#: lib/Lufi/Controller/Files.pm:434
 msgid "Unable to get counter for %1. The file does not exists. It will be removed from your localStorage."
 msgstr ""
 
 #. ($short)
-#: lib/Lufi/Controller/Files.pm:429
+#: lib/Lufi/Controller/Files.pm:424
 msgid "Unable to get counter for %1. The token is invalid."
 msgstr ""
 
 #. ($short)
-#: lib/Lufi/Controller/Files.pm:449
+#: lib/Lufi/Controller/Files.pm:444
 msgid "Unable to get counter for %1. You are not authenticated."
 msgstr ""
 
@@ -755,7 +755,7 @@ msgstr ""
 msgid "Your file is too big: %1 (maximum size allowed: %2)"
 msgstr ""
 
-#: lib/Lufi/Controller/Files.pm:351
+#: lib/Lufi/Controller/Files.pm:346
 msgid "Your password is not valid. Please refresh the page to retry."
 msgstr ""
 

@@ -5,6 +5,7 @@ use Mojolicious::Sessions;
 use Email::Valid;
 use Data::Validate::URI qw(is_web_uri);
 use Lufi::DefaultConfig qw($default_config);
+use Lufi::DB::BreakingChange;
 
 $ENV{MOJO_MAX_WEBSOCKET_SIZE} = 100485760; # 10 * 1024 * 1024 = 10MiB
 
@@ -66,6 +67,11 @@ sub startup {
     # Helpers
     $self->plugin('Lufi::Plugin::Helpers');
 
+    # Now helpers has been loaded, time to check Swift container
+    if ($config->{swift}) {
+        $self->check_swift_container();
+    }
+
     # Recurrent task
     Mojo::IOLoop->recurring(2 => sub {
         my $loop = shift;
@@ -74,8 +80,30 @@ sub startup {
     });
 
     # Create directory if needed
-    mkdir($self->config('upload_dir'), 0700) unless (-d $self->config('upload_dir'));
-    die ('The upload directory ('.$self->config('upload_dir').') is not writable') unless (-w $self->config('upload_dir'));
+    if (!defined($config->{swift})) {
+        mkdir($self->config('upload_dir'), 0700) unless (-d $self->config('upload_dir'));
+        die ('The upload directory ('.$self->config('upload_dir').') is not writable') unless (-w $self->config('upload_dir'));
+    }
+
+    ## Handle breaking changes… but not when using the breakingchanges command line 😉
+    if (scalar(@ARGV) == 0 || $ARGV[0] ne 'breakingchanges') {
+        # We need to update existing files’ paths in DB to change them to paths relative to storage system (filesystem or Swift)
+        my $bc = Lufi::DB::BreakingChange->new(app => $self, change => 'files_paths');
+        if (!$bc->ack) {
+            print <<EOF;
+=======================================================================
+==                     WARNING! BREAKING CHANGE                      ==
+=======================================================================
+==                                                                   ==
+== You need to execute this command before being able to start Lufi: ==
+==                                                                   ==
+== carton exec ./script/lufi breakingchanges files_paths             ==
+==                                                                   ==
+=======================================================================
+EOF
+            exit 1;
+        }
+    }
 
     # Configure sessions
     my $sessions = Mojolicious::Sessions->new;

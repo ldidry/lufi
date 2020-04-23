@@ -100,7 +100,8 @@ sub upload {
                     }
                 }
                 # Check that we have enough space (multiplying by 2 since it's encrypted, it takes more place that the original file)
-                if ($json->{part} == 0 && ($json->{size} * 2) >= dfportable($c->config('upload_dir'))->{bavail}) {
+                # Only check if using filesystem, not Swift storage
+                if (!defined($c->config('swift')) && $json->{part} == 0 && ($json->{size} * 2) >= dfportable($c->config('upload_dir'))->{bavail}) {
                     $stop = 1;
                     return $ws->send(decode('UTF-8', encode_json(
                         {
@@ -190,19 +191,13 @@ sub upload {
                         # If we already have a part, it's a resend because the websocket has been broken
                         # In this case, we don't need to rewrite the file
                         unless ($f->slices->grep(sub { $_->j == $json->{part} })->size) {
-                            # Create directory
-                            my $dir = catdir($c->config('upload_dir'), $f->short);
-                            mkdir($dir, 0700) unless (-d $dir);
-
                             # Create slice file
-                            my $file = catfile($dir, $json->{part}.'.part');
                             my $s    = Lufi::DB::Slice->new(
                                 app   => $c->app,
                                 short => $f->short,
                                 j     => $json->{part},
-                                path  => $file
-                            );
-                            Mojo::File->new($file)->spurt($text);
+                                path  => catfile($f->short, $json->{part}.'.part')
+                            )->store($text);
                             push @{$f->slices}, $s;
                             $s->write;
 
@@ -327,7 +322,7 @@ sub download {
 
                             # Get the slice
                             my $e    = $f->slices->[$num];
-                            my $text = Mojo::File->new($e->path)->slurp;
+                            my $text = $e->retrieve();
 
                             my ($json2) = split('XXMOJOXX', $text, 2);
                             $json2 = decode 'UTF-8', $json2;

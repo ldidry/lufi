@@ -54,3 +54,11 @@ DROP TABLE invitations;
 ALTER TABLE files ALTER COLUMN filesize TYPE bigint;
 -- 5 down
 ALTER TABLE files ALTER COLUMN filesize TYPE integer;
+-- 6 up
+CREATE TABLE IF NOT EXISTS breakingchanges (
+       change                text PRIMARY KEY,
+       ack                   boolean
+);
+INSERT INTO breakingchanges (change, ack) VALUES ('files_paths', false);
+-- 6 down
+DROP TABLE breakingchanges;

@@ -7,6 +7,7 @@ use Mojolicious;
 use Test::More;
 use Test::Mojo;
 
+use Lufi::DB::BreakingChange;
 use Lufi::DB::File;
 use Lufi::DB::Slice;
 use FindBin qw($Bin);
@@ -74,8 +75,12 @@ BEGIN {
     $m->plugin('DebugDumperHelper');
 } ## end BEGIN
 
+Lufi::DB::BreakingChange->new(app => $m)->from_change('files_paths')->acknowledge;
 Lufi::DB::Slice->new(app => $m)->delete_all;
 Lufi::DB::File->new(app => $m)->delete_all;
+
+$config_file = Mojo::File->new($cfile->to_abs->to_string);
+$config_orig = $config_file->slurp;
 
 my $t = Test::Mojo->new('Lufi');
 
@@ -101,6 +106,12 @@ restore_config();
 switch_to_ldap();
 test_infos_api(true);
 auth_test_suite('zoidberg', 'zoidberg');
+restore_config();
+
+## Test Swift object storage
+switch_to_swift();
+test_upload_file();
+test_download_file();
 restore_config();
 
 done_testing();
@@ -263,9 +274,7 @@ sub restore_config {
 }
 
 sub switch_to_htpasswd {
-    $config_file    = Mojo::File->new($cfile->to_abs->to_string);
-    $config_content = $config_file->slurp;
-    $config_orig    = $config_content;
+    $config_content = $config_orig;
     $config_content =~ s/#?htpasswd.*/htpasswd => 't\/lufi.passwd',/gm;
     $config_file->spurt($config_content);
 
@@ -281,6 +290,20 @@ sub switch_to_htpasswd {
 sub switch_to_ldap {
     $config_content = $config_orig;
     $config_content =~ s/^( +)#?ldap => \{ uri/$1ldap => { uri/gm;
+    $config_file->spurt($config_content);
+
+    Lufi::DB::Slice->new(app => $m)->delete_all;
+    Lufi::DB::File->new(app => $m)->delete_all;
+
+    $t = Test::Mojo->new('Lufi');
+
+    ## Wait for short generation
+    sleep 5;
+}
+
+sub switch_to_swift {
+    $config_content = $config_orig;
+    $config_content =~ s/^( +)#?swift => \{ auth_url/$1swift => { auth_url/gm;
     $config_file->spurt($config_content);
 
     Lufi::DB::Slice->new(app => $m)->delete_all;

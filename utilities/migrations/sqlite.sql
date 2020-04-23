@@ -94,3 +94,11 @@ CREATE TABLE IF NOT EXISTS invitations (
 );
 -- 4 down
 DROP TABLE invitations;
+-- 5 up
+CREATE TABLE IF NOT EXISTS breakingchanges (
+       change               TEXT PRIMARY KEY,
+       ack                  INTEGER
+);
+INSERT INTO breakingchanges (change, ack) VALUES ('files_paths', 0);
+-- 5 down
+DROP TABLE breakingchanges;
