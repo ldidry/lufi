@@ -1,7 +1,7 @@
 # vim:set sw=4 ts=4 sts=4 ft=perl expandtab:
 use Mojo::Base -strict;
 use Mojo::File;
-use Mojo::JSON qw(to_json from_json true);
+use Mojo::JSON qw(to_json from_json true false);
 use Mojolicious;
 
 use Test::More;
@@ -87,16 +87,19 @@ $t->get_ok('/')
   ->status_is(200)
   ->content_like(qr@Lufi@i);
 
+test_infos_api(false);
 test_upload_file();
 test_download_file();
 
 ## Test htpasswd
 switch_to_htpasswd();
+test_infos_api(true);
 auth_test_suite('luc', 'toto');
 restore_config();
 
 ## Test LDAP
 switch_to_ldap();
+test_infos_api(true);
 auth_test_suite('zoidberg', 'zoidberg');
 restore_config();
 
@@ -105,6 +108,33 @@ done_testing();
 ######
 ### Functions
 ##
+sub test_infos_api {
+    my $auth = shift;
+
+    $t->get_ok('/about/config')
+      ->status_is(200)
+      ->json_has(
+          '/allow_pwd_on_files', '/need_authentication', '/max_delay',
+          '/instance_name',      '/broadcast_message',   '/max_file_size',
+          '/keep_ip_during',     '/report',              '/stop_upload',
+          '/delay_for_size',     '/default_delay',       '/force_burn_after_reading'
+      )
+      ->json_is(
+          '/allow_pwd_on_files'       => 1,
+          '/need_authentication'      => $auth,
+          '/max_delay'                => 0,
+          '/instance_name'            => 'Lufi',
+          '/broadcast_message'        => undef,
+          '/max_file_size'            => undef,
+          '/keep_ip_during'           => 365,
+          '/report'                   => 'mailto:report@example.com',
+          '/stop_upload'              => false,
+          '/delay_for_size'           => undef,
+          '/default_delay'            => 0,
+          '/force_burn_after_reading' => 0
+      );
+}
+
 sub test_upload_file {
     $t->websocket_ok('/upload/')
       ->send_ok($msg.'XXMOJOXX'.$encrypted)

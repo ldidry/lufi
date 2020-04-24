@@ -159,6 +159,11 @@ sub startup {
       ->to('Misc#about')
       ->name('about');
 
+    # About config API endpoint
+    $r->get('/about/config')
+      ->to('Misc#config_infos')
+      ->name('config');
+
     # Generated js files
     $r->get('/partial/:file')
       ->to('Misc#js_files')
