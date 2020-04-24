@@ -11,7 +11,7 @@ locales:
 	$(XGETTEXT) $(EXTRACTDIR) -o $(ENPO) 2>/dev/null
 
 podcheck:
-	podchecker lib/Lufi/DB/File.pm lib/Lufi/DB/Slice.pm
+	podchecker lib/Lufi/DB/File.pm lib/Lufi/DB/Slice.pm lib/Lufi/DB/Invitation.pm
 
 cover:
 	PERL5OPT='-Ilib/' HARNESS_PERL_SWITCHES='-MDevel::Cover' $(CARTON) cover --ignore_re '^local'
