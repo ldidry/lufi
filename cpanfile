@@ -58,6 +58,3 @@ feature 'mysql', 'MySQL support' => sub {
 feature 'swift-storage', 'Openstack Swift object storage support' => sub {
     requires 'Net::OpenStack::Swift';
 };
-feature 'test' => sub {
-    requires 'Devel::Cover';
-};
