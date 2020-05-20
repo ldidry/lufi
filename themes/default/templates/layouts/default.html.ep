@@ -1,8 +1,9 @@
 % # vim:set sw=4 ts=4 sts=4 ft=html.epl expandtab:
 % my $lang = $self->languages;
 %    $lang =~ s/-(.*)/_\U$1/;
+% my $body_class = ($lang eq 'ar') ? 'class="rtl"' : '';
 <!DOCTYPE html>
-<html>
+<html lang="<%= $lang %>">
     <head>
         <title><%= config('instance_name') %></title>
         <meta charset="utf-8">
@@ -17,86 +18,169 @@
         <link rel="apple-touch-icon" sizes="120x120" href="<%= url_for('/img/lufi120.png') %>">
         <link rel="apple-touch-icon" sizes="152x152" href="<%= url_for('/img/lufi152.png') %>">
         <link rel="apple-touch-icon-precomposed" sizes="128x128" href="<%= url_for('/img/lufi128.png') %>">
-        %= stylesheet '/css/materialize.min.css'
-        %= stylesheet '/css/lufi.css'
+        %= stylesheet '/css/tailwindcss.css'
         %= javascript '/js/ie-detection.js'
+        %= javascript '/js/alpine.min.js', defer => undef
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
     </head>
-    <body>
-        <nav class="cyan">
-            <div class="nav-wrapper container">
-                <a href="<%= url_for('/') %>" class="brand-logo">&nbsp;<img src="<%= url_for('/img/lufi-min.png') %>" alt="logo"> <%= config('instance_name') %></a>
-                <a href="#" data-activates="mobile" class="button-collapse"><i class="mdi-navigation-menu"></i></a>
-                <ul id="nav-mobile" class="right hide-on-med-and-down">
-                    <li><a href="<%= $self->config('report') %>"><%= l('Report file') %></a></li>
+    <body <%== $body_class %>>
+        <nav class="navbar" x-data="{ route: '<%= current_route %>', langDpdwn: false }">
+            <ul id="nav-mobile" class="flex">
+                    <li class="navbrand">
+                        <img src="<%= url_for('/img/lufi-min.png') %>" alt="logo" class="inline">
+                        <%= config('instance_name') %>
+                    </li>
+                    <li class="sm:hidden">
+                        <a href="#">
+                            %= include 'icons/hamburger.svg'
+                        </a>
+                    </li>
+                    <li>
+                        <a href="<%= $self->config('report') %>">
+                            <%= l('Report file') %>
+                        </a>
+                    </li>
                 % if ((!defined(config('ldap')) && !defined(config('htpasswd'))) || is_user_authenticated()) {
-                    <li<%== ' class="active"' if (current_route eq 'index') %>><a href="<%= url_for('/') %>"><%= l('Upload files') %></a></li>
-                    <li<%== ' class="active"' if (current_route eq 'files') %>><a href="<%= url_for('/files') %>"><%= l('My files') %></a></li>
+                    <li :class="{ 'active': route === 'index' }">
+                        <a href="<%= url_for('/') %>">
+                            <%= l('Upload files') %>
+                        </a>
+                    </li>
+                    <li :class="{ 'active': route === 'files' }">
+                        <a href="<%= url_for('/files') %>">
+                            <%= l('My files') %>
+                        </a>
+                    </li>
                     % if (defined config('ldap') && defined config('invitations')) {
-                        <li<%== ' class="active"' if (current_route eq 'invite') %>><a href="<%= url_for('/invite') %>"><%= l('Invite a guest') %></a></li>
-                        <li<%== ' class="active"' if (current_route eq 'invite/list') %>><a href="<%= url_for('/invite/list') %>"><%= l('My invitations') %></a></li>
+                        <li :class="{ 'active': route === 'invite' }">
+                            <a href="<%= url_for('/invite') %>">
+                                <%= l('Invite a guest') %>
+                            </a>
+                        </li>
+                        <li :class="{ 'active': route === 'invite/list' }">
+                            <a href="<%= url_for('/invite/list') %>">
+                                <%= l('My invitations') %>
+                            </a>
+                        </li>
                     % }
                 % } else {
-                    <li><a href="<%= url_for('/login') %>"><%= l('Signin') %></a></li>
-                % }
                     <li>
-                        <div class="input-field select-lang">
-                            <label class="hiddendiv"><%= l('Language') %></label>
-                            <select>
-                                <option value="" disabled selected><%= l('Language') %></option>
-                            % for my $i (@{$self->available_langs}) {
-                                <option value="<%= $i %>"><%= iso639_native_name($i) %></option>
-                            % }
-                            </select>
-                        </div>
+                        <a href="<%= url_for('/login') %>">
+                            <%= l('Signin') %>
+                        </a>
                     </li>
-                    <li<%== ' class="active"' if (current_route eq 'about') %>><a href="<%= url_for('/about') %>"><%= l('About') %></a></li>
+                % }
+                    <li :class="{ 'active': route === 'about' }">
+                        <a href="<%= url_for('/about') %>">
+                            <%= l('About') %>
+                        </a>
+                    </li>
                 % if ((defined(config('ldap')) || defined(config('htpasswd'))) && is_user_authenticated()) {
                     <li>
                         <form action="<%= url_for('/logout') %>" method="POST">
                             %= csrf_field
-                            <button class="btn-flat" type="submit"><%= l('Logout') %></button>
+                            <button class="btn-flat" type="submit">
+                                <%= l('Logout') %>
+                            </button>
                         </form>
                     </li>
                 % }
-                </ul>
-                <ul id="mobile" class="side-nav">
-                    <li><a href="<%= $self->config('report') %>"><%= l('Report file') %></a></li>
-                % if ((!defined(config('ldap')) && !defined(config('htpasswd'))) || is_user_authenticated()) {
-                    <li<%== ' class="active"' if (current_route eq 'index') %>><a href="<%= url_for('/') %>"><%= l('Upload files') %></a></li>
-                    <li<%== ' class="active"' if (current_route eq 'files') %>><a href="<%= url_for('/files') %>"><%= l('My files') %></a></li>
-                    % if (defined config('ldap') && defined config('invitations')) {
-                        <li<%== ' class="active"' if (current_route eq 'invite') %>><a href="<%= url_for('/invite') %>"><%= l('Invite a guest') %></a></li>
-                        <li<%== ' class="active"' if (current_route eq 'invite/list') %>><a href="<%= url_for('/invite/list') %>"><%= l('My invitations') %></a></li>
-                    % }
-                % } else {
-                    <li><a href="<%= url_for('/login') %>"><%= l('Signin') %></a></li>
-                % }
-                    <li>
-                        <div class="input-field select-lang-mobile">
-                            <label class="hiddendiv"><%= l('Language') %></label>
-                            <select>
-                                <option value="" disabled selected><%= l('Language') %></option>
-                            % for my $i (@{$self->available_langs}) {
-                                <option value="<%= $i %>"><%= iso639_native_name($i) %></option>
-                            % }
-                            </select>
-                        </div>
+                    <li class="lang-dropdown">
+                        <span
+                            @click="langDpdwn = !langDpdwn"
+                            @click.away="langDpdwn = false">
+                            %= include 'icons/meridian.svg'
+                            <%= l('Language') %>
+                            <span x-show="!langDpdwn">
+                                %= include 'icons/down.svg'
+                            </span>
+                            <span x-show="langDpdwn">
+                                %= include 'icons/up.svg'
+                            </span>
+                        </span>
+                        <ul x-show="langDpdwn">
+                        % for my $i (@{$self->available_langs}) {
+                            <li @click="changeLang('<%= $i %>')">
+                                <%= iso639_native_name($i) %>
+                            </li>
+                        % }
+                        </ul>
                     </li>
-                    <li<%== ' class="active"' if (current_route eq 'about') %>><a href="<%= url_for('/about') %>"><%= l('About') %></a></li>
-                % if ((defined(config('ldap')) || defined(config('htpasswd'))) && is_user_authenticated()) {
-                    <li>
-                        <form action="<%= url_for('/logout') %>" method="POST">
-                            %= csrf_field
-                            <button class="btn-flat" type="submit"><%= l('Logout') %></button>
-                        </form>
-                    </li>
-                % }
                 </ul>
-            </div>
+            </ul>
+%#            <div class="">
+%#                <a href="<%= url_for('/') %>" class="">&nbsp;<img src="<%= url_for('/img/lufi-min.png') %>" alt="logo"> <%= config('instance_name') %></a>
+%#                <a href="#" data-activates="mobile" class=""><i class=""></i></a>
+%#                <ul id="nav-mobiile" class="hidden">
+%#                    <li><a href="<%= $self->config('report') %>"><%= l('Report file') %></a></li>
+%#                % if ((!defined(config('ldap')) && !defined(config('htpasswd'))) || is_user_authenticated()) {
+%#                    <li<%== ' class="active"' if (current_route eq 'index') %>><a href="<%= url_for('/') %>"><%= l('Upload files') %></a></li>
+%#                    <li<%== ' class="active"' if (current_route eq 'files') %>><a href="<%= url_for('/files') %>"><%= l('My files') %></a></li>
+%#                    % if (defined config('ldap') && defined config('invitations')) {
+%#                        <li<%== ' class="active"' if (current_route eq 'invite') %>><a href="<%= url_for('/invite') %>"><%= l('Invite a guest') %></a></li>
+%#                        <li<%== ' class="active"' if (current_route eq 'invite/list') %>><a href="<%= url_for('/invite/list') %>"><%= l('My invitations') %></a></li>
+%#                    % }
+%#                % } else {
+%#                    <li><a href="<%= url_for('/login') %>"><%= l('Signin') %></a></li>
+%#                % }
+%#                    <li>
+%#                        <div class="input-field select-lang">
+%#                            <label class="hiddendiv"><%= l('Language') %></label>
+%#                            <select>
+%#                                <option value="" disabled selected><%= l('Language') %></option>
+%#                            % for my $i (@{$self->available_langs}) {
+%#                                <option value="<%= $i %>"><%= iso639_native_name($i) %></option>
+%#                            % }
+%#                            </select>
+%#                        </div>
+%#                    </li>
+%#                    <li<%== ' class="active"' if (current_route eq 'about') %>><a href="<%= url_for('/about') %>"><%= l('About') %></a></li>
+%#                % if ((defined(config('ldap')) || defined(config('htpasswd'))) && is_user_authenticated()) {
+%#                    <li>
+%#                        <form action="<%= url_for('/logout') %>" method="POST">
+%#                            %= csrf_field
+%#                            <button class="btn-flat" type="submit"><%= l('Logout') %></button>
+%#                        </form>
+%#                    </li>
+%#                % }
+%#                </ul>
+%#                <ul id="mobile" class="side-nav">
+%#                    <li><a href="<%= $self->config('report') %>"><%= l('Report file') %></a></li>
+%#                % if ((!defined(config('ldap')) && !defined(config('htpasswd'))) || is_user_authenticated()) {
+%#                    <li<%== ' class="active"' if (current_route eq 'index') %>><a href="<%= url_for('/') %>"><%= l('Upload files') %></a></li>
+%#                    <li<%== ' class="active"' if (current_route eq 'files') %>><a href="<%= url_for('/files') %>"><%= l('My files') %></a></li>
+%#                    % if (defined config('ldap') && defined config('invitations')) {
+%#                        <li<%== ' class="active"' if (current_route eq 'invite') %>><a href="<%= url_for('/invite') %>"><%= l('Invite a guest') %></a></li>
+%#                        <li<%== ' class="active"' if (current_route eq 'invite/list') %>><a href="<%= url_for('/invite/list') %>"><%= l('My invitations') %></a></li>
+%#                    % }
+%#                % } else {
+%#                    <li><a href="<%= url_for('/login') %>"><%= l('Signin') %></a></li>
+%#                % }
+%#                    <li>
+%#                        <div class="input-field select-lang-mobile">
+%#                            <label class="hiddendiv"><%= l('Language') %></label>
+%#                            <select>
+%#                                <option value="" disabled selected><%= l('Language') %></option>
+%#                            % for my $i (@{$self->available_langs}) {
+%#                                <option value="<%= $i %>"><%= iso639_native_name($i) %></option>
+%#                            % }
+%#                            </select>
+%#                        </div>
+%#                    </li>
+%#                    <li<%== ' class="active"' if (current_route eq 'about') %>><a href="<%= url_for('/about') %>"><%= l('About') %></a></li>
+%#                % if ((defined(config('ldap')) || defined(config('htpasswd'))) && is_user_authenticated()) {
+%#                    <li>
+%#                        <form action="<%= url_for('/logout') %>" method="POST">
+%#                            %= csrf_field
+%#                            <button class="btn-flat" type="submit"><%= l('Logout') %></button>
+%#                        </form>
+%#                    </li>
+%#                % }
+%#                </ul>
+%#            </div>
         </nav>
-        <div class="container">
-            %= javascript '/js/jquery-2.2.4.min.js'
+        <div class="w-full">
+            %#= javascript '/js/jquery-2.2.4.min.js'
             %= javascript '/partial/layout.js'
             %= javascript '/js/lufi-common.js'
             <%= content %>
@@ -104,7 +188,7 @@
 % if (defined(config('piwik_img'))) {
         <img src="<%== config('piwik_img') %>" class="no_border" alt="" />
 % }
-            %= javascript '/js/materialize.js'
-            %= javascript '/js/sidenav.js'
+            %#= javascript '/js/materialize.js'
+            %#= javascript '/js/sidenav.js'
     </body>
 </html>

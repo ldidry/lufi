@@ -1,42 +1,64 @@
 % # vim:set sts=4 sw=4 ts=4 ft=html.epl expandtab:
 
-<h2><%= l('My files') %></h2>
-<hr>
+<div class="block myfiles">
+    <h1><%= l('My files') %></h1>
+    <hr>
+    <p>
+        <%= l('Only the files sent with this browser will be listed here. This list is stored in localStorage: if you delete your localStorage data, you\'ll lose this list.') %><br>
+        <%= l('Rows in red mean that the files have expired and are no longer available.') %>
+    </p>
+    <div class="files-buttons">
+        <div class="btn">
+            <a href="#" id="exportStorage">
+                <%= l('Export localStorage data') %>
+            </a>
+        </div>
+        <div class="btn">
+            <a href="#" id="purgeExpired">
+                <%= l('Purge expired files from localStorage') %>
+            </a>
+        </div>
+        <div class="btn">
+            <a href="#" id="clickImport">
+                <%= l('Import localStorage data') %>
+            </a>
+        </div>
+        <div class="hidden">
+            <span class="file-field input-field">
+                <input type="file" id="import" onchange="importStorage(this.files)">
+            </span>
+        </div>
+        <div class="btn">
+            <a href="#" id="invertSelection">
+                <%= l('Invert selection') %>
+            </a>
+        </div>
+        <div class="btn disabled">
+            <a href="#" id="mass-delete">
+                <%= l('Delete selected files') %>
+            </a>
+        </div>
+    </div>
 
-
-<p>
-    <%= l('Only the files sent with this browser will be listed here. This list is stored in localStorage: if you delete your localStorage data, you\'ll lose this list.') %><br>
-    <%= l('Rows in red mean that the files have expired and are no longer available.') %>
-</p>
-<div class="files-buttons">
-    <a href="#" id="exportStorage"   class="btn left-mg cyan"><%= l('Export localStorage data') %></a>
-    <a href="#" id="purgeExpired"    class="btn left-mg cyan"><%= l('Purge expired files from localStorage') %></a>
-    <a href="#" id="clickImport"     class="btn left-mg cyan"><%= l('Import localStorage data') %></a>
-    <span class="file-field input-field">
-        <input type="file" id="import" onchange="importStorage(this.files)">
-    </span>
-    <a href="#" id="invertSelection" class="btn left-mg cyan"><%= l('Invert selection') %></a>
-    <a href="#" class="btn left-mg cyan disabled" id="mass-delete" disabled><%= l('Delete selected files') %></a>
-</div>
-
-<div>
-    <table class="responsive-table highlight striped">
-        <thead>
-            <tr>
-                <th class="center-align"></th>
-                <th class="center-align"><%= l('File name') %></th>
-                <th class="center-align"><%= l('Download link') %></th>
-                <th class="center-align"><%= l('Counter') %></th>
-                <th class="center-align"><%= l('Delete at first download?') %></th>
-                <th class="center-align"><%= l('Uploaded at') %></th>
-                <th class="center-align"><%= l('Expires at') %></th>
-                <th class="center-align"><%= l('Deletion link') %></th>
-                <th class="center-align"><%= l('Mail') %></th>
-            </tr>
-        </thead>
-        <tbody id="myfiles">
-        </tbody>
-    </table>
+    <div>
+        <table class="responsive-table highlight striped">
+            <thead>
+                <tr>
+                    <th class="center-align"></th>
+                    <th class="center-align"><%= l('File name') %></th>
+                    <th class="center-align"><%= l('Download link') %></th>
+                    <th class="center-align"><%= l('Counter') %></th>
+                    <th class="center-align"><%= l('Delete at first download?') %></th>
+                    <th class="center-align"><%= l('Uploaded at') %></th>
+                    <th class="center-align"><%= l('Expires at') %></th>
+                    <th class="center-align"><%= l('Deletion link') %></th>
+                    <th class="center-align"><%= l('Mail') %></th>
+                </tr>
+            </thead>
+            <tbody id="myfiles">
+            </tbody>
+        </table>
+    </div>
 </div>
 
 %= javascript '/partial/files.js.ep'

@@ -1,0 +1,20 @@
+% # vim:set sw=4 ts=4 sts=4 ft=html.epl expandtab:
+<div id="files" class="col s12 m12">
+    %= include 'icons/upload.svg'
+    <h2><%= l('Drop files here') %></h2>
+    <p id="max-file-size"></p>
+    <p>
+        <small><%= l('or') %></small>
+    </p>
+    <label>
+        <span id="file-browser-span" class="btn">
+            <%= l('Click to open the file browser') %>
+        </span>
+        <input
+            type="file"
+            id="file-browser-button"
+            class="hidden"
+            multiple
+            disabled>
+    </label>
+</div>

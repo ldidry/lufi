@@ -1,0 +1,240 @@
+@tailwind base;
+
+/* Recreate some normal files */
+h1 {
+    @apply text-2xl;
+}
+h2 {
+    @apply text-xl;
+}
+h3 {
+    @apply text-lg;
+}
+@tailwind components;
+
+/* Default */
+body {
+    @apply bg-cover;
+    background-image: repeating-linear-gradient(135deg, #00000033, #00000033 63%, transparent 63%, transparent),
+                      url('../img/backgrounds/only-komona.jpg');
+    @apply text-white;
+    @apply min-h-screen;
+}
+body > * {
+    @apply px-4;
+}
+body.rtl {
+    direction: rtl;
+}
+a {
+    @apply underline;
+    text-decoration-style: dotted;
+}
+select {
+    @apply appearance-none;
+    @apply block appearance-none w-full;
+    @apply border border-gray-200 rounded;
+}
+
+/* Navbar */
+.navbar {
+    @apply bg-gray-800 bg-opacity-75;
+    @apply w-full;
+    @apply text-base uppercase;
+}
+.navbar .navbrand {
+    @apply font-bold;
+}
+.navbar ul li.navbrand * {
+    @apply border-none;
+}
+.navbar ul li {
+    @apply px-2 py-1;
+}
+.navbar ul li * {
+    @apply align-middle;
+    @apply no-underline;
+    @apply border-solid border-gray-400 border-b-4;
+}
+.navbar ul li.active {
+    @apply font-bold;
+}
+.navbar ul li.active * {
+    @apply border-solid border-teal-400 border-b-4;
+    @apply no-underline;
+}
+.navbar ul li.lang-dropdown {
+    @apply relative;
+}
+.navbar ul li.lang-dropdown * {
+    @apply border-opacity-0;
+}
+.lang-dropdown span,
+.lang-dropdown li {
+    @apply cursor-pointer;
+}
+.lang-dropdown span {
+    display: ruby;
+}
+.navbar ul li.lang-dropdown ul {
+    @apply bg-gray-800 bg-opacity-100;
+    @apply absolute;
+    @apply mt-1;
+    white-space: nowrap;
+}
+/* Not index page */
+.block-div {
+    @apply bg-gray-900 bg-opacity-75;
+    @apply mt-4 p-4 w-auto mx-auto;
+    @apply grid grid-cols-1;
+    max-width: 60rem;
+}
+.block-div a {
+    @apply text-teal-200;
+}
+.block-div a:visited {
+    @apply text-purple-400;
+}
+
+/* My files page */
+.block-div.myfiles hr {
+    @apply mb-2;
+}
+.block-div.myfiles {
+    @apply leading-tight;
+}
+.files-buttons {
+    @apply my-4 grid grid-cols-1 gap-2;
+    @apply text-center;
+}
+@screen lg {
+    .files-buttons {
+        @apply mt-4 grid grid-cols-2;
+    }
+}
+.files-buttons .btn {
+    @apply w-full;
+}
+
+/* Index page */
+.upload {
+    @apply my-4 grid grid-cols-1 gap-2;
+}
+@screen lg {
+    .upload {
+        @apply mt-4 grid grid-cols-2;
+    }
+}
+@screen xl {
+    .upload {
+        @apply mt-4 grid grid-cols-3;
+    }
+    .upload #results {
+        @apply col-span-2;
+    }
+}
+.upload .upload-form {
+    @apply bg-gray-900 bg-opacity-75;
+    @apply rounded-md;
+    @apply p-4;
+}
+@screen md {
+    .upload .upload-form {
+        @apply leading-relaxed;
+    }
+}
+@screen lg {
+    .upload .upload-form {
+        @apply leading-loose;
+    }
+}
+.upload .upload-form select {
+    @apply leading-normal;
+}
+.upload .upload-form input {
+    @apply pl-2;
+    @apply leading-relaxed;
+}
+.upload .upload-form select,
+.upload .upload-form input,
+.upload .upload-form {
+    @apply bg-gray-700 bg-opacity-75;
+}
+.upload #results h1 {
+    @apply text-xl text-center;
+}
+.upload .upload-form .input-field {
+    @apply relative;
+}
+.upload .upload-form [type="checkbox"] {
+    @apply w-4 h-4;
+}
+
+.upload #files {
+    @apply text-center;
+    @apply mt-4 p-4;
+    @apply border-2 border-gray-200 border-dashed;
+}
+
+.upload #results {
+    @apply bg-gray-700 bg-opacity-75;
+    @apply rounded-md;
+    @apply p-4 mx-10;
+}
+
+/* Buttons */
+.btn,
+.btn a {
+    @apply text-white text-center no-underline !important;
+}
+.btn {
+    @apply bg-transparent;
+    @apply font-bold;
+    @apply py-1 px-2;
+    @apply border-2 border-teal-500 rounded;
+    @apply text-white text-center no-underline !important;
+}
+.btn:hover {
+    @apply bg-teal-800 bg-opacity-75;
+    @apply border-teal-800;
+}
+.btn.disabled {
+    @apply opacity-50 cursor-not-allowed;
+}
+
+/* Icons */
+svg {
+    @apply h-4 w-4;
+    @apply text-white;
+}
+svg.icon-hamburger {
+    @apply h-8 w-8;
+}
+svg.icon-infos {
+    @apply text-teal-200 inline-block;
+}
+svg.icon-upload {
+    @apply mx-auto;
+    @apply rounded-full border border-gray-200 border-8;
+    @apply h-32 w-32;
+    @apply text-gray-200;
+}
+
+/* Cards */
+.card {
+    @apply p-4 mt-4;
+}
+.card.mini {
+    @apply pl-1 pr-0 py-0 my-1;
+}
+.card.error {
+    @apply bg-orange-100;
+    @apply text-orange-700;
+    @apply border-l-4 border-orange-500;
+}
+.card.info {
+    @apply bg-blue-100;
+    @apply text-blue-700;
+    @apply border-l-4 border-blue-500;
+}
+@tailwind utilities;

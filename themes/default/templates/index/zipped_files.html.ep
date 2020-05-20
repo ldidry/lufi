@@ -1,0 +1,24 @@
+% # vim:set sw=4 ts=4 sts=4 ft=html.epl expandtab:
+<div id="zipping" class="hidden">
+    <div class="card">
+        <a href="#" id="reset-zipping">
+            <i class="right mdi-navigation-close small"></i>
+        </a>
+        <div class="card">
+            <span id="zip-name">documents.zip</span> (<span id="zip-size"></span>)
+            <p id="zip-compressing" class="hidden">
+                <button class="btn-floating pulse">
+                    <i class="mdi-content-archive"></i>
+                </button>
+                <%= l('Compressing zip file…') %>
+            </p>
+            <ul id="zip-parts">
+            </ul>
+            <div class="right-align">
+                <a href="#" id="uploadZip" class="btn">
+                    <%= l('Upload generated zip file') %>
+                </a>
+            </div>
+        </div>
+    </div>
+</div>

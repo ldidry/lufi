@@ -1,0 +1,40 @@
+% # vim:set sw=4 ts=4 sts=4 ft=html.epl expandtab:
+<div class="messages">
+% if (defined(config('broadcast_message'))) {
+    <div class="card error">
+        <strong>
+            <%= config('broadcast_message') %>
+        </strong>
+    </div>
+% }
+
+% if (stash('invitation')) {
+    <div class="card info">
+        <strong>
+            <%= l('The link(s) of your file(s) will automatically be sent by mail to %1 (%2)', stash('invitation')->ldap_user, stash('invitation')->ldap_user_mail) %>
+        </strong>
+    </div>
+% }
+
+% if (stop_upload) {
+    <div class="card error">
+        <strong>
+            <%= l('Sorry, the uploading is currently disabled. Please try again later.') %>
+        </strong>
+    </div>
+%   }
+
+    <noscript>
+        <div class="card error">
+            <strong>
+                <%= l('Javascript is disabled. You won\'t be able to use Lufi.') %>
+            </strong>
+        </div>
+    </noscript>
+
+    <div class="card error hidden" id="not-enough-entropy">
+        <strong>
+            <%= l('Your browser does not have enough entropy to generate a strong encryption key. Please wait (it\'s better if you do things on your computer while waiting).') %>
+        </strong>
+    </div>
+</div>
