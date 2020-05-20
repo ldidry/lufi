@@ -131,7 +131,7 @@ sub store {
             container_name => $c->app->config('swift')->{container},
             object_name    => $c->get_path(),
             content_length => length(Encode::encode_utf8($text)),
-            content        => $text
+            content        => Encode::encode_utf8($text)
         );
     } else {
         # Create directory
@@ -176,7 +176,7 @@ sub retrieve {
                 $file .= $chunk;
             }
         );
-        return $file;
+        return Encode::decode_utf8($file);
     } else {
         my $file = catfile($c->app->config('upload_dir'), $c->get_path());
         return Mojo::File->new($file)->slurp;

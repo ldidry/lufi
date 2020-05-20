@@ -13,18 +13,19 @@ use FindBin qw($Bin);
 
 my ($m, $cfile, $config_orig, $config_file, $config_content);
 
-my $msg = to_json {
+my $msg = Encode::encode_utf8(to_json {
     "total"             => 1,
     "part"              => 0,
     "size"              => 7,
-    "name"              => "foobar.txt",
+    "name"              => "foobaré.txt",
     "type"              => "text/plain",
     "delay"             => "0",
     "del_at_first_view" => 1,
     "id"                => undef,
     "zipped"            => 0,
     "i"                 => 0
-};
+});
+my $filename_test = Encode::encode_utf8('foobaré');
 my $encrypted     = '"{\\"iv\\":\\"2RGAviAeYybBqcLCmnqlgA==\\",\\"v\\":1,\\"iter\\":10000,\\"ks\\":128,\\"ts\\":64,\\"mode\\":\\"ccm\\",\\"adata\\":\\"\\",\\"cipher\\":\\"aes\\",\\"salt\\":\\"1dvKtbZ8hxA=\\",\\"ct\\":\\"w9wDZCwNSyH/yL7q1GW5fPSdi+w=\\"}"';
 my $encrypted_rgx = $encrypted;
 $encrypted_rgx    =~ s@\\@\\\\@g;
@@ -154,7 +155,7 @@ sub test_upload_file {
       ->message_like(qr@"duration":\d+@)
       ->message_like(qr@"i":0@)
       ->message_like(qr@"j":0@)
-      ->message_like(qr@"name":"foobar\.txt"@)
+      ->message_like(qr@"name":"$filename_test\.txt"@)
       ->message_like(qr@"parts":1@)
       ->message_like(qr@"sent_delay":0@)
       ->message_like(qr@"short":"[^"]+"@)
@@ -192,7 +193,7 @@ sub test_download_file {
       ->message_like(qr@"id":null@)
       ->message_like(qr@"del_at_first_view":1@)
       ->message_like(qr@"delay":"0"@)
-      ->message_like(qr@"name":"foobar\.txt"@)
+      ->message_like(qr@"name":"$filename_test\.txt"@)
       ->message_like(qr@"size":7@)
       ->message_like(qr@"type":"text\\/plain"@)
       ->message_like(qr@XXMOJOXX@)
