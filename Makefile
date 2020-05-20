@@ -30,6 +30,14 @@ ldap:
 
 ldapdev: ldap dev
 
+swift:
+	sudo docker run -d --rm -p 8080:8080 --hostname="picoswiftstack" --name="picoswiftstack" swiftstack/picoswiftstack; exit 0
+	@echo "Sleeping 20 seconds to let picoswiftstack start"
+	@sleep 20
+	sudo docker exec picoswiftstack get_auth
+
+swiftdev: swift dev
+
 devlog:
 	multitail log/development.log
 

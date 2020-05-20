@@ -1,13 +1,16 @@
 # vim:set sw=4 ts=4 sts=4 ft=perl expandtab:
 package Lufi::DB::Slice;
 use Mojo::Base -base;
+use Encode 'encode';
+use File::Spec::Functions;
 use Mojo::Collection 'c';
 
 has 'short';
 has 'j';
-has 'path';
 has 'record' => 0;
 has 'app';
+
+=encoding utf8
 
 =head1 NAME
 
@@ -27,8 +30,6 @@ Have a look at Lufi::DB::Slice::SQLite's code: it's simple and may be more under
 =item B<short> : string
 
 =item B<j>     : integer
-
-=item B<path>  : string
 
 =item B<app>   : A mojolicious object
 
@@ -96,15 +97,121 @@ sub write {
     my $c = shift;
 
     if ($c->record) {
-        $c->app->dbi->db->query('UPDATE slices SET short = ?, j = ?, path = ? WHERE short = ? AND j = ?', $c->short, $c->j, $c->path, $c->short, $c->j);
+        $c->app->dbi->db->query('UPDATE slices SET short = ?, j = ? WHERE short = ? AND j = ?', $c->short, $c->j, $c->short, $c->j);
     } else {
-        $c->app->dbi->db->query('INSERT INTO slices (short, j, path) VALUES (?, ?, ?)', $c->short, $c->j, $c->path);
+        $c->app->dbi->db->query('INSERT INTO slices (short, j) VALUES (?, ?)', $c->short, $c->j);
         $c->record(1);
     }
 
     return $c;
 }
 
+=head2 store
+
+=over 1
+
+=item B<Usage>     : C<$c-E<gt>store($text)>
+
+=item B<Arguments> : a scalar value
+
+=item B<Purpose>   : will store the content to the object's path, either on filesystem or on Swift object storage
+
+=item B<Returns>   : the db accessor object
+
+=back
+
+=cut
+
+sub store {
+    my $c    = shift;
+    my $text = shift;
+
+    if ($c->app->config('swift')) {
+        $c->app->swift->put_object(
+            container_name => $c->app->config('swift')->{container},
+            object_name    => $c->get_path(),
+            content_length => length(Encode::encode_utf8($text)),
+            content        => $text
+        );
+    } else {
+        # Create directory
+        my $dir = catfile($c->app->config('upload_dir'), $c->short);
+        mkdir($dir, 0700) unless (-d $dir);
+
+        # Write file
+        my $file = catfile($c->app->config('upload_dir'), $c->get_path());
+        Mojo::File->new($file)->spurt($text);
+    }
+
+    return $c;
+}
+
+=head2 retrieve
+
+=over 1
+
+=item B<Usage>     : C<$c-E<gt>retrieve>
+
+=item B<Arguments> : none
+
+=item B<Purpose>   : get file from storage, either filesystem or Swift object storage
+
+=item B<Returns>   : the data from the file
+
+=back
+
+=cut
+
+sub retrieve {
+    my $c      = shift;
+    my $upload = shift;
+
+    if ($c->app->config('swift')) {
+        my $file;
+        $c->app->swift->get_object(
+            container_name => $c->app->config('swift')->{container},
+            object_name    => $c->get_path(),
+            write_code => sub {
+                my ($status, $message, $headers, $chunk) = @_;
+                $file .= $chunk;
+            }
+        );
+        return $file;
+    } else {
+        my $file = catfile($c->app->config('upload_dir'), $c->get_path());
+        return Mojo::File->new($file)->slurp;
+    }
+}
+=head2 delete_file
+
+=over 1
+
+=item B<Usage>     : C<$c-E<gt>delete_file()>
+
+=item B<Arguments> : none
+
+=item B<Purpose>   : delete the file on filesystem or Swift object storage
+
+=item B<Returns>   : the db accessor object
+
+=back
+
+=cut
+
+sub delete_file {
+    my $c   = shift;
+
+    if ($c->app->config('swift')) {
+        $c->app->swift->delete_object({
+            container_name => $c->app->config('swift')->{container},
+            object_name    => $c->get_path()
+        });
+    } else {
+        my $file = catfile($c->app->config('upload_dir'), $c->get_path());
+        unlink $file or warn sprintf('Could not unlink %s: %s', $file, $!);
+    }
+    return $c;
+}
 =head2 get_slices_of_file
 
 =over 1
@@ -147,7 +254,7 @@ sub get_slices_of_file {
 
 =item B<Arguments> : none
 
-=item B<Purpose>   : delete all file records from database unconditionnally
+=item B<Purpose>   : delete all slices records from database unconditionnally
 
 =item B<Returns>   : nothing
 
@@ -159,6 +266,50 @@ sub delete_all {
     my $c = shift;
 
     $c->app->dbi->db->delete('slices');
+}
+
+=head2 path
+
+=over 1
+
+=item B<Usage>     : C<$c-E<gt>path()>
+
+=item B<Arguments> : non
+
+=item B<Purpose>   : format the path of the file, relative to the directory of the Swift object storage
+
+=item B<Returns>   : the path of the file
+
+=back
+
+=cut
+
+sub get_path {
+    my $c        = shift;
+
+    return catfile($c->short, sprintf('%d.part', $c->j));
+}
+
+=head2 count
+
+=over 1
+
+=item B<Usage>     : C<$c-E<gt>count()>
+
+=item B<Arguments> : none
+
+=item B<Purpose>   : get count of slices records from database
+
+=item B<Returns>   : integer
+
+=back
+
+=cut
+
+sub count {
+    my $c = shift;
+
+    return $c->app->dbi->db->query('SELECT count(*) AS count FROM slices')->hashes->first->{count};
 }
 
 =head2 _slurp
@@ -195,7 +346,6 @@ sub _slurp {
     if ($slice) {
         $c->short($slice->{short});
         $c->j($slice->{j});
-        $c->path($slice->{path});
 
         $c->record(1);
     }

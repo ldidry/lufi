@@ -54,3 +54,9 @@ DROP TABLE invitations;
 ALTER TABLE files ALTER COLUMN filesize TYPE bigint;
 -- 5 down
 ALTER TABLE files ALTER COLUMN filesize TYPE integer;
+-- 6 up
+ALTER TABLE slices ALTER COLUMN path DROP NOT NULL;
+ALTER TABLE slices DROP CONSTRAINT slices_path_key;
+-- 6 down
+ALTER TABLE slices ADD CONSTRAINT slices_path_key UNIQUE (path) ;
+ALTER TABLE slices ALTER COLUMN path SET NOT NULL;
