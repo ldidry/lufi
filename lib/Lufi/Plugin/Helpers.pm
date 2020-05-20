@@ -69,14 +69,15 @@ sub register {
     $app->helper(create_invitation_token => \&_create_invitation_token);
     $app->helper(is_guest                => \&_is_guest);
     $app->helper(get_date_lang           => \&_get_date_lang);
+    $app->helper(git_version             => \&_git_version);
 }
 
 sub _pg {
     my $c = shift;
 
-    my $pgdb  = $c->config('pgdb');
-    my $port  = (defined $pgdb->{port}) ? $pgdb->{port}: 5432;
-    my $addr  = $c->pg_url({
+    my $pgdb = $c->config('pgdb');
+    my $port = (defined $pgdb->{port}) ? $pgdb->{port}: 5432;
+    my $addr = $c->pg_url({
         host => $pgdb->{host}, port => $port, database => $pgdb->{database}, user => $pgdb->{user}, pwd => $pgdb->{pwd}
     });
     state $pg = Mojo::Pg->new($addr);
@@ -85,11 +86,11 @@ sub _pg {
 }
 
 sub _mysql {
-    my $c     = shift;
+    my $c = shift;
 
-    my $mysqldb  = $c->config('mysqldb');
-    my $port  = (defined $mysqldb->{port}) ? $mysqldb->{port}: 3306;
-    my $addr  = $c->pg_url({
+    my $mysqldb = $c->config('mysqldb');
+    my $port    = (defined $mysqldb->{port}) ? $mysqldb->{port}: 3306;
+    my $addr    = $c->pg_url({
         host => $mysqldb->{host}, port => $port, database => $mysqldb->{database}, user => $mysqldb->{user}, pwd => $mysqldb->{pwd}
     });
     $addr =~ s/postgresql/mysql/;
@@ -123,7 +124,7 @@ sub _provisioning {
 }
 
 sub _get_empty {
-    my $c =  shift;
+    my $c = shift;
 
     my $ldfile = Lufi::DB::File->new(app => $c->app)->get_empty;
 
@@ -219,7 +220,7 @@ my %date_langs = (
 );
 
 sub _get_date_lang {
-    my $c     = shift;
+    my $c = shift;
 
     my $l = $c->languages();
 
@@ -229,6 +230,20 @@ sub _get_date_lang {
     return Date::Language->new($date_langs{$l}) if $date_langs{$l};
 
     return Date::Language->new('English');
+}
+
+sub _git_version {
+    my $c = shift;
+
+    my $last_tag    = `git describe --abbrev=0`;
+    my $last_commit = `git rev-parse HEAD`;
+    chomp $last_tag;
+    chomp $last_commit;
+
+    return {
+        tag    => $last_tag,
+        commit => $last_commit
+    }
 }
 
 1;

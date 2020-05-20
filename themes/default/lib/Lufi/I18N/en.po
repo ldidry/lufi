@@ -94,7 +94,7 @@ msgstr "As Lufi is a free software licensed under of the terms of the <a href=\"
 msgid "Asking for file part XX1 of %1"
 msgstr "Asking for file part XX1 of %1"
 
-#: themes/default/templates/about.html.ep:20
+#: themes/default/templates/about.html.ep:23
 msgid "Back to homepage"
 msgstr "Back to homepage"
 
@@ -388,6 +388,16 @@ msgstr "Javascript is disabled. You won't be able to use Lufi."
 #: themes/default/templates/layouts/default.html.ep:44 themes/default/templates/layouts/default.html.ep:46 themes/default/templates/layouts/default.html.ep:77 themes/default/templates/layouts/default.html.ep:79
 msgid "Language"
 msgstr "Language"
+
+#. (sprintf('<a href="https://framagit.org/fiat-tux/hat-softwares/lufi/-/commit/%s" class="classic">%s</a>', stash('version')
+#: themes/default/templates/about.html.ep:22
+msgid "Latest commit of this instance: %1"
+msgstr "Latest commit of this instance: %1"
+
+#. (sprintf('<a href="https://framagit.org/fiat-tux/hat-softwares/lufi/-/releases/%s" class="classic">%s</a>', stash('version')
+#: themes/default/templates/about.html.ep:21
+msgid "Latest tag of this instance: %1"
+msgstr "Latest tag of this instance: %1"
 
 #: themes/default/templates/login.html.ep:15
 msgid "Login"
@@ -693,6 +703,10 @@ msgstr "Uploaded at"
 #: themes/default/templates/index.html.ep:153
 msgid "Uploaded files"
 msgstr "Uploaded files"
+
+#: themes/default/templates/about.html.ep:20
+msgid "Version"
+msgstr "Version"
 
 #: themes/default/templates/partial/index.js.ep:31
 msgid "Websocket communication error"

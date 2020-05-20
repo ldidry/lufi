@@ -94,7 +94,7 @@ msgstr ""
 msgid "Asking for file part XX1 of %1"
 msgstr ""
 
-#: themes/default/templates/about.html.ep:20
+#: themes/default/templates/about.html.ep:23
 msgid "Back to homepage"
 msgstr ""
 
@@ -387,6 +387,16 @@ msgstr ""
 
 #: themes/default/templates/layouts/default.html.ep:44 themes/default/templates/layouts/default.html.ep:46 themes/default/templates/layouts/default.html.ep:77 themes/default/templates/layouts/default.html.ep:79
 msgid "Language"
+msgstr ""
+
+#. (sprintf('<a href="https://framagit.org/fiat-tux/hat-softwares/lufi/-/commit/%s" class="classic">%s</a>', stash('version')
+#: themes/default/templates/about.html.ep:22
+msgid "Latest commit of this instance: %1"
+msgstr ""
+
+#. (sprintf('<a href="https://framagit.org/fiat-tux/hat-softwares/lufi/-/releases/%s" class="classic">%s</a>', stash('version')
+#: themes/default/templates/about.html.ep:21
+msgid "Latest tag of this instance: %1"
 msgstr ""
 
 #: themes/default/templates/login.html.ep:15
@@ -692,6 +702,10 @@ msgstr ""
 
 #: themes/default/templates/index.html.ep:153
 msgid "Uploaded files"
+msgstr ""
+
+#: themes/default/templates/about.html.ep:20
+msgid "Version"
 msgstr ""
 
 #: themes/default/templates/partial/index.js.ep:31

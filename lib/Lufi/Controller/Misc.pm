@@ -32,7 +32,12 @@ sub change_lang {
 }
 
 sub about {
-    shift->render(template => 'about');
+    my $c = shift;
+
+    $c->render(
+        template => 'about',
+        version  => $c->git_version
+    );
 }
 
 sub config_infos {
@@ -52,6 +57,7 @@ sub config_infos {
             keep_ip_during           => $c->config('keep_ip_during'),
             stop_upload              => (-f 'stop-upload' || -f 'stop-upload.manual') ? true : false,
             need_authentication      => (defined($c->config('ldap')) || defined($c->config('htpasswd'))) ? true : false,
+            version                  => $c->git_version
         }
     );
 }
