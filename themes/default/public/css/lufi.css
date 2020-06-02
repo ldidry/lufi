@@ -1,3 +1,6 @@
+body {
+    background-color: #ffffff;
+}
 #files {
     border: 2px dashed #BBB;
     border-radius: 5px;

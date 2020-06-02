@@ -477,6 +477,8 @@ function updateProgressBar(data) {
                     console.log('Error on WebSocket connection but file has been fully send, so we don\'t care.');
                 }
 
+                notify(i18n.fileUploaded, data.name);
+
                 $('#parts-'+window.fc).remove();
                 var n       = $('#name-'+window.fc);
                 var s       = $('#size-'+window.fc);

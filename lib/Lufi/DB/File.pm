@@ -148,13 +148,37 @@ sub delete {
 
     $c->slices->each(sub {
         my ($e, $num) = @_;
-        unlink $e->path;
+        $e->delete_file();
     });
-    rmdir Mojo::File->new($c->app->config('upload_dir'), $c->short);
-    $c->deleted(1);
+    $c->delete_path
+      ->deleted(1)
+      ->write;
 
-    $c->write;
+    return $c;
+}
 
+=head2 delete_path
+
+=over 1
+
+=item B<Usage>     : C<$c-E<gt>delete_path()>
+
+=item B<Arguments> : none
+
+=item B<Purpose>   : delete the directory of the slices on filesystem or Swift object storage
+
+=item B<Returns>   : the db accessor object
+
+=back
+
+=cut
+
+sub delete_path {
+    my $c = shift;
+
+    if (!defined($c->app->config('swift'))) {
+        rmdir Mojo::File->new($c->app->config('upload_dir'), $c->short);
+    }
     return $c;
 }
 

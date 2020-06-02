@@ -5,15 +5,16 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "POT-Creation-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"PO-Revision-Date: 2020-03-22 18:29+0000\n"
+"Last-Translator: Luc Didry <luc@framasoft.org>\n"
+"Language-Team: German <https://weblate.framasoft.org/projects/lufi/"
+"default-theme/de/>\n"
+"Language: de\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"PO-Revision-Date: 2019-08-14 04:09+0000\n"
-"Last-Translator: Copied by Zanata <copied-by-zanata@zanata.org>\n"
-"Language-Team: German\n"
-"Language: de\n"
-"X-Generator: Zanata 4.6.2\n"
-"Plural-Forms: nplurals=2; plural=(n != 1)\n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
+"X-Generator: Weblate 3.11.2\n"
 
 #. ($delay)
 #. (max_delay)
@@ -149,7 +150,7 @@ msgstr "Kommagetrennte E-Mail-Adressen"
 
 #: themes/default/templates/index.html.ep:140
 msgid "Compressing zip file…"
-msgstr "Komprimierung der Zip-Datei..."
+msgstr "Komprimierung der Zip-Datei…"
 
 #: themes/default/templates/partial/index.js.ep:15
 msgid "Copy all links to clipboard"
@@ -312,7 +313,7 @@ msgstr "Dateien gesendet am"
 
 #: themes/default/templates/partial/invitations.js.ep:8
 msgid "Files sent in invitation XX1 by XX2"
-msgstr "Dateien, die in der Einladung XX1 von XX2 gesendet wurden."
+msgstr "Dateien, die in der Einladung XX1 von XX2 gesendet wurden"
 
 #: themes/default/templates/partial/render.js.ep:8
 msgid "Get the file"
@@ -325,8 +326,8 @@ msgid ""
 "com/ldidry/lufi\" class=\"classic\">Github mirror</a>"
 msgstr ""
 "Holen Sie sich den Quellcode vom <a href=\"https://framagit.org/luc/lufi\" "
-"class=\"classic\">offiziellen Repository</a> oder von dessen <a href=\"https:"
-"//github.com/ldidry/lufi\" class=\"classic\">Github mirror</a>."
+"class=\"classic\">offiziellen Repository</a> oder von dessen <a href=\""
+"https://github.com/ldidry/lufi\" class=\"classic\">Github mirror</a>"
 
 #: themes/default/templates/invitations/my_invitations.html.ep:24
 msgid "Guest mail"
@@ -457,10 +458,13 @@ msgid ""
 "is the only time that we will ask you this."
 msgstr ""
 "Die Art und Weise wie Lufi Datei-Informationen speichert, wurde kürzlich "
-"geändert.\\n\\n Am neuen localStorage-Speicherort konnten keine Dateien "
-"gefunden werden, allerdings wurden Dateien am alten Speicherort gefunden."
-"\\nWollen Sie diese Informationen importieren?\\nBitte beachten Sie, dass "
-"diese Meldung nur ein einziges Mal angezeigt wird."
+"geändert.\\n"
+"\\n"
+"Am neuen localStorage-Speicherort konnten keine Dateien gefunden werden, "
+"allerdings wurden Dateien am alten Speicherort gefunden.\\n"
+"Wollen Sie diese Informationen importieren?\\n"
+"\\n"
+"Bitte beachten Sie, dass diese Meldung nur ein einziges Mal angezeigt wird."
 
 #: themes/default/templates/files.html.ep:34
 msgid "Mail"
@@ -720,14 +724,14 @@ msgstr "Die Einladungsmail wird von Ihrer E-Mail-Adresse (%1) gesendet."
 
 #: themes/default/templates/partial/index.js.ep:16
 msgid "The link(s) has been copied to your clipboard"
-msgstr "Die Links wurden in die Zwischenablage kopiert."
+msgstr "Die Links wurden in die Zwischenablage kopiert"
 
 #. (stash('invitation')
 #: themes/default/templates/index.html.ep:30
 msgid ""
 "The link(s) of your file(s) will automatically be sent by mail to %1 (%2)"
 msgstr ""
-"Die Links Ihrer Dateien werden automatisch per E-Mail an %1 (%2) gesendet."
+"Die Links Ihrer Dateien werden automatisch per E-Mail an %1 (%2) gesendet"
 
 #. (stash('ldap_user')
 #: themes/default/templates/invitations/invite.mail.ep:11
@@ -947,7 +951,7 @@ msgstr "zwischen %1 und %2, wird die Datei für immer aufbewahrt."
 
 #: themes/default/templates/partial/mail.js.ep:42
 msgid "deadline: "
-msgstr "Frist:"
+msgstr "Frist: "
 
 #: themes/default/templates/partial/invitations.js.ep:5
 msgid "expires on XXX"
@@ -956,7 +960,7 @@ msgstr "Läuft ab am XXX"
 #. (format_bytes($keys[$i])
 #: themes/default/templates/delays.html.ep:26
 msgid "for %1 and more, the file will be kept %2 day(s)"
-msgstr "für %1 und mehr, wird die Datei %2 Tag(e) aufbewahrt."
+msgstr "für %1 und mehr, wird die Datei %2 Tag(e) aufbewahrt"
 
 #. (format_bytes($keys[$i])
 #: themes/default/templates/delays.html.ep:28
@@ -975,3 +979,21 @@ msgstr "oder"
 #: themes/default/templates/invitations/notification_files_sent.mail.ep:12
 msgid "— %1 (%2), that will expire on %3"
 msgstr "— %1 (%2), läuft ab am %3"
+
+#: themes/default/templates/about.html.ep:18
+msgid "Get the source code on <a href=\"https://framagit.org/fiat-tux/hat-softwares/lufi\" class=\"classic\">the official repository</a> or on its <a href=\"https://github.com/ldidry/lufi\" class=\"classic\">Github mirror</a>"
+msgstr ""
+"Holen Sie sich den Quellcode vom <a href=\"https://framagit.org/fiat-tux/"
+"hat-softwares/lufi\" class=\"classic\">offiziellen Repository</a> oder von "
+"dessen <a href=\"https://github.com/ldidry/lufi\" class=\"classic\">Github "
+"mirror</a>"
+
+#: themes/default/templates/about.html.ep:17
+msgid "As Lufi is a free software licensed under of the terms of the <a href=\"https://gnu.org/licenses/agpl.html\" class=\"classic\">AGPLv3</a>, you can install it on you own server. Have a look on the <a href=\"https://framagit.org/fiat-tux/hat-softwares/lufi/wikis/home\" class=\"classic\">Wiki</a> for the procedure."
+msgstr ""
+"Da es sich bei Lufi um eine freie Software handelt, die unter den edingungen "
+"der <a href=\"https://gnu.org/licenses/agpl.html\" class=\"classic\""
+">AGPLv3</a> lizenziert ist, können Sie sie auf Ihrem eigenen Server "
+"installieren. Werfen Sie einen Blick auf die <a href=\"https://framagit.org/"
+"fiat-tux/hat-softwares/lufi/wikis/home\" class=\"classic\">Wiki</a> für das "
+"Verfahren."

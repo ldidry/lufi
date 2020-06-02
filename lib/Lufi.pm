@@ -66,6 +66,12 @@ sub startup {
     # Helpers
     $self->plugin('Lufi::Plugin::Helpers');
 
+    # Now helpers has been loaded, time to check Swift container
+    if ($config->{swift}) {
+        $self->check_swift_container();
+        $self->log->info('EXPERIMENTAL Using Swift object storage');
+    }
+
     # Recurrent task
     Mojo::IOLoop->recurring(2 => sub {
         my $loop = shift;
@@ -74,8 +80,10 @@ sub startup {
     });
 
     # Create directory if needed
-    mkdir($self->config('upload_dir'), 0700) unless (-d $self->config('upload_dir'));
-    die ('The upload directory ('.$self->config('upload_dir').') is not writable') unless (-w $self->config('upload_dir'));
+    if (!defined($config->{swift})) {
+        mkdir($self->config('upload_dir'), 0700) unless (-d $self->config('upload_dir'));
+        die ('The upload directory ('.$self->config('upload_dir').') is not writable') unless (-w $self->config('upload_dir'));
+    }
 
     # Configure sessions
     my $sessions = Mojolicious::Sessions->new;
@@ -158,6 +166,11 @@ sub startup {
     $r->get('/about')
       ->to('Misc#about')
       ->name('about');
+
+    # About config API endpoint
+    $r->get('/about/config')
+      ->to('Misc#config_infos')
+      ->name('config');
 
     # Generated js files
     $r->get('/partial/:file')

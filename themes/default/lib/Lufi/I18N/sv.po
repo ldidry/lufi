@@ -3,413 +3,421 @@
 # This file is distributed under the same license as the PACKAGE package.
 # FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
 #
-#, fuzzy
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "POT-Creation-Date: YEAR-MO-DA HO:MI+ZONE\n"
-"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
-"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
-"Language-Team: LANGUAGE <LL@li.org>\n"
+"PO-Revision-Date: 2020-03-22 18:28+0000\n"
+"Last-Translator: Luc Didry <luc@framasoft.org>\n"
+"Language-Team: Swedish <https://weblate.framasoft.org/projects/lufi/"
+"default-theme/sv/>\n"
+"Language: sv\n"
 "MIME-Version: 1.0\n"
-"Content-Type: text/plain; charset=CHARSET\n"
+"Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
+"X-Generator: Weblate 3.11.2\n"
 
 #. ($delay)
 #. (max_delay)
 #: themes/default/templates/index.html.ep:56 themes/default/templates/index.html.ep:65 themes/default/templates/index.html.ep:66
 msgid "%1 days"
-msgstr ""
+msgstr "%1 dagar"
 
 #. (stash('ldap_user')
 #: themes/default/templates/invitations/invite.mail.ep:2
 msgid "%1 invites you to send him/her files"
-msgstr ""
+msgstr "%1 bjuder in dig att skicka filer till honom eller henne"
 
 #. (stash('ldap_user')
 #: themes/default/templates/invitations/invite.mail.ep:6
 msgid "%1 invites you to send him/her files through Lufi."
-msgstr ""
+msgstr "%1 bjuder in dig att skicka filer till honom eller henne via Lufi."
 
 #. (stash('invitation')
 #: themes/default/templates/invitations/notification_files_sent.mail.ep:4
 msgid "%1 sent you files"
-msgstr ""
+msgstr "% har skickat filer till dig"
 
 #. (stash('invitation')
 #: themes/default/templates/invitations/notification_files_sent.mail.ep:8
 msgid "%1 used your invitation to send you files:"
-msgstr ""
+msgstr "%1 utnyttjade din inbjudan för att  skicka filer till dig:"
 
 #: lib/Lufi/Controller/Invitation.pm:159 lib/Lufi/Controller/Invitation.pm:84 themes/default/templates/invitations/my_invitations.html.ep:51 themes/default/templates/invitations/my_invitations.html.ep:52 themes/default/templates/invitations/my_invitations.html.ep:53 themes/default/templates/invitations/notification_files_sent.mail.ep:12
 msgid "%A %d %B %Y at %T"
-msgstr ""
+msgstr "%A %d %B %Y klockan %T"
 
-#: themes/default/templates/partial/index.js.ep:28
+#: themes/default/templates/partial/index.js.ep:27
 msgid "(max size: XXX)"
-msgstr ""
+msgstr "(största tillåtna storlek: XXX)"
 
 #: themes/default/templates/index.html.ep:5
 msgid "1 year"
-msgstr ""
+msgstr "1 år"
 
 #: themes/default/templates/index.html.ep:4 themes/default/templates/index.html.ep:65
 msgid "24 hours"
-msgstr ""
+msgstr "24 timmar"
 
 #: themes/default/templates/partial/mail.js.ep:40
 msgid ":"
-msgstr ""
+msgstr ":"
 
 #: themes/default/templates/render.html.ep:42
 msgid "Abort"
-msgstr ""
+msgstr "Avbryt"
 
 #: themes/default/templates/layouts/default.html.ep:53 themes/default/templates/layouts/default.html.ep:86
 msgid "About"
-msgstr ""
+msgstr "Om"
 
 #: themes/default/templates/index.html.ep:107
 msgid "Add a password to file(s)"
-msgstr ""
+msgstr "Lösenordsskydda filerna"
 
 #: themes/default/templates/mail.html.ep:16
 msgid "Adding URLs not related to this Lufi instance to the mail body or subject is prohibited."
 msgstr ""
+"Det är inte tillåtet att infoga länkar i ämnesraden eller meddelandet som "
+"inte går till den här Lufi-instansen."
 
 #: themes/default/templates/partial/invitations.js.ep:3
 msgid "Are you sure you want to delete the selected invitations?"
-msgstr ""
+msgstr "Är du säker på att du vill radera de markerade inbjudningarna?"
 
 #: themes/default/templates/partial/invitations.js.ep:4
 msgid "Are you sure you want to resend the invitation mail for the selected invitations?"
-msgstr ""
+msgstr "Är du säker på att du vill skicka ut de markerade inbjudningarna igen?"
 
 #: themes/default/templates/about.html.ep:17
-msgid "As Lufi is a free software licensed under of the terms of the <a href=\"https://gnu.org/licenses/agpl.html\" class=\"classic\">AGPLv3</a>, you can install it on you own server. Have a look on the <a href=\"https://framagit.org/fiat-tux/hat-softwares/lufi/wikis/home\" class=\"classic\">Wiki</a> for the procedure."
+msgid "As Lufi is a free software licensed under of the terms of the <a href=\"https://gnu.org/licenses/agpl.html\" class=\"classic\">AGPLv3</a>, you can install it on you own server. Have a look on the <a href=\"https://framagit.org/luc/lufi/wikis/home\" class=\"classic\">Wiki</a> for the procedure."
 msgstr ""
+"Du kan installera Lufi på din egen server eftersom det är en fri mjukvara "
+"publicerad under licensen <a href=\"https://gnu.org/licenses/agpl.html\" "
+"class=\"classic\">AGPLv3</a>. Ta en titt på <a href=\"https://framagit.org/"
+"luc/lufi/wikis/home\" class=\"classic\">wikin</a> för att se hur."
 
 #. (stash('nbslices')
-#: themes/default/templates/partial/render.js.ep:10
+#: themes/default/templates/partial/render.js.ep:9
 msgid "Asking for file part XX1 of %1"
-msgstr ""
+msgstr "Frågar efter del XX1 av filen %1"
 
-#: themes/default/templates/about.html.ep:23
+#: themes/default/templates/about.html.ep:20
 msgid "Back to homepage"
-msgstr ""
+msgstr "Tillbaka till hemsidan"
 
 #: lib/Lufi/Controller/Mail.pm:25
 msgid "Bad CSRF token!"
-msgstr ""
+msgstr "Ogiltig CSRF-token!"
 
 #: lib/Lufi/Controller/Auth.pm:27 lib/Lufi/Controller/Auth.pm:49
 msgid "Bad CSRF token."
-msgstr ""
+msgstr "Ogiltig CSRF-token."
 
 #: themes/default/templates/partial/render.js.ep:5
 msgid "Click here to refresh the page and restart the download."
-msgstr ""
+msgstr "Klicka här för att uppdatera sidan och starta om nerladdningen."
 
 #: themes/default/templates/invitations/invite.mail.ep:8
 msgid "Click on the following URL to upload files on Lufi:"
-msgstr ""
+msgstr "Klicka på följande länk för att ladda upp filer till Lufi:"
 
 #: themes/default/templates/index.html.ep:126
 msgid "Click to open the file browser"
-msgstr ""
+msgstr "Klicka för att öppna filhanteraren"
 
 #: themes/default/templates/delays.html.ep:38 themes/default/templates/invitations/my_invitations.html.ep:80
 msgid "Close"
-msgstr ""
+msgstr "Stäng"
 
 #: themes/default/templates/mail.html.ep:23
 msgid "Comma-separated email addresses"
-msgstr ""
+msgstr "E-postadresser åtskilda av kommatecken"
 
 #: themes/default/templates/index.html.ep:140
 msgid "Compressing zip file…"
-msgstr ""
+msgstr "Komprimerar ZIP-arkiv …"
 
 #: themes/default/templates/partial/index.js.ep:15
 msgid "Copy all links to clipboard"
-msgstr ""
+msgstr "Kopiera alla länkar till urklipp"
 
 #: themes/default/templates/partial/index.js.ep:18
 msgid "Copy to clipboard"
-msgstr ""
+msgstr "Kopiera till urklipp"
 
-#: lib/Lufi/Controller/Files.pm:502
+#: lib/Lufi/Controller/Files.pm:507
 msgid "Could not delete the file. You are not authenticated."
-msgstr ""
+msgstr "Kunde inte radera filen. Du är inte behörig."
 
-#: lib/Lufi/Controller/Files.pm:484
+#: lib/Lufi/Controller/Files.pm:489
 msgid "Could not find the file. Are you sure of the URL and the token?"
-msgstr ""
+msgstr "Kunde inte hitta filen. Är du säker på att det är rätt länk och token?"
 
-#: lib/Lufi/Controller/Files.pm:395
+#: lib/Lufi/Controller/Files.pm:400
 msgid "Could not find the file. Are you sure of the URL?"
-msgstr ""
+msgstr "Kunde inte hitta filen. Är du säker på att det är rätt länk?"
 
 #: themes/default/templates/files.html.ep:29
 msgid "Counter"
-msgstr ""
+msgstr "Räknare"
 
 #: themes/default/templates/index.html.ep:100
 msgid "Create a zip archive with the files before uploading?"
-msgstr ""
+msgstr "Vill du skapa göra filerna till ett ZIP-arkiv innan de laddas upp?"
 
 #: themes/default/templates/invitations/my_invitations.html.ep:26
 msgid "Created at"
-msgstr ""
+msgstr "Skapad"
 
 #: themes/default/templates/invitations/my_invitations.html.ep:14
 msgid "Delete"
-msgstr ""
+msgstr "Radera"
 
 #: themes/default/templates/files.html.ep:30 themes/default/templates/index.html.ep:90
 msgid "Delete at first download?"
-msgstr ""
+msgstr "Radera efter första nerladdningen"
 
 #: themes/default/templates/files.html.ep:19
 msgid "Delete selected files"
-msgstr ""
+msgstr "Radera markerade filer"
 
 #: themes/default/templates/files.html.ep:33 themes/default/templates/partial/index.js.ep:19
 msgid "Deletion link"
-msgstr ""
+msgstr "Länk för radering"
 
 #: themes/default/templates/delays.html.ep:8
 msgid "Don't worry: if a user begins to download the file before the expiration and the download ends after the expiration, he will be able to get the file."
 msgstr ""
+"Oroa dig inte! Om en användare börjar ladda ner en fil innan dess "
+"utgångsdatum kommer hela filen kunna laddas ner, även om den skulle gå ut "
+"under tiden."
 
 #: themes/default/templates/partial/index.js.ep:21 themes/default/templates/render.html.ep:28
 msgid "Download"
-msgstr ""
+msgstr "Ladda ner"
 
 #: themes/default/templates/partial/render.js.ep:4
 msgid "Download aborted."
-msgstr ""
+msgstr "Nerladdning avbruten."
 
 #: themes/default/templates/files.html.ep:28 themes/default/templates/partial/index.js.ep:20
 msgid "Download link"
-msgstr ""
+msgstr "Nerladdningslänk"
 
 #: themes/default/templates/about.html.ep:10
 msgid "Drag and drop files in the appropriate area or use the traditional way to send files and the files will be chunked, encrypted and sent to the server. You will get two links per file: a download link, that you give to the people you want to share the file with and a deletion link, allowing you to delete the file whenever you want."
 msgstr ""
+"Drag och släpp filerna på ytan eller skicka dem på det traditionella viset, "
+"så kommer de buntas ihop, krypteras och skickas till servern. Du kommer få "
+"två länkar per fil: en nerladdningslänk att ge till dem du vill dela filen "
+"med och en länk för att radera filen, så att du kan ta bort den när du vill."
 
 #: themes/default/templates/index.html.ep:122
 msgid "Drop files here"
-msgstr ""
+msgstr "Släpp filer här"
 
 #: themes/default/templates/invitations/invite.html.ep:40
 msgid "Email address of your guest"
-msgstr ""
+msgstr "E-postadress till din gäst"
 
 #: themes/default/templates/mail.html.ep:39
 msgid "Email body"
-msgstr ""
+msgstr "E-postmeddelande"
 
 #: themes/default/templates/mail.html.ep:31
 msgid "Email subject"
-msgstr ""
+msgstr "Ämnesrad för e-post"
 
 #: themes/default/templates/mail.html.ep:25 themes/default/templates/mail.html.ep:27
 msgid "Emails"
-msgstr ""
+msgstr "E-postmeddelanden"
 
 #: themes/default/templates/partial/index.js.ep:22
 msgid "Encrypting part XX1 of XX2"
-msgstr ""
+msgstr "Krypterar del XX1 av XX1"
 
-#: lib/Lufi/Controller/Files.pm:284
+#: lib/Lufi/Controller/Files.pm:289
 msgid "Error: the file existed but was deleted."
-msgstr ""
+msgstr "Fel: filen fanns men har raderats nu."
 
-#: lib/Lufi/Controller/Files.pm:364
+#: lib/Lufi/Controller/Files.pm:369
 msgid "Error: the file has not been sent entirely."
-msgstr ""
+msgstr "Fel: hela filen har inte överförts."
 
-#: lib/Lufi/Controller/Files.pm:374
+#: lib/Lufi/Controller/Files.pm:379
 msgid "Error: unable to find the file. Are you sure of your URL?"
-msgstr ""
+msgstr "Fel: kunde inte hitta filen. Är du säker på att du har rätt länk?"
 
 #: themes/default/templates/partial/index.js.ep:23
 msgid "Expiration:"
-msgstr ""
+msgstr "Går ut:"
 
 #: themes/default/templates/invitations/my_invitations.html.ep:27
 msgid "Expire at"
-msgstr ""
+msgstr "Förfaller"
 
 #: themes/default/templates/files.html.ep:32
 msgid "Expires at"
-msgstr ""
+msgstr "Förfaller"
 
 #: themes/default/templates/files.html.ep:12
 msgid "Export localStorage data"
-msgstr ""
+msgstr "Exportera localStorage-data"
 
-#: lib/Lufi/Controller/Files.pm:466
+#: lib/Lufi/Controller/Files.pm:471
 msgid "File deleted"
-msgstr ""
-
-#: themes/default/templates/partial/render.js.ep:9
-msgid "File downloaded"
-msgstr ""
+msgstr "Fil raderad"
 
 #: themes/default/templates/files.html.ep:27
 msgid "File name"
-msgstr ""
-
-#: themes/default/templates/partial/index.js.ep:24
-msgid "File uploaded"
-msgstr ""
+msgstr "Filnamn"
 
 #: themes/default/templates/invitations/my_invitations.html.ep:61
 msgid "Files"
-msgstr ""
+msgstr "Filer"
 
 #: themes/default/templates/index.html.ep:80
 msgid "Files deleted at first download"
-msgstr ""
+msgstr "Filer raderade efter första nerladdning"
 
 #: themes/default/templates/invitations/my_invitations.html.ep:28
 msgid "Files sent at"
-msgstr ""
+msgstr "Filer skickade"
 
 #: themes/default/templates/partial/invitations.js.ep:8
 msgid "Files sent in invitation XX1 by XX2"
-msgstr ""
+msgstr "Filer skickade i inbjudan XX1 av XX2"
 
 #: themes/default/templates/partial/render.js.ep:8
 msgid "Get the file"
-msgstr ""
+msgstr "Hämta filen"
 
 #: themes/default/templates/about.html.ep:18
-msgid "Get the source code on <a href=\"https://framagit.org/fiat-tux/hat-softwares/lufi\" class=\"classic\">the official repository</a> or on its <a href=\"https://github.com/ldidry/lufi\" class=\"classic\">Github mirror</a>"
+msgid "Get the source code on <a href=\"https://framagit.org/luc/lufi\" class=\"classic\">the official repository</a> or on its <a href=\"https://github.com/ldidry/lufi\" class=\"classic\">Github mirror</a>"
 msgstr ""
+"Hämta källkoden från <a href=\"https://framagit.org/luc/lufi\" class=\""
+"classic\">det officiella arkivet</a> eller från <a href=\"https://github.com/"
+"ldidry/lufi\" class=\"classic\">spegelsidan på Github</a>"
 
 #: themes/default/templates/invitations/my_invitations.html.ep:24
 msgid "Guest mail"
-msgstr ""
+msgstr "E-postadress till gäst"
 
 #. (ucfirst(stash('invitation')
 #: themes/default/templates/invitations/notification_files_sent.mail.ep:6
 msgid "Hello %1,"
-msgstr ""
+msgstr "Hej %1,"
 
 #: themes/default/templates/invitations/invite.mail.ep:4
 msgid "Hello,"
-msgstr ""
+msgstr "Hej,"
 
 #: themes/default/templates/partial/mail.js.ep:35
 msgid "Hello,\\n\\nHere's some files I want to share with you:\\n"
 msgstr ""
+"Hej,\\n"
+"\\n"
+"Här är några filer jag vill dela med dig:\\n"
 
 #: themes/default/templates/mail.html.ep:35
 msgid "Here's some files"
-msgstr ""
+msgstr "Här är några filer"
 
 #: themes/default/templates/partial/invitations.js.ep:7
 msgid "Hide hidden invitations"
-msgstr ""
-
-#: themes/default/templates/partial/index.js.ep:26
-msgid "Hit Enter, then Ctrl+C to copy all the download links"
-msgstr ""
+msgstr "Visa inte dolda inbjudningar"
 
 #: themes/default/templates/partial/index.js.ep:25
-msgid "Hit Enter, then Ctrl+C to copy the download link"
+msgid "Hit Enter, then Ctrl+C to copy all the download links"
 msgstr ""
+"Tryck Enter och sedan Crtl+C för att kopiera samtliga nerladdningslänkar"
+
+#: themes/default/templates/partial/index.js.ep:24
+msgid "Hit Enter, then Ctrl+C to copy the download link"
+msgstr "Tryck Enter och sedan Crtl+C för att kopiera nerladdningslänken"
 
 #: themes/default/templates/about.html.ep:9
 msgid "How does it work?"
-msgstr ""
+msgstr "Hur fungerar det?"
 
 #: themes/default/templates/invitations/invite.html.ep:46
 msgid "How many days would you like the invitation to be valid?"
-msgstr ""
+msgstr "Hur många  dagar vill du att inbjudningen ska gälla?"
 
 #: themes/default/templates/about.html.ep:16
 msgid "How to install the software on my server?"
-msgstr ""
+msgstr "Hur kan jag installera den här mjukvaran på min server?"
 
 #: themes/default/templates/about.html.ep:12
 msgid "How to report an illegal file?"
-msgstr ""
+msgstr "Kan jag anmäla en olaglig fil?"
 
 #: themes/default/templates/delays.html.ep:7
 msgid "If you choose a delay, the file will be deleted after that delay."
-msgstr ""
+msgstr "Om du anger en fördröjning kommer filen raderas när den tiden gått ut."
 
 #: themes/default/templates/mail.html.ep:15
 msgid "If you send the mail from this server, the links will be sent to the server, which may lower your privacy protection."
 msgstr ""
+"Om du skickar meddelandet från den här servern måste länkarna skickas till "
+"servern, vilket kan försämra skyddet av din identitet."
 
 #: themes/default/templates/files.html.ep:14
 msgid "Import localStorage data"
-msgstr ""
+msgstr "Importera localStorage-data"
 
 #: themes/default/templates/index.html.ep:53
 msgid "Important: more information on delays"
-msgstr ""
+msgstr "Viktigt: mer information om fördröjningar"
 
 #: themes/default/templates/delays.html.ep:5
 msgid "Information about delays"
-msgstr ""
+msgstr "Information om fördröjningar"
 
 #: themes/default/templates/files.html.ep:18 themes/default/templates/invitations/my_invitations.html.ep:12
 msgid "Invert selection"
-msgstr ""
+msgstr "Omvänt val"
 
 #. ($i->guest_mail, $url)
 #: lib/Lufi/Controller/Invitation.pm:171
 msgid "Invitation resent to %1.<br> URL: %2"
-msgstr ""
+msgstr "Inbjudan har skickats till %1 igen.<br> Länk: %2"
 
 #. ($invitation->guest_mail, $url)
 #: lib/Lufi/Controller/Invitation.pm:87
 msgid "Invitation sent to %1.<br> URL: %2"
-msgstr ""
+msgstr "Inbjudan har skickats till %1.<br> Länk: %2"
 
 #: themes/default/templates/invitations/invite.html.ep:27 themes/default/templates/layouts/default.html.ep:36 themes/default/templates/layouts/default.html.ep:69
 msgid "Invite a guest"
-msgstr ""
+msgstr "Bjud in en gäst"
 
 #: themes/default/templates/partial/render.js.ep:6
 msgid "It seems that the key in your URL is incorrect. Please, verify your URL."
 msgstr ""
+"Det verkar som att nyckeln i adressen är ogiltig. Kontrollera gärna din länk."
 
 #: themes/default/templates/index.html.ep:12
 msgid "Javascript is disabled. You won't be able to use Lufi."
-msgstr ""
+msgstr "Javascript är inte påslaget, så du kommer inte kunna använda Lufi."
 
 #: themes/default/templates/layouts/default.html.ep:44 themes/default/templates/layouts/default.html.ep:46 themes/default/templates/layouts/default.html.ep:77 themes/default/templates/layouts/default.html.ep:79
 msgid "Language"
-msgstr ""
-
-#. (sprintf('<a href="https://framagit.org/fiat-tux/hat-softwares/lufi/-/commit/%s" class="classic">%s</a>', stash('version')
-#: themes/default/templates/about.html.ep:22
-msgid "Latest commit of this instance: %1"
-msgstr ""
-
-#. (sprintf('<a href="https://framagit.org/fiat-tux/hat-softwares/lufi/-/releases/%s" class="classic">%s</a>', stash('version')
-#: themes/default/templates/about.html.ep:21
-msgid "Latest tag of this instance: %1"
-msgstr ""
+msgstr "Språk"
 
 #: themes/default/templates/login.html.ep:15
 msgid "Login"
-msgstr ""
+msgstr "Logga in"
 
 #: themes/default/templates/layouts/default.html.ep:58 themes/default/templates/layouts/default.html.ep:91
 msgid "Logout"
-msgstr ""
+msgstr "Logga ut"
 
 #: themes/default/templates/about.html.ep:4
 msgid "Lufi is a free (as in free speech) file hosting software."
-msgstr ""
+msgstr "Lufi är en fri (som i frihet) mjukvara för att dela filer."
 
 #: themes/default/templates/partial/files.js.ep:12
 msgid "Lufi recently changed its way to store files information.\\n\\nNo files have been found in the new localStorage location but we found files in the old one.\\nDo you want to import those informations?\\n\\nPlease note that this is the only time that we will ask you this."
@@ -417,15 +425,15 @@ msgstr ""
 
 #: themes/default/templates/files.html.ep:34
 msgid "Mail"
-msgstr ""
+msgstr "E-post"
 
 #: themes/default/templates/files.html.ep:3 themes/default/templates/layouts/default.html.ep:34 themes/default/templates/layouts/default.html.ep:67
 msgid "My files"
-msgstr ""
+msgstr "Mina filer"
 
 #: themes/default/templates/invitations/my_invitations.html.ep:5 themes/default/templates/layouts/default.html.ep:37 themes/default/templates/layouts/default.html.ep:70
 msgid "My invitations"
-msgstr ""
+msgstr "Mina inbjudningar"
 
 #: themes/default/templates/invitations/notification_files_sent.mail.ep:17
 msgid "NB: this list includes the list of files that have already been sent to you."
@@ -433,16 +441,18 @@ msgstr ""
 
 #: themes/default/templates/index.html.ep:115
 msgid "Name of the zip file"
-msgstr ""
+msgstr "ZIP-arkivets namn"
 
 #. (format_bytes($json->{size})
-#: lib/Lufi/Controller/Files.pm:109
+#: lib/Lufi/Controller/Files.pm:108
 msgid "No enough space available on the server for this file (size: %1)."
 msgstr ""
+"Servern har inte tillräckligt med ledigt utrymme för den här filen (storlek: "
+"%1)."
 
-#: themes/default/templates/partial/files.js.ep:10 themes/default/templates/partial/index.js.ep:29
+#: themes/default/templates/partial/files.js.ep:10 themes/default/templates/partial/index.js.ep:28
 msgid "No expiration delay"
-msgstr ""
+msgstr "Ingen utgångsfördröjning"
 
 #: themes/default/templates/files.html.ep:8
 msgid "Only the files sent with this browser will be listed here. This list is stored in localStorage: if you delete your localStorage data, you'll lose this list."
@@ -450,12 +460,12 @@ msgstr ""
 
 #: themes/default/templates/index.html.ep:106 themes/default/templates/login.html.ep:21 themes/default/templates/render.html.ep:26
 msgid "Password"
-msgstr ""
+msgstr "Lösenord"
 
 #. (config('contact')
 #: themes/default/templates/about.html.ep:13
 msgid "Please contact the administrator: %1"
-msgstr ""
+msgstr "Kontakta gärna administratören: %1"
 
 #: themes/default/templates/render.html.ep:33
 msgid "Please wait while we are getting your file. We first need to download and decrypt all parts before you can get it."
@@ -467,136 +477,149 @@ msgstr ""
 
 #: themes/default/templates/about.html.ep:5
 msgid "Privacy"
-msgstr ""
+msgstr "Personuppgiftsskydd"
 
 #: themes/default/templates/files.html.ep:13
 msgid "Purge expired files from localStorage"
-msgstr ""
+msgstr "Ta bort gamla filer från localStorage"
 
 #: themes/default/templates/invitations/notification_files_sent.mail.ep:20
 msgid "Regards,"
-msgstr ""
+msgstr "Med vänliga hälsningar,"
 
 #: themes/default/templates/invitations/invite.mail.ep:15
 msgid "Regards."
-msgstr ""
+msgstr "Med vänliga hälsningar."
 
 #: themes/default/templates/layouts/default.html.ep:31 themes/default/templates/layouts/default.html.ep:64
 msgid "Report file"
-msgstr ""
+msgstr "Anmäl fil"
 
 #: themes/default/templates/invitations/my_invitations.html.ep:15
 msgid "Resend invitation mail"
-msgstr ""
+msgstr "Skicka inbjudning igen"
 
 #: themes/default/templates/invitations/my_invitations.html.ep:9
 msgid "Rows in purple mean that the invitations have expired."
-msgstr ""
+msgstr "Lila rad betyder att inbjudningen har gått ut."
 
 #: themes/default/templates/files.html.ep:9
 msgid "Rows in red mean that the files have expired and are no longer available."
 msgstr ""
+"Röd rad betyder att filen har gått ut och inte finns tillgänglig längre."
 
-#: themes/default/templates/partial/index.js.ep:27
+#: themes/default/templates/partial/index.js.ep:26
 msgid "Send all links by email"
-msgstr ""
+msgstr "Skicka alla länkar via e-post"
 
 #: themes/default/templates/invitations/invite.html.ep:50
 msgid "Send the invitation"
-msgstr ""
+msgstr "Skicka inbjudningen"
 
 #: themes/default/templates/mail.html.ep:46
 msgid "Send with this server"
-msgstr ""
+msgstr "Skicka från den här servern"
 
 #: themes/default/templates/mail.html.ep:47
 msgid "Send with your own mail software"
-msgstr ""
+msgstr "Skicka från din egen e-posttjänst"
 
-#: themes/default/templates/partial/index.js.ep:30
+#: themes/default/templates/partial/index.js.ep:29
 msgid "Sending part XX1 of XX2. Please, be patient, the progress bar can take a while to move."
 msgstr ""
+"Överför del XX1 av XX2. Det kan ta en stund  innan statsindikatorn börjar "
+"röra sig."
 
 #. (url_for('/')
 #: themes/default/templates/partial/mail.js.ep:48
 msgid "Share your files in total privacy on %1"
-msgstr ""
+msgstr "Dela dina filer helt skyddat med %1"
 
 #: themes/default/templates/invitations/my_invitations.html.ep:13 themes/default/templates/partial/invitations.js.ep:9
 msgid "Show hidden invitations"
-msgstr ""
+msgstr "Visa dolda inbjudningar"
 
-#: themes/default/templates/partial/render.js.ep:12
+#: themes/default/templates/partial/render.js.ep:11
 msgid "Show zip content"
-msgstr ""
+msgstr "Visa ZIP-arkivets innehåll"
 
 #: themes/default/templates/layouts/default.html.ep:40 themes/default/templates/layouts/default.html.ep:73 themes/default/templates/login.html.ep:28 themes/default/templates/logout.html.ep:17
 msgid "Signin"
-msgstr ""
+msgstr "Logga in"
 
 #: lib/Lufi/Controller/Invitation.pm:283 themes/default/templates/invitations/exception.html.ep:16
 msgid "Sorry, the invitation doesn’t exist. Are you sure you are on the right URL?"
 msgstr ""
+"Den här inbjudan existerar tyvärr inte. Är du säker på att du har kommit "
+"till rätt adress?"
 
 #: themes/default/templates/index.html.ep:46
 msgid "Sorry, the uploading is currently disabled. Please try again later."
-msgstr ""
+msgstr "Uppladdning är inte tillåtet för tillfället. Försök gärna igen senare."
 
 #: lib/Lufi/Controller/Files.pm:82
 msgid "Sorry, uploading is disabled."
-msgstr ""
+msgstr "Det går tyvärr inte att ladda upp för tillfället."
 
 #: themes/default/templates/invitations/exception.html.ep:7
 msgid "Sorry, your invitation has expired or has been deleted."
-msgstr ""
+msgstr "Din inbjudan har antingen gått ut eller raderats."
 
 #. ($invit->ldap_user_mail)
-#: lib/Lufi/Controller/Files.pm:123
+#: lib/Lufi/Controller/Files.pm:122
 msgid "Sorry, your invitation has expired or has been deleted. Please contact %1 to have another invitation."
 msgstr ""
+"Din inbjudan har dessvärre gått ut eller raderats. Du kan kontakta %1 för "
+"att få en ny inbjudan."
 
 #. ($invitation->ldap_user_mail)
 #: lib/Lufi/Controller/Invitation.pm:276
 msgid "The URLs of your files have been sent by email to %1."
-msgstr ""
+msgstr "Länken till dina filer har skickats med e-post till %1."
 
 #: themes/default/templates/about.html.ep:7
 msgid "The administrator can only see the file's name, its size and its mimetype (what kind of file it is: video, text, etc.)."
 msgstr ""
+"Administratören kan endast se filens namn, storlek och mime-typ (om det är "
+"en video, textfil eller något annat)."
 
 #: lib/Lufi/Controller/Mail.pm:53
 msgid "The body of the mail must contain at least one URL pointing to a file hosted on this instance."
 msgstr ""
+"E-postmeddelandet måste innehålla minst en länk till en fil som lagras på "
+"den här instansen."
 
 #: themes/default/templates/partial/files.js.ep:11
 msgid "The data has been successfully imported."
-msgstr ""
+msgstr "All data har importerats."
 
 #: lib/Lufi/Controller/Mail.pm:73
 msgid "The email body can't be empty."
-msgstr ""
+msgstr "E-postmeddelandet får inte lämnas tomt."
 
 #: lib/Lufi/Controller/Mail.pm:72
 msgid "The email subject can't be empty."
-msgstr ""
+msgstr "Ämnesraden får inte lämnas tom."
 
 #. ($expire_at, $max_expire_at)
 #: lib/Lufi/Controller/Invitation.pm:51
 msgid "The expiration delay (%1) is not between 1 and %2 days."
 msgstr ""
 
-#: lib/Lufi/Controller/Files.pm:463
+#: lib/Lufi/Controller/Files.pm:468
 msgid "The file has already been deleted"
-msgstr ""
+msgstr "Filen har redan raderats"
 
 #: themes/default/templates/about.html.ep:6
 msgid "The files uploaded on a Lufi instance are encrypted before the upload to the server: the administrator of the server can not see the file's content."
 msgstr ""
+"Filerna krypteras innan de laddas upp till Lufi-serveren. Därför kan inte "
+"ens serverns administratör se filens innehåll."
 
 #. (join(', ', @bad)
 #: lib/Lufi/Controller/Mail.pm:68
 msgid "The following email addresses are not valid: %1"
-msgstr ""
+msgstr "Följande e-postadresser är inte giltiga: %1"
 
 #. ($guest_mail)
 #: lib/Lufi/Controller/Invitation.pm:48
@@ -611,42 +634,45 @@ msgstr ""
 #. ($i->token)
 #: lib/Lufi/Controller/Invitation.pm:130
 msgid "The invitation %1 has been deleted."
-msgstr ""
+msgstr "Inbjudan %1 har raderats."
 
 #. (stash('user_mail')
 #: themes/default/templates/invitations/invite.html.ep:34
 msgid "The invitation mail will be send from your email address (%1)."
-msgstr ""
+msgstr "Inbjudan kommer skickas från din e-postadress (%1)."
 
 #: themes/default/templates/partial/index.js.ep:16
 msgid "The link(s) has been copied to your clipboard"
-msgstr ""
+msgstr "Länkarna har kopierats till urklipp"
 
 #. (stash('invitation')
 #: themes/default/templates/index.html.ep:30
 msgid "The link(s) of your file(s) will automatically be sent by mail to %1 (%2)"
 msgstr ""
+"Länkarna till dina filer kommer skickas per e-post till %1 (%2) automatiskt"
 
 #. (stash('ldap_user')
 #: themes/default/templates/invitations/invite.mail.ep:11
 msgid "The links of your file(s) will automatically be sent by mail to %1."
-msgstr ""
+msgstr "Länkarna till dina filer kommer skickas till %1 automatiskt."
 
 #: lib/Lufi/Controller/Mail.pm:97
 msgid "The mail has been sent."
-msgstr ""
+msgstr "E-postmeddelandet har skickats."
 
 #: themes/default/templates/about.html.ep:15
 msgid "The original (and only for now) author is <a href=\"https://fiat-tux.fr\" class=\"classic\">Luc Didry</a>."
 msgstr ""
 
-#: lib/Lufi/Controller/Files.pm:231
+#: lib/Lufi/Controller/Files.pm:236
 msgid "The server was unable to find the file record to add your file part to. Please, contact the administrator."
 msgstr ""
 
-#: lib/Lufi/Controller/Files.pm:290
+#: lib/Lufi/Controller/Files.pm:295
 msgid "This file has been deactivated by the admins. Contact them to know why."
 msgstr ""
+"Den här filen har avaktiverats av administratörerna. Kontakta dem för att få "
+"veta anledningen."
 
 #: themes/default/templates/invitations/my_invitations.html.ep:46 themes/default/templates/partial/invitations.js.ep:6
 msgid "This invitation is normally hidden"
@@ -655,7 +681,7 @@ msgstr ""
 #. (stash('expires')
 #: themes/default/templates/invitations/invite.mail.ep:13
 msgid "This invitation is valid until %1."
-msgstr ""
+msgstr "Den här inbjudan är giltig tills %1."
 
 #: themes/default/templates/delays.html.ep:10
 msgid "This server sets limitations according to the file size. The expiration delay of your file will be the minimum between what you choose and the following limitations:"
@@ -667,62 +693,60 @@ msgstr ""
 
 #: themes/default/templates/invitations/my_invitations.html.ep:25
 msgid "URL"
-msgstr ""
+msgstr "Länk"
 
 #: themes/default/templates/partial/index.js.ep:17
 msgid "Unable to copy the link(s) to your clipboard"
-msgstr ""
+msgstr "Kunde inte kopiera länkarna till urklipp"
 
 #. ($short)
-#: lib/Lufi/Controller/Files.pm:434
+#: lib/Lufi/Controller/Files.pm:439
 msgid "Unable to get counter for %1. The file does not exists. It will be removed from your localStorage."
 msgstr ""
+"Kunde inte hämta räknaren för %1 eftersom filen inte existerar. Den kommer "
+"tas bort från ditt localStorage."
 
 #. ($short)
-#: lib/Lufi/Controller/Files.pm:424
+#: lib/Lufi/Controller/Files.pm:429
 msgid "Unable to get counter for %1. The token is invalid."
-msgstr ""
+msgstr "Kunde inte ladda in räknaren för %1. Ogiltig token."
 
 #. ($short)
-#: lib/Lufi/Controller/Files.pm:444
+#: lib/Lufi/Controller/Files.pm:449
 msgid "Unable to get counter for %1. You are not authenticated."
-msgstr ""
+msgstr "Kunde inte ladda in räknaren för %1. Du är inte behörig."
 
 #: themes/default/templates/layouts/default.html.ep:33 themes/default/templates/layouts/default.html.ep:66
 msgid "Upload files"
-msgstr ""
+msgstr "Ladda upp filer"
 
 #: themes/default/templates/index.html.ep:145
 msgid "Upload generated zip file"
-msgstr ""
+msgstr "Ladda upp det genererade ZIP-arkivet"
 
 #: themes/default/templates/files.html.ep:31
 msgid "Uploaded at"
-msgstr ""
+msgstr "Uppladdad"
 
 #: themes/default/templates/index.html.ep:153
 msgid "Uploaded files"
-msgstr ""
+msgstr "Uppladdade filer"
 
-#: themes/default/templates/about.html.ep:20
-msgid "Version"
-msgstr ""
-
-#: themes/default/templates/partial/index.js.ep:31
+#: themes/default/templates/partial/index.js.ep:30
 msgid "Websocket communication error"
-msgstr ""
+msgstr "Kommunikationsfel (websocket)"
 
 #: themes/default/templates/about.html.ep:3
 msgid "What is Lufi?"
-msgstr ""
+msgstr "Vad är Lufi?"
 
 #: themes/default/templates/about.html.ep:14
 msgid "Who wrote this software?"
-msgstr ""
+msgstr "Vem skrev den här mjukvaran?"
 
 #: themes/default/templates/partial/index.js.ep:13
 msgid "XXX file has been added to upload queue."
-msgstr ""
+msgstr "Filen XXX har lagts till i uppladdningskön."
 
 #: themes/default/templates/invitations/invite.html.ep:30
 msgid "You can invite someone to send you files through this Lufi instance even if they don’t have an account on it."
@@ -731,16 +755,18 @@ msgstr ""
 #: themes/default/templates/about.html.ep:11
 msgid "You can see the list of your files by clicking on the \"My files\" link at the top right of this page."
 msgstr ""
+"Du kan se en lista över dina filer genom att klicka på länken ”Mina filer” "
+"längst upp till höger på den här sidan."
 
 #: lib/Lufi/Controller/Mail.pm:42
 msgid "You can't add URLs that are not related to this instance."
-msgstr ""
+msgstr "Du kan inte lägga in länkar som inte går till den här instansen."
 
 #: themes/default/templates/about.html.ep:8
 msgid "You don't need to register yourself to upload files but be aware that, for legal reasons, your IP address will be stored when you send a file. Don't panic, this is normally the case for all sites on which you send files."
 msgstr ""
 
-#: themes/default/templates/partial/render.js.ep:11
+#: themes/default/templates/partial/render.js.ep:10
 msgid "You don't seem to have a key in your URL. You won't be able to decrypt the file. Download canceled."
 msgstr ""
 
@@ -754,11 +780,11 @@ msgstr ""
 
 #: themes/default/templates/logout.html.ep:14
 msgid "You have been successfully logged out."
-msgstr ""
+msgstr "Du har loggats ut."
 
 #: lib/Lufi/Controller/Mail.pm:71
 msgid "You must give email addresses."
-msgstr ""
+msgstr "Du måste uppge en e-postadress."
 
 #: themes/default/templates/index.html.ep:38
 msgid "Your browser does not have enough entropy to generate a strong encryption key. Please wait (it's better if you do things on your computer while waiting)."
@@ -769,11 +795,11 @@ msgstr ""
 msgid "Your file is too big: %1 (maximum size allowed: %2)"
 msgstr ""
 
-#: lib/Lufi/Controller/Files.pm:346
+#: lib/Lufi/Controller/Files.pm:351
 msgid "Your password is not valid. Please refresh the page to retry."
 msgstr ""
 
-#: themes/default/templates/partial/render.js.ep:13
+#: themes/default/templates/partial/render.js.ep:12
 msgid "Zip content:"
 msgstr ""
 
@@ -793,7 +819,7 @@ msgstr ""
 
 #: themes/default/templates/partial/invitations.js.ep:5
 msgid "expires on XXX"
-msgstr ""
+msgstr "Går ut den XXX"
 
 #. (format_bytes($keys[$i])
 #: themes/default/templates/delays.html.ep:26
@@ -807,13 +833,29 @@ msgstr ""
 
 #: themes/default/templates/index.html.ep:3
 msgid "no time limit"
-msgstr ""
+msgstr "ingen tidsbegränsning"
 
 #: themes/default/templates/index.html.ep:124
 msgid "or"
-msgstr ""
+msgstr "eller"
 
 #. ($e->{name}, format_bytes($e->{size})
 #: themes/default/templates/invitations/notification_files_sent.mail.ep:12
 msgid "— %1 (%2), that will expire on %3"
+msgstr "— %1 (%2), som går ut den %3"
+
+#: themes/default/templates/about.html.ep:18
+msgid "Get the source code on <a href=\"https://framagit.org/fiat-tux/hat-softwares/lufi\" class=\"classic\">the official repository</a> or on its <a href=\"https://github.com/ldidry/lufi\" class=\"classic\">Github mirror</a>"
 msgstr ""
+"Hämta källkoden från <a href=\"https://framagit.org/fiat-tux/hat-softwares/"
+"lufi\" class=\"classic\">det officiella arkivet</a> eller från <a href=\""
+"https://github.com/ldidry/lufi\" class=\"classic\">spegelsidan på Github</a>"
+
+#: themes/default/templates/about.html.ep:17
+msgid "As Lufi is a free software licensed under of the terms of the <a href=\"https://gnu.org/licenses/agpl.html\" class=\"classic\">AGPLv3</a>, you can install it on you own server. Have a look on the <a href=\"https://framagit.org/fiat-tux/hat-softwares/lufi/wikis/home\" class=\"classic\">Wiki</a> for the procedure."
+msgstr ""
+"Du kan installera Lufi på din egen server eftersom det är en fri mjukvara "
+"publicerad under licensen <a href=\"https://gnu.org/licenses/agpl.html\" "
+"class=\"classic\">AGPLv3</a>. Ta en titt på <a href=\"https://framagit.org/"
+"fiat-tux/hat-softwares/lufi/wikis/home\" class=\"classic\">wikin</a> för att "
+"se hur."

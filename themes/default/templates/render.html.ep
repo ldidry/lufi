@@ -45,6 +45,7 @@
 %= javascript '/js/filesize.min.js'
 %= javascript '/js/sjcl.js'
 %= javascript '/js/jszip.min.js'
+%= javascript '/js/lufi-notifications.js'
 %= javascript '/js/lufi-down.js'
     % }
 % }

@@ -165,5 +165,6 @@
 %= javascript '/js/moment-with-locales.min.js'
 %= javascript '/js/filesize.min.js'
 %= javascript '/js/jszip.min.js'
+%= javascript '/js/lufi-notifications.js'
 %= javascript '/js/lufi-up.js'
 % }

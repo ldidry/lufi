@@ -6,6 +6,7 @@ var i18n   = {
     badkey:         '<%= l('It seems that the key in your URL is incorrect. Please, verify your URL.') %>',
     confirmExit:    '<%= l('You have attempted to leave this page. The download will be canceled. Are you sure?') %>',
     download:       '<%= l('Get the file') %>',
+    fileDownloaded: '<%= l('File downloaded') %>',
     loading:        '<%= l('Asking for file part XX1 of %1', stash('nbslices')) %>',
     nokey:          '<%= l('You don\'t seem to have a key in your URL. You won\'t be able to decrypt the file. Download canceled.') %>',
     showZipContent: '<%= l('Show zip content') %>',

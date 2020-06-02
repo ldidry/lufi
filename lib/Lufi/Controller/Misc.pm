@@ -2,6 +2,7 @@
 package Lufi::Controller::Misc;
 use Mojo::Base 'Mojolicious::Controller';
 use Mojo::File;
+use Mojo::JSON qw(true false);
 use Mojo::URL;
 use Lufi::DB::File;
 
@@ -31,7 +32,34 @@ sub change_lang {
 }
 
 sub about {
-    shift->render(template => 'about');
+    my $c = shift;
+
+    $c->render(
+        template => 'about',
+        version  => $c->git_version
+    );
+}
+
+sub config_infos {
+    my $c = shift;
+
+    $c->render(
+        json => {
+            report                   => $c->config('report'),
+            instance_name            => $c->config('instance_name'),
+            max_file_size            => $c->config('max_file_size'),
+            broadcast_message        => $c->config('broadcast_message'),
+            default_delay            => $c->config('default_delay'),
+            max_delay                => $c->config('max_delay'),
+            delay_for_size           => $c->config('delay_for_size'),
+            allow_pwd_on_files       => $c->config('allow_pwd_on_files'),
+            force_burn_after_reading => $c->config('force_burn_after_reading'),
+            keep_ip_during           => $c->config('keep_ip_during'),
+            stop_upload              => (-f 'stop-upload' || -f 'stop-upload.manual') ? true : false,
+            need_authentication      => (defined($c->config('ldap')) || defined($c->config('htpasswd'))) ? true : false,
+            version                  => $c->git_version
+        }
+    );
 }
 
 sub js_files {

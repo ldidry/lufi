@@ -8,15 +8,16 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "POT-Creation-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"PO-Revision-Date: 2020-03-22 11:51+0000\n"
+"Last-Translator: Luc Didry <luc@framasoft.org>\n"
+"Language-Team: French (France) <https://weblate.framasoft.org/projects/lufi/"
+"default-theme/fr_FR/>\n"
+"Language: fr_FR\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"PO-Revision-Date: 2019-10-10 08:58+0000\n"
-"Language-Team: \n"
-"X-Generator: Zanata 4.6.2\n"
-"Last-Translator: Luc Didry <luc@framasoft.org>\n"
-"Plural-Forms: nplurals=2; plural=(n > 1);\n"
-"Language: fr_FR\n"
+"Plural-Forms: nplurals=2; plural=n > 1;\n"
+"X-Generator: Weblate 3.11.2\n"
 
 #. ($delay)
 #. (max_delay)
@@ -50,7 +51,7 @@ msgstr "%A %d %B %Y à %T"
 
 #: themes/default/templates/partial/index.js.ep:27
 msgid "(max size: XXX)"
-msgstr "(taille max: XXX)"
+msgstr "(taille max : XXX)"
 
 #: themes/default/templates/index.html.ep:5
 msgid "1 year"
@@ -184,7 +185,7 @@ msgstr "Créer une archive zip avec les fichiers avant l’envoi ?"
 
 #: themes/default/templates/invitations/my_invitations.html.ep:26
 msgid "Created at"
-msgstr "Créée le "
+msgstr "Créée le"
 
 #: themes/default/templates/invitations/my_invitations.html.ep:14
 msgid "Delete"
@@ -263,11 +264,11 @@ msgstr "Chiffrement du fragment XX1 sur XX2"
 
 #: lib/Lufi/Controller/Files.pm:289
 msgid "Error: the file existed but was deleted."
-msgstr "Erreur : le fichier existait mais a été supprimé"
+msgstr "Erreur : le fichier existait mais a été supprimé."
 
 #: lib/Lufi/Controller/Files.pm:369
 msgid "Error: the file has not been sent entirely."
-msgstr "Erreur : le fichier n’a pas été envoyé dans son intégralité"
+msgstr "Erreur : le fichier n’a pas été envoyé dans son intégralité."
 
 #: lib/Lufi/Controller/Files.pm:379
 msgid "Error: unable to find the file. Are you sure of your URL?"
@@ -326,7 +327,7 @@ msgid ""
 msgstr ""
 "Récupérez le code source sur <a href=\"https://framagit.org/luc/lufi\" class="
 "\"classic\">le dépôt officiel</a> ou sur son <a href=\"https://github.com/"
-"ldidry/lufi\" class=\"classic\">miroir Github</a>."
+"ldidry/lufi\" class=\"classic\">miroir Github</a>"
 
 #: themes/default/templates/invitations/my_invitations.html.ep:24
 msgid "Guest mail"
@@ -938,12 +939,12 @@ msgstr "Contenu de l’archive zip :"
 #. (format_bytes($keys[$i])
 #: themes/default/templates/delays.html.ep:20
 msgid "between %1 and %2, the file will be kept %3 day(s)."
-msgstr "entre %1 et %2, le fichier sera conservé %3 jour(s) ;"
+msgstr "entre %1 et %2, le fichier sera conservé %3 jour(s)."
 
 #. (format_bytes($keys[$i])
 #: themes/default/templates/delays.html.ep:22
 msgid "between %1 and %2, the file will be kept forever."
-msgstr "entre %1 et %2, le fichier sera conservé indéfiniment ;"
+msgstr "entre %1 et %2, le fichier sera conservé indéfiniment."
 
 #: themes/default/templates/partial/mail.js.ep:42
 msgid "deadline: "
@@ -956,7 +957,7 @@ msgstr "expire le XXX"
 #. (format_bytes($keys[$i])
 #: themes/default/templates/delays.html.ep:26
 msgid "for %1 and more, the file will be kept %2 day(s)"
-msgstr "pour %1 et plus, le fichier sera conservé %2 jour(s)."
+msgstr "pour %1 et plus, le fichier sera conservé %2 jour(s)"
 
 #. (format_bytes($keys[$i])
 #: themes/default/templates/delays.html.ep:28
@@ -975,3 +976,27 @@ msgstr "ou"
 #: themes/default/templates/invitations/notification_files_sent.mail.ep:12
 msgid "— %1 (%2), that will expire on %3"
 msgstr "— %1 (%2), qui expirera le %3"
+
+#: themes/default/templates/about.html.ep:18
+msgid "Get the source code on <a href=\"https://framagit.org/fiat-tux/hat-softwares/lufi\" class=\"classic\">the official repository</a> or on its <a href=\"https://github.com/ldidry/lufi\" class=\"classic\">Github mirror</a>"
+msgstr ""
+"Récupérez le code source sur <a href=\"https://framagit.org/fiat-tux/"
+"hat-softwares/lufi\" class=\"classic\">le dépôt officiel</a> ou sur son <a "
+"href=\"https://github.com/ldidry/lufi\" class=\"classic\">miroir Github</a>"
+
+#: themes/default/templates/partial/index.js.ep:24
+msgid "File uploaded"
+msgstr "Fichier envoyé"
+
+#: themes/default/templates/partial/render.js.ep:9
+msgid "File downloaded"
+msgstr "Fichier téléchargé"
+
+#: themes/default/templates/about.html.ep:17
+msgid "As Lufi is a free software licensed under of the terms of the <a href=\"https://gnu.org/licenses/agpl.html\" class=\"classic\">AGPLv3</a>, you can install it on you own server. Have a look on the <a href=\"https://framagit.org/fiat-tux/hat-softwares/lufi/wikis/home\" class=\"classic\">Wiki</a> for the procedure."
+msgstr ""
+"Comme Lufi est un logiciel libre soumis aux termes de la license <a href=\""
+"https://gnu.org/licenses/agpl.html\" class=\"classic\">AGPLv3</a>, vous "
+"pouvez l’installer sur votre propre serveur. Veuillez consulter le <a href=\""
+"https://framagit.org/fiat-tux/hat-softwares/lufi/wikis/home\" class=\""
+"classic\">Wiki</a> pour voir la procédure."

@@ -4,15 +4,16 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "POT-Creation-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"PO-Revision-Date: 2020-03-22 18:29+0000\n"
+"Last-Translator: Luc Didry <luc@framasoft.org>\n"
+"Language-Team: Dutch <https://weblate.framasoft.org/projects/lufi/"
+"default-theme/nl/>\n"
+"Language: nl\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"PO-Revision-Date: 2019-04-19 04:57+0000\n"
-"Last-Translator: Luc Didry <luc@framasoft.org>\n"
-"Language-Team: Dutch\n"
-"Language: nl\n"
-"X-Generator: Zanata 4.6.2\n"
-"Plural-Forms: nplurals=2; plural=(n != 1)\n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
+"X-Generator: Weblate 3.11.2\n"
 
 #. ($delay)
 #. (max_delay)
@@ -246,7 +247,7 @@ msgstr "Emails"
 
 #: themes/default/templates/partial/index.js.ep:22
 msgid "Encrypting part XX1 of XX2"
-msgstr "Encrypten deel XX1 van XX2 "
+msgstr "Encrypten deel XX1 van XX2"
 
 #: lib/Lufi/Controller/Files.pm:289
 msgid "Error: the file existed but was deleted."
@@ -329,7 +330,10 @@ msgstr ""
 
 #: themes/default/templates/partial/mail.js.ep:35
 msgid "Hello,\\n\\nHere's some files I want to share with you:\\n"
-msgstr "Hallo,\\n\\nHier zijn enkele bestanden die ik met je wil delen:\\n\\n"
+msgstr ""
+"Hallo,\\n"
+"\\n"
+"Hier zijn enkele bestanden die ik met je wil delen:\\n"
 
 #: themes/default/templates/mail.html.ep:35
 msgid "Here's some files"
@@ -847,7 +851,7 @@ msgid ""
 "You have attempted to leave this page. The upload will be canceled. Are you "
 "sure?"
 msgstr ""
-"Je verlaat deze pagina. Upload zal geannuleerd worden. Weet je het zeker? "
+"Je verlaat deze pagina. Upload zal geannuleerd worden. Weet je het zeker?"
 
 #: themes/default/templates/logout.html.ep:14
 msgid "You have been successfully logged out."
@@ -917,3 +921,19 @@ msgstr "of"
 #: themes/default/templates/invitations/notification_files_sent.mail.ep:12
 msgid "— %1 (%2), that will expire on %3"
 msgstr ""
+
+#: themes/default/templates/about.html.ep:18
+msgid "Get the source code on <a href=\"https://framagit.org/fiat-tux/hat-softwares/lufi\" class=\"classic\">the official repository</a> or on its <a href=\"https://github.com/ldidry/lufi\" class=\"classic\">Github mirror</a>"
+msgstr ""
+"Krijg de broncode op <a href=\"https://framagit.org/fiat-tux/hat-softwares/"
+"lufi\" class=\"classic\">de officiële repository</a> of op <a href=\""
+"https://github.com/ldidry/lufi\" class=\"classic\">Github mirror</a>"
+
+#: themes/default/templates/about.html.ep:17
+msgid "As Lufi is a free software licensed under of the terms of the <a href=\"https://gnu.org/licenses/agpl.html\" class=\"classic\">AGPLv3</a>, you can install it on you own server. Have a look on the <a href=\"https://framagit.org/fiat-tux/hat-softwares/lufi/wikis/home\" class=\"classic\">Wiki</a> for the procedure."
+msgstr ""
+"Aangezien Lufi een gratis software id die gelicentieerd staat onder de "
+"voorwaarden van <a href=\"https://gnu.org/licenses/agpl.html\" class=\""
+"classic\">AGPLv3</a>, kan je het installeren op je eigen server. Bekijk <a "
+"href=\"https://framagit.org/fiat-tux/hat-softwares/lufi/wikis/home\" class=\""
+"classic\">Wiki</a> voor de procedure."
