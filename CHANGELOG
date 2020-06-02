@@ -1,6 +1,8 @@
 Revision history for Lufi
 
 ?.??.? ????-??-??
+
+0.05.0 2020-06-02
 	- Notifications when uploading and downloading files (#181)
 	- Use Weblate instead of Zanata for translations (https://weblate.framasoft.org/projects/lufi/development/)
 	- Add config API endpoint (#183)
