@@ -9,6 +9,23 @@ DISTRIBUTIONS
       Digest::SHA 2
       ExtUtils::MakeMaker 0
       MIME::Base64 0
+  App-Rad-1.05
+    pathname: G/GA/GARU/App-Rad-1.05.tar.gz
+    provides:
+      App::Rad 1.05
+      App::Rad::Config undef
+      App::Rad::Exclude 0.01
+      App::Rad::Help 0.03
+      App::Rad::Include 0.01
+    requirements:
+      Attribute::Handlers 0
+      B::Deparse 0
+      Carp 0
+      ExtUtils::MakeMaker 0
+      File::Temp 0
+      FindBin 0
+      Getopt::Long 2.36
+      Test::More 0
   Authen-SASL-2.16
     pathname: G/GB/GBARR/Authen-SASL-2.16.tar.gz
     provides:
@@ -39,6 +56,24 @@ DISTRIBUTIONS
       ExtUtils::MakeMaker 0
       Test::More 0
       deprecate 0.03
+  B-Hooks-EndOfScope-0.24
+    pathname: E/ET/ETHER/B-Hooks-EndOfScope-0.24.tar.gz
+    provides:
+      B::Hooks::EndOfScope 0.24
+      B::Hooks::EndOfScope::PP 0.24
+      B::Hooks::EndOfScope::XS 0.24
+    requirements:
+      ExtUtils::MakeMaker 0
+      Hash::Util::FieldHash 0
+      Module::Implementation 0.05
+      Scalar::Util 0
+      Sub::Exporter::Progressive 0.001006
+      Text::ParseWords 0
+      Tie::Hash 0
+      Variable::Magic 0.48
+      perl 5.006001
+      strict 0
+      warnings 0
   Canary-Stability-2013
     pathname: M/ML/MLEHMANN/Canary-Stability-2013.tar.gz
     provides:
@@ -60,10 +95,16 @@ DISTRIBUTIONS
       perl 5.006
       strict 0
       warnings 0
-  Class-Method-Modifiers-2.12
-    pathname: E/ET/ETHER/Class-Method-Modifiers-2.12.tar.gz
+  Class-Accessor-Lite-0.08
+    pathname: K/KA/KAZUHO/Class-Accessor-Lite-0.08.tar.gz
     provides:
-      Class::Method::Modifiers 2.12
+      Class::Accessor::Lite 0.08
+    requirements:
+      ExtUtils::MakeMaker 6.36
+  Class-Method-Modifiers-2.13
+    pathname: E/ET/ETHER/Class-Method-Modifiers-2.13.tar.gz
+    provides:
+      Class::Method::Modifiers 2.13
     requirements:
       B 0
       Carp 0
@@ -101,14 +142,22 @@ DISTRIBUTIONS
       ExtUtils::MakeMaker 6.30
       Math::BigInt 1.997
       Test::More 0.90
-  Cpanel-JSON-XS-4.12
-    pathname: R/RU/RURBAN/Cpanel-JSON-XS-4.12.tar.gz
+  Cpanel-JSON-XS-4.19
+    pathname: R/RU/RURBAN/Cpanel-JSON-XS-4.19.tar.gz
     provides:
-      Cpanel::JSON::XS 4.12
+      Cpanel::JSON::XS 4.19
       Cpanel::JSON::XS::Type undef
     requirements:
+      Carp 0
+      Config 0
+      Encode 1.9801
+      Exporter 0
       ExtUtils::MakeMaker 0
       Pod::Text 2.08
+      XSLoader 0
+      overload 0
+      strict 0
+      warnings 0
   Crypt-PasswdMD5-1.40
     pathname: R/RS/RSAVAGE/Crypt-PasswdMD5-1.40.tgz
     provides:
@@ -135,25 +184,25 @@ DISTRIBUTIONS
       ExtUtils::MakeMaker 6.30
       Test::Fatal 0
       Test::More 0
-  DBD-Pg-3.8.1
-    pathname: T/TU/TURNSTEP/DBD-Pg-3.8.1.tar.gz
+  DBD-Pg-3.10.5
+    pathname: T/TU/TURNSTEP/DBD-Pg-3.10.5.tar.gz
     provides:
-      Bundle::DBD::Pg v3.8.1
-      DBD::Pg v3.8.1
+      Bundle::DBD::Pg v3.10.5
+      DBD::Pg v3.10.5
     requirements:
       DBI 1.614
       ExtUtils::MakeMaker 6.11
       Test::More 0.88
       Time::HiRes 0
       version 0
-  DBD-SQLite-1.62
-    pathname: I/IS/ISHIGAKI/DBD-SQLite-1.62.tar.gz
+  DBD-SQLite-1.64
+    pathname: I/IS/ISHIGAKI/DBD-SQLite-1.64.tar.gz
     provides:
-      DBD::SQLite 1.62
+      DBD::SQLite 1.64
       DBD::SQLite::Constants undef
       DBD::SQLite::GetInfo undef
-      DBD::SQLite::VirtualTable 1.62
-      DBD::SQLite::VirtualTable::Cursor 1.62
+      DBD::SQLite::VirtualTable 1.64
+      DBD::SQLite::VirtualTable::Cursor 1.64
       DBD::SQLite::VirtualTable::FileContent undef
       DBD::SQLite::VirtualTable::FileContent::Cursor undef
       DBD::SQLite::VirtualTable::PerlData undef
@@ -162,8 +211,7 @@ DISTRIBUTIONS
       DBI 1.57
       ExtUtils::MakeMaker 0
       File::Spec 0.82
-      Test::Builder 0.86
-      Test::More 0.47
+      Test::More 0.88
       Tie::Hash 0
       perl 5.006
   DBD-mysql-4.050
@@ -181,8 +229,8 @@ DISTRIBUTIONS
       Devel::CheckLib 1.09
       ExtUtils::MakeMaker 0
       perl 5.008001
-  DBI-1.642
-    pathname: T/TI/TIMB/DBI-1.642.tar.gz
+  DBI-1.643
+    pathname: T/TI/TIMB/DBI-1.643.tar.gz
     provides:
       Bundle::DBI 12.008696
       DBD::DBM 0.08
@@ -238,7 +286,7 @@ DISTRIBUTIONS
       DBD::Sponge::dr 12.010003
       DBD::Sponge::st 12.010003
       DBDI 12.015129
-      DBI 1.642
+      DBI 1.643
       DBI::Const::GetInfo::ANSI 2.008697
       DBI::Const::GetInfo::ODBC 2.011374
       DBI::Const::GetInfoReturn 2.008697
@@ -278,11 +326,11 @@ DISTRIBUTIONS
       DBI::SQL::Nano::Table_ 1.015544
       DBI::Util::CacheMemory 0.010315
       DBI::Util::_accessor 0.009479
-      DBI::common 1.642
+      DBI::common 1.643
     requirements:
       ExtUtils::MakeMaker 6.48
       Test::Simple 0.90
-      perl 5.008
+      perl 5.008001
   Data-Entropy-0.007
     pathname: Z/ZE/ZEFRAM/Data-Entropy-0.007.tar.gz
     provides:
@@ -356,10 +404,40 @@ DISTRIBUTIONS
       Data::Validate::Domain 0
       Data::Validate::IP 0
       ExtUtils::MakeMaker 0
-  Devel-CheckLib-1.13
-    pathname: M/MA/MATTN/Devel-CheckLib-1.13.tar.gz
+  Data-Validator-1.07
+    pathname: G/GF/GFUJI/Data-Validator-1.07.tar.gz
     provides:
-      Devel::CheckLib 1.13
+      Data::Validator 1.07
+      Data::Validator::Role::AllowExtra undef
+      Data::Validator::Role::Croak undef
+      Data::Validator::Role::Method undef
+      Data::Validator::Role::NoRestricted undef
+      Data::Validator::Role::NoThrow undef
+      Data::Validator::Role::Sequenced undef
+      Data::Validator::Role::SmartSequenced undef
+      Data::Validator::Role::StrictSequenced undef
+    requirements:
+      ExtUtils::MakeMaker 6.59
+      Module::Build 0.38
+      Mouse 0.93
+      perl 5.008001
+  Devel-CheckCompiler-0.07
+    pathname: S/SY/SYOHEX/Devel-CheckCompiler-0.07.tar.gz
+    provides:
+      Devel::AssertC99 undef
+      Devel::CheckCompiler 0.07
+    requirements:
+      Exporter 0
+      ExtUtils::CBuilder 0
+      File::Temp 0
+      Module::Build::Tiny 0.035
+      Test::More 0.98
+      parent 0
+      perl 5.008001
+  Devel-CheckLib-1.14
+    pathname: M/MA/MATTN/Devel-CheckLib-1.14.tar.gz
+    provides:
+      Devel::CheckLib 1.14
     requirements:
       Exporter 0
       ExtUtils::MakeMaker 0
@@ -425,14 +503,13 @@ DISTRIBUTIONS
       HTML::Entities 3.69
       Storable 0
       Test::More 0
-  Devel-GlobalDestruction-0.14
-    pathname: H/HA/HAARG/Devel-GlobalDestruction-0.14.tar.gz
+  Devel-PPPort-3.58
+    pathname: A/AT/ATOOMIC/Devel-PPPort-3.58.tar.gz
     provides:
-      Devel::GlobalDestruction 0.14
+      Devel::PPPort 3.58
     requirements:
       ExtUtils::MakeMaker 0
-      Sub::Exporter::Progressive 0.001011
-      perl 5.006
+      FindBin 0
   Digest-HMAC-1.03
     pathname: G/GA/GAAS/Digest-HMAC-1.03.tar.gz
     provides:
@@ -444,10 +521,22 @@ DISTRIBUTIONS
       Digest::SHA 1
       ExtUtils::MakeMaker 0
       perl 5.004
-  EV-4.27
-    pathname: M/ML/MLEHMANN/EV-4.27.tar.gz
+  Dist-CheckConflicts-0.11
+    pathname: D/DO/DOY/Dist-CheckConflicts-0.11.tar.gz
     provides:
-      EV 4.27
+      Dist::CheckConflicts 0.11
+    requirements:
+      Carp 0
+      Exporter 0
+      ExtUtils::MakeMaker 6.30
+      Module::Runtime 0.009
+      base 0
+      strict 0
+      warnings 0
+  EV-4.33
+    pathname: M/ML/MLEHMANN/EV-4.33.tar.gz
+    provides:
+      EV 4.33
       EV::MakeMaker undef
     requirements:
       Canary::Stability 0
@@ -474,6 +563,43 @@ DISTRIBUTIONS
       Scalar::Util 0
       Test::More 0
       perl 5.006
+  Encode-3.05
+    pathname: D/DA/DANKOGAI/Encode-3.05.tar.gz
+    provides:
+      Encode 3.05
+      Encode::Alias 2.24
+      Encode::Byte 2.04
+      Encode::CJKConstants 2.02
+      Encode::CN 2.03
+      Encode::CN::HZ 2.10
+      Encode::Config 2.05
+      Encode::EBCDIC 2.02
+      Encode::Encoder 2.03
+      Encode::Encoding 2.08
+      Encode::GSM0338 2.07
+      Encode::Guess 2.08
+      Encode::Internal 3.05
+      Encode::JP 2.04
+      Encode::JP::H2Z 2.02
+      Encode::JP::JIS7 2.08
+      Encode::KR 2.03
+      Encode::KR::2022_KR 2.04
+      Encode::MIME::Header 2.28
+      Encode::MIME::Header::ISO_2022_JP 1.09
+      Encode::MIME::Name 1.03
+      Encode::Symbol 2.02
+      Encode::TW 2.03
+      Encode::UTF_EBCDIC 3.05
+      Encode::Unicode 2.18
+      Encode::Unicode::UTF7 2.10
+      Encode::XS 3.05
+      Encode::utf8 3.05
+      encoding 2.22
+    requirements:
+      Exporter 5.57
+      ExtUtils::MakeMaker 0
+      Storable 0
+      parent 0.221
   Encode-Locale-1.05
     pathname: G/GA/GAAS/Encode-Locale-1.05.tar.gz
     provides:
@@ -569,6 +695,27 @@ DISTRIBUTIONS
       Test::More 0
       Test::Warn 0
       perl 5.006
+  Furl-3.13
+    pathname: T/TO/TOKUHIROM/Furl-3.13.tar.gz
+    provides:
+      Furl 3.13
+      Furl::ConnectionCache undef
+      Furl::HTTP 3.13
+      Furl::Headers undef
+      Furl::Request undef
+      Furl::Response undef
+      Furl::ZlibStream undef
+    requirements:
+      Class::Accessor::Lite 0
+      Encode 0
+      HTTP::Parser::XS 0.11
+      MIME::Base64 0
+      Module::Build::Tiny 0.035
+      Mozilla::CA 0
+      Scalar::Util 0
+      Socket 0
+      Time::HiRes 0
+      perl 5.008001
   HTML-Parser-3.72
     pathname: G/GA/GAAS/HTML-Parser-3.72.tar.gz
     provides:
@@ -590,27 +737,25 @@ DISTRIBUTIONS
       HTML::Tagset 3.20
     requirements:
       ExtUtils::MakeMaker 0
-  HTTP-Cookies-6.04
-    pathname: O/OA/OALDERS/HTTP-Cookies-6.04.tar.gz
+  HTTP-Cookies-6.08
+    pathname: O/OA/OALDERS/HTTP-Cookies-6.08.tar.gz
     provides:
-      HTTP::Cookies 6.04
-      HTTP::Cookies::Microsoft 6.04
-      HTTP::Cookies::Netscape 6.04
+      HTTP::Cookies 6.08
+      HTTP::Cookies::Microsoft 6.08
+      HTTP::Cookies::Netscape 6.08
     requirements:
       Carp 0
       ExtUtils::MakeMaker 0
       HTTP::Date 6
       HTTP::Headers::Util 6
       HTTP::Request 0
-      Time::Local 0
       locale 0
       perl 5.008001
       strict 0
-      vars 0
-  HTTP-Daemon-6.05
-    pathname: E/ET/ETHER/HTTP-Daemon-6.05.tar.gz
+  HTTP-Daemon-6.06
+    pathname: O/OA/OALDERS/HTTP-Daemon-6.06.tar.gz
     provides:
-      HTTP::Daemon 6.05
+      HTTP::Daemon 6.06
     requirements:
       Carp 0
       ExtUtils::MakeMaker 0
@@ -626,14 +771,17 @@ DISTRIBUTIONS
       perl 5.006
       strict 0
       warnings 0
-  HTTP-Date-6.02
-    pathname: G/GA/GAAS/HTTP-Date-6.02.tar.gz
+  HTTP-Date-6.05
+    pathname: O/OA/OALDERS/HTTP-Date-6.05.tar.gz
     provides:
-      HTTP::Date 6.02
+      HTTP::Date 6.05
     requirements:
+      Exporter 0
       ExtUtils::MakeMaker 0
-      Time::Local 0
+      Time::Local 1.28
+      Time::Zone 0
       perl 5.006002
+      strict 0
   HTTP-Lite-2.44
     pathname: N/NE/NEILB/HTTP-Lite-2.44.tar.gz
     provides:
@@ -645,23 +793,23 @@ DISTRIBUTIONS
       perl 5.005
       strict 0
       warnings 0
-  HTTP-Message-6.18
-    pathname: O/OA/OALDERS/HTTP-Message-6.18.tar.gz
+  HTTP-Message-6.22
+    pathname: O/OA/OALDERS/HTTP-Message-6.22.tar.gz
     provides:
-      HTTP::Config 6.18
-      HTTP::Headers 6.18
-      HTTP::Headers::Auth 6.18
-      HTTP::Headers::ETag 6.18
-      HTTP::Headers::Util 6.18
-      HTTP::Message 6.18
-      HTTP::Request 6.18
-      HTTP::Request::Common 6.18
-      HTTP::Response 6.18
-      HTTP::Status 6.18
+      HTTP::Config 6.22
+      HTTP::Headers 6.22
+      HTTP::Headers::Auth 6.22
+      HTTP::Headers::ETag 6.22
+      HTTP::Headers::Util 6.22
+      HTTP::Message 6.22
+      HTTP::Request 6.22
+      HTTP::Request::Common 6.22
+      HTTP::Response 6.22
+      HTTP::Status 6.22
     requirements:
       Carp 0
       Compress::Raw::Zlib 0
-      Encode 2.21
+      Encode 3.01
       Encode::Locale 1
       Exporter 5.57
       ExtUtils::MakeMaker 0
@@ -691,6 +839,14 @@ DISTRIBUTIONS
       ExtUtils::MakeMaker 0
       HTTP::Headers 6
       perl 5.008001
+  HTTP-Parser-XS-0.17
+    pathname: K/KA/KAZUHO/HTTP-Parser-XS-0.17.tar.gz
+    provides:
+      HTTP::Parser::XS 0.17
+      HTTP::Parser::XS::PP undef
+    requirements:
+      ExtUtils::MakeMaker 6.36
+      Test::More 0.96
   Hash-Merge-0.300
     pathname: R/RE/REHSACK/Hash-Merge-0.300.tar.gz
     provides:
@@ -709,17 +865,17 @@ DISTRIBUTIONS
       Encode 2.10
       Exporter 5.57
       ExtUtils::MakeMaker 6.30
-  IO-Socket-SSL-2.066
-    pathname: S/SU/SULLR/IO-Socket-SSL-2.066.tar.gz
+  IO-Socket-SSL-2.068
+    pathname: S/SU/SULLR/IO-Socket-SSL-2.068.tar.gz
     provides:
-      IO::Socket::SSL 2.066
+      IO::Socket::SSL 2.068
       IO::Socket::SSL::Intercept 2.056
-      IO::Socket::SSL::OCSP_Cache 2.066
-      IO::Socket::SSL::OCSP_Resolver 2.066
+      IO::Socket::SSL::OCSP_Cache 2.068
+      IO::Socket::SSL::OCSP_Resolver 2.068
       IO::Socket::SSL::PublicSuffix undef
-      IO::Socket::SSL::SSL_Context 2.066
-      IO::Socket::SSL::SSL_HANDLE 2.066
-      IO::Socket::SSL::Session_Cache 2.066
+      IO::Socket::SSL::SSL_Context 2.068
+      IO::Socket::SSL::SSL_HANDLE 2.068
+      IO::Socket::SSL::Session_Cache 2.068
       IO::Socket::SSL::Utils 2.014
     requirements:
       ExtUtils::MakeMaker 0
@@ -740,10 +896,10 @@ DISTRIBUTIONS
       Socket 1.94
       Test::More 0.88
       constant 1.03
-  ISO-639_1-0.03
-    pathname: L/LD/LDIDRY/ISO-639_1-0.03.tar.gz
+  ISO-639_1-0.04
+    pathname: L/LD/LDIDRY/ISO-639_1-0.04.tar.gz
     provides:
-      ISO::639_1 0.03
+      ISO::639_1 0.04
     requirements:
       Module::Build::Tiny 0.035
       perl 5.008001
@@ -795,6 +951,18 @@ DISTRIBUTIONS
     requirements:
       ExtUtils::MakeMaker 6.30
       Locale::Maketext 1.17
+  Log-Minimal-0.19
+    pathname: K/KA/KAZEBURO/Log-Minimal-0.19.tar.gz
+    provides:
+      Log::Minimal 0.19
+    requirements:
+      CPAN::Meta 0
+      CPAN::Meta::Prereqs 0
+      Data::Dumper 0
+      ExtUtils::CBuilder 0
+      Module::Build 0.38
+      Scalar::Util 0
+      Term::ANSIColor 0
   MIME-Charset-1.012.2
     pathname: N/NE/NEZUMI/MIME-Charset-1.012.2.tar.gz
     provides:
@@ -816,14 +984,14 @@ DISTRIBUTIONS
       MIME::Base64 2.13
       MIME::Charset v1.10.1
       Test::More 0
-  MIME-Lite-3.030
-    pathname: R/RJ/RJBS/MIME-Lite-3.030.tar.gz
+  MIME-Lite-3.031
+    pathname: R/RJ/RJBS/MIME-Lite-3.031.tar.gz
     provides:
-      MIME::Lite 3.030
-      MIME::Lite::IO_Handle 3.030
-      MIME::Lite::IO_Scalar 3.030
-      MIME::Lite::IO_ScalarArray 3.030
-      MIME::Lite::SMTP 3.030
+      MIME::Lite 3.031
+      MIME::Lite::IO_Handle 3.031
+      MIME::Lite::IO_Scalar 3.031
+      MIME::Lite::IO_ScalarArray 3.031
+      MIME::Lite::SMTP 3.031
       MailTool undef
     requirements:
       Email::Date::Format 1.000
@@ -883,28 +1051,28 @@ DISTRIBUTIONS
       Net::Domain 1.05
       Net::SMTP 1.03
       Test::More 0
-  Module-Build-0.4229
-    pathname: L/LE/LEONT/Module-Build-0.4229.tar.gz
+  Module-Build-0.4231
+    pathname: L/LE/LEONT/Module-Build-0.4231.tar.gz
     provides:
-      Module::Build 0.4229
-      Module::Build::Base 0.4229
-      Module::Build::Compat 0.4229
-      Module::Build::Config 0.4229
-      Module::Build::Cookbook 0.4229
-      Module::Build::Dumper 0.4229
-      Module::Build::Notes 0.4229
-      Module::Build::PPMMaker 0.4229
-      Module::Build::Platform::Default 0.4229
-      Module::Build::Platform::MacOS 0.4229
-      Module::Build::Platform::Unix 0.4229
-      Module::Build::Platform::VMS 0.4229
-      Module::Build::Platform::VOS 0.4229
-      Module::Build::Platform::Windows 0.4229
-      Module::Build::Platform::aix 0.4229
-      Module::Build::Platform::cygwin 0.4229
-      Module::Build::Platform::darwin 0.4229
-      Module::Build::Platform::os2 0.4229
-      Module::Build::PodParser 0.4229
+      Module::Build 0.4231
+      Module::Build::Base 0.4231
+      Module::Build::Compat 0.4231
+      Module::Build::Config 0.4231
+      Module::Build::Cookbook 0.4231
+      Module::Build::Dumper 0.4231
+      Module::Build::Notes 0.4231
+      Module::Build::PPMMaker 0.4231
+      Module::Build::Platform::Default 0.4231
+      Module::Build::Platform::MacOS 0.4231
+      Module::Build::Platform::Unix 0.4231
+      Module::Build::Platform::VMS 0.4231
+      Module::Build::Platform::VOS 0.4231
+      Module::Build::Platform::Windows 0.4231
+      Module::Build::Platform::aix 0.4231
+      Module::Build::Platform::cygwin 0.4231
+      Module::Build::Platform::darwin 0.4231
+      Module::Build::Platform::os2 0.4231
+      Module::Build::PodParser 0.4231
     requirements:
       CPAN::Meta 2.142060
       Cwd 0
@@ -952,6 +1120,32 @@ DISTRIBUTIONS
       Pod::Man 0
       TAP::Harness::Env 0
       perl 5.006
+      strict 0
+      warnings 0
+  Module-Build-XSUtil-0.19
+    pathname: H/HI/HIDEAKIO/Module-Build-XSUtil-0.19.tar.gz
+    provides:
+      Module::Build::XSUtil 0.19
+    requirements:
+      Devel::CheckCompiler 0
+      Devel::PPPort 0
+      Exporter 0
+      ExtUtils::CBuilder 0
+      File::Basename 0
+      File::Path 0
+      Module::Build 0.4005
+      XSLoader 0
+      parent 0
+      perl 5.008001
+  Module-Implementation-0.09
+    pathname: D/DR/DROLSKY/Module-Implementation-0.09.tar.gz
+    provides:
+      Module::Implementation 0.09
+    requirements:
+      Carp 0
+      ExtUtils::MakeMaker 0
+      Module::Runtime 0.012
+      Try::Tiny 0
       strict 0
       warnings 0
   Module-Install-1.19
@@ -1033,10 +1227,10 @@ DISTRIBUTIONS
       Text::ParseWords 0
       perl 5.008001
       version 0
-  Mojo-Pg-4.15
-    pathname: S/SR/SRI/Mojo-Pg-4.15.tar.gz
+  Mojo-Pg-4.18
+    pathname: S/SR/SRI/Mojo-Pg-4.18.tar.gz
     provides:
-      Mojo::Pg 4.15
+      Mojo::Pg 4.18
       Mojo::Pg::Database undef
       Mojo::Pg::Migrations undef
       Mojo::Pg::PubSub undef
@@ -1044,23 +1238,23 @@ DISTRIBUTIONS
       Mojo::Pg::Transaction undef
       SQL::Abstract::Pg undef
     requirements:
-      DBD::Pg 3.005001
+      DBD::Pg 3.007004
       ExtUtils::MakeMaker 0
       Mojolicious 8.03
       SQL::Abstract 1.86
       perl 5.010001
-  Mojo-SQLite-3.002
-    pathname: D/DB/DBOOK/Mojo-SQLite-3.002.tar.gz
+  Mojo-SQLite-3.003
+    pathname: D/DB/DBOOK/Mojo-SQLite-3.003.tar.gz
     provides:
-      Mojo::SQLite 3.002
-      Mojo::SQLite::Database 3.002
-      Mojo::SQLite::Migrations 3.002
-      Mojo::SQLite::PubSub 3.002
-      Mojo::SQLite::Results 3.002
-      Mojo::SQLite::Transaction 3.002
+      Mojo::SQLite 3.003
+      Mojo::SQLite::Database 3.003
+      Mojo::SQLite::Migrations 3.003
+      Mojo::SQLite::PubSub 3.003
+      Mojo::SQLite::Results 3.003
+      Mojo::SQLite::Transaction 3.003
     requirements:
       Carp 0
-      DBD::SQLite 1.54
+      DBD::SQLite 1.64
       DBI 1.627
       File::Spec::Functions 0
       File::Temp 0
@@ -1072,13 +1266,13 @@ DISTRIBUTIONS
       URI::db 0.15
       URI::file 4.21
       perl 5.010001
-  Mojo-mysql-1.16
-    pathname: T/TE/TEKKI/Mojo-mysql-1.16.tar.gz
+  Mojo-mysql-1.18
+    pathname: T/TE/TEKKI/Mojo-mysql-1.18.tar.gz
     provides:
       Blog undef
       Blog::Controller::Posts undef
       Blog::Model::Posts undef
-      Mojo::mysql 1.16
+      Mojo::mysql 1.18
       Mojo::mysql::Database undef
       Mojo::mysql::Migrations undef
       Mojo::mysql::PubSub undef
@@ -1091,8 +1285,8 @@ DISTRIBUTIONS
       ExtUtils::MakeMaker 0
       Mojolicious 8.03
       SQL::Abstract 1.86
-  Mojolicious-8.22
-    pathname: S/SR/SRI/Mojolicious-8.22.tar.gz
+  Mojolicious-8.40
+    pathname: S/SR/SRI/Mojolicious-8.40.tar.gz
     provides:
       Mojo undef
       Mojo::Asset undef
@@ -1161,7 +1355,7 @@ DISTRIBUTIONS
       Mojo::UserAgent::Transactor undef
       Mojo::Util undef
       Mojo::WebSocket undef
-      Mojolicious 8.22
+      Mojolicious 8.40
       Mojolicious::Command undef
       Mojolicious::Command::Author::cpanify undef
       Mojolicious::Command::Author::generate undef
@@ -1277,36 +1471,73 @@ DISTRIBUTIONS
     requirements:
       ExtUtils::MakeMaker 0
       Mojolicious 7.33
-  Moo-2.003004
-    pathname: H/HA/HAARG/Moo-2.003004.tar.gz
+  Moo-2.004000
+    pathname: H/HA/HAARG/Moo-2.004000.tar.gz
     provides:
       Method::Generate::Accessor undef
       Method::Generate::BuildAll undef
       Method::Generate::Constructor undef
       Method::Generate::DemolishAll undef
-      Moo 2.003004
+      Moo 2.004000
       Moo::HandleMoose undef
       Moo::HandleMoose::FakeConstructor undef
       Moo::HandleMoose::FakeMetaClass undef
       Moo::HandleMoose::_TypeMap undef
       Moo::Object undef
-      Moo::Role 2.003004
+      Moo::Role 2.004000
       Moo::_Utils undef
       Moo::_mro undef
       Moo::_strictures undef
       Moo::sification undef
       oo undef
     requirements:
-      Class::Method::Modifiers 1.1
-      Devel::GlobalDestruction 0.11
+      Class::Method::Modifiers 1.10
       Exporter 5.57
       ExtUtils::MakeMaker 0
       Module::Runtime 0.014
-      Role::Tiny 2.000004
-      Scalar::Util 0
-      Sub::Defer 2.003001
-      Sub::Quote 2.003001
+      Role::Tiny 2.001004
+      Scalar::Util 1.00
+      Sub::Defer 2.006006
+      Sub::Quote 2.006006
       perl 5.006
+  Mouse-v2.5.10
+    pathname: S/SK/SKAJI/Mouse-v2.5.10.tar.gz
+    provides:
+      Mouse v2.5.10
+      Mouse::Exporter undef
+      Mouse::Meta::Attribute undef
+      Mouse::Meta::Class undef
+      Mouse::Meta::Method undef
+      Mouse::Meta::Method::Accessor undef
+      Mouse::Meta::Method::Constructor undef
+      Mouse::Meta::Method::Delegation undef
+      Mouse::Meta::Method::Destructor undef
+      Mouse::Meta::Module undef
+      Mouse::Meta::Role undef
+      Mouse::Meta::Role::Application undef
+      Mouse::Meta::Role::Application::RoleSummation undef
+      Mouse::Meta::Role::Composite undef
+      Mouse::Meta::Role::Method undef
+      Mouse::Meta::TypeConstraint undef
+      Mouse::Object undef
+      Mouse::PurePerl undef
+      Mouse::Role v2.5.10
+      Mouse::Spec v2.5.10
+      Mouse::TypeRegistry undef
+      Mouse::Util v2.5.10
+      Mouse::Util::MetaRole undef
+      Mouse::Util::TypeConstraints undef
+      Squirrel undef
+      Squirrel::Role undef
+      Test::Mouse undef
+      ouse undef
+    requirements:
+      ExtUtils::CBuilder 0
+      Module::Build 0.4005
+      Module::Build::XSUtil 0.19
+      Scalar::Util 1.14
+      XSLoader 0.02
+      perl 5.008005
   Mozilla-CA-20180117
     pathname: A/AB/ABH/Mozilla-CA-20180117.tar.gz
     provides:
@@ -1315,10 +1546,10 @@ DISTRIBUTIONS
       ExtUtils::MakeMaker 0
       Test 0
       perl 5.006
-  Net-DNS-1.20
-    pathname: N/NL/NLNETLABS/Net-DNS-1.20.tar.gz
+  Net-DNS-1.23
+    pathname: N/NL/NLNETLABS/Net-DNS-1.23.tar.gz
     provides:
-      Net::DNS 1.20
+      Net::DNS 1.23
       Net::DNS::Domain 1726
       Net::DNS::DomainName 1605
       Net::DNS::DomainName1035 1605
@@ -1327,32 +1558,31 @@ DISTRIBUTIONS
       Net::DNS::Mailbox 1605
       Net::DNS::Mailbox1035 1605
       Net::DNS::Mailbox2535 1605
-      Net::DNS::Nameserver 1692
-      Net::DNS::Packet 1714
-      Net::DNS::Parameters 1729
+      Net::DNS::Nameserver 1761
+      Net::DNS::Packet 1761
+      Net::DNS::Parameters 1761
       Net::DNS::Question 1726
-      Net::DNS::RR 1726
+      Net::DNS::RR 1762
       Net::DNS::RR::A 1597
       Net::DNS::RR::AAAA 1597
       Net::DNS::RR::AFSDB 1597
-      Net::DNS::RR::APL 1597
-      Net::DNS::RR::APL::Item 1597
-      Net::DNS::RR::CAA 1597
+      Net::DNS::RR::APL 1741
+      Net::DNS::RR::APL::Item 1741
+      Net::DNS::RR::CAA 1771
       Net::DNS::RR::CDNSKEY 1586
       Net::DNS::RR::CDS 1586
-      Net::DNS::RR::CERT 1729
+      Net::DNS::RR::CERT 1773
       Net::DNS::RR::CNAME 1597
-      Net::DNS::RR::CSYNC 1597
+      Net::DNS::RR::CSYNC 1741
       Net::DNS::RR::DHCID 1597
-      Net::DNS::RR::DLV 1528
       Net::DNS::RR::DNAME 1597
-      Net::DNS::RR::DNSKEY 1729
-      Net::DNS::RR::DS 1729
+      Net::DNS::RR::DNSKEY 1773
+      Net::DNS::RR::DS 1774
       Net::DNS::RR::EUI48 1597
       Net::DNS::RR::EUI64 1597
       Net::DNS::RR::GPOS 1528
       Net::DNS::RR::HINFO 1597
-      Net::DNS::RR::HIP 1597
+      Net::DNS::RR::HIP 1749
       Net::DNS::RR::IPSECKEY 1718
       Net::DNS::RR::ISDN 1597
       Net::DNS::RR::KEY 1528
@@ -1369,53 +1599,54 @@ DISTRIBUTIONS
       Net::DNS::RR::NAPTR 1597
       Net::DNS::RR::NID 1597
       Net::DNS::RR::NS 1597
-      Net::DNS::RR::NSEC 1696
-      Net::DNS::RR::NSEC3 1726
-      Net::DNS::RR::NSEC3PARAM 1597
+      Net::DNS::RR::NSEC 1749
+      Net::DNS::RR::NSEC3 1749
+      Net::DNS::RR::NSEC3PARAM 1741
       Net::DNS::RR::NULL 1528
       Net::DNS::RR::OPENPGPKEY 1597
-      Net::DNS::RR::OPT 1717
-      Net::DNS::RR::OPT::CHAIN 1717
-      Net::DNS::RR::OPT::CLIENT_SUBNET 1717
-      Net::DNS::RR::OPT::COOKIE 1717
-      Net::DNS::RR::OPT::DAU 1717
-      Net::DNS::RR::OPT::DHU 1717
-      Net::DNS::RR::OPT::EXPIRE 1717
-      Net::DNS::RR::OPT::KEY_TAG 1717
-      Net::DNS::RR::OPT::N3U 1717
-      Net::DNS::RR::OPT::PADDING 1717
-      Net::DNS::RR::OPT::TCP_KEEPALIVE 1717
+      Net::DNS::RR::OPT 1773
+      Net::DNS::RR::OPT::CHAIN 1773
+      Net::DNS::RR::OPT::CLIENT_SUBNET 1773
+      Net::DNS::RR::OPT::COOKIE 1773
+      Net::DNS::RR::OPT::DAU 1773
+      Net::DNS::RR::OPT::DHU 1773
+      Net::DNS::RR::OPT::EXPIRE 1773
+      Net::DNS::RR::OPT::KEY_TAG 1773
+      Net::DNS::RR::OPT::N3U 1773
+      Net::DNS::RR::OPT::PADDING 1773
+      Net::DNS::RR::OPT::TCP_KEEPALIVE 1773
       Net::DNS::RR::PTR 1597
       Net::DNS::RR::PX 1597
       Net::DNS::RR::RP 1597
-      Net::DNS::RR::RRSIG 1729
+      Net::DNS::RR::RRSIG 1754
       Net::DNS::RR::RT 1597
-      Net::DNS::RR::SIG 1729
-      Net::DNS::RR::SMIMEA 1597
+      Net::DNS::RR::SIG 1754
+      Net::DNS::RR::SMIMEA 1741
       Net::DNS::RR::SOA 1597
       Net::DNS::RR::SPF 1593
       Net::DNS::RR::SRV 1597
-      Net::DNS::RR::SSHFP 1597
+      Net::DNS::RR::SSHFP 1741
       Net::DNS::RR::TKEY 1528
-      Net::DNS::RR::TLSA 1597
-      Net::DNS::RR::TSIG 1726
+      Net::DNS::RR::TLSA 1741
+      Net::DNS::RR::TSIG 1774
       Net::DNS::RR::TXT 1597
       Net::DNS::RR::URI 1597
       Net::DNS::RR::X25 1597
-      Net::DNS::Resolver 1726
-      Net::DNS::Resolver::Base 1727
+      Net::DNS::RR::ZONEMD 1771
+      Net::DNS::Resolver 1740
+      Net::DNS::Resolver::Base 1771
       Net::DNS::Resolver::MSWin32 1568
-      Net::DNS::Resolver::Recurse 1737
+      Net::DNS::Resolver::Recurse 1748
       Net::DNS::Resolver::UNIX 1573
       Net::DNS::Resolver::android 1568
       Net::DNS::Resolver::cygwin 1719
       Net::DNS::Resolver::os2 1568
       Net::DNS::Resolver::os390 1719
-      Net::DNS::Text 1726
-      Net::DNS::Update 1726
-      Net::DNS::ZoneFile 1709
-      Net::DNS::ZoneFile::Generator 1709
-      Net::DNS::ZoneFile::Text 1709
+      Net::DNS::Text 1762
+      Net::DNS::Update 1774
+      Net::DNS::ZoneFile 1769
+      Net::DNS::ZoneFile::Generator 1769
+      Net::DNS::ZoneFile::Text 1769
     requirements:
       Digest::HMAC 1.03
       Digest::MD5 2.13
@@ -1458,6 +1689,31 @@ DISTRIBUTIONS
       strict 0
       vars 0
       warnings 0
+  Net-OpenStack-Swift-0.15
+    pathname: M/MA/MASAKYST/Net-OpenStack-Swift-0.15.tar.gz
+    provides:
+      Net::OpenStack::Swift 0.15
+      Net::OpenStack::Swift::InnerKeystone::Base undef
+      Net::OpenStack::Swift::InnerKeystone::V1_0 undef
+      Net::OpenStack::Swift::InnerKeystone::V2_0 undef
+      Net::OpenStack::Swift::InnerKeystone::V3_0 undef
+      Net::OpenStack::Swift::Util undef
+    requirements:
+      App::Rad 0
+      Data::Validator 0
+      Furl 0
+      IO::Socket::SSL 0
+      JSON 0
+      Log::Minimal 0
+      Module::Build::Tiny 0.035
+      Mouse 0
+      Parallel::Fork::BossWorkerAsync 0
+      Path::Tiny 0
+      Sys::CPU 0
+      Text::ASCIITable 0
+      URI::Escape 0
+      namespace::clean 0
+      perl 5.010_001
   Net-SSLeay-1.88
     pathname: C/CH/CHRISN/Net-SSLeay-1.88.tar.gz
     provides:
@@ -1489,6 +1745,44 @@ DISTRIBUTIONS
       ExtUtils::MakeMaker 0
       POSIX 0
       Test::More 0
+  Package-Stash-0.38
+    pathname: E/ET/ETHER/Package-Stash-0.38.tar.gz
+    provides:
+      Package::Stash 0.38
+      Package::Stash::PP 0.38
+    requirements:
+      B 0
+      Carp 0
+      Config 0
+      Dist::CheckConflicts 0.02
+      ExtUtils::MakeMaker 0
+      File::Spec 0
+      Getopt::Long 0
+      Module::Implementation 0.06
+      Package::Stash::XS 0.26
+      Scalar::Util 0
+      Symbol 0
+      Text::ParseWords 0
+      constant 0
+      perl 5.008001
+      strict 0
+      warnings 0
+  Package-Stash-XS-0.29
+    pathname: E/ET/ETHER/Package-Stash-XS-0.29.tar.gz
+    provides:
+      Package::Stash::XS 0.29
+    requirements:
+      ExtUtils::MakeMaker 0
+      XSLoader 0
+      perl 5.008001
+      strict 0
+      warnings 0
+  Parallel-Fork-BossWorkerAsync-0.09
+    pathname: J/JV/JVANNUCCI/Parallel-Fork-BossWorkerAsync-0.09.tar.gz
+    provides:
+      Parallel::Fork::BossWorkerAsync 0.09
+    requirements:
+      ExtUtils::MakeMaker 0
   Params-Classify-0.015
     pathname: Z/ZE/ZEFRAM/Params-Classify-0.015.tar.gz
     provides:
@@ -1502,11 +1796,37 @@ DISTRIBUTIONS
       perl 5.006001
       strict 0
       warnings 0
-  Role-Tiny-2.000006
-    pathname: H/HA/HAARG/Role-Tiny-2.000006.tar.gz
+  Path-Tiny-0.112
+    pathname: D/DA/DAGOLDEN/Path-Tiny-0.112.tar.gz
     provides:
-      Role::Tiny 2.000006
-      Role::Tiny::With 2.000006
+      Path::Tiny 0.112
+      Path::Tiny::Error 0.112
+    requirements:
+      Carp 0
+      Cwd 0
+      Digest 1.03
+      Digest::SHA 5.45
+      Encode 0
+      Exporter 5.57
+      ExtUtils::MakeMaker 6.17
+      Fcntl 0
+      File::Copy 0
+      File::Glob 0
+      File::Path 2.07
+      File::Spec 0.86
+      File::Temp 0.19
+      File::stat 0
+      constant 0
+      overload 0
+      perl 5.008001
+      strict 0
+      warnings 0
+      warnings::register 0
+  Role-Tiny-2.001004
+    pathname: H/HA/HAARG/Role-Tiny-2.001004.tar.gz
+    provides:
+      Role::Tiny 2.001004
+      Role::Tiny::With 2.001004
     requirements:
       Exporter 5.57
       perl 5.006
@@ -1533,11 +1853,11 @@ DISTRIBUTIONS
       Sub::Exporter::Progressive 0.001013
     requirements:
       ExtUtils::MakeMaker 0
-  Sub-Quote-2.006003
-    pathname: H/HA/HAARG/Sub-Quote-2.006003.tar.gz
+  Sub-Quote-2.006006
+    pathname: H/HA/HAARG/Sub-Quote-2.006006.tar.gz
     provides:
-      Sub::Defer 2.006003
-      Sub::Quote 2.006003
+      Sub::Defer 2.006006
+      Sub::Quote 2.006006
     requirements:
       ExtUtils::MakeMaker 0
       Scalar::Util 0
@@ -1563,6 +1883,12 @@ DISTRIBUTIONS
       Text::Balanced 2
       if 0
       perl 5.005
+  Sys-CPU-0.52
+    pathname: M/MK/MKODERER/Sys-CPU-0.52.tar.gz
+    provides:
+      Sys::CPU 0.52
+    requirements:
+      ExtUtils::MakeMaker 0
   Term-ProgressBar-2.22
     pathname: M/MA/MANWAR/Term-ProgressBar-2.22.tar.gz
     provides:
@@ -1626,10 +1952,10 @@ DISTRIBUTIONS
       Test::Builder 0.13
       Test::Builder::Tester 1.02
       perl 5.006
-  Test-Warnings-0.026
-    pathname: E/ET/ETHER/Test-Warnings-0.026.tar.gz
+  Test-Warnings-0.030
+    pathname: E/ET/ETHER/Test-Warnings-0.030.tar.gz
     provides:
-      Test::Warnings 0.026
+      Test::Warnings 0.030
     requirements:
       Carp 0
       Exporter 0
@@ -1639,6 +1965,16 @@ DISTRIBUTIONS
       perl 5.006
       strict 0
       warnings 0
+  Text-ASCIITable-0.22
+    pathname: L/LU/LUNATIC/Text-ASCIITable-0.22.tar.gz
+    provides:
+      Text::ASCIITable 0.22
+      Text::ASCIITable::Wrap 0.2
+    requirements:
+      Carp 0
+      Encode 0
+      List::Util 0
+      perl v5.6.0
   Text-Soundex-3.05
     pathname: R/RJ/RJBS/Text-Soundex-3.05.tar.gz
     provides:
@@ -1646,8 +1982,19 @@ DISTRIBUTIONS
     requirements:
       ExtUtils::MakeMaker 0
       if 0
-  TimeDate-2.30
-    pathname: G/GB/GBARR/TimeDate-2.30.tar.gz
+  Time-Local-1.30
+    pathname: D/DR/DROLSKY/Time-Local-1.30.tar.gz
+    provides:
+      Time::Local 1.30
+    requirements:
+      Carp 0
+      Exporter 0
+      ExtUtils::MakeMaker 0
+      constant 0
+      parent 0
+      strict 0
+  TimeDate-2.32
+    pathname: A/AT/ATOOMIC/TimeDate-2.32.tar.gz
     provides:
       Date::Format 2.24
       Date::Format::Generic 2.24
@@ -1672,6 +2019,7 @@ DISTRIBUTIONS
       Date::Language::Icelandic 1.01
       Date::Language::Italian 1.01
       Date::Language::Norwegian 1.01
+      Date::Language::Occitan 1.04
       Date::Language::Oromo 0.99
       Date::Language::Romanian 1.01
       Date::Language::Russian 1.01
@@ -1685,8 +2033,9 @@ DISTRIBUTIONS
       Date::Language::TigrinyaEritrean 1.00
       Date::Language::TigrinyaEthiopian 1.00
       Date::Language::Turkish 1.0
-      Date::Parse 2.30
+      Date::Parse 2.32
       Time::Zone 2.24
+      TimeDate 1.21
     requirements:
       ExtUtils::MakeMaker 0
   Try-Tiny-0.30
@@ -1834,6 +2183,25 @@ DISTRIBUTIONS
       URI 1.40
       URI::Nested 0.10
       perl 5.008001
+  Variable-Magic-0.62
+    pathname: V/VP/VPIT/Variable-Magic-0.62.tar.gz
+    provides:
+      Variable::Magic 0.62
+    requirements:
+      Carp 0
+      Config 0
+      Exporter 0
+      ExtUtils::MakeMaker 0
+      IO::Handle 0
+      IO::Select 0
+      IPC::Open3 0
+      POSIX 0
+      Socket 0
+      Test::More 0
+      XSLoader 0
+      base 0
+      lib 0
+      perl 5.008
   WWW-RobotRules-6.02
     pathname: G/GA/GAAS/WWW-RobotRules-6.02.tar.gz
     provides:
@@ -1860,38 +2228,38 @@ DISTRIBUTIONS
       perl 5.008001
       strict 0
       warnings 0
-  common-sense-3.74
-    pathname: M/ML/MLEHMANN/common-sense-3.74.tar.gz
+  common-sense-3.75
+    pathname: M/ML/MLEHMANN/common-sense-3.75.tar.gz
     provides:
-      common::sense 3.74
+      common::sense 3.75
     requirements:
       ExtUtils::MakeMaker 0
-  libwww-perl-6.39
-    pathname: O/OA/OALDERS/libwww-perl-6.39.tar.gz
+  libwww-perl-6.44
+    pathname: O/OA/OALDERS/libwww-perl-6.44.tar.gz
     provides:
-      LWP 6.39
-      LWP::Authen::Basic 6.39
-      LWP::Authen::Digest 6.39
-      LWP::Authen::Ntlm 6.39
-      LWP::ConnCache 6.39
-      LWP::Debug 6.39
-      LWP::Debug::TraceHTTP 6.39
-      LWP::DebugFile 6.39
-      LWP::MemberMixin 6.39
-      LWP::Protocol 6.39
-      LWP::Protocol::cpan 6.39
-      LWP::Protocol::data 6.39
-      LWP::Protocol::file 6.39
-      LWP::Protocol::ftp 6.39
-      LWP::Protocol::gopher 6.39
-      LWP::Protocol::http 6.39
-      LWP::Protocol::loopback 6.39
-      LWP::Protocol::mailto 6.39
-      LWP::Protocol::nntp 6.39
-      LWP::Protocol::nogo 6.39
-      LWP::RobotUA 6.39
-      LWP::Simple 6.39
-      LWP::UserAgent 6.39
+      LWP 6.44
+      LWP::Authen::Basic 6.44
+      LWP::Authen::Digest 6.44
+      LWP::Authen::Ntlm 6.44
+      LWP::ConnCache 6.44
+      LWP::Debug 6.44
+      LWP::Debug::TraceHTTP 6.44
+      LWP::DebugFile 6.44
+      LWP::MemberMixin 6.44
+      LWP::Protocol 6.44
+      LWP::Protocol::cpan 6.44
+      LWP::Protocol::data 6.44
+      LWP::Protocol::file 6.44
+      LWP::Protocol::ftp 6.44
+      LWP::Protocol::gopher 6.44
+      LWP::Protocol::http 6.44
+      LWP::Protocol::loopback 6.44
+      LWP::Protocol::mailto 6.44
+      LWP::Protocol::nntp 6.44
+      LWP::Protocol::nogo 6.44
+      LWP::RobotUA 6.44
+      LWP::Simple 6.44
+      LWP::UserAgent 6.44
       libwww::perl undef
     requirements:
       CPAN::Meta::Requirements 2.120620
@@ -1928,6 +2296,15 @@ DISTRIBUTIONS
       perl 5.008001
       strict 0
       warnings 0
+  namespace-clean-0.27
+    pathname: R/RI/RIBASUSHI/namespace-clean-0.27.tar.gz
+    provides:
+      namespace::clean 0.27
+    requirements:
+      B::Hooks::EndOfScope 0.12
+      ExtUtils::MakeMaker 0
+      Package::Stash 0.23
+      perl 5.008001
   perl-ldap-0.66
     pathname: M/MA/MARSCHAP/perl-ldap-0.66.tar.gz
     provides:

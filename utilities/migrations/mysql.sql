@@ -51,3 +51,7 @@ DROP TABLE invitations;
 ALTER TABLE files MODIFY filesize bigint;
 -- 4 down
 ALTER TABLE files MODIFY filesize integer;
+-- 5 up
+ALTER TABLE slices MODIFY path varchar(255);
+-- 5 down
+ALTER TABLE slices MODIFY path varchar(255) unique NOT NULL;

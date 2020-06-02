@@ -2,7 +2,7 @@
 package Lufi::Command::theme;
 use Mojo::Base 'Mojolicious::Commands';
 use FindBin qw($Bin);
-use File::Spec qw(catfile cat dir);
+use File::Spec qw(catfile catdir);
 use File::Path qw(make_path);
 
 has description => 'Create new theme skeleton.';

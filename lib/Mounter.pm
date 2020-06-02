@@ -27,6 +27,9 @@ sub startup {
     # Compress static assets
     $self->plugin('GzipStatic');
 
+    # Fiat Tux helpers
+    $self->plugin('FiatTux::Helpers');
+
     # Headers
     $self->plugin('Lufi::Plugin::Headers');
 

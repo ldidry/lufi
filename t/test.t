@@ -13,18 +13,19 @@ use FindBin qw($Bin);
 
 my ($m, $cfile, $config_orig, $config_file, $config_content);
 
-my $msg = to_json {
+my $msg = Encode::encode_utf8(to_json {
     "total"             => 1,
     "part"              => 0,
     "size"              => 7,
-    "name"              => "foobar.txt",
+    "name"              => "foobaré.txt",
     "type"              => "text/plain",
     "delay"             => "0",
     "del_at_first_view" => 1,
     "id"                => undef,
     "zipped"            => 0,
     "i"                 => 0
-};
+});
+my $filename_test = Encode::encode_utf8('foobaré');
 my $encrypted     = '"{\\"iv\\":\\"2RGAviAeYybBqcLCmnqlgA==\\",\\"v\\":1,\\"iter\\":10000,\\"ks\\":128,\\"ts\\":64,\\"mode\\":\\"ccm\\",\\"adata\\":\\"\\",\\"cipher\\":\\"aes\\",\\"salt\\":\\"1dvKtbZ8hxA=\\",\\"ct\\":\\"w9wDZCwNSyH/yL7q1GW5fPSdi+w=\\"}"';
 my $encrypted_rgx = $encrypted;
 $encrypted_rgx    =~ s@\\@\\\\@g;
@@ -77,6 +78,9 @@ BEGIN {
 Lufi::DB::Slice->new(app => $m)->delete_all;
 Lufi::DB::File->new(app => $m)->delete_all;
 
+$config_file = Mojo::File->new($cfile->to_abs->to_string);
+$config_orig = $config_file->slurp;
+
 my $t = Test::Mojo->new('Lufi');
 
 ## Wait for short generation
@@ -101,6 +105,12 @@ restore_config();
 switch_to_ldap();
 test_infos_api(true);
 auth_test_suite('zoidberg', 'zoidberg');
+restore_config();
+
+## Test Swift object storage
+switch_to_swift();
+test_upload_file();
+test_download_file();
 restore_config();
 
 done_testing();
@@ -145,7 +155,7 @@ sub test_upload_file {
       ->message_like(qr@"duration":\d+@)
       ->message_like(qr@"i":0@)
       ->message_like(qr@"j":0@)
-      ->message_like(qr@"name":"foobar\.txt"@)
+      ->message_like(qr@"name":"$filename_test\.txt"@)
       ->message_like(qr@"parts":1@)
       ->message_like(qr@"sent_delay":0@)
       ->message_like(qr@"short":"[^"]+"@)
@@ -183,7 +193,7 @@ sub test_download_file {
       ->message_like(qr@"id":null@)
       ->message_like(qr@"del_at_first_view":1@)
       ->message_like(qr@"delay":"0"@)
-      ->message_like(qr@"name":"foobar\.txt"@)
+      ->message_like(qr@"name":"$filename_test\.txt"@)
       ->message_like(qr@"size":7@)
       ->message_like(qr@"type":"text\\/plain"@)
       ->message_like(qr@XXMOJOXX@)
@@ -263,9 +273,7 @@ sub restore_config {
 }
 
 sub switch_to_htpasswd {
-    $config_file    = Mojo::File->new($cfile->to_abs->to_string);
-    $config_content = $config_file->slurp;
-    $config_orig    = $config_content;
+    $config_content = $config_orig;
     $config_content =~ s/#?htpasswd.*/htpasswd => 't\/lufi.passwd',/gm;
     $config_file->spurt($config_content);
 
@@ -281,6 +289,20 @@ sub switch_to_htpasswd {
 sub switch_to_ldap {
     $config_content = $config_orig;
     $config_content =~ s/^( +)#?ldap => \{ uri/$1ldap => { uri/gm;
+    $config_file->spurt($config_content);
+
+    Lufi::DB::Slice->new(app => $m)->delete_all;
+    Lufi::DB::File->new(app => $m)->delete_all;
+
+    $t = Test::Mojo->new('Lufi');
+
+    ## Wait for short generation
+    sleep 5;
+}
+
+sub switch_to_swift {
+    $config_content = $config_orig;
+    $config_content =~ s/^( +)#?swift => \{ auth_url/$1swift => { auth_url/gm;
     $config_file->spurt($config_content);
 
     Lufi::DB::Slice->new(app => $m)->delete_all;

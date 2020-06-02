@@ -99,14 +99,30 @@
     # Array of authorized domains for API calls.
     # If you want to authorize everyone to use the API: ['*']
     # optional, no domains allowed by default
-    #allowed_domains   => ['http://1.example.com', 'http://2.example.com'],
+    #allowed_domains => ['http://1.example.com', 'http://2.example.com'],
 
     # Define a path to the upload directory, where the uploaded files will be stored
     # You can define it relative to lufi directory or set an absolute path
     # Remember that it has to be in a directory writable by Lufi user
-    # DO NOT CHANGE THIS IF FILES HAVE BEEN ALREADY UPLOADED: THEY WILL NOT BE DOWNLOADABLE ANYMORE
     # optional, default is 'files'
-    #upload_dir           => 'files',
+    #upload_dir => 'files',
+
+    #!!!!!!!!!!!!!!!
+    # EXPERIMENTAL !
+    #!!!!!!!!!!!!!!!
+    # You can store files on Swift object storage (https://en.wikipedia.org/wiki/OpenStack#Swift) instead of filesystem
+    # Please read https://metacpan.org/pod/Net::OpenStack::Swift#SYNOPSIS to know how to configure this setting
+    # IMPORTANT: add a `container` key in it, to let Lufi know which container to use. This is not a regular Net::OpenStack::Swift setting, but Lufi need it.
+    # EXPERIMENTAL: if the upload or download of files are stucked, reload Lufi and create a cron task to reload Lufi once a day
+    # You can copy Lufi files to Swift object storage by launching the command `carton exec script/lufi copyFilesToSwift` (can take a long time)
+    # optional, no default
+    #swift => {
+    #  auth_url    => 'https://auth-endpoint-url/v2.0',
+    #  user        => 'userid',
+    #  password    => 'password',
+    #  tenant_name => 'project_id',
+    #  container   => 'lufi'
+    #},
 
     # Allow to add a password on files, asked before allowing to download files
     # optional, default is 0

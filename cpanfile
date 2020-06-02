@@ -6,9 +6,9 @@ requires 'Mojolicious::Plugin::Mail';
 requires 'Mojolicious::Plugin::GzipStatic';
 requires 'Mojolicious::Plugin::StaticCache';
 requires 'Mojolicious::Plugin::CSPHeader', '>= 0.06';
-requires 'Mojolicious::Plugin::FiatTux::Helpers', '== 0.10', url => 'https://framagit.org/fiat-tux/mojolicious/mojolicious-plugin-fiattux-helpers/-/archive/0.10/mojolicious-plugin-fiattux-helpers-0.10.tar.gz';
-requires 'Mojolicious::Plugin::FiatTux::GrantAccess', '== 0.06', url => 'https://framagit.org/fiat-tux/mojolicious/mojolicious-plugin-fiattux-grantaccess/-/archive/0.06/mojolicious-plugin-fiattux-grantaccess-0.06.tar.gz';
-requires 'Mojolicious::Plugin::FiatTux::Themes', '== 0.02', url => 'https://framagit.org/fiat-tux/mojolicious/mojolicious-plugin-fiattux-themes/-/archive/0.02/mojolicious-plugin-fiattux-themes-0.02.tar.gz';
+requires 'Mojolicious::Plugin::FiatTux::Helpers', '== 0.12', url => 'https://framagit.org/fiat-tux/mojolicious/fiat-tux/mojolicious-plugin-fiattux-helpers/-/archive/0.12/mojolicious-plugin-fiattux-helpers-0.12.tar.gz';
+requires 'Mojolicious::Plugin::FiatTux::GrantAccess', '== 0.07', url => 'https://framagit.org/fiat-tux/mojolicious/fiat-tux/mojolicious-plugin-fiattux-grantaccess/-/archive/0.07/mojolicious-plugin-fiattux-grantaccess-0.07.tar.gz';
+requires 'Mojolicious::Plugin::FiatTux::Themes', '== 0.02', url => 'https://framagit.org/fiat-tux/mojolicious/fiat-tux/mojolicious-plugin-fiattux-themes/-/archive/0.02/mojolicious-plugin-fiattux-themes-0.02.tar.gz';
 requires 'Filesys::DiskUsage';
 requires 'Switch';
 requires 'Locale::Maketext';
@@ -54,4 +54,7 @@ feature 'mysql', 'MySQL support' => sub {
     requires 'DBD::mysql', '== 4.050';
     requires 'Mojo::mysql';
     requires 'Mojolicious::Plugin::PgURLHelper';
+};
+feature 'swift-storage', 'Openstack Swift object storage support' => sub {
+    requires 'Net::OpenStack::Swift';
 };

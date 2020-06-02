@@ -7,6 +7,8 @@ sub new {
 
     $c = $c->SUPER::new(@_);
 
+    $c = $c->_slurp if defined $c->record;
+
     return $c;
 }
 
