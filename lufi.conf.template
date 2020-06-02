@@ -107,9 +107,14 @@
     # optional, default is 'files'
     #upload_dir => 'files',
 
+    #!!!!!!!!!!!!!!!
+    # EXPERIMENTAL !
+    #!!!!!!!!!!!!!!!
     # You can store files on Swift object storage (https://en.wikipedia.org/wiki/OpenStack#Swift) instead of filesystem
     # Please read https://metacpan.org/pod/Net::OpenStack::Swift#SYNOPSIS to know how to configure this setting
     # IMPORTANT: add a `container` key in it, to let Lufi know which container to use. This is not a regular Net::OpenStack::Swift setting, but Lufi need it.
+    # EXPERIMENTAL: if the upload or download of files are stucked, reload Lufi and create a cron task to reload Lufi once a day
+    # You can copy Lufi files to Swift object storage by launching the command `carton exec script/lufi copyFilesToSwift` (can take a long time)
     # optional, no default
     #swift => {
     #  auth_url    => 'https://auth-endpoint-url/v2.0',

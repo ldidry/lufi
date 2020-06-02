@@ -69,6 +69,7 @@ sub startup {
     # Now helpers has been loaded, time to check Swift container
     if ($config->{swift}) {
         $self->check_swift_container();
+        $self->log->info('EXPERIMENTAL Using Swift object storage');
     }
 
     # Recurrent task

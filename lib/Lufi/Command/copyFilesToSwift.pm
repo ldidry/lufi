@@ -13,6 +13,10 @@ sub run {
         $c->app->check_swift_container();
         my @dirs = glob(File::Spec->catdir($c->app->config('upload_dir'), '*'));
 
+        unless (scalar(@dirs)) {
+            say sprintf('The configured upload_dir (%s) seems to be empty. Is `upload_dir` configured in lufi.conf?', $c->app->config('upload_dir'));
+            exit 1;
+        }
         say sprintf('%d folders to upload to Swift (can\'t say how many files, or the total size, sorry). This can take some time.', scalar(@dirs));
         print 'Do you want to continue? [Y/n] ';
         my $confirm = <STDIN>;
