@@ -11,7 +11,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "POT-Creation-Date: YEAR-MO-DA HO:MI+ZONE\n"
-"PO-Revision-Date: 2020-03-22 11:51+0000\n"
+"PO-Revision-Date: 2020-05-22 08:24+0000\n"
 "Last-Translator: Quentin PAGÈS <quentinantonin@free.fr>\n"
 "Language-Team: Occitan <https://weblate.framasoft.org/projects/lufi/"
 "default-theme/oc/>\n"
@@ -997,3 +997,17 @@ msgstr "Fichièr mandat"
 #: themes/default/templates/partial/render.js.ep:9
 msgid "File downloaded"
 msgstr "Fichièr telecargat"
+
+#: themes/default/templates/about.html.ep:20
+msgid "Version"
+msgstr "Version"
+
+#. (sprintf('<a href="https://framagit.org/fiat-tux/hat-softwares/lufi/-/releases/%s" class="classic">%s</a>', stash('version')
+#: themes/default/templates/about.html.ep:21
+msgid "Latest tag of this instance: %1"
+msgstr "Darrièra etiqueta d’aquesta instància : %1"
+
+#. (sprintf('<a href="https://framagit.org/fiat-tux/hat-softwares/lufi/-/commit/%s" class="classic">%s</a>', stash('version')
+#: themes/default/templates/about.html.ep:22
+msgid "Latest commit of this instance: %1"
+msgstr "Darrièr commit d’aquesta instància : %1"

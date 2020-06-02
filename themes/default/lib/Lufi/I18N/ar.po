@@ -5,8 +5,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "POT-Creation-Date: YEAR-MO-DA HO:MI+ZONE\n"
-"PO-Revision-Date: 2020-04-11 10:08+0000\n"
-"Last-Translator: Al-Hassan Abdel-Raouf <alhassanaraouf@disroot.org>\n"
+"PO-Revision-Date: 2020-05-30 12:24+0000\n"
+"Last-Translator: ButterflyOfFire <butterflyoffire@protonmail.com>\n"
 "Language-Team: Arabic <https://weblate.framasoft.org/projects/lufi/"
 "default-theme/ar/>\n"
 "Language: ar\n"
@@ -79,7 +79,7 @@ msgstr "إضافة كلمة سرية إلى الملف"
 msgid ""
 "Adding URLs not related to this Lufi instance to the mail body or subject is "
 "prohibited."
-msgstr "يُحظر اضافه رابط غير مرتبط بسيرفر Lufi هذا في نص البريد او الموضوع."
+msgstr "يُحظر إضافة رابط غير مرتبط بسيرفر Lufi هذا في نص البريد أو في الموضوع."
 
 #: themes/default/templates/partial/invitations.js.ep:3
 msgid "Are you sure you want to delete the selected invitations?"
@@ -572,7 +572,7 @@ msgstr "أظهر الدعوات المخفية"
 
 #: themes/default/templates/partial/render.js.ep:11
 msgid "Show zip content"
-msgstr "أظهر محتوى الملف المضغوط  zip"
+msgstr "أظهر محتوى الملف المضغوط zip"
 
 #: themes/default/templates/layouts/default.html.ep:40 themes/default/templates/layouts/default.html.ep:73 themes/default/templates/login.html.ep:28 themes/default/templates/logout.html.ep:17
 msgid "Signin"
@@ -640,7 +640,7 @@ msgstr "لا يمكن أن يُترك موضوع الرسالة فارغًا."
 #. ($expire_at, $max_expire_at)
 #: lib/Lufi/Controller/Invitation.pm:51
 msgid "The expiration delay (%1) is not between 1 and %2 days."
-msgstr ""
+msgstr "مدة انتهاء الصلاحية (%1) ليس بين 1 و %2 أيام."
 
 #: lib/Lufi/Controller/Files.pm:468
 msgid "The file has already been deleted"
@@ -760,8 +760,7 @@ msgid ""
 "Unable to get counter for %1. The file does not exists. It will be removed "
 "from your localStorage."
 msgstr ""
-"غير قادر على الحصول على عداد ل%1. الملف غير موجود.  ستتم إزالته من التخزين "
-"المحلي."
+"تعذّر الحصول على عداد لـ %1. الملف غير موجود. ستتم إزالته من localStorage."
 
 #. ($short)
 #: lib/Lufi/Controller/Files.pm:429
@@ -946,7 +945,21 @@ msgstr "تم تنزيل الملف"
 #: themes/default/templates/about.html.ep:17
 msgid "As Lufi is a free software licensed under of the terms of the <a href=\"https://gnu.org/licenses/agpl.html\" class=\"classic\">AGPLv3</a>, you can install it on you own server. Have a look on the <a href=\"https://framagit.org/fiat-tux/hat-softwares/lufi/wikis/home\" class=\"classic\">Wiki</a> for the procedure."
 msgstr ""
-"Lufi هو برنامج مجاني مرخص بموجب شروط <a href=\"https://gnu.org/licenses/agpl."
-"html\" class=\"classic\"> AGPLv3</a> يمكنك تثبيته على الخادم الخاص بك. إلقي "
-"نظره علي <a href=\"https://framagit.org/fiat-tux/hat-softwares/lufi/wikis/"
-"home\" class=\"classic\"> الويكي </a> لتتعرف علي الخطوات"
+"Lufi هو برنامج حر مرخص بموجب شروط <a href=\"https://gnu.org/licenses/agpl."
+"html\" class=\"classic\"> AGPLv3</a> يمكنك تثبيته على خادمك الخاص. إلقي نظرة "
+"على <a href=\"https://framagit.org/fiat-tux/hat-softwares/lufi/wikis/home\" "
+"class=\"classic\"> الويكي</a> للتعرّف على كيفية القيام بذلك."
+
+#: themes/default/templates/about.html.ep:20
+msgid "Version"
+msgstr "الإصدار"
+
+#. (sprintf('<a href="https://framagit.org/fiat-tux/hat-softwares/lufi/-/releases/%s" class="classic">%s</a>', stash('version')
+#: themes/default/templates/about.html.ep:21
+msgid "Latest tag of this instance: %1"
+msgstr "آخر علامة على مثيل الخادم هذا: %1"
+
+#. (sprintf('<a href="https://framagit.org/fiat-tux/hat-softwares/lufi/-/commit/%s" class="classic">%s</a>', stash('version')
+#: themes/default/templates/about.html.ep:22
+msgid "Latest commit of this instance: %1"
+msgstr "آخر مراجعة على مثيل الخادم هذا: %1"
