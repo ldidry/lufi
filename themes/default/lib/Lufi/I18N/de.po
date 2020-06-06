@@ -5,8 +5,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "POT-Creation-Date: YEAR-MO-DA HO:MI+ZONE\n"
-"PO-Revision-Date: 2020-03-22 18:29+0000\n"
-"Last-Translator: Luc Didry <luc@framasoft.org>\n"
+"PO-Revision-Date: 2020-06-05 22:24+0000\n"
+"Last-Translator: pi <pi@solidaris.me>\n"
 "Language-Team: German <https://weblate.framasoft.org/projects/lufi/"
 "default-theme/de/>\n"
 "Language: de\n"
@@ -991,9 +991,31 @@ msgstr ""
 #: themes/default/templates/about.html.ep:17
 msgid "As Lufi is a free software licensed under of the terms of the <a href=\"https://gnu.org/licenses/agpl.html\" class=\"classic\">AGPLv3</a>, you can install it on you own server. Have a look on the <a href=\"https://framagit.org/fiat-tux/hat-softwares/lufi/wikis/home\" class=\"classic\">Wiki</a> for the procedure."
 msgstr ""
-"Da es sich bei Lufi um eine freie Software handelt, die unter den edingungen "
-"der <a href=\"https://gnu.org/licenses/agpl.html\" class=\"classic\""
-">AGPLv3</a> lizenziert ist, können Sie sie auf Ihrem eigenen Server "
-"installieren. Werfen Sie einen Blick auf die <a href=\"https://framagit.org/"
+"Da es sich bei Lufi um eine freie Software handelt, die unter den "
+"Bedingungen der <a href=\"https://gnu.org/licenses/agpl.html\" class=\""
+"classic\">AGPLv3</a> lizenziert ist, können Sie sie auf Ihrem eigenen Server "
+"installieren. Werfen Sie einen Blick in das <a href=\"https://framagit.org/"
 "fiat-tux/hat-softwares/lufi/wikis/home\" class=\"classic\">Wiki</a> für das "
 "Verfahren."
+
+#: themes/default/templates/partial/index.js.ep:24
+msgid "File uploaded"
+msgstr "Datei hochgeladen"
+
+#: themes/default/templates/partial/render.js.ep:9
+msgid "File downloaded"
+msgstr "Datei heruntergeladen"
+
+#. (sprintf('<a href="https://framagit.org/fiat-tux/hat-softwares/lufi/-/commit/%s" class="classic">%s</a>', stash('version')
+#: themes/default/templates/about.html.ep:22
+msgid "Latest commit of this instance: %1"
+msgstr "Neueste Änderung dieser Instanz: %1"
+
+#. (sprintf('<a href="https://framagit.org/fiat-tux/hat-softwares/lufi/-/releases/%s" class="classic">%s</a>', stash('version')
+#: themes/default/templates/about.html.ep:21
+msgid "Latest tag of this instance: %1"
+msgstr "Neueste Version dieser Instanz: %1"
+
+#: themes/default/templates/about.html.ep:20
+msgid "Version"
+msgstr "Version"
