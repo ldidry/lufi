@@ -1,0 +1,22 @@
+% # vim:set sw=4 ts=4 sts=4 ft=html.epl expandtab:
+<div id="files">
+    <h1>
+        <%= l('Drop files here') %>
+    </h1>
+    <p id="max-file-size"></p>
+    <p>
+        <small>
+            <%= l('or') %>
+        </small>
+    </p>
+    <label>
+        <span id="file-browser-span">
+            <%= l('Click to open the file browser') %>
+        </span>
+        <input
+            type="file"
+            id="file-browser-button"
+            multiple
+            disabled>
+    </label>
+</div>

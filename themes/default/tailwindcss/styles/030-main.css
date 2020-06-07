@@ -1,0 +1,15 @@
+main {
+    @apply mt-4 w-auto mx-auto;
+    @apply grid grid-cols-1;
+    @apply max-w-6xl;
+}
+main > * {
+    @apply bg-gray-900 bg-opacity-75;
+    @apply p-4;
+}
+main a {
+    @apply text-teal-200;
+}
+main a:visited {
+    @apply text-purple-400;
+}

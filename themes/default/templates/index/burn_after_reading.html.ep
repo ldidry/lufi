@@ -1,0 +1,19 @@
+% # vim:set sw=4 ts=4 sts=4 ft=html.epl expandtab:
+<div>
+    % if ($self->config('force_burn_after_reading')) {
+        <p>
+            <%= l('Files deleted at first download') %>
+        </p>
+    % }
+    <div :class="{ 'hidden': forceBurnOrInvitation }">
+        <input
+            type="checkbox"
+            id="first-view"
+            x-model="firstView"
+            :disabled="forceBurn"
+        >
+        <label for="first-view">
+            <%= l('Delete at first download?') %>
+        </label>
+    </div>
+</div>

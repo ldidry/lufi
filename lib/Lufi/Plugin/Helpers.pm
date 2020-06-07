@@ -1,9 +1,12 @@
 # vim:set sw=4 ts=4 sts=4 ft=perl expandtab:
 package Lufi::Plugin::Helpers;
 use Mojo::Base 'Mojolicious::Plugin';
+use Mojo::Collection 'c';
+use File::Spec;
 use Lufi::DB::File;
 use Lufi::DB::Invitation;
 use Date::Language;
+use Data::Entropy qw(entropy_source);
 
 sub register {
     my ($self, $app) = @_;
@@ -70,6 +73,8 @@ sub register {
     $app->helper(is_guest                => \&_is_guest);
     $app->helper(get_date_lang           => \&_get_date_lang);
     $app->helper(git_version             => \&_git_version);
+    $app->helper(backgrounds             => \&_backgrounds);
+    $app->helper(random_background_image => \&_random_background_image);
 }
 
 sub _pg {
@@ -244,6 +249,27 @@ sub _git_version {
         tag    => $last_tag,
         commit => $last_commit
     }
+}
+
+sub _backgrounds {
+    my $c = shift;
+
+    state @backgrounds;
+    if (!scalar @backgrounds) {
+        for my $i (@{$c->app->static->paths}) {
+            push @backgrounds, glob(File::Spec->catdir($i, 'img', 'backgrounds', '*'));
+        }
+    }
+
+    return @backgrounds;
+}
+
+sub _random_background_image {
+    my $c = shift;
+
+    my @backgrounds = $c->backgrounds;
+
+    return File::Spec->abs2rel($backgrounds[entropy_source->get_int(scalar(@backgrounds))]);
 }
 
 1;

@@ -175,6 +175,11 @@ sub startup {
       ->to('Misc#about')
       ->name('about');
 
+    # About page
+    $r->get('/background')
+      ->to('Misc#background')
+      ->name('background');
+
     # About config API endpoint
     $r->get('/about/config')
       ->to('Misc#config_infos')

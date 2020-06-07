@@ -19,6 +19,7 @@ requires 'Filesys::DfPortable';
 requires 'Data::Entropy';
 requires 'Crypt::SaltedHash';
 requires 'Data::Validate::URI';
+requires 'Data::Entropy';
 requires 'Term::ProgressBar';
 requires 'URI::Find';
 

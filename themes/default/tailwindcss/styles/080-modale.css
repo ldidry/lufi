@@ -1,0 +1,14 @@
+.modale {
+    @apply bg-gray-900 bg-opacity-100;
+    @apply p-4 pt-8;
+    @apply w-full h-full;
+    @apply fixed inset-0;
+    @apply overflow-y-scroll;
+    @apply z-50;
+}
+.modale div {
+    @apply mx-auto max-w-4xl;
+}
+.modale ul {
+    @apply list-disc list-inside;
+}

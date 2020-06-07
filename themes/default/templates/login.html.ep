@@ -1,31 +1,41 @@
 % # vim:set sw=4 ts=4 sts=4 ft=html.epl expandtab:
 % if (defined stash('msg')) {
-<div class="col s12">
-    <div class="card pink">
-        <div class="card-content white-text">
-            <strong><%= stash('msg') %></strong>
-        </div>
+    <div>
+        <strong>
+            <%= stash('msg') %>
+        </strong>
     </div>
-</div>
 % }
-<form class="row" method="post" action="<%= url_for('login') %>">
-    <div class="col s8 m8 offset-s2 offset-m2">
-        <div class="input-field">
-            <input id="login" type="text" class="validate" name="login">
-            <label for="login"><%= l('Login') %></label>
-        </div>
+<form method="post" action="<%= url_for('login') %>" class="form">
+    <div class="input-field">
+        <label for="login">
+            <%= l('Login') %>
+        </label>
+        <input
+            id="login"
+            type="text"
+            name="login"
+            required>
     </div>
-    <div class="col s8 m8 offset-s2 offset-m2">
-        <div class="input-field">
-            <input id="password" type="password" class="validate" name="password">
-            <label for="password"><%= l('Password') %></label>
-        </div>
+    <div class="input-field">
+        <label for="password">
+            <%= l('Password') %>
+        </label>
+        <input
+            id="password"
+            type="password"
+            name="password"
+            required>
     </div>
     %= csrf_field
-    <input name="redirect" value="<%= stash('redirect') %>" type="hidden">
-    <div class="col s8 m8 offset-s2 offset-m2">
-        <button class="btn waves-effect waves-light" type="submit" name="action">
-            <%= l('Signin') %>
-        </button>
-    </div>
+    <input
+        name="redirect"
+        value="<%= stash('redirect') %>"
+        type="hidden">
+    <button
+        class="btn"
+        type="submit"
+        name="action">
+        <%= l('Signin') %>
+    </button>
 </form>

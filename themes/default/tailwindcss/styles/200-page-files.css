@@ -1,0 +1,19 @@
+/* My files page */
+.block-div.myfiles hr {
+    @apply mb-2;
+}
+.block-div.myfiles {
+    @apply leading-tight;
+}
+.files-buttons {
+    @apply my-4 grid grid-cols-1 gap-2;
+    @apply text-center;
+}
+@screen lg {
+    .files-buttons {
+        @apply mt-4 grid grid-cols-2;
+    }
+}
+.files-buttons .btn {
+    @apply w-full;
+}

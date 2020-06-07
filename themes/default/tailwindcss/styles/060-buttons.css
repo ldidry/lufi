@@ -1,0 +1,19 @@
+/* Buttons */
+.btn,
+.btn a {
+    @apply text-white text-center no-underline !important;
+}
+.btn {
+    @apply bg-teal-700;
+    @apply font-bold;
+    @apply py-1 px-2;
+    @apply border-2 border-teal-700 rounded;
+    @apply text-white text-center no-underline !important;
+}
+.btn:hover {
+    @apply bg-teal-900;
+    @apply border-teal-900;
+}
+.btn.disabled {
+    @apply opacity-50 cursor-not-allowed;
+}

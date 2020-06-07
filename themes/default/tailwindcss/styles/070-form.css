@@ -1,0 +1,22 @@
+.form {
+    @apply mx-auto;
+}
+.form .input-field {
+    @apply mb-4;
+}
+.form label {
+    @apply text-sm font-bold;
+    @apply mb-2;
+    @apply block;
+}
+.form input {
+    @apply pl-2 w-full;
+}
+.form .btn {
+    @apply w-full;
+}
+select {
+    @apply appearance-none;
+    @apply block appearance-none w-full;
+    @apply border border-gray-200 rounded;
+}

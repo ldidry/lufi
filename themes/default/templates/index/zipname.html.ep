@@ -1,0 +1,11 @@
+% # vim:set sw=4 ts=4 sts=4 ft=html.epl expandtab:
+<div id="zipname-input">
+    <input
+        type="text"
+        id="zipname"
+        placeholder="documents.zip"
+        value="documents.zip">
+    <label for="zipname">
+        <%= l('Name of the zip file') %>
+    </label>
+</div>

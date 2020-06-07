@@ -1,0 +1,14 @@
+/* Default */
+body {
+    @apply bg-cover;
+    background-image: repeating-linear-gradient(135deg, #00000033, #00000033 63%, transparent 63%, transparent),
+                      url('../background');
+    @apply text-white;
+    @apply min-h-screen;
+}
+body > * {
+    @apply px-4;
+}
+body.rtl {
+    direction: rtl;
+}

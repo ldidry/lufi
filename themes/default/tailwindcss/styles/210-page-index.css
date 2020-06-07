@@ -1,0 +1,65 @@
+/* Index page */
+.upload {
+    @apply my-4 grid grid-cols-1 gap-2;
+}
+@screen lg {
+    .upload {
+        @apply mt-4 grid grid-cols-2;
+    }
+}
+@screen xl {
+    .upload {
+        @apply mt-4 grid grid-cols-3;
+    }
+    .upload #results {
+        @apply col-span-2;
+    }
+}
+.upload .upload-form {
+    @apply bg-gray-900 bg-opacity-75;
+    @apply rounded-md;
+    @apply p-4;
+}
+@screen md {
+    .upload .upload-form {
+        @apply leading-relaxed;
+    }
+}
+@screen lg {
+    .upload .upload-form {
+        @apply leading-loose;
+    }
+}
+.upload .upload-form select {
+    @apply leading-normal;
+}
+.upload .upload-form input {
+    @apply pl-2;
+    @apply leading-relaxed;
+}
+.upload .upload-form select,
+.upload .upload-form input,
+.upload .upload-form {
+    @apply bg-gray-700 bg-opacity-75;
+}
+.upload #results h1 {
+    @apply text-xl text-center;
+}
+.upload .upload-form .input-field {
+    @apply relative;
+}
+.upload .upload-form [type="checkbox"] {
+    @apply w-4 h-4;
+}
+
+.upload #files {
+    @apply text-center;
+    @apply mt-4 p-4;
+    @apply border-2 border-gray-200 border-dashed;
+}
+
+.upload #results {
+    @apply bg-gray-700 bg-opacity-75;
+    @apply rounded-md;
+    @apply p-4 mx-10;
+}

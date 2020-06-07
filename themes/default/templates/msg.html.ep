@@ -1,22 +1,26 @@
 % # vim:set sw=4 ts=4 sts=4 ft=html.epl expandtab:
 
-<div class="row">
-    <div class="col s12">
-% if (!defined(stash('f')) && defined(stash('msg'))) {
-        <div class="card pink">
-            <div class="card-content white-text">
-                <p><%= stash('msg') %></p>
-% } elsif (defined(stash('msg_success'))) {
-        <div class="card cyan">
-            <div class="card-content white-text">
-            <p><%= stash('msg_success') %></p>
-% } else {
-        <div class="card cyan">
-            <div class="card-content white-text">
-                <span class="card-title"><%= stash('f')->filename %></span>
-                <p><%= stash('msg') %></p>
-% }
-            </div>
+<div>
+    % if (!defined(stash('f')) && defined(stash('msg'))) {
+        <div>
+            <p>
+                <%= stash('msg') %>
+            </p>
         </div>
-    </div>
+    % } elsif (defined(stash('msg_success'))) {
+        <div>
+            <p>
+                <%= stash('msg_success') %>
+            </p>
+        </div>
+    % } else {
+        <div>
+            <span>
+                <%= stash('f')->filename %>
+            </span>
+            <p>
+                <%= stash('msg') %>
+            </p>
+        </div>
+    % }
 </div>

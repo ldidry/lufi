@@ -1,45 +1,63 @@
 % # vim:set sw=4 ts=4 sts=4 ft=html.epl expandtab:
-<div class="row valign-wrapper">
-    <div class="valign center col s12">
+<div>
     % if (!defined(stash('f')) && defined(stash('msg'))) {
-        <div class="col s12">
-            <div class="card pink">
-                <div class="card-content white-text">
-                    <strong><%= stash('msg')%></strong>
-                </div>
-            </div>
+        <div>
+            <strong>
+                <%= stash('msg')%>
+            </strong>
         </div>
     % } else {
-        <h2 class="col s12 center-align title-filename"><%= stash('f')->filename %></h2>
+        <h1>
+            <%= stash('f')->filename %>
+        </h1>
         % if (defined(stash('msg'))) {
-        <div class="col s12">
-            <div class="card pink">
-                <div class="card-content white-text">
-                    <strong><%= stash('msg')%></strong>
-                </div>
+            <div>
+                <strong>
+                    <%= stash('msg')%>
+                </strong>
             </div>
-        </div>
         % } else {
         %   if (stash('file_pwd')) {
-        <div class="col s12">
-            <div class="input-field">
-                <input type="password" id="file_pwd" placeholder="<%= l('Password') %>" class="validate">
+            <div>
+                <input
+                    type="password"
+                    id="file_pwd"
+                    placeholder="<%= l('Password') %>">
+                <a href="#" id="go">
+                    <%= l('Download') %>
+                </a>
             </div>
-            <a id="go" class="waves-effect waves-light btn"><%= l('Download') %></a>
-        </div>
         %   }
-        <div class="file-progress col s12<%= (stash('file_pwd')) ? ' hide' : '' %>">
-            <p id="filesize" data-filesize="<%= stash('f')->filesize %>" data-zipped="<%= (stash('f')->zipped) ? 'true' : 'false' %>"></p>
-            <p id="please-wait"><%= l('Please wait while we are getting your file. We first need to download and decrypt all parts before you can get it.') %></p>
-            <p id="loading"></p>
-            <div class="progress" id="pbd">
-                <div id="pb" class="determinate width-0" role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100">
-                    <span id="pbt" class="sr-only">0%</span>
+        <div
+            class="<%= (stash('file_pwd')) ? 'hide' : '' %>">
+            <p
+                id="filesize"
+                data-filesize="<%= stash('f')->filesize %>"
+                data-zipped="<%= (stash('f')->zipped) ? 'true' : 'false' %>">
+            </p>
+            <p id="please-wait">
+                <%= l('Please wait while we are getting your file. We first need to download and decrypt all parts before you can get it.') %>
+            </p>
+            <p id="loading">
+            </p>
+            <div id="pbd">
+                <div
+                    id="pb"
+                    role="progressbar"
+                    aria-valuenow="0"
+                    aria-valuemin="0"
+                    aria-valuemax="100">
+                    <span id="pbt" class="sr-only">
+                        0%
+                    </span>
                 </div>
             </div>
         </div>
-        <div class="file-abort col s12<%= (stash('file_pwd')) ? ' hide' : '' %>">
-            <a id="abort" class="waves-effect waves-light btn"><%= l('Abort') %></a>
+        <div
+            class="<%= (stash('file_pwd')) ? 'hide' : '' %>">
+            <a href="#" id="abort">
+                <%= l('Abort') %>
+            </a>
         </div>
 %= javascript '/partial/render.js?nbslices='.stash('f')->nbslices.'&file='.stash('f')->short
 %= javascript '/js/filesize.min.js'

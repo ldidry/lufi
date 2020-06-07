@@ -1,0 +1,84 @@
+/* Navbar */
+.navbar {
+    @apply bg-gray-800 bg-opacity-75;
+    @apply w-full;
+    @apply text-base uppercase;
+}
+.navbar .navbrand {
+    @apply font-bold;
+}
+.navbar ul li {
+    @apply px-2 py-1;
+    @apply hidden;
+}
+.navbar ul li.navbrand {
+    display: list-item;
+}
+.navbar ul li > *,
+.dropdown.user ul li * {
+    @apply align-middle;
+    @apply no-underline;
+    @apply border-solid border-gray-400 border-b-4;
+}
+.navbar ul.show-menu li {
+    display: list-item;
+}
+.navbar ul li.navbrand * {
+    @apply border-none;
+    @apply inline-block;
+}
+.navbar .hamburger {
+    @apply float-right;
+}
+@screen xl {
+    .navbar .navbrand .hamburger {
+        @apply hidden;
+    }
+    .navbar ul {
+        @apply flex;
+    }
+    .navbar ul li {
+        display: list-item;
+    }
+}
+.navbar ul li.active,
+.dropdown.user ul li.active {
+    @apply font-bold;
+}
+.navbar ul li.active *,
+.dropdown.active ul li.active * {
+    @apply border-solid border-teal-400 border-b-4;
+    @apply no-underline;
+}
+.navbar ul li.dropdown {
+    @apply relative;
+}
+.navbar ul li.dropdown.lang *,
+.navbar ul li.dropdown.user > a {
+    @apply border-opacity-0;
+}
+.dropdown span,
+.dropdown li {
+    @apply cursor-pointer;
+}
+.dropdown a {
+    display: ruby;
+}
+.navbar ul li.dropdown ul {
+    @apply bg-gray-800 bg-opacity-100;
+    @apply absolute;
+    @apply mt-1;
+    @apply block;
+    white-space: nowrap;
+}
+.dropdown.lang ul li {
+    @apply underline;
+    text-decoration-style: dotted;
+}
+.dropdown.user ul,
+.dropdown.user ul li form {
+    @apply border-none;
+}
+.dropdown.user button {
+    @apply text-base uppercase;
+}

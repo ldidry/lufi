@@ -40,6 +40,13 @@ sub about {
     );
 }
 
+sub background {
+    my $c = shift;
+
+    $c->res->headers->cache_control('no-store');
+    $c->reply->file($c->random_background_image);
+}
+
 sub config_infos {
     my $c = shift;
 

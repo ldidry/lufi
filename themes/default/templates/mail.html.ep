@@ -1,50 +1,77 @@
 % # vim:set sw=4 ts=4 sts=4 ft=html.epl expandtab:
-<div class="row">
+<div>
 % if (defined(stash('msg'))) {
-    <div class="col s12">
-        <div class="card pink">
-            <div class="card-content white-text">
-                <strong><%== stash('msg')%></strong>
-            </div>
-        </div>
+    <div>
+        <strong>
+            <%== stash('msg')%>
+        </strong>
     </div>
 % }
-    <div class="col s12">
-        <div class="card cyan">
-            <div class="card-content white-text">
-                <p><%= l('If you send the mail from this server, the links will be sent to the server, which may lower your privacy protection.') %></p>
-                <p><%= l('Adding URLs not related to this Lufi instance to the mail body or subject is prohibited.') %></p>
-            </div>
+    <div>
+        <div class="card-content white-text">
+            <p>
+                <%= l('If you send the mail from this server, the links will be sent to the server, which may lower your privacy protection.') %>
+            </p>
+            <p>
+                <%= l('Adding URLs not related to this Lufi instance to the mail body or subject is prohibited.') %>
+            </p>
         </div>
     </div>
-    <form action="<%= url_for('m') %>" method="post" class="col s12">
+    <form action="<%= url_for('m') %>" method="post">
         %= csrf_field
         <div class="input-field">
-            <label for="emails"><%= l('Comma-separated email addresses') %></label>
-% if (defined(stash('values'))) {
-            <input type="text" class="validate" id="emails" name="emails" placeholder="<%= l('Emails') %>" value="<%= stash('values')->{emails} %>">
-% } else {
-            <input type="text" class="validate" id="emails" name="emails" placeholder="<%= l('Emails') %>">
-% }
+            <label for="emails">
+                <%= l('Comma-separated email addresses') %>
+            </label>
+            % if (defined(stash('values'))) {
+                <input
+                    type="text"
+                    id="emails"
+                    name="emails"
+                    placeholder="<%= l('Emails') %>"
+                    value="<%= stash('values')->{emails} %>">
+            % } else {
+                <input
+                    type="text"
+                    id="emails"
+                    name="emails"
+                    placeholder="<%= l('Emails') %>">
+            % }
         </div>
-        <div class="input-field">
-            <label for="subject"><%= l('Email subject') %></label>
-% if (defined(stash('values'))) {
-            <input type="text" class="validate" id="subject" name="subject" value="<%= stash('values')->{subject} %>">
-% } else {
-            <input type="text" class="validate" id="subject" name="subject" value="<%= l('Here\'s some files') %>">
-% }
+        <div>
+            <label for="subject">
+                <%= l('Email subject') %>
+            </label>
+            % if (defined(stash('values'))) {
+                <input
+                    type="text"
+                    id="subject"
+                    name="subject"
+                    value="<%= stash('values')->{subject} %>">
+            % } else {
+                <input
+                    type="text"
+                    id="subject"
+                    name="subject"
+                    value="<%= l('Here\'s some files') %>">
+            % }
         </div>
-        <div class="input-field">
-            <label for="body"><%= l('Email body') %></label>
-            <textarea class="materialize-textarea" id="body" name="body" rows="10">
+        <div>
+            <label for="body">
+                <%= l('Email body') %>
+            </label>
+            <textarea id="body" name="body" rows="10">
 % if (defined(stash('values'))) {
 <%= stash('values')->{body} %>
 % }
             </textarea>
         </div>
-        <button type="submit" class="btn btn-info"><%= l('Send with this server') %></button>
-        <a href="#" class="btn btn-primary" id="mailto"><%= l('Send with your own mail software') %></a>
+        <button type="submit">
+            <%= l('Send with this server') %>
+        </button>
+        <a href="#" id="mailto">
+            <%= l('Send with your own mail software') %>
+        </a>
     </form>
 <div>
 %= javascript url_for('/partial/mail.js')->query(populate => (!defined(stash('msg')) && !defined(stash('values'))), links => $links)

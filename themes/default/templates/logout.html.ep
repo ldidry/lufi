@@ -1,21 +1,21 @@
 % # vim:set sw=4 ts=4 sts=4 ft=html.epl expandtab:
 % if (defined stash('msg')) {
-<div class="col s12">
-    <div class="card pink">
-        <div class="card-content white-text">
-            <strong><%= stash('msg') %></strong>
-        </div>
+    <div>
+        <strong>
+            <%= stash('msg') %>
+        </strong>
     </div>
-</div>
 % } else {
-<div class="col s12">
-    <div class="card blue-grey darken-1">
-        <div class="card-content white-text">
-            <strong><%= l('You have been successfully logged out.') %></strong>
-        </div>
-        <div class="card-action">
-            <a href="<%= url_for('login') %>"><%= l('Signin') %></a>
+    <div>
+        <p>
+            <strong>
+                <%= l('You have been successfully logged out.') %>
+            </strong>
+        </p>
+        <div>
+            <a href="<%= url_for('login') %>">
+                <%= l('Signin') %>
+            </a>
         </div>
     </div>
-</div>
 % }

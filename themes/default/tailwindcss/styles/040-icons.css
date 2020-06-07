@@ -1,0 +1,19 @@
+/* Icons */
+svg {
+    @apply h-4 w-4;
+    @apply text-white;
+}
+svg.icon-hamburger {
+    @apply h-8 w-8;
+}
+svg.icon-infos {
+    @apply h-5 w-5;
+    @apply text-blue-500 inline-block;
+    @apply bg-white rounded-full;
+}
+svg.icon-upload {
+    @apply mx-auto;
+    @apply rounded-full border border-gray-200 border-8;
+    @apply h-32 w-32;
+    @apply text-gray-200;
+}

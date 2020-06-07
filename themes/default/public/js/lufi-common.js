@@ -14,8 +14,8 @@ function escapeHtml(string) {
         return entityMap[s];
     });
 }
-function changeLang() {
-    window.location = langUrl+$(this).val();
+function changeLang(locale) {
+    window.location = langUrl+locale;
 }
 $(document).ready(function(){
     $('select').material_select();

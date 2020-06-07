@@ -1,0 +1,17 @@
+/* Cards */
+.card {
+    @apply p-4 mt-4;
+}
+.card.mini {
+    @apply pl-1 pr-0 py-0 my-1;
+}
+.card.error {
+    @apply bg-orange-100;
+    @apply text-orange-700;
+    @apply border-l-4 border-orange-500;
+}
+.card.info {
+    @apply bg-blue-100;
+    @apply text-blue-700;
+    @apply border-l-4 border-blue-500;
+}

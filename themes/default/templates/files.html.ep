@@ -1,37 +1,64 @@
 % # vim:set sts=4 sw=4 ts=4 ft=html.epl expandtab:
 
-<h2><%= l('My files') %></h2>
+<h2>
+    <%= l('My files') %>
+</h2>
 <hr>
-
-
 <p>
-    <%= l('Only the files sent with this browser will be listed here. This list is stored in localStorage: if you delete your localStorage data, you\'ll lose this list.') %><br>
+    <%= l('Only the files sent with this browser will be listed here. This list is stored in localStorage: if you delete your localStorage data, you\'ll lose this list.') %>
+    <br>
     <%= l('Rows in red mean that the files have expired and are no longer available.') %>
 </p>
-<div class="files-buttons">
-    <a href="#" id="exportStorage"   class="btn left-mg cyan"><%= l('Export localStorage data') %></a>
-    <a href="#" id="purgeExpired"    class="btn left-mg cyan"><%= l('Purge expired files from localStorage') %></a>
-    <a href="#" id="clickImport"     class="btn left-mg cyan"><%= l('Import localStorage data') %></a>
-    <span class="file-field input-field">
+<div>
+    <a href="#" id="exportStorage">
+        <%= l('Export localStorage data') %>
+    </a>
+    <a href="#" id="purgeExpired">
+        <%= l('Purge expired files from localStorage') %>
+    </a>
+    <a href="#" id="clickImport">
+        <%= l('Import localStorage data') %>
+    </a>
+    <span>
         <input type="file" id="import" onchange="importStorage(this.files)">
     </span>
-    <a href="#" id="invertSelection" class="btn left-mg cyan"><%= l('Invert selection') %></a>
-    <a href="#" class="btn left-mg cyan disabled" id="mass-delete" disabled><%= l('Delete selected files') %></a>
+    <a href="#" id="invertSelection">
+        <%= l('Invert selection') %>
+    </a>
+    <a href="#" id="mass-delete" disabled>
+        <%= l('Delete selected files') %>
+    </a>
 </div>
 
 <div>
-    <table class="responsive-table highlight striped">
+    <table>
         <thead>
             <tr>
-                <th class="center-align"></th>
-                <th class="center-align"><%= l('File name') %></th>
-                <th class="center-align"><%= l('Download link') %></th>
-                <th class="center-align"><%= l('Counter') %></th>
-                <th class="center-align"><%= l('Delete at first download?') %></th>
-                <th class="center-align"><%= l('Uploaded at') %></th>
-                <th class="center-align"><%= l('Expires at') %></th>
-                <th class="center-align"><%= l('Deletion link') %></th>
-                <th class="center-align"><%= l('Mail') %></th>
+                <th></th>
+                <th>
+                    <%= l('File name') %>
+                </th>
+                <th>
+                    <%= l('Download link') %>
+                </th>
+                <th>
+                    <%= l('Counter') %>
+                </th>
+                <th>
+                    <%= l('Delete at first download?') %>
+                </th>
+                <th>
+                    <%= l('Uploaded at') %>
+                </th>
+                <th>
+                    <%= l('Expires at') %>
+                </th>
+                <th>
+                    <%= l('Deletion link') %>
+                </th>
+                <th>
+                    <%= l('Mail') %>
+                </th>
             </tr>
         </thead>
         <tbody id="myfiles">
