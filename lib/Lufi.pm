@@ -2,6 +2,7 @@
 package Lufi;
 use Mojo::Base 'Mojolicious';
 use Mojolicious::Sessions;
+use Mojo::File;
 use Email::Valid;
 use Data::Validate::URI qw(is_web_uri);
 use Lufi::DefaultConfig qw($default_config);
@@ -76,7 +77,14 @@ sub startup {
     Mojo::IOLoop->recurring(2 => sub {
         my $loop = shift;
 
+        my $lockfile = Mojo::File->new($ENV{MOJO_CONFIG})->basename('.conf').'-provisioning.lock';
+        return if -e $lockfile;
+
+        $lockfile = Mojo::File->new($lockfile)->touch();
+
         $self->provisioning();
+
+        $lockfile->remove();
     });
 
     # Create directory if needed
