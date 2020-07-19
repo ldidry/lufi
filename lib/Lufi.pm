@@ -78,7 +78,16 @@ sub startup {
         my $loop = shift;
 
         my $lockfile = Mojo::File->new($ENV{MOJO_CONFIG})->basename('.conf').'-provisioning.lock';
-        return if -e $lockfile;
+        if (-e $lockfile) {
+            my ($dev,$ino,$mode,$nlink,$uid,$gid,$rdev,$size,$atime,$mtime,$ctime,$blksize,$blocks) = stat($lockfile);
+
+            # Remove the lockfile if more than 20 seconds old
+            if (time - $mtime > 20) {
+                unlink $lockfile if -e $lockfile; # if -e just to be sure the file hasn’t been removed while checking it
+            } else {
+                return;
+            }
+        }
 
         $lockfile = Mojo::File->new($lockfile)->touch();
 
