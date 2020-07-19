@@ -1,6 +1,5 @@
 package Lufi::Command::sqliteToOtherDB;
 use Mojo::Base 'Mojolicious::Command';
-use Lufi::DB::BreakingChange;
 use Lufi::DB::File;
 use Lufi::DB::Slice;
 use Lufi::DB::Invitation;
@@ -91,15 +90,6 @@ sub run {
                             ->show_in_list($invitation->{show_in_list})
                             ->deleted($invitation->{deleted})
                             ->write();
-        $progress->update();
-    });
-    $changes->each(sub {
-        my ($change, $num) = @_;
-
-        Lufi::DB::BreakingChange->new(app => $c->app)
-                                ->change($change->{change})
-                                ->ack($change->{ack})
-                                ->write();
         $progress->update();
     });
 }
