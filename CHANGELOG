@@ -2,6 +2,7 @@ Revision history for Lufi
 
 ?.??.? ????-??-??
 
+0.05.3 2020-08-17
 	- 🐛 Check if provisioning lockfile mod time exists before using it (#208)
 
 0.05.2 2020-07-25
