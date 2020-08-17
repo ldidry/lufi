@@ -2,6 +2,8 @@ Revision history for Lufi
 
 ?.??.? ????-??-??
 
+	- 🐛 Check if provisioning lockfile mod time exists before using it (#208)
+
 0.05.2 2020-07-25
 	- 🔥 Remove code from abandonned feature
 	- Fix regression introduced in 0.05.1 (#201)
