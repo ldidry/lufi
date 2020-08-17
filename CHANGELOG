@@ -1,6 +1,7 @@
 Revision history for Lufi
 
 ?.??.? ????-??-??
+	- 🐛 Fix incorrect HTML in delays.html.ep (#207)
 
 0.05.3 2020-08-17
 	- 🐛 Check if provisioning lockfile mod time exists before using it (#208)
