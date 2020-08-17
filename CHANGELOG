@@ -1,6 +1,8 @@
 Revision history for Lufi
 
 ?.??.? ????-??-??
+
+0.05.4 2020-08-17
 	- 🐛 Fix incorrect HTML in delays.html.ep (#207)
 
 0.05.3 2020-08-17
