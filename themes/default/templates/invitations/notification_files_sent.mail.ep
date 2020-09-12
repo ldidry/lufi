@@ -1,8 +1,6 @@
 % # vim:set sw=4 ts=4 sts=4 ft=mail.epl expandtab:
 % use Number::Bytes::Human qw(format_bytes);
 % my $lang = $self->get_date_lang();
-% stash subject => l('%1 sent you files', stash('invitation')->guest_mail);
-
 %= l('Hello %1,', ucfirst(stash('invitation')->ldap_user))
 
 %= l('%1 used your invitation to send you files:', stash('invitation')->guest_mail)

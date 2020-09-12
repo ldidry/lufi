@@ -150,12 +150,18 @@
     ###############
 
     # Mail configuration
-    # See https://metacpan.org/pod/Mojolicious::Plugin::Mail#EXAMPLES
+    # See https://framagit.org/fiat-tux/mojolicious/mojolicious-plugin-emailmailer/-/blob/master/README.md#configuration
     # optional, default to sendmail method with no arguments
     #mail => {
-    #    # Valid values are 'sendmail' and 'smtp'
+    #    # See https://framagit.org/fiat-tux/mojolicious/mojolicious-plugin-emailmailer/-/blob/master/README.md#configuration
+    #    # for valid values
     #    how => 'smtp',
-    #    howargs => ['smtp.example.org']
+    #    howargs => {
+    #        hosts => ['smtp.example.org'],
+    #        ssl   => 'starttls',
+    #        sasl_username => 'foo',
+    #        sasl_password => 'bar'
+    #    }
     #},
 
     # Email sender address

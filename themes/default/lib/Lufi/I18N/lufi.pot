@@ -21,27 +21,28 @@ msgstr ""
 msgid "%1 days"
 msgstr ""
 
-#. (stash('ldap_user')
-#: themes/default/templates/invitations/invite.mail.ep:2
+#. (ucfirst($invitation->ldap_user)
+#. (ucfirst($i->ldap_user)
+#: lib/Lufi/Controller/Invitation.pm:169 lib/Lufi/Controller/Invitation.pm:79
 msgid "%1 invites you to send him/her files"
 msgstr ""
 
 #. (stash('ldap_user')
-#: themes/default/templates/invitations/invite.mail.ep:6
+#: themes/default/templates/invitations/invite.mail.ep:4
 msgid "%1 invites you to send him/her files through Lufi."
 msgstr ""
 
-#. (stash('invitation')
-#: themes/default/templates/invitations/notification_files_sent.mail.ep:4
+#. ($invitation->guest_mail)
+#: lib/Lufi/Controller/Invitation.pm:277
 msgid "%1 sent you files"
 msgstr ""
 
 #. (stash('invitation')
-#: themes/default/templates/invitations/notification_files_sent.mail.ep:8
+#: themes/default/templates/invitations/notification_files_sent.mail.ep:6
 msgid "%1 used your invitation to send you files:"
 msgstr ""
 
-#: lib/Lufi/Controller/Invitation.pm:159 lib/Lufi/Controller/Invitation.pm:84 themes/default/templates/invitations/my_invitations.html.ep:51 themes/default/templates/invitations/my_invitations.html.ep:52 themes/default/templates/invitations/my_invitations.html.ep:53 themes/default/templates/invitations/notification_files_sent.mail.ep:12
+#: lib/Lufi/Controller/Invitation.pm:165 lib/Lufi/Controller/Invitation.pm:85 themes/default/templates/invitations/my_invitations.html.ep:51 themes/default/templates/invitations/my_invitations.html.ep:52 themes/default/templates/invitations/my_invitations.html.ep:53 themes/default/templates/invitations/notification_files_sent.mail.ep:10
 msgid "%A %d %B %Y at %T"
 msgstr ""
 
@@ -110,7 +111,7 @@ msgstr ""
 msgid "Click here to refresh the page and restart the download."
 msgstr ""
 
-#: themes/default/templates/invitations/invite.mail.ep:8
+#: themes/default/templates/invitations/invite.mail.ep:6
 msgid "Click on the following URL to upload files on Lufi:"
 msgstr ""
 
@@ -118,7 +119,7 @@ msgstr ""
 msgid "Click to open the file browser"
 msgstr ""
 
-#: themes/default/templates/delays.html.ep:38 themes/default/templates/invitations/my_invitations.html.ep:80
+#: themes/default/templates/delays.html.ep:42 themes/default/templates/invitations/my_invitations.html.ep:80
 msgid "Close"
 msgstr ""
 
@@ -178,7 +179,7 @@ msgstr ""
 msgid "Deletion link"
 msgstr ""
 
-#: themes/default/templates/delays.html.ep:8
+#: themes/default/templates/delays.html.ep:9
 msgid "Don't worry: if a user begins to download the file before the expiration and the download ends after the expiration, he will be able to get the file."
 msgstr ""
 
@@ -295,11 +296,11 @@ msgid "Guest mail"
 msgstr ""
 
 #. (ucfirst(stash('invitation')
-#: themes/default/templates/invitations/notification_files_sent.mail.ep:6
+#: themes/default/templates/invitations/notification_files_sent.mail.ep:4
 msgid "Hello %1,"
 msgstr ""
 
-#: themes/default/templates/invitations/invite.mail.ep:4
+#: themes/default/templates/invitations/invite.mail.ep:2
 msgid "Hello,"
 msgstr ""
 
@@ -339,7 +340,7 @@ msgstr ""
 msgid "How to report an illegal file?"
 msgstr ""
 
-#: themes/default/templates/delays.html.ep:7
+#: themes/default/templates/delays.html.ep:8
 msgid "If you choose a delay, the file will be deleted after that delay."
 msgstr ""
 
@@ -364,12 +365,12 @@ msgid "Invert selection"
 msgstr ""
 
 #. ($i->guest_mail, $url)
-#: lib/Lufi/Controller/Invitation.pm:171
+#: lib/Lufi/Controller/Invitation.pm:180
 msgid "Invitation resent to %1.<br> URL: %2"
 msgstr ""
 
 #. ($invitation->guest_mail, $url)
-#: lib/Lufi/Controller/Invitation.pm:87
+#: lib/Lufi/Controller/Invitation.pm:90
 msgid "Invitation sent to %1.<br> URL: %2"
 msgstr ""
 
@@ -427,7 +428,7 @@ msgstr ""
 msgid "My invitations"
 msgstr ""
 
-#: themes/default/templates/invitations/notification_files_sent.mail.ep:17
+#: themes/default/templates/invitations/notification_files_sent.mail.ep:15
 msgid "NB: this list includes the list of files that have already been sent to you."
 msgstr ""
 
@@ -473,11 +474,11 @@ msgstr ""
 msgid "Purge expired files from localStorage"
 msgstr ""
 
-#: themes/default/templates/invitations/notification_files_sent.mail.ep:20
+#: themes/default/templates/invitations/notification_files_sent.mail.ep:18
 msgid "Regards,"
 msgstr ""
 
-#: themes/default/templates/invitations/invite.mail.ep:15
+#: themes/default/templates/invitations/invite.mail.ep:13
 msgid "Regards."
 msgstr ""
 
@@ -534,7 +535,11 @@ msgstr ""
 msgid "Signin"
 msgstr ""
 
-#: lib/Lufi/Controller/Invitation.pm:283 themes/default/templates/invitations/exception.html.ep:16
+#: lib/Lufi/Controller/Invitation.pm:182 lib/Lufi/Controller/Invitation.pm:297 lib/Lufi/Controller/Invitation.pm:92 lib/Lufi/Controller/Mail.pm:106
+msgid "Something went wrong when sending the mail(s). You should contact the administrator of this instance."
+msgstr ""
+
+#: lib/Lufi/Controller/Invitation.pm:305 themes/default/templates/invitations/exception.html.ep:16
 msgid "Sorry, the invitation doesn’t exist. Are you sure you are on the right URL?"
 msgstr ""
 
@@ -556,7 +561,7 @@ msgid "Sorry, your invitation has expired or has been deleted. Please contact %1
 msgstr ""
 
 #. ($invitation->ldap_user_mail)
-#: lib/Lufi/Controller/Invitation.pm:276
+#: lib/Lufi/Controller/Invitation.pm:290
 msgid "The URLs of your files have been sent by email to %1."
 msgstr ""
 
@@ -572,11 +577,11 @@ msgstr ""
 msgid "The data has been successfully imported."
 msgstr ""
 
-#: lib/Lufi/Controller/Mail.pm:73
+#: lib/Lufi/Controller/Mail.pm:75
 msgid "The email body can't be empty."
 msgstr ""
 
-#: lib/Lufi/Controller/Mail.pm:72
+#: lib/Lufi/Controller/Mail.pm:74
 msgid "The email subject can't be empty."
 msgstr ""
 
@@ -594,7 +599,7 @@ msgid "The files uploaded on a Lufi instance are encrypted before the upload to 
 msgstr ""
 
 #. (join(', ', @bad)
-#: lib/Lufi/Controller/Mail.pm:68
+#: lib/Lufi/Controller/Mail.pm:70
 msgid "The following email addresses are not valid: %1"
 msgstr ""
 
@@ -604,12 +609,12 @@ msgid "The guest email address (%1) is unvalid."
 msgstr ""
 
 #. ($i->token, $i->guest_mail)
-#: lib/Lufi/Controller/Invitation.pm:150
+#: lib/Lufi/Controller/Invitation.pm:156
 msgid "The invitation %1 can’t be resent: %2 has already sent files.<br>Please create a new invitation."
 msgstr ""
 
 #. ($i->token)
-#: lib/Lufi/Controller/Invitation.pm:130
+#: lib/Lufi/Controller/Invitation.pm:136
 msgid "The invitation %1 has been deleted."
 msgstr ""
 
@@ -628,11 +633,11 @@ msgid "The link(s) of your file(s) will automatically be sent by mail to %1 (%2)
 msgstr ""
 
 #. (stash('ldap_user')
-#: themes/default/templates/invitations/invite.mail.ep:11
+#: themes/default/templates/invitations/invite.mail.ep:9
 msgid "The links of your file(s) will automatically be sent by mail to %1."
 msgstr ""
 
-#: lib/Lufi/Controller/Mail.pm:97
+#: lib/Lufi/Controller/Mail.pm:101
 msgid "The mail has been sent."
 msgstr ""
 
@@ -653,11 +658,11 @@ msgid "This invitation is normally hidden"
 msgstr ""
 
 #. (stash('expires')
-#: themes/default/templates/invitations/invite.mail.ep:13
+#: themes/default/templates/invitations/invite.mail.ep:11
 msgid "This invitation is valid until %1."
 msgstr ""
 
-#: themes/default/templates/delays.html.ep:10
+#: themes/default/templates/delays.html.ep:13
 msgid "This server sets limitations according to the file size. The expiration delay of your file will be the minimum between what you choose and the following limitations:"
 msgstr ""
 
@@ -756,7 +761,7 @@ msgstr ""
 msgid "You have been successfully logged out."
 msgstr ""
 
-#: lib/Lufi/Controller/Mail.pm:71
+#: lib/Lufi/Controller/Mail.pm:73
 msgid "You must give email addresses."
 msgstr ""
 
@@ -778,12 +783,12 @@ msgid "Zip content:"
 msgstr ""
 
 #. (format_bytes($keys[$i])
-#: themes/default/templates/delays.html.ep:20
+#: themes/default/templates/delays.html.ep:24
 msgid "between %1 and %2, the file will be kept %3 day(s)."
 msgstr ""
 
 #. (format_bytes($keys[$i])
-#: themes/default/templates/delays.html.ep:22
+#: themes/default/templates/delays.html.ep:26
 msgid "between %1 and %2, the file will be kept forever."
 msgstr ""
 
@@ -796,12 +801,12 @@ msgid "expires on XXX"
 msgstr ""
 
 #. (format_bytes($keys[$i])
-#: themes/default/templates/delays.html.ep:26
+#: themes/default/templates/delays.html.ep:30
 msgid "for %1 and more, the file will be kept %2 day(s)"
 msgstr ""
 
 #. (format_bytes($keys[$i])
-#: themes/default/templates/delays.html.ep:28
+#: themes/default/templates/delays.html.ep:32
 msgid "for %1 and more, the file will be kept forever."
 msgstr ""
 
@@ -814,6 +819,6 @@ msgid "or"
 msgstr ""
 
 #. ($e->{name}, format_bytes($e->{size})
-#: themes/default/templates/invitations/notification_files_sent.mail.ep:12
+#: themes/default/templates/invitations/notification_files_sent.mail.ep:10
 msgid "— %1 (%2), that will expire on %3"
 msgstr ""

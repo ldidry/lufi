@@ -13,3 +13,4 @@ stop-upload
 themes/*
 !themes/default
 !themes/default/*
+themes/default/tailwindcss

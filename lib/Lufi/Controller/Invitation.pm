@@ -73,18 +73,24 @@ sub send_invite {
 
             my $from = ($c->config('invitations')->{'send_invitation_with_ldap_user_mail'}) ? $invitation->ldap_user_mail : $c->config('mail_sender');
             my $url  = $c->url_for('guest', token => $invitation->token)->to_abs;
-            $c->mail(
-                from       => $from,
-                to         => $invitation->guest_mail,
-                template   => 'invitations/invite',
-                format     => 'mail',
-                ldap_user  => ucfirst($invitation->ldap_user),
-                url        => $url,
-                invitation => $invitation,
-                expires    => $c->get_date_lang()->time2str($c->l('%A %d %B %Y at %T'), $invitation->expire_at)
+            my $mail_sent = $c->send_mail(
+                from    => $from,
+                to      => $invitation->guest_mail,
+                subject => $c->l('%1 invites you to send him/her files', ucfirst($invitation->ldap_user)),
+                text    => $c->render_mail(
+                    template   => 'invitations/invite',
+                    ldap_user  => ucfirst($invitation->ldap_user),
+                    url        => $url,
+                    invitation => $invitation,
+                    expires    => $c->get_date_lang()->time2str($c->l('%A %d %B %Y at %T'), $invitation->expire_at)
+                )
             );
 
-            push @success, $c->l('Invitation sent to %1.<br> URL: %2', $invitation->guest_mail, $url);
+            if ($mail_sent) {
+                push @success, $c->l('Invitation sent to %1.<br> URL: %2', $invitation->guest_mail, $url);
+            } else {
+                push @fails, $c->l('Something went wrong when sending the mail(s). You should contact the administrator of this instance.');
+            }
         }
 
         $c->render(
@@ -157,18 +163,24 @@ sub resend_invitations {
             my $from   = ($c->config('invitations')->{'send_invitation_with_ldap_user_mail'}) ? $i->ldap_user_mail : $c->config('mail_sender');
             my $url    = $c->url_for('guest', token => $i->token)->to_abs;
             my $expire = $c->get_date_lang()->time2str($c->l('%A %d %B %Y at %T'), $i->expire_at);
-            $c->mail(
-                from       => $from,
-                to         => $i->guest_mail,
-                template   => 'invitations/invite',
-                format     => 'mail',
-                ldap_user  => ucfirst($i->ldap_user),
-                url        => $url,
-                invitation => $i,
-                expires    => $expire
+            my $mail_sent = $c->send_mail(
+                from    => $from,
+                to      => $i->guest_mail,
+                subject => $c->l('%1 invites you to send him/her files', ucfirst($i->ldap_user)),
+                text    => $c->render_mail(
+                    template   => 'invitations/invite',
+                    ldap_user  => ucfirst($i->ldap_user),
+                    url        => $url,
+                    invitation => $i,
+                    expires    => $expire
+                )
             );
 
-            push @success, { msg => $c->l('Invitation resent to %1.<br> URL: %2', $i->guest_mail, $url), expires => $expire, token => $i->token };
+            if ($mail_sent) {
+                push @success, { msg => $c->l('Invitation resent to %1.<br> URL: %2', $i->guest_mail, $url), expires => $expire, token => $i->token };
+            } else {
+                push @failures, $c->l('Something went wrong when sending the mail(s). You should contact the administrator of this instance.');
+            }
         }
     }
 
@@ -260,22 +272,32 @@ sub send_mail_to_ldap_user {
             $already_notified = 0;
         }
         $c->session(expires => $invitation->files_sent_at + 60 * $invitation->expend_expire_at);
-        $c->mail(
-            from             => $c->config('mail_sender'),
-            to               => $invitation->ldap_user_mail,
-            template         => 'invitations/notification_files_sent',
-            format           => 'mail',
-            files            => c(@files),
-            invitation       => $invitation,
-            already_notified => $already_notified
+        my $mail_sent = $c->send_mail(
+            to      => $invitation->ldap_user_mail,
+            subject => $c->l('%1 sent you files', $invitation->guest_mail),
+            text    => $c->render_mail(
+                template         => 'invitations/notification_files_sent',
+                files            => c(@files),
+                invitation       => $invitation,
+                already_notified => $already_notified
+            )
         );
 
-        return $c->render(
-            json => {
-                success => true,
-                msg     => $c->l('The URLs of your files have been sent by email to %1.', $invitation->ldap_user_mail)
-            }
-        );
+        if ($mail_sent) {
+            return $c->render(
+                json => {
+                    success => true,
+                    msg     => $c->l('The URLs of your files have been sent by email to %1.', $invitation->ldap_user_mail)
+                }
+            );
+        } else {
+            return $c->render(
+                json => {
+                    success => false,
+                    msg     => $c->l('Something went wrong when sending the mail(s). You should contact the administrator of this instance.')
+                }
+            );
+        }
     } else {
         return $c->render(
             json => {
