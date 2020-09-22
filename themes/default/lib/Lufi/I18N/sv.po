@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "POT-Creation-Date: YEAR-MO-DA HO:MI+ZONE\n"
-"PO-Revision-Date: 2020-03-22 18:28+0000\n"
-"Last-Translator: Luc Didry <luc@framasoft.org>\n"
+"PO-Revision-Date: 2020-09-21 20:42+0000\n"
+"Last-Translator: Filip Bengtsson <filip@libreradio.org>\n"
 "Language-Team: Swedish <https://weblate.framasoft.org/projects/lufi/"
 "default-theme/sv/>\n"
 "Language: sv\n"
@@ -16,7 +16,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 3.11.2\n"
+"X-Generator: Weblate 4.1\n"
 
 #. ($delay)
 #. (max_delay)
@@ -42,7 +42,7 @@ msgstr "% har skickat filer till dig"
 #. (stash('invitation')
 #: themes/default/templates/invitations/notification_files_sent.mail.ep:8
 msgid "%1 used your invitation to send you files:"
-msgstr "%1 utnyttjade din inbjudan för att  skicka filer till dig:"
+msgstr "%1 utnyttjade din inbjudan för att skicka filer till dig:"
 
 #: lib/Lufi/Controller/Invitation.pm:159 lib/Lufi/Controller/Invitation.pm:84 themes/default/templates/invitations/my_invitations.html.ep:51 themes/default/templates/invitations/my_invitations.html.ep:52 themes/default/templates/invitations/my_invitations.html.ep:53 themes/default/templates/invitations/notification_files_sent.mail.ep:12
 msgid "%A %d %B %Y at %T"
@@ -177,7 +177,7 @@ msgstr "Radera"
 
 #: themes/default/templates/files.html.ep:30 themes/default/templates/index.html.ep:90
 msgid "Delete at first download?"
-msgstr "Radera efter första nerladdningen"
+msgstr "Radera efter första nerladdningen?"
 
 #: themes/default/templates/files.html.ep:19
 msgid "Delete selected files"
@@ -268,7 +268,7 @@ msgstr "Exportera localStorage-data"
 
 #: lib/Lufi/Controller/Files.pm:471
 msgid "File deleted"
-msgstr "Fil raderad"
+msgstr "Filen har raderats"
 
 #: themes/default/templates/files.html.ep:27
 msgid "File name"
@@ -344,7 +344,7 @@ msgstr "Hur fungerar det?"
 
 #: themes/default/templates/invitations/invite.html.ep:46
 msgid "How many days would you like the invitation to be valid?"
-msgstr "Hur många  dagar vill du att inbjudningen ska gälla?"
+msgstr "Hur många dagar vill du att inbjudningen ska gälla?"
 
 #: themes/default/templates/about.html.ep:16
 msgid "How to install the software on my server?"
@@ -438,6 +438,8 @@ msgstr "Mina inbjudningar"
 #: themes/default/templates/invitations/notification_files_sent.mail.ep:17
 msgid "NB: this list includes the list of files that have already been sent to you."
 msgstr ""
+"OBS: den här listan innehåller även den lista med filer som redan har "
+"skickats till dig."
 
 #: themes/default/templates/index.html.ep:115
 msgid "Name of the zip file"
@@ -470,10 +472,14 @@ msgstr "Kontakta gärna administratören: %1"
 #: themes/default/templates/render.html.ep:33
 msgid "Please wait while we are getting your file. We first need to download and decrypt all parts before you can get it."
 msgstr ""
+"Vänta här under tiden vi hämtar din fil. Vi måste först ladda ner och "
+"dekryptera alla delar innan vi kan ge dig den."
 
 #: lib/Lufi/Controller/Auth.pm:38
 msgid "Please, check your credentials or your right to access this service: unable to authenticate."
 msgstr ""
+"Kunde inte logga in. Kontrollera dina inloggningsuppgifter och dina "
+"behörigheter för tjänsten."
 
 #: themes/default/templates/about.html.ep:5
 msgid "Privacy"
@@ -527,7 +533,7 @@ msgstr "Skicka från din egen e-posttjänst"
 #: themes/default/templates/partial/index.js.ep:29
 msgid "Sending part XX1 of XX2. Please, be patient, the progress bar can take a while to move."
 msgstr ""
-"Överför del XX1 av XX2. Det kan ta en stund  innan statsindikatorn börjar "
+"Överför del XX1 av XX2. Det kan ta en stund innan statsindikatorn börjar "
 "röra sig."
 
 #. (url_for('/')
@@ -624,12 +630,14 @@ msgstr "Följande e-postadresser är inte giltiga: %1"
 #. ($guest_mail)
 #: lib/Lufi/Controller/Invitation.pm:48
 msgid "The guest email address (%1) is unvalid."
-msgstr ""
+msgstr "Gästens e-postadress (%1) är ogiltig."
 
 #. ($i->token, $i->guest_mail)
 #: lib/Lufi/Controller/Invitation.pm:150
 msgid "The invitation %1 can’t be resent: %2 has already sent files.<br>Please create a new invitation."
 msgstr ""
+"Inbjudan %1 kan inte skickas igen eftersom %2 redan har skickat filer.<br>Du "
+"kan skapa en ny inbjudan om du vill."
 
 #. ($i->token)
 #: lib/Lufi/Controller/Invitation.pm:130
@@ -663,10 +671,14 @@ msgstr "E-postmeddelandet har skickats."
 #: themes/default/templates/about.html.ep:15
 msgid "The original (and only for now) author is <a href=\"https://fiat-tux.fr\" class=\"classic\">Luc Didry</a>."
 msgstr ""
+"Den ursprungliga upphovsmannen (den enda än så länge) är <a href=\"https"
+"://fiat-tux.fr\" class=\"classic\">Luc Didry</a>."
 
 #: lib/Lufi/Controller/Files.pm:236
 msgid "The server was unable to find the file record to add your file part to. Please, contact the administrator."
 msgstr ""
+"Servern kunde inte hitta en lista att lägga till din fil i. Kontakta gärna "
+"administratören."
 
 #: lib/Lufi/Controller/Files.pm:295
 msgid "This file has been deactivated by the admins. Contact them to know why."
@@ -676,7 +688,7 @@ msgstr ""
 
 #: themes/default/templates/invitations/my_invitations.html.ep:46 themes/default/templates/partial/invitations.js.ep:6
 msgid "This invitation is normally hidden"
-msgstr ""
+msgstr "Inbjudan är vanligen dold"
 
 #. (stash('expires')
 #: themes/default/templates/invitations/invite.mail.ep:13
@@ -689,7 +701,7 @@ msgstr ""
 
 #: themes/default/templates/invitations/my_invitations.html.ep:16
 msgid "Toggle visibility"
-msgstr ""
+msgstr "Visa eller dölj"
 
 #: themes/default/templates/invitations/my_invitations.html.ep:25
 msgid "URL"
@@ -751,6 +763,8 @@ msgstr "Filen XXX har lagts till i uppladdningskön."
 #: themes/default/templates/invitations/invite.html.ep:30
 msgid "You can invite someone to send you files through this Lufi instance even if they don’t have an account on it."
 msgstr ""
+"Du kan bjuda in andra att skicka filer till dig via den här Lufi-instansen "
+"även om de inte har ett konto här."
 
 #: themes/default/templates/about.html.ep:11
 msgid "You can see the list of your files by clicking on the \"My files\" link at the top right of this page."
@@ -773,10 +787,12 @@ msgstr ""
 #: themes/default/templates/partial/render.js.ep:7
 msgid "You have attempted to leave this page. The download will be canceled. Are you sure?"
 msgstr ""
+"Du har försökt lämna sidan, vilket skulle avbryta nerladdningen. Är du säker?"
 
 #: themes/default/templates/partial/index.js.ep:14
 msgid "You have attempted to leave this page. The upload will be canceled. Are you sure?"
 msgstr ""
+"Du har försökt lämna sidan, vilket skulle avbryta uppladdningen. Är du säker?"
 
 #: themes/default/templates/logout.html.ep:14
 msgid "You have been successfully logged out."
@@ -859,3 +875,25 @@ msgstr ""
 "class=\"classic\">AGPLv3</a>. Ta en titt på <a href=\"https://framagit.org/"
 "fiat-tux/hat-softwares/lufi/wikis/home\" class=\"classic\">wikin</a> för att "
 "se hur."
+
+#: themes/default/templates/about.html.ep:20
+msgid "Version"
+msgstr "Version"
+
+#. (sprintf('<a href="https://framagit.org/fiat-tux/hat-softwares/lufi/-/releases/%s" class="classic">%s</a>', stash('version')
+#: themes/default/templates/about.html.ep:21
+msgid "Latest tag of this instance: %1"
+msgstr "Senaste taggen på den här instansen: %1"
+
+#. (sprintf('<a href="https://framagit.org/fiat-tux/hat-softwares/lufi/-/commit/%s" class="classic">%s</a>', stash('version')
+#: themes/default/templates/about.html.ep:22
+msgid "Latest commit of this instance: %1"
+msgstr "Senaste bidraget till den här instansen: %1"
+
+#: themes/default/templates/partial/index.js.ep:24
+msgid "File uploaded"
+msgstr "Filen har laddats upp"
+
+#: themes/default/templates/partial/render.js.ep:9
+msgid "File downloaded"
+msgstr "Filen har laddats ner"
