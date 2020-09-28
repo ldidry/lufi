@@ -2,6 +2,10 @@ Revision history for Lufi
 
 ?.??.? ????-??-??
 
+0.05.6 2020-09-28
+	- 🌐 Update translations
+	- 📝 Document file deletion behavior
+
 0.05.5 2020-08-20
 	- 🐛 Change lufi-provisioning.lock handling process to avoid error messages (#210)
 
