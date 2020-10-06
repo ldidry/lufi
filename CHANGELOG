@@ -1,6 +1,7 @@
 Revision history for Lufi
 
 ?.??.? ????-??-??
+	- 🐛 Remove breakingchanges migration from sqliteToOtherDB (no need for now)
 
 0.05.6 2020-09-28
 	- 🌐 Update translations
