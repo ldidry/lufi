@@ -333,6 +333,10 @@
     # Lufi cron jobs settings
     #########################
 
+    # Expired files will be kept for 2 additional days after the expiration time has passed!
+    # The reasoning behind this is to allow downloads to complete and avoid deleting them while
+    # they are still being tranfered.
+
     # Number of days senders' IP addresses are kept in database
     # After that delay, they will be deleted from database (used with script/lufi cron cleanbdd)
     # optional, default is 365

@@ -36,9 +36,8 @@ sub run {
     my $files       = $sqlite->db->select('files', undef)->hashes;
     my $slices      = $sqlite->db->select('slices', undef)->hashes;
     my $invitations = $sqlite->db->select('invitations', undef)->hashes;
-    my $changes     = $sqlite->db->select('breakingchanges', undef)->hashes;
 
-    my $progress = Term::ProgressBar->new({count => $files->size + $slices->size + $invitations->size + $changes->size});
+    my $progress = Term::ProgressBar->new({count => $files->size + $slices->size + $invitations->size});
 
     $files->each(sub {
         my ($file, $num) = @_;
