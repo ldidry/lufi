@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "POT-Creation-Date: YEAR-MO-DA HO:MI+ZONE\n"
-"PO-Revision-Date: 2020-10-07 11:51+0000\n"
+"PO-Revision-Date: 2020-11-15 06:52+0000\n"
 "Last-Translator: Dimitris T. <dimitris@stinpriza.org>\n"
 "Language-Team: Greek <https://weblate.framasoft.org/projects/lufi/"
 "default-theme/el/>\n"
@@ -27,22 +27,22 @@ msgstr "%1 ημέρες"
 #. (stash('ldap_user')
 #: themes/default/templates/invitations/invite.mail.ep:2
 msgid "%1 invites you to send him/her files"
-msgstr ""
+msgstr "%1 σας προσκαλεί να του/της στείλετε αρχεία"
 
 #. (stash('ldap_user')
 #: themes/default/templates/invitations/invite.mail.ep:6
 msgid "%1 invites you to send him/her files through Lufi."
-msgstr ""
+msgstr "%1 σας προσκαλεί να του/της στείλετε αρχεία μέσα από το Lufi."
 
 #. (stash('invitation')
 #: themes/default/templates/invitations/notification_files_sent.mail.ep:4
 msgid "%1 sent you files"
-msgstr ""
+msgstr "%1 σας έστειλε αρχεία"
 
 #. (stash('invitation')
 #: themes/default/templates/invitations/notification_files_sent.mail.ep:8
 msgid "%1 used your invitation to send you files:"
-msgstr ""
+msgstr "%1 χρησιμοποίησε τη πρόσκληση για να σας στείλει αρχεία:"
 
 #: lib/Lufi/Controller/Invitation.pm:159 lib/Lufi/Controller/Invitation.pm:84 themes/default/templates/invitations/my_invitations.html.ep:51 themes/default/templates/invitations/my_invitations.html.ep:52 themes/default/templates/invitations/my_invitations.html.ep:53 themes/default/templates/invitations/notification_files_sent.mail.ep:12
 msgid "%A %d %B %Y at %T"
@@ -75,7 +75,7 @@ msgstr "Σχετικά"
 
 #: themes/default/templates/index.html.ep:107
 msgid "Add a password to file(s)"
-msgstr ""
+msgstr "Προσθέστε κωδικό στο αρχείο/α"
 
 #: themes/default/templates/mail.html.ep:16
 msgid "Adding URLs not related to this Lufi instance to the mail body or subject is prohibited."
@@ -113,10 +113,11 @@ msgstr ""
 #: themes/default/templates/partial/render.js.ep:5
 msgid "Click here to refresh the page and restart the download."
 msgstr ""
+"Πατήστε εδώ για να ανανεώσετε τη σελίδα και να επανεκκινήσετε τη μεταφόρτωση."
 
 #: themes/default/templates/invitations/invite.mail.ep:8
 msgid "Click on the following URL to upload files on Lufi:"
-msgstr ""
+msgstr "Πατήστε στον ακόλουθο σύνδεσμο URL για να ανεβάσετε αρχεία στο Lufi:"
 
 #: themes/default/templates/index.html.ep:126
 msgid "Click to open the file browser"
@@ -268,7 +269,7 @@ msgstr "Όνομα αρχείου"
 
 #: themes/default/templates/partial/index.js.ep:24
 msgid "File uploaded"
-msgstr ""
+msgstr "Το αρχείο ανέβηκε"
 
 #: themes/default/templates/invitations/my_invitations.html.ep:61
 msgid "Files"
@@ -310,6 +311,9 @@ msgstr "Γεια σου,"
 #: themes/default/templates/partial/mail.js.ep:35
 msgid "Hello,\\n\\nHere's some files I want to share with you:\\n"
 msgstr ""
+"Γεια,\\n"
+"\\n"
+"Ορίστε μερικά αρχεία που θέλω να μοιραστώ μαζί σου:\\n"
 
 #: themes/default/templates/mail.html.ep:35
 msgid "Here's some files"
@@ -317,7 +321,7 @@ msgstr "Ορίστε μερικά αρχεία"
 
 #: themes/default/templates/partial/invitations.js.ep:7
 msgid "Hide hidden invitations"
-msgstr ""
+msgstr "Απόκρυψη κρυφών προσκλήσεων"
 
 #: themes/default/templates/partial/index.js.ep:26
 msgid "Hit Enter, then Ctrl+C to copy all the download links"
@@ -329,7 +333,7 @@ msgstr ""
 
 #: themes/default/templates/about.html.ep:9
 msgid "How does it work?"
-msgstr ""
+msgstr "Πως δουλεύει;"
 
 #: themes/default/templates/invitations/invite.html.ep:46
 msgid "How many days would you like the invitation to be valid?"
@@ -337,11 +341,11 @@ msgstr ""
 
 #: themes/default/templates/about.html.ep:16
 msgid "How to install the software on my server?"
-msgstr ""
+msgstr "Πως εγκαθιστώ το λογισμικό σε δικό μου διακομιστή;"
 
 #: themes/default/templates/about.html.ep:12
 msgid "How to report an illegal file?"
-msgstr ""
+msgstr "Πως αναφέρω ένα παράνομο αρχείο;"
 
 #: themes/default/templates/delays.html.ep:7
 msgid "If you choose a delay, the file will be deleted after that delay."
@@ -411,7 +415,7 @@ msgstr "Είσοδος"
 
 #: themes/default/templates/layouts/default.html.ep:58 themes/default/templates/layouts/default.html.ep:91
 msgid "Logout"
-msgstr ""
+msgstr "Αποσύνδεση"
 
 #: themes/default/templates/about.html.ep:4
 msgid "Lufi is a free (as in free speech) file hosting software."
