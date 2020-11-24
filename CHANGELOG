@@ -1,6 +1,7 @@
 Revision history for Lufi
 
 ?.??.? ????-??-??
+	- 🐛 Invitation, error 500 when guest send file with special character (#229)
 
 0.05.8 2020-11-18
 	- 🌐 Update translations
