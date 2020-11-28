@@ -10,7 +10,7 @@ use vars qw(@ISA @DoW @DoWs @MoY @MoYs @AMPM @Dsuf %MoY %DoW $VERSION);
 $VERSION = "1.04";
 
 @DoW = qw(dimenge diluns dimars dimècres dijòus divendres dissabte);
-@MoY = qw(genièr febrièr mars abrial mai junh
+@MoY = qw(genièr febrièr març abrial mai junh
           julhet agost octòbre novembre decembre);
 @DoWs = map { substr($_,0,3) } @DoW;
 @MoYs = map { substr($_,0,3) } @MoY;
