@@ -2,6 +2,16 @@ Revision history for Lufi
 
 ?.??.? ????-??-??
 
+0.05.10 2020-11-28
+	- 🌐 Update translations
+
+0.05.9 2020-11-25
+	- 🐛 Invitation, error 500 when guest send file with special character (#229)
+	- 🌐 Update translations
+
+0.05.8 2020-11-18
+	- 🌐 Update translations
+
 0.05.7 2020-10-06
 	- 🐛 Remove breakingchanges migration from sqliteToOtherDB (no need for now)
 

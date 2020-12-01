@@ -5,6 +5,7 @@ use Mojo::Collection 'c';
 use Mojo::File;
 use Mojo::JSON qw(true false decode_json encode_json);
 use Mojo::URL;
+use Mojo::Util qw(decode encode);
 use Email::Valid;
 use Lufi::DB::File;
 use Lufi::DB::Invitation;
@@ -242,7 +243,7 @@ sub send_mail_to_ldap_user {
             my $guest_files = $invitation->files;
             my %list_token;
             if ($guest_files) {
-                $guest_files = decode_json($guest_files);
+                $guest_files = decode_json(encode 'UTF-8', $guest_files);
                 for my $file (@{$guest_files}) {
                     $list_token{$file->{token}} = 1;
                 }
@@ -252,17 +253,17 @@ sub send_mail_to_ldap_user {
             push @files, @{$guest_files};
             $urls->each(sub {
                 my ($e, $num) = @_;
-                $e = decode_json($e);
+                $e = decode_json(encode 'UTF-8', $e);
                 if (!defined($list_token{$e->{token}})) {
                     push @{$guest_files}, $e;
                     push @files, $e;
                 }
             });
-            $invitation->files(encode_json($guest_files));
+            $invitation->files(decode 'UTF-8', encode_json($guest_files));
             $invitation->write;
         } else {
             $urls->each(sub {
-                push @files, decode_json(shift);
+                push @files, decode_json(encode 'UTF-8', shift);
             });
         }
         my $already_notified = 1;
