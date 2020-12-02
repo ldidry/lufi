@@ -68,6 +68,24 @@ Lufi comes with several languages.
 
 Please, see [this wiki page](https://framagit.org/fiat-tux/hat-softwares/lufi/wikis/contribute#internationalization) to know how to contribute to internationalization.
 
+## API endpoints
+
+Some endpoints require authentication, others don't.
+Here are the endpoints that needs to be whitelisted from authentication :  
+* `"^/r/"`
+* `"^/js/"`,
+* `"^/img/"`,
+* `"^/css/"`,
+* `"^/lang/"`,
+* `"^/font/"`,
+* `"^/partial/"`,
+* `"^/download/"`,
+* `"^/upload"`,
+* `"^/guest/"`,
+* `"^/about"`,
+* `"^/delays$"`,
+* `"^/fulstats$"`
+
 ## Authors
 
 See [AUTHORS.md](AUTHORS.md) file.
