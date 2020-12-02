@@ -51,7 +51,12 @@ sub log_out {
             $c->logout;
         }
     }
-    $c->render(template => 'logout');
+
+    if ($c->config('logout_custom')) {
+        return $c->redirect_to($c->config('logout_custom'));
+    } else {
+        $c->render(template => 'logout');
+    }
 }
 
 1;

@@ -101,6 +101,9 @@
     # optional, no domains allowed by default
     #allowed_domains => ['http://1.example.com', 'http://2.example.com'],
 
+    # String of the URL to be redirected to when accessing /logout
+    #logout_custom => 'https://sso.example.com/logout?redirect_uri=https%3A%2F%2Ffiat-tux.fr',
+
     # Define a path to the upload directory, where the uploaded files will be stored
     # You can define it relative to lufi directory or set an absolute path
     # Remember that it has to be in a directory writable by Lufi user
