@@ -675,7 +675,7 @@ msgstr "Unable to copy the link(s) to your clipboard"
 
 #: themes/default/templates/partial/render.js.ep:13
 msgid "Unable to download the file: too much unsuccessful attempts to open a websocket. Please, contact the administrator."
-msgstr ""
+msgstr "Unable to download the file: too much unsuccessful attempts to open a websocket. Please, contact the administrator."
 
 #. ($short)
 #: lib/Lufi/Controller/Files.pm:433
