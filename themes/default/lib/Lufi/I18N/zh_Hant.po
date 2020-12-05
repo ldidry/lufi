@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "POT-Creation-Date: YEAR-MO-DA HO:MI+ZONE\n"
-"PO-Revision-Date: 2020-12-02 16:22+0000\n"
-"Last-Translator: Zijian Liu <zilliu@disroot.org>\n"
+"PO-Revision-Date: 2020-12-06 15:52+0000\n"
+"Last-Translator: zilliu <zilliu@disroot.org>\n"
 "Language-Team: Chinese (Traditional) <https://weblate.framasoft.org/projects/"
 "lufi/default-theme/zh_Hant/>\n"
 "Language: zh_Hant\n"
@@ -406,12 +406,12 @@ msgstr "語言"
 #. (sprintf('<a href="https://framagit.org/fiat-tux/hat-softwares/lufi/-/commit/%s" class="classic">%s</a>', stash('version')
 #: themes/default/templates/about.html.ep:22
 msgid "Latest commit of this instance: %1"
-msgstr "這個實例最近一次 commit：%1"
+msgstr "這個實例最近一次提交：%1"
 
 #. (sprintf('<a href="https://framagit.org/fiat-tux/hat-softwares/lufi/-/releases/%s" class="classic">%s</a>', stash('version')
 #: themes/default/templates/about.html.ep:21
 msgid "Latest tag of this instance: %1"
-msgstr "這個實例最近一個 tag：%1"
+msgstr "這個實例最近一個標籤：%1"
 
 #: themes/default/templates/login.html.ep:15
 msgid "Login"
@@ -703,7 +703,7 @@ msgstr "無法取得 %1 的下載次數。該檔案不存在。其將會從您�
 #. ($short)
 #: lib/Lufi/Controller/Files.pm:423
 msgid "Unable to get counter for %1. The token is invalid."
-msgstr "無法取得 %1 的下載次數。權仗無效。"
+msgstr "無法取得 %1 的下載次數。權杖無效。"
 
 #. ($short)
 #: lib/Lufi/Controller/Files.pm:443
@@ -839,3 +839,7 @@ msgstr "或"
 #: themes/default/templates/invitations/notification_files_sent.mail.ep:12
 msgid "— %1 (%2), that will expire on %3"
 msgstr "— %1 (%2), 會在 %3 到期"
+
+#: themes/default/templates/partial/render.js.ep:13
+msgid "Unable to download the file: too much unsuccessful attempts to open a websocket. Please, contact the administrator."
+msgstr "無法下載檔案：太多不必要的開啓 websocket 嘗試。請聯絡管理員。"
