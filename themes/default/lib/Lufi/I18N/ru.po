@@ -7,839 +7,898 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "POT-Creation-Date: YEAR-MO-DA HO:MI+ZONE\n"
-"PO-Revision-Date: 2020-12-06 15:52+0000\n"
-"Last-Translator: zilliu <zilliu@disroot.org>\n"
-"Language-Team: Chinese (Traditional) <https://weblate.framasoft.org/projects/"
-"lufi/default-theme/zh_Hant/>\n"
-"Language: zh_Hant\n"
+"PO-Revision-Date: 2020-11-30 00:52+0000\n"
+"Last-Translator: Vadim <vad@syping.de>\n"
+"Language-Team: Russian <https://weblate.framasoft.org/projects/lufi/"
+"default-theme/ru/>\n"
+"Language: ru\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=1; plural=0;\n"
+"Plural-Forms: nplurals=3; plural=n%10==1 && n%100!=11 ? 0 : n%10>=2 && n"
+"%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2;\n"
 "X-Generator: Weblate 4.1\n"
 
 #. ($delay)
 #. (max_delay)
 #: themes/default/templates/index.html.ep:56 themes/default/templates/index.html.ep:65 themes/default/templates/index.html.ep:66
 msgid "%1 days"
-msgstr "%1 日"
+msgstr "%1 дней"
 
 #. (stash('ldap_user')
 #: themes/default/templates/invitations/invite.mail.ep:2
 msgid "%1 invites you to send him/her files"
-msgstr "%1 邀請您給他傳送檔案"
+msgstr "%1 приглашает тебя отослать ему/ей файлы"
 
 #. (stash('ldap_user')
 #: themes/default/templates/invitations/invite.mail.ep:6
 msgid "%1 invites you to send him/her files through Lufi."
-msgstr "%1 邀請您透過 Lufi 給他傳送檔案。"
+msgstr "%1 приглашает тебя отослать ему/ей файлы через Lufi."
 
 #. (stash('invitation')
 #: themes/default/templates/invitations/notification_files_sent.mail.ep:4
 msgid "%1 sent you files"
-msgstr "%1 傳送了一個檔案給您"
+msgstr "%1 прислал(а) тебе файлы"
 
 #. (stash('invitation')
 #: themes/default/templates/invitations/notification_files_sent.mail.ep:8
 msgid "%1 used your invitation to send you files:"
-msgstr "%1 利用您的邀請傳送檔案給您："
+msgstr "%1 воспользовался/-лась твоим приглашением, чтобы отправить файлы:"
 
 #: lib/Lufi/Controller/Invitation.pm:159 lib/Lufi/Controller/Invitation.pm:84 themes/default/templates/invitations/my_invitations.html.ep:51 themes/default/templates/invitations/my_invitations.html.ep:52 themes/default/templates/invitations/my_invitations.html.ep:53 themes/default/templates/invitations/notification_files_sent.mail.ep:12
 msgid "%A %d %B %Y at %T"
-msgstr "%A %d %B %Y %T"
+msgstr "%A %d %B %Y в %T"
 
 #: themes/default/templates/partial/index.js.ep:28
 msgid "(max size: XXX)"
-msgstr "（大小上限：XXX）"
+msgstr "(макс. размер: XXX)"
 
 #: themes/default/templates/index.html.ep:5
 msgid "1 year"
-msgstr "1 年"
+msgstr "1 год"
 
 #: themes/default/templates/index.html.ep:4 themes/default/templates/index.html.ep:65
 msgid "24 hours"
-msgstr "24 小時"
+msgstr "24 часа"
 
 #: themes/default/templates/partial/mail.js.ep:40
 msgid ":"
-msgstr "："
+msgstr ":"
 
 #: themes/default/templates/render.html.ep:42
 msgid "Abort"
-msgstr "捨棄"
+msgstr "Отменить"
 
 #: themes/default/templates/layouts/default.html.ep:53 themes/default/templates/layouts/default.html.ep:86
 msgid "About"
-msgstr "關於"
+msgstr "О нас"
 
 #: themes/default/templates/index.html.ep:107
 msgid "Add a password to file(s)"
-msgstr "爲檔案加設密碼"
+msgstr "Добавить пароль к файлам"
 
 #: themes/default/templates/mail.html.ep:16
 msgid "Adding URLs not related to this Lufi instance to the mail body or subject is prohibited."
-msgstr "嚴禁將與此 Lufi 實例無關的網址加入到郵件內文或主旨中。"
+msgstr ""
+"Добавление сторонних ссылок, не имеющих отношения к этому экземпляру Lufi, в "
+"теме или теле письма запрещено."
 
 #: themes/default/templates/partial/invitations.js.ep:3
 msgid "Are you sure you want to delete the selected invitations?"
-msgstr "您確定要刪除選中的邀請嗎？"
+msgstr "Уверены, что хотите удалить выбранные приглашения?"
 
 #: themes/default/templates/partial/invitations.js.ep:4
 msgid "Are you sure you want to resend the invitation mail for the selected invitations?"
-msgstr "您確定要爲選中的邀請重新寄出郵件嗎？"
+msgstr ""
+"Уверены, что хотите повторно выслать пригласительные письмо для выбранных "
+"приглашений?"
 
 #: themes/default/templates/about.html.ep:17
 msgid "As Lufi is a free software licensed under of the terms of the <a href=\"https://gnu.org/licenses/agpl.html\" class=\"classic\">AGPLv3</a>, you can install it on you own server. Have a look on the <a href=\"https://framagit.org/fiat-tux/hat-softwares/lufi/wikis/home\" class=\"classic\">Wiki</a> for the procedure."
 msgstr ""
-"Lufi 是基於 <a href=\"https://gnu.org/licenses/agpl.html\" class=\"classic\""
-">AGPLv3</a> 特許條款的自由軟件，您可以將其安裝在自己的伺服器上。請檢視 <a href=\"https://framagit.org/"
-"fiat-tux/hat-softwares/lufi/wikis/home\" class=\"classic\">Wiki</a> 以瞭解詳細資訊。"
+"Lufi — свободное ПО, и лицензирован по условиям <a href=\"https://gnu.org/"
+"licenses/agpl.html\" class=\"classic\">AGPLv3</a>, вы можете установить его "
+"у себя на сервере. Взгляните на <a href=\"https://framagit.org/fiat-tux/"
+"hat-softwares/lufi/wikis/home\" class=\"classic\">Вики</a>, там есть "
+"описание процедуры."
 
 #. (stash('nbslices')
 #: themes/default/templates/partial/render.js.ep:10
 msgid "Asking for file part XX1 of %1"
-msgstr "正在請求檔案第 XX1 / %1 部分"
+msgstr "Запрашиваю часть файла XX1 из %1"
 
 #: themes/default/templates/about.html.ep:23
 msgid "Back to homepage"
-msgstr "回到主頁"
+msgstr "Назад на главную"
 
 #: lib/Lufi/Controller/Mail.pm:25
 msgid "Bad CSRF token!"
-msgstr "損毀的 CSRF 權杖！"
+msgstr "Неверный CSRF-токен!"
 
 #: lib/Lufi/Controller/Auth.pm:27 lib/Lufi/Controller/Auth.pm:49
 msgid "Bad CSRF token."
-msgstr "損毀的 CSRF 權杖。"
+msgstr "Неверный CSRF-токен."
 
 #: themes/default/templates/partial/render.js.ep:5
 msgid "Click here to refresh the page and restart the download."
-msgstr "點一下刷新頁面並重新下載。"
+msgstr "Нажмите тут, чтобы перезагрузить страницу и по новой начать скачивание."
 
 #: themes/default/templates/invitations/invite.mail.ep:8
 msgid "Click on the following URL to upload files on Lufi:"
-msgstr "點一下下列網址上傳檔案到 Lufi："
+msgstr "Нажмите на этот URL, чтобы загрузить файлы на Lufi:"
 
 #: themes/default/templates/index.html.ep:126
 msgid "Click to open the file browser"
-msgstr "點一下開啓檔案瀏覽器"
+msgstr "Нажми, чтобы открыть файловый браузер"
 
 #: themes/default/templates/delays.html.ep:38 themes/default/templates/invitations/my_invitations.html.ep:80
 msgid "Close"
-msgstr "關閉"
+msgstr "Закрыть"
 
 #: themes/default/templates/mail.html.ep:23
 msgid "Comma-separated email addresses"
-msgstr "電子郵件地址，以逗號分隔"
+msgstr "Эл. адреса разделённые запятыми"
 
 #: themes/default/templates/index.html.ep:140
 msgid "Compressing zip file…"
-msgstr "正在壓縮爲 zip 檔案…"
+msgstr "Сжимаю zip-файл…"
 
 #: themes/default/templates/partial/index.js.ep:15
 msgid "Copy all links to clipboard"
-msgstr "複製所有連結到剪貼簿"
+msgstr "Скопировать все ссылки в буфер обмена"
 
 #: themes/default/templates/partial/index.js.ep:18
 msgid "Copy to clipboard"
-msgstr "複製到剪貼簿"
+msgstr "Скопировать в буфер обмена"
 
 #: lib/Lufi/Controller/Files.pm:501
 msgid "Could not delete the file. You are not authenticated."
-msgstr "無法刪除檔案。您尚未認證。"
+msgstr "Не удалось удалить файл. Вы не залогинены."
 
 #: lib/Lufi/Controller/Files.pm:483
 msgid "Could not find the file. Are you sure of the URL and the token?"
-msgstr "找不到檔案。您確定網址及權杖無誤嗎？"
+msgstr "Не получилось найти файл. Вы уверены насчет ссылки и токена?"
 
 #: lib/Lufi/Controller/Files.pm:394
 msgid "Could not find the file. Are you sure of the URL?"
-msgstr "找不到檔案。您確定網址無誤嗎？"
+msgstr "Не получилось найти файл. Вы уверены насчет ссылки?"
 
 #: themes/default/templates/files.html.ep:29
 msgid "Counter"
-msgstr "下載次數"
+msgstr "Счётчик"
 
 #: themes/default/templates/index.html.ep:100
 msgid "Create a zip archive with the files before uploading?"
-msgstr "在上傳前先將檔案壓縮成 zip 格式？"
+msgstr "Сделать zip архив с файлами перед загрузкой?"
 
 #: themes/default/templates/invitations/my_invitations.html.ep:26
 msgid "Created at"
-msgstr "建立時間"
+msgstr "Создано"
 
 #: themes/default/templates/invitations/my_invitations.html.ep:14
 msgid "Delete"
-msgstr "刪除"
+msgstr "Удалить"
 
 #: themes/default/templates/files.html.ep:30 themes/default/templates/index.html.ep:90
 msgid "Delete at first download?"
-msgstr "第一次下載後刪除？"
+msgstr "Удалить при первом скачивании?"
 
 #: themes/default/templates/files.html.ep:19
 msgid "Delete selected files"
-msgstr "刪除選中檔案"
+msgstr "Удалить выбранные файлы"
 
 #: themes/default/templates/files.html.ep:33 themes/default/templates/partial/index.js.ep:19
 msgid "Deletion link"
-msgstr "刪除連結"
+msgstr "Ссылка на удаление"
 
 #: themes/default/templates/delays.html.ep:8
 msgid "Don't worry: if a user begins to download the file before the expiration and the download ends after the expiration, he will be able to get the file."
-msgstr "毋需担心：如果使用者在有效期截至前開始下載，而要一直到有效期過後方能下載完成，他仍然能取得該檔案。"
+msgstr ""
+"Не волнуйся: если пользователь начнет скачивание до истечения срока, а "
+"закончит после, он(а) всё еще получит файл."
 
 #: themes/default/templates/partial/index.js.ep:21 themes/default/templates/render.html.ep:28
 msgid "Download"
-msgstr "下載"
+msgstr "Скачать"
 
 #: themes/default/templates/partial/render.js.ep:4
 msgid "Download aborted."
-msgstr "已捨棄下載。"
+msgstr "Скачивание прервалось."
 
 #: themes/default/templates/files.html.ep:28 themes/default/templates/partial/index.js.ep:20
 msgid "Download link"
-msgstr "下載連結"
+msgstr "Ссылка на скачивание"
 
 #: themes/default/templates/about.html.ep:10
 msgid "Drag and drop files in the appropriate area or use the traditional way to send files and the files will be chunked, encrypted and sent to the server. You will get two links per file: a download link, that you give to the people you want to share the file with and a deletion link, allowing you to delete the file whenever you want."
 msgstr ""
-"透過拖曳或傳統方式送出檔案，檔案會被分塊、加密然後傳送到伺服器。每一個成功送出的檔案都會產生一條下載連結和一條刪除連結。您可以將下載連結分享給其他人。在瀏"
-"覽器開啓下載連結可以下載該檔案，而開啓刪除連結則會刪除該檔案。"
+"Перетащите файлы в обозначенную область или выберите их традиционным "
+"способом; файлы будут разбиты, зашифрованы и отправлены на сервер. Вы "
+"получите две ссылки на файл: ссылку на скачивание, которой можете поделиться "
+"с людьми; и ссылку на удаление, по которой сможете удалить файл в любое "
+"время."
 
 #: themes/default/templates/index.html.ep:122
 msgid "Drop files here"
-msgstr "拖曳檔案到這裏"
+msgstr "Перетащи файлы сюда"
 
 #: themes/default/templates/invitations/invite.html.ep:40
 msgid "Email address of your guest"
-msgstr "邀請對象的電子郵件地址"
+msgstr "Эл. адрес твоего гостя"
 
 #: themes/default/templates/mail.html.ep:39
 msgid "Email body"
-msgstr "郵件內文"
+msgstr "Текст письма"
 
 #: themes/default/templates/mail.html.ep:31
 msgid "Email subject"
-msgstr "郵件主旨"
+msgstr "Тема письма"
 
 #: themes/default/templates/mail.html.ep:25 themes/default/templates/mail.html.ep:27
 msgid "Emails"
-msgstr "電子郵件"
+msgstr "Электронные адреса"
 
 #: themes/default/templates/partial/index.js.ep:22
 msgid "Encrypting part XX1 of XX2"
-msgstr "正在加密第 XX1 / XX2 部分"
+msgstr "Зашифровываю часть XX1 из XX2"
 
 #: lib/Lufi/Controller/Files.pm:283
 msgid "Error: the file existed but was deleted."
-msgstr "錯誤：檔案存在但已被刪除。"
+msgstr "Ошибка: Файл был тут, но его удалили."
 
 #: lib/Lufi/Controller/Files.pm:363
 msgid "Error: the file has not been sent entirely."
-msgstr "錯誤：檔案尚未傳送完全。"
+msgstr "Ошибка: Файл не был отправлен в целиком."
 
 #: lib/Lufi/Controller/Files.pm:373
 msgid "Error: unable to find the file. Are you sure of your URL?"
-msgstr "錯誤：找不到檔案。您確定您的網址無誤嗎？"
+msgstr "Ошибка: не получилось найти файл. Точно ли ссылка правильная?"
 
 #: themes/default/templates/partial/index.js.ep:23
 msgid "Expiration:"
-msgstr "有效期至："
+msgstr "Истекает:"
 
 #: themes/default/templates/invitations/my_invitations.html.ep:27
 msgid "Expire at"
-msgstr "有效期至"
+msgstr "Истекает"
 
 #: themes/default/templates/files.html.ep:32
 msgid "Expires at"
-msgstr "有效期至"
+msgstr "Истекает"
 
 #: themes/default/templates/files.html.ep:12
 msgid "Export localStorage data"
-msgstr "匯出本機存儲數據"
+msgstr "Экспорт данных из localStorage"
 
 #: lib/Lufi/Controller/Files.pm:465
 msgid "File deleted"
-msgstr "檔案已刪除"
+msgstr "Файл удалён"
 
 #: themes/default/templates/partial/render.js.ep:9
 msgid "File downloaded"
-msgstr "檔案已下載"
+msgstr "Файл скачан"
 
 #: themes/default/templates/files.html.ep:27
 msgid "File name"
-msgstr "檔案名稱"
+msgstr "Название файла"
 
 #: themes/default/templates/partial/index.js.ep:24
 msgid "File uploaded"
-msgstr "檔案已上傳"
+msgstr "Файл закачан"
 
 #: themes/default/templates/invitations/my_invitations.html.ep:61
 msgid "Files"
-msgstr "檔案"
+msgstr "Файлы"
 
 #: themes/default/templates/index.html.ep:80
 msgid "Files deleted at first download"
-msgstr "檔案已在第一次下載後刪除"
+msgstr "Удалённые при первом скачивании файлы"
 
 #: themes/default/templates/invitations/my_invitations.html.ep:28
 msgid "Files sent at"
-msgstr "檔案傳送自"
+msgstr "Файлы были отправлены"
 
 #: themes/default/templates/partial/invitations.js.ep:8
 msgid "Files sent in invitation XX1 by XX2"
-msgstr "檔案由 XX2 透過 XX1 邀請傳送"
+msgstr "Файлы, которые были отправлены в приглашении XX1 из XX2"
 
 #: themes/default/templates/partial/render.js.ep:8
 msgid "Get the file"
-msgstr "取得檔案"
+msgstr "Скачать файл"
 
 #: themes/default/templates/about.html.ep:18
 msgid "Get the source code on <a href=\"https://framagit.org/fiat-tux/hat-softwares/lufi\" class=\"classic\">the official repository</a> or on its <a href=\"https://github.com/ldidry/lufi\" class=\"classic\">Github mirror</a>"
 msgstr ""
-"在 <a href=\"https://framagit.org/fiat-tux/hat-softwares/lufi\" class="
-"\"classic\">官方倉庫</a> 或其 <a href=\"https://github.com/ldidry/lufi\" class="
-"\"classic\">Github 鏡像</a> 上取得原始碼"
+"Взять исходный код из <a href=\"https://framagit.org/fiat-tux/hat-softwares/"
+"lufi\" class=\"classic\">официального репозитория</a> или <a href=\"https"
+"://github.com/ldidry/lufi\" class=\"classic\">зеркала на Github</a>"
 
 #: themes/default/templates/invitations/my_invitations.html.ep:24
 msgid "Guest mail"
-msgstr "邀請對象郵件"
+msgstr "Эл. адрес гостя"
 
 #. (ucfirst(stash('invitation')
 #: themes/default/templates/invitations/notification_files_sent.mail.ep:6
 msgid "Hello %1,"
-msgstr "您好 %1,"
+msgstr "Привет, %1,"
 
 #: themes/default/templates/invitations/invite.mail.ep:4
 msgid "Hello,"
-msgstr "您好，"
+msgstr "Привет,"
 
 #: themes/default/templates/partial/mail.js.ep:35
 msgid "Hello,\\n\\nHere's some files I want to share with you:\\n"
 msgstr ""
-"您好，\\n"
+"Привет,\\n"
 "\\n"
-"這裏有一些檔案我希望與您分享：\\n"
+"Тут парочка файлов, которыми я хотел с тобой поделиться:\\n"
 
 #: themes/default/templates/mail.html.ep:35
 msgid "Here's some files"
-msgstr "有檔案與您分享"
+msgstr "Тут несколько файлов"
 
 #: themes/default/templates/partial/invitations.js.ep:7
 msgid "Hide hidden invitations"
-msgstr "不顯示隱藏的邀請"
+msgstr "Скрыть спрятанные приглашения"
 
 #: themes/default/templates/partial/index.js.ep:26
 msgid "Hit Enter, then Ctrl+C to copy all the download links"
-msgstr "按一下回車鍵，然後按 Ctrl+C 複製所有下載連結"
+msgstr "Нажми Enter, затем Ctrl+C, чтобы скопировать все ссылки на скачивание"
 
 #: themes/default/templates/partial/index.js.ep:25
 msgid "Hit Enter, then Ctrl+C to copy the download link"
-msgstr "按一下回車鍵，然後按 Ctrl+C 複製下載連結"
+msgstr "Нажми Enter, затем Ctrl+C, чтобы скопировать ссылку на скачивание"
 
 #: themes/default/templates/about.html.ep:9
 msgid "How does it work?"
-msgstr "它如何運作？"
+msgstr "Как это работает?"
 
 #: themes/default/templates/invitations/invite.html.ep:46
 msgid "How many days would you like the invitation to be valid?"
-msgstr "您希望邀請的有效期限爲多少天？"
+msgstr "На сколько дней приглашение должно быть действительным?"
 
 #: themes/default/templates/about.html.ep:16
 msgid "How to install the software on my server?"
-msgstr "怎樣在我的伺服器上安裝此軟件？"
+msgstr "Как установить эту программу на своем сервере?"
 
 #: themes/default/templates/about.html.ep:12
 msgid "How to report an illegal file?"
-msgstr "怎樣回報非法檔案？"
+msgstr "Как сообщить о нелегальном файле?"
 
 #: themes/default/templates/delays.html.ep:7
 msgid "If you choose a delay, the file will be deleted after that delay."
-msgstr "如果您選擇了一個有效期，則檔案會在有效期過後刪除。"
+msgstr "Если выберите срок, тогда файл будет удален по его истечению."
 
 #: themes/default/templates/mail.html.ep:15
 msgid "If you send the mail from this server, the links will be sent to the server, which may lower your privacy protection."
-msgstr "如果您從這臺伺服器寄出郵件，那麼所有連結都將會被傳送到伺服器上，這會減弱您的私隱防護。"
+msgstr ""
+"Если выслать письма с этого сервера, то ссылки будут отправлены на сервер, "
+"что может негативно повлиять на конфиденциальность."
 
 #: themes/default/templates/files.html.ep:14
 msgid "Import localStorage data"
-msgstr "匯入本機存儲數據"
+msgstr "Импортировать данные localStorage"
 
 #: themes/default/templates/index.html.ep:53
 msgid "Important: more information on delays"
-msgstr "重要：更多資訊關於有效期"
+msgstr "Важно: подробнее о сроках"
 
 #: themes/default/templates/delays.html.ep:5
 msgid "Information about delays"
-msgstr "有效期詳解"
+msgstr "Информация о сроках истечения"
 
 #: themes/default/templates/files.html.ep:18 themes/default/templates/invitations/my_invitations.html.ep:12
 msgid "Invert selection"
-msgstr "反向選取"
+msgstr "Инвертировать выбор"
 
 #. ($i->guest_mail, $url)
 #: lib/Lufi/Controller/Invitation.pm:171
 msgid "Invitation resent to %1.<br> URL: %2"
-msgstr "重新寄給 %1 的邀請。<br>網址：%2"
+msgstr "Приглашение переотправлено на %1.<br> Ссылка: %2"
 
 #. ($invitation->guest_mail, $url)
 #: lib/Lufi/Controller/Invitation.pm:87
 msgid "Invitation sent to %1.<br> URL: %2"
-msgstr "寄給 %1 的邀請。<br>網址：%2"
+msgstr "Приглашение отправлено на %1.<br> Ссылка: %2"
 
 #: themes/default/templates/invitations/invite.html.ep:27 themes/default/templates/layouts/default.html.ep:36 themes/default/templates/layouts/default.html.ep:69
 msgid "Invite a guest"
-msgstr "邀請對象"
+msgstr "Пригласить гостя"
 
 #: themes/default/templates/partial/render.js.ep:6
 msgid "It seems that the key in your URL is incorrect. Please, verify your URL."
-msgstr "您網址包含的密鑰似乎不正確。請核驗您的網址。"
+msgstr ""
+"Похоже, что ключ в твоей ссылке неправилен. Пожалуйста, перепроверь ссылку."
 
 #: themes/default/templates/index.html.ep:12
 msgid "Javascript is disabled. You won't be able to use Lufi."
-msgstr "Javascript 被禁用。您無法使用 Lufi。"
+msgstr "Javascript отключен. Без него не получится пользоваться Lufi."
 
 #: themes/default/templates/layouts/default.html.ep:44 themes/default/templates/layouts/default.html.ep:46 themes/default/templates/layouts/default.html.ep:77 themes/default/templates/layouts/default.html.ep:79
 msgid "Language"
-msgstr "語言"
+msgstr "Язык"
 
 #. (sprintf('<a href="https://framagit.org/fiat-tux/hat-softwares/lufi/-/commit/%s" class="classic">%s</a>', stash('version')
 #: themes/default/templates/about.html.ep:22
 msgid "Latest commit of this instance: %1"
-msgstr "這個實例最近一次提交：%1"
+msgstr "Последний коммит этого экземпляра: %1"
 
 #. (sprintf('<a href="https://framagit.org/fiat-tux/hat-softwares/lufi/-/releases/%s" class="classic">%s</a>', stash('version')
 #: themes/default/templates/about.html.ep:21
 msgid "Latest tag of this instance: %1"
-msgstr "這個實例最近一個標籤：%1"
+msgstr "Последний тег этого экземпляра: %1"
 
 #: themes/default/templates/login.html.ep:15
 msgid "Login"
-msgstr "登入"
+msgstr "Войти"
 
 #: themes/default/templates/layouts/default.html.ep:58 themes/default/templates/layouts/default.html.ep:91
 msgid "Logout"
-msgstr "登出"
+msgstr "Выйти"
 
 #: themes/default/templates/about.html.ep:4
 msgid "Lufi is a free (as in free speech) file hosting software."
-msgstr "Lufi 是一歀自由的檔案託管軟件。"
+msgstr ""
+"Lufi — свободное (как свобода слова) программное обеспечение для хостинга "
+"файлов."
 
 #: themes/default/templates/partial/files.js.ep:12
 msgid "Lufi recently changed its way to store files information.\\n\\nNo files have been found in the new localStorage location but we found files in the old one.\\nDo you want to import those informations?\\n\\nPlease note that this is the only time that we will ask you this."
 msgstr ""
-"Lufi 近來變更了儲存檔案資訊的方式。\\n"
+"Lufi недавно изменил способ хранения информации о файлах.\\n"
 "\\n"
-"在新的本機存儲數據中找不到檔案，但在舊的數據中有發現檔案。\\n"
-"您是否想匯入這些資訊？\\n"
+"Никакие файлы не были обнаружены в новом месте внутри localStorage, но зато "
+"какие-то нашлись в старом месте.\\n"
+"Стоит ли импортировать ту информацию?\\n"
 "\\n"
-"請註意這個問題只會問這一次。"
+"Обращаем внимание, что больше мы об этом спрашивать не будем."
 
 #: themes/default/templates/files.html.ep:34
 msgid "Mail"
-msgstr "寄信"
+msgstr "Эл. адрес"
 
 #: themes/default/templates/files.html.ep:3 themes/default/templates/layouts/default.html.ep:34 themes/default/templates/layouts/default.html.ep:67
 msgid "My files"
-msgstr "我的檔案"
+msgstr "Мои файлы"
 
 #: themes/default/templates/invitations/my_invitations.html.ep:5 themes/default/templates/layouts/default.html.ep:37 themes/default/templates/layouts/default.html.ep:70
 msgid "My invitations"
-msgstr "我的邀請"
+msgstr "Мои приглашения"
 
 #: themes/default/templates/invitations/notification_files_sent.mail.ep:17
 msgid "NB: this list includes the list of files that have already been sent to you."
-msgstr "注意：這份列表包含了您送出過的檔案。"
+msgstr ""
+"Напоминание: Этот список содержит список файлов, которые уже были тебе "
+"отправлены."
 
 #: themes/default/templates/index.html.ep:115
 msgid "Name of the zip file"
-msgstr "Zip 壓縮檔案的名稱"
+msgstr "Название zip-файла"
 
 #. (format_bytes($json->{size})
 #: lib/Lufi/Controller/Files.pm:109
 msgid "No enough space available on the server for this file (size: %1)."
-msgstr "伺服器没有足夠空間存放此檔案（大小：%1）。"
+msgstr "На сервере недостаточно места для этого файла (размер: %1)."
 
 #: themes/default/templates/partial/files.js.ep:10 themes/default/templates/partial/index.js.ep:29
 msgid "No expiration delay"
-msgstr "不設有效期"
+msgstr "Без срока истечения"
 
 #: themes/default/templates/files.html.ep:8
 msgid "Only the files sent with this browser will be listed here. This list is stored in localStorage: if you delete your localStorage data, you'll lose this list."
-msgstr "只有經這個瀏覽器送出的檔案才會被列在這裏。這份列表僅存於本機：若您刪除了本機存儲數據，此列表亦會隨之而去。"
+msgstr ""
+"Тут будут показаны только файлы отправленные через этот браузер. Этот список "
+"находится в localStorage: если вы очистите данные в localStorage, то список "
+"будет удалён."
 
 #: themes/default/templates/index.html.ep:106 themes/default/templates/login.html.ep:21 themes/default/templates/render.html.ep:26
 msgid "Password"
-msgstr "密碼"
+msgstr "Пароль"
 
 #. (config('contact')
 #: themes/default/templates/about.html.ep:13
 msgid "Please contact the administrator: %1"
-msgstr "請聯絡管理員：%1"
+msgstr "Пожалуйста, свяжитесь с администратором: %1"
 
 #: themes/default/templates/render.html.ep:33
 msgid "Please wait while we are getting your file. We first need to download and decrypt all parts before you can get it."
-msgstr "請耐心等候，在您收到檔案之前我們先要下載並解密檔案的所有部分。"
+msgstr ""
+"Пожалуйста, подождите пока мы не получим ваш файл. Нам сначала надо его "
+"скачать и дешифровать все его части, перед тем как вы сможете его получить."
 
 #: lib/Lufi/Controller/Auth.pm:38
 msgid "Please, check your credentials or your right to access this service: unable to authenticate."
-msgstr "請檢查您的驗證資訊或對於此服務的存取權限：無法驗證。"
+msgstr ""
+"Пожалуйста, проверь свои данные для входа или права на доступ к сервису: "
+"аутентификация не удалась."
 
 #: themes/default/templates/about.html.ep:5
 msgid "Privacy"
-msgstr "私隱"
+msgstr "Конфиденциальность"
 
 #: themes/default/templates/files.html.ep:13
 msgid "Purge expired files from localStorage"
-msgstr "清除本機存儲數據中的過期檔案"
+msgstr "Очистить localStorage от истекших файлов"
 
 #: themes/default/templates/invitations/notification_files_sent.mail.ep:20
 msgid "Regards,"
-msgstr "保重，"
+msgstr "Всего хорошего,"
 
 #: themes/default/templates/invitations/invite.mail.ep:15
 msgid "Regards."
-msgstr "保重。"
+msgstr "Всего хорошего."
 
 #: themes/default/templates/layouts/default.html.ep:31 themes/default/templates/layouts/default.html.ep:64
 msgid "Report file"
-msgstr "回報檔案"
+msgstr "Пожаловаться на файл"
 
 #: themes/default/templates/invitations/my_invitations.html.ep:15
 msgid "Resend invitation mail"
-msgstr "重新寄出邀請郵件"
+msgstr "Переслать пригласительное письмо"
 
 #: themes/default/templates/invitations/my_invitations.html.ep:9
 msgid "Rows in purple mean that the invitations have expired."
-msgstr "紫色行表示邀請已經過期。"
+msgstr "Фиолетовые строки означают, что приглашение истекло."
 
 #: themes/default/templates/files.html.ep:9
 msgid "Rows in red mean that the files have expired and are no longer available."
-msgstr "紅色行表示檔案已經過期，無法再取得。"
+msgstr "Красные строки означают, что файлы истекли и более не доступны."
 
 #: themes/default/templates/partial/index.js.ep:27
 msgid "Send all links by email"
-msgstr "透過電子郵件寄出所有連結"
+msgstr "Отправить все ссылки по почте"
 
 #: themes/default/templates/invitations/invite.html.ep:50
 msgid "Send the invitation"
-msgstr "寄出邀請"
+msgstr "Отправить приглашение"
 
 #: themes/default/templates/mail.html.ep:46
 msgid "Send with this server"
-msgstr "透過這臺伺服器寄出"
+msgstr "Отправить с этого сервера"
 
 #: themes/default/templates/mail.html.ep:47
 msgid "Send with your own mail software"
-msgstr "透過您自己的電郵軟件寄出"
+msgstr "Отправить через свой почтовый клиент"
 
 #: themes/default/templates/partial/index.js.ep:30
 msgid "Sending part XX1 of XX2. Please, be patient, the progress bar can take a while to move."
-msgstr "正在傳送 XX1 / XX2 部分。請耐心等候，進度條可能需要一點時間才會變化。"
+msgstr ""
+"Шлю часть XX1 из XX2. Пожалуйста, наберись терпения, индикатор прогресса "
+"может долгое время не двигаться."
 
 #. (url_for('/')
 #: themes/default/templates/partial/mail.js.ep:48
 msgid "Share your files in total privacy on %1"
-msgstr "在 %1 私密地分享您的檔案"
+msgstr "Поделись своими файлами в полной секретности на %1"
 
 #: themes/default/templates/invitations/my_invitations.html.ep:13 themes/default/templates/partial/invitations.js.ep:9
 msgid "Show hidden invitations"
-msgstr "顯示隱藏的邀請"
+msgstr "Показать спрятанные приглашения"
 
 #: themes/default/templates/partial/render.js.ep:12
 msgid "Show zip content"
-msgstr "顯示 zip 檔案內容"
+msgstr "Показать данные в zip"
 
 #: themes/default/templates/layouts/default.html.ep:40 themes/default/templates/layouts/default.html.ep:73 themes/default/templates/login.html.ep:28 themes/default/templates/logout.html.ep:17
 msgid "Signin"
-msgstr "登入"
+msgstr "Войти"
 
 #: lib/Lufi/Controller/Invitation.pm:283 themes/default/templates/invitations/exception.html.ep:16
 msgid "Sorry, the invitation doesn’t exist. Are you sure you are on the right URL?"
-msgstr "抱歉，邀請不存在。您確定您的網址無誤嗎？"
+msgstr "Извините, этого приглашения не существует. Вы точно на правильном URL?"
 
 #: themes/default/templates/index.html.ep:46
 msgid "Sorry, the uploading is currently disabled. Please try again later."
-msgstr "抱歉，上傳暫時被禁用。請稍後再試。"
+msgstr "Извини, загрузка сейчас отключена. Пожалуйста, попытайся попозже."
 
 #: lib/Lufi/Controller/Files.pm:82
 msgid "Sorry, uploading is disabled."
-msgstr "抱歉，上傳被禁用。"
+msgstr "Извини, загрузка отключена."
 
 #: themes/default/templates/invitations/exception.html.ep:7
 msgid "Sorry, your invitation has expired or has been deleted."
-msgstr "抱歉，您的邀請已過期或是已經被刪除。"
+msgstr "Извини, твое приглашение истекло или было удалено."
 
 #. ($invit->ldap_user_mail)
 #: lib/Lufi/Controller/Files.pm:123
 msgid "Sorry, your invitation has expired or has been deleted. Please contact %1 to have another invitation."
-msgstr "抱歉，您的邀請已過期或是已經被刪除。請聯絡 %1 取得另外的邀請。"
+msgstr ""
+"Извини, твое приглашение истекло или было удалено. Пожалуйста, попроси %1 "
+"выдать новое приглашение."
 
 #. ($invitation->ldap_user_mail)
 #: lib/Lufi/Controller/Invitation.pm:276
 msgid "The URLs of your files have been sent by email to %1."
-msgstr "您的檔案的網址已經透過郵件寄給 %1。"
+msgstr "Ссылки на твои файлы были высланы по почте на %1."
 
 #: themes/default/templates/about.html.ep:7
 msgid "The administrator can only see the file's name, its size and its mimetype (what kind of file it is: video, text, etc.)."
-msgstr "管理員只能夠看到檔案的名稱、大小以及媒體類型（視訊、文字檔案等）。"
+msgstr ""
+"Администратор только может видеть название файла, размер и его MIME-тип ("
+"какой это тип файла: видео, текст и т.п.)."
 
 #: lib/Lufi/Controller/Mail.pm:53
 msgid "The body of the mail must contain at least one URL pointing to a file hosted on this instance."
-msgstr "郵件內文至少要包含一個網址指向託管在這個實例的檔案。"
+msgstr ""
+"Текст письма должен как минимум содержать одну ссылку на файл с этого "
+"сервера."
 
 #: themes/default/templates/partial/files.js.ep:11
 msgid "The data has been successfully imported."
-msgstr "已成功匯入數據。"
+msgstr "Данные успешно импортированы."
 
 #: lib/Lufi/Controller/Mail.pm:73
 msgid "The email body can't be empty."
-msgstr "郵件內文不能爲空。"
+msgstr "Текст письма не может быть пуст."
 
 #: lib/Lufi/Controller/Mail.pm:72
 msgid "The email subject can't be empty."
-msgstr "郵件主旨不能爲空。"
+msgstr "Тема письма не может быть пуста."
 
 #. ($expire_at, $max_expire_at)
 #: lib/Lufi/Controller/Invitation.pm:51
 msgid "The expiration delay (%1) is not between 1 and %2 days."
-msgstr "有效期 (%1) 不在 1 至 %2 日之間。"
+msgstr "Срок истечения (%1) не между 1 и %2 днями."
 
 #: lib/Lufi/Controller/Files.pm:462
 msgid "The file has already been deleted"
-msgstr "檔案已經被刪除"
+msgstr "Файл был уже удален"
 
 #: themes/default/templates/about.html.ep:6
 msgid "The files uploaded on a Lufi instance are encrypted before the upload to the server: the administrator of the server can not see the file's content."
-msgstr "上傳到 Lufi 實例的檔案在上傳之前會先加密：伺服器管理員無法檢視檔案內容。"
+msgstr ""
+"Файлы загружаемые на экземпляры Lufi шифруются перед отправкой на сервер: "
+"администратор сервера не сможет увидеть данные внутри файла."
 
 #. (join(', ', @bad)
 #: lib/Lufi/Controller/Mail.pm:68
 msgid "The following email addresses are not valid: %1"
-msgstr "下列的電子郵件地址無效：%1"
+msgstr "Следующие эл. адреса недействительны: %1"
 
 #. ($guest_mail)
 #: lib/Lufi/Controller/Invitation.pm:48
 msgid "The guest email address (%1) is unvalid."
-msgstr "邀請對象的電子郵件地址（%1）無效。"
+msgstr "Эл. адрес гостя (%1) недействителен."
 
 #. ($i->token, $i->guest_mail)
 #: lib/Lufi/Controller/Invitation.pm:150
 msgid "The invitation %1 can’t be resent: %2 has already sent files.<br>Please create a new invitation."
-msgstr "邀請 %1 無法重寄：%2 已經送出檔案。<br>請發一份新邀請。"
+msgstr ""
+"Приглашение на %1 не может быть отправлено: %2 уже отправлял(а) "
+"файлы.<br>Пожалуйста, создай новое приглашение."
 
 #. ($i->token)
 #: lib/Lufi/Controller/Invitation.pm:130
 msgid "The invitation %1 has been deleted."
-msgstr "邀請 %1 已經被刪除。"
+msgstr "Приглашение %1 было удалено."
 
 #. (stash('user_mail')
 #: themes/default/templates/invitations/invite.html.ep:34
 msgid "The invitation mail will be send from your email address (%1)."
-msgstr "邀請郵件會從您的電子郵件地址（%1）寄出。"
+msgstr "Письмо с приглашением будет отправлено с твоего эл. адреса (%1)."
 
 #: themes/default/templates/partial/index.js.ep:16
 msgid "The link(s) has been copied to your clipboard"
-msgstr "連結已經複製到您的剪貼簿"
+msgstr "Ссылка(-и) скопированы в буфер обмена"
 
 #. (stash('invitation')
 #: themes/default/templates/index.html.ep:30
 msgid "The link(s) of your file(s) will automatically be sent by mail to %1 (%2)"
-msgstr "您的檔案的連結會自動透過郵件寄給 %1（%2）"
+msgstr ""
+"Ссылка(-и) на твой файл(ы) будут автоматически отправлены по почте %1 (%2)"
 
 #. (stash('ldap_user')
 #: themes/default/templates/invitations/invite.mail.ep:11
 msgid "The links of your file(s) will automatically be sent by mail to %1."
-msgstr "您的檔案的連結會自動透過郵件寄給 %1。"
+msgstr "Ссылка(-и) на твой файл(ы) будут автоматически отправлены по почте %1."
 
 #: lib/Lufi/Controller/Mail.pm:97
 msgid "The mail has been sent."
-msgstr "郵件已寄出。"
+msgstr "Письмо было отправлено."
 
 #: themes/default/templates/about.html.ep:15
 msgid "The original (and only for now) author is <a href=\"https://fiat-tux.fr\" class=\"classic\">Luc Didry</a>."
 msgstr ""
-"最初的作者（亦是至今唯一）爲 <a href=\"https://fiat-tux.fr\" class=\"classic\">Luc "
-"Didry</a>。"
+"Изначальный (и пока единственный) автор: <a href=\"https://fiat-tux.fr\" "
+"class=\"classic\">Luc Didry (Люк Дидри)</a>."
 
 #: lib/Lufi/Controller/Files.pm:230
 msgid "The server was unable to find the file record to add your file part to. Please, contact the administrator."
-msgstr "伺服器找不到相應的檔案紀錄來加入您的檔案塊。請聯絡管理員。"
+msgstr ""
+"Сервер не смог найти запись о файле, чтобы добавить твою часть файла. "
+"Пожалуйста, свяжитесь с администратором."
 
 #: lib/Lufi/Controller/Files.pm:289
 msgid "This file has been deactivated by the admins. Contact them to know why."
-msgstr "這份檔案已經被管理員封禁。請聯絡他們瞭解詳細資訊。"
+msgstr ""
+"Файл был деактивирован администратором. Свяжитесь с администратором, чтобы "
+"узнать почему."
 
 #: themes/default/templates/invitations/my_invitations.html.ep:46 themes/default/templates/partial/invitations.js.ep:6
 msgid "This invitation is normally hidden"
-msgstr "這個邀請在平時會被隱藏"
+msgstr "Это приглашение обычно спрятано"
 
 #. (stash('expires')
 #: themes/default/templates/invitations/invite.mail.ep:13
 msgid "This invitation is valid until %1."
-msgstr "這個邀請會一直有效至 %1。"
+msgstr "Приглашение работает до %1."
 
 #: themes/default/templates/delays.html.ep:10
 msgid "This server sets limitations according to the file size. The expiration delay of your file will be the minimum between what you choose and the following limitations:"
-msgstr "這臺伺服器根據檔案大小設定了不同上限。檔案的有效期會被設定為您所選取選項與下列上限間兩者之最小值："
+msgstr ""
+"Этот сервер задает ограничения связанные с размером файла. Срок истечения "
+"будет тем наименьшим значением, между тем что вы выберете и следующими "
+"ограничениями:"
 
 #: themes/default/templates/invitations/my_invitations.html.ep:16
 msgid "Toggle visibility"
-msgstr "開關隱藏邀請"
+msgstr "Переключить видимость"
 
 #: themes/default/templates/invitations/my_invitations.html.ep:25
 msgid "URL"
-msgstr "網址"
+msgstr "URL"
 
 #: themes/default/templates/partial/index.js.ep:17
 msgid "Unable to copy the link(s) to your clipboard"
-msgstr "無法複製連結到您的剪貼簿"
+msgstr "Не удалось скопировать ссылку(-и) в буфер обмена"
 
 #. ($short)
 #: lib/Lufi/Controller/Files.pm:433
 msgid "Unable to get counter for %1. The file does not exists. It will be removed from your localStorage."
-msgstr "無法取得 %1 的下載次數。該檔案不存在。其將會從您的本機存儲數據中移除。"
+msgstr ""
+"Не удалось получить счетчик для %1. Этого файла нет. Запись будет удалена из "
+"твоего localStorage."
 
 #. ($short)
 #: lib/Lufi/Controller/Files.pm:423
 msgid "Unable to get counter for %1. The token is invalid."
-msgstr "無法取得 %1 的下載次數。權杖無效。"
+msgstr "Не удалось получить счетчик для %1. Токен недействителен."
 
 #. ($short)
 #: lib/Lufi/Controller/Files.pm:443
 msgid "Unable to get counter for %1. You are not authenticated."
-msgstr "無法取得 %1 的下載次數。您未驗證身份。"
+msgstr "Не удалось получить счетчик для %1. Вы не залогинены."
 
 #: themes/default/templates/layouts/default.html.ep:33 themes/default/templates/layouts/default.html.ep:66
 msgid "Upload files"
-msgstr "上傳檔案"
+msgstr "Загрузить файлы"
 
 #: themes/default/templates/index.html.ep:145
 msgid "Upload generated zip file"
-msgstr "上傳生成的 zip 壓縮檔案"
+msgstr "Загрузить сгенерированный zip-файл"
 
 #: themes/default/templates/files.html.ep:31
 msgid "Uploaded at"
-msgstr "上傳時間"
+msgstr "Загружено"
 
 #: themes/default/templates/index.html.ep:153
 msgid "Uploaded files"
-msgstr "已上傳檔案"
+msgstr "Загруженные файлы"
 
 #: themes/default/templates/about.html.ep:20
 msgid "Version"
-msgstr "版本"
+msgstr "Версия"
 
 #: themes/default/templates/partial/index.js.ep:31
 msgid "Websocket communication error"
-msgstr "WebSocket 交換錯誤"
+msgstr "Ошибка связи Websocket"
 
 #: themes/default/templates/about.html.ep:3
 msgid "What is Lufi?"
-msgstr "Lufi 是什麼？"
+msgstr "Что такое Lufi?"
 
 #: themes/default/templates/about.html.ep:14
 msgid "Who wrote this software?"
-msgstr "誰寫了這個軟件？"
+msgstr "Кто написал эту программу?"
 
 #: themes/default/templates/partial/index.js.ep:13
 msgid "XXX file has been added to upload queue."
-msgstr "XXX 檔案已經被加入到了上傳佇列。"
+msgstr "XXX файл был добавлен в очередь загрузки."
 
 #: themes/default/templates/invitations/invite.html.ep:30
 msgid "You can invite someone to send you files through this Lufi instance even if they don’t have an account on it."
-msgstr "您可以邀請其他人透過這個 Lufi 實例傳送檔案給您，他們不需要有帳號。"
+msgstr ""
+"Вы можете пригласить кого-нибудь прислать вам файлы через этот Lufi-сервер, "
+"даже если у них нету здесь аккаунта."
 
 #: themes/default/templates/about.html.ep:11
 msgid "You can see the list of your files by clicking on the \"My files\" link at the top right of this page."
-msgstr "您可以點一下「我的檔案」選項來檢視您的檔案列表。"
+msgstr ""
+"Вы можете просмотреть список своих файлов нажав на кнопку \"Мои файлы\" в "
+"правом верхнем углу страницы."
 
 #: lib/Lufi/Controller/Mail.pm:42
 msgid "You can't add URLs that are not related to this instance."
-msgstr "您無法加入與此實例無關的網址。"
+msgstr "Нельзя добавить ссылки, которые не относятся к этому серверу."
 
 #: themes/default/templates/about.html.ep:8
 msgid "You don't need to register yourself to upload files but be aware that, for legal reasons, your IP address will be stored when you send a file. Don't panic, this is normally the case for all sites on which you send files."
-msgstr "您毋須註冊即可上傳檔案，但需要註意，鑑於法律原因，在您傳送檔案時您的 IP 地址會被記錄。毋需擔憂，通常所有容許您傳送檔案的網站都會這樣做。"
+msgstr ""
+"Тут не нужна регистрация (или СМС) для загрузки файлов, но знай, что по "
+"правовым причинам при отправке файлов ваш IP-адрес будет сохраняться. Без "
+"паники, это обычно верно для всех сайтов, где вы передаете файлы."
 
 #: themes/default/templates/partial/render.js.ep:11
 msgid "You don't seem to have a key in your URL. You won't be able to decrypt the file. Download canceled."
-msgstr "您的網址似乎没有包含密鑰。您無法解密此檔案。下載取消。"
+msgstr ""
+"В твоей ссылке вроде нету ключа. Так не удастся расшифровать файл. "
+"Скачивание отменено."
 
 #: themes/default/templates/partial/render.js.ep:7
 msgid "You have attempted to leave this page. The download will be canceled. Are you sure?"
-msgstr "您正試圖離開此頁面。下載將會被取消。您確定要這樣做？"
+msgstr "Вы попытались уйти со страницы. Скачивание будет отменено. Уверены?"
 
 #: themes/default/templates/partial/index.js.ep:14
 msgid "You have attempted to leave this page. The upload will be canceled. Are you sure?"
-msgstr "您正試圖離開此頁面。上傳將會被取消。您確定要這樣做？"
+msgstr "Вы попытались уйти со страницы. Загрузка будет отменена. Уверены?"
 
 #: themes/default/templates/logout.html.ep:14
 msgid "You have been successfully logged out."
-msgstr "您已成功登出。"
+msgstr "Вы успешно вышли."
 
 #: lib/Lufi/Controller/Mail.pm:71
 msgid "You must give email addresses."
-msgstr "您必須填寫電子郵件地址。"
+msgstr "Вы должны ввести эл. адреса."
 
 #: themes/default/templates/index.html.ep:38
 msgid "Your browser does not have enough entropy to generate a strong encryption key. Please wait (it's better if you do things on your computer while waiting)."
-msgstr "您的瀏覽器没有足夠的資訊熵來生成高強度密鑰。請耐心等候（最好在等待時用電腦做點其它事情）。"
+msgstr ""
+"У вашего браузера нехватает энтропии для генерации стойкого ключа "
+"шифрования. Пожалуйста, подождите (даже лучше если вы пока займётесь чем-"
+"нибудь другим на компьютере)."
 
 #. (format_bytes($json->{size})
 #: lib/Lufi/Controller/Files.pm:95
 msgid "Your file is too big: %1 (maximum size allowed: %2)"
-msgstr "您的檔案太大：%1（大小上限：%2）"
+msgstr "Ваш файл слишком большой: %1 (маскимально разрешённый размер: %2)"
 
 #: lib/Lufi/Controller/Files.pm:345
 msgid "Your password is not valid. Please refresh the page to retry."
-msgstr "您的密碼無效。請刷新頁面重新嘗試。"
+msgstr ""
+"Ваш пароль недействителен. Пожалуйста, перезагрузите страницу и попробуйте "
+"снова."
 
 #: themes/default/templates/partial/render.js.ep:13
 msgid "Zip content:"
-msgstr "Zip 檔案內容："
+msgstr "Данные в Zip:"
 
 #. (format_bytes($keys[$i])
 #: themes/default/templates/delays.html.ep:20
 msgid "between %1 and %2, the file will be kept %3 day(s)."
-msgstr "在 %1 至 %2 之間，檔案會保留 %3 日。"
+msgstr "между %1 и %2, файл будет храниться %3 день(дней)."
 
 #. (format_bytes($keys[$i])
 #: themes/default/templates/delays.html.ep:22
 msgid "between %1 and %2, the file will be kept forever."
-msgstr "在 %1 至 %2 之間，檔案會一直保留。"
+msgstr "между %1 и %2, файл будет храниться вечно."
 
 #: themes/default/templates/partial/mail.js.ep:42
 msgid "deadline: "
-msgstr "有效期至： "
+msgstr "Срок: "
 
 #: themes/default/templates/partial/invitations.js.ep:5
 msgid "expires on XXX"
-msgstr "在 XXX 到期"
+msgstr "Истекает XXX"
 
 #. (format_bytes($keys[$i])
 #: themes/default/templates/delays.html.ep:26
 msgid "for %1 and more, the file will be kept %2 day(s)"
-msgstr "在 %1 及以上，檔案會保留 %2 日"
+msgstr "с %1 и выше, файл будет храниться %2 день(дней)"
 
 #. (format_bytes($keys[$i])
 #: themes/default/templates/delays.html.ep:28
 msgid "for %1 and more, the file will be kept forever."
-msgstr "在 %1 及以上，檔案會一直保留。"
+msgstr "с %1 и выше, файл будет храниться вечно."
 
 #: themes/default/templates/index.html.ep:3
 msgid "no time limit"
-msgstr "没有時間限制"
+msgstr "без ограничения по времени"
 
 #: themes/default/templates/index.html.ep:124
 msgid "or"
-msgstr "或"
+msgstr "или"
 
 #. ($e->{name}, format_bytes($e->{size})
 #: themes/default/templates/invitations/notification_files_sent.mail.ep:12
 msgid "— %1 (%2), that will expire on %3"
-msgstr "— %1 (%2), 會在 %3 到期"
-
-#: themes/default/templates/partial/render.js.ep:13
-msgid "Unable to download the file: too much unsuccessful attempts to open a websocket. Please, contact the administrator."
-msgstr "無法下載檔案：太多不必要的開啓 websocket 嘗試。請聯絡管理員。"
+msgstr "— %1 (%2), истечёт %3"
