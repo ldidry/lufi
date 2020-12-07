@@ -47,6 +47,7 @@ function addAlert(msg) {
 
 // Spawn WebSocket
 function spawnWebsocket(pa) {
+    console.log('Spawning websocket…');
     var ws       = new WebSocket(ws_url);
     ws.onopen    = function() {
         console.log('Connection is established!');
@@ -62,14 +63,22 @@ function spawnWebsocket(pa) {
     ws.onclose   = function() {
         console.log('Connection is closed');
         if (!window.completed) {
-            console.log('Connection closed. Retrying to get slice '+pa);
-            window.ws = spawnWebsocket(pa);
+            window.attempts++;
+            if (window.attempts < 10) {
+                console.log('Connection closed. Retrying to get slice '+pa);
+                window.ws = spawnWebsocket(pa);
+            } else {
+                alert(i18n.tooMuchAttempts);
+            }
         }
     }
     ws.onmessage = function(e) {
         var res  = e.data.split('XXMOJOXX');
         var json = res.shift();
         var data = JSON.parse(json);
+
+        // Reset counter since we succeded to open a websocket and got a message
+        window.attempts  = 0;
 
         if (data.msg !== undefined) {
             addAlert(data.msg);
@@ -78,6 +87,7 @@ function spawnWebsocket(pa) {
                 $('.file-abort').addClass('hide');
             }
             window.onbeforeunload = null;
+            window.attempts  = 10;
         } else {
             console.log('Getting slice '+(data.part + 1)+' of '+data.total);
             var slice   = JSON.parse(res.shift());
@@ -203,8 +213,13 @@ function spawnWebsocket(pa) {
         }
     }
     ws.onerror = function() {
-        console.log('Error. Retrying to get slice '+pa);
-        window.ws = spawnWebsocket(pa);
+        window.attempts++;
+        if (window.attempts < 10) {
+            console.log('Error. Retrying to get slice '+pa);
+            window.ws = spawnWebsocket(pa);
+        } else {
+            alert(i18n.tooMuchAttempts);
+        }
     }
     return ws;
 }
@@ -225,6 +240,7 @@ $(document).ready(function(){
     window.a         = new Array();
     window.key       = pageKey();
     window.completed = false;
+    window.attempts  = 0;
 
     if (key !== '=') {
         var go = true;

@@ -41,7 +41,7 @@ msgstr ""
 msgid "%1 used your invitation to send you files:"
 msgstr ""
 
-#: lib/Lufi/Controller/Invitation.pm:159 lib/Lufi/Controller/Invitation.pm:84 themes/default/templates/invitations/my_invitations.html.ep:51 themes/default/templates/invitations/my_invitations.html.ep:52 themes/default/templates/invitations/my_invitations.html.ep:53 themes/default/templates/invitations/notification_files_sent.mail.ep:12
+#: lib/Lufi/Controller/Invitation.pm:160 lib/Lufi/Controller/Invitation.pm:85 themes/default/templates/invitations/my_invitations.html.ep:51 themes/default/templates/invitations/my_invitations.html.ep:52 themes/default/templates/invitations/my_invitations.html.ep:53 themes/default/templates/invitations/notification_files_sent.mail.ep:12
 msgid "%A %d %B %Y at %T"
 msgstr ""
 
@@ -118,7 +118,7 @@ msgstr ""
 msgid "Click to open the file browser"
 msgstr ""
 
-#: themes/default/templates/delays.html.ep:38 themes/default/templates/invitations/my_invitations.html.ep:80
+#: themes/default/templates/delays.html.ep:42 themes/default/templates/invitations/my_invitations.html.ep:80
 msgid "Close"
 msgstr ""
 
@@ -178,7 +178,7 @@ msgstr ""
 msgid "Deletion link"
 msgstr ""
 
-#: themes/default/templates/delays.html.ep:8
+#: themes/default/templates/delays.html.ep:9
 msgid "Don't worry: if a user begins to download the file before the expiration and the download ends after the expiration, he will be able to get the file."
 msgstr ""
 
@@ -339,7 +339,7 @@ msgstr ""
 msgid "How to report an illegal file?"
 msgstr ""
 
-#: themes/default/templates/delays.html.ep:7
+#: themes/default/templates/delays.html.ep:8
 msgid "If you choose a delay, the file will be deleted after that delay."
 msgstr ""
 
@@ -364,12 +364,12 @@ msgid "Invert selection"
 msgstr ""
 
 #. ($i->guest_mail, $url)
-#: lib/Lufi/Controller/Invitation.pm:171
+#: lib/Lufi/Controller/Invitation.pm:172
 msgid "Invitation resent to %1.<br> URL: %2"
 msgstr ""
 
 #. ($invitation->guest_mail, $url)
-#: lib/Lufi/Controller/Invitation.pm:87
+#: lib/Lufi/Controller/Invitation.pm:88
 msgid "Invitation sent to %1.<br> URL: %2"
 msgstr ""
 
@@ -534,7 +534,7 @@ msgstr ""
 msgid "Signin"
 msgstr ""
 
-#: lib/Lufi/Controller/Invitation.pm:283 themes/default/templates/invitations/exception.html.ep:16
+#: lib/Lufi/Controller/Invitation.pm:284 themes/default/templates/invitations/exception.html.ep:16
 msgid "Sorry, the invitation doesn’t exist. Are you sure you are on the right URL?"
 msgstr ""
 
@@ -556,7 +556,7 @@ msgid "Sorry, your invitation has expired or has been deleted. Please contact %1
 msgstr ""
 
 #. ($invitation->ldap_user_mail)
-#: lib/Lufi/Controller/Invitation.pm:276
+#: lib/Lufi/Controller/Invitation.pm:277
 msgid "The URLs of your files have been sent by email to %1."
 msgstr ""
 
@@ -581,7 +581,7 @@ msgid "The email subject can't be empty."
 msgstr ""
 
 #. ($expire_at, $max_expire_at)
-#: lib/Lufi/Controller/Invitation.pm:51
+#: lib/Lufi/Controller/Invitation.pm:52
 msgid "The expiration delay (%1) is not between 1 and %2 days."
 msgstr ""
 
@@ -599,17 +599,17 @@ msgid "The following email addresses are not valid: %1"
 msgstr ""
 
 #. ($guest_mail)
-#: lib/Lufi/Controller/Invitation.pm:48
+#: lib/Lufi/Controller/Invitation.pm:49
 msgid "The guest email address (%1) is unvalid."
 msgstr ""
 
 #. ($i->token, $i->guest_mail)
-#: lib/Lufi/Controller/Invitation.pm:150
+#: lib/Lufi/Controller/Invitation.pm:151
 msgid "The invitation %1 can’t be resent: %2 has already sent files.<br>Please create a new invitation."
 msgstr ""
 
 #. ($i->token)
-#: lib/Lufi/Controller/Invitation.pm:130
+#: lib/Lufi/Controller/Invitation.pm:131
 msgid "The invitation %1 has been deleted."
 msgstr ""
 
@@ -657,7 +657,7 @@ msgstr ""
 msgid "This invitation is valid until %1."
 msgstr ""
 
-#: themes/default/templates/delays.html.ep:10
+#: themes/default/templates/delays.html.ep:13
 msgid "This server sets limitations according to the file size. The expiration delay of your file will be the minimum between what you choose and the following limitations:"
 msgstr ""
 
@@ -671,6 +671,10 @@ msgstr ""
 
 #: themes/default/templates/partial/index.js.ep:17
 msgid "Unable to copy the link(s) to your clipboard"
+msgstr ""
+
+#: themes/default/templates/partial/render.js.ep:13
+msgid "Unable to download the file: too much unsuccessful attempts to open a websocket. Please, contact the administrator."
 msgstr ""
 
 #. ($short)
@@ -773,17 +777,17 @@ msgstr ""
 msgid "Your password is not valid. Please refresh the page to retry."
 msgstr ""
 
-#: themes/default/templates/partial/render.js.ep:13
+#: themes/default/templates/partial/render.js.ep:14
 msgid "Zip content:"
 msgstr ""
 
 #. (format_bytes($keys[$i])
-#: themes/default/templates/delays.html.ep:20
+#: themes/default/templates/delays.html.ep:24
 msgid "between %1 and %2, the file will be kept %3 day(s)."
 msgstr ""
 
 #. (format_bytes($keys[$i])
-#: themes/default/templates/delays.html.ep:22
+#: themes/default/templates/delays.html.ep:26
 msgid "between %1 and %2, the file will be kept forever."
 msgstr ""
 
@@ -796,12 +800,12 @@ msgid "expires on XXX"
 msgstr ""
 
 #. (format_bytes($keys[$i])
-#: themes/default/templates/delays.html.ep:26
+#: themes/default/templates/delays.html.ep:30
 msgid "for %1 and more, the file will be kept %2 day(s)"
 msgstr ""
 
 #. (format_bytes($keys[$i])
-#: themes/default/templates/delays.html.ep:28
+#: themes/default/templates/delays.html.ep:32
 msgid "for %1 and more, the file will be kept forever."
 msgstr ""
 
