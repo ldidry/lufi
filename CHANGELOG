@@ -1,6 +1,8 @@
 Revision history for Lufi
 
 ?.??.? ????-??-??
+
+0.05.11 2020-12-07
 	- 🌐 Update translations
 	- 🐛 Try to avoid clients constantly hitting /download/XXX
 
