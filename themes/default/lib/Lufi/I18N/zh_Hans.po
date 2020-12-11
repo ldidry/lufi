@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "POT-Creation-Date: YEAR-MO-DA HO:MI+ZONE\n"
-"PO-Revision-Date: 2020-12-06 15:52+0000\n"
+"PO-Revision-Date: 2020-12-12 07:52+0000\n"
 "Last-Translator: zilliu <zilliu@disroot.org>\n"
 "Language-Team: Chinese (Simplified) <https://weblate.framasoft.org/projects/"
 "lufi/default-theme/zh_Hans/>\n"
@@ -359,7 +359,7 @@ msgstr "如果您选择了一个有效期，则文件会在有效期过后删除
 
 #: themes/default/templates/mail.html.ep:15
 msgid "If you send the mail from this server, the links will be sent to the server, which may lower your privacy protection."
-msgstr "如果您从这台服务器寄出邮件，那么所有链接都将会被发送到服务器上，这会减弱您的私隐防护。"
+msgstr "如果您从这台服务器寄出邮件，那么所有链接都将会被发送到服务器上，这会减弱您的隐私防护。"
 
 #: themes/default/templates/files.html.ep:14
 msgid "Import localStorage data"
@@ -487,7 +487,7 @@ msgstr "请检查您的验证信息或对于此服务的访问权限：无法验
 
 #: themes/default/templates/about.html.ep:5
 msgid "Privacy"
-msgstr "私隐"
+msgstr "隐私"
 
 #: themes/default/templates/files.html.ep:13
 msgid "Purge expired files from localStorage"
