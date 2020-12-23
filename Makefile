@@ -8,6 +8,8 @@ LUFI ?= script/lufi
 LOCAL_SWIFT_PORT ?= 8080
 LOCAL_LDAP_PORT ?= 389
 SWIFT_CONTAINER_IMAGE ?= swiftstack/picoswiftstack:latest
+MORBO_HOST ?= 0.0.0.0
+MORBO_PORT ?= 3030
 
 
 locales:
@@ -27,7 +29,7 @@ clean:
 	rm -rf lufi.db files/
 
 dev: clean
-	$(CARTON) morbo $(LUFI) --listen http://0.0.0.0:3000 --watch lib/ --watch script/ --watch themes/ --watch lufi.conf
+	$(CARTON) morbo $(LUFI) --listen http://$(MORBO_HOST):$(MORBO_PORT) --watch lib/ --watch script/ --watch themes/ --watch lufi.conf
 
 ldap:
 	sudo docker run --privileged -d -p $(LOCAL_LDAP_PORT):389 rroemhild/test-openldap; exit 0
