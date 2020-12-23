@@ -1,10 +1,14 @@
-EXTRACTDIR=-D lib -D themes/default/templates
-POT=themes/default/lib/Lufi/I18N/lufi.pot
-ENPO=themes/default/lib/Lufi/I18N/en.po
-XGETTEXT=carton exec local/bin/xgettext.pl -u
-CARTON=carton exec
-REAL_LUFI=script/application
-LUFI=script/lufi
+EXTRACTDIR ?= -D lib -D themes/default/templates
+POT ?= themes/default/lib/Lufi/I18N/lufi.pot
+ENPO ?= themes/default/lib/Lufi/I18N/en.po
+XGETTEXT ?= carton exec local/bin/xgettext.pl -u
+CARTON ?= carton exec
+REAL_LUFI ?= script/application
+LUFI ?= script/lufi
+LOCAL_SWIFT_PORT ?= 8080
+LOCAL_LDAP_PORT ?= 389
+SWIFT_CONTAINER_IMAGE ?= swiftstack/picoswiftstack:latest
+
 
 locales:
 	$(XGETTEXT) $(EXTRACTDIR) -o $(POT) 2>/dev/null
@@ -26,12 +30,12 @@ dev: clean
 	$(CARTON) morbo $(LUFI) --listen http://0.0.0.0:3000 --watch lib/ --watch script/ --watch themes/ --watch lufi.conf
 
 ldap:
-	sudo docker run --privileged -d -p 389:389 rroemhild/test-openldap; exit 0
+	sudo docker run --privileged -d -p $(LOCAL_LDAP_PORT):389 rroemhild/test-openldap; exit 0
 
 ldapdev: ldap dev
 
 swift:
-	sudo docker run -d --rm -p 8080:8080 --hostname="picoswiftstack" --name="picoswiftstack" swiftstack/picoswiftstack; exit 0
+	sudo docker run -d --rm -p $(LOCAL_SWIFT_PORT):8080 --hostname="picoswiftstack" --name="picoswiftstack" $(SWIFT_CONTAINER_IMAGE); exit 0
 	@echo "Sleeping 20 seconds to let picoswiftstack start"
 	@sleep 20
 	sudo docker exec picoswiftstack get_auth
