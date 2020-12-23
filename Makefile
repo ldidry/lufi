@@ -5,8 +5,9 @@ XGETTEXT ?= carton exec local/bin/xgettext.pl -u
 CARTON ?= carton exec
 REAL_LUFI ?= script/application
 LUFI ?= script/lufi
-LOCAL_SWIFT_PORT ?= 8080
+LDAP_CONTAINER_IMAGE ?= rroemhild/test-openldap:latest
 LOCAL_LDAP_PORT ?= 389
+LOCAL_SWIFT_PORT ?= 8080
 SWIFT_CONTAINER_IMAGE ?= swiftstack/picoswiftstack:latest
 MORBO_HOST ?= 0.0.0.0
 MORBO_PORT ?= 3030
@@ -32,7 +33,7 @@ dev: clean
 	$(CARTON) morbo $(LUFI) --listen http://$(MORBO_HOST):$(MORBO_PORT) --watch lib/ --watch script/ --watch themes/ --watch lufi.conf
 
 ldap:
-	sudo docker run --privileged -d -p $(LOCAL_LDAP_PORT):389 rroemhild/test-openldap; exit 0
+	sudo docker run --privileged -d -p $(LOCAL_LDAP_PORT):389 $(LDAP_CONTAINER_IMAGE); exit 0
 
 ldapdev: ldap dev
 
