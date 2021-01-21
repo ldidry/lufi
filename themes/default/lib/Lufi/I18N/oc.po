@@ -11,7 +11,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "POT-Creation-Date: YEAR-MO-DA HO:MI+ZONE\n"
-"PO-Revision-Date: 2020-05-22 08:24+0000\n"
+"PO-Revision-Date: 2020-12-05 01:52+0000\n"
 "Last-Translator: Quentin PAGÈS <quentinantonin@free.fr>\n"
 "Language-Team: Occitan <https://weblate.framasoft.org/projects/lufi/"
 "default-theme/oc/>\n"
@@ -20,7 +20,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n > 1;\n"
-"X-Generator: Weblate 3.11.2\n"
+"X-Generator: Weblate 4.1\n"
 
 #. ($delay)
 #. (max_delay)
@@ -1011,3 +1011,10 @@ msgstr "Darrièra etiqueta d’aquesta instància : %1"
 #: themes/default/templates/about.html.ep:22
 msgid "Latest commit of this instance: %1"
 msgstr "Darrièr commit d’aquesta instància : %1"
+
+#: themes/default/templates/partial/render.js.ep:13
+msgid "Unable to download the file: too much unsuccessful attempts to open a websocket. Please, contact the administrator."
+msgstr ""
+"Telecargament del fichièr impossible : tròp d’ensages infructuóses de "
+"dobertura de connector de tipe websocket. Mercés de contactar "
+"l’administrator."

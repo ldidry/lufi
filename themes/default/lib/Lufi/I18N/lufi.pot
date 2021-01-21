@@ -586,7 +586,7 @@ msgid "The email subject can't be empty."
 msgstr ""
 
 #. ($expire_at, $max_expire_at)
-#: lib/Lufi/Controller/Invitation.pm:51
+#: lib/Lufi/Controller/Invitation.pm:52
 msgid "The expiration delay (%1) is not between 1 and %2 days."
 msgstr ""
 
@@ -604,7 +604,7 @@ msgid "The following email addresses are not valid: %1"
 msgstr ""
 
 #. ($guest_mail)
-#: lib/Lufi/Controller/Invitation.pm:48
+#: lib/Lufi/Controller/Invitation.pm:49
 msgid "The guest email address (%1) is unvalid."
 msgstr ""
 
@@ -676,6 +676,10 @@ msgstr ""
 
 #: themes/default/templates/partial/index.js.ep:17
 msgid "Unable to copy the link(s) to your clipboard"
+msgstr ""
+
+#: themes/default/templates/partial/render.js.ep:13
+msgid "Unable to download the file: too much unsuccessful attempts to open a websocket. Please, contact the administrator."
 msgstr ""
 
 #. ($short)
@@ -778,7 +782,7 @@ msgstr ""
 msgid "Your password is not valid. Please refresh the page to retry."
 msgstr ""
 
-#: themes/default/templates/partial/render.js.ep:13
+#: themes/default/templates/partial/render.js.ep:14
 msgid "Zip content:"
 msgstr ""
 

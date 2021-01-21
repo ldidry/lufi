@@ -8,8 +8,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "POT-Creation-Date: YEAR-MO-DA HO:MI+ZONE\n"
-"PO-Revision-Date: 2020-11-03 18:51+0000\n"
-"Last-Translator: roberto marcolin <nilogadda@gmail.com>\n"
+"PO-Revision-Date: 2020-12-25 19:52+0000\n"
+"Last-Translator: x <hardwired1.0@protonmail.com>\n"
 "Language-Team: Italian <https://weblate.framasoft.org/projects/lufi/"
 "default-theme/it/>\n"
 "Language: it\n"
@@ -661,7 +661,7 @@ msgstr "Il soggetto dell'email non può essere vuoto."
 #. ($expire_at, $max_expire_at)
 #: lib/Lufi/Controller/Invitation.pm:51
 msgid "The expiration delay (%1) is not between 1 and %2 days."
-msgstr "Il termine di scadenza (%1) non è compreso tra 1 e %2  giorni."
+msgstr "Il termine di scadenza (%1) non è compreso tra 1 e %2 giorni."
 
 #: lib/Lufi/Controller/Files.pm:468
 msgid "The file has already been deleted"
@@ -992,3 +992,9 @@ msgstr "File caricato"
 #: themes/default/templates/partial/render.js.ep:9
 msgid "File downloaded"
 msgstr "File scaricato"
+
+#: themes/default/templates/partial/render.js.ep:13
+msgid "Unable to download the file: too much unsuccessful attempts to open a websocket. Please, contact the administrator."
+msgstr ""
+"Impossibile scaricare il file: troppi tentativi falliti di aprire un "
+"websocket. Per favore, contatta l'amministratore."

@@ -2,6 +2,14 @@ Revision history for Lufi
 
 ?.??.? ????-??-??
 
+0.05.12 2021-01-13
+	- 🌐 Update translations
+	- 🐛 Fix `Notification not defined`
+
+0.05.11 2020-12-07
+	- 🌐 Update translations
+	- 🐛 Try to avoid clients constantly hitting /download/XXX
+
 0.05.10 2020-11-28
 	- 🌐 Update translations
 
