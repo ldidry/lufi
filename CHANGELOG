@@ -1,6 +1,7 @@
 Revision history for Lufi
 
 ?.??.? ????-??-??
+	- 🐛 Fix latest git tag improperly fetched
 
 0.05.12 2021-01-13
 	- 🌐 Update translations
