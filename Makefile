@@ -10,7 +10,7 @@ LOCAL_LDAP_PORT ?= 10389
 LOCAL_SWIFT_PORT ?= 8080
 SWIFT_CONTAINER_IMAGE ?= swiftstack/picoswiftstack:latest
 MORBO_HOST ?= 0.0.0.0
-MORBO_PORT ?= 3030
+MORBO_PORT ?= 3000
 
 
 locales:
