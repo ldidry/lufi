@@ -1,6 +1,10 @@
 Revision history for Lufi
 
 ?.??.? ????-??-??
+	- 🔧 Set default morbo port to 3000 (as it should have stay)
+	- 🐛 Fix `Notification not defined` in Duckduckgo browser (Fix #224 again)
+	- ✨ Add `disable_mail_sending` config parameter
+	- 🌐 Update translations
 
 0.05.13 2021-01-28
 	- 🐛 Fix latest git tag improperly fetched

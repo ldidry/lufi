@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "POT-Creation-Date: YEAR-MO-DA HO:MI+ZONE\n"
-"PO-Revision-Date: 2020-11-21 12:52+0000\n"
+"PO-Revision-Date: 2021-05-26 15:15+0000\n"
 "Last-Translator: Dimitris T. <dimitris@stinpriza.org>\n"
 "Language-Team: Greek <https://weblate.framasoft.org/projects/lufi/"
 "default-theme/el/>\n"
@@ -16,7 +16,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 4.1\n"
+"X-Generator: Weblate 4.6.2\n"
 
 #. ($delay)
 #. (max_delay)
@@ -96,7 +96,7 @@ msgstr ""
 #. (stash('nbslices')
 #: themes/default/templates/partial/render.js.ep:10
 msgid "Asking for file part XX1 of %1"
-msgstr ""
+msgstr "Ζητώντας το μέρος αρχείου XX1 από %1"
 
 #: themes/default/templates/about.html.ep:23
 msgid "Back to homepage"
@@ -129,7 +129,7 @@ msgstr "Κλείσιμο"
 
 #: themes/default/templates/mail.html.ep:23
 msgid "Comma-separated email addresses"
-msgstr ""
+msgstr "διευθύνσεις email, χωρισμένες με κόμμα"
 
 #: themes/default/templates/index.html.ep:140
 msgid "Compressing zip file…"
@@ -145,7 +145,7 @@ msgstr ""
 
 #: lib/Lufi/Controller/Files.pm:501
 msgid "Could not delete the file. You are not authenticated."
-msgstr ""
+msgstr "Δεν μπορεί να διαγραφεί το αρχείο. Δεν είστε πιστοποιημένος/η."
 
 #: lib/Lufi/Controller/Files.pm:483
 msgid "Could not find the file. Are you sure of the URL and the token?"
@@ -162,6 +162,8 @@ msgstr "Μετρητής"
 #: themes/default/templates/index.html.ep:100
 msgid "Create a zip archive with the files before uploading?"
 msgstr ""
+"Θέλετε να δημιουργήσετε ένα συμπιεσμένο αρχείο zip με τα αρχεία πριν τα "
+"ανεβάσετε;"
 
 #: themes/default/templates/invitations/my_invitations.html.ep:26
 msgid "Created at"
@@ -193,7 +195,7 @@ msgstr "Μεταφόρτωση"
 
 #: themes/default/templates/partial/render.js.ep:4
 msgid "Download aborted."
-msgstr ""
+msgstr "Ακύρωση μεταφόρτωσης."
 
 #: themes/default/templates/files.html.ep:28 themes/default/templates/partial/index.js.ep:20
 msgid "Download link"
@@ -229,7 +231,7 @@ msgstr "Κρυπτογράφηση μέρους XX1 από XX2"
 
 #: lib/Lufi/Controller/Files.pm:283
 msgid "Error: the file existed but was deleted."
-msgstr ""
+msgstr "Μήνυμα λάθους: το αρχείο υπήρχε αλλά διαγράφηκε"
 
 #: lib/Lufi/Controller/Files.pm:363
 msgid "Error: the file has not been sent entirely."
@@ -361,7 +363,7 @@ msgstr ""
 
 #: themes/default/templates/index.html.ep:53
 msgid "Important: more information on delays"
-msgstr ""
+msgstr "Σημαντικό: περισσότερες πληροφορίες για καθυστερήσεις"
 
 #: themes/default/templates/delays.html.ep:5
 msgid "Information about delays"
@@ -379,7 +381,7 @@ msgstr ""
 #. ($invitation->guest_mail, $url)
 #: lib/Lufi/Controller/Invitation.pm:87
 msgid "Invitation sent to %1.<br> URL: %2"
-msgstr ""
+msgstr "Η πρόσκληση στάλθηκε στο %1.<br> URL: %2"
 
 #: themes/default/templates/invitations/invite.html.ep:27 themes/default/templates/layouts/default.html.ep:36 themes/default/templates/layouts/default.html.ep:69
 msgid "Invite a guest"
@@ -534,7 +536,7 @@ msgstr ""
 
 #: themes/default/templates/invitations/my_invitations.html.ep:13 themes/default/templates/partial/invitations.js.ep:9
 msgid "Show hidden invitations"
-msgstr ""
+msgstr "Προβολή κρυφών προσκλήσεων"
 
 #: themes/default/templates/partial/render.js.ep:12
 msgid "Show zip content"
@@ -542,7 +544,7 @@ msgstr "Προβολή περιεχομένων zip"
 
 #: themes/default/templates/layouts/default.html.ep:40 themes/default/templates/layouts/default.html.ep:73 themes/default/templates/login.html.ep:28 themes/default/templates/logout.html.ep:17
 msgid "Signin"
-msgstr ""
+msgstr "Είσοδος"
 
 #: lib/Lufi/Controller/Invitation.pm:283 themes/default/templates/invitations/exception.html.ep:16
 msgid "Sorry, the invitation doesn’t exist. Are you sure you are on the right URL?"
@@ -580,7 +582,7 @@ msgstr ""
 
 #: themes/default/templates/partial/files.js.ep:11
 msgid "The data has been successfully imported."
-msgstr ""
+msgstr "Τα δεδομένα έχουν εισαχθεί επιτυχώς."
 
 #: lib/Lufi/Controller/Mail.pm:73
 msgid "The email body can't be empty."
@@ -657,6 +659,8 @@ msgstr ""
 #: lib/Lufi/Controller/Files.pm:289
 msgid "This file has been deactivated by the admins. Contact them to know why."
 msgstr ""
+"Αυτό το αρχείο έχει απανεργοποιηθεί από τους διαχειριστές. Επικοινωνήστε "
+"μαζί τους για να μάθετε το λόγο."
 
 #: themes/default/templates/invitations/my_invitations.html.ep:46 themes/default/templates/partial/invitations.js.ep:6
 msgid "This invitation is normally hidden"
@@ -701,7 +705,7 @@ msgstr ""
 
 #: themes/default/templates/layouts/default.html.ep:33 themes/default/templates/layouts/default.html.ep:66
 msgid "Upload files"
-msgstr ""
+msgstr "Μεταφόρτωση αρχείων"
 
 #: themes/default/templates/index.html.ep:145
 msgid "Upload generated zip file"
@@ -765,7 +769,7 @@ msgstr ""
 
 #: themes/default/templates/logout.html.ep:14
 msgid "You have been successfully logged out."
-msgstr ""
+msgstr "Έχετε αποσυνδεθεί επιτυχώς."
 
 #: lib/Lufi/Controller/Mail.pm:71
 msgid "You must give email addresses."
