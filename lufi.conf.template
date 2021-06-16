@@ -166,6 +166,10 @@
     # optional, default to no-reply@lufi.io
     #mail_sender => 'no-reply@lufi.io',
 
+    # Disable sending mail through the server
+    # optional, default is false
+    #disable_mail_sending => 0,
+
     #############
     # DB settings
     #############
