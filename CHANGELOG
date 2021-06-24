@@ -8,6 +8,7 @@ Revision history for Lufi
 	- ✨ Add `disable_mail_sending` config parameter
 	- 🌐 Update translations
 	- 🐛 Fix mail signature separator
+	- 💄 Disable signature when using LDAP (#249)
 
 0.05.13 2021-01-28
 	- 🐛 Fix latest git tag improperly fetched
