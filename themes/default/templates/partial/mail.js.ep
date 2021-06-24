@@ -45,7 +45,7 @@ function populateBody() {
         }
     });
 
-    text  = text+"\n--\n<%= l('Share your files in total privacy on %1', url_for('/')->to_abs) %>";
+    text  = text+"\n-- \n<%= l('Share your files in total privacy on %1', url_for('/')->to_abs) %>";
     tArea = document.getElementById('body').value = text;
     updateMailtoLink();
 }
