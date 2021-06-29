@@ -345,7 +345,7 @@ msgstr "Bonjour,"
 #: themes/default/templates/partial/mail.js.ep:35
 msgid "Hello,\\n\\nHere's some files I want to share with you:\\n"
 msgstr ""
-"Bonjour,\\n\\nVoici quelques fichiers que je souhaite partager avec toi :\\n"
+"Bonjour,\\n\\nVoici quelques fichiers que je souhaite partager avec vous :\\n"
 
 #: themes/default/templates/mail.html.ep:35
 msgid "Here's some files"
