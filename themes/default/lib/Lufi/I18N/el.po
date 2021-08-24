@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "POT-Creation-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "PO-Revision-Date: 2021-08-24 13:42+0000\n"
-"Last-Translator: Georgios Pitsiladis <g.v.pitsiladis@gmail.com>\n"
+"Last-Translator: Dimitris T. <dimitris@stinpriza.org>\n"
 "Language-Team: Greek <https://weblate.framasoft.org/projects/lufi/"
 "default-theme/el/>\n"
 "Language: el\n"
@@ -347,6 +347,8 @@ msgstr "Απόκρυψη κρυφών προσκλήσεων"
 #: themes/default/templates/partial/index.js.ep:26
 msgid "Hit Enter, then Ctrl+C to copy all the download links"
 msgstr ""
+"Πατήστε Enter, μετά Ctrl+C για να αντιγράψετε όλους τους συνδέσμους "
+"μεταφόρτωσης"
 
 #: themes/default/templates/partial/index.js.ep:25
 msgid "Hit Enter, then Ctrl+C to copy the download link"
@@ -358,7 +360,7 @@ msgstr "Πως δουλεύει;"
 
 #: themes/default/templates/invitations/invite.html.ep:46
 msgid "How many days would you like the invitation to be valid?"
-msgstr ""
+msgstr "Για πόσες μέρες θα θέλατε να ισχύει η πρόσκληση;"
 
 #: themes/default/templates/about.html.ep:16
 msgid "How to install the software on my server?"
@@ -445,6 +447,8 @@ msgstr "Αποσύνδεση"
 #: themes/default/templates/about.html.ep:4
 msgid "Lufi is a free (as in free speech) file hosting software."
 msgstr ""
+"Το Lufi είναι ένα ελεύθερο (όπως ο ελεύθερος λόγος) λογισμικό για φιλοξενία "
+"αρχείων."
 
 #: themes/default/templates/partial/files.js.ep:12
 msgid "Lufi recently changed its way to store files information.\\n\\nNo files have been found in the new localStorage location but we found files in the old one.\\nDo you want to import those informations?\\n\\nPlease note that this is the only time that we will ask you this."
@@ -726,7 +730,7 @@ msgstr ""
 
 #: themes/default/templates/invitations/my_invitations.html.ep:46 themes/default/templates/partial/invitations.js.ep:6
 msgid "This invitation is normally hidden"
-msgstr ""
+msgstr "Αυτή η πρόσκληση είναι κρυφή κανονικά"
 
 #. (stash('expires')
 #: themes/default/templates/invitations/invite.mail.ep:13
