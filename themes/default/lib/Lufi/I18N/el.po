@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "POT-Creation-Date: YEAR-MO-DA HO:MI+ZONE\n"
-"PO-Revision-Date: 2021-08-24 13:05+0000\n"
-"Last-Translator: Dimitris T. <dimitris@stinpriza.org>\n"
+"PO-Revision-Date: 2021-08-24 13:42+0000\n"
+"Last-Translator: Georgios Pitsiladis <g.v.pitsiladis@gmail.com>\n"
 "Language-Team: Greek <https://weblate.framasoft.org/projects/lufi/"
 "default-theme/el/>\n"
 "Language: el\n"
@@ -80,7 +80,7 @@ msgstr "Προσθέστε κωδικό στο αρχείο/α"
 #: themes/default/templates/mail.html.ep:16
 msgid "Adding URLs not related to this Lufi instance to the mail body or subject is prohibited."
 msgstr ""
-"Απαγορεύεται η προσθήκη συνδέσμων στο σώμα ή το θέμα του μέιλ που δεν "
+"Απαγορεύεται η προσθήκη συνδέσμων στο σώμα ή το θέμα του email που δεν "
 "σχετίζονται με αυτή την εγκατάσταση του Lufi."
 
 #: themes/default/templates/partial/invitations.js.ep:3
@@ -89,7 +89,7 @@ msgstr "Θέλετε σίγουρα να διαγράψετε τις επιλε�
 
 #: themes/default/templates/partial/invitations.js.ep:4
 msgid "Are you sure you want to resend the invitation mail for the selected invitations?"
-msgstr "Θέλετε σίγουρα να ξαναστείλετε μέιλ για τις συγκεκριμένες προσκλήσεις;"
+msgstr "Θέλετε σίγουρα να ξαναστείλετε email για τις συγκεκριμένες προσκλήσεις;"
 
 #: themes/default/templates/about.html.ep:17
 msgid "As Lufi is a free software licensed under of the terms of the <a href=\"https://gnu.org/licenses/agpl.html\" class=\"classic\">AGPLv3</a>, you can install it on you own server. Have a look on the <a href=\"https://framagit.org/fiat-tux/hat-softwares/lufi/wikis/home\" class=\"classic\">Wiki</a> for the procedure."
@@ -120,7 +120,7 @@ msgstr "Λάθος CSRF token."
 #: themes/default/templates/partial/render.js.ep:5
 msgid "Click here to refresh the page and restart the download."
 msgstr ""
-"Πατήστε εδώ για να ανανεώσετε τη σελίδα και να επανεκκινήσετε τη μεταφόρτωση."
+"Πατήστε εδώ για να ανανεώσετε τη σελίδα και να επανεκκινήσετε το κατέβασμα."
 
 #: themes/default/templates/invitations/invite.mail.ep:8
 msgid "Click on the following URL to upload files on Lufi:"
@@ -182,7 +182,7 @@ msgstr "Διαγραφή"
 
 #: themes/default/templates/files.html.ep:30 themes/default/templates/index.html.ep:90
 msgid "Delete at first download?"
-msgstr "Διαγραφή στη πρώτη μεταφόρτωση;"
+msgstr "Διαγραφή στο πρώτο κατέβασμα;"
 
 #: themes/default/templates/files.html.ep:19
 msgid "Delete selected files"
@@ -200,15 +200,15 @@ msgstr ""
 
 #: themes/default/templates/partial/index.js.ep:21 themes/default/templates/render.html.ep:28
 msgid "Download"
-msgstr "Μεταφόρτωση"
+msgstr "Κατέβασμα"
 
 #: themes/default/templates/partial/render.js.ep:4
 msgid "Download aborted."
-msgstr "Ακύρωση μεταφόρτωσης."
+msgstr "Το κατέβασμα ακυρώθηκε."
 
 #: themes/default/templates/files.html.ep:28 themes/default/templates/partial/index.js.ep:20
 msgid "Download link"
-msgstr "Σύνδεσμος μεταφόρτωσης"
+msgstr "Σύνδεσμος κατεβάσματος"
 
 #: themes/default/templates/about.html.ep:10
 msgid "Drag and drop files in the appropriate area or use the traditional way to send files and the files will be chunked, encrypted and sent to the server. You will get two links per file: a download link, that you give to the people you want to share the file with and a deletion link, allowing you to delete the file whenever you want."
@@ -226,7 +226,7 @@ msgstr "Σύρετε αρχεία εδώ"
 
 #: themes/default/templates/invitations/invite.html.ep:40
 msgid "Email address of your guest"
-msgstr ""
+msgstr "Διεύθυνση email του καλεσμένου σας"
 
 #: themes/default/templates/mail.html.ep:39
 msgid "Email body"
@@ -294,7 +294,7 @@ msgstr "Αρχεία"
 
 #: themes/default/templates/index.html.ep:80
 msgid "Files deleted at first download"
-msgstr "Τα αρχεία διαγράφηκαν στη πρώτη μεταφόρτωση"
+msgstr "Τα αρχεία διαγράφηκαν στο πρώτο κατέβασμα"
 
 #: themes/default/templates/invitations/my_invitations.html.ep:28
 msgid "Files sent at"
@@ -311,14 +311,14 @@ msgstr "Λάβε το αρχείο"
 #: themes/default/templates/about.html.ep:18
 msgid "Get the source code on <a href=\"https://framagit.org/fiat-tux/hat-softwares/lufi\" class=\"classic\">the official repository</a> or on its <a href=\"https://github.com/ldidry/lufi\" class=\"classic\">Github mirror</a>"
 msgstr ""
-"Λάβετε το πηγαίο κώδικα στο <a href=\"https://framagit.org/fiat-tux/"
-"hat-softwares/lufi\" class=\"classic\">επίσημο αποθετήριο</a> ή στο <a href="
-"\"https://github.com/ldidry/lufi\" class=\"classic\">καθρέπτη του στο Github "
-"</a>"
+"Λάβετε τον πηγαίο κώδικα από το <a href=\"https://framagit.org/fiat-tux/"
+"hat-softwares/lufi\" class=\"classic\">επίσημο αποθετήριο</a> ή από τον <a "
+"href=\"https://github.com/ldidry/lufi\" class=\"classic\">καθρέπτη του στο "
+"Github </a>"
 
 #: themes/default/templates/invitations/my_invitations.html.ep:24
 msgid "Guest mail"
-msgstr ""
+msgstr "Email καλεσμένου"
 
 #. (ucfirst(stash('invitation')
 #: themes/default/templates/invitations/notification_files_sent.mail.ep:6
@@ -350,7 +350,7 @@ msgstr ""
 
 #: themes/default/templates/partial/index.js.ep:25
 msgid "Hit Enter, then Ctrl+C to copy the download link"
-msgstr ""
+msgstr "Πατήστε Enter, μετά Ctrl+C για να αντιγράψετε τον σύνδεσμο μεταφόρτωσης"
 
 #: themes/default/templates/about.html.ep:9
 msgid "How does it work?"
@@ -370,15 +370,17 @@ msgstr "Πως αναφέρω ένα παράνομο αρχείο;"
 
 #: themes/default/templates/delays.html.ep:7
 msgid "If you choose a delay, the file will be deleted after that delay."
-msgstr ""
+msgstr "Αν επιλέξετε μια διάρκεια, το αρχείο θα διαγραφεί μετά το πέρας της."
 
 #: themes/default/templates/mail.html.ep:15
 msgid "If you send the mail from this server, the links will be sent to the server, which may lower your privacy protection."
 msgstr ""
+"Αν στείλετε email από αυτόν τον server, οι σύνδεσμοι θα σταλούν στον server, "
+"κάτι που μπορεί να περιορίσει την προστασία της ιδιωτικότητάς σας."
 
 #: themes/default/templates/files.html.ep:14
 msgid "Import localStorage data"
-msgstr ""
+msgstr "Εισαγωγή δεδομένων localStorage"
 
 #: themes/default/templates/index.html.ep:53
 msgid "Important: more information on delays"
@@ -390,12 +392,12 @@ msgstr "Πληροφορίες σχετικά με καθυστερήσεις"
 
 #: themes/default/templates/files.html.ep:18 themes/default/templates/invitations/my_invitations.html.ep:12
 msgid "Invert selection"
-msgstr ""
+msgstr "Αντιστροφή επιλογής"
 
 #. ($i->guest_mail, $url)
 #: lib/Lufi/Controller/Invitation.pm:171
 msgid "Invitation resent to %1.<br> URL: %2"
-msgstr ""
+msgstr "Η πρόσκληση προς %1 ξαναστάλθηκε .<br> Σύνδεσμος: %2"
 
 #. ($invitation->guest_mail, $url)
 #: lib/Lufi/Controller/Invitation.pm:87
@@ -409,6 +411,8 @@ msgstr "Προσκάλεσε ένα επισκέπτη"
 #: themes/default/templates/partial/render.js.ep:6
 msgid "It seems that the key in your URL is incorrect. Please, verify your URL."
 msgstr ""
+"Φαίνεται πως το κλειδί στον σύνδεσμό σας είναι λανθασμένο. Παρακαλούμε "
+"ελέγξτε τον σύνδεσμο."
 
 #: themes/default/templates/index.html.ep:12
 msgid "Javascript is disabled. You won't be able to use Lufi."
@@ -423,12 +427,12 @@ msgstr "Γλώσσα"
 #. (sprintf('<a href="https://framagit.org/fiat-tux/hat-softwares/lufi/-/commit/%s" class="classic">%s</a>', stash('version')
 #: themes/default/templates/about.html.ep:22
 msgid "Latest commit of this instance: %1"
-msgstr ""
+msgstr "Πιο πρόσφατο commit αυτής της εγκατάστασης: %1"
 
 #. (sprintf('<a href="https://framagit.org/fiat-tux/hat-softwares/lufi/-/releases/%s" class="classic">%s</a>', stash('version')
 #: themes/default/templates/about.html.ep:21
 msgid "Latest tag of this instance: %1"
-msgstr ""
+msgstr "Πιο πρόσφατο tag αυτής της εγκατάστασης: %1"
 
 #: themes/default/templates/login.html.ep:15
 msgid "Login"
@@ -445,10 +449,18 @@ msgstr ""
 #: themes/default/templates/partial/files.js.ep:12
 msgid "Lufi recently changed its way to store files information.\\n\\nNo files have been found in the new localStorage location but we found files in the old one.\\nDo you want to import those informations?\\n\\nPlease note that this is the only time that we will ask you this."
 msgstr ""
+"Το Lufi άλλαξε πρόσφατα τον τρόπο που αποθηκεύει τις πληροφορίες των αρχείων."
+"\\n"
+"\\n"
+"Δεν βρέθηκαν αρχεία στην καινούρια τοποθεσία του localStorage, αλλά βρέθηκαν "
+"στην παλιά.\\n"
+"Θέλετε να γίνει εισαγωγή των πληροφοριών;\\n"
+"\\n"
+"Έχετε υπόψιν ότι δεν θα σας ξαναρωτήσουμε."
 
 #: themes/default/templates/files.html.ep:34
 msgid "Mail"
-msgstr ""
+msgstr "Mail"
 
 #: themes/default/templates/files.html.ep:3 themes/default/templates/layouts/default.html.ep:34 themes/default/templates/layouts/default.html.ep:67
 msgid "My files"
@@ -460,7 +472,7 @@ msgstr "Οι προσκλήσεις μου"
 
 #: themes/default/templates/invitations/notification_files_sent.mail.ep:17
 msgid "NB: this list includes the list of files that have already been sent to you."
-msgstr ""
+msgstr "Σημείωση: αυτή η λίστα περιλαμβάνει τα αρχεία που σας έχουν ήδη σταλεί."
 
 #: themes/default/templates/index.html.ep:115
 msgid "Name of the zip file"
@@ -469,15 +481,18 @@ msgstr "Όνομα αρχείου zip"
 #. (format_bytes($json->{size})
 #: lib/Lufi/Controller/Files.pm:109
 msgid "No enough space available on the server for this file (size: %1)."
-msgstr ""
+msgstr "Δεν υπάρχει αρκετός χώρος στον server για αυτό το αρχείο (μέγεθος %1)."
 
 #: themes/default/templates/partial/files.js.ep:10 themes/default/templates/partial/index.js.ep:29
 msgid "No expiration delay"
-msgstr ""
+msgstr "Δεν έχει καθοριστεί διάρκεια μέχρι τη λήξη"
 
 #: themes/default/templates/files.html.ep:8
 msgid "Only the files sent with this browser will be listed here. This list is stored in localStorage: if you delete your localStorage data, you'll lose this list."
 msgstr ""
+"Μόνο τα αρχεία που στάλθηκαν με αυτόν τον φυλλομετρητή θα φαίνονται εδώ. Η "
+"λίστα αποθηκεύεται στο localStorage: αν σβήσετε τα περιεχόμενα του "
+"localStorage, θα χάσετε και τη λίστα."
 
 #: themes/default/templates/index.html.ep:106 themes/default/templates/login.html.ep:21 themes/default/templates/render.html.ep:26
 msgid "Password"
@@ -491,10 +506,14 @@ msgstr "Παρακαλώ επικοινωνήστε με το διαχειρισ
 #: themes/default/templates/render.html.ep:33
 msgid "Please wait while we are getting your file. We first need to download and decrypt all parts before you can get it."
 msgstr ""
+"Περιμένετε όσο ετοιμάζουμε το αρχείο σας. Πρέπει πρώτα να κατέβουν και να "
+"αποκρυπτογραφηθούν όλα του τα κομμάτια για να το χρησιμοποιήσετε."
 
 #: lib/Lufi/Controller/Auth.pm:38
 msgid "Please, check your credentials or your right to access this service: unable to authenticate."
 msgstr ""
+"Παρακαλούμε, ελέγξτε τα στοιχεία σας ή το δικαίωμα πρόσβασής σας στην "
+"υπηρεσία: η ταυτοποίηση απέτυχε."
 
 #: themes/default/templates/about.html.ep:5
 msgid "Privacy"
@@ -502,15 +521,15 @@ msgstr "Ιδιωτικότητα"
 
 #: themes/default/templates/files.html.ep:13
 msgid "Purge expired files from localStorage"
-msgstr ""
+msgstr "Διαγραφή ληγμένων αρχείων από το localStorage"
 
 #: themes/default/templates/invitations/notification_files_sent.mail.ep:20
 msgid "Regards,"
-msgstr ""
+msgstr "Με εκτίμηση,"
 
 #: themes/default/templates/invitations/invite.mail.ep:15
 msgid "Regards."
-msgstr ""
+msgstr "Με εκτίμηση."
 
 #: themes/default/templates/layouts/default.html.ep:31 themes/default/templates/layouts/default.html.ep:64
 msgid "Report file"
@@ -522,11 +541,13 @@ msgstr "Επαναποστολή μηνύματος πρόσκλησης"
 
 #: themes/default/templates/invitations/my_invitations.html.ep:9
 msgid "Rows in purple mean that the invitations have expired."
-msgstr ""
+msgstr "Οι σειρές με μοβ αντιστοιχούν σε ληγμένες προσκλήσεις."
 
 #: themes/default/templates/files.html.ep:9
 msgid "Rows in red mean that the files have expired and are no longer available."
 msgstr ""
+"Οι σειρές με κόκκινο αντιστοιχούν σε ληγμένα αρχεία που δεν είναι πια "
+"διαθέσιμα."
 
 #: themes/default/templates/partial/index.js.ep:27
 msgid "Send all links by email"
@@ -547,11 +568,13 @@ msgstr "Αποστολή μεσω δικού σας λογισμικού για 
 #: themes/default/templates/partial/index.js.ep:30
 msgid "Sending part XX1 of XX2. Please, be patient, the progress bar can take a while to move."
 msgstr ""
+"Αποστολή μέρους XX1 από XX2. Παρακαλούμε περιμένετε, η μπάρα μπορεί να "
+"χρειαστεί λίγη ώρα να μετακινηθεί."
 
 #. (url_for('/')
 #: themes/default/templates/partial/mail.js.ep:48
 msgid "Share your files in total privacy on %1"
-msgstr ""
+msgstr "Μοιραστείτε τα αρχεία σας με πλήρη ιδιωτικότητα στο %1"
 
 #: themes/default/templates/invitations/my_invitations.html.ep:13 themes/default/templates/partial/invitations.js.ep:9
 msgid "Show hidden invitations"
@@ -567,37 +590,45 @@ msgstr "Είσοδος"
 
 #: lib/Lufi/Controller/Invitation.pm:283 themes/default/templates/invitations/exception.html.ep:16
 msgid "Sorry, the invitation doesn’t exist. Are you sure you are on the right URL?"
-msgstr ""
+msgstr "Συγγνώμη, αυτή η πρόσκληση δεν υπάρχει. Είστε σίγουρα στη σωστή σελίδα;"
 
 #: themes/default/templates/index.html.ep:46
 msgid "Sorry, the uploading is currently disabled. Please try again later."
 msgstr ""
+"Συγγνώμη, το ανέβασμα αρχείων είναι προσωρινά απενεργοποιημένο. Παρακαλούμε "
+"προσπαθήστε αργότερα."
 
 #: lib/Lufi/Controller/Files.pm:82
 msgid "Sorry, uploading is disabled."
-msgstr ""
+msgstr "Συγγνώμη, το ανέβασμα αρχείων είναι απενεργοποιημένο."
 
 #: themes/default/templates/invitations/exception.html.ep:7
 msgid "Sorry, your invitation has expired or has been deleted."
-msgstr ""
+msgstr "Συγγνώμη, η πρόσκληση έχει λήξει ή έχει διαγραφεί."
 
 #. ($invit->ldap_user_mail)
 #: lib/Lufi/Controller/Files.pm:123
 msgid "Sorry, your invitation has expired or has been deleted. Please contact %1 to have another invitation."
 msgstr ""
+"Συγγνώμη, η πρόσκληση έχει λήξει ή έχει διαγραφεί. Επικοινωνείστε με το %1 "
+"για νέα πρόσκληση."
 
 #. ($invitation->ldap_user_mail)
 #: lib/Lufi/Controller/Invitation.pm:276
 msgid "The URLs of your files have been sent by email to %1."
-msgstr ""
+msgstr "Οι σύνδεσμοι των αρχείων σας στάλθηκαν μέσω email στο %1."
 
 #: themes/default/templates/about.html.ep:7
 msgid "The administrator can only see the file's name, its size and its mimetype (what kind of file it is: video, text, etc.)."
 msgstr ""
+"Ο διαχειριστής μπορεί μόνο να δει το όνομα, το μέγεθος, και τον τύπο αρχείου "
+"(mimetype, τι είδος αρχείου είναι: βίντεο, κείμενο, κλπ)."
 
 #: lib/Lufi/Controller/Mail.pm:53
 msgid "The body of the mail must contain at least one URL pointing to a file hosted on this instance."
 msgstr ""
+"Το σώμα του email πρέπει να περιέχει τουλάχιστον ένα σύνδεσμο που να οδηγεί "
+"σε αρχείο που φιλοξενείται εδώ."
 
 #: themes/default/templates/partial/files.js.ep:11
 msgid "The data has been successfully imported."
@@ -614,7 +645,7 @@ msgstr "Το θέμα του μηνύματος δεν μπορεί να είν�
 #. ($expire_at, $max_expire_at)
 #: lib/Lufi/Controller/Invitation.pm:51
 msgid "The expiration delay (%1) is not between 1 and %2 days."
-msgstr ""
+msgstr "Η διάρκεια ζωής του αρχείου (%1) δεν είναι από 1 μέχρι %2 ημέρες."
 
 #: lib/Lufi/Controller/Files.pm:462
 msgid "The file has already been deleted"
@@ -623,6 +654,9 @@ msgstr "Το αρχείο έχει ήδη διαγραφεί"
 #: themes/default/templates/about.html.ep:6
 msgid "The files uploaded on a Lufi instance are encrypted before the upload to the server: the administrator of the server can not see the file's content."
 msgstr ""
+"Τα αρχεία που ανεβαίνουν σε μια εγκατάσταση του Lufi κρυπτογραφούνται πριν "
+"ανέβουν στον server: ο διαχειριστής του server δεν μπορεί να δει τα "
+"περιεχόμενά τους."
 
 #. (join(', ', @bad)
 #: lib/Lufi/Controller/Mail.pm:68
@@ -632,48 +666,57 @@ msgstr "Οι ακόλουθες διευθύνσεις email δεν είναι �
 #. ($guest_mail)
 #: lib/Lufi/Controller/Invitation.pm:48
 msgid "The guest email address (%1) is unvalid."
-msgstr ""
+msgstr "Η διεύθυνση email (%1) δεν είναι έγκυρη."
 
 #. ($i->token, $i->guest_mail)
 #: lib/Lufi/Controller/Invitation.pm:150
 msgid "The invitation %1 can’t be resent: %2 has already sent files.<br>Please create a new invitation."
 msgstr ""
+"Η πρόσκληση %1 δεν μπορεί να ξανασταλεί: το %2 έχει ήδη στείλει "
+"αρχεία.<br>Παρακαλούμε δημιουργήστε μια καινούρια πρόσκληση."
 
 #. ($i->token)
 #: lib/Lufi/Controller/Invitation.pm:130
 msgid "The invitation %1 has been deleted."
-msgstr ""
+msgstr "Η πρόσκληση %1 έχει διαγραφεί."
 
 #. (stash('user_mail')
 #: themes/default/templates/invitations/invite.html.ep:34
 msgid "The invitation mail will be send from your email address (%1)."
-msgstr ""
+msgstr "Το email της πρόσκλησης θα σταλεί από τη δική σας διεύθυνση (%1)."
 
 #: themes/default/templates/partial/index.js.ep:16
 msgid "The link(s) has been copied to your clipboard"
-msgstr ""
+msgstr "Έγινε αντιγραφή του συνδέσμου / των συνδέσμων στο πρόχειρο"
 
 #. (stash('invitation')
 #: themes/default/templates/index.html.ep:30
 msgid "The link(s) of your file(s) will automatically be sent by mail to %1 (%2)"
 msgstr ""
+"Θα γίνει αυτόματη αποστολή του συνδέσμου / των συνδέσμων με email προς %1 "
+"(%2)"
 
 #. (stash('ldap_user')
 #: themes/default/templates/invitations/invite.mail.ep:11
 msgid "The links of your file(s) will automatically be sent by mail to %1."
 msgstr ""
+"Θα γίνει αυτόματη αποστολή του συνδέσμου / των συνδέσμων με email προς %1."
 
 #: lib/Lufi/Controller/Mail.pm:97
 msgid "The mail has been sent."
-msgstr "Το μήνυμα έχει σταλλεί."
+msgstr "Το μήνυμα έχει σταλεί."
 
 #: themes/default/templates/about.html.ep:15
 msgid "The original (and only for now) author is <a href=\"https://fiat-tux.fr\" class=\"classic\">Luc Didry</a>."
 msgstr ""
+"Ο αρχικός (και μοναδικός προς το παρόν) δημιουργός είναι ο <a href=\"https"
+"://fiat-tux.fr\" class=\"classic\">Luc Didry</a>."
 
 #: lib/Lufi/Controller/Files.pm:230
 msgid "The server was unable to find the file record to add your file part to. Please, contact the administrator."
 msgstr ""
+"Ο server δεν κατάφερε να βρει το αρχείο όπου πρέπει να προστεθεί αυτό το "
+"κομμάτι. Παρακαλούμε, επικοινωνήστε με τον διαχειριστή."
 
 #: lib/Lufi/Controller/Files.pm:289
 msgid "This file has been deactivated by the admins. Contact them to know why."
@@ -688,7 +731,7 @@ msgstr ""
 #. (stash('expires')
 #: themes/default/templates/invitations/invite.mail.ep:13
 msgid "This invitation is valid until %1."
-msgstr ""
+msgstr "Αυτή η πρόσκληση είναι έγκυρη μέχρι %1."
 
 #: themes/default/templates/delays.html.ep:10
 msgid "This server sets limitations according to the file size. The expiration delay of your file will be the minimum between what you choose and the following limitations:"
