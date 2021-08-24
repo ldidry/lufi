@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "POT-Creation-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "PO-Revision-Date: 2021-08-24 13:05+0000\n"
-"Last-Translator: Georgios Pitsiladis <g.v.pitsiladis@gmail.com>\n"
+"Last-Translator: Dimitris T. <dimitris@stinpriza.org>\n"
 "Language-Team: Greek <https://weblate.framasoft.org/projects/lufi/"
 "default-theme/el/>\n"
 "Language: el\n"
@@ -238,7 +238,7 @@ msgstr "Θέμα email"
 
 #: themes/default/templates/mail.html.ep:25 themes/default/templates/mail.html.ep:27
 msgid "Emails"
-msgstr ""
+msgstr "Emails"
 
 #: themes/default/templates/partial/index.js.ep:22
 msgid "Encrypting part XX1 of XX2"
@@ -302,7 +302,7 @@ msgstr "Τα αρχεία στάλθηκαν στις"
 
 #: themes/default/templates/partial/invitations.js.ep:8
 msgid "Files sent in invitation XX1 by XX2"
-msgstr ""
+msgstr "Τα αρχεία στάλθηκαν στην πρόσκληση XX1 από XX2"
 
 #: themes/default/templates/partial/render.js.ep:8
 msgid "Get the file"
@@ -311,6 +311,10 @@ msgstr "Λάβε το αρχείο"
 #: themes/default/templates/about.html.ep:18
 msgid "Get the source code on <a href=\"https://framagit.org/fiat-tux/hat-softwares/lufi\" class=\"classic\">the official repository</a> or on its <a href=\"https://github.com/ldidry/lufi\" class=\"classic\">Github mirror</a>"
 msgstr ""
+"Λάβετε το πηγαίο κώδικα στο <a href=\"https://framagit.org/fiat-tux/"
+"hat-softwares/lufi\" class=\"classic\">επίσημο αποθετήριο</a> ή στο <a href="
+"\"https://github.com/ldidry/lufi\" class=\"classic\">καθρέπτη του στο Github "
+"</a>"
 
 #: themes/default/templates/invitations/my_invitations.html.ep:24
 msgid "Guest mail"
