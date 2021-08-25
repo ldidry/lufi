@@ -361,7 +361,7 @@ msgstr "Πως δουλεύει;"
 
 #: themes/default/templates/invitations/invite.html.ep:46
 msgid "How many days would you like the invitation to be valid?"
-msgstr "Για πόσες μέρες θα θέλατε να ισχύει η πρόσκληση;"
+msgstr "Πόσες μέρες θα θέλατε να μένει έγκυρη η πρόσκληση;"
 
 #: themes/default/templates/about.html.ep:16
 msgid "How to install the software on my server?"
