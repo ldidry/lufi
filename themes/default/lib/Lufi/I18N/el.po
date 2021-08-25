@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "POT-Creation-Date: YEAR-MO-DA HO:MI+ZONE\n"
-"PO-Revision-Date: 2021-08-25 05:16+0000\n"
+"PO-Revision-Date: 2021-08-25 05:20+0000\n"
 "Last-Translator: Georgios Pitsiladis <g.v.pitsiladis@gmail.com>\n"
 "Language-Team: Greek <https://weblate.framasoft.org/projects/lufi/"
 "default-theme/el/>\n"
@@ -79,8 +79,8 @@ msgstr "Προσθέστε κωδικό στο αρχείο/α"
 #: themes/default/templates/mail.html.ep:16
 msgid "Adding URLs not related to this Lufi instance to the mail body or subject is prohibited."
 msgstr ""
-"Δεν επιτρέπεται η προσθήκη URLs που δεν σχετίζονται με αυτό το Lufi, στο "
-"σώμα ή στο θέμα του μηνύματος."
+"Δεν επιτρέπεται η προσθήκη στο σώμα ή στο θέμα του μηνύματος συνδέσμων που "
+"δεν σχετίζονται με αυτό το Lufi ."
 
 #: themes/default/templates/partial/invitations.js.ep:3
 msgid "Are you sure you want to delete the selected invitations?"
@@ -88,14 +88,16 @@ msgstr "Θέλετε σίγουρα να διαγράψετε τις επιλε�
 
 #: themes/default/templates/partial/invitations.js.ep:4
 msgid "Are you sure you want to resend the invitation mail for the selected invitations?"
-msgstr "Θέλετε σίγουρα να ξαναστείλετε email για τις συγκεκριμένες προσκλήσεις;"
+msgstr ""
+"Θέλετε σίγουρα να ξαναστείλετε το μήνυμα πρόσκλησης για τις επιλεγμένες "
+"προσκλήσεις;"
 
 #: themes/default/templates/about.html.ep:17
 msgid "As Lufi is a free software licensed under of the terms of the <a href=\"https://gnu.org/licenses/agpl.html\" class=\"classic\">AGPLv3</a>, you can install it on you own server. Have a look on the <a href=\"https://framagit.org/fiat-tux/hat-softwares/lufi/wikis/home\" class=\"classic\">Wiki</a> for the procedure."
 msgstr ""
 "Δεδομένου πως το Lufi είναι ελεύθερο λογισμικό και διέπεται από τους όρους "
 "της άδειας <a href=\"https://gnu.org/licenses/agpl.html\" class=\"classic\""
-">AGPLv3</a>, μπορείτε να το εγκαταστήσετε στον server σας. Δείτε τη "
+">AGPLv3</a>, μπορείτε να το εγκαταστήσετε στον δικό σας διακομιστή. Δείτε τη "
 "διαδικασία στο <a href=\"https://framagit.org/fiat-tux/hat-softwares/lufi/"
 "wikis/home\" class=\"classic\">Wiki</a>."
 
@@ -657,9 +659,8 @@ msgstr "Το αρχείο έχει ήδη διαγραφεί"
 #: themes/default/templates/about.html.ep:6
 msgid "The files uploaded on a Lufi instance are encrypted before the upload to the server: the administrator of the server can not see the file's content."
 msgstr ""
-"Τα αρχεία που ανεβαίνουν σε μια εγκατάσταση του Lufi κρυπτογραφούνται πριν "
-"ανέβουν στον server: ο διαχειριστής του server δεν μπορεί να δει τα "
-"περιεχόμενά τους."
+"Τα αρχεία που ανεβαίνουν σε ένα Lufi κρυπτογραφούνται πριν ανέβουν στον "
+"server: ο διαχειριστής του server δεν μπορεί να δει τα περιεχόμενά τους."
 
 #. (join(', ', @bad)
 #: lib/Lufi/Controller/Mail.pm:68
