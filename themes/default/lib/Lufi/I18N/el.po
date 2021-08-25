@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "POT-Creation-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "PO-Revision-Date: 2021-08-26 08:58+0000\n"
-"Last-Translator: Georgios Pitsiladis <g.v.pitsiladis@gmail.com>\n"
+"Last-Translator: Dimitris T. <dimitris@stinpriza.org>\n"
 "Language-Team: Greek <https://weblate.framasoft.org/projects/lufi/"
 "default-theme/el/>\n"
 "Language: el\n"
@@ -388,7 +388,7 @@ msgstr "Εισαγωγή δεδομένων localStorage"
 
 #: themes/default/templates/index.html.ep:53
 msgid "Important: more information on delays"
-msgstr "Σημαντικό: περισσότερες πληροφορίες για καθυστερήσεις"
+msgstr "Σημαντικό: περισσότερες πληροφορίες για τις καθυστερήσεις"
 
 #: themes/default/templates/delays.html.ep:5
 msgid "Information about delays"
@@ -612,7 +612,7 @@ msgstr "Μας συγχωρείτε, το ανέβασμα αρχείων είν
 
 #: themes/default/templates/invitations/exception.html.ep:7
 msgid "Sorry, your invitation has expired or has been deleted."
-msgstr "Συγγνώμη, η πρόσκληση έχει λήξει ή έχει διαγραφεί."
+msgstr "Μας συγχωρείτε, η πρόσκληση έχει λήξει ή έχει διαγραφεί."
 
 #. ($invit->ldap_user_mail)
 #: lib/Lufi/Controller/Files.pm:123
@@ -728,7 +728,7 @@ msgstr ""
 #: lib/Lufi/Controller/Files.pm:289
 msgid "This file has been deactivated by the admins. Contact them to know why."
 msgstr ""
-"Αυτό το αρχείο έχει απανεργοποιηθεί από τους διαχειριστές. Επικοινωνήστε "
+"Αυτό το αρχείο έχει απενεργοποιηθεί από τους διαχειριστές. Επικοινωνήστε "
 "μαζί τους για να μάθετε το λόγο."
 
 #: themes/default/templates/invitations/my_invitations.html.ep:46 themes/default/templates/partial/invitations.js.ep:6
