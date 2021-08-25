@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "POT-Creation-Date: YEAR-MO-DA HO:MI+ZONE\n"
-"PO-Revision-Date: 2021-08-25 05:20+0000\n"
+"PO-Revision-Date: 2021-08-26 08:58+0000\n"
 "Last-Translator: Georgios Pitsiladis <g.v.pitsiladis@gmail.com>\n"
 "Language-Team: Greek <https://weblate.framasoft.org/projects/lufi/"
 "default-theme/el/>\n"
@@ -42,7 +42,7 @@ msgstr "%1 σας έστειλε αρχεία"
 #. (stash('invitation')
 #: themes/default/templates/invitations/notification_files_sent.mail.ep:8
 msgid "%1 used your invitation to send you files:"
-msgstr "%1 χρησιμοποίησε τη πρόσκληση για να σας στείλει αρχεία:"
+msgstr "%1 χρησιμοποίησε την πρόσκληση για να σας στείλει αρχεία:"
 
 #: lib/Lufi/Controller/Invitation.pm:159 lib/Lufi/Controller/Invitation.pm:84 themes/default/templates/invitations/my_invitations.html.ep:51 themes/default/templates/invitations/my_invitations.html.ep:52 themes/default/templates/invitations/my_invitations.html.ep:53 themes/default/templates/invitations/notification_files_sent.mail.ep:12
 msgid "%A %d %B %Y at %T"
@@ -79,8 +79,8 @@ msgstr "Προσθέστε κωδικό στο αρχείο/α"
 #: themes/default/templates/mail.html.ep:16
 msgid "Adding URLs not related to this Lufi instance to the mail body or subject is prohibited."
 msgstr ""
-"Δεν επιτρέπεται η προσθήκη στο σώμα ή στο θέμα του μηνύματος συνδέσμων που "
-"δεν σχετίζονται με αυτό το Lufi ."
+"Δεν επιτρέπεται η προσθήκη στο σώμα ή στο θέμα του μηνύματος συνδέσμων URL "
+"που δεν σχετίζονται με αυτό το Lufi ."
 
 #: themes/default/templates/partial/invitations.js.ep:3
 msgid "Are you sure you want to delete the selected invitations?"
@@ -157,11 +157,11 @@ msgstr "Δεν μπορεί να διαγραφεί το αρχείο. Δεν ε
 
 #: lib/Lufi/Controller/Files.pm:483
 msgid "Could not find the file. Are you sure of the URL and the token?"
-msgstr "Το αρχείο δεν βρέθηκε. Είστε σίγουροι για το σύνδεσμο και το token;"
+msgstr "Το αρχείο δεν βρέθηκε. Είστε σίγουροι για το σύνδεσμο URL και το token;"
 
 #: lib/Lufi/Controller/Files.pm:394
 msgid "Could not find the file. Are you sure of the URL?"
-msgstr "Το αρχείο δεν βρέθηκε. Είστε σίγουροι για τον σύνδεσμο;"
+msgstr "Το αρχείο δεν βρέθηκε. Είστε σίγουροι για τον σύνδεσμο URL;"
 
 #: themes/default/templates/files.html.ep:29
 msgid "Counter"
@@ -214,9 +214,9 @@ msgstr "Σύνδεσμος κατεβάσματος"
 #: themes/default/templates/about.html.ep:10
 msgid "Drag and drop files in the appropriate area or use the traditional way to send files and the files will be chunked, encrypted and sent to the server. You will get two links per file: a download link, that you give to the people you want to share the file with and a deletion link, allowing you to delete the file whenever you want."
 msgstr ""
-"Σύρτε τα αρχεία στη σχετική περιοχή ή χρησιμοποιήστε τον παραδοσιακό τρόπο "
+"Σύρετε τα αρχεία στη σχετική περιοχή ή χρησιμοποιήστε τον παραδοσιακό τρόπο "
 "επιλογής αρχείων και τα αρχεία θα χωριστούν σε κομμάτια, θα κρυπτογραφηθούν "
-"και θα σταλούν στον server. Θα σας δοθούν δύο σύνδεσμοι για κάθε αρχείο: "
+"και θα σταλούν στον διακομιστή. Θα σας δοθούν δύο σύνδεσμοι για κάθε αρχείο: "
 "ένας σύνδεσμος για κατέβασμα, που θα δώσετε σε εκείνους που θέλετε να "
 "κατεβάσουν το αρχείο και ένας σύνδεσμος για διαγραφή, που σας επιτρέπει να "
 "το διαγράψετε όποτε θελήσετε."
@@ -255,7 +255,7 @@ msgstr "Σφάλμα: δεν στάλθηκε ολόκληρο το αρχείο
 
 #: lib/Lufi/Controller/Files.pm:373
 msgid "Error: unable to find the file. Are you sure of your URL?"
-msgstr "Σφάλμα: το αρχείο δεν βρέθηκε. Είστε σίγουροι για τον σύνδεσμο;"
+msgstr "Σφάλμα: το αρχείο δεν βρέθηκε. Είστε σίγουροι για τον σύνδεσμο URL;"
 
 #: themes/default/templates/partial/index.js.ep:23
 msgid "Expiration:"
@@ -279,7 +279,7 @@ msgstr "Το αρχείο διαγράφηκε"
 
 #: themes/default/templates/partial/render.js.ep:9
 msgid "File downloaded"
-msgstr "Το αρχείο μεταφορτώθηκε"
+msgstr "Το αρχείο κατέβηκε"
 
 #: themes/default/templates/files.html.ep:27
 msgid "File name"
@@ -357,19 +357,19 @@ msgstr "Πατήστε Enter, μετά Ctrl+C για να αντιγράψετε
 
 #: themes/default/templates/about.html.ep:9
 msgid "How does it work?"
-msgstr "Πως δουλεύει;"
+msgstr "Πώς δουλεύει;"
 
 #: themes/default/templates/invitations/invite.html.ep:46
 msgid "How many days would you like the invitation to be valid?"
-msgstr "Πόσες μέρες θα θέλατε να μένει έγκυρη η πρόσκληση;"
+msgstr "Για πόσες μέρες θα θέλατε να ισχύσει η πρόσκληση;"
 
 #: themes/default/templates/about.html.ep:16
 msgid "How to install the software on my server?"
-msgstr "Πως εγκαθιστώ το λογισμικό σε δικό μου διακομιστή;"
+msgstr "Πώς εγκαθιστώ το λογισμικό σε δικό μου διακομιστή;"
 
 #: themes/default/templates/about.html.ep:12
 msgid "How to report an illegal file?"
-msgstr "Πως αναφέρω ένα παράνομο αρχείο;"
+msgstr "Πώς αναφέρω ένα παράνομο αρχείο;"
 
 #: themes/default/templates/delays.html.ep:7
 msgid "If you choose a delay, the file will be deleted after that delay."
@@ -378,8 +378,9 @@ msgstr "Αν επιλέξετε μια διάρκεια, το αρχείο θα 
 #: themes/default/templates/mail.html.ep:15
 msgid "If you send the mail from this server, the links will be sent to the server, which may lower your privacy protection."
 msgstr ""
-"Αν στείλετε email από αυτόν τον server, οι σύνδεσμοι θα σταλούν στον server, "
-"κάτι που μπορεί να περιορίσει την προστασία της ιδιωτικότητάς σας."
+"Αν στείλετε email από αυτόν τον διακομιστή, οι σύνδεσμοι θα σταλούν στον "
+"διακομιστή, κάτι που μπορεί να περιορίσει την προστασία της ιδιωτικότητάς "
+"σας."
 
 #: themes/default/templates/files.html.ep:14
 msgid "Import localStorage data"
@@ -391,7 +392,7 @@ msgstr "Σημαντικό: περισσότερες πληροφορίες γι
 
 #: themes/default/templates/delays.html.ep:5
 msgid "Information about delays"
-msgstr "Πληροφορίες σχετικά με καθυστερήσεις"
+msgstr "Πληροφορίες σχετικά με τις καθυστερήσεις"
 
 #: themes/default/templates/files.html.ep:18 themes/default/templates/invitations/my_invitations.html.ep:12
 msgid "Invert selection"
@@ -400,21 +401,21 @@ msgstr "Αντιστροφή επιλογής"
 #. ($i->guest_mail, $url)
 #: lib/Lufi/Controller/Invitation.pm:171
 msgid "Invitation resent to %1.<br> URL: %2"
-msgstr "Η πρόσκληση προς %1 ξαναστάλθηκε .<br> Σύνδεσμος: %2"
+msgstr "Η πρόσκληση προς %1 ξαναστάλθηκε .<br> Σύνδεσμος URL: %2"
 
 #. ($invitation->guest_mail, $url)
 #: lib/Lufi/Controller/Invitation.pm:87
 msgid "Invitation sent to %1.<br> URL: %2"
-msgstr "Η πρόσκληση στάλθηκε στο %1.<br> URL: %2"
+msgstr "Η πρόσκληση στάλθηκε στο %1.<br> Σύνδεσμος URL: %2"
 
 #: themes/default/templates/invitations/invite.html.ep:27 themes/default/templates/layouts/default.html.ep:36 themes/default/templates/layouts/default.html.ep:69
 msgid "Invite a guest"
-msgstr "Προσκάλεσε ένα επισκέπτη"
+msgstr "Προσκάλεσε έναν επισκέπτη"
 
 #: themes/default/templates/partial/render.js.ep:6
 msgid "It seems that the key in your URL is incorrect. Please, verify your URL."
 msgstr ""
-"Φαίνεται πως το κλειδί στον σύνδεσμό σας είναι λανθασμένο. Παρακαλούμε "
+"Φαίνεται πως το κλειδί στον σύνδεσμο URL σας είναι λανθασμένο. Παρακαλούμε "
 "ελέγξτε τον σύνδεσμο."
 
 #: themes/default/templates/index.html.ep:12
@@ -486,7 +487,8 @@ msgstr "Όνομα αρχείου zip"
 #. (format_bytes($json->{size})
 #: lib/Lufi/Controller/Files.pm:109
 msgid "No enough space available on the server for this file (size: %1)."
-msgstr "Δεν υπάρχει αρκετός χώρος στον server για αυτό το αρχείο (μέγεθος %1)."
+msgstr ""
+"Δεν υπάρχει αρκετός χώρος στον διακομιστή για αυτό το αρχείο (μέγεθος %1)."
 
 #: themes/default/templates/partial/files.js.ep:10 themes/default/templates/partial/index.js.ep:29
 msgid "No expiration delay"
@@ -495,7 +497,7 @@ msgstr "Δεν έχει καθοριστεί διάρκεια μέχρι τη λ
 #: themes/default/templates/files.html.ep:8
 msgid "Only the files sent with this browser will be listed here. This list is stored in localStorage: if you delete your localStorage data, you'll lose this list."
 msgstr ""
-"Μόνο τα αρχεία που στάλθηκαν με αυτόν τον φυλλομετρητή θα φαίνονται εδώ. Η "
+"Μόνο τα αρχεία που στάλθηκαν με αυτόν τον περιηγητή θα φαίνονται εδώ. Η "
 "λίστα αποθηκεύεται στο localStorage: αν σβήσετε τα περιεχόμενα του "
 "localStorage, θα χάσετε και τη λίστα."
 
@@ -518,7 +520,7 @@ msgstr ""
 msgid "Please, check your credentials or your right to access this service: unable to authenticate."
 msgstr ""
 "Παρακαλούμε, ελέγξτε τα στοιχεία σας ή το δικαίωμα πρόσβασής σας στην "
-"υπηρεσία: η ταυτοποίηση απέτυχε."
+"υπηρεσία: η πιστοποίηση απέτυχε."
 
 #: themes/default/templates/about.html.ep:5
 msgid "Privacy"
@@ -568,7 +570,7 @@ msgstr "Αποστολή με αυτό το διακομιστή"
 
 #: themes/default/templates/mail.html.ep:47
 msgid "Send with your own mail software"
-msgstr "Αποστολή μεσω δικού σας λογισμικού για email"
+msgstr "Αποστολή μέσω δικού σας λογισμικού για email"
 
 #: themes/default/templates/partial/index.js.ep:30
 msgid "Sending part XX1 of XX2. Please, be patient, the progress bar can take a while to move."
@@ -595,17 +597,18 @@ msgstr "Είσοδος"
 
 #: lib/Lufi/Controller/Invitation.pm:283 themes/default/templates/invitations/exception.html.ep:16
 msgid "Sorry, the invitation doesn’t exist. Are you sure you are on the right URL?"
-msgstr "Συγγνώμη, αυτή η πρόσκληση δεν υπάρχει. Είστε σίγουρα στη σωστή σελίδα;"
+msgstr ""
+"Μας συγχωρείτε, αυτή η πρόσκληση δεν υπάρχει. Είστε σίγουρα στη σωστή σελίδα;"
 
 #: themes/default/templates/index.html.ep:46
 msgid "Sorry, the uploading is currently disabled. Please try again later."
 msgstr ""
-"Συγγνώμη, το ανέβασμα αρχείων είναι προσωρινά απενεργοποιημένο. Παρακαλούμε "
-"προσπαθήστε αργότερα."
+"Μας συγχωρείτε, το ανέβασμα αρχείων είναι προσωρινά απενεργοποιημένο. "
+"Παρακαλούμε προσπαθήστε αργότερα."
 
 #: lib/Lufi/Controller/Files.pm:82
 msgid "Sorry, uploading is disabled."
-msgstr "Συγγνώμη, το ανέβασμα αρχείων είναι απενεργοποιημένο."
+msgstr "Μας συγχωρείτε, το ανέβασμα αρχείων είναι απενεργοποιημένο."
 
 #: themes/default/templates/invitations/exception.html.ep:7
 msgid "Sorry, your invitation has expired or has been deleted."
@@ -615,13 +618,13 @@ msgstr "Συγγνώμη, η πρόσκληση έχει λήξει ή έχει 
 #: lib/Lufi/Controller/Files.pm:123
 msgid "Sorry, your invitation has expired or has been deleted. Please contact %1 to have another invitation."
 msgstr ""
-"Συγγνώμη, η πρόσκληση έχει λήξει ή έχει διαγραφεί. Επικοινωνείστε με το %1 "
-"για νέα πρόσκληση."
+"Μας συγχωρείτε, η πρόσκληση έχει λήξει ή έχει διαγραφεί. Επικοινωνήστε με το "
+"%1 για νέα πρόσκληση."
 
 #. ($invitation->ldap_user_mail)
 #: lib/Lufi/Controller/Invitation.pm:276
 msgid "The URLs of your files have been sent by email to %1."
-msgstr "Οι σύνδεσμοι των αρχείων σας στάλθηκαν μέσω email στο %1."
+msgstr "Οι σύνδεσμοι URL των αρχείων σας στάλθηκαν μέσω email στο %1."
 
 #: themes/default/templates/about.html.ep:7
 msgid "The administrator can only see the file's name, its size and its mimetype (what kind of file it is: video, text, etc.)."
@@ -632,8 +635,8 @@ msgstr ""
 #: lib/Lufi/Controller/Mail.pm:53
 msgid "The body of the mail must contain at least one URL pointing to a file hosted on this instance."
 msgstr ""
-"Το σώμα του email πρέπει να περιέχει τουλάχιστον ένα σύνδεσμο που να οδηγεί "
-"σε αρχείο που φιλοξενείται εδώ."
+"Το σώμα του email πρέπει να περιέχει τουλάχιστον ένα σύνδεσμο URL που να "
+"οδηγεί σε αρχείο που φιλοξενείται εδώ."
 
 #: themes/default/templates/partial/files.js.ep:11
 msgid "The data has been successfully imported."
@@ -660,7 +663,7 @@ msgstr "Το αρχείο έχει ήδη διαγραφεί"
 msgid "The files uploaded on a Lufi instance are encrypted before the upload to the server: the administrator of the server can not see the file's content."
 msgstr ""
 "Τα αρχεία που ανεβαίνουν σε ένα Lufi κρυπτογραφούνται πριν ανέβουν στον "
-"server: ο διαχειριστής του server δεν μπορεί να δει τα περιεχόμενά τους."
+"διακομιστή: ο διαχειριστής του δεν μπορεί να δει τα περιεχόμενά τους."
 
 #. (join(', ', @bad)
 #: lib/Lufi/Controller/Mail.pm:68
@@ -719,8 +722,8 @@ msgstr ""
 #: lib/Lufi/Controller/Files.pm:230
 msgid "The server was unable to find the file record to add your file part to. Please, contact the administrator."
 msgstr ""
-"Ο server δεν κατάφερε να βρει το αρχείο όπου πρέπει να προστεθεί αυτό το "
-"κομμάτι. Παρακαλούμε, επικοινωνήστε με τον διαχειριστή."
+"Ο διακομιστής δεν κατάφερε να βρει το αρχείο όπου πρέπει να προστεθεί αυτό "
+"το κομμάτι. Παρακαλούμε, επικοινωνήστε με τον διαχειριστή."
 
 #: lib/Lufi/Controller/Files.pm:289
 msgid "This file has been deactivated by the admins. Contact them to know why."
@@ -740,33 +743,41 @@ msgstr "Αυτή η πρόσκληση είναι έγκυρη μέχρι %1."
 #: themes/default/templates/delays.html.ep:10
 msgid "This server sets limitations according to the file size. The expiration delay of your file will be the minimum between what you choose and the following limitations:"
 msgstr ""
+"Ο διακομιστής θέτει περιορισμούς ανάλογα με το μέγεθος του αρχείου. Η "
+"διάρκεια ζωής του αρχείου σας θα είναι το ελάχιστο μεταξύ αυτού που "
+"επιλέγετε και των ακόλουθων περιορισμών:"
 
 #: themes/default/templates/invitations/my_invitations.html.ep:16
 msgid "Toggle visibility"
-msgstr ""
+msgstr "Εμφάνιση/Απόκρυψη"
 
 #: themes/default/templates/invitations/my_invitations.html.ep:25
 msgid "URL"
-msgstr "URL"
+msgstr "Σύνδεσμος URL"
 
 #: themes/default/templates/partial/index.js.ep:17
 msgid "Unable to copy the link(s) to your clipboard"
 msgstr ""
+"Δεν μπόρεσε να γίνει αντιγραφή του συνδέσμου / των συνδέσμων στο πρόχειρο"
 
 #. ($short)
 #: lib/Lufi/Controller/Files.pm:433
 msgid "Unable to get counter for %1. The file does not exists. It will be removed from your localStorage."
 msgstr ""
+"Δεν ήταν δυνατόν να βρεθεί ο μετρητής για το %1. Το αρχείο δεν υπάρχει. Θα "
+"αφαιρεθεί από το localStorage."
 
 #. ($short)
 #: lib/Lufi/Controller/Files.pm:423
 msgid "Unable to get counter for %1. The token is invalid."
 msgstr ""
+"Δεν ήταν δυνατόν να βρεθεί ο μετρητής για το %1. Το token δεν είναι έγκυρο."
 
 #. ($short)
 #: lib/Lufi/Controller/Files.pm:443
 msgid "Unable to get counter for %1. You are not authenticated."
 msgstr ""
+"Δεν ήταν δυνατόν να βρεθεί ο μετρητής για το %1. Δεν έχετε πιστοποιηθεί."
 
 #: themes/default/templates/layouts/default.html.ep:33 themes/default/templates/layouts/default.html.ep:66
 msgid "Upload files"
@@ -774,15 +785,15 @@ msgstr "Ανέβασμα αρχείων"
 
 #: themes/default/templates/index.html.ep:145
 msgid "Upload generated zip file"
-msgstr ""
+msgstr "Ανέβασμα του αρχείου zip που δημιουργήθηκε"
 
 #: themes/default/templates/files.html.ep:31
 msgid "Uploaded at"
-msgstr ""
+msgstr "Ανέβηκε στις"
 
 #: themes/default/templates/index.html.ep:153
 msgid "Uploaded files"
-msgstr ""
+msgstr "Ανεβασμένα αρχεία"
 
 #: themes/default/templates/about.html.ep:20
 msgid "Version"
@@ -802,35 +813,51 @@ msgstr "Ποιος έγραψε αυτό το λογισμικό;"
 
 #: themes/default/templates/partial/index.js.ep:13
 msgid "XXX file has been added to upload queue."
-msgstr ""
+msgstr "Το αρχείο XXX προστέθηκε στην ουρά για ανέβασμα."
 
 #: themes/default/templates/invitations/invite.html.ep:30
 msgid "You can invite someone to send you files through this Lufi instance even if they don’t have an account on it."
 msgstr ""
+"Μπορείτε να προσκαλέσετε κάποιον/-α να σας στείλει αρχεία μέσα από αυτό το "
+"Lufi, ακόμη κι αν δεν έχει λογαριασμό εδώ."
 
 #: themes/default/templates/about.html.ep:11
 msgid "You can see the list of your files by clicking on the \"My files\" link at the top right of this page."
 msgstr ""
+"Μπορείτε να δείτε τη λίστα των αρχείων σας κάνοντας κλικ στο σύνδεσμο \"Τα "
+"αρχεία μου\" στην κορυφή αυτής της σελίδας στα δεξιά."
 
 #: lib/Lufi/Controller/Mail.pm:42
 msgid "You can't add URLs that are not related to this instance."
 msgstr ""
+"Δεν μπορείτε να προσθέσετε συνδέσμους URL που δεν σχετίζονται με αυτό το "
+"Lufi."
 
 #: themes/default/templates/about.html.ep:8
 msgid "You don't need to register yourself to upload files but be aware that, for legal reasons, your IP address will be stored when you send a file. Don't panic, this is normally the case for all sites on which you send files."
 msgstr ""
+"Δεν χρειάζεται να φτιάξετε λογαριασμό για να ανεβάσετε αρχεία, έχετε όμως "
+"υπόψιν σας ότι, για νομικούς λόγους, η διεύθυνση IP σας θα αποθηκευτεί όταν "
+"στείλετε ένα αρχείο. Μην πανικοβάλλεστε, αυτό συμβαίνει συνήθως σε όλες τις "
+"ιστοσελίδες που σας επιτρέπουν να στέλνετε αρχεία."
 
 #: themes/default/templates/partial/render.js.ep:11
 msgid "You don't seem to have a key in your URL. You won't be able to decrypt the file. Download canceled."
 msgstr ""
+"Δεν φαίνεται να υπάρχει κλειδί σε αυτόν τον σύνδεσμο URL. Το αρχείο δεν θα "
+"μπορέσει να αποκρυπτογραφηθεί. Η λήψη ακυρώθηκε."
 
 #: themes/default/templates/partial/render.js.ep:7
 msgid "You have attempted to leave this page. The download will be canceled. Are you sure?"
 msgstr ""
+"Επιχειρήσατε να φύγετε από τη σελίδα. Η λήψη θα ακυρωθεί. Θέλετε σίγουρα να "
+"φύγετε;"
 
 #: themes/default/templates/partial/index.js.ep:14
 msgid "You have attempted to leave this page. The upload will be canceled. Are you sure?"
 msgstr ""
+"Επιχειρήσατε να φύγετε από τη σελίδα. Η αποστολή θα ακυρωθεί. Θέλετε σίγουρα "
+"να φύγετε;"
 
 #: themes/default/templates/logout.html.ep:14
 msgid "You have been successfully logged out."
@@ -843,15 +870,20 @@ msgstr "Πρέπει να δώστε τις διευθύνσεις email."
 #: themes/default/templates/index.html.ep:38
 msgid "Your browser does not have enough entropy to generate a strong encryption key. Please wait (it's better if you do things on your computer while waiting)."
 msgstr ""
+"Ο περιηγητής σας δεν έχει αρκετή εντροπία για να δημιουργηθεί ένα δυνατό "
+"κλειδί κρυπτογράφησης. Παρακαλούμε περιμένετε (είναι καλύτερα αν όσο "
+"περιμένετε χρησιμοποιείτε τον υπολογιστή)."
 
 #. (format_bytes($json->{size})
 #: lib/Lufi/Controller/Files.pm:95
 msgid "Your file is too big: %1 (maximum size allowed: %2)"
-msgstr ""
+msgstr "Το αρχείο είναι πολύ μεγάλο: %1 (μέγιστο επιτρεπόμενο μέγεθος: %2)"
 
 #: lib/Lufi/Controller/Files.pm:345
 msgid "Your password is not valid. Please refresh the page to retry."
 msgstr ""
+"Ο κωδικός δεν είναι έγκυρος. Παρακαλούμε ανανεώστε τη σελίδα για να "
+"ξαναδοκιμάσετε."
 
 #: themes/default/templates/partial/render.js.ep:13
 msgid "Zip content:"
@@ -860,12 +892,12 @@ msgstr "Περιεχόμενα zip:"
 #. (format_bytes($keys[$i])
 #: themes/default/templates/delays.html.ep:20
 msgid "between %1 and %2, the file will be kept %3 day(s)."
-msgstr ""
+msgstr "μεταξύ %1 και %2, το αρχείο θα διατηρηθεί για %3 ημέρα/-ες."
 
 #. (format_bytes($keys[$i])
 #: themes/default/templates/delays.html.ep:22
 msgid "between %1 and %2, the file will be kept forever."
-msgstr ""
+msgstr "μεταξύ %1 και %2, το αρχείο θα διατηρηθεί για πάντα."
 
 #: themes/default/templates/partial/mail.js.ep:42
 msgid "deadline: "
@@ -878,12 +910,12 @@ msgstr "λήγει στις XXX"
 #. (format_bytes($keys[$i])
 #: themes/default/templates/delays.html.ep:26
 msgid "for %1 and more, the file will be kept %2 day(s)"
-msgstr ""
+msgstr "για %1 και πάνω, το αρχείο θα διατηρηθεί για %2 ημέρα/-ες"
 
 #. (format_bytes($keys[$i])
 #: themes/default/templates/delays.html.ep:28
 msgid "for %1 and more, the file will be kept forever."
-msgstr ""
+msgstr "για %1 και πάνω, το αρχείο θα διατηρηθεί για πάντα."
 
 #: themes/default/templates/index.html.ep:3
 msgid "no time limit"
@@ -896,4 +928,11 @@ msgstr "ή"
 #. ($e->{name}, format_bytes($e->{size})
 #: themes/default/templates/invitations/notification_files_sent.mail.ep:12
 msgid "— %1 (%2), that will expire on %3"
+msgstr "— %1 (%2), που θα λήξει στις %3"
+
+#: themes/default/templates/partial/render.js.ep:13
+msgid "Unable to download the file: too much unsuccessful attempts to open a websocket. Please, contact the administrator."
 msgstr ""
+"Δεν ήταν δυνατόν να κατέβει το αρχείο: έγιναν υπερβολικά πολλές ανεπιτυχείς "
+"προσπάθειες για άνοιγμα ενός websocket. Παρακαλούμε, επικοινωνήστε με τον "
+"διαχειριστή."
