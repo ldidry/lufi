@@ -41,7 +41,7 @@ msgstr ""
 msgid "%1 used your invitation to send you files:"
 msgstr ""
 
-#: lib/Lufi/Controller/Invitation.pm:160 lib/Lufi/Controller/Invitation.pm:85 themes/default/templates/invitations/my_invitations.html.ep:51 themes/default/templates/invitations/my_invitations.html.ep:52 themes/default/templates/invitations/my_invitations.html.ep:53 themes/default/templates/invitations/notification_files_sent.mail.ep:12
+#: lib/Lufi/Controller/Invitation.pm:172 lib/Lufi/Controller/Invitation.pm:85 themes/default/templates/invitations/my_invitations.html.ep:51 themes/default/templates/invitations/my_invitations.html.ep:52 themes/default/templates/invitations/my_invitations.html.ep:53 themes/default/templates/invitations/notification_files_sent.mail.ep:12
 msgid "%A %d %B %Y at %T"
 msgstr ""
 
@@ -364,7 +364,7 @@ msgid "Invert selection"
 msgstr ""
 
 #. ($i->guest_mail, $url)
-#: lib/Lufi/Controller/Invitation.pm:172
+#: lib/Lufi/Controller/Invitation.pm:184
 msgid "Invitation resent to %1.<br> URL: %2"
 msgstr ""
 
@@ -505,11 +505,11 @@ msgstr ""
 msgid "Send the invitation"
 msgstr ""
 
-#: themes/default/templates/mail.html.ep:46
+#: themes/default/templates/mail.html.ep:47
 msgid "Send with this server"
 msgstr ""
 
-#: themes/default/templates/mail.html.ep:47
+#: themes/default/templates/mail.html.ep:49
 msgid "Send with your own mail software"
 msgstr ""
 
@@ -518,7 +518,7 @@ msgid "Sending part XX1 of XX2. Please, be patient, the progress bar can take a 
 msgstr ""
 
 #. (url_for('/')
-#: themes/default/templates/partial/mail.js.ep:48
+#: themes/default/templates/partial/mail.js.ep:49
 msgid "Share your files in total privacy on %1"
 msgstr ""
 
@@ -534,7 +534,7 @@ msgstr ""
 msgid "Signin"
 msgstr ""
 
-#: lib/Lufi/Controller/Invitation.pm:284 themes/default/templates/invitations/exception.html.ep:16
+#: lib/Lufi/Controller/Invitation.pm:302 themes/default/templates/invitations/exception.html.ep:16
 msgid "Sorry, the invitation doesn’t exist. Are you sure you are on the right URL?"
 msgstr ""
 
@@ -556,7 +556,7 @@ msgid "Sorry, your invitation has expired or has been deleted. Please contact %1
 msgstr ""
 
 #. ($invitation->ldap_user_mail)
-#: lib/Lufi/Controller/Invitation.pm:277
+#: lib/Lufi/Controller/Invitation.pm:295
 msgid "The URLs of your files have been sent by email to %1."
 msgstr ""
 
@@ -603,13 +603,23 @@ msgstr ""
 msgid "The guest email address (%1) is unvalid."
 msgstr ""
 
+#. ($i->token, $c->current_user->{username})
+#: lib/Lufi/Controller/Invitation.pm:136
+msgid "The invitation %1 can’t be deleted: it wasn’t created by you (%2)."
+msgstr ""
+
 #. ($i->token, $i->guest_mail)
-#: lib/Lufi/Controller/Invitation.pm:151
+#: lib/Lufi/Controller/Invitation.pm:163
 msgid "The invitation %1 can’t be resent: %2 has already sent files.<br>Please create a new invitation."
 msgstr ""
 
+#. ($i->token, $c->current_user->{username})
+#: lib/Lufi/Controller/Invitation.pm:187
+msgid "The invitation %1 can’t be resent: it wasn’t created by you (%2)."
+msgstr ""
+
 #. ($i->token)
-#: lib/Lufi/Controller/Invitation.pm:131
+#: lib/Lufi/Controller/Invitation.pm:134
 msgid "The invitation %1 has been deleted."
 msgstr ""
 

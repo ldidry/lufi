@@ -122,61 +122,79 @@ sub delete_invitations {
     my $c = shift;
     my @tokens = @{$c->every_param('tokens[]')};
 
-    my @result = ();
-    for my $token (@tokens) {
-        my $i = Lufi::DB::Invitation->new(app => $c->app)
-                                    ->from_token($token)
-                                    ->deleted(1)
-                                    ->write;
-        push @result, { msg => $c->l('The invitation %1 has been deleted.', $i->token), token => $i->token, deleted => $i->deleted };
-    }
+    if ($c->is_user_authenticated) {
+        my @result   = ();
+        my @failures = ();
+        for my $token (@tokens) {
+            my $i = Lufi::DB::Invitation->new(app => $c->app)
+                                        ->from_token($token);
+            if ($i->ldap_user eq $c->current_user->{username}) {
+                $i->deleted(1)
+                  ->write;
+                push @result, { msg => $c->l('The invitation %1 has been deleted.', $i->token), token => $i->token, deleted => $i->deleted };
+            } else {
+                push @failures, $c->l('The invitation %1 can’t be deleted: it wasn’t created by you (%2).', $i->token, $c->current_user->{username});
+            }
+        }
 
-    $c->render(json => {
-        success => true,
-        tokens  => \@result
-    });
+        $c->render(json => {
+            success  => (scalar(@result) > 0) ? true : false,
+            tokens   => \@result,
+            failures => \@failures
+        });
+    } else {
+        $c->redirect_to($c->url_for('login')->query(redirect => 'my_invitations'));
+    }
 }
 
 sub resend_invitations {
     my $c = shift;
     my @tokens = @{$c->every_param('tokens[]')};
 
-    my @success;
-    my @failures;
-    for my $token (@tokens) {
-        my $i = Lufi::DB::Invitation->new(app => $c->app)
-                                    ->from_token($token);
+    if ($c->is_user_authenticated) {
+        my @success  = ();
+        my @failures = ();
+        for my $token (@tokens) {
+            my $i = Lufi::DB::Invitation->new(app => $c->app)
+                                        ->from_token($token);
 
-        if ($i->files_sent_at) {
-            push @failures, $c->l('The invitation %1 can’t be resent: %2 has already sent files.<br>Please create a new invitation.', $i->token, $i->guest_mail);
-        } else {
-            if ($c->config('invitations')->{'extend_invitation_expiration_on_resend'}) {
-                $i->expire_at(time + $i->expire_at - $i->created_at)
-                  ->write;
+            if ($i->ldap_user eq $c->current_user->{username}) {
+                if ($i->files_sent_at) {
+                    push @failures, $c->l('The invitation %1 can’t be resent: %2 has already sent files.<br>Please create a new invitation.', $i->token, $i->guest_mail);
+                } else {
+                    if ($c->config('invitations')->{'extend_invitation_expiration_on_resend'}) {
+                        $i->expire_at(time + $i->expire_at - $i->created_at)
+                          ->write;
+                    }
+
+                    my $from   = ($c->config('invitations')->{'send_invitation_with_ldap_user_mail'}) ? $i->ldap_user_mail : $c->config('mail_sender');
+                    my $url    = $c->url_for('guest', token => $i->token)->to_abs;
+                    my $expire = $c->get_date_lang()->time2str($c->l('%A %d %B %Y at %T'), $i->expire_at);
+                    $c->mail(
+                        from       => $from,
+                        to         => $i->guest_mail,
+                        template   => 'invitations/invite',
+                        format     => 'mail',
+                        ldap_user  => ucfirst($i->ldap_user),
+                        url        => $url,
+                        invitation => $i,
+                        expires    => $expire
+                    );
+
+                    push @success, { msg => $c->l('Invitation resent to %1.<br> URL: %2', $i->guest_mail, $url), expires => $expire, token => $i->token };
+                }
+            } else {
+                push @failures, $c->l('The invitation %1 can’t be resent: it wasn’t created by you (%2).', $i->token, $c->current_user->{username});
             }
-
-            my $from   = ($c->config('invitations')->{'send_invitation_with_ldap_user_mail'}) ? $i->ldap_user_mail : $c->config('mail_sender');
-            my $url    = $c->url_for('guest', token => $i->token)->to_abs;
-            my $expire = $c->get_date_lang()->time2str($c->l('%A %d %B %Y at %T'), $i->expire_at);
-            $c->mail(
-                from       => $from,
-                to         => $i->guest_mail,
-                template   => 'invitations/invite',
-                format     => 'mail',
-                ldap_user  => ucfirst($i->ldap_user),
-                url        => $url,
-                invitation => $i,
-                expires    => $expire
-            );
-
-            push @success, { msg => $c->l('Invitation resent to %1.<br> URL: %2', $i->guest_mail, $url), expires => $expire, token => $i->token };
         }
-    }
 
-    $c->render(json => {
-        success  => \@success,
-        failures => \@failures
-    });
+        $c->render(json => {
+            success  => \@success,
+            failures => \@failures
+        });
+    } else {
+        $c->redirect_to($c->url_for('login')->query(redirect => 'my_invitations'));
+    }
 }
 
 sub toggle_invitations_visibility {

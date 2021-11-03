@@ -44,9 +44,17 @@ function deleteInvit(e) {
                         Materialize.toast(t.msg, 6000, 'teal accent-3');
                         $('#row-' + t.token).remove();
                     });
+                    data.failures.forEach(function(msg) {
+                        Materialize.toast(msg, 10000, 'red accent-2');
+                    });
                     disableButtons();
                 } else {
-                    Materialize.toast(data.msg, 10000, 'red accent-2');
+                    data.failures.forEach(function(msg) {
+                        Materialize.toast(msg, 10000, 'red accent-2');
+                    });
+                    if (data.msg) {
+                        Materialize.toast(data.msg, 10000, 'red accent-2');
+                    }
                 }
             }
         });

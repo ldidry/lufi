@@ -5,6 +5,7 @@ Revision history for Lufi
 	- 💄 Disable signature when using LDAP (#249)
 	- 🌐 Update translations
 	- 🔒 Fix XSS where using zip feature (#254)
+	- 🔒 Fix unauthorized manipulations of invitations (#254)
 
 0.05.14 2021-06-16
 	- 🔧 Set default morbo port to 3000 (as it should have stay)
