@@ -102,7 +102,7 @@ function firstViewClicking() {
 }
 
 // When clicking on zip checkbox
-function zipClicking () {
+function zipClicking() {
     if ($('#zip-files').attr('data-checked') && $('#zip-files').attr('data-checked') === 'data-checked') {
         window.zipSize = 0;
         window.zip = null;
@@ -249,7 +249,7 @@ function handleFiles(f) {
             $('#zip-size').text(filesize(window.zipSize));
             $('#zip-parts').append([
                 '<li>',
-                    '— ', filename, ' (', filesize(element.size), ')',
+                    '— ', escapeHtml(filename), ' (', filesize(element.size), ')',
                 '</li>'
             ].join(''));
         }
