@@ -5,7 +5,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "POT-Creation-Date: YEAR-MO-DA HO:MI+ZONE\n"
-"PO-Revision-Date: 2020-05-30 12:24+0000\n"
+"PO-Revision-Date: 2021-10-08 03:05+0000\n"
 "Last-Translator: ButterflyOfFire <butterflyoffire@protonmail.com>\n"
 "Language-Team: Arabic <https://weblate.framasoft.org/projects/lufi/"
 "default-theme/ar/>\n"
@@ -15,49 +15,49 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=6; plural=n==0 ? 0 : n==1 ? 1 : n==2 ? 2 : n%100>=3 "
 "&& n%100<=10 ? 3 : n%100>=11 ? 4 : 5;\n"
-"X-Generator: Weblate 3.11.2\n"
+"X-Generator: Weblate 4.6.2\n"
 
 #. ($delay)
 #. (max_delay)
 #: themes/default/templates/index.html.ep:56 themes/default/templates/index.html.ep:65 themes/default/templates/index.html.ep:66
 msgid "%1 days"
-msgstr "%1 أيام"
+msgstr "زَمَن %1 يَوم"
 
 #. (stash('ldap_user')
 #: themes/default/templates/invitations/invite.mail.ep:2
 msgid "%1 invites you to send him/her files"
-msgstr "لقد دعاك %1 لكي ترسل له ملفات"
+msgstr "يَدعُوكَ %1 لإرسالِ المَلَفَّاتِ إليه"
 
 #. (stash('ldap_user')
 #: themes/default/templates/invitations/invite.mail.ep:6
 msgid "%1 invites you to send him/her files through Lufi."
-msgstr "لقد دعاك %1 لكي ترسل له ملفات عبر لوفي."
+msgstr "يَدعُوكَ %1 لإرسالِ المَلَفَّاتِ إلَيه عَبرَ لُوفي."
 
 #. (stash('invitation')
 #: themes/default/templates/invitations/notification_files_sent.mail.ep:4
 msgid "%1 sent you files"
-msgstr "أرسل إليك %1 ملفات"
+msgstr "لَقَد أرسَلَ %1 مَلَفَّاتٍ إليك"
 
 #. (stash('invitation')
 #: themes/default/templates/invitations/notification_files_sent.mail.ep:8
 msgid "%1 used your invitation to send you files:"
-msgstr "لقد استخدم %1 دعوتك ليرسل لك ملفات:"
+msgstr "لَقَد اِستَخدَمَ %1 دَعوَتَكَ لإرسالِ المَلَفَّاتِ إليك:"
 
 #: lib/Lufi/Controller/Invitation.pm:159 lib/Lufi/Controller/Invitation.pm:84 themes/default/templates/invitations/my_invitations.html.ep:51 themes/default/templates/invitations/my_invitations.html.ep:52 themes/default/templates/invitations/my_invitations.html.ep:53 themes/default/templates/invitations/notification_files_sent.mail.ep:12
 msgid "%A %d %B %Y at %T"
-msgstr "%A %d %B %Y على %T"
+msgstr "%A %d %B %Y عَلَى %T"
 
 #: themes/default/templates/partial/index.js.ep:27
 msgid "(max size: XXX)"
-msgstr "(الحجم الأقصى: XXX)"
+msgstr "(الحَجمُ الأقصَى: XXX)"
 
 #: themes/default/templates/index.html.ep:5
 msgid "1 year"
-msgstr "سنة واحدة"
+msgstr "سَنَةٌ واحِدَةٌ"
 
 #: themes/default/templates/index.html.ep:4 themes/default/templates/index.html.ep:65
 msgid "24 hours"
-msgstr "24 ساعة"
+msgstr "زَمَن 24 ساعَة"
 
 #: themes/default/templates/partial/mail.js.ep:40
 msgid ":"
@@ -65,31 +65,35 @@ msgstr ":"
 
 #: themes/default/templates/render.html.ep:42
 msgid "Abort"
-msgstr "إلغاء"
+msgstr "إجهَاض"
 
 #: themes/default/templates/layouts/default.html.ep:53 themes/default/templates/layouts/default.html.ep:86
 msgid "About"
-msgstr "عن البرنامج"
+msgstr "حَول"
 
 #: themes/default/templates/index.html.ep:107
 msgid "Add a password to file(s)"
-msgstr "إضافة كلمة سرية إلى الملف"
+msgstr "إضافَةُ كَلِمَةُ مُرُورٍ إلى المَلَفَّات"
 
 #: themes/default/templates/mail.html.ep:16
 msgid ""
 "Adding URLs not related to this Lufi instance to the mail body or subject is "
 "prohibited."
-msgstr "يُحظر إضافة رابط غير مرتبط بسيرفر Lufi هذا في نص البريد أو في الموضوع."
+msgstr ""
+"يُمنَعُ إضافَةُ رابِط غَيرُ مُرتَبِطٍ بِمَثِيلِ Lufi هَذَا فِي نَصِّ البَريدِ"
+" أو مَوضُوعِه."
 
 #: themes/default/templates/partial/invitations.js.ep:3
 msgid "Are you sure you want to delete the selected invitations?"
-msgstr "متأكد أنك تريد حذف كافة الدعوات المختارة؟"
+msgstr "هَل أنتَ مُتَأكِّدٌ مِن رَغبَتِكَ فِي حَذفِ الدَّعَواتِ المُحَدَّدَة؟"
 
 #: themes/default/templates/partial/invitations.js.ep:4
 msgid ""
 "Are you sure you want to resend the invitation mail for the selected "
 "invitations?"
-msgstr "هل أنت متأكد أنك تريد إعادة إرسال الدعوة البريدية للدعوات المختارة؟"
+msgstr ""
+"هَل أنتَ مُتَأكِّدٌ مِن رَغبَتِكَ فِي إعادَةِ إرسالِ الدَّعَوَة البَريديَّة "
+"لِلدَعَوَات المُحَدَّدَة؟"
 
 #: themes/default/templates/about.html.ep:17
 msgid ""
@@ -102,31 +106,31 @@ msgstr ""
 #. (stash('nbslices')
 #: themes/default/templates/partial/render.js.ep:9
 msgid "Asking for file part XX1 of %1"
-msgstr "طلب الجزء XX1 مِن %1"
+msgstr "يَجري طَلَبُ جُزءِ المَلَفّ XX1 مِن %1"
 
 #: themes/default/templates/about.html.ep:20
 msgid "Back to homepage"
-msgstr "العودة إلى الصفحة الرئيسة"
+msgstr "العَودَةُ إلى الصَّفحَةِ الرَّئِيسَة"
 
 #: lib/Lufi/Controller/Mail.pm:25
 msgid "Bad CSRF token!"
-msgstr "رمز CSRF خاطئ!"
+msgstr "رَمزُ CSRF غَيرُ صَالِح!"
 
 #: lib/Lufi/Controller/Auth.pm:27 lib/Lufi/Controller/Auth.pm:49
 msgid "Bad CSRF token."
-msgstr "رمز CSRF خاطئ."
+msgstr "رَمزُ CSRF غَيرُ صَالِح."
 
 #: themes/default/templates/partial/render.js.ep:5
 msgid "Click here to refresh the page and restart the download."
-msgstr "اضغط لتحديث الصفحة و إعادة التنزيل."
+msgstr "اِضغَط لِتَحدِيثِ الصَّفحَة وَإِعادَةِ التَّنزِيل."
 
 #: themes/default/templates/invitations/invite.mail.ep:8
 msgid "Click on the following URL to upload files on Lufi:"
-msgstr "اضغط على الربط التالي قصد تحميل ملفات على لوفي :"
+msgstr "اِضغَط عَلَى عُنوَانِ URL التَّالِي قَصدُ رَفعِ مَلَفَّاتٍ عَلَى لوفي:"
 
 #: themes/default/templates/index.html.ep:126
 msgid "Click to open the file browser"
-msgstr "اضغط لفتح متصفح الملفات"
+msgstr "اِضغَط لِفَتحِ مُتَصَفِّحِ المَلَفَّات"
 
 #: themes/default/templates/delays.html.ep:38 themes/default/templates/invitations/my_invitations.html.ep:80
 msgid "Close"
@@ -134,79 +138,82 @@ msgstr "إغلاق"
 
 #: themes/default/templates/mail.html.ep:23
 msgid "Comma-separated email addresses"
-msgstr "عناوين البريد الإلكترونية مُقسّمة بفاصلة"
+msgstr "عَنَاوِينُ البَريدِ الإلكتُرونِيِّ مُقَسَّمَةٌ-بِفَوَاصِلِ"
 
 #: themes/default/templates/index.html.ep:140
 msgid "Compressing zip file…"
-msgstr "جارٍ ضغط ملف zip…"
+msgstr "يَجري ضَغطُ مَلَفِّ zip…"
 
 #: themes/default/templates/partial/index.js.ep:15
 msgid "Copy all links to clipboard"
-msgstr "نسخ كافة الروابط إلى الحافظة"
+msgstr "نَسخُ جَميعِ الرَّوابِطِ إلى الحافِظَة"
 
 #: themes/default/templates/partial/index.js.ep:18
 msgid "Copy to clipboard"
-msgstr "انسخ إلى الحافظة"
+msgstr "النَّسخُ إلى الحافِظَة"
 
 #: lib/Lufi/Controller/Files.pm:507
 msgid "Could not delete the file. You are not authenticated."
-msgstr "لا يمكن حذف الملف. إنك لم تقم بتسجيل الدخول."
+msgstr "يَتَعَذَّرُ حَذفُ المَلَفّ. أَنتَ غَيرُ مُصَدَّق."
 
 #: lib/Lufi/Controller/Files.pm:489
 msgid "Could not find the file. Are you sure of the URL and the token?"
-msgstr "تعذر العثور على الملف. هل أنت متأكد من الرابط والرمز؟"
+msgstr ""
+"يَتَعَذَّرُ حَذفُ المَلَفّ. هَل أنتَ مُتَأَكِّدٌ مِن عُنوانِ URL وَالرَّمز؟"
 
 #: lib/Lufi/Controller/Files.pm:400
 msgid "Could not find the file. Are you sure of the URL?"
-msgstr "لا يمكن العثور على الملفات. متأكد مٍن الرابط؟"
+msgstr ""
+"يَتَعَذَّرُ العُثُورُ عَلَى المَلَفّ. هَل أنتَ مُتَأَكِّدٌ مِن عُنوانِ URL؟"
 
 #: themes/default/templates/files.html.ep:29
 msgid "Counter"
-msgstr "العداد"
+msgstr "العَدَّاد"
 
 #: themes/default/templates/index.html.ep:100
 msgid "Create a zip archive with the files before uploading?"
-msgstr "هل تريد إنشاء ملف مضغوط يحوي هذه الملفات قبل تحميلها؟"
+msgstr "إنشاءُ أرشيفِ zip مِنَ المَلَفَّاتِ قَبلَ الرَّفع؟"
 
 #: themes/default/templates/invitations/my_invitations.html.ep:26
 msgid "Created at"
-msgstr "أنشئ في"
+msgstr "أُنشِئ فِي"
 
 #: themes/default/templates/invitations/my_invitations.html.ep:14
 msgid "Delete"
-msgstr "حذف"
+msgstr "حَذف"
 
 #: themes/default/templates/files.html.ep:30 themes/default/templates/index.html.ep:90
 msgid "Delete at first download?"
-msgstr "هل تريد أن يُحذَف الملف عند أول تنزيل؟"
+msgstr "الحَذفُ عِندَ أوَّلِ تَنزيل؟"
 
 #: themes/default/templates/files.html.ep:19
 msgid "Delete selected files"
-msgstr "حذف الملفات التي تم اختيارها"
+msgstr "حَذفُ المَلَفَّاتِ المُحَدَّدَة"
 
 #: themes/default/templates/files.html.ep:33 themes/default/templates/partial/index.js.ep:19
 msgid "Deletion link"
-msgstr "رابط الحذف"
+msgstr "رابِطُ الحَذف"
 
 #: themes/default/templates/delays.html.ep:8
 msgid ""
 "Don't worry: if a user begins to download the file before the expiration and "
 "the download ends after the expiration, he will be able to get the file."
 msgstr ""
-"لا تقلق: إذا بدأ المستخدم في تنزيل الملف قبل انتهاء صلاحيته وانتهت عملية "
-"التنزيل بعد انتهاء صلاحيته ، فسيتمكن من الحصول على الملف."
+"لا تَقلَق: إذا بَدَأ المُستخدِمُ فِي تَنزيلِ المَلَفِّ قَبلَ اِنتِهاءِ "
+"الصَّلاحِيَّة ثُمَّ اِنتَهَى التَّنزِيلُ بَعدَ اِنتِهاءِ الصَّلاحِيَّة، "
+"فَسَوفَ يَكُونُ قادِرًا عَلَى الحُصُولِ عَلَى المَلَفّ."
 
 #: themes/default/templates/partial/index.js.ep:21 themes/default/templates/render.html.ep:28
 msgid "Download"
-msgstr "تنزيل"
+msgstr "تَنزِيل"
 
 #: themes/default/templates/partial/render.js.ep:4
 msgid "Download aborted."
-msgstr "لقد ألغِيَ التنزيل."
+msgstr "أُجهِضَ التَّنزيل."
 
 #: themes/default/templates/files.html.ep:28 themes/default/templates/partial/index.js.ep:20
 msgid "Download link"
-msgstr "رابط التنزيل"
+msgstr "رابِط التَّنزيل"
 
 #: themes/default/templates/about.html.ep:10
 msgid ""
@@ -222,7 +229,7 @@ msgstr ""
 
 #: themes/default/templates/index.html.ep:122
 msgid "Drop files here"
-msgstr "قم بوضع الملفات هنا"
+msgstr "اِرمِ المَلَفَّاتَ هُنَا"
 
 #: themes/default/templates/invitations/invite.html.ep:40
 msgid "Email address of your guest"
@@ -601,7 +608,7 @@ msgid ""
 "Sorry, your invitation has expired or has been deleted. Please contact %1 to "
 "have another invitation."
 msgstr ""
-"المعذرة ، لقد انتهت مدة صلاحية دعوتك أو تم قد حذفها. الرجاء الاتصال بـ %1 "
+"المعذرة ، لقد انتهت مدة صلاحية دعوتك أو قد تم حذفها. الرجاء الاتصال بـ %1 "
 "للحصول على دعوة أخرى."
 
 #. ($invitation->ldap_user_mail)
@@ -640,7 +647,7 @@ msgstr "لا يمكن أن يُترك موضوع الرسالة فارغًا."
 #. ($expire_at, $max_expire_at)
 #: lib/Lufi/Controller/Invitation.pm:51
 msgid "The expiration delay (%1) is not between 1 and %2 days."
-msgstr "مدة انتهاء الصلاحية (%1) ليس بين 1 و %2 أيام."
+msgstr "مدة انتهاء الصلاحية (%1) ليس محصور بين 1 و %2 أيام."
 
 #: lib/Lufi/Controller/Files.pm:468
 msgid "The file has already been deleted"
@@ -945,10 +952,11 @@ msgstr "تم تنزيل الملف"
 #: themes/default/templates/about.html.ep:17
 msgid "As Lufi is a free software licensed under of the terms of the <a href=\"https://gnu.org/licenses/agpl.html\" class=\"classic\">AGPLv3</a>, you can install it on you own server. Have a look on the <a href=\"https://framagit.org/fiat-tux/hat-softwares/lufi/wikis/home\" class=\"classic\">Wiki</a> for the procedure."
 msgstr ""
-"Lufi هو برنامج حر مرخص بموجب شروط <a href=\"https://gnu.org/licenses/agpl."
-"html\" class=\"classic\"> AGPLv3</a> يمكنك تثبيته على خادمك الخاص. إلقي نظرة "
-"على <a href=\"https://framagit.org/fiat-tux/hat-softwares/lufi/wikis/home\" "
-"class=\"classic\"> الويكي</a> للتعرّف على كيفية القيام بذلك."
+"بِما أنَّ لوفي هُوَ بَرنامَجٌ حُرٌّ مُرَخَصٌّ بِمُوجَبِ شُرُوطِ <a href="
+"\"https://gnu.org/licenses/agpl.html\" class=\"classic\">AGPLv3</a> يُمكِنُكَ"
+" تَثبيته عَلَى خادِمِكَ الخاصّ. ألق نَظرَةً عَلَى <a href=\"https://framagit."
+"org/fiat-tux/hat-softwares/lufi/wikis/home\" class=\"classic\">الويكي</a> "
+"لِفِعلِ ذَلِك."
 
 #: themes/default/templates/about.html.ep:20
 msgid "Version"
@@ -963,3 +971,9 @@ msgstr "آخر علامة على مثيل الخادم هذا: %1"
 #: themes/default/templates/about.html.ep:22
 msgid "Latest commit of this instance: %1"
 msgstr "آخر مراجعة على مثيل الخادم هذا: %1"
+
+#: themes/default/templates/partial/render.js.ep:13
+msgid "Unable to download the file: too much unsuccessful attempts to open a websocket. Please, contact the administrator."
+msgstr ""
+"استحالة تنزيل الملف: العديد من المحاولات غير الناجحة لفتح websocket. الرجاء "
+"الاتصال بالمدير."

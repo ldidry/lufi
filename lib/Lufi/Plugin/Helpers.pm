@@ -235,7 +235,7 @@ sub _get_date_lang {
 sub _git_version {
     my $c = shift;
 
-    my $last_tag    = `git describe --abbrev=0`;
+    my $last_tag    = `git describe --tags --abbrev=0`;
     my $last_commit = `git rev-parse HEAD`;
     chomp $last_tag;
     chomp $last_commit;

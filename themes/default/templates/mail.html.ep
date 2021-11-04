@@ -43,7 +43,9 @@
 % }
             </textarea>
         </div>
-        <button type="submit" class="btn btn-info"><%= l('Send with this server') %></button>
+        % if (!$self->config('disable_mail_sending')) {
+            <button type="submit" class="btn btn-info"><%= l('Send with this server') %></button>
+        % }
         <a href="#" class="btn btn-primary" id="mailto"><%= l('Send with your own mail software') %></a>
     </form>
 <div>

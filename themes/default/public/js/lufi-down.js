@@ -145,9 +145,9 @@ function spawnWebsocket(pa) {
                                 zip.forEach(function (relativePath, zipEntry) {
                                     innerHTML.push(
                                         '<li>',
-                                            zipEntry.name,
+                                            escapeHtml(zipEntry.name),
                                             ' (', filesize(zipEntry._data.uncompressedSize, {base: 10}), ') ',
-                                            '<a href="#" download="', zipEntry.name, '" class="download-zip-content" title="', i18n.download, '">',
+                                            '<a href="#" download="', escapeHtml(zipEntry.name), '" class="download-zip-content" title="', i18n.download, '">',
                                                 '<i class="mdi-file-file-download"></i>',
                                             '</a>',
                                         '</li>'

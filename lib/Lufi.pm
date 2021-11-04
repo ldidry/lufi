@@ -231,7 +231,7 @@ sub startup {
 
     # Submit mail
     $r->post('/m')
-      ->to('Mail#send_share_mail');
+      ->to('Mail#send_share_mail') unless $self->config('disable_mail_sending');
 
     # Upload files websocket
     $r->websocket('/upload')

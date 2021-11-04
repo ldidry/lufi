@@ -23,7 +23,7 @@ msgstr "%1 days"
 
 #. (ucfirst($invitation->ldap_user)
 #. (ucfirst($i->ldap_user)
-#: lib/Lufi/Controller/Invitation.pm:169 lib/Lufi/Controller/Invitation.pm:79
+#: lib/Lufi/Controller/Invitation.pm:182 lib/Lufi/Controller/Invitation.pm:80
 msgid "%1 invites you to send him/her files"
 msgstr "%1 invites you to send him/her files"
 
@@ -33,7 +33,7 @@ msgid "%1 invites you to send him/her files through Lufi."
 msgstr "%1 invites you to send him/her files through Lufi."
 
 #. ($invitation->guest_mail)
-#: lib/Lufi/Controller/Invitation.pm:277
+#: lib/Lufi/Controller/Invitation.pm:294
 msgid "%1 sent you files"
 msgstr "%1 sent you files"
 
@@ -42,7 +42,7 @@ msgstr "%1 sent you files"
 msgid "%1 used your invitation to send you files:"
 msgstr "%1 used your invitation to send you files:"
 
-#: lib/Lufi/Controller/Invitation.pm:165 lib/Lufi/Controller/Invitation.pm:85 themes/default/templates/invitations/my_invitations.html.ep:51 themes/default/templates/invitations/my_invitations.html.ep:52 themes/default/templates/invitations/my_invitations.html.ep:53 themes/default/templates/invitations/notification_files_sent.mail.ep:10
+#: lib/Lufi/Controller/Invitation.pm:178 lib/Lufi/Controller/Invitation.pm:86 themes/default/templates/invitations/my_invitations.html.ep:51 themes/default/templates/invitations/my_invitations.html.ep:52 themes/default/templates/invitations/my_invitations.html.ep:53 themes/default/templates/invitations/notification_files_sent.mail.ep:10
 msgid "%A %d %B %Y at %T"
 msgstr "%A %d %B %Y at %T"
 
@@ -99,7 +99,7 @@ msgstr "Asking for file part XX1 of %1"
 msgid "Back to homepage"
 msgstr "Back to homepage"
 
-#: lib/Lufi/Controller/Mail.pm:25
+#: lib/Lufi/Controller/Mail.pm:26
 msgid "Bad CSRF token!"
 msgstr "Bad CSRF token!"
 
@@ -365,12 +365,12 @@ msgid "Invert selection"
 msgstr "Invert selection"
 
 #. ($i->guest_mail, $url)
-#: lib/Lufi/Controller/Invitation.pm:180
+#: lib/Lufi/Controller/Invitation.pm:193
 msgid "Invitation resent to %1.<br> URL: %2"
 msgstr "Invitation resent to %1.<br> URL: %2"
 
 #. ($invitation->guest_mail, $url)
-#: lib/Lufi/Controller/Invitation.pm:90
+#: lib/Lufi/Controller/Invitation.pm:91
 msgid "Invitation sent to %1.<br> URL: %2"
 msgstr "Invitation sent to %1.<br> URL: %2"
 
@@ -506,11 +506,11 @@ msgstr "Send all links by email"
 msgid "Send the invitation"
 msgstr "Send the invitation"
 
-#: themes/default/templates/mail.html.ep:46
+#: themes/default/templates/mail.html.ep:47
 msgid "Send with this server"
 msgstr "Send with this server"
 
-#: themes/default/templates/mail.html.ep:47
+#: themes/default/templates/mail.html.ep:49
 msgid "Send with your own mail software"
 msgstr "Send with your own mail software"
 
@@ -519,7 +519,7 @@ msgid "Sending part XX1 of XX2. Please, be patient, the progress bar can take a 
 msgstr "Sending part XX1 of XX2. Please, be patient, the progress bar can take a while to move."
 
 #. (url_for('/')
-#: themes/default/templates/partial/mail.js.ep:48
+#: themes/default/templates/partial/mail.js.ep:49
 msgid "Share your files in total privacy on %1"
 msgstr "Share your files in total privacy on %1"
 
@@ -535,11 +535,11 @@ msgstr "Show zip content"
 msgid "Signin"
 msgstr "Signin"
 
-#: lib/Lufi/Controller/Invitation.pm:182 lib/Lufi/Controller/Invitation.pm:297 lib/Lufi/Controller/Invitation.pm:92 lib/Lufi/Controller/Mail.pm:106
+#: lib/Lufi/Controller/Invitation.pm:195 lib/Lufi/Controller/Invitation.pm:314 lib/Lufi/Controller/Invitation.pm:93 lib/Lufi/Controller/Mail.pm:120
 msgid "Something went wrong when sending the mail(s). You should contact the administrator of this instance."
-msgstr ""
+msgstr "Something went wrong when sending the mail(s). You should contact the administrator of this instance."
 
-#: lib/Lufi/Controller/Invitation.pm:305 themes/default/templates/invitations/exception.html.ep:16
+#: lib/Lufi/Controller/Invitation.pm:322 themes/default/templates/invitations/exception.html.ep:16
 msgid "Sorry, the invitation doesn’t exist. Are you sure you are on the right URL?"
 msgstr "Sorry, the invitation doesn’t exist. Are you sure you are on the right URL?"
 
@@ -561,7 +561,7 @@ msgid "Sorry, your invitation has expired or has been deleted. Please contact %1
 msgstr "Sorry, your invitation has expired or has been deleted. Please contact %1 to have another invitation."
 
 #. ($invitation->ldap_user_mail)
-#: lib/Lufi/Controller/Invitation.pm:290
+#: lib/Lufi/Controller/Invitation.pm:307
 msgid "The URLs of your files have been sent by email to %1."
 msgstr "The URLs of your files have been sent by email to %1."
 
@@ -569,7 +569,7 @@ msgstr "The URLs of your files have been sent by email to %1."
 msgid "The administrator can only see the file's name, its size and its mimetype (what kind of file it is: video, text, etc.)."
 msgstr "The administrator can only see the file's name, its size and its mimetype (what kind of file it is: video, text, etc.)."
 
-#: lib/Lufi/Controller/Mail.pm:53
+#: lib/Lufi/Controller/Mail.pm:67
 msgid "The body of the mail must contain at least one URL pointing to a file hosted on this instance."
 msgstr "The body of the mail must contain at least one URL pointing to a file hosted on this instance."
 
@@ -577,11 +577,11 @@ msgstr "The body of the mail must contain at least one URL pointing to a file ho
 msgid "The data has been successfully imported."
 msgstr "The data has been successfully imported."
 
-#: lib/Lufi/Controller/Mail.pm:75
+#: lib/Lufi/Controller/Mail.pm:89
 msgid "The email body can't be empty."
 msgstr "The email body can't be empty."
 
-#: lib/Lufi/Controller/Mail.pm:74
+#: lib/Lufi/Controller/Mail.pm:88
 msgid "The email subject can't be empty."
 msgstr "The email subject can't be empty."
 
@@ -599,7 +599,7 @@ msgid "The files uploaded on a Lufi instance are encrypted before the upload to 
 msgstr "The files uploaded on a Lufi instance are encrypted before the upload to the server: the administrator of the server can not see the file's content."
 
 #. (join(', ', @bad)
-#: lib/Lufi/Controller/Mail.pm:70
+#: lib/Lufi/Controller/Mail.pm:84
 msgid "The following email addresses are not valid: %1"
 msgstr "The following email addresses are not valid: %1"
 
@@ -608,13 +608,22 @@ msgstr "The following email addresses are not valid: %1"
 msgid "The guest email address (%1) is unvalid."
 msgstr "The guest email address (%1) is unvalid."
 
+#. ($i->token, $c->current_user->{username})
+#: lib/Lufi/Controller/Invitation.pm:142
+msgid "The invitation %1 can’t be deleted: it wasn’t created by you (%2)."
+msgstr "The invitation %1 can’t be deleted: it wasn’t created by you (%2)."
+
 #. ($i->token, $i->guest_mail)
-#: lib/Lufi/Controller/Invitation.pm:156
+#: lib/Lufi/Controller/Invitation.pm:169
 msgid "The invitation %1 can’t be resent: %2 has already sent files.<br>Please create a new invitation."
 msgstr "The invitation %1 can’t be resent: %2 has already sent files.<br>Please create a new invitation."
 
+#:
+msgid "The invitation %1 can’t be resent: it wasn’t created by you (%2)."
+msgstr "The invitation %1 can’t be resent: it wasn’t created by you (%2)."
+
 #. ($i->token)
-#: lib/Lufi/Controller/Invitation.pm:136
+#: lib/Lufi/Controller/Invitation.pm:140
 msgid "The invitation %1 has been deleted."
 msgstr "The invitation %1 has been deleted."
 
@@ -637,7 +646,7 @@ msgstr "The link(s) of your file(s) will automatically be sent by mail to %1 (%2
 msgid "The links of your file(s) will automatically be sent by mail to %1."
 msgstr "The link(s) of your file(s) will automatically be sent by mail to %1."
 
-#: lib/Lufi/Controller/Mail.pm:101
+#: lib/Lufi/Controller/Mail.pm:115
 msgid "The mail has been sent."
 msgstr "The mail has been sent."
 
@@ -741,7 +750,12 @@ msgstr "You can invite someone to send you files through this Lufi instance even
 msgid "You can see the list of your files by clicking on the \"My files\" link at the top right of this page."
 msgstr "You can see the list of your files by clicking on the \"My files\" link at the top right of this page."
 
-#: lib/Lufi/Controller/Mail.pm:42
+#. ($orig_uri)
+#: lib/Lufi/Controller/Mail.pm:43 lib/Lufi/Controller/Mail.pm:59
+msgid "You can't add URLs that are not related to this instance (%1)."
+msgstr "You can't add URLs that are not related to this instance (%1)."
+
+#:
 msgid "You can't add URLs that are not related to this instance."
 msgstr "You can't add URLs that are not related to this instance."
 
@@ -765,7 +779,7 @@ msgstr "You have attempted to leave this page. The upload will be canceled. Are 
 msgid "You have been successfully logged out."
 msgstr "You have been successfully logged out."
 
-#: lib/Lufi/Controller/Mail.pm:73
+#: lib/Lufi/Controller/Mail.pm:87
 msgid "You must give email addresses."
 msgstr "You must give email addresses."
 
