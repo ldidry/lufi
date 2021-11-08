@@ -91,11 +91,11 @@ msgstr "Êtes-vous sûr·e de vouloir renvoyer le courriel d’invitation pour l
 
 #: themes/default/templates/about.html.ep:17
 msgid "As Lufi is a free software licensed under of the terms of the <a href=\"https://gnu.org/licenses/agpl.html\" class=\"classic\">AGPLv3</a>, you can install it on you own server. Have a look on the <a href=\"https://framagit.org/fiat-tux/hat-softwares/lufi/wikis/home\" class=\"classic\">Wiki</a> for the procedure."
-msgstr "Comme Lufi est un logiciel libre soumis aux termes de la license <a href=\"https://gnu.org/licenses/agpl.html\" class=\"classic\">AGPLv3</a>, vous pouvez l’installer sur votre propre serveur. Veuillez consulter le <a href=\"https://framagit.org/fiat-tux/hat-softwares/lufi/wikis/home\" class=\"classic\">Wiki</a> pour voir la procédure."
+msgstr "Comme Lufi est un logiciel libre soumis aux termes de la licence <a href=\"https://gnu.org/licenses/agpl.html\" class=\"classic\">AGPLv3</a>, vous pouvez l’installer sur votre propre serveur. Veuillez consulter le <a href=\"https://framagit.org/fiat-tux/hat-softwares/lufi/wikis/home\" class=\"classic\">Wiki</a> pour voir la procédure."
 
 #:
 msgid "As Lufi is a free software licensed under of the terms of the <a href=\"https://gnu.org/licenses/agpl.html\" class=\"classic\">AGPLv3</a>, you can install it on you own server. Have a look on the <a href=\"https://framagit.org/luc/lufi/wikis/home\" class=\"classic\">Wiki</a> for the procedure."
-msgstr "Comme Lufi est un logiciel libre soumis aux termes de la license <a href=\"https://gnu.org/licenses/agpl.html\" class=\"classic\">AGPLv3</a>, vous pouvez l’installer sur votre propre serveur. Veuillez consulter le <a href=\"https://framagit.org/luc/lufi/wikis/home\" class=\"classic\">Wiki</a> pour voir la procédure."
+msgstr "Comme Lufi est un logiciel libre soumis aux termes de la licence <a href=\"https://gnu.org/licenses/agpl.html\" class=\"classic\">AGPLv3</a>, vous pouvez l’installer sur votre propre serveur. Veuillez consulter le <a href=\"https://framagit.org/luc/lufi/wikis/home\" class=\"classic\">Wiki</a> pour voir la procédure."
 
 #. (stash('nbslices')
 #: themes/default/templates/partial/render.js.ep:10
@@ -132,7 +132,7 @@ msgstr "Fermer"
 
 #: themes/default/templates/mail.html.ep:23
 msgid "Comma-separated email addresses"
-msgstr "Adresses mails séparées par des virgules"
+msgstr "Adresses mail séparées par des virgules"
 
 #: themes/default/templates/index.html.ep:140
 msgid "Compressing zip file…"
@@ -140,11 +140,11 @@ msgstr "Compression du fichier zip…"
 
 #: themes/default/templates/partial/index.js.ep:15
 msgid "Copy all links to clipboard"
-msgstr "Copier tous les liens dans le presse-papier"
+msgstr "Copier tous les liens dans le presse-papiers"
 
 #: themes/default/templates/partial/index.js.ep:18
 msgid "Copy to clipboard"
-msgstr "Copier dans le presse-papier"
+msgstr "Copier dans le presse-papiers"
 
 #: lib/Lufi/Controller/Files.pm:501
 msgid "Could not delete the file. You are not authenticated."
@@ -152,11 +152,11 @@ msgstr "Impossible de supprimer le fichier. Vous n’êtes pas connecté·e."
 
 #: lib/Lufi/Controller/Files.pm:483
 msgid "Could not find the file. Are you sure of the URL and the token?"
-msgstr "Impossible de retrouver le fichier. Êtes-vous sûr(e) que l’URL et le jeton sont les bons ?"
+msgstr "Impossible de retrouver le fichier. Êtes-vous sûr⋅e que l’URL et le jeton sont les bons ?"
 
 #: lib/Lufi/Controller/Files.pm:394
 msgid "Could not find the file. Are you sure of the URL?"
-msgstr "Impossible de retrouver le fichier. Êtes-vous sûr(e) que l’URL est la bonne ?"
+msgstr "Impossible de retrouver le fichier. Êtes-vous sûr⋅e que l’URL est la bonne ?"
 
 #: themes/default/templates/files.html.ep:29
 msgid "Counter"
@@ -204,7 +204,7 @@ msgstr "Lien de téléchargement"
 
 #: themes/default/templates/about.html.ep:10
 msgid "Drag and drop files in the appropriate area or use the traditional way to send files and the files will be chunked, encrypted and sent to the server. You will get two links per file: a download link, that you give to the people you want to share the file with and a deletion link, allowing you to delete the file whenever you want."
-msgstr "Faites glisser des fichiers dans la zone prévue à cet effet ou sélectionnez un fichier de façon classique et les fichiers seront découpés en morceaux, chiffrés et envoyés au serveur. Vous récupérerez deux liens par fichier : un lien de téléchargement et un lien pour supprimer le fichier quand vous le souhaitez."
+msgstr "Faites glisser des fichiers dans la zone prévue à cet effet ou sélectionnez un fichier de façon classique et les fichiers seront découpés en fragments, chiffrés et envoyés au serveur. Vous récupérerez deux liens par fichier : un lien de téléchargement et un lien pour supprimer le fichier quand vous le souhaitez."
 
 #: themes/default/templates/index.html.ep:122
 msgid "Drop files here"
@@ -240,7 +240,7 @@ msgstr "Erreur : le fichier n’a pas été envoyé dans son intégralité."
 
 #: lib/Lufi/Controller/Files.pm:373
 msgid "Error: unable to find the file. Are you sure of your URL?"
-msgstr "Erreur : impossible de retrouver le fichier. Êtes-vous sûr(e) de l’URL ?"
+msgstr "Erreur : impossible de retrouver le fichier. Êtes-vous sûr⋅e de l’URL ?"
 
 #: themes/default/templates/partial/index.js.ep:23
 msgid "Expiration:"
@@ -441,7 +441,7 @@ msgstr "Mes invitations"
 
 #: themes/default/templates/invitations/notification_files_sent.mail.ep:17
 msgid "NB: this list includes the list of files that have already been sent to you."
-msgstr "NB : cette liste inclue la liste des fichiers qui vous a déjà été envoyée."
+msgstr "NB : cette liste inclut la liste des fichiers qui vous a déjà été envoyée."
 
 #: themes/default/templates/index.html.ep:115
 msgid "Name of the zip file"
@@ -642,7 +642,7 @@ msgstr "Le courriel d’invitation sera envoyé de votre adresse de courriel (%1
 
 #: themes/default/templates/partial/index.js.ep:16
 msgid "The link(s) has been copied to your clipboard"
-msgstr "Le(s) lien(s) a/ont été copié dans votre presse-papier"
+msgstr "Le(s) lien(s) a/ont été copié dans votre presse-papiers"
 
 #. (stash('invitation')
 #: themes/default/templates/index.html.ep:30
@@ -693,7 +693,7 @@ msgstr "URL"
 
 #: themes/default/templates/partial/index.js.ep:17
 msgid "Unable to copy the link(s) to your clipboard"
-msgstr "Impossible de copier le(s) lien(s) dans votre presse-papier"
+msgstr "Impossible de copier le(s) lien(s) dans votre presse-papiers"
 
 #: themes/default/templates/partial/render.js.ep:13
 msgid "Unable to download the file: too much unsuccessful attempts to open a websocket. Please, contact the administrator."
