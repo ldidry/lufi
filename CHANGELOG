@@ -1,6 +1,7 @@
 Revision history for Lufi
 
 ?.??.? ????-??-??
+	- 👷🐛 Create release in CI before publishing changelog
 
 0.05.15 2021-11-03
 	- 🐛 Fix mail signature separator
