@@ -1,0 +1,990 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: \n"
+"POT-Creation-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"PO-Revision-Date: 2021-11-02 10:04+0900\n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: Poedit 2.3\n"
+"Last-Translator: \n"
+"Plural-Forms: nplurals=1; plural=0;\n"
+"Language: ja_JP\n"
+"X-Language: ja_JP\n"
+"X-Source-Language: C\n"
+
+#. ($delay)(max_delay)
+#: themes/default/templates/index.html.ep:56
+#: themes/default/templates/index.html.ep:65
+#: themes/default/templates/index.html.ep:66
+#, qt-format
+msgid "%1 days"
+msgstr "%1日"
+
+#. (stash('ldap_user')
+#: themes/default/templates/invitations/invite.mail.ep:2
+#, qt-format
+msgid "%1 invites you to send him/her files"
+msgstr "%1 はあなたにファイルを送信しようとしています"
+
+#. (stash('ldap_user')
+#: themes/default/templates/invitations/invite.mail.ep:6
+#, qt-format
+msgid "%1 invites you to send him/her files through Lufi."
+msgstr "%1 はLufiによってあなたにファイルを送信しようとしています。"
+
+#. (stash('invitation')
+#: themes/default/templates/invitations/notification_files_sent.mail.ep:4
+#, qt-format
+msgid "%1 sent you files"
+msgstr "%1 はあなたにファイルを送信しました"
+
+#. (stash('invitation')
+#: themes/default/templates/invitations/notification_files_sent.mail.ep:8
+#, qt-format
+msgid "%1 used your invitation to send you files:"
+msgstr "%1は招待を受け、次のファイルを送信しました:"
+
+#: lib/Lufi/Controller/Invitation.pm:160 lib/Lufi/Controller/Invitation.pm:85
+#: themes/default/templates/invitations/my_invitations.html.ep:51
+#: themes/default/templates/invitations/my_invitations.html.ep:52
+#: themes/default/templates/invitations/my_invitations.html.ep:53
+#: themes/default/templates/invitations/notification_files_sent.mail.ep:12
+msgid "%A %d %B %Y at %T"
+msgstr "%A %d %B %Y at %T"
+
+#: themes/default/templates/partial/index.js.ep:28
+msgid "(max size: XXX)"
+msgstr "(最大サイズ: XXX)"
+
+#: themes/default/templates/index.html.ep:5
+msgid "1 year"
+msgstr "1年"
+
+#: themes/default/templates/index.html.ep:4
+#: themes/default/templates/index.html.ep:65
+msgid "24 hours"
+msgstr "24時間"
+
+#: themes/default/templates/partial/mail.js.ep:40
+msgid ":"
+msgstr ":"
+
+#: themes/default/templates/render.html.ep:42
+msgid "Abort"
+msgstr "中断"
+
+#: themes/default/templates/layouts/default.html.ep:53
+#: themes/default/templates/layouts/default.html.ep:86
+msgid "About"
+msgstr "Lufiについて"
+
+#: themes/default/templates/index.html.ep:107
+msgid "Add a password to file(s)"
+msgstr "ファイルにパスワードをかける"
+
+#: themes/default/templates/mail.html.ep:16
+msgid ""
+"Adding URLs not related to this Lufi instance to the mail body or subject is "
+"prohibited."
+msgstr "メールの本文や件名に、このLufiインスタンスに関係のないURLを追加することは禁止されています。"
+
+#: themes/default/templates/partial/invitations.js.ep:3
+msgid "Are you sure you want to delete the selected invitations?"
+msgstr "選択した招待状を削除してもよろしいですか？"
+
+#: themes/default/templates/partial/invitations.js.ep:4
+msgid ""
+"Are you sure you want to resend the invitation mail for the selected "
+"invitations?"
+msgstr "選択した招待メールを再送してよろしいですか？"
+
+#: themes/default/templates/about.html.ep:17
+msgid ""
+"As Lufi is a free software licensed under of the terms of the <a "
+"href=\"https://gnu.org/licenses/agpl.html\" class=\"classic\">AGPLv3</a>, "
+"you can install it on you own server. Have a look on the <a "
+"href=\"https://framagit.org/fiat-tux/hat-softwares/lufi/wikis/home\" "
+"class=\"classic\">Wiki</a> for the procedure."
+msgstr ""
+"Lufiは<a href=\"https://gnu.org/licenses/agpl.html\" "
+"class=\"classic\">AGPLv3</a>に基づきライセンスされたフリーソフトウェアで、あなた自身のサーバーにインストールすることができます。手順は、<a "
+"href=\"https://framagit.org/fiat-tux/hat-softwares/lufi/wikis/home\" "
+"class=\"classic\">Wiki</a>をご確認ください。ソースコードは、公式リポジトリまたはGithubミラーから入手できます。"
+
+#. (stash('nbslices')
+#: themes/default/templates/partial/render.js.ep:10
+#, qt-format
+msgid "Asking for file part XX1 of %1"
+msgstr "ファイルのパートXX1 / %1を取得しています"
+
+#: themes/default/templates/about.html.ep:23
+msgid "Back to homepage"
+msgstr "トップページに戻る"
+
+#: lib/Lufi/Controller/Mail.pm:25
+msgid "Bad CSRF token!"
+msgstr "CSRFトークンが無効です！"
+
+#: lib/Lufi/Controller/Auth.pm:27 lib/Lufi/Controller/Auth.pm:49
+msgid "Bad CSRF token."
+msgstr "CSRFトークンが無効です。"
+
+#: themes/default/templates/partial/render.js.ep:5
+msgid "Click here to refresh the page and restart the download."
+msgstr "ここをクリックすると、ページが更新されダウンロードが再開されます。"
+
+#: themes/default/templates/invitations/invite.mail.ep:8
+msgid "Click on the following URL to upload files on Lufi:"
+msgstr "次のURLからLufiにファイルをアップロードできます:"
+
+#: themes/default/templates/index.html.ep:126
+msgid "Click to open the file browser"
+msgstr "ファイルを参照"
+
+#: themes/default/templates/delays.html.ep:42
+#: themes/default/templates/invitations/my_invitations.html.ep:80
+msgid "Close"
+msgstr "閉じる"
+
+#: themes/default/templates/mail.html.ep:23
+msgid "Comma-separated email addresses"
+msgstr "メールアドレス(コンマ区切り)"
+
+#: themes/default/templates/index.html.ep:140
+msgid "Compressing zip fileâ¦"
+msgstr "Zipファイルに圧縮中..."
+
+#: themes/default/templates/partial/index.js.ep:15
+msgid "Copy all links to clipboard"
+msgstr "全てのリンクをクリップボードにコピー"
+
+#: themes/default/templates/partial/index.js.ep:18
+msgid "Copy to clipboard"
+msgstr "クリップボードにコピー"
+
+#: lib/Lufi/Controller/Files.pm:501
+msgid "Could not delete the file. You are not authenticated."
+msgstr "認証されていないためファイルを削除できませんでした。"
+
+#: lib/Lufi/Controller/Files.pm:483
+msgid "Could not find the file. Are you sure of the URL and the token?"
+msgstr "ファイルが見つかりませんでした。URLとトークンが間違っていませんか？"
+
+#: lib/Lufi/Controller/Files.pm:394
+msgid "Could not find the file. Are you sure of the URL?"
+msgstr "ファイルが見つかりませんでした。URLが間違っていませんか？"
+
+#: themes/default/templates/files.html.ep:29
+msgid "Counter"
+msgstr "ダウンロード数"
+
+#: themes/default/templates/index.html.ep:100
+msgid "Create a zip archive with the files before uploading?"
+msgstr "アップロード前にファイルをZip圧縮する"
+
+#: themes/default/templates/invitations/my_invitations.html.ep:26
+msgid "Created at"
+msgstr "作成日時"
+
+#: themes/default/templates/invitations/my_invitations.html.ep:14
+msgid "Delete"
+msgstr "削除"
+
+#: themes/default/templates/files.html.ep:30
+#: themes/default/templates/index.html.ep:90
+msgid "Delete at first download?"
+msgstr "初回ダウンロード時に削除"
+
+#: themes/default/templates/files.html.ep:19
+msgid "Delete selected files"
+msgstr "選択したファイルを削除"
+
+#: themes/default/templates/files.html.ep:33
+#: themes/default/templates/partial/index.js.ep:19
+msgid "Deletion link"
+msgstr "削除リンク"
+
+#: themes/default/templates/delays.html.ep:9
+msgid ""
+"Don't worry: if a user begins to download the file before the expiration and "
+"the download ends after the expiration, he will be able to get the file."
+msgstr ""
+"ご安心ください、ユーザーが有効期限前にファイルのダウンロードを開始し、有効期限後にダウンロードが終了した場合は、ファイルを取得することができます。"
+
+#: themes/default/templates/partial/index.js.ep:21
+#: themes/default/templates/render.html.ep:28
+msgid "Download"
+msgstr "ダウンロード"
+
+#: themes/default/templates/partial/render.js.ep:4
+msgid "Download aborted."
+msgstr "ダウンロードは中断されました。"
+
+#: themes/default/templates/files.html.ep:28
+#: themes/default/templates/partial/index.js.ep:20
+msgid "Download link"
+msgstr "ダウンロードリンク"
+
+#: themes/default/templates/about.html.ep:10
+msgid ""
+"Drag and drop files in the appropriate area or use the traditional way to "
+"send files and the files will be chunked, encrypted and sent to the server. "
+"You will get two links per file: a download link, that you give to the "
+"people you want to share the file with and a deletion link, allowing you to "
+"delete the file whenever you want."
+msgstr ""
+"ファイルを適切な場所にドラッグ＆ドロップするか、参照してファイルを送信すると、ファイルは分割後、暗号化されてサーバーに送信されます。1つのファイルにつき2つのリンクが表示されます。ダウンロードリンクはファイルを共有したい人に渡すもので、削除リンクを使用すればいつでもファイルを削除することができます。"
+
+#: themes/default/templates/index.html.ep:122
+msgid "Drop files here"
+msgstr "ファイルをここにドロップ"
+
+#: themes/default/templates/invitations/invite.html.ep:40
+msgid "Email address of your guest"
+msgstr "ゲストのメールアドレス"
+
+#: themes/default/templates/mail.html.ep:39
+msgid "Email body"
+msgstr "メール本文"
+
+#: themes/default/templates/mail.html.ep:31
+msgid "Email subject"
+msgstr "メール件名"
+
+#: themes/default/templates/mail.html.ep:25
+#: themes/default/templates/mail.html.ep:27
+msgid "Emails"
+msgstr "メール"
+
+#: themes/default/templates/partial/index.js.ep:22
+msgid "Encrypting part XX1 of XX2"
+msgstr "パートXX1 / XX2を暗号化中"
+
+#: lib/Lufi/Controller/Files.pm:283
+msgid "Error: the file existed but was deleted."
+msgstr "エラー:ファイルは存在しましたが削除されました。"
+
+#: lib/Lufi/Controller/Files.pm:363
+msgid "Error: the file has not been sent entirely."
+msgstr "エラー:ファイルが完全に送信されていません。"
+
+#: lib/Lufi/Controller/Files.pm:373
+msgid "Error: unable to find the file. Are you sure of your URL?"
+msgstr "エラー:ファイルが見つかりませんでした。URLが間違っていませんか？"
+
+#: themes/default/templates/partial/index.js.ep:23
+msgid "Expiration:"
+msgstr "失効日時:"
+
+#: themes/default/templates/invitations/my_invitations.html.ep:27
+msgid "Expire at"
+msgstr "失効日時"
+
+#: themes/default/templates/files.html.ep:32
+msgid "Expires at"
+msgstr "失効日時"
+
+#: themes/default/templates/files.html.ep:12
+msgid "Export localStorage data"
+msgstr "ローカルストレージのデータをエクスポート"
+
+#: lib/Lufi/Controller/Files.pm:465
+msgid "File deleted"
+msgstr "ファイルは削除されました"
+
+#: themes/default/templates/partial/render.js.ep:9
+msgid "File downloaded"
+msgstr "ファイルはダウンロードされました"
+
+#: themes/default/templates/files.html.ep:27
+msgid "File name"
+msgstr "ファイル名"
+
+#: themes/default/templates/partial/index.js.ep:24
+msgid "File uploaded"
+msgstr "ファイルはアップロードされました"
+
+#: themes/default/templates/invitations/my_invitations.html.ep:61
+msgid "Files"
+msgstr "ファイル"
+
+#: themes/default/templates/index.html.ep:80
+msgid "Files deleted at first download"
+msgstr "最初のダウンロードによりファイルは削除されました"
+
+#: themes/default/templates/invitations/my_invitations.html.ep:28
+msgid "Files sent at"
+msgstr "ファイルの送信元"
+
+#: themes/default/templates/partial/invitations.js.ep:8
+msgid "Files sent in invitation XX1 by XX2"
+msgstr "ファイルは招待 XX1を介してXX2によって送信されました"
+
+#: themes/default/templates/partial/render.js.ep:8
+msgid "Get the file"
+msgstr "ファイルを取得"
+
+#: themes/default/templates/about.html.ep:18
+msgid ""
+"Get the source code on <a "
+"href=\"https://framagit.org/fiat-tux/hat-softwares/lufi\" "
+"class=\"classic\">the official repository</a> or on its <a "
+"href=\"https://github.com/ldidry/lufi\" class=\"classic\">Github mirror</a>"
+msgstr ""
+"ソースコードを<a href=\"https://framagit.org/fiat-tux/hat-softwares/lufi\" "
+"class=\"classic\">公式リポジトリ</a>または <a href=\"https://github.com/ldidry/lufi\" "
+"class=\"classic\">Githubミラー</a>から入手できます"
+
+#: themes/default/templates/invitations/my_invitations.html.ep:24
+msgid "Guest mail"
+msgstr "ゲストメール"
+
+#. (ucfirst(stash('invitation')
+#: themes/default/templates/invitations/notification_files_sent.mail.ep:6
+#, qt-format
+msgid "Hello %1,"
+msgstr "%1 さん、こんにちは！"
+
+#: themes/default/templates/invitations/invite.mail.ep:4
+msgid "Hello,"
+msgstr "こんにちは。"
+
+#: themes/default/templates/partial/mail.js.ep:35
+msgid "Hello,\\n\\nHere's some files I want to share with you:\\n"
+msgstr "こんにちは。次の共有したいファイルがあります。:\\n"
+
+#: themes/default/templates/mail.html.ep:35
+msgid "Here's some files"
+msgstr "次のファイル"
+
+#: themes/default/templates/partial/invitations.js.ep:7
+msgid "Hide hidden invitations"
+msgstr "非表示の招待を隠す"
+
+#: themes/default/templates/partial/index.js.ep:26
+msgid "Hit Enter, then Ctrl+C to copy all the download links"
+msgstr "Enterキーを押した後、Ctrl+Cですべてのダウンロードリンクをコピーします"
+
+#: themes/default/templates/partial/index.js.ep:25
+msgid "Hit Enter, then Ctrl+C to copy the download link"
+msgstr "Enterキーを押した後、Ctrl+Cでダウンロードリンクをコピーします"
+
+#: themes/default/templates/about.html.ep:9
+msgid "How does it work?"
+msgstr "どのように使用しますか？"
+
+#: themes/default/templates/invitations/invite.html.ep:46
+msgid "How many days would you like the invitation to be valid?"
+msgstr "招待の有効期限は何日間ですか？"
+
+#: themes/default/templates/about.html.ep:16
+msgid "How to install the software on my server?"
+msgstr "どうすればLufiを私のサーバーにインストールできますか？"
+
+#: themes/default/templates/about.html.ep:12
+msgid "How to report an illegal file?"
+msgstr "違法なファイルを報告するにはどうすればよいですか？"
+
+#: themes/default/templates/delays.html.ep:8
+msgid "If you choose a delay, the file will be deleted after that delay."
+msgstr "削除時間を設定した場合、その時間後にファイルは削除されます。"
+
+#: themes/default/templates/mail.html.ep:15
+msgid ""
+"If you send the mail from this server, the links will be sent to the server, "
+"which may lower your privacy protection."
+msgstr "このサーバーからメールを送信すると、リンクがサーバーに送信されるため、プライバシーが低下する可能性があります。"
+
+#: themes/default/templates/files.html.ep:14
+msgid "Import localStorage data"
+msgstr "ローカルストレージのデータをインポート"
+
+#: themes/default/templates/index.html.ep:53
+msgid "Important: more information on delays"
+msgstr "重要:削除時間に関する詳細"
+
+#: themes/default/templates/delays.html.ep:5
+msgid "Information about delays"
+msgstr "削除時間に関する情報"
+
+#: themes/default/templates/files.html.ep:18
+#: themes/default/templates/invitations/my_invitations.html.ep:12
+msgid "Invert selection"
+msgstr "選択を反転"
+
+#. ($i->guest_mail, $url)
+#: lib/Lufi/Controller/Invitation.pm:172
+#, qt-format
+msgid "Invitation resent to %1.<br> URL: %2"
+msgstr "招待は%1に再送されました。<br> URL: %2"
+
+#. ($invitation->guest_mail, $url)
+#: lib/Lufi/Controller/Invitation.pm:88
+#, qt-format
+msgid "Invitation sent to %1.<br> URL: %2"
+msgstr "招待は%1に送信されました。<br> URL: %2"
+
+#: themes/default/templates/invitations/invite.html.ep:27
+#: themes/default/templates/layouts/default.html.ep:36
+#: themes/default/templates/layouts/default.html.ep:69
+msgid "Invite a guest"
+msgstr "ゲストを招待"
+
+#: themes/default/templates/partial/render.js.ep:6
+msgid ""
+"It seems that the key in your URL is incorrect. Please, verify your URL."
+msgstr "URL内のキーが間違っているようです。URLが間違ってないかご確認ください。"
+
+#: themes/default/templates/index.html.ep:12
+msgid "Javascript is disabled. You won't be able to use Lufi."
+msgstr "Javascriptが無効です。有効でないとLufiを使用できません。"
+
+#: themes/default/templates/layouts/default.html.ep:44
+#: themes/default/templates/layouts/default.html.ep:46
+#: themes/default/templates/layouts/default.html.ep:77
+#: themes/default/templates/layouts/default.html.ep:79
+msgid "Language"
+msgstr "言語"
+
+#. (sprintf('<a href="https://framagit.org/fiat-tux/hat-softwares/lufi/-/commit/%s" class="classic">%s</a>', stash('version')
+#: themes/default/templates/about.html.ep:22
+#, qt-format
+msgid "Latest commit of this instance: %1"
+msgstr "このインスタンスの最新のコミット:%1"
+
+#. (sprintf('<a href="https://framagit.org/fiat-tux/hat-softwares/lufi/-/releases/%s" class="classic">%s</a>', stash('version')
+#: themes/default/templates/about.html.ep:21
+#, qt-format
+msgid "Latest tag of this instance: %1"
+msgstr "このインスタンスの最新のタグ:%1"
+
+#: themes/default/templates/login.html.ep:15
+msgid "Login"
+msgstr "ログイン"
+
+#: themes/default/templates/layouts/default.html.ep:58
+#: themes/default/templates/layouts/default.html.ep:91
+msgid "Logout"
+msgstr "ログアウト"
+
+#: themes/default/templates/about.html.ep:4
+msgid "Lufi is a free (as in free speech) file hosting software."
+msgstr "Lufiは自由なファイルホスティングソフトウェアです。"
+
+#: themes/default/templates/partial/files.js.ep:12
+msgid ""
+"Lufi recently changed its way to store files information.\\n\\nNo files have "
+"been found in the new localStorage location but we found files in the old "
+"one.\\nDo you want to import those informations?\\n\\nPlease note that this "
+"is the only time that we will ask you this."
+msgstr ""
+"Lufi "
+"は最近、ファイル情報の保存方法を変更しました。\\n\\n新しいローカルストレージにはファイルがありませんでしたが、古いローカルストレージにファイルがありました。\\nこれらの情報をインポートしますか？\\n\\nこの質問をするのは今回だけですので、ご了承ください。"
+
+#: themes/default/templates/files.html.ep:34
+msgid "Mail"
+msgstr "メール"
+
+#: themes/default/templates/files.html.ep:3
+#: themes/default/templates/layouts/default.html.ep:34
+#: themes/default/templates/layouts/default.html.ep:67
+msgid "My files"
+msgstr "私のファイル"
+
+#: themes/default/templates/invitations/my_invitations.html.ep:5
+#: themes/default/templates/layouts/default.html.ep:37
+#: themes/default/templates/layouts/default.html.ep:70
+msgid "My invitations"
+msgstr "私の招待"
+
+#: themes/default/templates/invitations/notification_files_sent.mail.ep:17
+msgid ""
+"NB: this list includes the list of files that have already been sent to you."
+msgstr "注：このリストには、すでに送信されたファイルのリストが含まれています。"
+
+#: themes/default/templates/index.html.ep:115
+msgid "Name of the zip file"
+msgstr "Zipファイルの名前"
+
+#. (format_bytes($json->{size})
+#: lib/Lufi/Controller/Files.pm:109
+#, qt-format
+msgid "No enough space available on the server for this file (size: %1)."
+msgstr "サーバーにこのファイルのための十分なスペースがありません。(サイズ: %1)"
+
+#: themes/default/templates/partial/files.js.ep:10
+#: themes/default/templates/partial/index.js.ep:29
+msgid "No expiration delay"
+msgstr "削除時間なし"
+
+#: themes/default/templates/files.html.ep:8
+msgid ""
+"Only the files sent with this browser will be listed here. This list is "
+"stored in localStorage: if you delete your localStorage data, you'll lose "
+"this list."
+msgstr ""
+"このブラウザで送信されたファイルのみがここに表示されます。このリストはローカルストレージに保存されています。ローカルストレージのデータを削除すると、このリストも失われます。"
+
+#: themes/default/templates/index.html.ep:106
+#: themes/default/templates/login.html.ep:21
+#: themes/default/templates/render.html.ep:26
+msgid "Password"
+msgstr "パスワード"
+
+#. (config('contact')
+#: themes/default/templates/about.html.ep:13
+#, qt-format
+msgid "Please contact the administrator: %1"
+msgstr "管理者にお問い合わせください:%1"
+
+#: themes/default/templates/render.html.ep:33
+msgid ""
+"Please wait while we are getting your file. We first need to download and "
+"decrypt all parts before you can get it."
+msgstr ""
+"しばらくお待ちください。あなたのファイルを取得しています。あなたがファイルを入手する前に、まずすべてのパーツを取得して復号する必要があります。"
+
+#: lib/Lufi/Controller/Auth.pm:38
+msgid ""
+"Please, check your credentials or your right to access this service: unable "
+"to authenticate."
+msgstr "このサービスにアクセスするための資格をご確認ください:認証できませんでした。"
+
+#: themes/default/templates/about.html.ep:5
+msgid "Privacy"
+msgstr "プライバシー"
+
+#: themes/default/templates/files.html.ep:13
+msgid "Purge expired files from localStorage"
+msgstr "ローカルストレージから期限切れのファイルを削除する"
+
+#: themes/default/templates/invitations/notification_files_sent.mail.ep:20
+msgid "Regards,"
+msgstr "よろしくおねがいします。"
+
+#: themes/default/templates/invitations/invite.mail.ep:15
+msgid "Regards."
+msgstr "よろしくおねがいします。"
+
+#: themes/default/templates/layouts/default.html.ep:31
+#: themes/default/templates/layouts/default.html.ep:64
+msgid "Report file"
+msgstr "ファイルを報告"
+
+#: themes/default/templates/invitations/my_invitations.html.ep:15
+msgid "Resend invitation mail"
+msgstr "招待メールを再送"
+
+#: themes/default/templates/invitations/my_invitations.html.ep:9
+msgid "Rows in purple mean that the invitations have expired."
+msgstr "紫色の行は、招待の有効期限が切れていることを意味します。"
+
+#: themes/default/templates/files.html.ep:9
+msgid ""
+"Rows in red mean that the files have expired and are no longer available."
+msgstr "赤色の行は、ファイルが期限切れで利用できなくなっていることを意味します。"
+
+#: themes/default/templates/partial/index.js.ep:27
+msgid "Send all links by email"
+msgstr "全てのリンクをメールで送信する"
+
+#: themes/default/templates/invitations/invite.html.ep:50
+msgid "Send the invitation"
+msgstr "招待を送信"
+
+#: themes/default/templates/mail.html.ep:46
+msgid "Send with this server"
+msgstr "このサーバーから送信"
+
+#: themes/default/templates/mail.html.ep:47
+msgid "Send with your own mail software"
+msgstr "自身のメールクライアントから送信"
+
+#: themes/default/templates/partial/index.js.ep:30
+msgid ""
+"Sending part XX1 of XX2. Please, be patient, the progress bar can take a "
+"while to move."
+msgstr "パートXX1/XX2を送信中です。暫くお待ちください。プログレスバーが動くまでに時間がかかることがあります。"
+
+#. (url_for('/')
+#: themes/default/templates/partial/mail.js.ep:48
+#, qt-format
+msgid "Share your files in total privacy on %1"
+msgstr "%1でファイルを完全なプライバシーで共有する"
+
+#: themes/default/templates/invitations/my_invitations.html.ep:13
+#: themes/default/templates/partial/invitations.js.ep:9
+msgid "Show hidden invitations"
+msgstr "非表示の招待を表示する"
+
+#: themes/default/templates/partial/render.js.ep:12
+msgid "Show zip content"
+msgstr "Zipコンテンツを表示する"
+
+#: themes/default/templates/layouts/default.html.ep:40
+#: themes/default/templates/layouts/default.html.ep:73
+#: themes/default/templates/login.html.ep:28
+#: themes/default/templates/logout.html.ep:17
+msgid "Signin"
+msgstr "サインイン"
+
+#: lib/Lufi/Controller/Invitation.pm:284
+#: themes/default/templates/invitations/exception.html.ep:16
+msgid ""
+"Sorry, the invitation doesnât exist. Are you sure you are on the right URL?"
+msgstr "招待が見つかりませんでした。正しいURLを入力していますか？"
+
+#: themes/default/templates/index.html.ep:46
+msgid "Sorry, the uploading is currently disabled. Please try again later."
+msgstr "申し訳ありませんが、現在アップロードができません。後日、再度お試しください。"
+
+#: lib/Lufi/Controller/Files.pm:82
+msgid "Sorry, uploading is disabled."
+msgstr "申し訳ありません。現在アップロードは無効です。"
+
+#: themes/default/templates/invitations/exception.html.ep:7
+msgid "Sorry, your invitation has expired or has been deleted."
+msgstr "申し訳ありません。招待は失効したか削除されました。"
+
+#. ($invit->ldap_user_mail)
+#: lib/Lufi/Controller/Files.pm:123
+#, qt-format
+msgid ""
+"Sorry, your invitation has expired or has been deleted. Please contact %1 to "
+"have another invitation."
+msgstr "申し訳ありません。招待は失効したか削除されました。%1に連絡して新たに招待を受けてください。"
+
+#. ($invitation->ldap_user_mail)
+#: lib/Lufi/Controller/Invitation.pm:277
+#, qt-format
+msgid "The URLs of your files have been sent by email to %1."
+msgstr "ファイルの URL は、メールで %1 に送信されました。"
+
+#: themes/default/templates/about.html.ep:7
+msgid ""
+"The administrator can only see the file's name, its size and its mimetype "
+"(what kind of file it is: video, text, etc.)."
+msgstr "管理者が見ることができるのは、ファイル名、サイズ、MIMEタイプ（ビデオ、テキストなどのファイルの種類）だけです。"
+
+#: lib/Lufi/Controller/Mail.pm:53
+msgid ""
+"The body of the mail must contain at least one URL pointing to a file hosted "
+"on this instance."
+msgstr "メールの本文には、このインスタンスでホストされているファイルを指すURLを少なくとも1つ含める必要があります。"
+
+#: themes/default/templates/partial/files.js.ep:11
+msgid "The data has been successfully imported."
+msgstr "データは正常にインポートされました。"
+
+#: lib/Lufi/Controller/Mail.pm:73
+msgid "The email body can't be empty."
+msgstr "メール本文は空白にできません。"
+
+#: lib/Lufi/Controller/Mail.pm:72
+msgid "The email subject can't be empty."
+msgstr "メールの件名は空白にできません。"
+
+#. ($expire_at, $max_expire_at)
+#: lib/Lufi/Controller/Invitation.pm:52
+#, qt-format
+msgid "The expiration delay (%1) is not between 1 and %2 days."
+msgstr "削除期限 (%1) が 1 日から %2 日の間ではありません。"
+
+#: lib/Lufi/Controller/Files.pm:462
+msgid "The file has already been deleted"
+msgstr "ファイルは既に削除されました"
+
+#: themes/default/templates/about.html.ep:6
+msgid ""
+"The files uploaded on a Lufi instance are encrypted before the upload to the "
+"server: the administrator of the server can not see the file's content."
+msgstr "Lufi インスタンスにアップロードされるファイルは、サーバーに送信される前に暗号化されます。"
+
+#. (join(', ', @bad)
+#: lib/Lufi/Controller/Mail.pm:68
+#, qt-format
+msgid "The following email addresses are not valid: %1"
+msgstr "次のメールアドレスは無効です: %1"
+
+#. ($guest_mail)
+#: lib/Lufi/Controller/Invitation.pm:49
+#, qt-format
+msgid "The guest email address (%1) is unvalid."
+msgstr "ゲストのメールアドレス(%1)は無効です。"
+
+#. ($i->token, $i->guest_mail)
+#: lib/Lufi/Controller/Invitation.pm:151
+#, qt-format
+msgid ""
+"The invitation %1 canât be resent: %2 has already sent files.<br>Please "
+"create a new invitation."
+msgstr "招待 %1 は再送できません: %2 は既に送信済みのファイルです。<br>新しく招待を作成してください。"
+
+#. ($i->token)
+#: lib/Lufi/Controller/Invitation.pm:131
+#, qt-format
+msgid "The invitation %1 has been deleted."
+msgstr "招待 %1 は削除されました。"
+
+#. (stash('user_mail')
+#: themes/default/templates/invitations/invite.html.ep:34
+#, qt-format
+msgid "The invitation mail will be send from your email address (%1)."
+msgstr "招待はあなたのメールアドレス(%1)から送信されます。"
+
+#: themes/default/templates/partial/index.js.ep:16
+msgid "The link(s) has been copied to your clipboard"
+msgstr "リンクはクリップボードにコピーされました"
+
+#. (stash('invitation')
+#: themes/default/templates/index.html.ep:30
+#, qt-format
+msgid ""
+"The link(s) of your file(s) will automatically be sent by mail to %1 (%2)"
+msgstr "あなたのファイルのリンクは、自動的に %1 (%2) にメールで送信されます"
+
+#. (stash('ldap_user')
+#: themes/default/templates/invitations/invite.mail.ep:11
+#, qt-format
+msgid "The links of your file(s) will automatically be sent by mail to %1."
+msgstr "あなたのファイルのリンクは、自動的に%1にメールで送信されます。"
+
+#: lib/Lufi/Controller/Mail.pm:97
+msgid "The mail has been sent."
+msgstr "メールは送信されました。"
+
+#: themes/default/templates/about.html.ep:15
+msgid ""
+"The original (and only for now) author is <a href=\"https://fiat-tux.fr\" "
+"class=\"classic\">Luc Didry</a>."
+msgstr ""
+"このソフトウェアの原作者は<a href=\"https://fiat-tux.fr\" class=\"classic\">Luc "
+"Didry</a>です。"
+
+#: lib/Lufi/Controller/Files.pm:230
+msgid ""
+"The server was unable to find the file record to add your file part to. "
+"Please, contact the administrator."
+msgstr "ファイルパーツを追加するファイルレコードがサーバーに見つかりませんでした。お手数ですが、管理者にお問い合わせください。"
+
+#: lib/Lufi/Controller/Files.pm:289
+msgid "This file has been deactivated by the admins. Contact them to know why."
+msgstr "このファイルは管理者によって無効にされています。理由については管理者にお問い合わせください。"
+
+#: themes/default/templates/invitations/my_invitations.html.ep:46
+#: themes/default/templates/partial/invitations.js.ep:6
+msgid "This invitation is normally hidden"
+msgstr "この招待は通常は非表示です"
+
+#. (stash('expires')
+#: themes/default/templates/invitations/invite.mail.ep:13
+#, qt-format
+msgid "This invitation is valid until %1."
+msgstr "この招待は %1 まで有効です。"
+
+#: themes/default/templates/delays.html.ep:13
+msgid ""
+"This server sets limitations according to the file size. The expiration "
+"delay of your file will be the minimum between what you choose and the "
+"following limitations:"
+msgstr "このサーバーでは、ファイルサイズに応じて制限を設けています。ファイルの有効期限は、あなたが選択されたものと次の制限との間の最小値となります:"
+
+#: themes/default/templates/invitations/my_invitations.html.ep:16
+msgid "Toggle visibility"
+msgstr "可視性を切り替え"
+
+#: themes/default/templates/invitations/my_invitations.html.ep:25
+msgid "URL"
+msgstr "URL"
+
+#: themes/default/templates/partial/index.js.ep:17
+msgid "Unable to copy the link(s) to your clipboard"
+msgstr "リンクをクリップボードにコピーできませんでした"
+
+#: themes/default/templates/partial/render.js.ep:13
+msgid ""
+"Unable to download the file: too much unsuccessful attempts to open a "
+"websocket. Please, contact the administrator."
+msgstr "ファイルをダウンロードできませんでした:Websocketを開くのに何度も失敗しました。管理者にお問い合わせください。"
+
+#. ($short)
+#: lib/Lufi/Controller/Files.pm:433
+#, qt-format
+msgid ""
+"Unable to get counter for %1. The file does not exists. It will be removed "
+"from your localStorage."
+msgstr "%1のダウンロード数を取得できませんでした。ファイルが存在しないかローカルストレージから削除されています。"
+
+#. ($short)
+#: lib/Lufi/Controller/Files.pm:423
+#, qt-format
+msgid "Unable to get counter for %1. The token is invalid."
+msgstr "%1のダウンロード数を取得できませんでした。トークンが無効です。"
+
+#. ($short)
+#: lib/Lufi/Controller/Files.pm:443
+#, qt-format
+msgid "Unable to get counter for %1. You are not authenticated."
+msgstr "%1のダウンロード数を取得できませんでした。あなたは認証されていません。"
+
+#: themes/default/templates/layouts/default.html.ep:33
+#: themes/default/templates/layouts/default.html.ep:66
+msgid "Upload files"
+msgstr "ファイルをアップロード"
+
+#: themes/default/templates/index.html.ep:145
+msgid "Upload generated zip file"
+msgstr "生成されたZipファイルをアップロード"
+
+#: themes/default/templates/files.html.ep:31
+msgid "Uploaded at"
+msgstr "アップロード日時"
+
+#: themes/default/templates/index.html.ep:153
+msgid "Uploaded files"
+msgstr "アップロードされたファイル"
+
+#: themes/default/templates/about.html.ep:20
+msgid "Version"
+msgstr "バージョン"
+
+#: themes/default/templates/partial/index.js.ep:31
+msgid "Websocket communication error"
+msgstr "Websocket通信エラー"
+
+#: themes/default/templates/about.html.ep:3
+msgid "What is Lufi?"
+msgstr "Lufiとは何ですか？"
+
+#: themes/default/templates/about.html.ep:14
+msgid "Who wrote this software?"
+msgstr "誰がこのソフトウェアを作っていますか？"
+
+#: themes/default/templates/partial/index.js.ep:13
+msgid "XXX file has been added to upload queue."
+msgstr "XXX 個のファイルがアップロードのキューに追加されました。"
+
+#: themes/default/templates/invitations/invite.html.ep:30
+msgid ""
+"You can invite someone to send you files through this Lufi instance even if "
+"they donât have an account on it."
+msgstr "相手がLufiのアカウントを持っていなくても、このLufiインスタンスを通してファイルを送るように招待することができます。"
+
+#: themes/default/templates/about.html.ep:11
+msgid ""
+"You can see the list of your files by clicking on the \"My files\" link at "
+"the top right of this page."
+msgstr "このページの右上にある「私のファイル」のリンクをクリックすると、自分のファイルの一覧が表示されます。"
+
+#: lib/Lufi/Controller/Mail.pm:42
+msgid "You can't add URLs that are not related to this instance."
+msgstr "このインスタンスに関係のないURLを追加することはできません。"
+
+#: themes/default/templates/about.html.ep:8
+msgid ""
+"You don't need to register yourself to upload files but be aware that, for "
+"legal reasons, your IP address will be stored when you send a file. Don't "
+"panic, this is normally the case for all sites on which you send files."
+msgstr ""
+"ファイルをアップロードするために登録する必要はありませんが、法律上の理由から、ファイルを送信する際にあなたのIPアドレスが記録されますのでご注意ください。これは通常、ファイルを送信するすべてのサイトに当てはまります。"
+
+#: themes/default/templates/partial/render.js.ep:11
+msgid ""
+"You don't seem to have a key in your URL. You won't be able to decrypt the "
+"file. Download canceled."
+msgstr "URLにキーが入っていないようです。ファイルの復号化ができません。ダウンロードを中止しました。"
+
+#: themes/default/templates/partial/render.js.ep:7
+msgid ""
+"You have attempted to leave this page. The download will be canceled. Are "
+"you sure?"
+msgstr "このページから離れると、ダウンロードはキャンセルされます。本当に宜しいですか？"
+
+#: themes/default/templates/partial/index.js.ep:14
+msgid ""
+"You have attempted to leave this page. The upload will be canceled. Are you "
+"sure?"
+msgstr "このページから離れると、アップロードはキャンセルされます。本当に宜しいですか？"
+
+#: themes/default/templates/logout.html.ep:14
+msgid "You have been successfully logged out."
+msgstr "正常にログアウトされました。"
+
+#: lib/Lufi/Controller/Mail.pm:71
+msgid "You must give email addresses."
+msgstr "メールアドレスを指定する必要があります。"
+
+#: themes/default/templates/index.html.ep:38
+msgid ""
+"Your browser does not have enough entropy to generate a strong encryption "
+"key. Please wait (it's better if you do things on your computer while "
+"waiting)."
+msgstr ""
+"お使いのブラウザには、強力な暗号化キーを生成するための十分なエントロピーがありません。しばらくお待ちください（待っている間、コンピュータで何かをするとより良いでしょう）。"
+
+#. (format_bytes($json->{size})
+#: lib/Lufi/Controller/Files.pm:95
+#, qt-format
+msgid "Your file is too big: %1 (maximum size allowed: %2)"
+msgstr "ファイルが大きすぎます: %1 (最大サイズ: %2)"
+
+#: lib/Lufi/Controller/Files.pm:345
+msgid "Your password is not valid. Please refresh the page to retry."
+msgstr "パスワードが無効です。ページをリロードして再試行してください。"
+
+#: themes/default/templates/partial/render.js.ep:14
+msgid "Zip content:"
+msgstr "Zipコンテンツ:"
+
+#. (format_bytes($keys[$i])
+#: themes/default/templates/delays.html.ep:24
+#, qt-format
+msgid "between %1 and %2, the file will be kept %3 day(s)."
+msgstr "%1 と %2 の間に設定すると、ファイルは%2 日間保存されます。"
+
+#. (format_bytes($keys[$i])
+#: themes/default/templates/delays.html.ep:26
+#, qt-format
+msgid "between %1 and %2, the file will be kept forever."
+msgstr "%1 と %2 の間に設定すると、ファイルは永遠に保存されます。"
+
+#: themes/default/templates/partial/mail.js.ep:42
+msgid "deadline: "
+msgstr "期限: "
+
+#: themes/default/templates/partial/invitations.js.ep:5
+msgid "expires on XXX"
+msgstr "XXX に失効"
+
+#. (format_bytes($keys[$i])
+#: themes/default/templates/delays.html.ep:30
+#, qt-format
+msgid "for %1 and more, the file will be kept %2 day(s)"
+msgstr "%1 以上にすると、ファイルは%2 日間保存されます。"
+
+#. (format_bytes($keys[$i])
+#: themes/default/templates/delays.html.ep:32
+#, qt-format
+msgid "for %1 and more, the file will be kept forever."
+msgstr "%1 以上にすると、ファイルは永遠に保存されます。"
+
+#: themes/default/templates/index.html.ep:3
+msgid "no time limit"
+msgstr "タイムリミットなし"
+
+#: themes/default/templates/index.html.ep:124
+msgid "or"
+msgstr "または"
+
+#. ($e->{name}, format_bytes($e->{size})
+#: themes/default/templates/invitations/notification_files_sent.mail.ep:12
+#, qt-format
+msgid "â %1 (%2), that will expire on %3"
+msgstr "— %1 (%2), は %3で期限切れになります"
