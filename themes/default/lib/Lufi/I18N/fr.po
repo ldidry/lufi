@@ -8,8 +8,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "POT-Creation-Date: YEAR-MO-DA HO:MI+ZONE\n"
-"PO-Revision-Date: 2020-12-07 15:32+0000\n"
-"Last-Translator: Framasoft <tech-sys@framalistes.org>\n"
+"PO-Revision-Date: 2022-01-03 21:23+0000\n"
+"Last-Translator: Jorge Paulo Malveira Pimentel Dos Santos <jpmpds@yahoo.fr>\n"
 "Language-Team: French <https://weblate.framasoft.org/projects/lufi/"
 "default-theme/fr/>\n"
 "Language: fr\n"
@@ -17,7 +17,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n > 1;\n"
-"X-Generator: Weblate 4.1\n"
+"X-Generator: Weblate 4.10\n"
 
 #. ($delay)
 #. (max_delay)
@@ -668,7 +668,9 @@ msgstr "Le serveur a été incapable de retrouver l’enregistrement du fichier 
 
 #: lib/Lufi/Controller/Files.pm:289
 msgid "This file has been deactivated by the admins. Contact them to know why."
-msgstr "The fichier a été désactivé par les administrateurs ou administratrices. Veuillez les contacter pour savoir pourquoi."
+msgstr ""
+"Le fichier a été désactivé par les administrateurs ou administratrices. "
+"Veuillez les contacter pour savoir pourquoi."
 
 #: themes/default/templates/invitations/my_invitations.html.ep:46 themes/default/templates/partial/invitations.js.ep:6
 msgid "This invitation is normally hidden"
@@ -844,3 +846,8 @@ msgstr "ou"
 #: themes/default/templates/invitations/notification_files_sent.mail.ep:12
 msgid "— %1 (%2), that will expire on %3"
 msgstr "— %1 (%2), qui expirera le %3"
+
+#:
+msgid "You can't add URLs that are not related to this instance."
+msgstr ""
+"Vous ne pouvez pas ajouter d'URL qui ne sont pas liées à cette instance."
