@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "POT-Creation-Date: YEAR-MO-DA HO:MI+ZONE\n"
-"PO-Revision-Date: 2021-10-08 03:05+0000\n"
-"Last-Translator: Georgios Pitsiladis <g.v.pitsiladis@gmail.com>\n"
+"PO-Revision-Date: 2022-02-07 04:27+0000\n"
+"Last-Translator: Dimitrios Glentadakis <dglent@free.fr>\n"
 "Language-Team: Greek <https://weblate.framasoft.org/projects/lufi/"
 "default-theme/el/>\n"
 "Language: el\n"
@@ -16,7 +16,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 4.6.2\n"
+"X-Generator: Weblate 4.10.1\n"
 
 #. ($delay)
 #. (max_delay)
@@ -936,3 +936,22 @@ msgstr ""
 "Δεν ήταν δυνατόν να κατέβει το αρχείο: έγιναν υπερβολικά πολλές ανεπιτυχείς "
 "προσπάθειες για άνοιγμα ενός websocket. Παρακαλούμε, επικοινωνήστε με τον "
 "διαχειριστή."
+
+#. ($i->token, $c->current_user->{username})
+#: lib/Lufi/Controller/Invitation.pm:136
+msgid "The invitation %1 can’t be deleted: it wasn’t created by you (%2)."
+msgstr "Αδύνατη η διαγραφή της πρόσκλησης %1: δεν δημιουργήθηκε από εσας (%2)."
+
+#. ($i->token, $c->current_user->{username})
+#: lib/Lufi/Controller/Invitation.pm:187
+msgid "The invitation %1 can’t be resent: it wasn’t created by you (%2)."
+msgstr ""
+"Αδύνατη η εκ νέου αποστολή της πρόσκλησης %1: δεν δημιουργήθηκε από εσάς "
+"(%2)."
+
+#. ($orig_uri)
+#: lib/Lufi/Controller/Mail.pm:43 lib/Lufi/Controller/Mail.pm:59
+msgid "You can't add URLs that are not related to this instance (%1)."
+msgstr ""
+"Δεν μπορείτε να προσθέσετε URL που δεν σχετίζονται με αυτήν την υπόσταση "
+"(%1)."
