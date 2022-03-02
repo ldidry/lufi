@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "POT-Creation-Date: YEAR-MO-DA HO:MI+ZONE\n"
-"PO-Revision-Date: 2021-11-08 11:05+0000\n"
+"PO-Revision-Date: 2021-11-27 06:45+0000\n"
 "Last-Translator: Berto Te <ateira@3fpj.com>\n"
 "Language-Team: Spanish <https://weblate.framasoft.org/projects/lufi/"
 "default-theme/es/>\n"
@@ -16,7 +16,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 4.8.1\n"
+"X-Generator: Weblate 4.9.1\n"
 
 #. ($delay)
 #. (max_delay)
@@ -168,7 +168,7 @@ msgstr "contador"
 
 #: themes/default/templates/index.html.ep:100
 msgid "Create a zip archive with the files before uploading?"
-msgstr "¿Crear un archivo zip con los archivos antes de subir?"
+msgstr "¿Crear un archivo zip con los archivos antes de subirlos?"
 
 #: themes/default/templates/invitations/my_invitations.html.ep:26
 msgid "Created at"

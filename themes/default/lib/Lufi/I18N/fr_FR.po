@@ -8,8 +8,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "POT-Creation-Date: YEAR-MO-DA HO:MI+ZONE\n"
-"PO-Revision-Date: 2020-12-07 15:33+0000\n"
-"Last-Translator: Framasoft <tech-sys@framalistes.org>\n"
+"PO-Revision-Date: 2022-01-24 12:56+0000\n"
+"Last-Translator: J. Lavoie <j.lavoie@net-c.ca>\n"
 "Language-Team: French (France) <https://weblate.framasoft.org/projects/lufi/"
 "default-theme/fr_FR/>\n"
 "Language: fr_FR\n"
@@ -17,7 +17,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n > 1;\n"
-"X-Generator: Weblate 4.1\n"
+"X-Generator: Weblate 4.10.1\n"
 
 #. ($delay)
 #. (max_delay)
@@ -1020,3 +1020,24 @@ msgid "Unable to download the file: too much unsuccessful attempts to open a web
 msgstr ""
 "Impossible de télécharger le fichier : trop de tentatives infructueuses d’"
 "ouverture d’une websocket. Veuillez contacter l’administrateur."
+
+#. ($i->token, $c->current_user->{username})
+#: lib/Lufi/Controller/Invitation.pm:187
+msgid "The invitation %1 can’t be resent: it wasn’t created by you (%2)."
+msgstr ""
+"L'invitation %1 ne peut être supprimée : elle n'a pas été créée par vous "
+"(%2)."
+
+#. ($i->token, $c->current_user->{username})
+#: lib/Lufi/Controller/Invitation.pm:136
+msgid "The invitation %1 can’t be deleted: it wasn’t created by you (%2)."
+msgstr ""
+"L'invitation %1 ne peut être supprimée : elle n'a pas été créée par vous "
+"(%2)."
+
+#. ($orig_uri)
+#: lib/Lufi/Controller/Mail.pm:43 lib/Lufi/Controller/Mail.pm:59
+msgid "You can't add URLs that are not related to this instance (%1)."
+msgstr ""
+"Vous ne pouvez pas ajouter des URL qui ne sont pas liées à cette instance "
+"(%1)."

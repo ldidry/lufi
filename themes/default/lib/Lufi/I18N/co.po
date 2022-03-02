@@ -1,49 +1,48 @@
-# Lufi FR translation
-# Copyright (C) 2015 Luc Didry
-# This file is distributed under the same license as the Lufi package.
-# Luc Didry <luc@didry.org>, 2015.
-# Luc Didry <luc@framasoft.org>, 2018. #zanata
-# Luc Didry <luc@framasoft.org>, 2019. #zanata
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "POT-Creation-Date: YEAR-MO-DA HO:MI+ZONE\n"
-"PO-Revision-Date: 2022-01-03 21:23+0000\n"
-"Last-Translator: Jorge Paulo Malveira Pimentel Dos Santos <jpmpds@yahoo.fr>\n"
-"Language-Team: French <https://weblate.framasoft.org/projects/lufi/"
-"default-theme/fr/>\n"
-"Language: fr\n"
+"PO-Revision-Date: 2022-03-01 10:49+0000\n"
+"Last-Translator: Patriccollu di Santa Maria è Sichè <Patriccollu@gmail.com>\n"
+"Language-Team: Corsican <https://weblate.framasoft.org/projects/lufi/"
+"default-theme/co/>\n"
+"Language: co\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=2; plural=n > 1;\n"
-"X-Generator: Weblate 4.10\n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
+"X-Generator: Weblate 4.10.1\n"
 
 #. ($delay)
 #. (max_delay)
 #: themes/default/templates/index.html.ep:56 themes/default/templates/index.html.ep:65 themes/default/templates/index.html.ep:66
 msgid "%1 days"
-msgstr "%1 jours"
+msgstr "%1 ghjorni"
 
 #. (stash('ldap_user')
 #: themes/default/templates/invitations/invite.mail.ep:2
 msgid "%1 invites you to send him/her files"
-msgstr "%1 vous invite à lui envoyer des fichiers"
+msgstr "%1 v’invita à mandalli schedarii"
 
 #. (stash('ldap_user')
 #: themes/default/templates/invitations/invite.mail.ep:6
 msgid "%1 invites you to send him/her files through Lufi."
-msgstr "%1 vous invite à lui envoyer des fichiers via Lufi."
+msgstr "%1 v’invita à mandalli schedarii via Lufi."
 
 #. (stash('invitation')
 #: themes/default/templates/invitations/notification_files_sent.mail.ep:4
 msgid "%1 sent you files"
-msgstr "%1 vous a envoyé des fichiers"
+msgstr "%1 vu hà mandatu schedarii"
 
 #. (stash('invitation')
 #: themes/default/templates/invitations/notification_files_sent.mail.ep:8
 msgid "%1 used your invitation to send you files:"
-msgstr "%1 a utilisé votre invitation pour vous envoyer des fichiers :"
+msgstr "%1 hà impiegatu a vostra invitazione per mandavvi schedarii :"
 
 #: lib/Lufi/Controller/Invitation.pm:172 lib/Lufi/Controller/Invitation.pm:85 themes/default/templates/invitations/my_invitations.html.ep:51 themes/default/templates/invitations/my_invitations.html.ep:52 themes/default/templates/invitations/my_invitations.html.ep:53 themes/default/templates/invitations/notification_files_sent.mail.ep:12
 msgid "%A %d %B %Y at %T"
@@ -51,803 +50,918 @@ msgstr "%A %d %B %Y à %T"
 
 #: themes/default/templates/partial/index.js.ep:28
 msgid "(max size: XXX)"
-msgstr "(taille max : XXX)"
+msgstr "(dimensione massima : XXX)"
 
 #: themes/default/templates/index.html.ep:5
 msgid "1 year"
-msgstr "1 an"
+msgstr "1 annu"
 
 #: themes/default/templates/index.html.ep:4 themes/default/templates/index.html.ep:65
 msgid "24 hours"
-msgstr "24 heures"
+msgstr "24 ore"
 
 #: themes/default/templates/partial/mail.js.ep:40
 msgid ":"
-msgstr " :"
+msgstr ":"
 
 #: themes/default/templates/render.html.ep:42
 msgid "Abort"
-msgstr "Abandonner"
+msgstr "Interrompe"
 
 #: themes/default/templates/layouts/default.html.ep:53 themes/default/templates/layouts/default.html.ep:86
 msgid "About"
-msgstr "À propos"
+msgstr "Apprupositu"
 
 #: themes/default/templates/index.html.ep:107
 msgid "Add a password to file(s)"
-msgstr "Ajouter un mot de passe au(x) fichier(s)"
+msgstr "Aghjunghje una parolla d’intesa à u(i) schedariu(i)"
 
 #: themes/default/templates/mail.html.ep:16
 msgid "Adding URLs not related to this Lufi instance to the mail body or subject is prohibited."
-msgstr "L’ajout d’URL non liées à cette instance Lufi au corps ou au sujet du mail est interdit."
+msgstr ""
+"Hè difesu d’aghjunghje à u sughjettu o à u testu di stu messaghju l’"
+"indirizzi web chì ùn sò micca in relazione cù st’istanza Lufi."
 
 #: themes/default/templates/partial/invitations.js.ep:3
 msgid "Are you sure you want to delete the selected invitations?"
-msgstr "Êtes-vous sûr·e de vouloir supprimer les invitations sélectionnées ?"
+msgstr "Site sicuru di vulè squassà l’invitazioni selezziunate ?"
 
 #: themes/default/templates/partial/invitations.js.ep:4
 msgid "Are you sure you want to resend the invitation mail for the selected invitations?"
-msgstr "Êtes-vous sûr·e de vouloir renvoyer le courriel d’invitation pour les invitations sélectionnées ?"
+msgstr ""
+"Site sicuru di vulè mandà torna u messaghju d’invitazione per l’invitazioni "
+"selezziunate ?"
 
 #: themes/default/templates/about.html.ep:17
 msgid "As Lufi is a free software licensed under of the terms of the <a href=\"https://gnu.org/licenses/agpl.html\" class=\"classic\">AGPLv3</a>, you can install it on you own server. Have a look on the <a href=\"https://framagit.org/fiat-tux/hat-softwares/lufi/wikis/home\" class=\"classic\">Wiki</a> for the procedure."
-msgstr "Comme Lufi est un logiciel libre soumis aux termes de la licence <a href=\"https://gnu.org/licenses/agpl.html\" class=\"classic\">AGPLv3</a>, vous pouvez l’installer sur votre propre serveur. Veuillez consulter le <a href=\"https://framagit.org/fiat-tux/hat-softwares/lufi/wikis/home\" class=\"classic\">Wiki</a> pour voir la procédure."
-
-#:
-msgid "As Lufi is a free software licensed under of the terms of the <a href=\"https://gnu.org/licenses/agpl.html\" class=\"classic\">AGPLv3</a>, you can install it on you own server. Have a look on the <a href=\"https://framagit.org/luc/lufi/wikis/home\" class=\"classic\">Wiki</a> for the procedure."
-msgstr "Comme Lufi est un logiciel libre soumis aux termes de la licence <a href=\"https://gnu.org/licenses/agpl.html\" class=\"classic\">AGPLv3</a>, vous pouvez l’installer sur votre propre serveur. Veuillez consulter le <a href=\"https://framagit.org/luc/lufi/wikis/home\" class=\"classic\">Wiki</a> pour voir la procédure."
+msgstr ""
+"Cum’è Lufi hè un prugramma liberu sottumessu à i termi di a <a href=\"https"
+"://gnu.org/licenses/agpl.html\" class=\"classic\">licenza AGPLv3</a>, pudete "
+"installallu nant’à u vostru propiu servitore. Cunsultate u <a href=\"https"
+"://framagit.org/fiat-tux/hat-softwares/lufi/wikis/home\" class=\"classic\""
+">Wiki</a> per vede a prucedura."
 
 #. (stash('nbslices')
 #: themes/default/templates/partial/render.js.ep:10
 msgid "Asking for file part XX1 of %1"
-msgstr "Demande de récupération du fragment de fichier XX1 sur %1"
+msgstr "Dumanda di ricuperazione di a parte di schedariu XX1 per %1"
 
 #: themes/default/templates/about.html.ep:23
 msgid "Back to homepage"
-msgstr "Retour à la page d’accueil"
+msgstr "Ritornu à a pagina d’accolta"
 
 #: lib/Lufi/Controller/Mail.pm:26
 msgid "Bad CSRF token!"
-msgstr "Mauvais jeton CSRF !"
+msgstr "Gettone CSRF inaccettevule !"
 
 #: lib/Lufi/Controller/Auth.pm:27 lib/Lufi/Controller/Auth.pm:49
 msgid "Bad CSRF token."
-msgstr "Jeton CSRF invalide."
+msgstr "Gettone CSRF inaccettevule."
 
 #: themes/default/templates/partial/render.js.ep:5
 msgid "Click here to refresh the page and restart the download."
-msgstr "Cliquez ici pour rafraîchir la page et redémarrer le téléchargement."
+msgstr "Fate un cliccu quì per attualizà a pagina è rilancià u scaricamentu."
 
 #: themes/default/templates/invitations/invite.mail.ep:8
 msgid "Click on the following URL to upload files on Lufi:"
-msgstr "Cliquez sur l’URL suivante pour envoyer des fichiers sur Lufi :"
+msgstr ""
+"Fate un cliccu nant’à st’indirizzu web per incaricà i schedarii nant’à Lufi :"
 
 #: themes/default/templates/index.html.ep:126
 msgid "Click to open the file browser"
-msgstr "Cliquez pour ouvrir le navigateur de fichiers"
+msgstr "Fate un cliccu per apre u navigatore di schedarii"
 
 #: themes/default/templates/delays.html.ep:42 themes/default/templates/invitations/my_invitations.html.ep:80
 msgid "Close"
-msgstr "Fermer"
+msgstr "Chjode"
 
 #: themes/default/templates/mail.html.ep:23
 msgid "Comma-separated email addresses"
-msgstr "Adresses mail séparées par des virgules"
+msgstr "Indirizzi elettronichi staccati da virgule"
 
 #: themes/default/templates/index.html.ep:140
 msgid "Compressing zip file…"
-msgstr "Compression du fichier zip…"
+msgstr "Cumpressione di u schedariu zip…"
 
 #: themes/default/templates/partial/index.js.ep:15
 msgid "Copy all links to clipboard"
-msgstr "Copier tous les liens dans le presse-papiers"
+msgstr "Cupià tutti i liami in u preme’papei"
 
 #: themes/default/templates/partial/index.js.ep:18
 msgid "Copy to clipboard"
-msgstr "Copier dans le presse-papiers"
+msgstr "Cupià in u preme’papei"
 
 #: lib/Lufi/Controller/Files.pm:501
 msgid "Could not delete the file. You are not authenticated."
-msgstr "Impossible de supprimer le fichier. Vous n’êtes pas connecté·e."
+msgstr "Impussibule di squassà u schedariu. Ùn site micca autenticati."
 
 #: lib/Lufi/Controller/Files.pm:483
 msgid "Could not find the file. Are you sure of the URL and the token?"
-msgstr "Impossible de retrouver le fichier. Êtes-vous sûr⋅e que l’URL et le jeton sont les bons ?"
+msgstr ""
+"Impussibule di truvà u schedariu. Site sicura(u) chì l’indirizzu web è u "
+"gettone sianu curretti ?"
 
 #: lib/Lufi/Controller/Files.pm:394
 msgid "Could not find the file. Are you sure of the URL?"
-msgstr "Impossible de retrouver le fichier. Êtes-vous sûr⋅e que l’URL est la bonne ?"
+msgstr ""
+"Impussibule di truvà u schedariu. Site sicura(u) chì l’indirizzu web sia "
+"currettu ?"
 
 #: themes/default/templates/files.html.ep:29
 msgid "Counter"
-msgstr "Compteur"
+msgstr "Cuntadore"
 
 #: themes/default/templates/index.html.ep:100
 msgid "Create a zip archive with the files before uploading?"
-msgstr "Créer une archive zip avec les fichiers avant l’envoi ?"
+msgstr "Creà un archiviu zip cù i schedarii nanzu d’incaricà ?"
 
 #: themes/default/templates/invitations/my_invitations.html.ep:26
 msgid "Created at"
-msgstr "Créée le"
+msgstr "Creatu u"
 
 #: themes/default/templates/invitations/my_invitations.html.ep:14
 msgid "Delete"
-msgstr "Supprimer"
+msgstr "Squassà"
 
 #: themes/default/templates/files.html.ep:30 themes/default/templates/index.html.ep:90
 msgid "Delete at first download?"
-msgstr "Supprimer après le premier téléchargement ?"
+msgstr "Squassà dopu à u primu scaricamentu ?"
 
 #: themes/default/templates/files.html.ep:19
 msgid "Delete selected files"
-msgstr "Supprimer les fichiers sélectionnés"
+msgstr "Squassà i schedarii selezziunati"
 
 #: themes/default/templates/files.html.ep:33 themes/default/templates/partial/index.js.ep:19
 msgid "Deletion link"
-msgstr "Lien de suppression"
+msgstr "Liame di squassatura"
 
 #: themes/default/templates/delays.html.ep:9
 msgid "Don't worry: if a user begins to download the file before the expiration and the download ends after the expiration, he will be able to get the file."
-msgstr "Ne vous inquiétez pas : si un utilisateur commence à télécharger le fichier avant son expiration et que le téléchargement se termine après l’expiration, l’utilisateur pourra quand même récupérer le fichier."
+msgstr ""
+"Ùn v’inchietate : s’è un utilizatore principieghja a scaricà un schedariu "
+"nanzu à a so scadenza è chì stu scaricamentu si compie dopu a scadenza, l’"
+"utilizatore puderà quantunque ottene u schedariu."
 
 #: themes/default/templates/partial/index.js.ep:21 themes/default/templates/render.html.ep:28
 msgid "Download"
-msgstr "Télécharger"
+msgstr "Scaricà"
 
 #: themes/default/templates/partial/render.js.ep:4
 msgid "Download aborted."
-msgstr "Téléchargement abandonné."
+msgstr "Scaricamentu interrottu."
 
 #: themes/default/templates/files.html.ep:28 themes/default/templates/partial/index.js.ep:20
 msgid "Download link"
-msgstr "Lien de téléchargement"
+msgstr "Liame di scaricamentu"
 
 #: themes/default/templates/about.html.ep:10
 msgid "Drag and drop files in the appropriate area or use the traditional way to send files and the files will be chunked, encrypted and sent to the server. You will get two links per file: a download link, that you give to the people you want to share the file with and a deletion link, allowing you to delete the file whenever you want."
-msgstr "Faites glisser des fichiers dans la zone prévue à cet effet ou sélectionnez un fichier de façon classique et les fichiers seront découpés en fragments, chiffrés et envoyés au serveur. Vous récupérerez deux liens par fichier : un lien de téléchargement et un lien pour supprimer le fichier quand vous le souhaitez."
+msgstr ""
+"Fate trascinà i schedarii è depuniteli in l’area apposta o selezziunateli di "
+"a manera tradiziunale è sti schedarii seranu affittati, cifrati è mandati à "
+"u servitore. Ottinerete dui liami per ogni schedariu : un liame di "
+"scaricamentu è un altru per squassà u schedariu quand’ella vi piare."
 
 #: themes/default/templates/index.html.ep:122
 msgid "Drop files here"
-msgstr "Glissez vos fichiers ici"
+msgstr "Depunite i vostri schedarii quì"
 
 #: themes/default/templates/invitations/invite.html.ep:40
 msgid "Email address of your guest"
-msgstr "Adresse de courriel de votre invité·e"
+msgstr "Indirizzu elettronicu di a(u) vostra(u) invitata(u)"
 
 #: themes/default/templates/mail.html.ep:39
 msgid "Email body"
-msgstr "Corps du mail"
+msgstr "Testu di u messaghju elettronicu"
 
 #: themes/default/templates/mail.html.ep:31
 msgid "Email subject"
-msgstr "Sujet du mail"
+msgstr "Sughjettu di u messaghju elettronicu"
 
 #: themes/default/templates/mail.html.ep:25 themes/default/templates/mail.html.ep:27
 msgid "Emails"
-msgstr "Mails"
+msgstr "Messaghji elettronichi"
 
 #: themes/default/templates/partial/index.js.ep:22
 msgid "Encrypting part XX1 of XX2"
-msgstr "Chiffrement du fragment XX1 sur XX2"
+msgstr "Cifratura di a parte di schedariu XX1 nant’à XX2"
 
 #: lib/Lufi/Controller/Files.pm:283
 msgid "Error: the file existed but was deleted."
-msgstr "Erreur : le fichier existait mais a été supprimé."
+msgstr "Sbagliu : U schedariu esistia ma hè statu squassatu."
 
 #: lib/Lufi/Controller/Files.pm:363
 msgid "Error: the file has not been sent entirely."
-msgstr "Erreur : le fichier n’a pas été envoyé dans son intégralité."
+msgstr "Sbagliu : U schedariu ùn hè micca statu mandatu sanu."
 
 #: lib/Lufi/Controller/Files.pm:373
 msgid "Error: unable to find the file. Are you sure of your URL?"
-msgstr "Erreur : impossible de retrouver le fichier. Êtes-vous sûr⋅e de l’URL ?"
+msgstr ""
+"Sbagliu : Impussibule di truvà u schedariu. Site sicura(u) chì u vostru "
+"indirizzu web sia currettu ?"
 
 #: themes/default/templates/partial/index.js.ep:23
 msgid "Expiration:"
-msgstr "Expiration :"
+msgstr "Scadenza–:"
 
 #: themes/default/templates/invitations/my_invitations.html.ep:27
 msgid "Expire at"
-msgstr "Expire le"
+msgstr "Scadenza u"
 
 #: themes/default/templates/files.html.ep:32
 msgid "Expires at"
-msgstr "Expire le"
+msgstr "Scadenza u"
 
 #: themes/default/templates/files.html.ep:12
 msgid "Export localStorage data"
-msgstr "Exporter les données localStorage"
+msgstr "Espurtà i dati localStorage"
 
 #: lib/Lufi/Controller/Files.pm:465
 msgid "File deleted"
-msgstr "Fichier supprimé"
+msgstr "Schedariu squassatu"
 
 #: themes/default/templates/partial/render.js.ep:9
 msgid "File downloaded"
-msgstr "Fichier téléchargé"
+msgstr "Schedariu scaricatu"
 
 #: themes/default/templates/files.html.ep:27
 msgid "File name"
-msgstr "Nom du fichier"
+msgstr "Nome di u schedariu"
 
 #: themes/default/templates/partial/index.js.ep:24
 msgid "File uploaded"
-msgstr "Fichier envoyé"
+msgstr "Schedariu incaricatu"
 
 #: themes/default/templates/invitations/my_invitations.html.ep:61
 msgid "Files"
-msgstr "Fichiers"
+msgstr "Schedarii"
 
 #: themes/default/templates/index.html.ep:80
 msgid "Files deleted at first download"
-msgstr "Fichiers supprimés au premier téléchargement"
+msgstr "Schedarii squassati à u primu scaricamentu"
 
 #: themes/default/templates/invitations/my_invitations.html.ep:28
 msgid "Files sent at"
-msgstr "Fichiers envoyés le"
+msgstr "Schedarii mandati u"
 
 #: themes/default/templates/partial/invitations.js.ep:8
 msgid "Files sent in invitation XX1 by XX2"
-msgstr "Fichiers envoyés via l’invitation XX1 par XX2"
+msgstr "Schedarii mandati via l’invitazione XX1 da XX2"
 
 #: themes/default/templates/partial/render.js.ep:8
 msgid "Get the file"
-msgstr "Récupérer le fichier"
+msgstr "Ottene u schedariu"
 
 #: themes/default/templates/about.html.ep:18
 msgid "Get the source code on <a href=\"https://framagit.org/fiat-tux/hat-softwares/lufi\" class=\"classic\">the official repository</a> or on its <a href=\"https://github.com/ldidry/lufi\" class=\"classic\">Github mirror</a>"
-msgstr "Récupérez le code source sur <a href=\"https://framagit.org/fiat-tux/hat-softwares/lufi\" class=\"classic\">le dépôt officiel</a> ou sur son <a href=\"https://github.com/ldidry/lufi\" class=\"classic\">miroir Github</a>"
-
-#:
-msgid "Get the source code on <a href=\"https://framagit.org/luc/lufi\" class=\"classic\">the official repository</a> or on its <a href=\"https://github.com/ldidry/lufi\" class=\"classic\">Github mirror</a>"
-msgstr "Récupérez le code source sur <a href=\"https://framagit.org/luc/lufi\" class=\"classic\">le dépôt officiel</a> ou sur son <a href=\"https://github.com/ldidry/lufi\" class=\"classic\">miroir Github</a>"
+msgstr ""
+"Ottinite u codice di fonte nant’à <a href=\"https://framagit.org/fiat-tux/"
+"hat-softwares/lufi\" class=\"classic\">u dipositu ufficiale</a> or on its <a "
+"href=\"https://github.com/ldidry/lufi\" class=\"classic\">spechju Github</a>"
 
 #: themes/default/templates/invitations/my_invitations.html.ep:24
 msgid "Guest mail"
-msgstr "Courriel de l’invité·e"
+msgstr "Messaghju di l’invitatu"
 
 #. (ucfirst(stash('invitation')
 #: themes/default/templates/invitations/notification_files_sent.mail.ep:6
 msgid "Hello %1,"
-msgstr "Bonjour %1,"
+msgstr "Bonghjornu o %1,"
 
 #: themes/default/templates/invitations/invite.mail.ep:4
 msgid "Hello,"
-msgstr "Bonjour,"
+msgstr "Bonghjornu,"
 
 #: themes/default/templates/partial/mail.js.ep:35
 msgid "Hello,\\n\\nHere's some files I want to share with you:\\n"
-msgstr "Bonjour,\\n\\nVoici quelques fichiers que je souhaite partager avec vous :\\n"
+msgstr ""
+"Bonghjornu,\\n"
+"\\n"
+"Eccu qualchì schedariu ch’o vogliu scumparte cù voi :\\n"
 
 #: themes/default/templates/mail.html.ep:35
 msgid "Here's some files"
-msgstr "Voici quelques fichiers"
+msgstr "Eccu qualchì schedariu"
 
 #: themes/default/templates/partial/invitations.js.ep:7
 msgid "Hide hidden invitations"
-msgstr "Ne pas afficher les invitations cachées"
+msgstr "Ùn micca affissà l’invitazioni piattate"
 
 #: themes/default/templates/partial/index.js.ep:26
 msgid "Hit Enter, then Ctrl+C to copy all the download links"
-msgstr "Appuyez sur la touche Entrée puis faites Ctrl+C pour copier tous les liens de téléchargement"
+msgstr ""
+"Appughjate nant’à u tastu Entrée eppò fate Ctrl+C per cupià tutti i liami di "
+"scaricamentu"
 
 #: themes/default/templates/partial/index.js.ep:25
 msgid "Hit Enter, then Ctrl+C to copy the download link"
-msgstr "Appuyez sur la touche Entrée puis faites Ctrl+C pour copier le lien de téléchargement"
+msgstr ""
+"Appughjate nant’à u tastu Entrée eppò fate Ctrl+C per cupià u liame di "
+"scaricamentu"
 
 #: themes/default/templates/about.html.ep:9
 msgid "How does it work?"
-msgstr "Comment ça marche ?"
+msgstr "Cumu funziuneghja l’affare ?"
 
 #: themes/default/templates/invitations/invite.html.ep:46
 msgid "How many days would you like the invitation to be valid?"
-msgstr "Pendant combien de jours souhaitez-vous que votre invitation soit valide ?"
+msgstr "Quantu ghjorni vò vulete chì l’invitazione sia accettevule ?"
 
 #: themes/default/templates/about.html.ep:16
 msgid "How to install the software on my server?"
-msgstr "Comment installer le logiciel sur mon serveur ?"
+msgstr "Cumu installà u prugramma nant’à u mo servitore ?"
 
 #: themes/default/templates/about.html.ep:12
 msgid "How to report an illegal file?"
-msgstr "Comment signaler un fichier illégal ?"
+msgstr "Cumu signalà un schedariu illegale ?"
 
 #: themes/default/templates/delays.html.ep:8
 msgid "If you choose a delay, the file will be deleted after that delay."
-msgstr "Si vous choisissez un délai, le fichier sera supprimé après ce délai."
+msgstr ""
+"S’è vò sciglite un cumportu, u schedariu serà squassatu dopu à stu cumportu."
 
 #: themes/default/templates/mail.html.ep:15
 msgid "If you send the mail from this server, the links will be sent to the server, which may lower your privacy protection."
-msgstr "Si vous envoyez le mail depuis ce serveur, les liens seront envoyés au serveur, ce qui peut diminuer la protection de la confidentialité."
+msgstr ""
+"S’è vò mandate u messaghju da stu servitore, i liami seranu mandati à u "
+"servitore, ciò chì pò diminuisce a prutezzione di a cunfidenzialità."
 
 #: themes/default/templates/files.html.ep:14
 msgid "Import localStorage data"
-msgstr "Importer des données localStorage"
+msgstr "Impurtà i dati localStorage"
 
 #: themes/default/templates/index.html.ep:53
 msgid "Important: more information on delays"
-msgstr "Important : plus d’informations sur les délais"
+msgstr "Impurtante : più d’infurmazione nant’à i cumporti"
 
 #: themes/default/templates/delays.html.ep:5
 msgid "Information about delays"
-msgstr "Information sur les délais"
+msgstr "Infurmazione apprupositu di i cumporti"
 
 #: themes/default/templates/files.html.ep:18 themes/default/templates/invitations/my_invitations.html.ep:12
 msgid "Invert selection"
-msgstr "Inverser la sélection"
+msgstr "Invertisce a selezzione"
 
 #. ($i->guest_mail, $url)
 #: lib/Lufi/Controller/Invitation.pm:184
 msgid "Invitation resent to %1.<br> URL: %2"
-msgstr "Invitation renvoyée à %1 :<br> URL : %2"
+msgstr "Invitazione mandata torna à %1.<br> Indirizzu web : %2"
 
 #. ($invitation->guest_mail, $url)
 #: lib/Lufi/Controller/Invitation.pm:88
 msgid "Invitation sent to %1.<br> URL: %2"
-msgstr "Invitation envoyée à %1 :<br> URL : %2"
+msgstr "Invitazione mandata à %1.<br> Indirizzu web : %2"
 
 #: themes/default/templates/invitations/invite.html.ep:27 themes/default/templates/layouts/default.html.ep:36 themes/default/templates/layouts/default.html.ep:69
 msgid "Invite a guest"
-msgstr "Inviter quelqu’un"
+msgstr "Invità qualchissia"
 
 #: themes/default/templates/partial/render.js.ep:6
 msgid "It seems that the key in your URL is incorrect. Please, verify your URL."
-msgstr "Il semble que la clé dans votre URL soit incorrecte. Veuillez vérifier votre URL."
+msgstr ""
+"Pare chì a chjave in u vostru indirizzu web sia incurretta. Verificate u "
+"vostru indirizzu web."
 
 #: themes/default/templates/index.html.ep:12
 msgid "Javascript is disabled. You won't be able to use Lufi."
-msgstr "Javascript est désactivé. Lufi ne fonctionnera pas."
+msgstr "Javascript hè disattivatu. Ùn puderete micca impiegà Lufi."
 
 #: themes/default/templates/layouts/default.html.ep:44 themes/default/templates/layouts/default.html.ep:46 themes/default/templates/layouts/default.html.ep:77 themes/default/templates/layouts/default.html.ep:79
 msgid "Language"
-msgstr "Langue"
+msgstr "Lingua"
 
 #. (sprintf('<a href="https://framagit.org/fiat-tux/hat-softwares/lufi/-/commit/%s" class="classic">%s</a>', stash('version')
 #: themes/default/templates/about.html.ep:22
 msgid "Latest commit of this instance: %1"
-msgstr "Dernier commit de cette instance : %1"
+msgstr "Ultimu « commit » di st’istanza : %1"
 
 #. (sprintf('<a href="https://framagit.org/fiat-tux/hat-softwares/lufi/-/releases/%s" class="classic">%s</a>', stash('version')
 #: themes/default/templates/about.html.ep:21
 msgid "Latest tag of this instance: %1"
-msgstr "Dernière étiquette de cette instance : %1"
+msgstr "Ultima etichetta di st’istanza : %1"
 
 #: themes/default/templates/login.html.ep:15
 msgid "Login"
-msgstr "Identifiant"
+msgstr "Identificazione di cunnessione"
 
 #: themes/default/templates/layouts/default.html.ep:58 themes/default/templates/layouts/default.html.ep:91
 msgid "Logout"
-msgstr "Déconnexion"
+msgstr "Scunnettesi"
 
 #: themes/default/templates/about.html.ep:4
 msgid "Lufi is a free (as in free speech) file hosting software."
-msgstr "Lufi est un logiciel libre d’hébergement de fichiers."
+msgstr "Lufi hè un prugramma liberu d’uspitalità di schedarii."
 
 #: themes/default/templates/partial/files.js.ep:12
 msgid "Lufi recently changed its way to store files information.\\n\\nNo files have been found in the new localStorage location but we found files in the old one.\\nDo you want to import those informations?\\n\\nPlease note that this is the only time that we will ask you this."
-msgstr "Lufi a récemment changé sa façon de stocker l’information des fichiers.\\n\\nAucun fichier n’a été trouvé dans le nouvel emplacement localStorage mais nous avons trouvé des fichiers dans l’ancien.\\nVoulez-vous importer ces informations ?\\n\\nVeuillez noter que c’est la seule fois que nous vous poserons cette question."
+msgstr ""
+"Pocu fà, Lufi hà cambiatu a so manera d’accuncià l’infurmazione di i "
+"schedarii.\\n"
+"\\n"
+"Alcunu schedariu ùn si trova in u novu locu localStorage ma avemu trovu "
+"schedarii in l’anzianu locu.\\n"
+"Vulete impurtà st’infurmazione ?\\n"
+"\\n"
+"Sappiate chì ghjè a sola volta chì vi dumandemu què."
 
 #: themes/default/templates/files.html.ep:34
 msgid "Mail"
-msgstr "Mail"
+msgstr "Messaghji"
 
 #: themes/default/templates/files.html.ep:3 themes/default/templates/layouts/default.html.ep:34 themes/default/templates/layouts/default.html.ep:67
 msgid "My files"
-msgstr "Mes fichiers"
+msgstr "I mo schedarii"
 
 #: themes/default/templates/invitations/my_invitations.html.ep:5 themes/default/templates/layouts/default.html.ep:37 themes/default/templates/layouts/default.html.ep:70
 msgid "My invitations"
-msgstr "Mes invitations"
+msgstr "E mo invitazioni"
 
 #: themes/default/templates/invitations/notification_files_sent.mail.ep:17
 msgid "NB: this list includes the list of files that have already been sent to you."
-msgstr "NB : cette liste inclut la liste des fichiers qui vous a déjà été envoyée."
+msgstr ""
+"Nota : sta lista cuntene quella di i schedarii chì vi sò stati mandati "
+"dighjà."
 
 #: themes/default/templates/index.html.ep:115
 msgid "Name of the zip file"
-msgstr "Nom du fichier zip"
+msgstr "Nome di u schedariu zip"
 
 #. (format_bytes($json->{size})
 #: lib/Lufi/Controller/Files.pm:109
 msgid "No enough space available on the server for this file (size: %1)."
-msgstr "Espace disque insuffisant sur le serveur pour ce fichier (taille du fichier : %1)."
+msgstr ""
+"Ùn ci hè abbastanza spaziu dispunibule nant’à u servitore per stu schedariu ("
+"dimensione : %1)."
 
 #: themes/default/templates/partial/files.js.ep:10 themes/default/templates/partial/index.js.ep:29
 msgid "No expiration delay"
-msgstr "Pas de délai d’expiration"
+msgstr "Nisunu cumportu di scadenza"
 
 #: themes/default/templates/files.html.ep:8
 msgid "Only the files sent with this browser will be listed here. This list is stored in localStorage: if you delete your localStorage data, you'll lose this list."
-msgstr "Seuls les fichiers envoyés avec ce navigateur web sont listés ici. Les informations sont stockées en localStorage : si vous supprimez vos données localStorage, vous perdrez ces informations."
+msgstr ""
+"Solu i schedarii mandati cù stu navigatore sonu affissati quì. Sta lista hè "
+"piazzata in localStorage : s’è vò squassate i vostri dati localStorage, "
+"perderete sta lista."
 
 #: themes/default/templates/index.html.ep:106 themes/default/templates/login.html.ep:21 themes/default/templates/render.html.ep:26
 msgid "Password"
-msgstr "Mot de passe"
+msgstr "Parolla d’intesa"
 
 #. (config('contact')
 #: themes/default/templates/about.html.ep:13
 msgid "Please contact the administrator: %1"
-msgstr "Veuillez contacter l’administrateur : %1"
+msgstr "Ci vole à cuntattà u vostru amministratore : %1"
 
 #: themes/default/templates/render.html.ep:33
 msgid "Please wait while we are getting your file. We first need to download and decrypt all parts before you can get it."
-msgstr "Veuillez patientez pendant la récupération de votre fichier. Nous devons d’abord récupérer et déchiffrer tous les fragments avant que vous puissiez le télécharger."
+msgstr ""
+"Ci vole à aspettà durante a ricuperazione di u vostru schedariu. Da prima, "
+"duvemu scaricà è dicifrà tutte e so parti nanzu chì vò possate l’ottene."
 
 #: lib/Lufi/Controller/Auth.pm:38
 msgid "Please, check your credentials or your right to access this service: unable to authenticate."
-msgstr "Veuillez vérifier vos identifiants ou votre droit d’accès à ce service : impossible de vous authentifier."
+msgstr ""
+"Ci vole à verificà e vostre identificazioni di cunnessione o i vostri "
+"diritti d’accessu à stu serviziu : fiascu di l’autenticazione."
 
 #: themes/default/templates/about.html.ep:5
 msgid "Privacy"
-msgstr "Confidentialité"
+msgstr "Cunfidenzialità"
 
 #: themes/default/templates/files.html.ep:13
 msgid "Purge expired files from localStorage"
-msgstr "Supprimer du localStorage les fichiers expirés"
+msgstr "Spurgulà i schedarii scaduti da localStorage"
 
 #: themes/default/templates/invitations/notification_files_sent.mail.ep:20
 msgid "Regards,"
-msgstr "Cordialement,"
+msgstr "Saluti curdiali,"
 
 #: themes/default/templates/invitations/invite.mail.ep:15
 msgid "Regards."
-msgstr "Cordialement."
+msgstr "Saluti curdiali."
 
 #: themes/default/templates/layouts/default.html.ep:31 themes/default/templates/layouts/default.html.ep:64
 msgid "Report file"
-msgstr "Signaler un fichier"
+msgstr "Signalà un schedariu"
 
 #: themes/default/templates/invitations/my_invitations.html.ep:15
 msgid "Resend invitation mail"
-msgstr "Renvoyer le courriel d’invitation"
+msgstr "Mandà torna u messaghju d’invitazione"
 
 #: themes/default/templates/invitations/my_invitations.html.ep:9
 msgid "Rows in purple mean that the invitations have expired."
-msgstr "Les lignes en violet indiquent que les invitations ont expiré."
+msgstr "E linee in purpura indicanu chì l’invitazioni sò scadute."
 
 #: themes/default/templates/files.html.ep:9
 msgid "Rows in red mean that the files have expired and are no longer available."
-msgstr "Les lignes en rouge indiquent que le fichier a expiré et n’est plus disponible."
+msgstr ""
+"E linee in rossu indicanu chì i schedarii sò scaduti è ch’elli ùn sò più "
+"dispunibule."
 
 #: themes/default/templates/partial/index.js.ep:27
 msgid "Send all links by email"
-msgstr "Envoyer tous les liens par mail"
+msgstr "Mandà tutti i liami da messaghju elettronicu"
 
 #: themes/default/templates/invitations/invite.html.ep:50
 msgid "Send the invitation"
-msgstr "Envoyer l’invitation"
+msgstr "Mandà l’invitazione"
 
 #: themes/default/templates/mail.html.ep:47
 msgid "Send with this server"
-msgstr "Envoyer avec ce serveur"
+msgstr "Mandà cù stu servitore"
 
 #: themes/default/templates/mail.html.ep:49
 msgid "Send with your own mail software"
-msgstr "Envoyer avec votre propre logiciel de mail"
+msgstr "Mandà cù u vostru propiu prugramma di messaghjeria"
 
 #: themes/default/templates/partial/index.js.ep:30
 msgid "Sending part XX1 of XX2. Please, be patient, the progress bar can take a while to move."
-msgstr "Envoi du fragment XX1 sur XX2. Veuillez patienter, la barre de progression peut mettre du temps avant d’avancer."
+msgstr ""
+"Inviu di a parte XX1 nant’à XX2 Per piacè, siate pazientosi, perchè a barra "
+"di prugressione pò piglià un pezzu prima di dispiazzassi."
 
 #. (url_for('/')
 #: themes/default/templates/partial/mail.js.ep:49
 msgid "Share your files in total privacy on %1"
-msgstr "Partagez vos fichiers en toute confidentialité sur %1"
+msgstr "Scumpartite i vostri schedarii in tutta cunfidenzialità cù %1"
 
 #: themes/default/templates/invitations/my_invitations.html.ep:13 themes/default/templates/partial/invitations.js.ep:9
 msgid "Show hidden invitations"
-msgstr "Afficher les invitations cachées"
+msgstr "Affissà l’invitazioni piattate"
 
 #: themes/default/templates/partial/render.js.ep:12
 msgid "Show zip content"
-msgstr "Afficher le contenu du fichier zip"
+msgstr "Affissà u cuntenutu di u zip"
 
 #: themes/default/templates/layouts/default.html.ep:40 themes/default/templates/layouts/default.html.ep:73 themes/default/templates/login.html.ep:28 themes/default/templates/logout.html.ep:17
 msgid "Signin"
-msgstr "Connexion"
+msgstr "Autenticazione"
 
 #: lib/Lufi/Controller/Invitation.pm:302 themes/default/templates/invitations/exception.html.ep:16
 msgid "Sorry, the invitation doesn’t exist. Are you sure you are on the right URL?"
-msgstr "Désolé, l’invitation n’existe pas. Êtes-vous sûr·e d’être sur la bonne URL ?"
+msgstr ""
+"Per disgrazia, l’invitazione ùn esiste micca. Site sicura(u) d’impiegà l’"
+"indirizzu web currettu ?"
 
 #: themes/default/templates/index.html.ep:46
 msgid "Sorry, the uploading is currently disabled. Please try again later."
-msgstr "Désolé, l’envoi de fichier est actuellement désactivé. Veuillez réessayer plus tard."
+msgstr ""
+"Per disgrazia, l’incaricamentu di schedariu hè disattivatu à st’ora. Provate "
+"torna un altra volta."
 
 #: lib/Lufi/Controller/Files.pm:82
 msgid "Sorry, uploading is disabled."
-msgstr "Désolé, l’envoi de fichier est désactivé."
+msgstr "Per disgrazia, l’incaricamentu di schedariu hè disattivatu."
 
 #: themes/default/templates/invitations/exception.html.ep:7
 msgid "Sorry, your invitation has expired or has been deleted."
-msgstr "Désolé, votre invitation a expiré ou a été supprimée."
+msgstr "Per disgrazia, a vostra invitazione hè scaduta o hè stata squassata."
 
 #. ($invit->ldap_user_mail)
 #: lib/Lufi/Controller/Files.pm:123
 msgid "Sorry, your invitation has expired or has been deleted. Please contact %1 to have another invitation."
-msgstr "Désolé, votre invitation a expiré ou a été supprimée. Veuillez contacter %1 pour obtenir une nouvelle invitation."
+msgstr ""
+"Per disgrazia, a vostra invitazione hè scaduta o hè stata squassata. Ci vole "
+"à cuntattà %1 per ottene un altra invitazione."
 
 #. ($invitation->ldap_user_mail)
 #: lib/Lufi/Controller/Invitation.pm:295
 msgid "The URLs of your files have been sent by email to %1."
-msgstr "Les URL de vos fichiers ont été envoyées par courriel à %1."
+msgstr ""
+"L’indirizzi web di i vostri schedarii sò stati mandati à %1 da messaghju "
+"elettronicu."
 
 #: themes/default/templates/about.html.ep:7
 msgid "The administrator can only see the file's name, its size and its mimetype (what kind of file it is: video, text, etc.)."
-msgstr "L’administrateur ne peut voir que le nom du fichier, sa taille et son type mime (son type de fichier : vidéo, texte, etc.)."
+msgstr ""
+"L’amministratore pò solu vede u nome di u schedariu, a so dimensione è u so «"
+" mimetype » (u so tipu di schedariu : sonu, filmettu, testu, ecc.)."
 
 #: lib/Lufi/Controller/Mail.pm:67
 msgid "The body of the mail must contain at least one URL pointing to a file hosted on this instance."
-msgstr "Le corps du mail doit contenir au moins une URL pointant vers un fichier hébergé sur cette instance."
+msgstr ""
+"U testu di u messaghju deve cuntene omancu un indirizzu web chì appunteghja "
+"versu un schedariu ospitatu nant’à st’istanza."
 
 #: themes/default/templates/partial/files.js.ep:11
 msgid "The data has been successfully imported."
-msgstr "Les données ont été importées avec succès."
+msgstr "I dati sò stati impurtati currettamente."
 
 #: lib/Lufi/Controller/Mail.pm:87
 msgid "The email body can't be empty."
-msgstr "Le corps du mail ne peut être vide."
+msgstr "U testu di u messaghju elettronicu ùn pò micca esse viotu."
 
 #: lib/Lufi/Controller/Mail.pm:86
 msgid "The email subject can't be empty."
-msgstr "Le sujet du mail ne peut être vide."
+msgstr "U sughjettu di u messaghju elettronicu ùn pò micca esse viotu."
 
 #. ($expire_at, $max_expire_at)
 #: lib/Lufi/Controller/Invitation.pm:52
 msgid "The expiration delay (%1) is not between 1 and %2 days."
-msgstr "Le délai d’expiration (%1) n’est pas compris entre 1 et %2 jours."
+msgstr "U cumportu di scadenza (%1) ùn hè micca trà 1 è %2 ghjorni."
 
 #: lib/Lufi/Controller/Files.pm:462
 msgid "The file has already been deleted"
-msgstr "Le fichier a déjà été supprimé"
+msgstr "U schedariu hè statu squassatu dighjà"
 
 #: themes/default/templates/about.html.ep:6
 msgid "The files uploaded on a Lufi instance are encrypted before the upload to the server: the administrator of the server can not see the file's content."
-msgstr "Les fichiers envoyés sur une instance de Lufi sont chiffrés avant l’envoi au serveur : l’administrateur du serveur ne peut pas voir le contenu de vos fichiers."
+msgstr ""
+"I schedarii incaricati nant’à una istanza Lufi sò cifrati prima d’esse "
+"incaricati nant’à u servitore : l’amministratore di u servitore ùn pò micca "
+"vede u cuntenutu di i schedarii."
 
 #. (join(', ', @bad)
 #: lib/Lufi/Controller/Mail.pm:82
 msgid "The following email addresses are not valid: %1"
-msgstr "Les adresses mail suivantes ne sont pas valides : %1"
+msgstr "Quelli indirizzi elettronichi ùn sò micca accettevule : %1"
 
 #. ($guest_mail)
 #: lib/Lufi/Controller/Invitation.pm:49
 msgid "The guest email address (%1) is unvalid."
-msgstr "L’adresse courriel de l’invité·e (%1) est invalide."
+msgstr "L’indirizzu elettronicu di l’invitatu (%1) ùn hè micca accettevule."
 
 #. ($i->token, $c->current_user->{username})
 #: lib/Lufi/Controller/Invitation.pm:136
 msgid "The invitation %1 can’t be deleted: it wasn’t created by you (%2)."
-msgstr "L’invitation %1 ne peut être supprimée : vous ne l’avez pas créée (%2)."
+msgstr ""
+"L’invitazione %1 ùn pò micca esse squassata : ùn hè micca stata creata da "
+"voi (%2)."
 
 #. ($i->token, $i->guest_mail)
 #: lib/Lufi/Controller/Invitation.pm:163
 msgid "The invitation %1 can’t be resent: %2 has already sent files.<br>Please create a new invitation."
-msgstr "L’invitation %1 ne peut pas être renvoyée : %2 a déjà envoyé des fichiers.<br>Veuillez créer une nouvelle invitation."
+msgstr ""
+"L’invitazione %1 ùn pò micca esse mandata torna : %2 hà dighjà mandatu i "
+"schedarii.<br>Ci vole à creà un’altra invitazione."
 
 #. ($i->token, $c->current_user->{username})
 #: lib/Lufi/Controller/Invitation.pm:187
 msgid "The invitation %1 can’t be resent: it wasn’t created by you (%2)."
-msgstr "L’invitation %1 ne peut être renvoyée : vous ne l’avez pas créée (%2)."
+msgstr ""
+"L’invitazione %1 ùn pò micca esse mandata torna : ùn hè micca stata creata "
+"da voi (%2)."
 
 #. ($i->token)
 #: lib/Lufi/Controller/Invitation.pm:134
 msgid "The invitation %1 has been deleted."
-msgstr "L’invitation %1 a été supprimée."
+msgstr "L’invitazione %1 hè stata squassata."
 
 #. (stash('user_mail')
 #: themes/default/templates/invitations/invite.html.ep:34
 msgid "The invitation mail will be send from your email address (%1)."
-msgstr "Le courriel d’invitation sera envoyé de votre adresse de courriel (%1)."
+msgstr ""
+"U messaghju elettronicu d’invitazione serà mandatu da u vostru indirizzu "
+"elettronicu (%1)."
 
 #: themes/default/templates/partial/index.js.ep:16
 msgid "The link(s) has been copied to your clipboard"
-msgstr "Le(s) lien(s) a/ont été copié dans votre presse-papiers"
+msgstr "U(i) liame(i) hè(sò) statu(i) cupiatu(i) in u vostru preme’papei"
 
 #. (stash('invitation')
 #: themes/default/templates/index.html.ep:30
 msgid "The link(s) of your file(s) will automatically be sent by mail to %1 (%2)"
-msgstr "Les liens de vos fichiers seront automatiquement envoyés par courriel à %1 (%2)"
+msgstr ""
+"U(i) liame(i) di u(i) vostru(i) schedariu(i) serà(seranu) mandatu(i) "
+"autumaticamente da messaghju à %1 (%2)"
 
 #. (stash('ldap_user')
 #: themes/default/templates/invitations/invite.mail.ep:11
 msgid "The links of your file(s) will automatically be sent by mail to %1."
-msgstr "Les liens de vos fichiers seront automatiquement envoyés par courriel à %1."
+msgstr ""
+"I liami di u(i) vostru(i) schedariu(i) seranu mandati autumaticamente da "
+"messaghju à %1."
 
 #: lib/Lufi/Controller/Mail.pm:111
 msgid "The mail has been sent."
-msgstr "Le mail a été envoyé."
+msgstr "U messaghju hè statu mandatu."
 
 #: themes/default/templates/about.html.ep:15
 msgid "The original (and only for now) author is <a href=\"https://fiat-tux.fr\" class=\"classic\">Luc Didry</a>."
-msgstr "L’auteur originel (et pour l’instant, le seul) est <a href=\"https://fiat-tux.fr\" class=\"classic\">Luc Didry</a>."
+msgstr ""
+"L’autore d’origine (è per ora, l’unicu) hè <a href=\"https://fiat-tux.fr\" "
+"class=\"classic\">Luc Didry</a>."
 
 #: lib/Lufi/Controller/Files.pm:230
 msgid "The server was unable to find the file record to add your file part to. Please, contact the administrator."
-msgstr "Le serveur a été incapable de retrouver l’enregistrement du fichier auquel ajouter votre fragment de fichier. Veuillez contacter l’administrateur."
+msgstr ""
+"U servitore ùn hè micca statu capace di ritruvà l’arregistramentu di u "
+"schedariu à quellu aghjunghje a vostra parte di schedariu. Ci vole à "
+"cuntattà u vostru amministratore."
 
 #: lib/Lufi/Controller/Files.pm:289
 msgid "This file has been deactivated by the admins. Contact them to know why."
 msgstr ""
-"Le fichier a été désactivé par les administrateurs ou administratrices. "
-"Veuillez les contacter pour savoir pourquoi."
+"U schedariu hè statu disattivatu da l’amministratori. Ci vole à cuntattalli "
+"per cunnoscene a ragione."
 
 #: themes/default/templates/invitations/my_invitations.html.ep:46 themes/default/templates/partial/invitations.js.ep:6
 msgid "This invitation is normally hidden"
-msgstr "Cette invitation est normalement cachée"
+msgstr "St’invitazione hè, di regula, piattata"
 
 #. (stash('expires')
 #: themes/default/templates/invitations/invite.mail.ep:13
 msgid "This invitation is valid until %1."
-msgstr "Cette invitation est valide jusqu’au %1."
+msgstr "St’invitazione hè accettevule sin’à %1."
 
 #: themes/default/templates/delays.html.ep:13
 msgid "This server sets limitations according to the file size. The expiration delay of your file will be the minimum between what you choose and the following limitations:"
-msgstr "Ce serveur impose des limitations selon la taille des fichiers. Le délai d’expiration de votre fichier sera le minimum entre ce que vous avez choisi et les limites suivantes :"
+msgstr ""
+"Stu servitore definisce limitazioni secondu à a dimensione di u schedariu. U "
+"cumportu di scadenza di u vostru schedariu serà u minimu trà ciò chì vò "
+"avete sceltu è quelle limitazioni :"
 
 #: themes/default/templates/invitations/my_invitations.html.ep:16
 msgid "Toggle visibility"
-msgstr "Inverser la visibilité"
+msgstr "Invertisce a visibilità"
 
 #: themes/default/templates/invitations/my_invitations.html.ep:25
 msgid "URL"
-msgstr "URL"
+msgstr "Indirizzu web"
 
 #: themes/default/templates/partial/index.js.ep:17
 msgid "Unable to copy the link(s) to your clipboard"
-msgstr "Impossible de copier le(s) lien(s) dans votre presse-papiers"
+msgstr "Impussibule di cupià u(i) liame(i) in u vostru preme’papei"
 
 #: themes/default/templates/partial/render.js.ep:13
 msgid "Unable to download the file: too much unsuccessful attempts to open a websocket. Please, contact the administrator."
-msgstr "Impossible de télécharger le fichier : trop de tentatives infructueuses d’ouverture d’une websocket. Veuillez contacter l’administrateur."
+msgstr ""
+"Impussibule di scaricà u schedariu : troppu tentativi infruttuosi per apre "
+"un websocket. Ci vole à cuntattà u vostru amministratore."
 
 #. ($short)
 #: lib/Lufi/Controller/Files.pm:433
 msgid "Unable to get counter for %1. The file does not exists. It will be removed from your localStorage."
-msgstr "Impossible de récupérer le compteur pour %1. Le fichier n’existe pas. Il va être supprimé de votre localStorage."
+msgstr ""
+"Impussibule d’ottene u cuntadore per %1. U schedariu ùn esiste micca. Hà da "
+"esse cacciatu da u vostru localStorage."
 
 #. ($short)
 #: lib/Lufi/Controller/Files.pm:423
 msgid "Unable to get counter for %1. The token is invalid."
-msgstr "Impossible de récupérer le compteur pour %1. Le jeton est invalide."
+msgstr "Impussibule d’ottene u cuntadore per %1. U gettone hè inaccettevule."
 
 #. ($short)
 #: lib/Lufi/Controller/Files.pm:443
 msgid "Unable to get counter for %1. You are not authenticated."
-msgstr "Impossible de récupérer le compteur pour %1. Vous n’êtes pas connecté·e."
+msgstr "Impussibule d’ottene u cuntadore per %1. Ùn site micca autenticati."
 
 #: themes/default/templates/layouts/default.html.ep:33 themes/default/templates/layouts/default.html.ep:66
 msgid "Upload files"
-msgstr "Envoyer des fichiers"
+msgstr "Incaricà schedarii"
 
 #: themes/default/templates/index.html.ep:145
 msgid "Upload generated zip file"
-msgstr "Envoyer le fichier zip généré"
+msgstr "Incaricà u schedariu zip ingeneratu"
 
 #: themes/default/templates/files.html.ep:31
 msgid "Uploaded at"
-msgstr "Envoyé le"
+msgstr "Incaricatu à"
 
 #: themes/default/templates/index.html.ep:153
 msgid "Uploaded files"
-msgstr "Fichiers envoyés"
+msgstr "Schedarii incaricati"
 
 #: themes/default/templates/about.html.ep:20
 msgid "Version"
-msgstr "Version"
+msgstr "Versione"
 
 #: themes/default/templates/partial/index.js.ep:31
 msgid "Websocket communication error"
-msgstr "Erreur de communication WebSocket"
+msgstr "Sbagliu di cumunicazione websocket"
 
 #: themes/default/templates/about.html.ep:3
 msgid "What is Lufi?"
-msgstr "Qu’est-ce que Lufi ?"
+msgstr "Cosa hè Lufi ?"
 
 #: themes/default/templates/about.html.ep:14
 msgid "Who wrote this software?"
-msgstr "Qui a écrit ce logiciel ?"
+msgstr "Quale chì hà scrittu stu prugramma ?"
 
 #: themes/default/templates/partial/index.js.ep:13
 msgid "XXX file has been added to upload queue."
-msgstr "Le fichier XXX a été ajouté à la file d’envoi."
+msgstr "U schedariu XXX hè statu aghjuntu à a fila d’attesa d’incaricamentu."
 
 #: themes/default/templates/invitations/invite.html.ep:30
 msgid "You can invite someone to send you files through this Lufi instance even if they don’t have an account on it."
-msgstr "Vous pouvez inviter une personne à vous envoyer des fichiers via cette instance Lufi même si cette personne n’y a pas de compte."
+msgstr ""
+"Pudete invità qualcunu à mandavvi schedarii via st’istanza Lufi ancu s’è sta "
+"persona ùn ci hà micca contu."
 
 #: themes/default/templates/about.html.ep:11
 msgid "You can see the list of your files by clicking on the \"My files\" link at the top right of this page."
-msgstr "Vous pouvez voir la liste de vos fichiers en cliquant sur le lien « Mes fichiers » en haut à droite de cette page."
+msgstr ""
+"Pudete vede a lista di i vostri schedarii da un cliccu nant’à u liame « I mo "
+"schedarii » insù è à diritta di sta pagina."
 
 #. ($orig_uri)
 #: lib/Lufi/Controller/Mail.pm:43 lib/Lufi/Controller/Mail.pm:59
 msgid "You can't add URLs that are not related to this instance (%1)."
-msgstr "Vous ne pouvez pas ajouter d’URL non relatives à cette instance (%1)."
+msgstr ""
+"Ùn pudete micca aghjunghje indirizzi web chì ùn sò micca in relazione cù st’"
+"istanza (%1)."
 
 #: themes/default/templates/about.html.ep:8
 msgid "You don't need to register yourself to upload files but be aware that, for legal reasons, your IP address will be stored when you send a file. Don't panic, this is normally the case for all sites on which you send files."
-msgstr "Vous n’avez pas besoin de vous enregistrer pour envoyer des fichiers mais notez que, pour des raisons légales, votre adresse IP sera enregistrée quand vous envoyez un fichier. Ne paniquez pas, c’est normalement le cas pour tous les sites où vous envoyez des fichiers."
+msgstr ""
+"Ùn avete micca bisognu d’arregistravvi per incaricà schedarii ma, sappiate "
+"chì, per ragioni legale, u vostru indirizzu IP serà arregistratu quandu vò "
+"mandate un schedariu. Ùn spaventavvi, di regula, ghjè listessa per tutti i "
+"siti induve sì pò mandà schedarii."
 
 #: themes/default/templates/partial/render.js.ep:11
 msgid "You don't seem to have a key in your URL. You won't be able to decrypt the file. Download canceled."
-msgstr "Il semble que vous n’ayez pas de clé dans votre URL. Vous ne serez pas capable de déchiffrer le fichier. Téléchargement annulé."
+msgstr ""
+"Pare chì ùn abbiate micca chjave in u vostru indirizzu web. Ùn seriate micca "
+"capace di dicifrà u schedariu. Scaricamentu abbandunatu."
 
 #: themes/default/templates/partial/render.js.ep:7
 msgid "You have attempted to leave this page. The download will be canceled. Are you sure?"
-msgstr "Vous essayez de quitter la page. Le téléchargement sera annulé. Êtes-vous sûr(e) ?"
+msgstr ""
+"Avete fattu un tentativu per lascià sta pagina. U scaricamentu serà "
+"abbandunatu. Site sicuri ?"
 
 #: themes/default/templates/partial/index.js.ep:14
 msgid "You have attempted to leave this page. The upload will be canceled. Are you sure?"
-msgstr "Vous essayez de quitter la page. L’envoi sera annulé. Êtes-vous sûr(e) ?"
+msgstr ""
+"Avete fattu un tentativu per lascià sta pagina. L’incaricamentu serà "
+"abbandunatu. Site sicuri ?"
 
 #: themes/default/templates/logout.html.ep:14
 msgid "You have been successfully logged out."
-msgstr "Vous avez été déconnecté·e avec succès."
+msgstr "Vi site scunnessi currettamente."
 
 #: lib/Lufi/Controller/Mail.pm:85
 msgid "You must give email addresses."
-msgstr "Vous devez envoyer des adresses mail."
+msgstr "Duvete furnisce indirizzi elettronichi."
 
 #: themes/default/templates/index.html.ep:38
 msgid "Your browser does not have enough entropy to generate a strong encryption key. Please wait (it's better if you do things on your computer while waiting)."
-msgstr "Votre navigateur n’a pas assez d’entropie pour générer une clé de chiffrement forte. Veuillez attendre (il est préférable que vous fassiez quelque chose sur votre ordinateur en attendant)."
+msgstr ""
+"U vostru navigatore ùn hà abbastanza energia per ingenerà una chjave di "
+"cifratura forta. Ci vole à aspettà (hè megliu s’è vò fate qualcosa durante "
+"l’attesa)."
 
 #. (format_bytes($json->{size})
 #: lib/Lufi/Controller/Files.pm:95
 msgid "Your file is too big: %1 (maximum size allowed: %2)"
-msgstr "Votre fichier est trop volumineux : %1 (la taille maximum autorisée est %2)"
+msgstr ""
+"U vostru schedariu hè troppu maiò : %1 (dimensione massima accettata  %2)"
 
 #: lib/Lufi/Controller/Files.pm:345
 msgid "Your password is not valid. Please refresh the page to retry."
-msgstr "Votre mot de passe est invalide. Veuillez rafraîchir la page pour réessayer."
+msgstr ""
+"A vostra parolla d’intesa ùn hè micca accettevule. Ci vole à attualizà a "
+"pagina per pruvà torna."
 
 #: themes/default/templates/partial/render.js.ep:14
 msgid "Zip content:"
-msgstr "Contenu de l’archive zip :"
+msgstr "Cuntenutu di u zip :"
 
 #. (format_bytes($keys[$i])
 #: themes/default/templates/delays.html.ep:24
 msgid "between %1 and %2, the file will be kept %3 day(s)."
-msgstr "entre %1 et %2, le fichier sera conservé %3 jour(s)."
+msgstr "trà %1 è %2, u schedariu serà cunservatu %3 ghjornu(i)."
 
 #. (format_bytes($keys[$i])
 #: themes/default/templates/delays.html.ep:26
 msgid "between %1 and %2, the file will be kept forever."
-msgstr "entre %1 et %2, le fichier sera conservé indéfiniment."
+msgstr "trà %1 è %2, u schedariu serà cunservatu ab’eternu."
 
 #: themes/default/templates/partial/mail.js.ep:42
 msgid "deadline: "
-msgstr "dernier délai pour télécharger : "
+msgstr "ultimu cumportu : "
 
 #: themes/default/templates/partial/invitations.js.ep:5
 msgid "expires on XXX"
-msgstr "expire le XXX"
+msgstr "scadenza u XXX"
 
 #. (format_bytes($keys[$i])
 #: themes/default/templates/delays.html.ep:30
 msgid "for %1 and more, the file will be kept %2 day(s)"
-msgstr "pour %1 et plus, le fichier sera conservé %2 jour(s)"
+msgstr "per %1 è più, u schedariu serà cunservatu %2 ghjornu(i)"
 
 #. (format_bytes($keys[$i])
 #: themes/default/templates/delays.html.ep:32
 msgid "for %1 and more, the file will be kept forever."
-msgstr "pour %1 et plus, le fichier sera conservé indéfiniment."
+msgstr "per %1 è più, u schedariu serà cunservatu ab’eternu."
 
 #: themes/default/templates/index.html.ep:3
 msgid "no time limit"
-msgstr "Pas de délai d’expiration"
+msgstr "senza limitazione di tempu"
 
 #: themes/default/templates/index.html.ep:124
 msgid "or"
-msgstr "ou"
+msgstr "o"
 
 #. ($e->{name}, format_bytes($e->{size})
 #: themes/default/templates/invitations/notification_files_sent.mail.ep:12
 msgid "— %1 (%2), that will expire on %3"
-msgstr "— %1 (%2), qui expirera le %3"
+msgstr "— %1 (%2), chì serà scadutu u %3"
 
 #:
 msgid "You can't add URLs that are not related to this instance."
 msgstr ""
-"Vous ne pouvez pas ajouter d'URL qui ne sont pas liées à cette instance."
+"Ùn pudete micca aghjunghje indirizzi web chì ùn sò micca in relazione cù "
+"st’istanza."
