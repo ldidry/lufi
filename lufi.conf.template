@@ -299,6 +299,28 @@
     # See 'man htpasswd' to know how to create such file
     #htpasswd => 'lufi.passwd',
 
+    ############################
+    # HTTP header authentication
+    ############################
+
+    # Set `auth_headers` if you want to use HTTP header auth.
+    # Typically, these headers are set by a reverse-proxy
+    # acting as an authentication server. Useful for SSO.
+    # `auth_headers` should contains the user's username.
+    #
+    # /!\ LUFI BLINDLY TRUSTS THESE HEADERS
+    # /!\ IT'S UP TO YOU TO SANITIZE INCOMING HEADERS TO SECURE YOUR INSTANCE
+    #
+    #auth_headers => 'X-AUTH-PREFERRED-USERNAME',
+    #auth_headers_map_value => {
+    #    # Like ldap_map_attr but for headers
+    #    displayname => 'X-AUTH-DISPLAYNAME',
+    #    firstname   => 'X-AUTH-GIVENNAME',
+    #    lastname    => 'X-AUTH-LASTNAME',
+    #    mail        => 'X-AUTH-EMAIL'
+    #},
+
+
     #######################
     # HTTP Headers settings
     #######################
