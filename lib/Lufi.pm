@@ -124,7 +124,7 @@ sub startup {
       ->to('Misc#change_lang')
       ->name('lang');
 
-    if (defined $self->config('ldap') || defined $self->config('htpasswd')) {
+    if (defined $self->config('ldap') || defined $self->config('htpasswd') || defined $self->config('auth_headers')) {
         # Login page
         $r->get('/login')
           ->to('Auth#login_page');
@@ -138,7 +138,7 @@ sub startup {
           ->to('Auth#log_out')
           ->name('logout');
 
-        if (defined $self->config('ldap') && defined $self->config('invitations')) {
+        if ((defined $self->config('ldap') || defined $self->config('auth_headers')) && defined $self->config('invitations')) {
             # Invitation creation page
             $r->get('/invite')
               ->name('invite')

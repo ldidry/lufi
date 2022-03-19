@@ -29,10 +29,10 @@
                 <a href="#" data-activates="mobile" class="button-collapse"><i class="mdi-navigation-menu"></i></a>
                 <ul id="nav-mobile" class="right hide-on-med-and-down">
                     <li><a href="<%= $self->config('report') %>"><%= l('Report file') %></a></li>
-                % if ((!defined(config('ldap')) && !defined(config('htpasswd'))) || is_user_authenticated()) {
+                % if ((!defined(config('ldap')) && !defined(config('htpasswd')) && !defined(config('auth_headers'))) || is_user_authenticated()) {
                     <li<%== ' class="active"' if (current_route eq 'index') %>><a href="<%= url_for('/') %>"><%= l('Upload files') %></a></li>
                     <li<%== ' class="active"' if (current_route eq 'files') %>><a href="<%= url_for('/files') %>"><%= l('My files') %></a></li>
-                    % if (defined config('ldap') && defined config('invitations')) {
+                    % if ((defined config('ldap') || defined config('auth_headers')) && defined config('invitations')) {
                         <li<%== ' class="active"' if (current_route eq 'invite') %>><a href="<%= url_for('/invite') %>"><%= l('Invite a guest') %></a></li>
                         <li<%== ' class="active"' if (current_route eq 'invite/list') %>><a href="<%= url_for('/invite/list') %>"><%= l('My invitations') %></a></li>
                     % }
@@ -51,7 +51,7 @@
                         </div>
                     </li>
                     <li<%== ' class="active"' if (current_route eq 'about') %>><a href="<%= url_for('/about') %>"><%= l('About') %></a></li>
-                % if ((defined(config('ldap')) || defined(config('htpasswd'))) && is_user_authenticated()) {
+                % if ((defined(config('ldap')) || defined(config('htpasswd')) || defined(config('auth_headers'))) && is_user_authenticated()) {
                     <li>
                         <form action="<%= url_for('/logout') %>" method="POST">
                             %= csrf_field
@@ -62,10 +62,10 @@
                 </ul>
                 <ul id="mobile" class="side-nav">
                     <li><a href="<%= $self->config('report') %>"><%= l('Report file') %></a></li>
-                % if ((!defined(config('ldap')) && !defined(config('htpasswd'))) || is_user_authenticated()) {
+                % if ((!defined(config('ldap')) && !defined(config('htpasswd')) && !defined(config('auth_headers'))) || is_user_authenticated()) {
                     <li<%== ' class="active"' if (current_route eq 'index') %>><a href="<%= url_for('/') %>"><%= l('Upload files') %></a></li>
                     <li<%== ' class="active"' if (current_route eq 'files') %>><a href="<%= url_for('/files') %>"><%= l('My files') %></a></li>
-                    % if (defined config('ldap') && defined config('invitations')) {
+                    % if ((defined config('ldap') || defined config('auth_headers')) && defined config('invitations')) {
                         <li<%== ' class="active"' if (current_route eq 'invite') %>><a href="<%= url_for('/invite') %>"><%= l('Invite a guest') %></a></li>
                         <li<%== ' class="active"' if (current_route eq 'invite/list') %>><a href="<%= url_for('/invite/list') %>"><%= l('My invitations') %></a></li>
                     % }
@@ -84,7 +84,7 @@
                         </div>
                     </li>
                     <li<%== ' class="active"' if (current_route eq 'about') %>><a href="<%= url_for('/about') %>"><%= l('About') %></a></li>
-                % if ((defined(config('ldap')) || defined(config('htpasswd'))) && is_user_authenticated()) {
+                % if ((defined(config('ldap')) || defined(config('htpasswd')) || defined(config('auth_headers'))) && is_user_authenticated()) {
                     <li>
                         <form action="<%= url_for('/logout') %>" method="POST">
                             %= csrf_field

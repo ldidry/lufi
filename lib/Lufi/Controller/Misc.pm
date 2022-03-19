@@ -8,7 +8,7 @@ use Lufi::DB::File;
 
 sub index {
     my $c = shift;
-    if ((!defined($c->config('ldap')) && !defined($c->config('htpasswd'))) || $c->is_user_authenticated) {
+    if ((!defined($c->config('ldap')) && !defined($c->config('htpasswd')) && !defined($c->config('auth_headers'))) || $c->is_user_authenticated) {
         $c->render(template => 'index');
     } else {
         $c->redirect_to('login');
@@ -56,7 +56,7 @@ sub config_infos {
             force_burn_after_reading => $c->config('force_burn_after_reading'),
             keep_ip_during           => $c->config('keep_ip_during'),
             stop_upload              => (-f 'stop-upload' || -f 'stop-upload.manual') ? true : false,
-            need_authentication      => (defined($c->config('ldap')) || defined($c->config('htpasswd'))) ? true : false,
+            need_authentication      => (defined($c->config('ldap')) || defined($c->config('htpasswd')) || defined($c->config('auth_headers'))) ? true : false,
             version                  => $c->git_version
         }
     );
