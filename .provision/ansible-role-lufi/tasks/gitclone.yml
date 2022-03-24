@@ -1,0 +1,29 @@
+#gitclone
+---
+
+- name: clone the repository
+  ansible.builtin.git:
+    repo: 'https://framagit.org/fiat-tux/hat-softwares/lufi.git'
+    dest: "{{ app_dir }}"
+    clone: yes
+    update: yes 
+    version: "{{ project_version }}"
+
+- name: Change the owner 
+  ansible.builtin.file:
+    path: "{{ app_dir }}"
+    owner: "{{ lufi_owner }}"
+    group: "{{ lufi_group }}"
+    state: directory
+    recurse: yes
+
+- name: Add the robots.txt file
+  ansible.builtin.copy:
+    src: ../files/robots.txt
+    dest: "{{ robots_text }}"
+
+
+
+      
+
+

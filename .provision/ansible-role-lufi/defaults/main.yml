@@ -1,0 +1,4 @@
+---
+# defaults file for roles/servers
+
+robots_text: /var/www/html/
