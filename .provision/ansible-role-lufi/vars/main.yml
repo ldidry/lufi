@@ -1,0 +1,16 @@
+---
+# vars file for roles/servers
+
+lufi_owner: "www-data"
+
+lufi_group: "www-data"
+
+contact: "contact.example.com"
+
+report: "report@example.com"
+
+app_dir: ""
+
+project_version: ""
+
+servername: ""

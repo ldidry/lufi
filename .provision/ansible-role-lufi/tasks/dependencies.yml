@@ -1,0 +1,17 @@
+     - name: Install Dependencies
+       apt:
+        name:
+          - nginx
+          - build-essential
+          - libssl-dev 
+          - libio-socket-ssl-perl 
+          - liblwp-protocol-https-perl 
+          - zlib1g-dev
+          - libmojo-sqlite-perl
+          - carton
+        state: present
+        
+     - name: Install Postgress Dev Packages
+       apt:
+         name:
+           - libpq-dev

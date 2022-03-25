@@ -1,0 +1,34 @@
+#cron.yml
+---
+  - name: Copy the cronjob file
+    ansible.builtin.copy:
+      src: ../files/cronjob
+      dest: /etc/cron.d/
+      owner: www-data
+      group: www-data
+
+  - name: "example cronjob"
+    ansible.builtin.cron:
+      name: "cronjob"
+      state: present
+      user: www-data
+      minute: "0"
+      hour: "0"
+      day: "*"
+      month: "*"
+      weekday: "*"
+      job: |
+        carton exec script/lufi cron cleanbdd --mode production; carton exec script/lufi cron cleanfiles --mode production; carton exec script/lufi cron watch --mode production
+        
+        
+
+#- name: Crontab file exists
+#  cron:
+#    name: Add date and time to a file.
+#    minute: "*/2"
+#    hour: 9-16
+#    weekday: 1-5
+#    user: devops
+#    job: df >> /home/devops/disk_usage
+#    cron_file: disk_usage
+#    state: present      
