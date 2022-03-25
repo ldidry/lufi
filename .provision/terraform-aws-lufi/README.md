@@ -1,4 +1,4 @@
-# Terraform-AWS-Deploy
+# Terraform-AWS-Lufi
 
  This terraform plan create the resourcess of EC2 instance
 
