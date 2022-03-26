@@ -1,0 +1,7 @@
+---
+# tasks file for roles/servers
+
+- include: dependencies.yml
+- include: gitclone.yml
+- include: apprun.yml
+- include: cron.yml

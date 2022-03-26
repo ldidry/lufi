@@ -1,0 +1,23 @@
+#apprun.yml
+---
+    - name: This command will install the postgress module
+      ansible.builtin.shell:
+        cmd: carton install --deployment --without=test --without=sqlite --without=mysql
+        chdir: "{{ app_dir }}"          
+
+    - name: Upload application file
+      template:
+        src: ../templates/lufi.conf.j2
+        dest: "{{ app_dir }}/lufi.conf"
+
+    - name: Run the command for app_executes
+      ansible.builtin.shell:
+        cmd: carton exec hypnotoad script/lufi
+        chdir: "{{ app_dir }}" 
+
+    - name: Nginx configuration file add
+      template:
+        src: ../templates/app.conf
+        dest: /etc/nginx/conf.d/
+        mode: '0644'
+      notify: restart nginx

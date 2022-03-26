@@ -95,3 +95,7 @@ It uses:
 * [Stanford Javascript Crypto Library](http://bitwiseshiftleft.github.com/sjcl/)
 * [Moment.js](http://momentjs.com/) for displaying real dates instead of unix timestamps.
 * [Filesize.js](http://filesizejs.com/) for displaying file sizes
+
+## Deploy Lufi
+
+An ansible role and a terraform plan reside under the `.provision` directory. An user could utilize the terraform plan if they chose to deploy lufi on AWS, if that's not the goal, they could simply execute the ansible role in part. Usage docs for both are present in their respective directories.
