@@ -1,5 +1,5 @@
 #Create the VPC 
-resource "aws_vpc" "MAIN" {
+resource "aws_vpc" "vpc" {
   cidr_block           = "${var.vpc_cidr}"
   enable_dns_hostnames = true 
   enable_dns_support   = true
@@ -12,7 +12,7 @@ resource "aws_vpc" "MAIN" {
 # Create InternetGateWay and attach to VPC
 
 resource "aws_internet_gateway" "IGW" {
-  vpc_id           = "${aws_vpc.MAIN.id}"
+  vpc_id           = "${aws_vpc.vpc.id}"
   tags = {
     "Name"         = "lufi-master-igw"
   } 
@@ -21,7 +21,7 @@ resource "aws_internet_gateway" "IGW" {
 # Create a public subnet
 
 resource "aws_subnet" "publicsubnet" {
-  vpc_id                  = "${aws_vpc.MAIN.id}" 
+  vpc_id                  = "${aws_vpc.vpc.id}" 
   cidr_block              = "${var.public_subnet_cidr}"
   map_public_ip_on_launch = true
   tags                    = {
@@ -30,8 +30,8 @@ resource "aws_subnet" "publicsubnet" {
 }
 
 # Create routeTable
-resource "aws_route_table" "publicroute" {
-    vpc_id         = "${aws_vpc.MAIN.id}"
+resource "aws_route_table" "public" {
+    vpc_id         = "${aws_vpc.vpc.id}"
     route {
         cidr_block = "0.0.0.0/0"
         gateway_id = "${aws_internet_gateway.IGW.id}"
@@ -43,14 +43,14 @@ resource "aws_route_table" "publicroute" {
 }
 
 resource "aws_main_route_table_association" "mainRTB" {
-  vpc_id         = "${aws_vpc.MAIN.id}"
-  route_table_id = "${aws_route_table.publicroute.id}"
+  vpc_id         = "${aws_vpc.vpc.id}"
+  route_table_id = "${aws_route_table.public.id}"
 }
 ## Create security group
 resource "aws_security_group" "security" {
   name             = "lufi-master-sg"  
   description      = "allow all traffic"
-  vpc_id           = "${aws_vpc.MAIN.id}"
+  vpc_id           = "${aws_vpc.vpc.id}"
 
   ingress  {
     description    =  "allow all traffic"
@@ -82,9 +82,20 @@ resource "aws_key_pair" "genkey" {
   public_key         = "${file(var.public_key)}"
 }
 
+# Add ubuntu AMI
+data "aws_ami" "ubuntu" {
+  most_recent = true
+  owners = ["099720109477"]
+
+    filter {
+        name   = "name"
+        values = ["ubuntu/images/hvm-ssd/ubuntu-focal-20.04-amd64-server-*"]
+    }
+}
+
 # Craete ec2 instance
 resource "aws_instance" "ec2_instance" {
-  ami                = "ami-04505e74c0741db8d"
+  ami                = "${data.aws_ami.ubuntu.id}"
   instance_type      = "t2.medium"
   associate_public_ip_address = "true"
   subnet_id          = "${aws_subnet.publicsubnet.id}"

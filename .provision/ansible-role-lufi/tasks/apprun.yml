@@ -6,7 +6,7 @@
         chdir: "{{ app_dir }}"          
 
     - name: Upload application file
-      template:
+      ansible.builtin.template:
         src: ../templates/lufi.conf.j2
         dest: "{{ app_dir }}/lufi.conf"
 
@@ -16,7 +16,7 @@
         chdir: "{{ app_dir }}" 
 
     - name: Nginx configuration file add
-      template:
+      ansible.builtin.template:
         src: ../templates/app.conf
         dest: /etc/nginx/conf.d/
         mode: '0644'
