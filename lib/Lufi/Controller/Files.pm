@@ -27,7 +27,7 @@ sub upload {
     my $invitation;
     my $token = $c->session->{guest_token};
     $invitation = Lufi::DB::Invitation->new(app => $c->app)->from_token($token) if $token;
-    if ((!defined($c->config('ldap')) && !defined($c->config('htpasswd'))) || $c->is_user_authenticated || $invitation) {
+    if ((!defined($c->config('ldap')) && !defined($c->config('htpasswd')) && !defined($c->config('auth_headers'))) || $c->is_user_authenticated || $invitation) {
         $c->inactivity_timeout(30000000);
 
         $c->app->log->debug('Client connected');
@@ -161,7 +161,7 @@ sub upload {
 
                         my $creator = $c->ip;
                         # Authenticated user logging
-                        if ((defined($c->config('ldap')) || defined($c->config('htpasswd'))) && !$invitation) {
+                        if ((defined($c->config('ldap')) || defined($c->config('htpasswd')) || defined($c->config('auth_headers'))) && !$invitation) {
                             $creator = sprintf('User: %s, IP: %s', $c->current_user->{username}, $creator);
                         }
                         # Guest user logging
@@ -401,7 +401,7 @@ sub get_counter {
     my $short = $c->param('short');
     my $token = $c->param('token');
 
-    if ((!defined($c->config('ldap')) && !defined($c->config('htpasswd'))) || $c->is_user_authenticated) {
+    if ((!defined($c->config('ldap')) && !defined($c->config('htpasswd')) && !defined($c->config('auth_headers'))) || $c->is_user_authenticated) {
         my $ldfile = Lufi::DB::File->new(app => $c->app)->from_short($short);
 
         if (defined $ldfile) {
@@ -451,7 +451,7 @@ sub delete {
     my $short = $c->param('short');
     my $token = $c->param('token');
 
-    if ((!defined($c->config('ldap')) && !defined($c->config('htpasswd'))) || $c->is_user_authenticated) {
+    if ((!defined($c->config('ldap')) && !defined($c->config('htpasswd')) && !defined($c->config('auth_headers'))) || $c->is_user_authenticated) {
         my $ldfile = Lufi::DB::File->new(app => $c->app)->from_short($short);
 
         $ldfile = undef unless (defined($ldfile) && $ldfile->mod_token eq $token);
