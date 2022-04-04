@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "POT-Creation-Date: YEAR-MO-DA HO:MI+ZONE\n"
-"PO-Revision-Date: 2020-12-05 01:52+0000\n"
+"PO-Revision-Date: 2022-03-04 11:01+0000\n"
 "Last-Translator: Berto Te <ateira@3fpj.com>\n"
 "Language-Team: Spanish <https://weblate.framasoft.org/projects/lufi/"
 "default-theme/es/>\n"
@@ -16,7 +16,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 4.1\n"
+"X-Generator: Weblate 4.10.1\n"
 
 #. ($delay)
 #. (max_delay)
@@ -168,7 +168,7 @@ msgstr "contador"
 
 #: themes/default/templates/index.html.ep:100
 msgid "Create a zip archive with the files before uploading?"
-msgstr "¿Crear un archivo zip con los archivos antes de subir?"
+msgstr "¿Crear un archivo zip con los archivos antes de subirlos?"
 
 #: themes/default/templates/invitations/my_invitations.html.ep:26
 msgid "Created at"
@@ -513,7 +513,7 @@ msgstr "Saludos."
 
 #: themes/default/templates/layouts/default.html.ep:31 themes/default/templates/layouts/default.html.ep:64
 msgid "Report file"
-msgstr "Archivo de informe"
+msgstr "Denunciar archivo"
 
 #: themes/default/templates/invitations/my_invitations.html.ep:15
 msgid "Resend invitation mail"
@@ -937,3 +937,18 @@ msgid "Unable to download the file: too much unsuccessful attempts to open a web
 msgstr ""
 "No se puede descargar el archivo: demasiados intentos fallidos de abrir un "
 "\"websocket\". Comuníquese con el administrador."
+
+#. ($orig_uri)
+#: lib/Lufi/Controller/Mail.pm:43 lib/Lufi/Controller/Mail.pm:59
+msgid "You can't add URLs that are not related to this instance (%1)."
+msgstr "No puede agregar URL que no estén relacionadas con esta instancia (%1)."
+
+#. ($i->token, $c->current_user->{username})
+#: lib/Lufi/Controller/Invitation.pm:136
+msgid "The invitation %1 can’t be deleted: it wasn’t created by you (%2)."
+msgstr "La invitación %1 no se puede eliminar: usted no la creó (%2)."
+
+#. ($i->token, $c->current_user->{username})
+#: lib/Lufi/Controller/Invitation.pm:187
+msgid "The invitation %1 can’t be resent: it wasn’t created by you (%2)."
+msgstr "No se puede reenviar la invitación %1: no la creó usted (%2)."

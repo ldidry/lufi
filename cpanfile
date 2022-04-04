@@ -6,7 +6,7 @@ requires 'Mojolicious::Plugin::GzipStatic';
 requires 'Mojolicious::Plugin::StaticCache';
 requires 'Mojolicious::Plugin::CSPHeader', '>= 0.06';
 requires 'Mojolicious::Plugin::FiatTux::Helpers', '== 0.12', url => 'https://framagit.org/fiat-tux/mojolicious/fiat-tux/mojolicious-plugin-fiattux-helpers/-/archive/0.12/mojolicious-plugin-fiattux-helpers-0.12.tar.gz';
-requires 'Mojolicious::Plugin::FiatTux::GrantAccess', '== 0.07', url => 'https://framagit.org/fiat-tux/mojolicious/fiat-tux/mojolicious-plugin-fiattux-grantaccess/-/archive/0.07/mojolicious-plugin-fiattux-grantaccess-0.07.tar.gz';
+requires 'Mojolicious::Plugin::FiatTux::GrantAccess', '== 0.08', url => 'https://framagit.org/fiat-tux/mojolicious/fiat-tux/mojolicious-plugin-fiattux-grantaccess/-/archive/0.08/mojolicious-plugin-fiattux-grantaccess-0.08.tar.gz';
 requires 'Mojolicious::Plugin::FiatTux::Themes', '== 0.02', url => 'https://framagit.org/fiat-tux/mojolicious/fiat-tux/mojolicious-plugin-fiattux-themes/-/archive/0.02/mojolicious-plugin-fiattux-themes-0.02.tar.gz';
 requires 'Mojolicious::Plugin::EmailMailer', url => 'https://framagit.org/fiat-tux/mojolicious/mojolicious-plugin-emailmailer/-/archive/development/mojolicious-plugin-emailmailer-development.tar.gz';
 requires 'Filesys::DiskUsage';
@@ -41,6 +41,9 @@ feature 'ldap', 'LDAP authentication support' => sub {
 };
 feature 'htpasswd', 'Htpasswd authentication support' => sub {
     requires 'Apache::Htpasswd';
+    requires 'Mojolicious::Plugin::Authentication';
+};
+feature 'auth_headers', 'Header authentication support' => sub {
     requires 'Mojolicious::Plugin::Authentication';
 };
 feature 'postgresql', 'PostgreSQL support' => sub {

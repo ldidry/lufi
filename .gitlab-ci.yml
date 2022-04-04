@@ -1,5 +1,6 @@
-image: hatsoftwares/lufi-test-ci:buster
+image: hatsoftwares/lufi-test-ci:bullseye
 stages:
+  - create_release
   - publish_changelog
   - pouet_it
   - carton
@@ -58,7 +59,7 @@ variables:
   services:
     - name: rroemhild/test-openldap
       alias: rroemhild-test-openldap
-    - name: swiftstack/picoswiftstack
+    - name: openstackswift/saio
       alias: swiftstack-picoswiftstack
 .pg_template: &pg_definition
   <<: *tests_template
@@ -69,7 +70,7 @@ variables:
       alias: postgres
     - name: rroemhild/test-openldap
       alias: rroemhild-test-openldap
-    - name: swiftstack/picoswiftstack
+    - name: openstackswift/saio
       alias: swiftstack-picoswiftstack
 .mysql_template: &mysql_definition
   <<: *tests_template
@@ -80,15 +81,16 @@ variables:
       alias: mariadb
     - name: rroemhild/test-openldap
       alias: rroemhild-test-openldap
-    - name: swiftstack/picoswiftstack
+    - name: openstackswift/saio
       alias: swiftstack-picoswiftstack
 
 ### Publish tag changelog and create a toot
 ##
 #
 include:
-  - 'https://framagit.org/fiat-tux/gitlabci-snippets/raw/4e4e03322e95e9b0124c714456ebf1bdc02ad43f/publish_changelog.gitlab-ci.yml'
-  - 'https://framagit.org/fiat-tux/gitlabci-snippets/raw/4e4e03322e95e9b0124c714456ebf1bdc02ad43f/pouet-it-from-ci.gitlab-ci.yml'
+  - 'https://framagit.org/fiat-tux/gitlabci-snippets/-/raw/53cf9e6c8c427ecbff4abb9615347a77f7786806/create-release-from-ci.gitlab-ci.yml'
+  - 'https://framagit.org/fiat-tux/gitlabci-snippets/-/raw/4e4e03322e95e9b0124c714456ebf1bdc02ad43f/publish_changelog.gitlab-ci.yml'
+  - 'https://framagit.org/fiat-tux/gitlabci-snippets/-/raw/4e4e03322e95e9b0124c714456ebf1bdc02ad43f/pouet-it-from-ci.gitlab-ci.yml'
 
 ### Podcheck
 ##

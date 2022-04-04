@@ -9,10 +9,21 @@ sub login_page {
     if ($c->is_user_authenticated) {
         $c->redirect_to('/');
     } else {
-        $c->render(
-            template => 'login',
-            redirect => $redirect
-        );
+        if ($c->config('auth_headers')) {
+            if($c->authenticate('dummy', 'dummy')) {
+                if ($redirect eq 'invite') {
+                    return $c->redirect_to('invite');
+                } elsif ($redirect eq 'my_invitations') {
+                    return $c->redirect_to('invite_list');
+                }
+                return $c->redirect_to('/');
+            }
+        } else {
+            $c->render(
+                template => 'login',
+                redirect => $redirect
+            );
+        }
     }
 }
 

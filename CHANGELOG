@@ -2,6 +2,17 @@ Revision history for Lufi
 
 ?.??.? ????-??-??
 
+0.05.18 2022-03-19
+	- ✨ Add support for header authentication, thanks to @mildis (!69)
+	- 🌐 Update translations
+
+0.05.17 2022-03-02
+	- 🌐 Update translations
+
+0.05.16 2021-11-08
+	- 👷🐛 Create release in CI before publishing changelog
+	- 🌐 Update translations
+
 0.05.15 2021-11-03
 	- 🐛 Fix mail signature separator
 	- 💄 Disable signature when using LDAP (#249)

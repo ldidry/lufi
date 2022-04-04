@@ -5,7 +5,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "POT-Creation-Date: YEAR-MO-DA HO:MI+ZONE\n"
-"PO-Revision-Date: 2020-06-05 22:24+0000\n"
+"PO-Revision-Date: 2021-11-08 11:05+0000\n"
 "Last-Translator: pi <pi@solidaris.me>\n"
 "Language-Team: German <https://weblate.framasoft.org/projects/lufi/"
 "default-theme/de/>\n"
@@ -14,7 +14,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 3.11.2\n"
+"X-Generator: Weblate 4.8.1\n"
 
 #. ($delay)
 #. (max_delay)
@@ -44,7 +44,7 @@ msgstr "%1 hat Ihre Einladung genutzt, um Ihnen Dateien zu schicken:"
 
 #: lib/Lufi/Controller/Invitation.pm:159 lib/Lufi/Controller/Invitation.pm:84 themes/default/templates/invitations/my_invitations.html.ep:51 themes/default/templates/invitations/my_invitations.html.ep:52 themes/default/templates/invitations/my_invitations.html.ep:53 themes/default/templates/invitations/notification_files_sent.mail.ep:12
 msgid "%A %d %B %Y at %T"
-msgstr "%A %d %B %Y um %T"
+msgstr "%A, %d. %B %Y um %T"
 
 #: themes/default/templates/partial/index.js.ep:27
 msgid "(max size: XXX)"
@@ -281,7 +281,7 @@ msgstr "Ablaufdatum:"
 
 #: themes/default/templates/invitations/my_invitations.html.ep:27
 msgid "Expire at"
-msgstr "Verfallen am"
+msgstr "Verfällt am"
 
 #: themes/default/templates/files.html.ep:32
 msgid "Expires at"
@@ -803,7 +803,7 @@ msgid ""
 "from your localStorage."
 msgstr ""
 "Der Zähler für %1 konnte nicht gefunden werden. Die Datei existiert nicht. "
-"Es wird aus Ihrem localStorage entfernt."
+"Sie wird aus Ihrem localStorage entfernt."
 
 #. ($short)
 #: lib/Lufi/Controller/Files.pm:429
@@ -1019,3 +1019,29 @@ msgstr "Neueste Version dieser Instanz: %1"
 #: themes/default/templates/about.html.ep:20
 msgid "Version"
 msgstr "Version"
+
+#. ($orig_uri)
+#: lib/Lufi/Controller/Mail.pm:43 lib/Lufi/Controller/Mail.pm:59
+msgid "You can't add URLs that are not related to this instance (%1)."
+msgstr ""
+"Sie können keine URLs hinzufügen, die nicht zu dieser Instanz gehören (%1)."
+
+#. ($i->token, $c->current_user->{username})
+#: lib/Lufi/Controller/Invitation.pm:136
+msgid "The invitation %1 can’t be deleted: it wasn’t created by you (%2)."
+msgstr ""
+"Die Einladung %1 kann nicht gelöscht werden: sie wurde nicht von Ihnen "
+"erstellt (%2)."
+
+#. ($i->token, $c->current_user->{username})
+#: lib/Lufi/Controller/Invitation.pm:187
+msgid "The invitation %1 can’t be resent: it wasn’t created by you (%2)."
+msgstr ""
+"Die Einladung %1 kann nicht erneut verschickt werden: sie wurde nicht von "
+"Ihnen erstellt (%2)."
+
+#: themes/default/templates/partial/render.js.ep:13
+msgid "Unable to download the file: too much unsuccessful attempts to open a websocket. Please, contact the administrator."
+msgstr ""
+"Download der Datei nicht möglich: Zu viele erfolglose Versuche, ein "
+"Websocket zu öffnen. Bitte kontaktieren Sie den Administrator."
