@@ -29,22 +29,3 @@ RUN  apt-get update  && \
 EXPOSE 8081
  
 ENTRYPOINT ["bash","/lufi/docker-entrypoint.sh"]
-
-
-
-
-
-
-    
-    
-    
-
-
-
-
- 
-
-
-
-
-
