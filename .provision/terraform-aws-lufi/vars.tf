@@ -33,4 +33,23 @@ variable "instance_name" {
     default = "instance_name"  
 }
 
+variable "lufi_owner" {
+    default = ""  
+}
+
+variable "lufi_group" {
+    default = ""  
+}
+
+variable "app_dir" {
+    default = ""  
+}
+
+variable "contact" {
+    default = ""  
+}
+
+variable "report" {
+    default = ""  
+}
 
