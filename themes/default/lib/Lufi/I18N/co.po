@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "POT-Creation-Date: YEAR-MO-DA HO:MI+ZONE\n"
-"PO-Revision-Date: 2022-03-01 10:49+0000\n"
+"PO-Revision-Date: 2022-05-07 17:04+0000\n"
 "Last-Translator: Patriccollu di Santa Maria è Sichè <Patriccollu@gmail.com>\n"
 "Language-Team: Corsican <https://weblate.framasoft.org/projects/lufi/"
 "default-theme/co/>\n"
@@ -16,7 +16,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 4.10.1\n"
+"X-Generator: Weblate 4.12\n"
 
 #. ($delay)
 #. (max_delay)
@@ -607,7 +607,7 @@ msgstr ""
 #: themes/default/templates/index.html.ep:46
 msgid "Sorry, the uploading is currently disabled. Please try again later."
 msgstr ""
-"Per disgrazia, l’incaricamentu di schedariu hè disattivatu à st’ora. Provate "
+"Per disgrazia, l’incaricamentu di schedariu hè disattivatu à st’ora. Pruvate "
 "torna un altra volta."
 
 #: lib/Lufi/Controller/Files.pm:82
