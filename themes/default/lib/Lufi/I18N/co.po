@@ -24,12 +24,12 @@ msgstr ""
 msgid "%1 days"
 msgstr "%1 ghjorni"
 
-#. (stash('ldap_user')
+#. (stash('auth_user')
 #: themes/default/templates/invitations/invite.mail.ep:2
 msgid "%1 invites you to send him/her files"
 msgstr "%1 v’invita à mandalli schedarii"
 
-#. (stash('ldap_user')
+#. (stash('auth_user')
 #: themes/default/templates/invitations/invite.mail.ep:6
 msgid "%1 invites you to send him/her files through Lufi."
 msgstr "%1 v’invita à mandalli schedarii via Lufi."
@@ -618,14 +618,14 @@ msgstr "Per disgrazia, l’incaricamentu di schedariu hè disattivatu."
 msgid "Sorry, your invitation has expired or has been deleted."
 msgstr "Per disgrazia, a vostra invitazione hè scaduta o hè stata squassata."
 
-#. ($invit->ldap_user_mail)
+#. ($invit->auth_user_mail)
 #: lib/Lufi/Controller/Files.pm:123
 msgid "Sorry, your invitation has expired or has been deleted. Please contact %1 to have another invitation."
 msgstr ""
 "Per disgrazia, a vostra invitazione hè scaduta o hè stata squassata. Ci vole "
 "à cuntattà %1 per ottene un altra invitazione."
 
-#. ($invitation->ldap_user_mail)
+#. ($invitation->auth_user_mail)
 #: lib/Lufi/Controller/Invitation.pm:295
 msgid "The URLs of your files have been sent by email to %1."
 msgstr ""
@@ -726,7 +726,7 @@ msgstr ""
 "U(i) liame(i) di u(i) vostru(i) schedariu(i) serà(seranu) mandatu(i) "
 "autumaticamente da messaghju à %1 (%2)"
 
-#. (stash('ldap_user')
+#. (stash('auth_user')
 #: themes/default/templates/invitations/invite.mail.ep:11
 msgid "The links of your file(s) will automatically be sent by mail to %1."
 msgstr ""

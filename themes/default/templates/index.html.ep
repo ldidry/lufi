@@ -27,7 +27,7 @@
         <div class="col s12">
             <div class="card blue">
                 <div class="card-content white-text">
-                    <strong><%= l('The link(s) of your file(s) will automatically be sent by mail to %1 (%2)', stash('invitation')->ldap_user, stash('invitation')->ldap_user_mail) %></strong>
+                    <strong><%= l('The link(s) of your file(s) will automatically be sent by mail to %1 (%2)', stash('invitation')->auth_user, stash('invitation')->auth_user_mail) %></strong>
                 </div>
             </div>
         </div>
