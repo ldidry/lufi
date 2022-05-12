@@ -27,13 +27,13 @@ msgstr ""
 msgid "%1 days"
 msgstr "%1日"
 
-#. (stash('ldap_user')
+#. (stash('auth_user')
 #: themes/default/templates/invitations/invite.mail.ep:2
 #, qt-format
 msgid "%1 invites you to send him/her files"
 msgstr "%1 はあなたにファイルを送信しようとしています"
 
-#. (stash('ldap_user')
+#. (stash('auth_user')
 #: themes/default/templates/invitations/invite.mail.ep:6
 #, qt-format
 msgid "%1 invites you to send him/her files through Lufi."
@@ -653,7 +653,7 @@ msgstr "申し訳ありません。現在アップロードは無効です。"
 msgid "Sorry, your invitation has expired or has been deleted."
 msgstr "申し訳ありません。招待は失効したか削除されました。"
 
-#. ($invit->ldap_user_mail)
+#. ($invit->auth_user_mail)
 #: lib/Lufi/Controller/Files.pm:123
 #, qt-format
 msgid ""
@@ -661,7 +661,7 @@ msgid ""
 "have another invitation."
 msgstr "申し訳ありません。招待は失効したか削除されました。%1に連絡して新たに招待を受けてください。"
 
-#. ($invitation->ldap_user_mail)
+#. ($invitation->auth_user_mail)
 #: lib/Lufi/Controller/Invitation.pm:277
 #, qt-format
 msgid "The URLs of your files have been sent by email to %1."
@@ -750,7 +750,7 @@ msgid ""
 "The link(s) of your file(s) will automatically be sent by mail to %1 (%2)"
 msgstr "あなたのファイルのリンクは、自動的に %1 (%2) にメールで送信されます"
 
-#. (stash('ldap_user')
+#. (stash('auth_user')
 #: themes/default/templates/invitations/invite.mail.ep:11
 #, qt-format
 msgid "The links of your file(s) will automatically be sent by mail to %1."

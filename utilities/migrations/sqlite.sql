@@ -94,3 +94,9 @@ CREATE TABLE IF NOT EXISTS invitations (
 );
 -- 4 down
 DROP TABLE invitations;
+-- 5 up
+ALTER TABLE invitations RENAME ldap_user TO auth_user;
+ALTER TABLE invitations RENAME ldap_user_mail TO auth_user_mail;
+-- 5 down
+ALTER TABLE invitations RENAME auth_user TO ldap_user;
+ALTER TABLE invitations RENAME auth_user_mail TO ldap_user_mail;

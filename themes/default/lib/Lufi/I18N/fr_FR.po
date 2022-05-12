@@ -25,12 +25,12 @@ msgstr ""
 msgid "%1 days"
 msgstr "%1 jours"
 
-#. (stash('ldap_user')
+#. (stash('auth_user')
 #: themes/default/templates/invitations/invite.mail.ep:2
 msgid "%1 invites you to send him/her files"
 msgstr "%1 vous invite à lui envoyer des fichiers"
 
-#. (stash('ldap_user')
+#. (stash('auth_user')
 #: themes/default/templates/invitations/invite.mail.ep:6
 msgid "%1 invites you to send him/her files through Lufi."
 msgstr "%1 vous invite à lui envoyer des fichiers via Lufi."
@@ -635,7 +635,7 @@ msgstr "Désolé, l’envoi de fichier est désactivé."
 msgid "Sorry, your invitation has expired or has been deleted."
 msgstr "Désolé, votre invitation a expiré ou a été supprimée."
 
-#. ($invit->ldap_user_mail)
+#. ($invit->auth_user_mail)
 #: lib/Lufi/Controller/Files.pm:122
 msgid ""
 "Sorry, your invitation has expired or has been deleted. Please contact %1 to "
@@ -644,7 +644,7 @@ msgstr ""
 "Désolé, votre invitation a expiré ou a été supprimée. Veuillez contacter %1 "
 "pour obtenir une nouvelle invitation."
 
-#. ($invitation->ldap_user_mail)
+#. ($invitation->auth_user_mail)
 #: lib/Lufi/Controller/Invitation.pm:276
 msgid "The URLs of your files have been sent by email to %1."
 msgstr "Les URL de vos fichiers ont été envoyées par courriel à %1."
@@ -737,7 +737,7 @@ msgstr ""
 "Les liens de vos fichiers seront automatiquement envoyés par courriel à %1 "
 "(%2)"
 
-#. (stash('ldap_user')
+#. (stash('auth_user')
 #: themes/default/templates/invitations/invite.mail.ep:11
 msgid "The links of your file(s) will automatically be sent by mail to %1."
 msgstr ""
