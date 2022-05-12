@@ -78,8 +78,8 @@ sub run {
 
         Lufi::DB::Invitation->new(app => $c->app)
                             ->token($invitation->{token})
-                            ->ldap_user($invitation->{ldap_user})
-                            ->ldap_user_mail($invitation->{ldap_user_mail})
+                            ->auth_user($invitation->{auth_user})
+                            ->auth_user_mail($invitation->{auth_user_mail})
                             ->guest_mail($invitation->{guest_mail})
                             ->created_at($invitation->{created_at})
                             ->expire_at($invitation->{expire_at})

@@ -24,12 +24,12 @@ msgstr ""
 msgid "%1 days"
 msgstr "%1 天"
 
-#. (stash('ldap_user')
+#. (stash('auth_user')
 #: themes/default/templates/invitations/invite.mail.ep:2
 msgid "%1 invites you to send him/her files"
 msgstr "%1 邀请您给他发送文件"
 
-#. (stash('ldap_user')
+#. (stash('auth_user')
 #: themes/default/templates/invitations/invite.mail.ep:6
 msgid "%1 invites you to send him/her files through Lufi."
 msgstr "%1 邀请您通过 Lufi 给他发送文件。"
@@ -570,12 +570,12 @@ msgstr "抱歉，上传被禁用。"
 msgid "Sorry, your invitation has expired or has been deleted."
 msgstr "抱歉，您的邀请已过期或已被删除。"
 
-#. ($invit->ldap_user_mail)
+#. ($invit->auth_user_mail)
 #: lib/Lufi/Controller/Files.pm:123
 msgid "Sorry, your invitation has expired or has been deleted. Please contact %1 to have another invitation."
 msgstr "抱歉，您的邀请已过期或已被删除。请联系 %1 获取新邀请。"
 
-#. ($invitation->ldap_user_mail)
+#. ($invitation->auth_user_mail)
 #: lib/Lufi/Controller/Invitation.pm:277
 msgid "The URLs of your files have been sent by email to %1."
 msgstr "您的文件网址已通过电子邮件发送给 %1。"
@@ -647,7 +647,7 @@ msgstr "链接已经复制到您的剪贴板"
 msgid "The link(s) of your file(s) will automatically be sent by mail to %1 (%2)"
 msgstr "您的文件链接会自动通过邮件发送给 %1（%2）"
 
-#. (stash('ldap_user')
+#. (stash('auth_user')
 #: themes/default/templates/invitations/invite.mail.ep:11
 msgid "The links of your file(s) will automatically be sent by mail to %1."
 msgstr "您的文件的链接会自动通过邮件发送给 %1。"
