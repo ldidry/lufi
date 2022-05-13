@@ -1,5 +1,7 @@
+#dependencies.yml
+--- 
      - name: Install Dependencies
-       apt:
+       ansible.builtin.apt:
         name:
           - nginx
           - build-essential
@@ -12,6 +14,6 @@
         state: present
         
      - name: Install Postgress Dev Packages
-       apt:
+       ansible.builtin.apt:
          name:
            - libpq-dev
