@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "POT-Creation-Date: YEAR-MO-DA HO:MI+ZONE\n"
-"PO-Revision-Date: 2022-05-07 17:04+0000\n"
+"PO-Revision-Date: 2022-05-21 15:36+0000\n"
 "Last-Translator: Patriccollu di Santa Maria è Sichè <Patriccollu@gmail.com>\n"
 "Language-Team: Corsican <https://weblate.framasoft.org/projects/lufi/"
 "default-theme/co/>\n"
@@ -84,12 +84,12 @@ msgstr ""
 
 #: themes/default/templates/partial/invitations.js.ep:3
 msgid "Are you sure you want to delete the selected invitations?"
-msgstr "Site sicuru di vulè squassà l’invitazioni selezziunate ?"
+msgstr "Da veru, vulete squassà l’invitazioni selezziunate ?"
 
 #: themes/default/templates/partial/invitations.js.ep:4
 msgid "Are you sure you want to resend the invitation mail for the selected invitations?"
 msgstr ""
-"Site sicuru di vulè mandà torna u messaghju d’invitazione per l’invitazioni "
+"Da veru, vulete mandà torna u messaghju d’invitazione per l’invitazioni "
 "selezziunate ?"
 
 #: themes/default/templates/about.html.ep:17
