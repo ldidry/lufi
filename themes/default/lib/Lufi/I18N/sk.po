@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "POT-Creation-Date: YEAR-MO-DA HO:MI+ZONE\n"
-"PO-Revision-Date: 2022-05-28 11:13+0000\n"
+"PO-Revision-Date: 2022-05-28 11:28+0000\n"
 "Last-Translator: Jose Riha <jose1711@gmail.com>\n"
 "Language-Team: Slovak <https://weblate.framasoft.org/projects/lufi/"
 "default-theme/sk/>\n"
@@ -74,7 +74,7 @@ msgstr "O programe"
 
 #: themes/default/templates/index.html.ep:107
 msgid "Add a password to file(s)"
-msgstr "Pridať heslo súboru(om)"
+msgstr "Pridať heslo pre súbor(y)"
 
 #: themes/default/templates/mail.html.ep:16
 msgid "Adding URLs not related to this Lufi instance to the mail body or subject is prohibited."
@@ -97,7 +97,7 @@ msgstr ""
 "org/licenses/agpl.html\" class=\"classic\">AGPLv3</a>, môžete ho "
 "nainštalovať na Váš vlastný server. Navštívte <a href=\"https://framagit.org/"
 "fiat-tux/hat-softwares/lufi/wikis/home\" class=\"classic\">Wiki</a>, kde je "
-"popísaný postup."
+"nájdete postup."
 
 #. (stash('nbslices')
 #: themes/default/templates/partial/render.js.ep:10
@@ -368,13 +368,13 @@ msgstr "Ako nahlásiť nelegálny súbor?"
 
 #: themes/default/templates/delays.html.ep:8
 msgid "If you choose a delay, the file will be deleted after that delay."
-msgstr "Ak vyberiete zdržanie, súbor bude po jeho uplynutí odstránený."
+msgstr "Ak vyberiete dobu platnosti, súbor bude po jej uplynutí odstránený."
 
 #: themes/default/templates/mail.html.ep:15
 msgid "If you send the mail from this server, the links will be sent to the server, which may lower your privacy protection."
 msgstr ""
-"Ak odošlete e-mail z tohto servera, odkazy budú serveru odoslané, čo môže "
-"znížiť ochranu Vášho súkromia."
+"Ak odošlete e-mail z tohto servera, odkazy obdrží aj server, čo môže znížiť "
+"ochranu Vášho súkromia."
 
 #: themes/default/templates/files.html.ep:14
 msgid "Import localStorage data"
@@ -382,11 +382,11 @@ msgstr "Importovať údaje z localStorage"
 
 #: themes/default/templates/index.html.ep:53
 msgid "Important: more information on delays"
-msgstr "Dôležité: viac informácií o zdržaniach"
+msgstr "Dôležité: viac informácií o obmedzení platnosti"
 
 #: themes/default/templates/delays.html.ep:5
 msgid "Information about delays"
-msgstr "Informácie o zdržaniach"
+msgstr "Informácie o dobe platnosti"
 
 #: themes/default/templates/files.html.ep:18 themes/default/templates/invitations/my_invitations.html.ep:12
 msgid "Invert selection"
@@ -554,7 +554,7 @@ msgstr "Odoslať pozvánku"
 
 #: themes/default/templates/mail.html.ep:47
 msgid "Send with this server"
-msgstr "Odoslať týmto serverom"
+msgstr "Odoslať prostredníctvom tohto servera"
 
 #: themes/default/templates/mail.html.ep:49
 msgid "Send with your own mail software"
@@ -639,7 +639,7 @@ msgstr "Predmet e-mailu nesmie byť prázdny."
 #. ($expire_at, $max_expire_at)
 #: lib/Lufi/Controller/Invitation.pm:52
 msgid "The expiration delay (%1) is not between 1 and %2 days."
-msgstr "Zdržanie platnosti (%1) bolo nastavené medzi 1 a %2 dňami."
+msgstr "Obmedzenie platnosti (%1) bolo nastavené medzi 1 a %2 dňami."
 
 #: lib/Lufi/Controller/Files.pm:462
 msgid "The file has already been deleted"
@@ -819,7 +819,7 @@ msgstr ""
 #: themes/default/templates/about.html.ep:11
 msgid "You can see the list of your files by clicking on the \"My files\" link at the top right of this page."
 msgstr ""
-"Zoznam Vašich súborov zobrazíte po kliknutí na \"Moje súbory\" vo hornej "
+"Zoznam Vašich súborov zobrazíte po kliknutí na \"Moje súbory\" v hornej "
 "časti tejto stránky."
 
 #. ($orig_uri)
