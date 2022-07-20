@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "POT-Creation-Date: YEAR-MO-DA HO:MI+ZONE\n"
-"PO-Revision-Date: 2020-11-30 00:52+0000\n"
-"Last-Translator: Vadim <vad@syping.de>\n"
+"PO-Revision-Date: 2022-07-20 05:50+0000\n"
+"Last-Translator: AHOHNMYC <cajico4400@runfons.com>\n"
 "Language-Team: Russian <https://weblate.framasoft.org/projects/lufi/"
 "default-theme/ru/>\n"
 "Language: ru\n"
@@ -17,7 +17,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=3; plural=n%10==1 && n%100!=11 ? 0 : n%10>=2 && n"
 "%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2;\n"
-"X-Generator: Weblate 4.1\n"
+"X-Generator: Weblate 4.13.1\n"
 
 #. ($delay)
 #. (max_delay)
@@ -902,3 +902,25 @@ msgstr "или"
 #: themes/default/templates/invitations/notification_files_sent.mail.ep:12
 msgid "— %1 (%2), that will expire on %3"
 msgstr "— %1 (%2), истечёт %3"
+
+#. ($i->token, $c->current_user->{username})
+#: lib/Lufi/Controller/Invitation.pm:136
+msgid "The invitation %1 can’t be deleted: it wasn’t created by you (%2)."
+msgstr "Приглашение %1 не может быть удалено: оно было создано не вами (%2)."
+
+#. ($orig_uri)
+#: lib/Lufi/Controller/Mail.pm:43 lib/Lufi/Controller/Mail.pm:59
+msgid "You can't add URLs that are not related to this instance (%1)."
+msgstr "Вы не можете добавлять ссылки, не связанные с этим сервером (%1)."
+
+#: themes/default/templates/partial/render.js.ep:13
+msgid "Unable to download the file: too much unsuccessful attempts to open a websocket. Please, contact the administrator."
+msgstr ""
+"Не удаётся загрузить файл: очень много неуспешных попыток открыть websocket. "
+"Пожалуйста, свяжитесь с администратором."
+
+#. ($i->token, $c->current_user->{username})
+#: lib/Lufi/Controller/Invitation.pm:187
+msgid "The invitation %1 can’t be resent: it wasn’t created by you (%2)."
+msgstr ""
+"Приглашение %1 не может быть переотправлено: оно было создано не вами (%2)."
