@@ -7,828 +7,919 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "POT-Creation-Date: YEAR-MO-DA HO:MI+ZONE\n"
-"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
-"Last-Translator: Automatically generated\n"
-"Language-Team: none\n"
+"PO-Revision-Date: 2022-07-25 13:46+0000\n"
+"Last-Translator: Milo Ivir <mail@milotype.de>\n"
+"Language-Team: Croatian <https://weblate.framasoft.org/projects/lufi/"
+"default-theme/hr/>\n"
 "Language: hr\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=3; plural=n%10==1 && n%100!=11 ? 0 : n%10>=2 && n"
+"%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2;\n"
+"X-Generator: Weblate 4.13.1\n"
 
 #. ($delay)
 #. (max_delay)
 #: themes/default/templates/index.html.ep:56 themes/default/templates/index.html.ep:65 themes/default/templates/index.html.ep:66
 msgid "%1 days"
-msgstr ""
+msgstr "%1 dana"
 
 #. (stash('ldap_user')
 #: themes/default/templates/invitations/invite.mail.ep:2
 msgid "%1 invites you to send him/her files"
-msgstr ""
+msgstr "%1 te poziva da mu/joj pošalješ datoteke"
 
 #. (stash('ldap_user')
 #: themes/default/templates/invitations/invite.mail.ep:6
 msgid "%1 invites you to send him/her files through Lufi."
-msgstr ""
+msgstr "%1 te poziva da mu/joj pošalješ datoteke putem Lufia."
 
 #. (stash('invitation')
 #: themes/default/templates/invitations/notification_files_sent.mail.ep:4
 msgid "%1 sent you files"
-msgstr ""
+msgstr "%1 ti je poslao/la datoteke"
 
 #. (stash('invitation')
 #: themes/default/templates/invitations/notification_files_sent.mail.ep:8
 msgid "%1 used your invitation to send you files:"
-msgstr ""
+msgstr "%1 je koristio/la tvoju pozivnicu za slanje datoteka:"
 
 #: lib/Lufi/Controller/Invitation.pm:172 lib/Lufi/Controller/Invitation.pm:85 themes/default/templates/invitations/my_invitations.html.ep:51 themes/default/templates/invitations/my_invitations.html.ep:52 themes/default/templates/invitations/my_invitations.html.ep:53 themes/default/templates/invitations/notification_files_sent.mail.ep:12
 msgid "%A %d %B %Y at %T"
-msgstr ""
+msgstr "%A, %d. %m. %Y. at %T"
 
 #: themes/default/templates/partial/index.js.ep:28
 msgid "(max size: XXX)"
-msgstr ""
+msgstr "(maks. veličina: XXX)"
 
 #: themes/default/templates/index.html.ep:5
 msgid "1 year"
-msgstr ""
+msgstr "1 godina"
 
 #: themes/default/templates/index.html.ep:4 themes/default/templates/index.html.ep:65
 msgid "24 hours"
-msgstr ""
+msgstr "24 sata"
 
 #: themes/default/templates/partial/mail.js.ep:40
 msgid ":"
-msgstr ""
+msgstr ":"
 
 #: themes/default/templates/render.html.ep:42
 msgid "Abort"
-msgstr ""
+msgstr "Prekini"
 
 #: themes/default/templates/layouts/default.html.ep:53 themes/default/templates/layouts/default.html.ep:86
 msgid "About"
-msgstr ""
+msgstr "O"
 
 #: themes/default/templates/index.html.ep:107
 msgid "Add a password to file(s)"
-msgstr ""
+msgstr "Dodaj datotekama lozinku"
 
 #: themes/default/templates/mail.html.ep:16
 msgid "Adding URLs not related to this Lufi instance to the mail body or subject is prohibited."
 msgstr ""
+"Dodavanje URL-ova koji nisu povezani s ovom LUFI instancom, sa sadržajem ili "
+"predmetom e-maila je zabranjeno."
 
 #: themes/default/templates/partial/invitations.js.ep:3
 msgid "Are you sure you want to delete the selected invitations?"
-msgstr ""
+msgstr "Stvarno želiš izbrisati odabranu pozivnicu?"
 
 #: themes/default/templates/partial/invitations.js.ep:4
 msgid "Are you sure you want to resend the invitation mail for the selected invitations?"
-msgstr ""
+msgstr "Stvarno želiš ponovo poslati e-mail pozivnicu za odabrane pozivnice?"
 
 #: themes/default/templates/about.html.ep:17
 msgid "As Lufi is a free software licensed under of the terms of the <a href=\"https://gnu.org/licenses/agpl.html\" class=\"classic\">AGPLv3</a>, you can install it on you own server. Have a look on the <a href=\"https://framagit.org/fiat-tux/hat-softwares/lufi/wikis/home\" class=\"classic\">Wiki</a> for the procedure."
 msgstr ""
+"Budući da je Lufi slobodan softver licenciran pod <a href=\"https://gnu.org/"
+"licenses/agpl.html\" class=\"classic\">AGPLv3</a> uvjetima, možeš ga "
+"instalirati na vlastiti poslužitelj. Pogledaj <a href=\"https://framagit.org/"
+"fiat-tux/hat-softwares/lufi/wikis/home\" class=\"classic\">Wiki</a> za "
+"postupak."
 
 #. (stash('nbslices')
 #: themes/default/templates/partial/render.js.ep:10
 msgid "Asking for file part XX1 of %1"
-msgstr ""
+msgstr "Traži se dio datoteke XX1 of %1"
 
 #: themes/default/templates/about.html.ep:23
 msgid "Back to homepage"
-msgstr ""
+msgstr "Natrag na web-stranicu"
 
 #: lib/Lufi/Controller/Mail.pm:26
 msgid "Bad CSRF token!"
-msgstr ""
+msgstr "Neispravan CSRF token!"
 
 #: lib/Lufi/Controller/Auth.pm:27 lib/Lufi/Controller/Auth.pm:49
 msgid "Bad CSRF token."
-msgstr ""
+msgstr "Neispravan CSRF token."
 
 #: themes/default/templates/partial/render.js.ep:5
 msgid "Click here to refresh the page and restart the download."
 msgstr ""
+"Pritisni ovdje za aktualiziranje stranice i ponovno pokretanje preuzimanja."
 
 #: themes/default/templates/invitations/invite.mail.ep:8
 msgid "Click on the following URL to upload files on Lufi:"
-msgstr ""
+msgstr "Pritisni sljedeći URL za prijenos datoteka na Lufi:"
 
 #: themes/default/templates/index.html.ep:126
 msgid "Click to open the file browser"
-msgstr ""
+msgstr "Pritisni za otvaranje preglednika datoteka"
 
 #: themes/default/templates/delays.html.ep:42 themes/default/templates/invitations/my_invitations.html.ep:80
 msgid "Close"
-msgstr ""
+msgstr "Zatvori"
 
 #: themes/default/templates/mail.html.ep:23
 msgid "Comma-separated email addresses"
-msgstr ""
+msgstr "Zarezom odvojene e-mail adrese"
 
 #: themes/default/templates/index.html.ep:140
 msgid "Compressing zip file…"
-msgstr ""
+msgstr "Komprimiranje zip datoteke …"
 
 #: themes/default/templates/partial/index.js.ep:15
 msgid "Copy all links to clipboard"
-msgstr ""
+msgstr "Kopiraj sve poveznice u međuspremnik"
 
 #: themes/default/templates/partial/index.js.ep:18
 msgid "Copy to clipboard"
-msgstr ""
+msgstr "Kopiraj u međuspremnik"
 
 #: lib/Lufi/Controller/Files.pm:501
 msgid "Could not delete the file. You are not authenticated."
-msgstr ""
+msgstr "Nije moguće izbrisati datoteku. Nisi autentificiran/a."
 
 #: lib/Lufi/Controller/Files.pm:483
 msgid "Could not find the file. Are you sure of the URL and the token?"
-msgstr ""
+msgstr "Nije moguće pronaći datoteku. Jesu li URL i token ispravni?"
 
 #: lib/Lufi/Controller/Files.pm:394
 msgid "Could not find the file. Are you sure of the URL?"
-msgstr ""
+msgstr "Nije moguće pronaći datoteku. Je li URL ispravan?"
 
 #: themes/default/templates/files.html.ep:29
 msgid "Counter"
-msgstr ""
+msgstr "Brojač"
 
 #: themes/default/templates/index.html.ep:100
 msgid "Create a zip archive with the files before uploading?"
-msgstr ""
+msgstr "Stvoriti zip arhivu s datotekama prije prijenosa?"
 
 #: themes/default/templates/invitations/my_invitations.html.ep:26
 msgid "Created at"
-msgstr ""
+msgstr "Stvoreno"
 
 #: themes/default/templates/invitations/my_invitations.html.ep:14
 msgid "Delete"
-msgstr ""
+msgstr "Izbriši"
 
 #: themes/default/templates/files.html.ep:30 themes/default/templates/index.html.ep:90
 msgid "Delete at first download?"
-msgstr ""
+msgstr "Izbrisati pri prvom preuzimanju?"
 
 #: themes/default/templates/files.html.ep:19
 msgid "Delete selected files"
-msgstr ""
+msgstr "Izbriši odabrane datoteke"
 
 #: themes/default/templates/files.html.ep:33 themes/default/templates/partial/index.js.ep:19
 msgid "Deletion link"
-msgstr ""
+msgstr "Poveznica za brisanje"
 
 #: themes/default/templates/delays.html.ep:9
 msgid "Don't worry: if a user begins to download the file before the expiration and the download ends after the expiration, he will be able to get the file."
 msgstr ""
+"Ne brini: ako osoba počne preuzimati datoteku prije isteka i preuzimanje "
+"završi nakon isteka, ona će moći dobiti datoteku."
 
 #: themes/default/templates/partial/index.js.ep:21 themes/default/templates/render.html.ep:28
 msgid "Download"
-msgstr ""
+msgstr "Preuzmi"
 
 #: themes/default/templates/partial/render.js.ep:4
 msgid "Download aborted."
-msgstr ""
+msgstr "Preuzimanje je prekinuto."
 
 #: themes/default/templates/files.html.ep:28 themes/default/templates/partial/index.js.ep:20
 msgid "Download link"
-msgstr ""
+msgstr "Poveznica za preuzimanje"
 
 #: themes/default/templates/about.html.ep:10
 msgid "Drag and drop files in the appropriate area or use the traditional way to send files and the files will be chunked, encrypted and sent to the server. You will get two links per file: a download link, that you give to the people you want to share the file with and a deletion link, allowing you to delete the file whenever you want."
 msgstr ""
+"Povuci i ispusti datoteke u odgovarajućem području ili koristi tradicionalni "
+"način slanja datoteka. Datoteke će se rastaviti na dijelove, šifrirat će se "
+"te će se poslati na poslužitelj. Za svaku datoteku ćeš dobiti dvije "
+"poveznice: poveznicu za preuzimanje koju šalješ ljudima s kojima želiš "
+"dijeliti datoteku i poveznicu za brisanje koja omogućuje brisanje datoteke "
+"kad god želiš."
 
 #: themes/default/templates/index.html.ep:122
 msgid "Drop files here"
-msgstr ""
+msgstr "Ispusti datoteke ovdje"
 
 #: themes/default/templates/invitations/invite.html.ep:40
 msgid "Email address of your guest"
-msgstr ""
+msgstr "E-mail adrese tvog gosta"
 
 #: themes/default/templates/mail.html.ep:39
 msgid "Email body"
-msgstr ""
+msgstr "Tekst e-maila"
 
 #: themes/default/templates/mail.html.ep:31
 msgid "Email subject"
-msgstr ""
+msgstr "Predmet e-maila"
 
 #: themes/default/templates/mail.html.ep:25 themes/default/templates/mail.html.ep:27
 msgid "Emails"
-msgstr ""
+msgstr "E-mailovi"
 
 #: themes/default/templates/partial/index.js.ep:22
 msgid "Encrypting part XX1 of XX2"
-msgstr ""
+msgstr "Šifrara se dio XX1 od XX2"
 
 #: lib/Lufi/Controller/Files.pm:283
 msgid "Error: the file existed but was deleted."
-msgstr ""
+msgstr "Greška: datoteka je postojala ali je izbrisana."
 
 #: lib/Lufi/Controller/Files.pm:363
 msgid "Error: the file has not been sent entirely."
-msgstr ""
+msgstr "Greška: datoteka nije u potpunosti poslana."
 
 #: lib/Lufi/Controller/Files.pm:373
 msgid "Error: unable to find the file. Are you sure of your URL?"
-msgstr ""
+msgstr "Greška: nije moguće pronaći datoteku. Je li tvoj URL ispravan?"
 
 #: themes/default/templates/partial/index.js.ep:23
 msgid "Expiration:"
-msgstr ""
+msgstr "Istek:"
 
 #: themes/default/templates/invitations/my_invitations.html.ep:27
 msgid "Expire at"
-msgstr ""
+msgstr "Isteču"
 
 #: themes/default/templates/files.html.ep:32
 msgid "Expires at"
-msgstr ""
+msgstr "Isteče"
 
 #: themes/default/templates/files.html.ep:12
 msgid "Export localStorage data"
-msgstr ""
+msgstr "Izvezi podatke lokalnog spremišta"
 
 #: lib/Lufi/Controller/Files.pm:465
 msgid "File deleted"
-msgstr ""
+msgstr "Datoteka je izbrisana"
 
 #: themes/default/templates/partial/render.js.ep:9
 msgid "File downloaded"
-msgstr ""
+msgstr "Datoteka je preuzeta"
 
 #: themes/default/templates/files.html.ep:27
 msgid "File name"
-msgstr ""
+msgstr "Ime datoteke"
 
 #: themes/default/templates/partial/index.js.ep:24
 msgid "File uploaded"
-msgstr ""
+msgstr "Datoteka je prenesena"
 
 #: themes/default/templates/invitations/my_invitations.html.ep:61
 msgid "Files"
-msgstr ""
+msgstr "Datoteke"
 
 #: themes/default/templates/index.html.ep:80
 msgid "Files deleted at first download"
-msgstr ""
+msgstr "Datoteke su izbrisane pri prvom preuzimanju"
 
 #: themes/default/templates/invitations/my_invitations.html.ep:28
 msgid "Files sent at"
-msgstr ""
+msgstr "Datoteke su poslane na"
 
 #: themes/default/templates/partial/invitations.js.ep:8
 msgid "Files sent in invitation XX1 by XX2"
-msgstr ""
+msgstr "Datoteke su poslane u pozivnici XX1 od XX2"
 
 #: themes/default/templates/partial/render.js.ep:8
 msgid "Get the file"
-msgstr ""
+msgstr "Preuzmi datoteku"
 
 #: themes/default/templates/about.html.ep:18
 msgid "Get the source code on <a href=\"https://framagit.org/fiat-tux/hat-softwares/lufi\" class=\"classic\">the official repository</a> or on its <a href=\"https://github.com/ldidry/lufi\" class=\"classic\">Github mirror</a>"
 msgstr ""
+"Preuzmi izvorni kod sa <a href=\"https://framagit.org/fiat-tux/hat-softwares/"
+"lufi\" class=\"classic\">službenog repozitorija</a> ili s njegovog <a href="
+"\"https://github.com/ldidry/lufi\" class=\"classic\">Github zrcala</a>"
 
 #: themes/default/templates/invitations/my_invitations.html.ep:24
 msgid "Guest mail"
-msgstr ""
+msgstr "E-mail adrese gosta"
 
 #. (ucfirst(stash('invitation')
 #: themes/default/templates/invitations/notification_files_sent.mail.ep:6
 msgid "Hello %1,"
-msgstr ""
+msgstr "Zdravo %1,"
 
 #: themes/default/templates/invitations/invite.mail.ep:4
 msgid "Hello,"
-msgstr ""
+msgstr "Zdravo,"
 
 #: themes/default/templates/partial/mail.js.ep:35
 msgid "Hello,\\n\\nHere's some files I want to share with you:\\n"
 msgstr ""
+"Zdravo,\\n"
+"\\n"
+"Evo par datoteka koje s tobom želim dijeliti:\\n"
 
 #: themes/default/templates/mail.html.ep:35
 msgid "Here's some files"
-msgstr ""
+msgstr "Evo par datoteka"
 
 #: themes/default/templates/partial/invitations.js.ep:7
 msgid "Hide hidden invitations"
-msgstr ""
+msgstr "Sakrij skrivene pozivnice"
 
 #: themes/default/templates/partial/index.js.ep:26
 msgid "Hit Enter, then Ctrl+C to copy all the download links"
 msgstr ""
+"Za kopiranje svih poveznica za preuzimanje pritisni Enter, a zatim Ctrl+C"
 
 #: themes/default/templates/partial/index.js.ep:25
 msgid "Hit Enter, then Ctrl+C to copy the download link"
-msgstr ""
+msgstr "Za kopiranje poveznice za preuzimanje pritisni Enter, a zatim Ctrl+C"
 
 #: themes/default/templates/about.html.ep:9
 msgid "How does it work?"
-msgstr ""
+msgstr "Kako radi?"
 
 #: themes/default/templates/invitations/invite.html.ep:46
 msgid "How many days would you like the invitation to be valid?"
-msgstr ""
+msgstr "Koliko dana želiš da pozivnica valja?"
 
 #: themes/default/templates/about.html.ep:16
 msgid "How to install the software on my server?"
-msgstr ""
+msgstr "Kako instalirati softver na moj poslužitelj?"
 
 #: themes/default/templates/about.html.ep:12
 msgid "How to report an illegal file?"
-msgstr ""
+msgstr "Kako prijaviti ilegalnu sliku?"
 
 #: themes/default/templates/delays.html.ep:8
 msgid "If you choose a delay, the file will be deleted after that delay."
-msgstr ""
+msgstr "Ako odabereš odgađanje, datoteka će se izbrisati nakon tog odgađanja."
 
 #: themes/default/templates/mail.html.ep:15
 msgid "If you send the mail from this server, the links will be sent to the server, which may lower your privacy protection."
 msgstr ""
+"Ako pošalješ e-mail s ovog poslužitelja, poveznice će se poslati na "
+"poslužitelj, što može smanjiti zaštitu tvoje privatnosti."
 
 #: themes/default/templates/files.html.ep:14
 msgid "Import localStorage data"
-msgstr ""
+msgstr "Uvezi podatke lokalnog spremišta"
 
 #: themes/default/templates/index.html.ep:53
 msgid "Important: more information on delays"
-msgstr ""
+msgstr "Važno: više informacija o odgađanjima"
 
 #: themes/default/templates/delays.html.ep:5
 msgid "Information about delays"
-msgstr ""
+msgstr "Informacije o odgađanjima"
 
 #: themes/default/templates/files.html.ep:18 themes/default/templates/invitations/my_invitations.html.ep:12
 msgid "Invert selection"
-msgstr ""
+msgstr "Preokreni odabir"
 
 #. ($i->guest_mail, $url)
 #: lib/Lufi/Controller/Invitation.pm:184
 msgid "Invitation resent to %1.<br> URL: %2"
-msgstr ""
+msgstr "Pozivnica ponovo poslana za %1.<br> URL: %2"
 
 #. ($invitation->guest_mail, $url)
 #: lib/Lufi/Controller/Invitation.pm:88
 msgid "Invitation sent to %1.<br> URL: %2"
-msgstr ""
+msgstr "Pozivnica poslana za %1.<br> URL: %2"
 
 #: themes/default/templates/invitations/invite.html.ep:27 themes/default/templates/layouts/default.html.ep:36 themes/default/templates/layouts/default.html.ep:69
 msgid "Invite a guest"
-msgstr ""
+msgstr "Pozovi gosta"
 
 #: themes/default/templates/partial/render.js.ep:6
 msgid "It seems that the key in your URL is incorrect. Please, verify your URL."
-msgstr ""
+msgstr "Čini se da je ključ u tvom URL-u netočan. Provjeri svoj URL."
 
 #: themes/default/templates/index.html.ep:12
 msgid "Javascript is disabled. You won't be able to use Lufi."
-msgstr ""
+msgstr "JavaScript je isključen. Nećeš moći koristiti Lufi."
 
 #: themes/default/templates/layouts/default.html.ep:44 themes/default/templates/layouts/default.html.ep:46 themes/default/templates/layouts/default.html.ep:77 themes/default/templates/layouts/default.html.ep:79
 msgid "Language"
-msgstr ""
+msgstr "Jezik"
 
 #. (sprintf('<a href="https://framagit.org/fiat-tux/hat-softwares/lufi/-/commit/%s" class="classic">%s</a>', stash('version')
 #: themes/default/templates/about.html.ep:22
 msgid "Latest commit of this instance: %1"
-msgstr ""
+msgstr "Zadnja izmjena ove instance: %1"
 
 #. (sprintf('<a href="https://framagit.org/fiat-tux/hat-softwares/lufi/-/releases/%s" class="classic">%s</a>', stash('version')
 #: themes/default/templates/about.html.ep:21
 msgid "Latest tag of this instance: %1"
-msgstr ""
+msgstr "Zadnja oznaka ove instance: %1"
 
 #: themes/default/templates/login.html.ep:15
 msgid "Login"
-msgstr ""
+msgstr "Prijava"
 
 #: themes/default/templates/layouts/default.html.ep:58 themes/default/templates/layouts/default.html.ep:91
 msgid "Logout"
-msgstr ""
+msgstr "Odjava"
 
 #: themes/default/templates/about.html.ep:4
 msgid "Lufi is a free (as in free speech) file hosting software."
-msgstr ""
+msgstr "Lufi je slobodan softver za hosting datoteka."
 
 #: themes/default/templates/partial/files.js.ep:12
 msgid "Lufi recently changed its way to store files information.\\n\\nNo files have been found in the new localStorage location but we found files in the old one.\\nDo you want to import those informations?\\n\\nPlease note that this is the only time that we will ask you this."
 msgstr ""
+"Lufi je nedavno promijenio način spremanja podataka datoteka.\\n"
+"\\n"
+"Nijedna datoteka nije pronađene u novom lokalnom spremištu, ali smo pronašli "
+"datoteke u starom.\\n"
+"Želiš li uvesti te podatke?\\n"
+"\\n"
+"Imaj na umu da jćemo te ovo pitati samo jedanput."
 
 #: themes/default/templates/files.html.ep:34
 msgid "Mail"
-msgstr ""
+msgstr "Pošta"
 
 #: themes/default/templates/files.html.ep:3 themes/default/templates/layouts/default.html.ep:34 themes/default/templates/layouts/default.html.ep:67
 msgid "My files"
-msgstr ""
+msgstr "Moje datoteke"
 
 #: themes/default/templates/invitations/my_invitations.html.ep:5 themes/default/templates/layouts/default.html.ep:37 themes/default/templates/layouts/default.html.ep:70
 msgid "My invitations"
-msgstr ""
+msgstr "Moje pozivnice"
 
 #: themes/default/templates/invitations/notification_files_sent.mail.ep:17
 msgid "NB: this list includes the list of files that have already been sent to you."
 msgstr ""
+"Ne zaboravi: Ovaj popis uključuje popis datoteka koje su ti već poslane."
 
 #: themes/default/templates/index.html.ep:115
 msgid "Name of the zip file"
-msgstr ""
+msgstr "Ime zip datoteke"
 
 #. (format_bytes($json->{size})
 #: lib/Lufi/Controller/Files.pm:109
 msgid "No enough space available on the server for this file (size: %1)."
 msgstr ""
+"Poslužitelj nema dovoljnu količinu memorije za ovu datoteku (veličina: %1)."
 
 #: themes/default/templates/partial/files.js.ep:10 themes/default/templates/partial/index.js.ep:29
 msgid "No expiration delay"
-msgstr ""
+msgstr "Bez odgađanja isteka"
 
 #: themes/default/templates/files.html.ep:8
 msgid "Only the files sent with this browser will be listed here. This list is stored in localStorage: if you delete your localStorage data, you'll lose this list."
 msgstr ""
+"Ovdje će se navesti samo datoteke koje su poslane s ovim preglednikom. Ovaj "
+"se popis sprema u lokalno spremište: ako izbrišeš svoje podatke lokalnog "
+"spremišta, izgubit ćeš ovaj popis."
 
 #: themes/default/templates/index.html.ep:106 themes/default/templates/login.html.ep:21 themes/default/templates/render.html.ep:26
 msgid "Password"
-msgstr ""
+msgstr "Lozinka"
 
 #. (config('contact')
 #: themes/default/templates/about.html.ep:13
 msgid "Please contact the administrator: %1"
-msgstr ""
+msgstr "Kontaktiraj administratora: %1"
 
 #: themes/default/templates/render.html.ep:33
 msgid "Please wait while we are getting your file. We first need to download and decrypt all parts before you can get it."
 msgstr ""
+"Pričekaj dok preuzimamo tvoju datoteku. Prije nego što je možeš preuzeti, "
+"moramo je najprije preuzeti i dešifrirati sve dijelove."
 
 #: lib/Lufi/Controller/Auth.pm:38
 msgid "Please, check your credentials or your right to access this service: unable to authenticate."
 msgstr ""
+"Provjeri svoje podatke za prijavu ili pravo na pristup ovoj usluzi: "
+"neuspjela autentifikacija."
 
 #: themes/default/templates/about.html.ep:5
 msgid "Privacy"
-msgstr ""
+msgstr "Privatnost"
 
 #: themes/default/templates/files.html.ep:13
 msgid "Purge expired files from localStorage"
-msgstr ""
+msgstr "Potpuno izbriši istekle datoteke iz lokalonog spremišta"
 
 #: themes/default/templates/invitations/notification_files_sent.mail.ep:20
 msgid "Regards,"
-msgstr ""
+msgstr "Pozdrav,"
 
 #: themes/default/templates/invitations/invite.mail.ep:15
 msgid "Regards."
-msgstr ""
+msgstr "Pozdrav."
 
 #: themes/default/templates/layouts/default.html.ep:31 themes/default/templates/layouts/default.html.ep:64
 msgid "Report file"
-msgstr ""
+msgstr "Prijavi datoteku"
 
 #: themes/default/templates/invitations/my_invitations.html.ep:15
 msgid "Resend invitation mail"
-msgstr ""
+msgstr "Ponovo pošalji e-mail pozivnicu"
 
 #: themes/default/templates/invitations/my_invitations.html.ep:9
 msgid "Rows in purple mean that the invitations have expired."
-msgstr ""
+msgstr "Ljubičasto obojeni redci znače da su pozivnice istekle."
 
 #: themes/default/templates/files.html.ep:9
 msgid "Rows in red mean that the files have expired and are no longer available."
 msgstr ""
+"Crveno obojeni redci znače da su datoteke istekle i da više nisu dostupne."
 
 #: themes/default/templates/partial/index.js.ep:27
 msgid "Send all links by email"
-msgstr ""
+msgstr "Pošalji sve poveznice putem e-maila"
 
 #: themes/default/templates/invitations/invite.html.ep:50
 msgid "Send the invitation"
-msgstr ""
+msgstr "Pošalji pozivnicu"
 
 #: themes/default/templates/mail.html.ep:47
 msgid "Send with this server"
-msgstr ""
+msgstr "Pošalji s poslužiteljem"
 
 #: themes/default/templates/mail.html.ep:49
 msgid "Send with your own mail software"
-msgstr ""
+msgstr "Pošalji s vlastitim e-mail softverom"
 
 #: themes/default/templates/partial/index.js.ep:30
 msgid "Sending part XX1 of XX2. Please, be patient, the progress bar can take a while to move."
 msgstr ""
+"Slanje dijela XX1 od xx2. Strpi se, može potrajati neko vrijeme dok se traka "
+"napretka pomakne."
 
 #. (url_for('/')
 #: themes/default/templates/partial/mail.js.ep:49
 msgid "Share your files in total privacy on %1"
-msgstr ""
+msgstr "Dijeli svoje datoteke potpuno privatno na %1"
 
 #: themes/default/templates/invitations/my_invitations.html.ep:13 themes/default/templates/partial/invitations.js.ep:9
 msgid "Show hidden invitations"
-msgstr ""
+msgstr "Pokaži skrivene pozivnice"
 
 #: themes/default/templates/partial/render.js.ep:12
 msgid "Show zip content"
-msgstr ""
+msgstr "Pokaži sadržaj zip datoteke"
 
 #: themes/default/templates/layouts/default.html.ep:40 themes/default/templates/layouts/default.html.ep:73 themes/default/templates/login.html.ep:28 themes/default/templates/logout.html.ep:17
 msgid "Signin"
-msgstr ""
+msgstr "Registracija"
 
 #: lib/Lufi/Controller/Invitation.pm:302 themes/default/templates/invitations/exception.html.ep:16
 msgid "Sorry, the invitation doesn’t exist. Are you sure you are on the right URL?"
-msgstr ""
+msgstr "Žao nam je, pozivnica ne postoji. Je li se nalaziš na ispravom URL-u?"
 
 #: themes/default/templates/index.html.ep:46
 msgid "Sorry, the uploading is currently disabled. Please try again later."
 msgstr ""
+"Žao nam je, mogućnost prijenosa je trenutačno isključeno. Pokušaj kasnije "
+"ponovo."
 
 #: lib/Lufi/Controller/Files.pm:82
 msgid "Sorry, uploading is disabled."
-msgstr ""
+msgstr "Žao nam je, mogućnost prijenosa je isključeno."
 
 #: themes/default/templates/invitations/exception.html.ep:7
 msgid "Sorry, your invitation has expired or has been deleted."
-msgstr ""
+msgstr "Žao nam je, tvoja je pozivnica istekla ili izbrisana."
 
 #. ($invit->ldap_user_mail)
 #: lib/Lufi/Controller/Files.pm:123
 msgid "Sorry, your invitation has expired or has been deleted. Please contact %1 to have another invitation."
 msgstr ""
+"Žao nam je, tvoja je pozivnica istekla ili izbrisana. Za dobivanje nove "
+"pozivnice kontaktiraj %1."
 
 #. ($invitation->ldap_user_mail)
 #: lib/Lufi/Controller/Invitation.pm:295
 msgid "The URLs of your files have been sent by email to %1."
-msgstr ""
+msgstr "URL-ovi tvojih datoteka poslani su e-mailom na %1."
 
 #: themes/default/templates/about.html.ep:7
 msgid "The administrator can only see the file's name, its size and its mimetype (what kind of file it is: video, text, etc.)."
 msgstr ""
+"Administrator može vidjeti samo ime datoteke, njegovu veličinu i vrstu ("
+"video, tekst itd.)."
 
 #: lib/Lufi/Controller/Mail.pm:67
 msgid "The body of the mail must contain at least one URL pointing to a file hosted on this instance."
 msgstr ""
+"Sadržaj e-maila mora sadržati barem jedan URL koji ukazuje na datoteku na "
+"ovoj instanci."
 
 #: themes/default/templates/partial/files.js.ep:11
 msgid "The data has been successfully imported."
-msgstr ""
+msgstr "Podaci su uspješno uvezeni."
 
 #: lib/Lufi/Controller/Mail.pm:87
 msgid "The email body can't be empty."
-msgstr ""
+msgstr "Sadržaj e-maila ne smije biti prazan."
 
 #: lib/Lufi/Controller/Mail.pm:86
 msgid "The email subject can't be empty."
-msgstr ""
+msgstr "Predmet e-maila ne smije biti prazan."
 
 #. ($expire_at, $max_expire_at)
 #: lib/Lufi/Controller/Invitation.pm:52
 msgid "The expiration delay (%1) is not between 1 and %2 days."
-msgstr ""
+msgstr "Odgađanja isteka (%1) nije između 1 i %2 dana."
 
 #: lib/Lufi/Controller/Files.pm:462
 msgid "The file has already been deleted"
-msgstr ""
+msgstr "Datoteka je već izbrisana"
 
 #: themes/default/templates/about.html.ep:6
 msgid "The files uploaded on a Lufi instance are encrypted before the upload to the server: the administrator of the server can not see the file's content."
 msgstr ""
+"Na Lufi instancu prenesene datoteke se šifriraju prije prenošenja na "
+"poslužitelj: administrator poslužitelja ne može vidjeti sadržaj datoteke."
 
 #. (join(', ', @bad)
 #: lib/Lufi/Controller/Mail.pm:82
 msgid "The following email addresses are not valid: %1"
-msgstr ""
+msgstr "Sljedeće e-mail adrese nisu ispravne: %1"
 
 #. ($guest_mail)
 #: lib/Lufi/Controller/Invitation.pm:49
 msgid "The guest email address (%1) is unvalid."
-msgstr ""
+msgstr "E-mail adresa gosta (%1) je neispravna."
 
 #. ($i->token, $c->current_user->{username})
 #: lib/Lufi/Controller/Invitation.pm:136
 msgid "The invitation %1 can’t be deleted: it wasn’t created by you (%2)."
-msgstr ""
+msgstr "Pozivnica %1 se ne može izbrisati: nisi autor pozivnice ( %2)."
 
 #. ($i->token, $i->guest_mail)
 #: lib/Lufi/Controller/Invitation.pm:163
 msgid "The invitation %1 can’t be resent: %2 has already sent files.<br>Please create a new invitation."
 msgstr ""
+"Pozivnica %1 se ne može ponovo poslati: %2 je već poslao datoteke.<br>Stvori "
+"novu pozivnicu."
 
 #. ($i->token, $c->current_user->{username})
 #: lib/Lufi/Controller/Invitation.pm:187
 msgid "The invitation %1 can’t be resent: it wasn’t created by you (%2)."
-msgstr ""
+msgstr "Pozivnica %1 se ne može ponovo poslati: nisi autor pozivnice ( %2)."
 
 #. ($i->token)
 #: lib/Lufi/Controller/Invitation.pm:134
 msgid "The invitation %1 has been deleted."
-msgstr ""
+msgstr "Pozivnica %1 je izbrisana."
 
 #. (stash('user_mail')
 #: themes/default/templates/invitations/invite.html.ep:34
 msgid "The invitation mail will be send from your email address (%1)."
-msgstr ""
+msgstr "E-mail pozivnica će se poslati s tvoje e-mail adrese (%1)."
 
 #: themes/default/templates/partial/index.js.ep:16
 msgid "The link(s) has been copied to your clipboard"
-msgstr ""
+msgstr "Poveznice su kopirane u međuspremnik"
 
 #. (stash('invitation')
 #: themes/default/templates/index.html.ep:30
 msgid "The link(s) of your file(s) will automatically be sent by mail to %1 (%2)"
-msgstr ""
+msgstr "Poveznice tvojih datoteka će se automatski poslati e-mailom na %1 ( %2)"
 
 #. (stash('ldap_user')
 #: themes/default/templates/invitations/invite.mail.ep:11
 msgid "The links of your file(s) will automatically be sent by mail to %1."
-msgstr ""
+msgstr "Poveznice tvojih datoteka će se automatski poslati e-mailom na %1."
 
 #: lib/Lufi/Controller/Mail.pm:111
 msgid "The mail has been sent."
-msgstr ""
+msgstr "Ovaj e-mail je poslan."
 
 #: themes/default/templates/about.html.ep:15
 msgid "The original (and only for now) author is <a href=\"https://fiat-tux.fr\" class=\"classic\">Luc Didry</a>."
 msgstr ""
+"Izvorni (i samo za sada) autor je <a href=\"https://fiat-tux.fr\" class="
+"\"classic\">Luc Didry</a>."
 
 #: lib/Lufi/Controller/Files.pm:230
 msgid "The server was unable to find the file record to add your file part to. Please, contact the administrator."
 msgstr ""
+"Poslužitelj nije uspio pronaći zapis datoteke za dodavanje tvog dijela "
+"datoteke. Kontaktiraj administratora."
 
 #: lib/Lufi/Controller/Files.pm:289
 msgid "This file has been deactivated by the admins. Contact them to know why."
 msgstr ""
+"Administratori su deaktivirali ovu datoteku. Kontaktiraj ih i saznaj zašto."
 
 #: themes/default/templates/invitations/my_invitations.html.ep:46 themes/default/templates/partial/invitations.js.ep:6
 msgid "This invitation is normally hidden"
-msgstr ""
+msgstr "Ovaj je poziv obično skriven"
 
 #. (stash('expires')
 #: themes/default/templates/invitations/invite.mail.ep:13
 msgid "This invitation is valid until %1."
-msgstr ""
+msgstr "Ovaj je poziv valjan do %1."
 
 #: themes/default/templates/delays.html.ep:13
 msgid "This server sets limitations according to the file size. The expiration delay of your file will be the minimum between what you choose and the following limitations:"
 msgstr ""
+"Ovaj poslužitelj postavlja ograničenja u skladu s veličinom datoteke. "
+"Odgađanja isteka tvoje datoteke bit će minimum između onoga što odabereš i "
+"sljedećih ograničenja:"
 
 #: themes/default/templates/invitations/my_invitations.html.ep:16
 msgid "Toggle visibility"
-msgstr ""
+msgstr "Uključi/isključi vidljivost"
 
 #: themes/default/templates/invitations/my_invitations.html.ep:25
 msgid "URL"
-msgstr ""
+msgstr "URL"
 
 #: themes/default/templates/partial/index.js.ep:17
 msgid "Unable to copy the link(s) to your clipboard"
-msgstr ""
+msgstr "Neuspjelo kopiranje poveznica u međuspremnik"
 
 #: themes/default/templates/partial/render.js.ep:13
 msgid "Unable to download the file: too much unsuccessful attempts to open a websocket. Please, contact the administrator."
 msgstr ""
+"Neuspjelo preuzimanje datoteke: previše neuspjelih pokušaja otvaranja "
+"websocket protokola. Kontaktiraj administratora."
 
 #. ($short)
 #: lib/Lufi/Controller/Files.pm:433
 msgid "Unable to get counter for %1. The file does not exists. It will be removed from your localStorage."
 msgstr ""
+"Neuspjelo dobivanje brojača za %1. Datoteka ne postoji. Uklonit će se iz "
+"tvog lokalnog spremišta."
 
 #. ($short)
 #: lib/Lufi/Controller/Files.pm:423
 msgid "Unable to get counter for %1. The token is invalid."
-msgstr ""
+msgstr "Neuspjelo dobivanje brojača za %1. Token nije ispravan."
 
 #. ($short)
 #: lib/Lufi/Controller/Files.pm:443
 msgid "Unable to get counter for %1. You are not authenticated."
-msgstr ""
+msgstr "Neuspjelo dobivanje brojača za %1. Nisi autentificiran/a.."
 
 #: themes/default/templates/layouts/default.html.ep:33 themes/default/templates/layouts/default.html.ep:66
 msgid "Upload files"
-msgstr ""
+msgstr "Prenesi datoteke"
 
 #: themes/default/templates/index.html.ep:145
 msgid "Upload generated zip file"
-msgstr ""
+msgstr "Prenesi generiranu zip datoteku"
 
 #: themes/default/templates/files.html.ep:31
 msgid "Uploaded at"
-msgstr ""
+msgstr "Preneseno"
 
 #: themes/default/templates/index.html.ep:153
 msgid "Uploaded files"
-msgstr ""
+msgstr "Prenesene datoteke"
 
 #: themes/default/templates/about.html.ep:20
 msgid "Version"
-msgstr ""
+msgstr "Verzija"
 
 #: themes/default/templates/partial/index.js.ep:31
 msgid "Websocket communication error"
-msgstr ""
+msgstr "Greška u komunikaciji websocket protokola"
 
 #: themes/default/templates/about.html.ep:3
 msgid "What is Lufi?"
-msgstr ""
+msgstr "Što je Lufi?"
 
 #: themes/default/templates/about.html.ep:14
 msgid "Who wrote this software?"
-msgstr ""
+msgstr "Tko je napisao ovaj softver?"
 
 #: themes/default/templates/partial/index.js.ep:13
 msgid "XXX file has been added to upload queue."
-msgstr ""
+msgstr "XXX datoteka je dodana u red za prijenos."
 
 #: themes/default/templates/invitations/invite.html.ep:30
 msgid "You can invite someone to send you files through this Lufi instance even if they don’t have an account on it."
 msgstr ""
+"Možeš pozvati osobe da ti pošalju datoteke putem ove Lufi instance, čak i "
+"ako nemaju račun za Lufi instancu."
 
 #: themes/default/templates/about.html.ep:11
 msgid "You can see the list of your files by clicking on the \"My files\" link at the top right of this page."
 msgstr ""
+"Popis datoteka možeš vidjeti pritiskom poveznice „Moje datoteke” u gornjem "
+"desnom kutu ove stranice."
 
 #. ($orig_uri)
 #: lib/Lufi/Controller/Mail.pm:43 lib/Lufi/Controller/Mail.pm:59
 msgid "You can't add URLs that are not related to this instance (%1)."
-msgstr ""
+msgstr "Ne možeš dodati URL-ove koji nisu povezani s ovom instancom (%1)."
 
 #: themes/default/templates/about.html.ep:8
 msgid "You don't need to register yourself to upload files but be aware that, for legal reasons, your IP address will be stored when you send a file. Don't panic, this is normally the case for all sites on which you send files."
 msgstr ""
+"Za prenošenje datoteka se ne moraš registrirati, međutim, iz pravnih "
+"razloga, tvoja IP adresa će se spremiti prilikom slanja datoteke. Nemoj "
+"paničariti, to obično vrijedi za sve web-stranice na kojima šalješ datoteke."
 
 #: themes/default/templates/partial/render.js.ep:11
 msgid "You don't seem to have a key in your URL. You won't be able to decrypt the file. Download canceled."
 msgstr ""
+"Čini se da nemaš ključ u svom URL-u. Nećeš moći dešifrirati datoteku. "
+"Preuzimanje je prekinuto."
 
 #: themes/default/templates/partial/render.js.ep:7
 msgid "You have attempted to leave this page. The download will be canceled. Are you sure?"
 msgstr ""
+"Pokušao/la si napustiti ovu stranicu. Preuzimanje će se prekinuti. Stvarno "
+"to želiš?"
 
 #: themes/default/templates/partial/index.js.ep:14
 msgid "You have attempted to leave this page. The upload will be canceled. Are you sure?"
 msgstr ""
+"Pokušao/la si napustiti ovu stranicu. Prenošenje će se prekinuti. Stvarno to "
+"želiš?"
 
 #: themes/default/templates/logout.html.ep:14
 msgid "You have been successfully logged out."
-msgstr ""
+msgstr "Uspješno si odjevljen/a."
 
 #: lib/Lufi/Controller/Mail.pm:85
 msgid "You must give email addresses."
-msgstr ""
+msgstr "Moraš upisati e-mail adrese."
 
 #: themes/default/templates/index.html.ep:38
 msgid "Your browser does not have enough entropy to generate a strong encryption key. Please wait (it's better if you do things on your computer while waiting)."
 msgstr ""
+"Tvoj preglednik nema dovoljno entropije za generiranje snažnog ključa za "
+"šifriranje. Pričekaj (bolje je ako radiš stvari na računalu dok čekaš)."
 
 #. (format_bytes($json->{size})
 #: lib/Lufi/Controller/Files.pm:95
 msgid "Your file is too big: %1 (maximum size allowed: %2)"
-msgstr ""
+msgstr "Tvoja je datoteka prevelika: %1 (maksimalna dozvoljena veličina: %2)"
 
 #: lib/Lufi/Controller/Files.pm:345
 msgid "Your password is not valid. Please refresh the page to retry."
-msgstr ""
+msgstr "Tvoja lozinka nije valjana. Aktualiziraj stranicu za ponovni pokušaj."
 
 #: themes/default/templates/partial/render.js.ep:14
 msgid "Zip content:"
-msgstr ""
+msgstr "Sadržaj zip datoteke:"
 
 #. (format_bytes($keys[$i])
 #: themes/default/templates/delays.html.ep:24
 msgid "between %1 and %2, the file will be kept %3 day(s)."
-msgstr ""
+msgstr "između %1 i %2, datoteka će se zadržati %3 dan(a)."
 
 #. (format_bytes($keys[$i])
 #: themes/default/templates/delays.html.ep:26
 msgid "between %1 and %2, the file will be kept forever."
-msgstr ""
+msgstr "između %1 i %2, datoteka će se zadržati zauvijek."
 
 #: themes/default/templates/partial/mail.js.ep:42
 msgid "deadline: "
-msgstr ""
+msgstr "rok: "
 
 #: themes/default/templates/partial/invitations.js.ep:5
 msgid "expires on XXX"
-msgstr ""
+msgstr "isteče XXX"
 
 #. (format_bytes($keys[$i])
 #: themes/default/templates/delays.html.ep:30
 msgid "for %1 and more, the file will be kept %2 day(s)"
-msgstr ""
+msgstr "za %1 i više, datoteka će se zadržati %2 dan(a)."
 
 #. (format_bytes($keys[$i])
 #: themes/default/templates/delays.html.ep:32
 msgid "for %1 and more, the file will be kept forever."
-msgstr ""
+msgstr "za %1 i više, datoteka će se zadržati zauvijek."
 
 #: themes/default/templates/index.html.ep:3
 msgid "no time limit"
-msgstr ""
+msgstr "bez vremenskog ograničenja"
 
 #: themes/default/templates/index.html.ep:124
 msgid "or"
-msgstr ""
+msgstr "ili"
 
 #. ($e->{name}, format_bytes($e->{size})
 #: themes/default/templates/invitations/notification_files_sent.mail.ep:12
 msgid "— %1 (%2), that will expire on %3"
-msgstr ""
+msgstr "– %1 (%2), isteči će %3"
+
+#:
+msgid "You can't add URLs that are not related to this instance."
+msgstr "Ne možeš dodati URL-ove koji nisu povezani s ovom instancom."
