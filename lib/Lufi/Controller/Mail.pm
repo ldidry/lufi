@@ -75,6 +75,8 @@ sub send_mail {
     for my $email (@a) {
         if (!Email::Valid->address($email)) {
             push @bad, $email;
+        } else {
+            push @good, $email;
         }
     }
 
@@ -99,12 +101,14 @@ sub send_mail {
         )
     }
 
-    $c->mail(
-        from    => $c->config('mail_sender'),
-        bcc     => $emails,
-        subject => $subject,
-        data    => $body
-    );
+    for my $email (@good) {
+        $c->mail(
+            from    => $c->config('mail_sender'),
+            to      => $emails,
+            subject => $subject,
+            data    => $body
+        );
+    }
 
     return $c->render(
         template    => 'msg',
