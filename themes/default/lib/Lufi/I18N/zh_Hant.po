@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "POT-Creation-Date: YEAR-MO-DA HO:MI+ZONE\n"
-"PO-Revision-Date: 2020-12-06 15:52+0000\n"
-"Last-Translator: zilliu <zilliu@disroot.org>\n"
+"PO-Revision-Date: 2022-12-26 01:38+0000\n"
+"Last-Translator: 李奕寯 <eugenelego88@gmail.com>\n"
 "Language-Team: Chinese (Traditional) <https://weblate.framasoft.org/projects/"
 "lufi/default-theme/zh_Hant/>\n"
 "Language: zh_Hant\n"
@@ -16,7 +16,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
-"X-Generator: Weblate 4.1\n"
+"X-Generator: Weblate 4.14.1\n"
 
 #. ($delay)
 #. (max_delay)
@@ -102,7 +102,7 @@ msgstr "正在請求檔案第 XX1 / %1 部分"
 
 #: themes/default/templates/about.html.ep:23
 msgid "Back to homepage"
-msgstr "回到主頁"
+msgstr "回到首頁"
 
 #: lib/Lufi/Controller/Mail.pm:25
 msgid "Bad CSRF token!"
@@ -744,7 +744,7 @@ msgstr "誰寫了這個軟件？"
 
 #: themes/default/templates/partial/index.js.ep:13
 msgid "XXX file has been added to upload queue."
-msgstr "XXX 檔案已經被加入到了上傳佇列。"
+msgstr "檔案 XXX 已經被加入上傳佇列。"
 
 #: themes/default/templates/invitations/invite.html.ep:30
 msgid "You can invite someone to send you files through this Lufi instance even if they don’t have an account on it."
@@ -843,3 +843,8 @@ msgstr "— %1 (%2), 會在 %3 到期"
 #: themes/default/templates/partial/render.js.ep:13
 msgid "Unable to download the file: too much unsuccessful attempts to open a websocket. Please, contact the administrator."
 msgstr "無法下載檔案：太多不必要的開啓 websocket 嘗試。請聯絡管理員。"
+
+#. ($orig_uri)
+#: lib/Lufi/Controller/Mail.pm:43 lib/Lufi/Controller/Mail.pm:59
+msgid "You can't add URLs that are not related to this instance (%1)."
+msgstr "您無法加入與此實例 (%1) 無關的網址。"
