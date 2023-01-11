@@ -2,6 +2,12 @@ Revision history for Lufi
 
 ?.??.? ????-??-??
 
+0.05.19 2023-01-11
+	- 🌐 Update translations
+	- 👷 — Deactivate Swift tests in CI
+	- Terraform and Ansible provisioning (@arunodhayamsam)
+	- Support for header authentication (@mildis)
+
 0.05.18 2022-03-19
 	- ✨ Add support for header authentication, thanks to @mildis (!69)
 	- 🌐 Update translations
