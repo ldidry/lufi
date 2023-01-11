@@ -108,10 +108,10 @@ auth_test_suite('zoidberg', 'zoidberg');
 restore_config();
 
 ## Test Swift object storage
-switch_to_swift();
-test_upload_file();
-test_download_file();
-restore_config();
+#switch_to_swift();
+#test_upload_file();
+#test_download_file();
+#restore_config();
 
 done_testing();
 

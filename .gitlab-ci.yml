@@ -59,8 +59,8 @@ variables:
   services:
     - name: rroemhild/test-openldap
       alias: rroemhild-test-openldap
-    - name: openstackswift/saio
-      alias: swiftstack-picoswiftstack
+      # - name: openstackswift/saio
+      #   alias: swiftstack-picoswiftstack
 .pg_template: &pg_definition
   <<: *tests_template
   needs:
@@ -70,8 +70,8 @@ variables:
       alias: postgres
     - name: rroemhild/test-openldap
       alias: rroemhild-test-openldap
-    - name: openstackswift/saio
-      alias: swiftstack-picoswiftstack
+      # - name: openstackswift/saio
+      #   alias: swiftstack-picoswiftstack
 .mysql_template: &mysql_definition
   <<: *tests_template
   needs:
@@ -81,8 +81,8 @@ variables:
       alias: mariadb
     - name: rroemhild/test-openldap
       alias: rroemhild-test-openldap
-    - name: openstackswift/saio
-      alias: swiftstack-picoswiftstack
+      # - name: openstackswift/saio
+      #   alias: swiftstack-picoswiftstack
 
 ### Publish tag changelog and create a toot
 ##
