@@ -7,7 +7,7 @@ requires 'Mojolicious::Plugin::GzipStatic';
 requires 'Mojolicious::Plugin::StaticCache';
 requires 'Mojolicious::Plugin::CSPHeader', '>= 0.06';
 requires 'Mojolicious::Plugin::FiatTux::Helpers', '== 0.12', url => 'https://framagit.org/fiat-tux/mojolicious/fiat-tux/mojolicious-plugin-fiattux-helpers/-/archive/0.12/mojolicious-plugin-fiattux-helpers-0.12.tar.gz';
-requires 'Mojolicious::Plugin::FiatTux::GrantAccess', '== 0.09', url => 'https://framagit.org/fiat-tux/mojolicious/fiat-tux/mojolicious-plugin-fiattux-grantaccess/-/archive/0.09/mojolicious-plugin-fiattux-grantaccess-0.09.tar.gz';
+requires 'Mojolicious::Plugin::FiatTux::GrantAccess', '== 0.10', url => 'https://framagit.org/fiat-tux/mojolicious/fiat-tux/mojolicious-plugin-fiattux-grantaccess/-/archive/0.10/mojolicious-plugin-fiattux-grantaccess-0.10.tar.gz';
 requires 'Mojolicious::Plugin::FiatTux::Themes', '== 0.02', url => 'https://framagit.org/fiat-tux/mojolicious/fiat-tux/mojolicious-plugin-fiattux-themes/-/archive/0.02/mojolicious-plugin-fiattux-themes-0.02.tar.gz';
 requires 'Filesys::DiskUsage';
 requires 'Switch';
