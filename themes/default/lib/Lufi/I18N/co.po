@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "POT-Creation-Date: YEAR-MO-DA HO:MI+ZONE\n"
-"PO-Revision-Date: 2022-05-21 15:36+0000\n"
+"PO-Revision-Date: 2023-05-12 14:05+0000\n"
 "Last-Translator: Patriccollu di Santa Maria è Sichè <Patriccollu@gmail.com>\n"
 "Language-Team: Corsican <https://weblate.framasoft.org/projects/lufi/"
 "default-theme/co/>\n"
@@ -16,7 +16,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 4.12\n"
+"X-Generator: Weblate 4.17\n"
 
 #. ($delay)
 #. (max_delay)
@@ -37,7 +37,7 @@ msgstr "%1 v’invita à mandalli schedarii via Lufi."
 #. (stash('invitation')
 #: themes/default/templates/invitations/notification_files_sent.mail.ep:4
 msgid "%1 sent you files"
-msgstr "%1 vu hà mandatu schedarii"
+msgstr "%1 vi hà mandatu schedarii"
 
 #. (stash('invitation')
 #: themes/default/templates/invitations/notification_files_sent.mail.ep:8
@@ -224,7 +224,7 @@ msgstr ""
 
 #: themes/default/templates/index.html.ep:122
 msgid "Drop files here"
-msgstr "Depunite i vostri schedarii quì"
+msgstr "Depunite quì i vostri schedarii"
 
 #: themes/default/templates/invitations/invite.html.ep:40
 msgid "Email address of your guest"
