@@ -7,104 +7,118 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "POT-Creation-Date: YEAR-MO-DA HO:MI+ZONE\n"
-"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
-"Last-Translator: Automatically generated\n"
-"Language-Team: none\n"
+"PO-Revision-Date: 2023-10-21 21:38+0000\n"
+"Last-Translator: Otyugh <otyugh@riseup.net>\n"
+"Language-Team: Breton <https://weblate.framasoft.org/projects/lufi/"
+"default-theme/br/>\n"
 "Language: br\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=5; plural=(n % 10 == 1 && n % 100 != 11 && n % 100 != "
+"71 && n % 100 != 91) ? 0 : ((n % 10 == 2 && n % 100 != 12 && n % 100 != 72 "
+"&& n % 100 != 92) ? 1 : ((((n % 10 == 3 || n % 10 == 4) || n % 10 == 9) && ("
+"n % 100 < 10 || n % 100 > 19) && (n % 100 < 70 || n % 100 > 79) && (n % 100 "
+"< 90 || n % 100 > 99)) ? 2 : ((n != 0 && n % 1000000 == 0) ? 3 : 4)));\n"
+"X-Generator: Weblate 5.0.1\n"
 
 #. ($delay)
 #. (max_delay)
 #: themes/default/templates/index.html.ep:56 themes/default/templates/index.html.ep:65 themes/default/templates/index.html.ep:66
 msgid "%1 days"
-msgstr ""
+msgstr "%1 devezh"
 
 #. (stash('ldap_user')
 #: themes/default/templates/invitations/invite.mail.ep:2
 msgid "%1 invites you to send him/her files"
-msgstr ""
+msgstr "Pedet oc'h gant %1 da gas dezhi/dezhañ oh fichennaoueg"
 
 #. (stash('ldap_user')
 #: themes/default/templates/invitations/invite.mail.ep:6
 msgid "%1 invites you to send him/her files through Lufi."
-msgstr ""
+msgstr "Pedet oc'h gant %1 da gas dezhi/dezhañ oh fichennaoueg dre Lufi."
 
 #. (stash('invitation')
 #: themes/default/templates/invitations/notification_files_sent.mail.ep:4
 msgid "%1 sent you files"
-msgstr ""
+msgstr "%1 o deus kaset deoc'h fichennaouegoù"
 
 #. (stash('invitation')
 #: themes/default/templates/invitations/notification_files_sent.mail.ep:8
 msgid "%1 used your invitation to send you files:"
-msgstr ""
+msgstr "Implijet eo bet oh pedadenn gant %1 :"
 
 #: lib/Lufi/Controller/Invitation.pm:172 lib/Lufi/Controller/Invitation.pm:85 themes/default/templates/invitations/my_invitations.html.ep:51 themes/default/templates/invitations/my_invitations.html.ep:52 themes/default/templates/invitations/my_invitations.html.ep:53 themes/default/templates/invitations/notification_files_sent.mail.ep:12
 msgid "%A %d %B %Y at %T"
-msgstr ""
+msgstr "%A %d %B %Y da %T"
 
 #: themes/default/templates/partial/index.js.ep:28
 msgid "(max size: XXX)"
-msgstr ""
+msgstr "(pouezh maks : XXX)"
 
 #: themes/default/templates/index.html.ep:5
 msgid "1 year"
-msgstr ""
+msgstr "1 bloazh"
 
 #: themes/default/templates/index.html.ep:4 themes/default/templates/index.html.ep:65
 msgid "24 hours"
-msgstr ""
+msgstr "24 eur"
 
 #: themes/default/templates/partial/mail.js.ep:40
 msgid ":"
-msgstr ""
+msgstr ":"
 
 #: themes/default/templates/render.html.ep:42
 msgid "Abort"
-msgstr ""
+msgstr "Nullañ"
 
 #: themes/default/templates/layouts/default.html.ep:53 themes/default/templates/layouts/default.html.ep:86
 msgid "About"
-msgstr ""
+msgstr "Diwar benn"
 
 #: themes/default/templates/index.html.ep:107
 msgid "Add a password to file(s)"
-msgstr ""
+msgstr "Ouzhpenn ur ger kuzh d'ho fichennaoueg(où)"
 
 #: themes/default/templates/mail.html.ep:16
 msgid "Adding URLs not related to this Lufi instance to the mail body or subject is prohibited."
 msgstr ""
+"Ouzhpennañ liammoù diliam gant al lec'hienn Lufi-mañ e-barzh sujed pe korf "
+"oh mail a zo difennet."
 
 #: themes/default/templates/partial/invitations.js.ep:3
 msgid "Are you sure you want to delete the selected invitations?"
-msgstr ""
+msgstr "Ah sur oc'h dilemel ar pedadennoù choazet ?"
 
 #: themes/default/templates/partial/invitations.js.ep:4
 msgid "Are you sure you want to resend the invitation mail for the selected invitations?"
-msgstr ""
+msgstr "Ah sur oc'h adkas ho mail pediñ evit ar pedadenn choazet ?"
 
 #: themes/default/templates/about.html.ep:17
 msgid "As Lufi is a free software licensed under of the terms of the <a href=\"https://gnu.org/licenses/agpl.html\" class=\"classic\">AGPLv3</a>, you can install it on you own server. Have a look on the <a href=\"https://framagit.org/fiat-tux/hat-softwares/lufi/wikis/home\" class=\"classic\">Wiki</a> for the procedure."
 msgstr ""
+"Lufi a zo ur poellad frank diwar aotre-implijout an <a href=\"https://gnu."
+"org/licenses/agpl.html\" class=\"classic\">AGPLv3</a>, posubl eo deoc'h "
+"staliañ anezhañ war oh servijer. Kit war omp <a href=\"https://framagit.org/"
+"fiat-tux/hat-softwares/lufi/wikis/home\" class=\"classic\">Wiki</a> da "
+"wellout penaos."
 
 #. (stash('nbslices')
 #: themes/default/templates/partial/render.js.ep:10
 msgid "Asking for file part XX1 of %1"
-msgstr ""
+msgstr "Oh goulenn evit ar fichennaoueg lodenn XX1 diwar %1"
 
 #: themes/default/templates/about.html.ep:23
 msgid "Back to homepage"
-msgstr ""
+msgstr "Distro war ar bajenn degemer"
 
 #: lib/Lufi/Controller/Mail.pm:26
 msgid "Bad CSRF token!"
-msgstr ""
+msgstr "Token CSRF fall !"
 
 #: lib/Lufi/Controller/Auth.pm:27 lib/Lufi/Controller/Auth.pm:49
 msgid "Bad CSRF token."
-msgstr ""
+msgstr "Token CSRF fall."
 
 #: themes/default/templates/partial/render.js.ep:5
 msgid "Click here to refresh the page and restart the download."
