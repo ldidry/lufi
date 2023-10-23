@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "POT-Creation-Date: YEAR-MO-DA HO:MI+ZONE\n"
-"PO-Revision-Date: 2023-10-21 21:38+0000\n"
+"PO-Revision-Date: 2023-10-23 13:58+0000\n"
 "Last-Translator: Otyugh <otyugh@riseup.net>\n"
 "Language-Team: Breton <https://weblate.framasoft.org/projects/lufi/"
 "default-theme/br/>\n"
@@ -122,51 +122,51 @@ msgstr "Token CSRF fall."
 
 #: themes/default/templates/partial/render.js.ep:5
 msgid "Click here to refresh the page and restart the download."
-msgstr ""
+msgstr "Klik amañ da adkarg ar bajenn ha krog ar pellgargañ adare."
 
 #: themes/default/templates/invitations/invite.mail.ep:8
 msgid "Click on the following URL to upload files on Lufi:"
-msgstr ""
+msgstr "Klik war al liammoù dindan da gas fichennaouegoù gant Lufi :"
 
 #: themes/default/templates/index.html.ep:126
 msgid "Click to open the file browser"
-msgstr ""
+msgstr "Klik da zigor an ergerzher fichennoù"
 
 #: themes/default/templates/delays.html.ep:42 themes/default/templates/invitations/my_invitations.html.ep:80
 msgid "Close"
-msgstr ""
+msgstr "Seriñ"
 
 #: themes/default/templates/mail.html.ep:23
 msgid "Comma-separated email addresses"
-msgstr ""
+msgstr "Mailoù dispartiet gant virgulennoù"
 
 #: themes/default/templates/index.html.ep:140
 msgid "Compressing zip file…"
-msgstr ""
+msgstr "Gwaskañ en ur zip fichenn…"
 
 #: themes/default/templates/partial/index.js.ep:15
 msgid "Copy all links to clipboard"
-msgstr ""
+msgstr "Kopiañ holl ar liammoù d'ar gwask-paper"
 
 #: themes/default/templates/partial/index.js.ep:18
 msgid "Copy to clipboard"
-msgstr ""
+msgstr "Kopiañ d'ar gwask-paper"
 
 #: lib/Lufi/Controller/Files.pm:501
 msgid "Could not delete the file. You are not authenticated."
-msgstr ""
+msgstr "N'eo ket be posubl dilemel ar fichenn. N'och ket luget."
 
 #: lib/Lufi/Controller/Files.pm:483
 msgid "Could not find the file. Are you sure of the URL and the token?"
-msgstr ""
+msgstr "Ne oa ket posubl kavout ar fichenn. Ah sur oc'h eus oh liamm ha token ?"
 
 #: lib/Lufi/Controller/Files.pm:394
 msgid "Could not find the file. Are you sure of the URL?"
-msgstr ""
+msgstr "Ne oa ket posubl kavout ar fichenn. Ah sur oc'h eus oh liamm ?"
 
 #: themes/default/templates/files.html.ep:29
 msgid "Counter"
-msgstr ""
+msgstr "Kont"
 
 #: themes/default/templates/index.html.ep:100
 msgid "Create a zip archive with the files before uploading?"
