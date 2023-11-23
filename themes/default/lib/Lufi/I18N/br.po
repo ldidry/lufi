@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "POT-Creation-Date: YEAR-MO-DA HO:MI+ZONE\n"
-"PO-Revision-Date: 2023-10-23 13:58+0000\n"
-"Last-Translator: Otyugh <otyugh@riseup.net>\n"
+"PO-Revision-Date: 2023-11-23 12:06+0000\n"
+"Last-Translator: Ewen <darempred@korr.bzh>\n"
 "Language-Team: Breton <https://weblate.framasoft.org/projects/lufi/"
 "default-theme/br/>\n"
 "Language: br\n"
@@ -20,7 +20,7 @@ msgstr ""
 "&& n % 100 != 92) ? 1 : ((((n % 10 == 3 || n % 10 == 4) || n % 10 == 9) && ("
 "n % 100 < 10 || n % 100 > 19) && (n % 100 < 70 || n % 100 > 79) && (n % 100 "
 "< 90 || n % 100 > 99)) ? 2 : ((n != 0 && n % 1000000 == 0) ? 3 : 4)));\n"
-"X-Generator: Weblate 5.0.1\n"
+"X-Generator: Weblate 5.2\n"
 
 #. ($delay)
 #. (max_delay)
@@ -174,11 +174,11 @@ msgstr ""
 
 #: themes/default/templates/invitations/my_invitations.html.ep:26
 msgid "Created at"
-msgstr ""
+msgstr "Krouet d'an/d'ar"
 
 #: themes/default/templates/invitations/my_invitations.html.ep:14
 msgid "Delete"
-msgstr ""
+msgstr "Dilemel"
 
 #: themes/default/templates/files.html.ep:30 themes/default/templates/index.html.ep:90
 msgid "Delete at first download?"
