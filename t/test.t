@@ -269,13 +269,13 @@ sub test_login {
 }
 
 sub restore_config {
-    $config_file->spurt($config_orig);
+    $config_file->spew($config_orig);
 }
 
 sub switch_to_htpasswd {
     $config_content = $config_orig;
     $config_content =~ s/#?htpasswd.*/htpasswd => 't\/lufi.passwd',/gm;
-    $config_file->spurt($config_content);
+    $config_file->spew($config_content);
 
     Lufi::DB::Slice->new(app => $m)->delete_all;
     Lufi::DB::File->new(app => $m)->delete_all;
@@ -289,7 +289,7 @@ sub switch_to_htpasswd {
 sub switch_to_ldap {
     $config_content = $config_orig;
     $config_content =~ s/^( +)#?ldap => \{ uri/$1ldap => { uri/gm;
-    $config_file->spurt($config_content);
+    $config_file->spew($config_content);
 
     Lufi::DB::Slice->new(app => $m)->delete_all;
     Lufi::DB::File->new(app => $m)->delete_all;
@@ -303,7 +303,7 @@ sub switch_to_ldap {
 sub switch_to_swift {
     $config_content = $config_orig;
     $config_content =~ s/^( +)#?swift => \{ auth_url/$1swift => { auth_url/gm;
-    $config_file->spurt($config_content);
+    $config_file->spew($config_content);
 
     Lufi::DB::Slice->new(app => $m)->delete_all;
     Lufi::DB::File->new(app => $m)->delete_all;

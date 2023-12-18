@@ -191,7 +191,7 @@ sub startup {
       ->name('config');
 
     # Generated js files
-    $r->get('/partial/:file')
+    $r->get('/partial/<:file>.<:ext>')
       ->to('Misc#js_files')
       ->name('partial');
 

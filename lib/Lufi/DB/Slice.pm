@@ -140,7 +140,7 @@ sub store {
 
         # Write file
         my $file = catfile($c->app->config('upload_dir'), $c->get_path());
-        Mojo::File->new($file)->spurt($text);
+        Mojo::File->new($file)->spew($text);
     }
 
     return $c;

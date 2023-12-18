@@ -13,6 +13,7 @@ requires 'Filesys::DiskUsage';
 requires 'Switch';
 requires 'Locale::Maketext';
 requires 'Locale::Maketext::Extract';
+requires 'Net::DNS';
 requires 'Email::Valid';
 requires 'Number::Bytes::Human';
 requires 'Filesys::DfPortable';
