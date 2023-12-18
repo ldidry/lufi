@@ -5,10 +5,10 @@ XGETTEXT ?= carton exec local/bin/xgettext.pl -u
 CARTON ?= carton exec
 REAL_LUFI ?= script/application
 LUFI ?= script/lufi
-LDAP_CONTAINER_IMAGE ?= rroemhild/test-openldap:latest
+LDAP_CONTAINER_IMAGE ?= docker.io/rroemhild/test-openldap:latest
 LOCAL_LDAP_PORT ?= 10389
 LOCAL_SWIFT_PORT ?= 8080
-SWIFT_CONTAINER_IMAGE ?= swiftstack/picoswiftstack:latest
+SWIFT_CONTAINER_IMAGE ?= docker.io/openstackswift/saio:latest
 MORBO_HOST ?= 0.0.0.0
 MORBO_PORT ?= 3000
 
@@ -33,15 +33,15 @@ dev: clean
 	$(CARTON) morbo $(LUFI) --listen http://$(MORBO_HOST):$(MORBO_PORT) --watch lib/ --watch script/ --watch themes/ --watch lufi.conf
 
 ldap:
-	sudo docker run -d -p $(LOCAL_LDAP_PORT):10389 $(LDAP_CONTAINER_IMAGE); exit 0
+	podman run -d -p $(LOCAL_LDAP_PORT):10389 $(LDAP_CONTAINER_IMAGE); exit 0
 
 ldapdev: ldap dev
 
 swift:
-	sudo docker run -d --rm -p $(LOCAL_SWIFT_PORT):8080 --hostname="picoswiftstack" --name="picoswiftstack" $(SWIFT_CONTAINER_IMAGE); exit 0
+	podman run -d --rm -p $(LOCAL_SWIFT_PORT):8080 --hostname="picoswiftstack" --name="picoswiftstack" $(SWIFT_CONTAINER_IMAGE); exit 0
 	@echo "Sleeping 20 seconds to let picoswiftstack start"
 	@sleep 20
-	sudo docker exec picoswiftstack get_auth
+	podman exec picoswiftstack get_auth
 
 swiftdev: swift dev
 
