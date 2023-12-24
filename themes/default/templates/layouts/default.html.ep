@@ -96,7 +96,7 @@
             </div>
         </nav>
         <div class="container">
-            %= javascript '/js/jquery-2.2.4.min.js'
+            %= javascript '/js/jquery-3.7.1.min.js'
             %= javascript '/partial/layout.js'
             %= javascript '/js/lufi-common.js'
             <%= content %>
