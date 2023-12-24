@@ -142,7 +142,7 @@ function delFile() {
         url: dlink,
         method: 'GET',
         data: {
-            format: 'json'
+            _format: 'json'
         },
         success: function(data) {
             if (data.success) {
