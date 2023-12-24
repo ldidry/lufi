@@ -1,6 +1,6 @@
 function notify(title, body) {
     if (!'Notification' in window || typeof(Notification) === 'undefined') {
-        console.log("This browser does not support desktop notification, cannot send following message: "+title+" "+body);
+        console.log(`This browser does not support desktop notification, cannot send following message: ${title} ${body}`);
         return;
     }
 

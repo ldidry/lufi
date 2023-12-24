@@ -68,14 +68,14 @@ function copyAllToClipboard(event) {
 
 // Add item to localStorage
 function addItem(name, url, size, del_at_first_view, created_at, delay, short, token) {
-    var files = localStorage.getItem(window.prefix + 'files');
+    var files = localStorage.getItem(`${window.prefix}files`);
     if (files === null) {
         files = new Array();
     } else {
         files = JSON.parse(files);
     }
     files.push({ name: name, short: short, url: url, size: size, del_at_first_view: del_at_first_view, created_at: created_at, delay: delay, token: token });
-    localStorage.setItem(window.prefix + 'files', JSON.stringify(files));
+    localStorage.setItem(`${window.prefix}files`, JSON.stringify(files));
 }
 
 // Remove a file block
@@ -192,7 +192,7 @@ function updateMailLink() {
     for (i = 0; i < a.length; i++) {
         l.push(a[i].id);
     }
-    var u = actionURL+'m?links='+JSON.stringify(l);
+    var u = `${actionURL}m?links=${JSON.stringify(l)}`;
     $('#mailto').attr('href', u);
 }
 
@@ -240,18 +240,16 @@ function handleFiles(f) {
             var counter  = 0;
             while (typeof(window.zip.files[filename]) !== 'undefined') {
                 counter += 1;
-                filename = origname.substring(0, origname.lastIndexOf('.')) + '_(' + counter + ')' + origname.substring(origname.lastIndexOf('.'));
+                filename = `${origname.substring(0, origname.lastIndexOf('.'))}_(${counter})${origname.substring(origname.lastIndexOf('.'))}`;
             }
 
             window.zip.file(filename, element);
 
             window.zipSize += element.size;
             $('#zip-size').text(filesize(window.zipSize));
-            $('#zip-parts').append([
-                '<li>',
-                    '— ', escapeHtml(filename), ' (', filesize(element.size), ')',
-                '</li>'
-            ].join(''));
+            $('#zip-parts').append(`<li>
+                                        — ${escapeHtml(filename)} (${filesize(element.size)})
+                                    </li>`);
         }
     } else {
         if (window.fileList === undefined || window.fileList === null) {
@@ -295,23 +293,32 @@ function uploadFile(i, delay, del_at_first_view) {
     var r  = $('#ul-results');
     var w  = $('<li>');
     w.addClass('list-group-item');
-    w.html(['<div class="card">',
-                '<div>',
-                    '<a href="#" id="destroy-', window.fc, '">',
-                        '<i class="right mdi-navigation-close small"></i>',
-                    '</a>',
-                    '<div class="card-content">',
-                        '<span class="card-title" id="name-', window.fc, '">', name, '</span> <span id="size-', window.fc ,'">(', size,')</span>',
-                        '<p id="parts-', window.fc, '"></p>',
-                    '</div>',
-                    '<div class="progress">',
-                        '<div id="progress-', window.fc, '" data-key="', randomkey, '" data-name="', name, '" aria-valuemax="100" aria-valuemin="0" aria-valuenow="0" role="progressbar" class="determinate width-0">',
-                            '<span class="sr-only">', name, '0%</span>',
-                        '</div>',
-                    '</div>',
-            '<div>'].join(''));
+    w.html(`<div class="card">
+                <div>
+                    <a href="#" id="destroy-${window.fc}">
+                        <i class="right mdi-navigation-close small"></i>
+                    </a>
+                    <div class="card-content">
+                        <span class="card-title"
+                              id="name-${window.fc}">${name}</span>
+                        <span id="size-${window.fc }">(${size})</span>
+                        <p id="parts-${window.fc}"></p>
+                    </div>
+                    <div class="progress">
+                        <div id="progress-${window.fc}"
+                             data-key="${randomkey}"
+                             data-name="${name}"
+                             aria-valuemax="100"
+                             aria-valuemin="0"
+                             aria-valuenow="0"
+                             role="progressbar"
+                             class="determinate width-0">
+                            <span class="sr-only">${name}0%</span>
+                        </div>
+                    </div>
+            <div>`);
     r.prepend(w);
-    $('#destroy-'+window.fc).on('click', function(event) {
+    $(`#destroy-${window.fc}`).on('click', function(event) {
         event.preventDefault();
         window.cancelled.push(i);
         destroyBlock(this);
@@ -350,7 +357,7 @@ function sliceAndUpload(randomkey, i, parts, j, delay, del_at_first_view, short,
         var slice = file.slice(j * window.sliceLength, (j + 1) * window.sliceLength, file.type);
         var fr = new FileReader();
         fr.onloadend = function() {
-            var sl        = $('#parts-'+window.fc);
+            var sl        = $(`#parts-${window.fc}`);
 
             // Get the binary result, different result in IE browsers (see default.html.ep line 27:48)
             if (isIE == true){
@@ -387,12 +394,12 @@ function sliceAndUpload(randomkey, i, parts, j, delay, del_at_first_view, short,
                     data['file_pwd'] = $('#file_pwd').val();
                 }
             }
-            data = JSON.stringify(data)+'XXMOJOXX'+JSON.stringify(encrypted);;
+            data = `${JSON.stringify(data)}XXMOJOXX${JSON.stringify(encrypted)}`;
 
             var percent = Math.round(1000 * j/parts)/10;
-            console.log('sending slice '+(j + 1)+'/'+parts+' of file '+file.name+' ('+percent+'%)');
+            console.log(`sending slice ${j + 1}/${parts} of file ${file.name} (${percent}%)`);
 
-            sl.html(percent.toFixed(1)+'%');
+            sl.html(`${percent.toFixed(1)}%`);
 
             // Verify that we have a websocket and send json
             if (window.ws.readyState === 3) {
@@ -403,14 +410,14 @@ function sliceAndUpload(randomkey, i, parts, j, delay, del_at_first_view, short,
                 window.ws.onclose = function() {
                     console.log('Websocket closed, waiting 10sec.');
                     window.ws = spawnWebsocket(0, function() {
-                        console.log('sending again slice '+(j + 1)+'/'+parts+' of file '+file.name);
+                        console.log(`sending again slice ${j + 1}/${parts} of file ${file.name}`);
                         window.ws.send(data);
                     });
                 };
                 window.ws.onerror = function() {
                     console.log('Error on Websocket, waiting 10sec.');
                     window.ws = spawnWebsocket(0, function() {
-                        console.log('sending again slice '+(j + 1)+'/'+parts+' of file '+file.name);
+                        console.log(`sending again slice ${j + 1}/${parts} of file ${file.name}`);
                         window.ws.send(data);
                     });
                 };
@@ -427,7 +434,7 @@ function updateProgressBar(data) {
         if (data.success) {
             console.log('Upload successfully cancelled');
         } else {
-            console.log('Upload cancellation failed: ' + data.msg);
+            console.log(`Upload cancellation failed: ${data.msg}`);
         }
 
         // Remove the cancelled index
@@ -463,9 +470,9 @@ function updateProgressBar(data) {
             var short      = data.short;
             var created_at = data.created_at;
 
-            console.log('getting response for slice '+(j + 1)+'/'+parts+' of file '+data.name+' ('+data.duration+' sec)');
+            console.log(`getting response for slice ${j + 1}/${parts} of file ${data.name} (${data.duration} sec)`);
 
-            var dp    = $('#progress-'+window.fc);
+            var dp    = $(`#progress-${window.fc}`);
             var key   = dp.attr('data-key');
 
             if (j + 1 === parts) {
@@ -474,44 +481,44 @@ function updateProgressBar(data) {
                     console.log('Connection is closed.');
                 };
                 window.ws.onerror = function() {
-                    console.log('Error on WebSocket connection but file has been fully send, so we don\'t care.');
+                    console.log('Error on WebSocket connection but file has been fully send, so we don’t care.');
                 }
 
                 notify(i18n.fileUploaded, data.name);
 
-                $('#parts-'+window.fc).remove();
-                var n       = $('#name-'+window.fc);
-                var s       = $('#size-'+window.fc);
+                $(`#parts-${window.fc}`).remove();
+                var n       = $(`#name-${window.fc}`);
+                var s       = $(`#size-${window.fc}`);
                 var d       = $('<div>');
-                var url     = baseURL+'r/'+short+'#'+key;
-                var del_url = actionURL+'d/'+short+'/'+data.token;
-                var links   = encodeURIComponent('["'+short+'"]');
+                var url     = `${baseURL}r/${short}#${key}`;
+                var del_url = `${actionURL}d/${short}/${data.token}`;
+                var links   = encodeURIComponent(`["${short}"]`);
                 var limit   = (delay === 0) ? i18n.noLimit : i18n.expiration+' '+moment.unix(delay * 86400 + created_at).locale(window.navigator.language).format('LLLL');
                 if (!isGuest) {
-                    n.html(n.html()+' '+s.html()+' <a href="'+actionURL+'m?links='+links+'"><i class="mdi-communication-email"></i></a><br>'+limit);
-                    d.html(['<div class="card-action">',
-                                '<div class="input-field">',
-                                    '<span class="prefix big-prefix">',
-                                        '<a href="', url, '" target="_blank">',
-                                            '<i class="mdi-file-file-download small" title="', i18n.dlText, '"></i>',
-                                        '</a>',
-                                        '<a href="#" id="copyurl-', window.fc, '" title="', i18n.cpText, '">',
-                                            '<i class="mdi-content-content-copy small"></i>',
-                                        '</a>',
-                                    '</span>',
-                                    '<input id="', short, '" class="form-control link-input white-background" value="', url, '" readonly="" type="text">',
-                                    '<label class="active" for="', short, '">', i18n.dlText, '</label>',
-                                '</div>',
-                                '<div class="input-field">',
-                                    '<a href="', del_url, '" target="_blank" class="prefix big-prefix">',
-                                        '<i class="mdi-action-delete small" title="', i18n.delText, '"></i>',
-                                    '</a>',
-                                    '<input id="delete-', short, '" class="form-control white-background" value="', del_url, '" readonly="" type="text">',
-                                    '<label class="active" for="delete-', short, '">', i18n.delText, '</label>',
-                                '</div>',
-                            '</div>'].join(''));
+                    n.html(`${n.html()} ${s.html()} <a href="${actionURL}m?links=${links}"><i class="mdi-communication-email"></i></a><br>${limit}`);
+                    d.html(`<div class="card-action">
+                                <div class="input-field">
+                                    <span class="prefix big-prefix">
+                                        <a href="${url}" target="_blank">
+                                            <i class="mdi-file-file-download small" title="${i18n.dlText}"></i>
+                                        </a>
+                                        <a href="#" id="copyurl-${window.fc}" title="${i18n.cpText}">
+                                            <i class="mdi-content-content-copy small"></i>
+                                        </a>
+                                    </span>
+                                    <input id="${short}" class="form-control link-input white-background" value="${url}" readonly="" type="text">
+                                    <label class="active" for="${short}">${i18n.dlText}</label>
+                                </div>
+                                <div class="input-field">
+                                    <a href="${del_url}" target="_blank" class="prefix big-prefix">
+                                        <i class="mdi-action-delete small" title="${i18n.delText}"></i>
+                                    </a>
+                                    <input id="delete-${short}" class="form-control white-background" value="${del_url}" readonly="" type="text">
+                                    <label class="active" for="delete-${short}">${i18n.delText}</label>
+                                </div>
+                            </div>`);
                 } else {
-                    n.html(n.html()+' '+s.html());
+                    n.html(`${n.html()} ${s.html()}`);
                 }
                 s.remove();
 
@@ -521,7 +528,7 @@ function updateProgressBar(data) {
                 p2.remove();
                 p1.append(d);
 
-                $('#copyurl-'+window.fc).on('click', function(e) {
+                $(`#copyurl-${window.fc}`).on('click', function(e) {
                     e.preventDefault();
                     copyToClipboard(url);
                 });
@@ -531,7 +538,12 @@ function updateProgressBar(data) {
                 // Add copy all and mailto buttons
                 var misc = $('#misc');
                 if (misc.html() === '' && !isGuest) {
-                    misc.html('<a href="#" id="copyall" class="btn btn-info">'+i18n.copyAll+'</a> <a id="mailto" href="'+actionURL+'m?links='+links+'" class="btn btn-info">'+i18n.mailTo+'</a>');
+                    misc.html(`<a href="#"
+                                  id="copyall"
+                                  class="btn btn-info">${i18n.copyAll}</a>
+                               <a id="mailto"
+                                  href="${actionURL}m?links=${links}"
+                                  class="btn btn-info">${i18n.mailTo}</a>`);
                     $('#copyall').on('click', copyAllToClipboard);
                 } else {
                     updateMailLink();
@@ -574,7 +586,7 @@ function updateProgressBar(data) {
                 var wClass  = percent.toString().replace('.', '-');
                 dp.removeClass();
                 dp.addClass('determinate');
-                dp.addClass('width-'+wClass);
+                dp.addClass(`width-${wClass}`);
                 dp.attr('aria-valuenow', percent);
 
                 // Encrypt and upload next slice
@@ -593,15 +605,15 @@ function updateProgressBar(data) {
 
 // Write message instead in a file block
 function addAlertOnFile(msg, i, sent_delay, del_at_first_view) {
-    var n       = $('#name-'+window.fc);
-    var p       = $('#progress-'+window.fc);
+    var n       = $(`#name-${window.fc}`);
+    var p       = $(`#progress-${window.fc}`);
     var d       = $('<div>');
 
     p.parent().remove();
     d.addClass('card pink');
-    d.html(['<div class="card-content white-text">',
-                '<strong>', msg, '</strong>',
-            '</div>'].join(''));
+    d.html(`<div class="card-content white-text">
+                <strong>${msg}</strong>
+            </div>`);
     n.parent().append(d);
 
     // Upload next file
@@ -653,7 +665,7 @@ function spawnWebsocket(i, callback) {
     ws.onerror = function() {
         console.log('error');
         if (i < 5 && callback !== undefined) {
-            console.log('Retrying to send file (try '+i+' of 5)');
+            console.log(`Retrying to send file (try ${i} of 5)`);
             window.ws = spawnWebsocket(i + 1, callback);
         }
     }

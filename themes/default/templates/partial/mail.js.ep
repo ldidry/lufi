@@ -1,6 +1,6 @@
 % # vim:set sts=4 sw=4 ts=4 ft=javascript expandtab:
 function findItem(name) {
-    var files = localStorage.getItem(window.prefix + 'files');
+    var files = localStorage.getItem(`${window.prefix}files`);
     if (files === null) {
         files = new Array();
     } else {
@@ -19,7 +19,7 @@ function updateMailtoLink() {
     var subject = document.getElementById('subject');
     var text    = document.getElementById('body');
 
-    btn.href = 'mailto:'+encodeURIComponent(emails.value)+'?subject='+encodeURIComponent(subject.value)+'&body='+encodeURIComponent(text.value);
+    btn.href = `mailto:${encodeURIComponent(emails.value)}?subject=${encodeURIComponent(subject.value)}&body=${encodeURIComponent(text.value)}`;
 }
 function populateBody() {
     var links = [
@@ -37,16 +37,16 @@ function populateBody() {
         var item = findItem(name);
         if (item !== null && item !== undefined) {
             var limit = (item.delay === 0) ? null : moment.unix(item.delay * 86400 + item.created_at).locale(window.navigator.language).format('LLLL');
-            text = text+'- '+item.name+'<%= l(':') %> '+item.url;
+            text += `- ${item.name}<%= l(':') %> ${item.url}`;
             if (limit !== null) {
-                text = text+"\n  (<%= l('deadline: ') %>"+limit+')';
+                text += `\n  (<%= l('deadline: ') %>${limit})`;
             }
-            text = text+"\n";
+            text += "\n";
         }
     });
 
 % if (!defined(config('ldap')) && !defined(config('htpasswd'))) {
-    text  = text+"\n-- \n<%= l('Share your files in total privacy on %1', url_for('/')->to_abs) %>";
+    text += "\n-- \n<%= l('Share your files in total privacy on %1', url_for('/')->to_abs) %>";
 % }
     tArea = document.getElementById('body').value = text;
     updateMailtoLink();
