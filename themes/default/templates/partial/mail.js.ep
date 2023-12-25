@@ -36,7 +36,7 @@ function populateBody() {
     links.forEach(function(name, index, array) {
         var item = findItem(name);
         if (item !== null && item !== undefined) {
-            var limit = (item.delay === 0) ? null : moment.unix(item.delay * 86400 + item.created_at).locale(window.navigator.language).format('LLLL');
+            var limit = (item.delay === 0) ? null : formatDate(item.delay * 86400 + item.created_at);
             text += `- ${item.name}<%= l(':') %> ${item.url}`;
             if (limit !== null) {
                 text += `\n  (<%= l('deadline: ') %>${limit})`;

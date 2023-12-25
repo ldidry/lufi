@@ -207,8 +207,8 @@ function populateFilesTable() {
     files.forEach(function(element, index, array) {
         var del_view   = (element.del_at_first_view) ? '<i class="small mdi-action-done"></i>' : '<i class="small mdi-navigation-close"></i>';
         var dlink      = `${actionURL}d/${element.short}/${element.token}`;
-        var limit      = (element.delay === 0) ? i18n.noExpiration : moment.unix(element.delay * 86400 + element.created_at).locale(window.navigator.language).format('LLLL');
-        var created_at = moment.unix(element.created_at).locale(window.navigator.language).format('LLLL');
+        var limit      = (element.delay === 0) ? i18n.noExpiration : formatDate(element.delay * 86400 + element.created_at);
+        var created_at = formatDate(element.created_at);
 
         var tr = $(`<tr id="row-${element.short}">`);
         tr.html(`<td class="center-align">

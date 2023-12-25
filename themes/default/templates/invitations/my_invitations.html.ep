@@ -83,5 +83,4 @@
 
 %= javascript '/partial/invitations.js'
 %= javascript '/js/lufi-list-invitations.js'
-%= javascript '/js/moment-with-locales.min.js'
 %= javascript '/js/filesize.min.js'

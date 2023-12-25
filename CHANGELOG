@@ -4,6 +4,7 @@ Revision history for Lufi
 	- ⬆️ — Update jQuery
 	- 🩹 — Fix a format query parameter
 	- 🎨 — Use template literals in js
+	- ➖ — Replace moment.js with Date().toLocaleDateString(…)
 
 0.06.00 2023-12-18
 	- ⬆️ — Update deps

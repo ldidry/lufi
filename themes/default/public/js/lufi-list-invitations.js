@@ -172,9 +172,7 @@ function fillModal() {
     var content = '';
     for (i = 0; i < files.length; i++) {
         var f = files[i];
-        var expires = i18n.expiration.replace('XXX',
-            moment.unix(f.delay * 86400 + f.created_at).locale(window.navigator.language).format('LLLL')
-        );
+        var expires = i18n.expiration.replace('XXX', formatDate(f.delay * 86400 + f.created_at));
         content += `<li>— <a href="${f.url}">${f.name}</a>
                         (${filesize(f.size)}, ${expires})
                     </li>`;
