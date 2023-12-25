@@ -88,8 +88,7 @@ variables:
 ##
 #
 include:
-  - 'https://framagit.org/fiat-tux/gitlabci-snippets/-/raw/53cf9e6c8c427ecbff4abb9615347a77f7786806/create-release-from-ci.gitlab-ci.yml'
-  - 'https://framagit.org/fiat-tux/gitlabci-snippets/-/raw/4e4e03322e95e9b0124c714456ebf1bdc02ad43f/publish_changelog.gitlab-ci.yml'
+  - 'https://framagit.org/fiat-tux/gitlabci-snippets/-/raw/2aac6c1f3dd725d9aed57549da67a92759f9f9ec/create-release-from-ci.gitlab-ci.yml'
   - 'https://framagit.org/fiat-tux/gitlabci-snippets/-/raw/4e4e03322e95e9b0124c714456ebf1bdc02ad43f/pouet-it-from-ci.gitlab-ci.yml'
 
 ### Podcheck
