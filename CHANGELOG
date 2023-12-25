@@ -6,6 +6,7 @@ Revision history for Lufi
 	- 🎨 — Use template literals in js
 	- ➖ — Replace moment.js with Date().toLocaleDateString(…)
 	- 🩹 — Fix Roboto font warnings in js console
+	- ♿️ — Add autofocus on login input field
 
 0.06.00 2023-12-18
 	- ⬆️ — Update deps

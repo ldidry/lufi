@@ -11,7 +11,7 @@
 <form class="row" method="post" action="<%= url_for('login') %>">
     <div class="col s8 m8 offset-s2 offset-m2">
         <div class="input-field">
-            <input id="login" type="text" class="validate" name="login">
+            <input id="login" type="text" class="validate" name="login" autofocus>
             <label for="login"><%= l('Login') %></label>
         </div>
     </div>
