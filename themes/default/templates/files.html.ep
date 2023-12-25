@@ -41,4 +41,3 @@
 
 %= javascript '/partial/files.js'
 %= javascript '/js/lufi-files.js'
-%= javascript '/js/moment-with-locales.min.js'

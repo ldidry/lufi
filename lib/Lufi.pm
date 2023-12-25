@@ -79,6 +79,9 @@ sub startup {
         my $loop = shift;
 
         my $lockfile = Mojo::File->new($config_file)->basename('.conf').'-provisioning.lock';
+        if (defined($config->{lockfile_dir})) {
+            $lockfile = Mojo::File->new($config->{lockfile_dir}, $lockfile)->to_string;
+        }
         if (-e $lockfile) {
             my ($dev,$ino,$mode,$nlink,$uid,$gid,$rdev,$size,$atime,$mtime,$ctime,$blksize,$blocks) = stat($lockfile);
 

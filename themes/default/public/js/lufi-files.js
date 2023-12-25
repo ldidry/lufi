@@ -1,18 +1,18 @@
 // vim:set sw=4 ts=4 sts=4 ft=javascript expandtab:
 // Add item to localStorage
 function addItem(item) {
-    var files = localStorage.getItem(window.prefix + 'files');
+    var files = localStorage.getItem(`${window.prefix}files`);
     if (files === null) {
         files = new Array();
     } else {
         files = JSON.parse(files);
     }
     files.push(item);
-    localStorage.setItem(window.prefix + 'files', JSON.stringify(files));
+    localStorage.setItem(`${window.prefix}files`, JSON.stringify(files));
 }
 
 function delItem(name) {
-    var files = localStorage.getItem(window.prefix + 'files');
+    var files = localStorage.getItem(`${window.prefix}files`);
     if (files === null) {
         files = new Array();
     } else {
@@ -24,11 +24,11 @@ function delItem(name) {
             files.splice(i, 1);
         }
     }
-    localStorage.setItem(window.prefix + 'files', JSON.stringify(files));
+    localStorage.setItem(`${window.prefix}files`, JSON.stringify(files));
 }
 
 function itemExists(name) {
-    var files = localStorage.getItem(window.prefix + 'files');
+    var files = localStorage.getItem(`${window.prefix}files`);
     if (files === null) {
         return false;
     } else {
@@ -59,7 +59,7 @@ function invertSelection(event) {
 
 function purgeExpired(event) {
     event.preventDefault();
-    var files = JSON.parse(localStorage.getItem(window.prefix + 'files'));
+    var files = JSON.parse(localStorage.getItem(`${window.prefix}files`));
 
     files.forEach(function(element, index, array) {
         $.ajax({
@@ -73,7 +73,7 @@ function purgeExpired(event) {
             success: function(data, textStatus, jqXHR) {
                 if (data.success) {
                     if (data.deleted) {
-                        $('#count-'+data.short).parent().remove();
+                        $(`#count-${data.short}`).parent().remove();
                         delItem(data.short);
                     }
                 }
@@ -84,11 +84,11 @@ function purgeExpired(event) {
 
 function exportStorage(event) {
     event.preventDefault();
-    var a   = $('<a id="data-json">');
+    var a = $('<a id="data-json">');
     a.hide();
     $('body').append(a);
 
-    var storageData = [localStorage.getItem(window.prefix + 'files')];
+    var storageData = [localStorage.getItem(`${window.prefix}files`)];
     var exportFile  = new Blob(storageData, {type : 'application/json'});
     var url         = window.URL.createObjectURL(exportFile);
 
@@ -142,11 +142,11 @@ function delFile() {
         url: dlink,
         method: 'GET',
         data: {
-            format: 'json'
+            _format: 'json'
         },
         success: function(data) {
             if (data.success) {
-                $('#row-'+short).remove();
+                $(`#row-${short}`).remove();
                 delItem(short);
             } else {
                 alert(data.msg);
@@ -178,15 +178,15 @@ function massDelete(event) {
 function populateFilesTable() {
     $('#myfiles').empty();
 
-    var files = localStorage.getItem(window.prefix + 'files');
+    var files = localStorage.getItem(`${window.prefix}files`);
     if (files === null) {
         var filesWithoutPrefix = localStorage.getItem('files');
         if (filesWithoutPrefix !== null) {
             if (window.confirm(i18n.importFilesWithoutPrefix)) {
-                localStorage.setItem(window.prefix + 'files', filesWithoutPrefix);
+                localStorage.setItem(`${window.prefix}files`, filesWithoutPrefix);
                 files = JSON.parse(filesWithoutPrefix);
             } else {
-                localStorage.setItem(window.prefix + 'files', JSON.stringify([]));
+                localStorage.setItem(`${window.prefix}files`, JSON.stringify([]));
                 files = new Array();
             }
         } else {
@@ -206,45 +206,59 @@ function populateFilesTable() {
     });
     files.forEach(function(element, index, array) {
         var del_view   = (element.del_at_first_view) ? '<i class="small mdi-action-done"></i>' : '<i class="small mdi-navigation-close"></i>';
-        var dlink      = actionURL+'d/'+element.short+'/'+element.token;
-        var limit      = (element.delay === 0) ? i18n.noExpiration : moment.unix(element.delay * 86400 + element.created_at).locale(window.navigator.language).format('LLLL');
-        var created_at = moment.unix(element.created_at).locale(window.navigator.language).format('LLLL');
+        var dlink      = `${actionURL}d/${element.short}/${element.token}`;
+        var limit      = (element.delay === 0) ? i18n.noExpiration : formatDate(element.delay * 86400 + element.created_at);
+        var created_at = formatDate(element.created_at);
 
-        var tr = $('<tr id="row-'+element.short+'">');
-        tr.html([ '<td class="center-align">',
-                      '<input type="checkbox" id="check-', element.short,'" data-short="', element.short, '" data-dlink="', dlink, '" data-checked="">',
-                      '<label for="check-', element.short,'"></label>',
-                  '</td>',
-                  '<td class="left-align">',
-                      escapeHtml(element.name),
-                  '</td>',
-                  '<td class="center-align">',
-                      '<a href="', element.url, '" class="classic"><i class="small mdi-file-file-download"></i></a>',
-                  '</td>',
-                  '<td id="count-', element.short, '" class="center-align">',
-                  '</td>',
-                  '<td class="center-align">',
-                      del_view,
-                  '</td>',
-                  '<td>',
-                      created_at,
-                  '</td>',
-                  '<td>',
-                      limit,
-                  '</td>',
-                  '<td class="center-align">',
-                      '<a id="del-', element.short, '" data-short="', element.short, '" data-dlink="', dlink, '" href="#" class="classic"><i class="small mdi-action-delete"></i></a>',
-                  '</td>',
-                  '<td class="center-align">',
-                      '<a href="'+actionURL+'m?links=[&quot;'+element.short+'&quot;]" class="classic"><i class="small mdi-communication-email"></i></a>',
-                  '</td>'].join(''));
+        var tr = $(`<tr id="row-${element.short}">`);
+        tr.html(`<td class="center-align">
+                      <input type="checkbox"
+                             id="check-${element.short}"
+                             data-short="${element.short}"
+                             data-dlink="${dlink}"
+                             data-checked="">
+                      <label for="check-${element.short}"></label>
+                  </td>
+                  <td class="left-align">
+                      ${escapeHtml(element.name)}
+                  </td>
+                  <td class="center-align">
+                      <a href="${element.url}"
+                         class="classic">
+                         <i class="small mdi-file-file-download"></i>
+                      </a>
+                  </td>
+                  <td id="count-${element.short}" class="center-align">
+                  </td>
+                  <td class="center-align">
+                      ${del_view}
+                  </td>
+                  <td>
+                      ${created_at}
+                  </td>
+                  <td>
+                      ${limit}
+                  </td>
+                  <td class="center-align">
+                      <a id="del-${element.short}"
+                         data-short="${element.short}"
+                         data-dlink="${dlink}"
+                         href="#"
+                         class="classic">
+                         <i class="small mdi-action-delete"></i>
+                      </a>
+                  </td>
+                  <td class="center-align">
+                      <a href="${actionURL}m?links=[&quot;${element.short}&quot;]"
+                      class="classic"><i class="small mdi-communication-email"></i></a>
+                  </td>`);
         $('#myfiles').append(tr);
-        $('#del-'+element.short).on('click', delFile);
-        $('label[for="check-'+element.short+'"]').on('click', function(){
-            if ($('#check-'+element.short).attr('data-checked') && $('#check-'+element.short).attr('data-checked') === 'data-checked') {
-                $('#check-'+element.short).attr('data-checked', null);
+        $(`#del-${element.short}`).on('click', delFile);
+        $(`label[for="check-${element.short}"]`).on('click', function(){
+            if ($(`#check-${element.short}`).attr('data-checked') && $(`#check-${element.short}`).attr('data-checked') === 'data-checked') {
+                $(`#check-${element.short}`).attr('data-checked', null);
             } else {
-                $('#check-'+element.short).attr('data-checked', 'data-checked');
+                $(`#check-${element.short}`).attr('data-checked', 'data-checked');
             }
             evaluateMassDelete();
         });
@@ -259,13 +273,13 @@ function populateFilesTable() {
             },
             success: function(data, textStatus, jqXHR) {
                 if (data.success) {
-                    $('#count-'+data.short).html(data.counter);
+                    $(`#count-${data.short}`).html(data.counter);
                     if (data.deleted) {
-                        $('#count-'+data.short).parent().addClass('purple lighten-4');
+                        $(`#count-${data.short}`).parent().addClass('purple lighten-4');
                     }
                 } else {
                     alert(data.msg);
-                    $('#count-'+data.short).parent().remove();
+                    $(`#count-${data.short}`).parent().remove();
                     if (data.missing) {
                         delItem(data.short);
                     }

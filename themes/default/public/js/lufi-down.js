@@ -11,13 +11,13 @@ function pageKey() {
     // We will strip any additional data.
 
     // First, strip everything after the equal sign (=) which signals end of base64 string.
-    i = key.indexOf('='); if (i>-1) { key = key.substring(0,i+1); }
+    i = key.indexOf('='); if (i>-1) { key = key.substring(0, i + 1); }
 
     // If the equal sign was not present, some parameters may remain:
-    i = key.indexOf('&'); if (i>-1) { key = key.substring(0,i); }
+    i = key.indexOf('&'); if (i>-1) { key = key.substring(0, i); }
 
     // Then add trailing equal sign if it's missing
-    if (key.charAt(key.length-1)!=='=') key+='=';
+    if (key.charAt(key.length-1)!=='=') key += '=';
 
     return key;
 }
@@ -38,11 +38,11 @@ function addAlert(msg) {
     var pbd = $('.file-progress');
     pbd.attr('role', 'alert');
     pbd.removeClass('progress');
-    pbd.html(['<div class="card pink">',
-                  '<div class="card-content white-text">',
-                      '<strong>', msg, '</strong>',
-                  '</div>',
-              '</div>'].join(''));
+    pbd.html(`<div class="card pink">
+                  <div class="card-content white-text">
+                      <strong>${msg}</strong>
+                  </div>
+              </div>`);
 }
 
 // Spawn WebSocket
@@ -55,9 +55,10 @@ function spawnWebsocket(pa) {
         var l    = $('#loading');
         l.html(i18n.loading.replace(/XX1/, (pa + 1)));
         if ($('#file_pwd').length === 1) {
-            window.ws.send('{"part":'+pa+', "file_pwd": "'+$('#file_pwd').val()+'"}');
+            val = $('#file_pwd').val();
+            window.ws.send(`{"part":${pa}, "file_pwd": "${val}"}`);
         } else {
-            window.ws.send('{"part":'+pa+'}');
+            window.ws.send(`{"part":${pa}}`);
         }
     };
     ws.onclose   = function() {
@@ -65,7 +66,7 @@ function spawnWebsocket(pa) {
         if (!window.completed) {
             window.attempts++;
             if (window.attempts < 10) {
-                console.log('Connection closed. Retrying to get slice '+pa);
+                console.log(`Connection closed. Retrying to get slice ${pa}`);
                 window.ws = spawnWebsocket(pa);
             } else {
                 alert(i18n.tooMuchAttempts);
@@ -89,16 +90,16 @@ function spawnWebsocket(pa) {
             window.onbeforeunload = null;
             window.attempts  = 10;
         } else {
-            console.log('Getting slice '+(data.part + 1)+' of '+data.total);
+            console.log(`Getting slice ${data.part + 1} of ${data.total}`);
             var slice   = JSON.parse(res.shift());
             var percent = Math.round(1000 * (data.part + 1)/data.total)/10;
             var wClass  = percent.toString().replace('.', '-');
             var pb      = $('#pb');
             pb.removeClass();
             pb.addClass('determinate');
-            pb.addClass('width-'+wClass);
+            pb.addClass(`width-${wClass}`);
             pb.attr('aria-valuenow', percent);
-            $('#pbt').html(percent+'%');
+            $('#pbt').html(`${percent}%`);
             try {
                 var b64 = sjcl.decrypt(window.key, slice);
                 window.a[data.part] = base64ToArrayBuffer(b64);
@@ -118,43 +119,44 @@ function spawnWebsocket(pa) {
                     } else {
                         var blobURL   = URL.createObjectURL(blob);
                     }
-                    var innerHTML = ['<p><a href="', blobURL, '" class="btn btn-primary" download="', escapeHtml(data.name), '">', i18n.download, '</a></p>'];
+                    var innerHTML = `<p><a href="${blobURL}" class="btn btn-primary" download="${escapeHtml(data.name)}">${i18n.download}</a></p>`;
 
                     var isZip = ($('#filesize').attr('data-zipped') === 'true');
                     if (data.type.match(/^image\//) !== null) {
-                        innerHTML.push('<img id="render-image" class="responsive-img" alt="', escapeHtml(data.name), '" src="', blobURL, '">');
+                        innerHTML += `<img id="render-image" class="responsive-img" alt="${escapeHtml(data.name)}" src="${blobURL}">`;
                     } else if (data.type.match(/^video\//) !== null) {
-                        innerHTML.push('<video class="responsive-video" controls>',
-                                           '<source src="', blobURL, '" type="', data.type, '">',
-                                       '</video>');
+                        innerHTML += `<video class="responsive-video" controls>
+                                           <source src="${blobURL}" type="${data.type}">
+                                      </video>`;
                     } else if (data.type.match(/^audio\//) !== null) {
-                        innerHTML.push('<audio class="responsive-video" controls>',
-                                           '<source src="', blobURL, '" type="', data.type, '">',
-                                       '</audio>');
+                        innerHTML += `<audio class="responsive-video" controls>
+                                           <source src="${blobURL}" type="${data.type}">
+                                      </audio>`;
                     } else if (isZip) {
-                        innerHTML.push('<p><a class="btn btn-primary" id="showZipContent">', i18n.showZipContent, '</a></p>');
+                        innerHTML += `<p><a class="btn btn-primary" id="showZipContent">${i18n.showZipContent}</a></p>`;
                     }
 
-                    pbd.html(innerHTML.join(''));
+                    pbd.html(innerHTML);
 
                     if (isZip) {
                         $('#showZipContent').click(function() {
                             JSZip.loadAsync(blob)
                             .then(function (zip) {
-                                var innerHTML = ['<h3>', i18n.zipContent, '</h3><ul>'];
+                                var innerHTML = `<h3>${i18n.zipContent}</h3><ul>`;
                                 zip.forEach(function (relativePath, zipEntry) {
-                                    innerHTML.push(
-                                        '<li>',
-                                            escapeHtml(zipEntry.name),
-                                            ' (', filesize(zipEntry._data.uncompressedSize, {base: 10}), ') ',
-                                            '<a href="#" download="', escapeHtml(zipEntry.name), '" class="download-zip-content" title="', i18n.download, '">',
-                                                '<i class="mdi-file-file-download"></i>',
-                                            '</a>',
-                                        '</li>'
-                                    );
+                                    innerHTML += `<li>
+                                                      ${escapeHtml(zipEntry.name)}
+                                                      (${filesize(zipEntry._data.uncompressedSize, {base: 10})})
+                                                      <a href="#"
+                                                         download="${escapeHtml(zipEntry.name)}"
+                                                         class="download-zip-content"
+                                                         title="${i18n.download}">
+                                                           <i class="mdi-file-file-download"></i>
+                                                      </a>
+                                                  </li>`
                                 });
-                                innerHTML.push('</ul>');
-                                pbd.append(innerHTML.join(''));
+                                innerHTML += '</ul>';
+                                pbd.append(innerHTML);
                                 $('.download-zip-content').click(function(e) {
                                     e.preventDefault();
                                     var t = $(this);
@@ -171,7 +173,8 @@ function spawnWebsocket(pa) {
                         });
                     }
                     if ($('#file_pwd').length === 1) {
-                        window.ws.send('{"ended":true, "file_pwd": "'+$('#file_pwd').val()+'"}');
+                        val = $('#file_pwd').val();
+                        window.ws.send(`{"ended":true, "file_pwd": "${val}"}`);
                     } else {
                         window.ws.send('{"ended":true}');
                     }
@@ -187,18 +190,19 @@ function spawnWebsocket(pa) {
                         window.ws.onclose = function() {
                             console.log('Connection is closed');
                             if (!window.completed) {
-                                console.log('Connection closed. Retrying to get slice '+(data.part + 1));
+                                console.log(`Connection closed. Retrying to get slice ${data.part + 1}`);
                                 window.ws = spawnWebsocket(data.part + 1);
                             }
                         }
                         window.ws.onerror = function() {
-                            console.log('Error. Retrying to get slice '+(data.part + 1));
+                            console.log(`Error. Retrying to get slice ${data.part + 1}`);
                             window.ws = spawnWebsocket(data.part + 1);
                         };
                         if ($('#file_pwd').length === 1) {
-                            window.ws.send('{"part":'+(data.part + 1)+', "file_pwd": "'+$('#file_pwd').val()+'"}');
+                            val = $('#file_pwd').val();
+                            window.ws.send(`{"part":${data.part + 1}, "file_pwd": "${val}"}`);
                         } else {
-                            window.ws.send('{"part":'+(data.part + 1)+'}');
+                            window.ws.send(`{"part":${data.part + 1}}`);
                         }
                     }
                 }
@@ -215,7 +219,7 @@ function spawnWebsocket(pa) {
     ws.onerror = function() {
         window.attempts++;
         if (window.attempts < 10) {
-            console.log('Error. Retrying to get slice '+pa);
+            console.log(`Error. Retrying to get slice ${pa}`);
             window.ws = spawnWebsocket(pa);
         } else {
             alert(i18n.tooMuchAttempts);
@@ -229,7 +233,13 @@ $(document).ready(function(){
         window.ws.onclose = function() {};
         window.ws.close();
         $('#please-wait, #loading, #pbd, #abort').remove();
-        $('#filesize').parent().append('<h4>'+i18n.aborted1+'</h4><a id="reloadLocation" class="waves-effect waves-light btn">'+i18n.aborted2+'</a></p>');
+        $('#filesize').parent().append(`<h4>${i18n.aborted1}</h4>
+                                        <p>
+                                            <a id="reloadLocation"
+                                               class="waves-effect waves-light btn">
+                                                ${i18n.aborted2}
+                                            </a>
+                                        </p>`);
         window.onbeforeunload = null;
         $('#reloadLocation').on('click', function(e) {
             e.preventDefault();

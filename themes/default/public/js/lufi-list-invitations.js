@@ -42,7 +42,7 @@ function deleteInvit(e) {
                 if (data.success) {
                     data.tokens.forEach(function(t) {
                         Materialize.toast(t.msg, 6000, 'teal accent-3');
-                        $('#row-' + t.token).remove();
+                        $(`#row-${t.token}`).remove();
                     });
                     data.failures.forEach(function(msg) {
                         Materialize.toast(msg, 10000, 'red accent-2');
@@ -74,8 +74,8 @@ function resendMail(e) {
             success: function(data, textStatus, jqXHR) {
                 data.success.forEach(function(s) {
                     Materialize.toast(s.msg, 6000, 'teal accent-3');
-                    $('#expire-' + s.token).text(s.expires)
-                    $('#' + s.token).click();
+                    $(`#expire-${s.token}`).text(s.expires)
+                    $(`#${s.token}`).click();
                 });
                 data.failures.forEach(function(msg) {
                     Materialize.toast(msg, 10000, 'red accent-2');
@@ -97,19 +97,19 @@ function toggleVisibility(e) {
         success: function(data, textStatus, jqXHR) {
             if (data.success) {
                 data.tokens.forEach(function(t) {
-                    var row = $('#row-' + t.token)
+                    var row = $(`#row-${t.token}`)
                     if (t.show) {
                         row.attr('data-visibility', 1);
                         row.removeClass('hide');
-                        $('#row-' + t.token + ' > td:first i').remove();
+                        $(`#row-${t.token} > td:first i`).remove();
                     } else {
                         row.attr('data-visibility', 0);
                         if ($('#myInvitations').attr('data-visibility') === 'hidden') {
                             row.addClass('hide');
                         }
-                        $('#row-' + t.token + ' > td:first').append(i18n.hiddenMark);
+                        $(`#row-${t.token} > td:first`).append(i18n.hiddenMark);
                     }
-                    $('#' + t.token).click();
+                    $(`#${t.token}`).click();
                 });
                 disableButtons();
             } else {
@@ -169,25 +169,15 @@ function fillModal() {
     );
 
     var files = JSON.parse(el.attr('data-files'));
-    var content = [];
+    var content = '';
     for (i = 0; i < files.length; i++) {
         var f = files[i];
-        var expires = i18n.expiration.replace('XXX',
-            moment.unix(f.delay * 86400 + f.created_at).locale(window.navigator.language).format('LLLL')
-        );
-        content.push(
-            '<li>— ',
-                '<a href="', f.url, '">',
-                    f.name,
-                '</a> (',
-                filesize(f.size),
-                ', ',
-                expires,
-                ')',
-            '</li>',
-        );
+        var expires = i18n.expiration.replace('XXX', formatDate(f.delay * 86400 + f.created_at));
+        content += `<li>— <a href="${f.url}">${f.name}</a>
+                        (${filesize(f.size)}, ${expires})
+                    </li>`;
     }
-    $('#files-ul').html(content.join(''));
+    $('#files-ul').html(content);
 }
 
 $(document).ready(function(){
