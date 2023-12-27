@@ -1,3 +1,3 @@
 # CONTRIBUTING
 
-Please, read about contributing at <https://framagit.org/luc/lufi/wikis/contribute>
+Please, read about contributing at <https://framagit.org/fiat-tux/hat-softwares/lufi/-/wikis/contribute>

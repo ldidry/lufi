@@ -78,10 +78,6 @@ The details on how to contribute are on the [wiki](https://framagit.org/fiat-tux
 
 This software uses [Fiat Tux Code of conduct](https://framagit.org/fiat-tux/code-of-conduct/blob/master/README.md).
 
-## Make a donation
-
-You can make a donation to the author on [Tipeee](https://www.tipeee.com/fiat-tux) or on [Liberapay](https://liberapay.com/sky/).
-
 ## Other dependencies
 
 Lufi is written in Perl with the [Mojolicious](http://mojolicio.us) framework.
