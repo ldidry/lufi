@@ -60,3 +60,9 @@ ALTER TABLE slices DROP CONSTRAINT slices_path_key;
 -- 6 down
 ALTER TABLE slices ADD CONSTRAINT slices_path_key UNIQUE (path) ;
 ALTER TABLE slices ALTER COLUMN path SET NOT NULL;
+-- 7 up
+ALTER TABLE invitations RENAME COLUMN ldap_user TO auth_user;
+ALTER TABLE invitations RENAME COLUMN ldap_user_mail TO auth_user_mail;
+-- 7 down
+ALTER TABLE invitations RENAME COLUMN auth_user TO ldap_user;
+ALTER TABLE invitations RENAME COLUMN auth_user_mail TO ldap_user_mail;

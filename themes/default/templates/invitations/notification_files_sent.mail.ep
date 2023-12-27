@@ -3,7 +3,7 @@
 % my $lang = $self->get_date_lang();
 % stash subject => l('%1 sent you files', stash('invitation')->guest_mail);
 
-%= l('Hello %1,', ucfirst(stash('invitation')->ldap_user))
+%= l('Hello %1,', ucfirst(stash('invitation')->auth_user))
 
 %= l('%1 used your invitation to send you files:', stash('invitation')->guest_mail)
 
