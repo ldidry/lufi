@@ -102,7 +102,7 @@ msgstr "Back to homepage"
 msgid "Bad CSRF token!"
 msgstr "Bad CSRF token!"
 
-#: lib/Lufi/Controller/Auth.pm:27 lib/Lufi/Controller/Auth.pm:49
+#: lib/Lufi/Controller/Auth.pm:38 lib/Lufi/Controller/Auth.pm:60
 msgid "Bad CSRF token."
 msgstr "Bad CSRF token."
 
@@ -461,7 +461,7 @@ msgstr "Please contact the administrator: %1"
 msgid "Please wait while we are getting your file. We first need to download and decrypt all parts before you can get it."
 msgstr "Please wait while we are getting your file. We first need to download and decrypt all parts before you can get it."
 
-#: lib/Lufi/Controller/Auth.pm:38
+#: lib/Lufi/Controller/Auth.pm:49
 msgid "Please, check your credentials or your right to access this service: unable to authenticate."
 msgstr "Please, check your credentials or your right to access this service: unable to authenticate."
 
