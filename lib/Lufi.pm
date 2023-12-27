@@ -179,7 +179,7 @@ sub startup {
             # I’m a guest and I sent all my files
             $r->post('/guest/:token/send_mail')
               ->name('guest_send_mail')
-              ->to('Invitation#send_mail_to_ldap_user');
+              ->to('Invitation#send_mail_to_auth_user');
         }
     }
 

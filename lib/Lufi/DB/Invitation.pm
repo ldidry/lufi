@@ -5,8 +5,8 @@ use Mojo::File;
 use Mojo::Collection 'c';
 
 has 'token';
-has 'ldap_user';
-has 'ldap_user_mail';
+has 'auth_user';
+has 'auth_user_mail';
 has 'guest_mail';
 has 'created_at';
 has 'expire_at';
@@ -35,9 +35,9 @@ Have a look at Lufi::DB::Invitation::SQLite's code: it's simple and may be more 
 
 =item B<token>            : string, invitation token
 
-=item B<ldap_user>        : string, the user who created the invitation
+=item B<auth_user>        : string, the user who created the invitation
 
-=item B<ldap_user_mail>   : string, the email of the user who created the invitation
+=item B<auth_user_mail>   : string, the email of the user who created the invitation
 
 =item B<guest_mail>       : string, the email of the guest
 
@@ -106,8 +106,8 @@ sub to_hash {
 
     return {
         token            => $c->token,
-        ldap_user        => $c->ldap_user,
-        ldap_user_mail   => $c->ldap_user_mail,
+        auth_user        => $c->auth_user,
+        auth_user_mail   => $c->auth_user_mail,
         guest_mail       => $c->guest_mail,
         created_at       => $c->created_at,
         expire_at        => $c->expire_at,
@@ -289,7 +289,7 @@ sub from_token {
 
 =item B<Arguments> : string
 
-=item B<Purpose>   : find invitations in the database from their C<ldap_user_mail> attribute
+=item B<Purpose>   : find invitations in the database from their C<auth_user_mail> attribute
 
 =item B<Returns>   : a Mojo::Collection of Lufi::DB::Invitation objects, sorted by creation date
 
@@ -302,7 +302,7 @@ sub from_user {
     my $user = shift;
 
     my $r = $c->app->dbi->db
-              ->select('invitations', undef, { ldap_user => $user }, { -desc => 'created_at' })
+              ->select('invitations', undef, { auth_user => $user }, { -desc => 'created_at' })
               ->hashes;
 
     if ($r->size) {
@@ -406,8 +406,8 @@ sub _slurp {
 
     if ($invitation) {
         $c->token(           $invitation->{token}           );
-        $c->ldap_user(       $invitation->{ldap_user}       );
-        $c->ldap_user_mail(  $invitation->{ldap_user_mail}  );
+        $c->auth_user(       $invitation->{auth_user}       );
+        $c->auth_user_mail(  $invitation->{auth_user_mail}  );
         $c->guest_mail(      $invitation->{guest_mail}      );
         $c->created_at(      $invitation->{created_at}      );
         $c->expire_at(       $invitation->{expire_at}       );
