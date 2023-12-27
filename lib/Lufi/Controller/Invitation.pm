@@ -18,7 +18,7 @@ sub new_invite {
     if ($c->is_user_authenticated) {
         my $mail_attr            = $c->config('invitations')->{'mail_attr'} // 'mail';
         my $max_expire_at        = $c->config('invitations')->{'max_invitation_expiration_delay'} // 30;
-        my $send_with_user_email = defined $c->config('invitations')->{'send_invitation_with_ldap_user_mail'};
+        my $send_with_user_email = defined $c->config('invitations')->{'send_invitation_with_auth_user_mail'};
         $c->render(
             template             => 'invitations/invite',
             max_expire_at        => $max_expire_at,
@@ -39,7 +39,7 @@ sub send_invite {
 
     my $mail_attr            = $c->config('invitations')->{'mail_attr'} // 'mail';
     my $max_expire_at        = $c->config('invitations')->{'max_invitation_expiration_delay'} // 30;
-    my $send_with_user_email = defined $c->config('invitations')->{'send_invitation_with_ldap_user_mail'};
+    my $send_with_user_email = defined $c->config('invitations')->{'send_invitation_with_auth_user_mail'};
 
     # The `if (defined($c->config('ldap')))` is at the router level in lib/Lufi.pm
     if ($c->is_user_authenticated) {
@@ -63,8 +63,8 @@ sub send_invite {
             } while ($invitation->is_token_used($token));
 
             $invitation = $invitation->from_token($token);
-            $invitation->ldap_user($c->current_user->{username});
-            $invitation->ldap_user_mail($c->current_user->{$mail_attr});
+            $invitation->auth_user($c->current_user->{username});
+            $invitation->auth_user_mail($c->current_user->{$mail_attr});
             $invitation->created_at(time);
             $invitation->guest_mail($guest_mail);
             $invitation->expire_at($invitation->created_at + 86400 * $expire_at);
@@ -72,14 +72,14 @@ sub send_invite {
             $invitation->show_in_list(1);
             $invitation = $invitation->write;
 
-            my $from = ($c->config('invitations')->{'send_invitation_with_ldap_user_mail'}) ? $invitation->ldap_user_mail : $c->config('mail_sender');
+            my $from = ($c->config('invitations')->{'send_invitation_with_auth_user_mail'}) ? $invitation->auth_user_mail : $c->config('mail_sender');
             my $url  = $c->url_for('guest', token => $invitation->token)->to_abs;
             $c->mail(
                 from       => $from,
                 to         => $invitation->guest_mail,
                 template   => 'invitations/invite',
                 format     => 'mail',
-                ldap_user  => ucfirst($invitation->ldap_user),
+                auth_user  => ucfirst($invitation->auth_user),
                 url        => $url,
                 invitation => $invitation,
                 expires    => $c->get_date_lang()->time2str($c->l('%A %d %B %Y at %T'), $invitation->expire_at)
@@ -128,7 +128,7 @@ sub delete_invitations {
         for my $token (@tokens) {
             my $i = Lufi::DB::Invitation->new(app => $c->app)
                                         ->from_token($token);
-            if ($i->ldap_user eq $c->current_user->{username}) {
+            if ($i->auth_user eq $c->current_user->{username}) {
                 $i->deleted(1)
                   ->write;
                 push @result, { msg => $c->l('The invitation %1 has been deleted.', $i->token), token => $i->token, deleted => $i->deleted };
@@ -158,7 +158,7 @@ sub resend_invitations {
             my $i = Lufi::DB::Invitation->new(app => $c->app)
                                         ->from_token($token);
 
-            if ($i->ldap_user eq $c->current_user->{username}) {
+            if ($i->auth_user eq $c->current_user->{username}) {
                 if ($i->files_sent_at) {
                     push @failures, $c->l('The invitation %1 can’t be resent: %2 has already sent files.<br>Please create a new invitation.', $i->token, $i->guest_mail);
                 } else {
@@ -167,7 +167,7 @@ sub resend_invitations {
                           ->write;
                     }
 
-                    my $from   = ($c->config('invitations')->{'send_invitation_with_ldap_user_mail'}) ? $i->ldap_user_mail : $c->config('mail_sender');
+                    my $from   = ($c->config('invitations')->{'send_invitation_with_auth_user_mail'}) ? $i->auth_user_mail : $c->config('mail_sender');
                     my $url    = $c->url_for('guest', token => $i->token)->to_abs;
                     my $expire = $c->get_date_lang()->time2str($c->l('%A %d %B %Y at %T'), $i->expire_at);
                     $c->mail(
@@ -175,7 +175,7 @@ sub resend_invitations {
                         to         => $i->guest_mail,
                         template   => 'invitations/invite',
                         format     => 'mail',
-                        ldap_user  => ucfirst($i->ldap_user),
+                        auth_user  => ucfirst($i->auth_user),
                         url        => $url,
                         invitation => $i,
                         expires    => $expire
@@ -237,7 +237,7 @@ sub guest {
     return $c->render(template => 'invitations/exception');
 }
 
-sub send_mail_to_ldap_user {
+sub send_mail_to_auth_user {
     my $c = shift;
     my $token = $c->param('token');
     my $urls  = c(@{$c->every_param('urls[]')});
@@ -281,7 +281,7 @@ sub send_mail_to_ldap_user {
         $c->session(expires => $invitation->files_sent_at + 60 * $invitation->expend_expire_at);
         $c->mail(
             from             => $c->config('mail_sender'),
-            to               => $invitation->ldap_user_mail,
+            to               => $invitation->auth_user_mail,
             template         => 'invitations/notification_files_sent',
             format           => 'mail',
             files            => c(@files),
@@ -292,7 +292,7 @@ sub send_mail_to_ldap_user {
         return $c->render(
             json => {
                 success => true,
-                msg     => $c->l('The URLs of your files have been sent by email to %1.', $invitation->ldap_user_mail)
+                msg     => $c->l('The URLs of your files have been sent by email to %1.', $invitation->auth_user_mail)
             }
         );
     } else {

@@ -55,3 +55,9 @@ ALTER TABLE files MODIFY filesize integer;
 ALTER TABLE slices MODIFY path varchar(255);
 -- 5 down
 ALTER TABLE slices MODIFY path varchar(255) unique NOT NULL;
+-- 6 up
+ALTER TABLE invitations CHANGE ldap_user auth_user varchar(255);
+ALTER TABLE invitations CHANGE ldap_user_mail auth_user_mail varchar(255);
+-- 6 down
+ALTER TABLE invitations CHANGE auth_user ldap_user varchar(255);
+ALTER TABLE invitations CHANGE auth_user_mail ldap_user_mail varchar(255);
