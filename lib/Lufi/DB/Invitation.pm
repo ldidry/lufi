@@ -51,7 +51,7 @@ Have a look at Lufi::DB::Invitation::SQLite's code: it's simple and may be more 
 
 =item B<files>            : string, optional, list of files sent by the guest
 
-=item B<show_in_list>     : boolean, if the ldap user want to see the invitation in his/her invitations list
+=item B<show_in_list>     : boolean, if the authenticated user wants to see the invitation in his/her invitations list
 
 =item B<deleted>          : boolean
 
