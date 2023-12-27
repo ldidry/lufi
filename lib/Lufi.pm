@@ -17,6 +17,14 @@ sub startup {
         default => $default_config
     });
 
+    # Compatibility with old send_invitation_with_ldap_user_mail setting
+    if (defined $self->config('invitations')) {
+        if (defined($self->config('invitations')->{send_invitation_with_ldap_user_mail}) &&
+            !defined($self->config('invitations')->{send_invitation_with_auth_user_mail})) {
+            $self->config('invitations')->{send_invitation_with_auth_user_mail} = $self->config('invitations')->{send_invitation_with_ldap_user_mail};
+        }
+    }
+
     die 'You need to provide a contact information in lufi.conf!' unless (defined($self->config('contact')));
     die 'You need to provide a **report** information in lufi.conf!' unless (defined($self->config('report')));
 
