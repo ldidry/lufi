@@ -30,7 +30,7 @@ Lufi is licensed under the terms of the AGPL. See the [LICENSE](LICENSE) file.
 
 ## Official instance
 
-There is a demonstration site, available at <https://demo.lufi.io>, with strong limitations on time and file size.
+There is a demonstration site, available at <https://lufi.fiat-tux.fr>, with strong limitations on time and file size.
 
 To really use Lufi, you can go to <https://framadrop.org>, provided by the [Framasoft association](https://framasoft.org) (you can help them to keep providing free services at <https://soutenir.framasoft.org>).
 
@@ -79,10 +79,6 @@ Please consider contributing, either by [reporting issues](https://framagit.org/
 The details on how to contribute are on the [wiki](https://framagit.org/fiat-tux/hat-softwares/lufi/wikis/contribute).
 
 This software uses [Fiat Tux Code of conduct](https://framagit.org/fiat-tux/code-of-conduct/blob/master/README.md).
-
-## Make a donation
-
-You can make a donation to the author on [Tipeee](https://www.tipeee.com/fiat-tux) or on [Liberapay](https://liberapay.com/sky/).
 
 ## Other dependencies
 
