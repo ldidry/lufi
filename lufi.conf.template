@@ -234,10 +234,10 @@
     #ldap => {
     #    uri         => 'ldaps://ldap.example.org',                 # server URI
     #    user_tree   => 'ou=users,dc=example,dc=org',               # search base DN
-    #    bind_dn     => 'uid=ldap_user,ou=users,dc=example,dc=org', # search bind DN
+    #    bind_dn     => 'uid=auth_user,ou=users,dc=example,dc=org', # search bind DN
     #    bind_pwd    => 'secr3t',                                   # search bind password
     #    user_attr   => 'uid',                                      # user attribute (uid, mail, sAMAccountName, etc.)
-    #    user_filter => '(!(uid=ldap_user))',                       # user filter (to exclude some users, etc.)
+    #    user_filter => '(!(uid=auth_user))',                       # user filter (to exclude some users, etc.)
     #    # optional start_tls configuration. See https://metacpan.org/pod/distribution/perl-ldap/lib/Net/LDAP.pod#start_tls
     #    # don't set or uncomment if you don't want to configure it
     #    start_tls => {
@@ -277,7 +277,7 @@
     #   # Be sure to have a mail system that will correctly send the mail from your users! (DKIM, SPF…)
     #   # To enable this feature, set it to 1
     #   # optional, disabled by default
-    #   send_invitation_with_ldap_user_mail => 1,
+    #   send_invitation_with_auth_user_mail => 1,
     #   # The user is able to set an expiration delay for the invitation.
     #   # This expiration delay can’t be more than this setting (in days).
     #   # optional, default is 30 days

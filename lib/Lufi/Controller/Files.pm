@@ -120,7 +120,7 @@ sub upload {
                     $ws->send(decode('UTF-8', encode_json(
                         {
                             success    => false,
-                            msg        => $c->l('Sorry, your invitation has expired or has been deleted. Please contact %1 to have another invitation.', $invit->ldap_user_mail),
+                            msg        => $c->l('Sorry, your invitation has expired or has been deleted. Please contact %1 to have another invitation.', $invit->auth_user_mail),
                         }
                     )));
                 }
