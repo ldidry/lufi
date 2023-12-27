@@ -1,6 +1,7 @@
 Revision history for Lufi
 
 ?.??.? ????-??-??
+	- 💥 — [BREAKING CHANGE] Mail sending is now disabled by default! Set disable_mail_sending to 0 to enable it
 
 0.05.18 2022-03-19
 	- ✨ Add support for header authentication, thanks to @mildis (!69)
