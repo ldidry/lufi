@@ -15,7 +15,7 @@
     <p><%== l('The original (and only for now) author is <a href="https://fiat-tux.fr" class="classic">Luc Didry</a>.') %></p>
     <h3><%= l('How to install the software on my server?') %></h3>
     <p><%== l('As Lufi is a free software licensed under of the terms of the <a href="https://gnu.org/licenses/agpl.html" class="classic">AGPLv3</a>, you can install it on you own server. Have a look on the <a href="https://framagit.org/fiat-tux/hat-softwares/lufi/wikis/home" class="classic">Wiki</a> for the procedure.') %><br>
-       <%== l('Get the source code on <a href="https://framagit.org/fiat-tux/hat-softwares/lufi" class="classic">the official repository</a> or on its <a href="https://github.com/ldidry/lufi" class="classic">Github mirror</a>') %>
+       <%== l('Get the source code on <a href="%1" class="classic">the official repository</a> or on its <a href="%2" class="classic">Github mirror</a>', 'https://framagit.org/fiat-tux/hat-softwares/lufi', 'https://github.com/ldidry/lufi') %>
     </p>
     <h3><%= l('Version') %></h3>
     <p><%== l('Latest tag of this instance: %1', sprintf('<a href="https://framagit.org/fiat-tux/hat-softwares/lufi/-/releases/%s" class="classic">%s</a>', stash('version')->{tag}, stash('version')->{tag})) %></p>
