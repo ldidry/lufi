@@ -313,16 +313,6 @@ msgstr ""
 msgid "Get the file"
 msgstr "Obté el fitxer"
 
-#: themes/default/templates/about.html.ep:18
-msgid ""
-"Get the source code on <a href=\"https://framagit.org/luc/lufi\" class="
-"\"classic\">the official repository</a> or on its <a href=\"https://github."
-"com/ldidry/lufi\" class=\"classic\">Github mirror</a>"
-msgstr ""
-"Obteniu el codi font al <a href=\"https://framagit.org/luc/lufi\" class="
-"\"classic\">repositori oficial</a> o a la seva <a href=\"https://github.com/"
-"ldidry/lufi\" class=\"classic\">rèplica a Github</a>"
-
 #: themes/default/templates/invitations/my_invitations.html.ep:24
 msgid "Guest mail"
 msgstr ""
@@ -943,12 +933,11 @@ msgstr "o"
 msgid "— %1 (%2), that will expire on %3"
 msgstr ""
 
+#. ('https://framagit.org/fiat-tux/hat-softwares/lufi', 'https://github.com/ldidry/lufi')
 #: themes/default/templates/about.html.ep:18
-msgid "Get the source code on <a href=\"https://framagit.org/fiat-tux/hat-softwares/lufi\" class=\"classic\">the official repository</a> or on its <a href=\"https://github.com/ldidry/lufi\" class=\"classic\">Github mirror</a>"
+msgid "Get the source code on <a href=\"%1\" class=\"classic\">the official repository</a> or on its <a href=\"%2\" class=\"classic\">Github mirror</a>"
 msgstr ""
-"Obteniu el codi font al <a href=\"https://framagit.org/fiat-tux/"
-"hat-softwares/lufi\" class=\"classic\">repositori oficial</a> o a la seva <a "
-"href=\"https://github.com/ldidry/lufi\" class=\"classic\">rèplica a "
+"Obteniu el codi font al <a href=\"%1\" class=\"classic\">repositori oficial</a> o a la seva <a href=\"%2\" class=\"classic\">rèplica a "
 "Github</a>"
 
 #: themes/default/templates/about.html.ep:17
