@@ -306,12 +306,10 @@ msgstr "Pliki przesłane w zaproszeniu XX1 przez XX2"
 msgid "Get the file"
 msgstr "Pobierz plik"
 
+#. ('https://framagit.org/fiat-tux/hat-softwares/lufi', 'https://github.com/ldidry/lufi')
 #: themes/default/templates/about.html.ep:18
-msgid "Get the source code on <a href=\"https://framagit.org/fiat-tux/hat-softwares/lufi\" class=\"classic\">the official repository</a> or on its <a href=\"https://github.com/ldidry/lufi\" class=\"classic\">Github mirror</a>"
-msgstr ""
-"Pobierz kod źródłowy z <a href=\"https://framagit.org/fiat-tux/hat-softwares/"
-"lufi\" class=\"classic\">oficjalnego repozytorium</a> lub z <a href=\"https"
-"://github.com/ldidry/lufi\" class=\"classic\">Github mirror</a>"
+msgid "Get the source code on <a href=\"%1\" class=\"classic\">the official repository</a> or on its <a href=\"%2\" class=\"classic\">Github mirror</a>"
+msgstr "Pobierz kod źródłowy z <a href=\"%1\" class=\"classic\">oficjalnego repozytorium</a> lub z <a href=\"%2\" class=\"classic\">Github mirror</a>"
 
 #: themes/default/templates/invitations/my_invitations.html.ep:24
 msgid "Guest mail"
