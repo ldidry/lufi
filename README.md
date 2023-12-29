@@ -70,21 +70,21 @@ Please, see [this wiki page](https://framagit.org/fiat-tux/hat-softwares/lufi/wi
 
 ## API endpoints
 
-Some endpoints require authentication, others don't.
-Here are the endpoints that needs to be whitelisted from authentication :  
-* `"^/r/"`
-* `"^/js/"`,
-* `"^/img/"`,
-* `"^/css/"`,
-* `"^/lang/"`,
-* `"^/font/"`,
-* `"^/partial/"`,
-* `"^/download/"`,
-* `"^/upload"`,
-* `"^/guest/"`,
-* `"^/about"`,
-* `"^/delays$"`,
-* `"^/fulstats$"`
+When using accounts, some endpoints require authentication, others don't.
+Here are the endpoints that needs to be excluded from authentication if you’re using an authenticating proxy:
+- `"^/r/"` (page to get a file)
+- `"^/js/"` (get js assets)
+- `"^/img/"` (get images assets)
+- `"^/css/"` (get css assets)
+- `"^/lang/"` (change language)
+- `"^/font/"` (get fonts assets)
+- `"^/partial/"` (get rendered js assets)
+- `"^/download/"` (websocket URL to download a file)
+- `"^/upload"` (websocket URL to upload a file)
+- `"^/guest/"` (guest page for uploading)
+- `"^/about"` (about page)
+- `"^/delays$"` (delays information page)
+- `"^/fullstats$"` (JSON endpoint giving stats about the files)
 
 ## Authors
 
