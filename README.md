@@ -66,6 +66,24 @@ Lufi comes with several languages.
 
 Please, see [this wiki page](https://framagit.org/fiat-tux/hat-softwares/lufi/wikis/contribute#internationalization) to know how to contribute to internationalization.
 
+## API endpoints
+
+When using accounts, some endpoints require authentication, others don't.
+Here are the endpoints that needs to be excluded from authentication if you’re using an authenticating proxy:
+- `"^/r/"` (page to get a file)
+- `"^/js/"` (get js assets)
+- `"^/img/"` (get images assets)
+- `"^/css/"` (get css assets)
+- `"^/lang/"` (change language)
+- `"^/font/"` (get fonts assets)
+- `"^/partial/"` (get rendered js assets)
+- `"^/download/"` (websocket URL to download a file)
+- `"^/upload"` (websocket URL to upload a file)
+- `"^/guest/"` (guest page for uploading)
+- `"^/about"` (about page)
+- `"^/delays$"` (delays information page)
+- `"^/fullstats$"` (JSON endpoint giving stats about the files)
+
 ## Authors
 
 See [AUTHORS.md](AUTHORS.md) file.
