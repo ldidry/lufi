@@ -309,12 +309,10 @@ msgstr "Τα αρχεία στάλθηκαν στην πρόσκληση XX1 α�
 msgid "Get the file"
 msgstr "Λάβε το αρχείο"
 
+#. ('https://framagit.org/fiat-tux/hat-softwares/lufi', 'https://github.com/ldidry/lufi')
 #: themes/default/templates/about.html.ep:18
-msgid "Get the source code on <a href=\"https://framagit.org/fiat-tux/hat-softwares/lufi\" class=\"classic\">the official repository</a> or on its <a href=\"https://github.com/ldidry/lufi\" class=\"classic\">Github mirror</a>"
-msgstr ""
-"Λάβετε τον πηγαίο κώδικα από το <a href=\"https://framagit.org/fiat-tux/"
-"hat-softwares/lufi\" class=\"classic\">επίσημο αποθετήριο</a> ή από τον <a "
-"href=\"https://github.com/ldidry/lufi\" class=\"classic\">καθρέπτη του στο "
+msgid "Get the source code on <a href=\"%1\" class=\"classic\">the official repository</a> or on its <a href=\"%2\" class=\"classic\">Github mirror</a>"
+msgstr "Λάβετε τον πηγαίο κώδικα από το <a href=\"%1\" class=\"classic\">επίσημο αποθετήριο</a> ή από τον <a href=\"%2\" class=\"classic\">καθρέπτη του στο "
 "Github </a>"
 
 #: themes/default/templates/invitations/my_invitations.html.ep:24

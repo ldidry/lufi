@@ -294,12 +294,10 @@ msgstr "檔案由 XX2 透過 XX1 邀請傳送"
 msgid "Get the file"
 msgstr "取得檔案"
 
+#. ('https://framagit.org/fiat-tux/hat-softwares/lufi', 'https://github.com/ldidry/lufi')
 #: themes/default/templates/about.html.ep:18
-msgid "Get the source code on <a href=\"https://framagit.org/fiat-tux/hat-softwares/lufi\" class=\"classic\">the official repository</a> or on its <a href=\"https://github.com/ldidry/lufi\" class=\"classic\">Github mirror</a>"
-msgstr ""
-"在 <a href=\"https://framagit.org/fiat-tux/hat-softwares/lufi\" class="
-"\"classic\">官方倉庫</a> 或其 <a href=\"https://github.com/ldidry/lufi\" class="
-"\"classic\">Github 鏡像</a> 上取得原始碼"
+msgid "Get the source code on <a href=\"%1\" class=\"classic\">the official repository</a> or on its <a href=\"%2\" class=\"classic\">Github mirror</a>"
+msgstr "在 <a href=\"%1\" class=\"classic\">官方倉庫</a> 或其 <a href=\"%2\" class=\"classic\">Github 鏡像</a> 上取得原始碼"
 
 #: themes/default/templates/invitations/my_invitations.html.ep:24
 msgid "Guest mail"

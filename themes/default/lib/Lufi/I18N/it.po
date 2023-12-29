@@ -313,16 +313,6 @@ msgstr "File inviati attraverso l'invito XX1 da XX2"
 msgid "Get the file"
 msgstr "Ottenere il file"
 
-#: themes/default/templates/about.html.ep:18
-msgid ""
-"Get the source code on <a href=\"https://framagit.org/luc/lufi\" class="
-"\"classic\">the official repository</a> or on its <a href=\"https://github."
-"com/ldidry/lufi\" class=\"classic\">Github mirror</a>"
-msgstr ""
-"Ottenere il codice sorgente su <a href=\"https://framagit.org/luc/lufi\" "
-"class=\"classic\">le dÃ©pÃ´t officiel</a> ou sur son <a href=\"https://"
-"github.com/ldidry/lufi\" class=\"classic\">miroir Github</a>."
-
 #: themes/default/templates/invitations/my_invitations.html.ep:24
 msgid "Guest mail"
 msgstr "Email dell'invitato"
@@ -964,12 +954,10 @@ msgstr ""
 "fiat-tux/hat-softwares/lufi/wikis/home\" class=\"classic\">Wiki</a> per "
 "vedere la procedura."
 
+#. ('https://framagit.org/fiat-tux/hat-softwares/lufi', 'https://github.com/ldidry/lufi')
 #: themes/default/templates/about.html.ep:18
-msgid "Get the source code on <a href=\"https://framagit.org/fiat-tux/hat-softwares/lufi\" class=\"classic\">the official repository</a> or on its <a href=\"https://github.com/ldidry/lufi\" class=\"classic\">Github mirror</a>"
-msgstr ""
-"Ottenere il codice sorgente sul <a href=\"https://framagit.org/fiat-tux/"
-"hat-softwares/lufi\" class=\"classic\">repository ufficiale</a> o sul suo <a "
-"href=\"https://github.com/ldidry/lufi\" class=\"classic\">mirror Github</a>"
+msgid "Get the source code on <a href=\"%1\" class=\"classic\">the official repository</a> or on its <a href=\"%2\" class=\"classic\">Github mirror</a>"
+msgstr "Ottenere il codice sorgente sul <a href=\"%1\" class=\"classic\">repository ufficiale</a> o sul suo <a href=\"%2\" class=\"classic\">mirror Github</a>"
 
 #: themes/default/templates/about.html.ep:20
 msgid "Version"

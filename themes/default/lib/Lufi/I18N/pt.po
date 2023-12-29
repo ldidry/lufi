@@ -317,16 +317,6 @@ msgstr "Arquivos enviados via convite XX1 por XX2"
 msgid "Get the file"
 msgstr "Recuperar o ficheiro"
 
-#: themes/default/templates/about.html.ep:18
-msgid ""
-"Get the source code on <a href=\"https://framagit.org/luc/lufi\" class="
-"\"classic\">the official repository</a> or on its <a href=\"https://github."
-"com/ldidry/lufi\" class=\"classic\">Github mirror</a>"
-msgstr ""
-"Recupere o código-fonte no <a href=\"https://framagit.org/luc/lufi\" class="
-"\"classic\">o depósito oficial</a> ou então <a href=\"https://github.com/"
-"ldidry/lufi\" class=\"classic\">réplicas Github</a>."
-
 #: themes/default/templates/invitations/my_invitations.html.ep:24
 msgid "Guest mail"
 msgstr "Correio de convidado (Email)"
@@ -966,12 +956,10 @@ msgstr "ou"
 msgid "— %1 (%2), that will expire on %3"
 msgstr "— %1 (%2), que irá expirar em %3"
 
+#. ('https://framagit.org/fiat-tux/hat-softwares/lufi', 'https://github.com/ldidry/lufi')
 #: themes/default/templates/about.html.ep:18
-msgid "Get the source code on <a href=\"https://framagit.org/fiat-tux/hat-softwares/lufi\" class=\"classic\">the official repository</a> or on its <a href=\"https://github.com/ldidry/lufi\" class=\"classic\">Github mirror</a>"
-msgstr ""
-"Recupere o código-fonte no <a href=\"https://framagit.org/fiat-tux/"
-"hat-softwares/lufi\" class=\"classic\">o depósito oficial</a> ou então <a "
-"href=\"https://github.com/ldidry/lufi\" class=\"classic\">réplicas Github</a>"
+msgid "Get the source code on <a href=\"%1\" class=\"classic\">the official repository</a> or on its <a href=\"%2\" class=\"classic\">Github mirror</a>"
+msgstr "Recupere o código-fonte no <a href=\"%1\" class=\"classic\">o depósito oficial</a> ou então <a href=\"%2\" class=\"classic\">réplicas Github</a>"
 
 #: themes/default/templates/about.html.ep:17
 msgid "As Lufi is a free software licensed under of the terms of the <a href=\"https://gnu.org/licenses/agpl.html\" class=\"classic\">AGPLv3</a>, you can install it on you own server. Have a look on the <a href=\"https://framagit.org/fiat-tux/hat-softwares/lufi/wikis/home\" class=\"classic\">Wiki</a> for the procedure."
