@@ -303,13 +303,10 @@ msgstr "Súbory odoslané v pozvánke XX1 od XX2"
 msgid "Get the file"
 msgstr "Stiahnuť súbor"
 
+#. ('https://framagit.org/fiat-tux/hat-softwares/lufi', 'https://github.com/ldidry/lufi')
 #: themes/default/templates/about.html.ep:18
-msgid "Get the source code on <a href=\"https://framagit.org/fiat-tux/hat-softwares/lufi\" class=\"classic\">the official repository</a> or on its <a href=\"https://github.com/ldidry/lufi\" class=\"classic\">Github mirror</a>"
-msgstr ""
-"Získajte zdrojový kód z <a href=\"https://framagit.org/fiat-tux/"
-"hat-softwares/lufi\" class=\"classic\">oficiálneho repozitára</a> alebo z "
-"jeho <a href=\"https://github.com/ldidry/lufi\" class=\"classic\">kópie na "
-"Githube</a>."
+msgid "Get the source code on <a href=\"%1\" class=\"classic\">the official repository</a> or on its <a href=\"%2\" class=\"classic\">Github mirror</a>"
+msgstr "Získajte zdrojový kód z <a href=\"%1\" class=\"classic\">oficiálneho repozitára</a> alebo z jeho <a href=\"%2\" class=\"classic\">kópie na Githube</a>."
 
 #: themes/default/templates/invitations/my_invitations.html.ep:24
 msgid "Guest mail"

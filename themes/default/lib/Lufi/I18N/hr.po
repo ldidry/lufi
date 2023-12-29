@@ -306,12 +306,10 @@ msgstr "Datoteke su poslane u pozivnici XX1 od XX2"
 msgid "Get the file"
 msgstr "Preuzmi datoteku"
 
+#. ('https://framagit.org/fiat-tux/hat-softwares/lufi', 'https://github.com/ldidry/lufi')
 #: themes/default/templates/about.html.ep:18
-msgid "Get the source code on <a href=\"https://framagit.org/fiat-tux/hat-softwares/lufi\" class=\"classic\">the official repository</a> or on its <a href=\"https://github.com/ldidry/lufi\" class=\"classic\">Github mirror</a>"
-msgstr ""
-"Preuzmi izvorni kod sa <a href=\"https://framagit.org/fiat-tux/hat-softwares/"
-"lufi\" class=\"classic\">službenog repozitorija</a> ili s njegovog <a href="
-"\"https://github.com/ldidry/lufi\" class=\"classic\">Github zrcala</a>"
+msgid "Get the source code on <a href=\"%1\" class=\"classic\">the official repository</a> or on its <a href=\"%2\" class=\"classic\">Github mirror</a>"
+msgstr "Preuzmi izvorni kod sa <a href=\"%1\" class=\"classic\">službenog repozitorija</a> ili s njegovog <a href=\"%2\" class=\"classic\">Github zrcala</a>"
 
 #: themes/default/templates/invitations/my_invitations.html.ep:24
 msgid "Guest mail"
