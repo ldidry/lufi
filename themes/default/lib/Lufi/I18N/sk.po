@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "POT-Creation-Date: YEAR-MO-DA HO:MI+ZONE\n"
-"PO-Revision-Date: 2022-05-28 23:55+0000\n"
-"Last-Translator: Jose Riha <jose1711@gmail.com>\n"
+"PO-Revision-Date: 2024-01-11 19:40+0000\n"
+"Last-Translator: Matej Šujan <sumatej@gmail.com>\n"
 "Language-Team: Slovak <https://weblate.framasoft.org/projects/lufi/"
 "default-theme/sk/>\n"
 "Language: sk\n"
@@ -16,7 +16,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=3; plural=(n==1) ? 0 : (n>=2 && n<=4) ? 1 : 2;\n"
-"X-Generator: Weblate 4.12\n"
+"X-Generator: Weblate 5.3.1\n"
 
 #. ($delay)
 #. (max_delay)
@@ -306,7 +306,10 @@ msgstr "Stiahnuť súbor"
 #. ('https://framagit.org/fiat-tux/hat-softwares/lufi', 'https://github.com/ldidry/lufi')
 #: themes/default/templates/about.html.ep:18
 msgid "Get the source code on <a href=\"%1\" class=\"classic\">the official repository</a> or on its <a href=\"%2\" class=\"classic\">Github mirror</a>"
-msgstr "Získajte zdrojový kód z <a href=\"%1\" class=\"classic\">oficiálneho repozitára</a> alebo z jeho <a href=\"%2\" class=\"classic\">kópie na Githube</a>."
+msgstr ""
+"Získajte zdrojový kód z <a href=\"%1\" class=\"classic\">oficiálneho "
+"repozitára</a> alebo z jeho <a href=\"%2\" class=\"classic\">kópie na "
+"Githube</a>"
 
 #: themes/default/templates/invitations/my_invitations.html.ep:24
 msgid "Guest mail"
@@ -447,7 +450,8 @@ msgstr ""
 "V novom umiestnení localStorage sa nenašli žiadne súbory, ale našli sme "
 "súbory v starom umiestnení\\n"
 "Chcete importovať tieto informácie?\\n"
-"\\\n"
+"\\n"
+"\n"
 "Berte prosím na zreteľ, že sa Vás na toto už viackrát pýtať nebudeme."
 
 #: themes/default/templates/files.html.ep:34
@@ -493,7 +497,7 @@ msgstr "Heslo"
 #. (config('contact')
 #: themes/default/templates/about.html.ep:13
 msgid "Please contact the administrator: %1"
-msgstr "Kontaktujte, prosím, správcu: %1."
+msgstr "Kontaktujte prosím správcu: %1"
 
 #: themes/default/templates/render.html.ep:33
 msgid "Please wait while we are getting your file. We first need to download and decrypt all parts before you can get it."
@@ -899,7 +903,7 @@ msgstr "vyprší XXX"
 #. (format_bytes($keys[$i])
 #: themes/default/templates/delays.html.ep:30
 msgid "for %1 and more, the file will be kept %2 day(s)"
-msgstr "pre %1 a viac bude súbor ponechaný %2 deň/dní."
+msgstr "pre %1 a viac bude súbor ponechaný %2 deň/dní"
 
 #. (format_bytes($keys[$i])
 #: themes/default/templates/delays.html.ep:32
