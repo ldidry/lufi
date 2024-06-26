@@ -46,8 +46,8 @@
 %= javascript '/js/sjcl.js'
 %= javascript '/js/jszip.min.js'
 %= javascript '/js/lufi-notifications.js'
-%= javascript '/js/lufi-down.js'
     % }
 % }
+<script type="module" src="/js/lufi-down.js"></script>
     </div>
 </div>

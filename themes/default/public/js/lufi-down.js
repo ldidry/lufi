@@ -1,31 +1,47 @@
 // vim:set sw=4 ts=4 sts=4 ft=javascript expandtab:
+
+import * as lufiApi from "/js/lufi-api.browser.js"
+
 /*
  * Return the deciphering key stored in anchor part of the URL
  * Stolen from https://github.com/sebsauvage/ZeroBin/blob/master/js/zerobin.js
  */
 function pageKey() {
     var key = window.location.hash.substring(1);  // Get key
+    let i;
 
     // Some stupid web 2.0 services and redirectors add data AFTER the anchor
     // (such as &utm_source=...).
     // We will strip any additional data.
 
     // First, strip everything after the equal sign (=) which signals end of base64 string.
-    i = key.indexOf('='); if (i>-1) { key = key.substring(0, i + 1); }
+    i = key.indexOf('=');
+    let isb64 = false
+    
+    if (i>-1) {
+        key = key.substring(0, i + 1);
+        
+        isb64 = true
+    }
 
     // If the equal sign was not present, some parameters may remain:
     i = key.indexOf('&'); if (i>-1) { key = key.substring(0, i); }
 
-    // Then add trailing equal sign if it's missing
-    if (key.charAt(key.length-1)!=='=') key += '=';
+    // Then add trailing equal sign if it's missing and was using the Sjcl algorithm
+    if (isb64) {
+        if (key.charAt(key.length-1)!=='=') key += '=';
+    }
 
     return key;
 }
+
 function base64ToArrayBuffer(base64) {
-    var binary_string =  window.atob(base64);
+    base64 = base64 instanceof ArrayBuffer ? new TextDecoder().decode(base64) : base64; // Is it using Lufi API?
+
+    var binary_string = window.atob(base64);
     var len = binary_string.length;
-    var bytes = new Uint8Array( len );
-    for (var i = 0; i < len; i++)        {
+    var bytes = new Uint8Array(len);
+    for (var i = 0; i < len; i++) {
         bytes[i] = binary_string.charCodeAt(i);
     }
     return bytes.buffer;
@@ -48,11 +64,11 @@ function addAlert(msg) {
 // Spawn WebSocket
 function spawnWebsocket(pa) {
     console.log('Spawning websocket…');
-    var ws       = new WebSocket(ws_url);
-    ws.onopen    = function() {
+    var ws = new WebSocket(ws_url);
+    ws.onopen = function () {
         console.log('Connection is established!');
 
-        var l    = $('#loading');
+        var l = $('#loading');
         l.html(i18n.loading.replace(/XX1/, (pa + 1)));
         if ($('#file_pwd').length === 1) {
             val = $('#file_pwd').val();
@@ -61,7 +77,7 @@ function spawnWebsocket(pa) {
             window.ws.send(`{"part":${pa}}`);
         }
     };
-    ws.onclose   = function() {
+    ws.onclose = function () {
         console.log('Connection is closed');
         if (!window.completed) {
             window.attempts++;
@@ -73,13 +89,13 @@ function spawnWebsocket(pa) {
             }
         }
     }
-    ws.onmessage = function(e) {
-        var res  = e.data.split('XXMOJOXX');
+    ws.onmessage = function (e) {
+        var res = e.data.split('XXMOJOXX');
         var json = res.shift();
         var data = JSON.parse(json);
 
         // Reset counter since we succeded to open a websocket and got a message
-        window.attempts  = 0;
+        window.attempts = 0;
 
         if (data.msg !== undefined) {
             addAlert(data.msg);
@@ -88,10 +104,16 @@ function spawnWebsocket(pa) {
                 $('.file-abort').addClass('hide');
             }
             window.onbeforeunload = null;
-            window.attempts  = 10;
+            window.attempts = 10;
         } else {
             console.log(`Getting slice ${data.part + 1} of ${data.total}`);
             var slice   = JSON.parse(res.shift());
+            
+            // If file was used using Lufi API
+            if (slice.iv) {
+                slice.iv = new Uint8Array(Object.values(slice.iv))
+            }
+
             var percent = Math.round(1000 * (data.part + 1)/data.total)/10;
             var wClass  = percent.toString().replace('.', '-');
             var pb      = $('#pb');
@@ -101,14 +123,17 @@ function spawnWebsocket(pa) {
             pb.attr('aria-valuenow', percent);
             $('#pbt').html(`${percent}%`);
             try {
-                var b64 = sjcl.decrypt(window.key, slice);
-                window.a[data.part] = base64ToArrayBuffer(b64);
-                if (data.part + 1 === data.total) {
-                    var blob = new Blob(a, {type: data.type});
+                lufiApi.lufiCrypto.decrypt(window.key, slice).then((decrypted) => {
+                    var b64 = decrypted;
 
-                    notify(i18n.fileDownloaded, data.name);
-                    $('#please-wait').remove();
-                    $('#loading').remove();
+                    window.a[data.part] = base64ToArrayBuffer(b64);
+
+                    if (data.part + 1 === data.total) {
+                        var blob = new Blob(a, { type: data.type });
+
+                        notify(i18n.fileDownloaded, data.name);
+                        $('#please-wait').remove();
+                        $('#loading').remove();
 
                     var pbd  = $('#pbd');
                     pbd.attr('class', 'center-align');
@@ -181,32 +206,35 @@ function spawnWebsocket(pa) {
                     window.onbeforeunload = null;
                     window.completed = true;
                     $('#abort').remove();
-                } else {
-                    var l = $('#loading');
-                    l.html(i18n.loading.replace(/XX1/, (data.part + 1)));
-                    if (ws.readyState === 3) {
-                        window.ws = spawnWebsocket(data.part + 1);
                     } else {
-                        window.ws.onclose = function() {
-                            console.log('Connection is closed');
-                            if (!window.completed) {
-                                console.log(`Connection closed. Retrying to get slice ${data.part + 1}`);
+                        var l = $('#loading');
+                        l.html(i18n.loading.replace(/XX1/, (data.part + 1)));
+                        if (ws.readyState === 3) {
+                            window.ws = spawnWebsocket(data.part + 1);
+                        } else {
+                            window.ws.onclose = function() {
+                                console.log('Connection is closed');
+                                if (!window.completed) {
+                                    console.log(`Connection closed. Retrying to get slice ${data.part + 1}`);
+                                    window.ws = spawnWebsocket(data.part + 1);
+                                }
+                            }
+                            window.ws.onerror = function() {
+                                console.log(`Error. Retrying to get slice ${data.part + 1}`);
                                 window.ws = spawnWebsocket(data.part + 1);
+                            };
+                            if ($('#file_pwd').length === 1) {
+                                val = $('#file_pwd').val();
+                                window.ws.send(`{"part":${data.part + 1}, "file_pwd": "${val}"}`);
+                            } else {
+                                window.ws.send(`{"part":${data.part + 1}}`);
                             }
                         }
-                        window.ws.onerror = function() {
-                            console.log(`Error. Retrying to get slice ${data.part + 1}`);
-                            window.ws = spawnWebsocket(data.part + 1);
-                        };
-                        if ($('#file_pwd').length === 1) {
-                            val = $('#file_pwd').val();
-                            window.ws.send(`{"part":${data.part + 1}, "file_pwd": "${val}"}`);
-                        } else {
-                            window.ws.send(`{"part":${data.part + 1}}`);
-                        }
                     }
-                }
-            } catch(err) {
+                }).catch((e) => {
+                    console.error(e);
+                })
+            } catch (err) {
                 if (err.message === 'ccm: tag doesn\'t match') {
                     addAlert(i18n.badkey);
                 } else {
@@ -216,7 +244,7 @@ function spawnWebsocket(pa) {
             }
         }
     }
-    ws.onerror = function() {
+    ws.onerror = function () {
         window.attempts++;
         if (window.attempts < 10) {
             console.log(`Error. Retrying to get slice ${pa}`);
@@ -228,9 +256,9 @@ function spawnWebsocket(pa) {
     return ws;
 }
 // When it's ready
-$(document).ready(function(){
-    $('#abort').click(function() {
-        window.ws.onclose = function() {};
+$(document).ready(function () {
+    $('#abort').click(function () {
+        window.ws.onclose = function () { };
         window.ws.close();
         $('#please-wait, #loading, #pbd, #abort').remove();
         $('#filesize').parent().append(`<h4>${i18n.aborted1}</h4>
@@ -241,22 +269,22 @@ $(document).ready(function(){
                                             </a>
                                         </p>`);
         window.onbeforeunload = null;
-        $('#reloadLocation').on('click', function(e) {
+        $('#reloadLocation').on('click', function (e) {
             e.preventDefault();
             window.location.reload();
         })
     });
-    $('#filesize').html(filesize($('#filesize').attr('data-filesize'), {base: 10}));
-    window.a         = new Array();
-    window.key       = pageKey();
+    $('#filesize').html(filesize($('#filesize').attr('data-filesize'), { base: 10 }));
+    window.a = new Array();
+    window.key = pageKey();
     window.completed = false;
-    window.attempts  = 0;
+    window.attempts = 0;
 
     if (key !== '=') {
         var go = true;
         if ($('#file_pwd').length === 1) {
             go = false;
-            $('#go').click(function() {
+            $('#go').click(function () {
                 $('.file-progress, .file-abort').removeClass('hide');
                 $('#file_pwd').parent().parent().addClass('hide');
                 // Set websocket

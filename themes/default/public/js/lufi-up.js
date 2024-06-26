@@ -1,11 +1,13 @@
 // vim:set sw=4 ts=4 sts=4 ft=javascript expandtab:
 
+import * as lufiApi from "/js/lufi-api.browser.js"
+
 // total file counter
 window.fc = 0;
 // Cancelled files indexes
 window.cancelled = [];
 // Set websocket
-window.ws = spawnWebsocket(0, function() {return null;});
+window.ws = spawnWebsocket(0, function () { return null; });
 // Use slice of 0.75MB
 window.sliceLength = 750000;
 // Global zip objects for currently created zip file
@@ -146,7 +148,7 @@ function updateZipname() {
 // Create blob from zip
 function uploadZip(e) {
     e.preventDefault();
-    var delay             = $('#delete-day');
+    var delay = $('#delete-day');
     var del_at_first_view = $('#first-view');
     $('#zip-files').attr('disabled', 'disabled');
     $('#file-browser-button').attr('disabled', 'disabled');
@@ -155,8 +157,8 @@ function uploadZip(e) {
     $('#zip-parts').text('');
 
     $('#zip-compressing').removeClass('hide');
-    window.zip.generateAsync({type:"blob"})
-        .then(function(zipFile) {
+    window.zip.generateAsync({ type: "blob" })
+        .then(function (zipFile) {
             // if $('#zipping') is hidden, the zipping has been aborted
             if (!$('#zipping').hasClass('hide')) {
                 window.zip = null;
@@ -169,7 +171,7 @@ function uploadZip(e) {
                 $('#zip-files').attr('disabled', null);
 
                 var zipname = getZipname();
-                var file = new File([zipFile], zipname, {type: 'application/zip'});
+                var file = new File([zipFile], zipname, { type: 'application/zip' });
 
                 Materialize.toast(i18n.enqueued.replace('XXX', zipname), 3000, 'teal accent-3');
                 if (window.fileList === undefined || window.fileList === null) {
@@ -206,7 +208,7 @@ function sendFilesURLs() {
             data: {
                 urls: window.filesURLs
             },
-            success: function(data, textStatus, jqXHR) {
+            success: function (data, textStatus, jqXHR) {
                 if (data.success) {
                     Materialize.toast(data.msg, 6000, 'teal accent-3');
                 } else {
@@ -220,8 +222,8 @@ function sendFilesURLs() {
 
 // Start uploading the files (called from <input> and from drop zone)
 function handleFiles(f) {
-    var delay             = $('#delete-day');
-    var zip_files         = $('#zip-files');
+    var delay = $('#delete-day');
+    var zip_files = $('#zip-files');
     var del_at_first_view = $('#first-view');
 
     delay.attr('disabled', 'disabled');
@@ -234,11 +236,11 @@ function handleFiles(f) {
         $('#zipping').removeClass('hide');
         $('#files').removeClass('m12').addClass('m6');
         for (var i = 0; i < f.length; i++) {
-            var element  = f.item(i);
+            var element = f.item(i);
             var filename = element.name;
             var origname = filename;
-            var counter  = 0;
-            while (typeof(window.zip.files[filename]) !== 'undefined') {
+            var counter = 0;
+            while (typeof (window.zip.files[filename]) !== 'undefined') {
                 counter += 1;
                 filename = `${origname.substring(0, origname.lastIndexOf('.'))}_(${counter})${origname.substring(origname.lastIndexOf('.'))}`;
             }
@@ -258,7 +260,7 @@ function handleFiles(f) {
                 var file = window.fileList[i];
                 Materialize.toast(i18n.enqueued.replace('XXX', escapeHtml(file.name)), 3000, 'teal accent-3');
             }
-            window.nbFiles  = window.fileList.length;
+            window.nbFiles = window.fileList.length;
             $('#results').show();
             uploadFile(0, delay.val(), del_at_first_view.is(':checked'));
         } else {
@@ -267,27 +269,24 @@ function handleFiles(f) {
     }
 }
 
-// Create random key
-function genRandomKey() {
-    return sjcl.codec.base64.fromBits(sjcl.random.randomWords(8, 10), 0);
-}
-
 // Create progress bar and call slicing and uploading function
 function uploadFile(i, delay, del_at_first_view) {
     // Prevent exiting page before full upload
     window.onbeforeunload = confirmExit;
 
     // Create a random key, different for all files
-    var randomkey = genRandomKey();
 
-    // Get the file and properties
-    var file  = window.fileList[i];
-    var name  = escapeHtml(file.name);
-    var size  = filesize(file.size);
-    var parts = Math.ceil(file.size/window.sliceLength);
-    if (parts === 0) {
-        parts = 1;
-    }
+    lufiApi.lufiCrypto.generateKey().then((random) => {
+        var randomKey = random;
+        
+        // Get the file and properties
+        var file = window.fileList[i];
+        var name = escapeHtml(file.name);
+        var size = filesize(file.size);
+        var parts = Math.ceil(file.size / window.sliceLength);
+        if (parts === 0) {
+            parts = 1;
+        }
 
     // Create a progress bar for the file
     var r  = $('#ul-results');
@@ -306,7 +305,7 @@ function uploadFile(i, delay, del_at_first_view) {
                     </div>
                     <div class="progress">
                         <div id="progress-${window.fc}"
-                             data-key="${randomkey}"
+                             data-key="${randomKey}"
                              data-name="${name}"
                              aria-valuemax="100"
                              aria-valuemin="0"
@@ -324,113 +323,126 @@ function uploadFile(i, delay, del_at_first_view) {
         destroyBlock(this);
     });
 
-    sliceAndUpload(randomkey, i, parts, 0, delay, del_at_first_view, null, null);
+    sliceAndUpload(randomKey, i, parts, 0, delay, del_at_first_view, null, null);
+    }).catch((e) => {
+        console.error(e);
+    });
 }
 
 // Get a slice of file and send it
-function sliceAndUpload(randomkey, i, parts, j, delay, del_at_first_view, short, mod_token) {
+function sliceAndUpload(randomKey, i, parts, j, delay, del_at_first_view, short, mod_token) {
     if (mod_token !== null && window.cancelled.includes(i)) {
         var data = JSON.stringify({
             id: short,
             mod_token: mod_token,
             cancel: true,
             i: i
-        })+'XXMOJOXXuseless';
+        }) + 'XXMOJOXXuseless';
         // Verify that we have a websocket and send json
         if (window.ws.readyState === 3) {
-            window.ws = spawnWebsocket(0, function() {
+            window.ws = spawnWebsocket(0, function () {
                 window.ws.send(data);
             });
         } else {
-            window.ws.onclose = function() {
+            window.ws.onclose = function () {
                 console.log('Websocket closed, waiting 10sec.');
-                window.ws = spawnWebsocket(0, function() {return null;});
+                window.ws = spawnWebsocket(0, function () { return null; });
             };
-            window.ws.onerror = function() {
+            window.ws.onerror = function () {
                 console.log('Error on Websocket, waiting 10sec.');
-                window.ws = spawnWebsocket(0, function() {return null;});
+                window.ws = spawnWebsocket(0, function () { return null; });
             };
             window.ws.send(data);
         }
     } else {
-        var file  = window.fileList[i];
+        var file = window.fileList[i];
         var slice = file.slice(j * window.sliceLength, (j + 1) * window.sliceLength, file.type);
         var fr = new FileReader();
+
         fr.onloadend = function() {
             var sl        = $(`#parts-${window.fc}`);
 
             // Get the binary result, different result in IE browsers (see default.html.ep line 27:48)
-            if (isIE == true){
+            if (isIE == true) {
                 var bin = fr.content;
             } else {
                 var bin = fr.result;
             }
 
             // Transform it in base64
-            var b         = window.btoa(bin);
+            var b = window.btoa(bin);
 
             // Encrypt it
-            var encrypted = sjcl.encrypt(randomkey, b);
+            lufiApi.lufiCrypto.encrypt(randomKey, new TextEncoder().encode(b).buffer).then((encryptedFile) => {
+                let encrypted = encryptedFile;
 
-            // Prepare json
-            var data = {
-                // number of parts
-                total: parts,
-                // part X of total
-                part: j,
-                size: file.size,
-                name: file.name,
-                type: file.type,
-                delay: delay,
-                del_at_first_view: del_at_first_view,
-                zipped: $('#zip-files').is(':checked'),
-                id: short,
-                // number of the sent file in the queue
-                i: i
-            };
-            if ($('#file_pwd').length === 1) {
-                var pwd = $('#file_pwd').val();
-                if (pwd !== undefined && pwd !== null && pwd !== '') {
-                    data['file_pwd'] = $('#file_pwd').val();
+                // Prepare json
+                var data = {
+                    // number of parts
+                    total: parts,
+                    // part X of total
+                    part: j,
+                    size: file.size,
+                    name: file.name,
+                    type: file.type,
+                    delay: delay,
+                    del_at_first_view: del_at_first_view,
+                    zipped: $('#zip-files').is(':checked'),
+                    id: short,
+                    // number of the sent file in the queue
+                    i: i
+                };
+
+                if ($('#file_pwd').length === 1) {
+                    var pwd = $('#file_pwd').val();
+
+                    if (pwd !== undefined && pwd !== null && pwd !== '') {
+                        data['file_pwd'] = $('#file_pwd').val();
+                    }
                 }
-            }
-            data = `${JSON.stringify(data)}XXMOJOXX${JSON.stringify(encrypted)}`;
+            
+                data = `${JSON.stringify(data)}XXMOJOXX${JSON.stringify(encrypted)}`;
 
-            var percent = Math.round(1000 * j/parts)/10;
-            console.log(`sending slice ${j + 1}/${parts} of file ${file.name} (${percent}%)`);
+                var percent = Math.round(1000 * j/parts)/10;
+                console.log(`sending slice ${j + 1}/${parts} of file ${file.name} (${percent}%)`);
 
-            sl.html(`${percent.toFixed(1)}%`);
+                sl.html(`${percent.toFixed(1)}%`);
 
-            // Verify that we have a websocket and send json
-            if (window.ws.readyState === 3) {
-                window.ws = spawnWebsocket(0, function() {
+                // Verify that we have a websocket and send json
+                if (window.ws.readyState === 3) {
+                    window.ws = spawnWebsocket(0, function() {
+                        window.ws.send(data);
+                    });
+                } else {
+                    window.ws.onclose = function() {
+                        console.log('Websocket closed, waiting 10sec.');
+                        window.ws = spawnWebsocket(0, function() {
+                            console.log(`sending again slice ${j + 1}/${parts} of file ${file.name}`);
+                            window.ws.send(data);
+                        });
+                    };
+                    window.ws.onerror = function() {
+                        console.log('Error on Websocket, waiting 10sec.');
+                        window.ws = spawnWebsocket(0, function() {
+                            console.log(`sending again slice ${j + 1}/${parts} of file ${file.name}`);
+                            window.ws.send(data);
+                        });
+                    };
+
                     window.ws.send(data);
-                });
-            } else {
-                window.ws.onclose = function() {
-                    console.log('Websocket closed, waiting 10sec.');
-                    window.ws = spawnWebsocket(0, function() {
-                        console.log(`sending again slice ${j + 1}/${parts} of file ${file.name}`);
-                        window.ws.send(data);
-                    });
-                };
-                window.ws.onerror = function() {
-                    console.log('Error on Websocket, waiting 10sec.');
-                    window.ws = spawnWebsocket(0, function() {
-                        console.log(`sending again slice ${j + 1}/${parts} of file ${file.name}`);
-                        window.ws.send(data);
-                    });
-                };
-                window.ws.send(data);
-            }
+                }
+            }).catch((e) => {
+                console.error(e);
+            })
         }
+
         fr.readAsBinaryString(slice);
     }
 }
 
 // Update the progress bar
 function updateProgressBar(data) {
-    if (typeof(data.action) !== 'undefined' && data.action === 'cancel') {
+    if (typeof (data.action) !== 'undefined' && data.action === 'cancel') {
         if (data.success) {
             console.log('Upload successfully cancelled');
         } else {
@@ -460,14 +472,14 @@ function updateProgressBar(data) {
             $('#results').hide();
         }
     } else {
-        var i                 = data.i;
-        var sent_delay        = data.sent_delay;
+        var i = data.i;
+        var sent_delay = data.sent_delay;
         var del_at_first_view = data.del_at_first_view;
         if (data.success) {
-            var j          = data.j;
-            var delay      = data.delay;
-            var parts      = data.parts;
-            var short      = data.short;
+            var j = data.j;
+            var delay = data.delay;
+            var parts = data.parts;
+            var short = data.short;
             var created_at = data.created_at;
 
             console.log(`getting response for slice ${j + 1}/${parts} of file ${data.name} (${data.duration} sec)`);
@@ -476,8 +488,7 @@ function updateProgressBar(data) {
             var key   = dp.attr('data-key');
 
             if (j + 1 === parts) {
-                //
-                window.ws.onclose = function() {
+                window.ws.onclose = function () {
                     console.log('Connection is closed.');
                 };
                 window.ws.onerror = function() {
@@ -582,8 +593,8 @@ function updateProgressBar(data) {
             } else {
                 j++;
                 // Update progress bar
-                var percent = Math.round(1000 * j/parts)/10;
-                var wClass  = percent.toString().replace('.', '-');
+                var percent = Math.round(1000 * j / parts) / 10;
+                var wClass = percent.toString().replace('.', '-');
                 dp.removeClass();
                 dp.addClass('determinate');
                 dp.addClass(`width-${wClass}`);
@@ -649,20 +660,20 @@ function spawnWebsocket(i, callback) {
     if (i === undefined || i === null) {
         i = 0;
     }
-    var ws       = new WebSocket(ws_url);
-    ws.onopen    = function() {
+    var ws = new WebSocket(ws_url);
+    ws.onopen = function () {
         console.log('Connection is established!');
         if (callback !== undefined) {
             callback();
         }
     };
-    ws.onclose   = function() {
+    ws.onclose = function () {
         console.log('Connection is closed.');
     }
-    ws.onmessage = function(e) {
+    ws.onmessage = function (e) {
         updateProgressBar(JSON.parse(e.data));
     }
-    ws.onerror = function() {
+    ws.onerror = function () {
         console.log('error');
         if (i < 5 && callback !== undefined) {
             console.log(`Retrying to send file (try ${i} of 5)`);
@@ -680,29 +691,17 @@ function bindDropZone() {
     $('#file-browser-span').removeClass('disabled');
     $('#file-browser-span').addClass('cyan');
     $('#file-browser-button').attr('disabled', null);
-    $('#file-browser-button').on('change', function(e) {
+    $('#file-browser-button').on('change', function (e) {
         handleFiles(this.files);
     });
 }
 
 // When it's ready
-$(document).ready(function() {
+$(document).ready(function () {
     $('#zip-files').prop('checked', false);
     $('#first-view').prop('checked', false);
     $('#zipname').val('documents.zip');
-    if (!sjcl.random.isReady(10)) {
-        var loop = setInterval(function() {
-            if (!sjcl.random.isReady(10)) {
-                $('#not-enough-entropy').removeClass('hiddendiv');
-            } else {
-                $('#not-enough-entropy').addClass('hiddendiv');
-                bindDropZone();
-                clearInterval(loop);
-            }
-        }, 1000);
-    } else {
-        bindDropZone();
-    }
+    bindDropZone();
     if (maxSize > 0) {
         $('#max-file-size').text(i18n.maxSize.replace('XXX', filesize(maxSize)));
     }
@@ -710,7 +709,7 @@ $(document).ready(function() {
     $('label[for="zip-files"]').on('click', zipClicking);
     $('#zipname').on('input', updateZipname);
     $('#uploadZip').on('click', uploadZip);
-    $('#reset-zipping').on('click', function() {
+    $('#reset-zipping').on('click', function () {
         window.zip = null;
         $('label[for="zip-files"]').click();
         $('#zip-files').attr('disabled', null);
