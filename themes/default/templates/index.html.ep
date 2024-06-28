@@ -161,7 +161,6 @@
 % } else {
 %= javascript '/partial/index.js'
 % }
-%= javascript '/js/sjcl.js'
 %= javascript '/js/filesize.min.js'
 %= javascript '/js/jszip.min.js'
 %= javascript '/js/lufi-notifications.js'
