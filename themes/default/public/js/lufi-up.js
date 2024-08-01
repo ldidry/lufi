@@ -357,23 +357,12 @@ function sliceAndUpload(randomKey, i, parts, j, delay, del_at_first_view, short,
     } else {
         var file = window.fileList[i];
         var slice = file.slice(j * window.sliceLength, (j + 1) * window.sliceLength, file.type);
-        var fr = new FileReader();
 
-        fr.onloadend = function() {
-            var sl        = $(`#parts-${window.fc}`);
-
-            // Get the binary result, different result in IE browsers (see default.html.ep line 27:48)
-            if (isIE == true) {
-                var bin = fr.content;
-            } else {
-                var bin = fr.result;
-            }
-
-            // Transform it in base64
-            var b = window.btoa(bin);
+        slice.arrayBuffer().then((sliceArrayBuffer) => {
+            var sl = $(`#parts-${window.fc}`);
 
             // Encrypt it
-            lufiApi.lufiCrypto.encrypt(randomKey, new TextEncoder().encode(b).buffer).then((encryptedFile) => {
+            lufiApi.lufiCrypto.encrypt(randomKey, sliceArrayBuffer).then((encryptedFile) => {
                 let encrypted = encryptedFile;
 
                 // Prepare json
@@ -431,12 +420,8 @@ function sliceAndUpload(randomKey, i, parts, j, delay, del_at_first_view, short,
 
                     window.ws.send(data);
                 }
-            }).catch((e) => {
-                console.error(e);
-            })
-        }
-
-        fr.readAsBinaryString(slice);
+            }).catch((e) => console.error(e))
+        }).catch((e) => console.error(e))
     }
 }
 

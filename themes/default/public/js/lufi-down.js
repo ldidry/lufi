@@ -35,18 +35,6 @@ function pageKey() {
     return key;
 }
 
-function base64ToArrayBuffer(base64) {
-    base64 = base64 instanceof ArrayBuffer ? new TextDecoder().decode(base64) : base64; // Is it using Lufi API?
-
-    var binary_string = window.atob(base64);
-    var len = binary_string.length;
-    var bytes = new Uint8Array(len);
-    for (var i = 0; i < len; i++) {
-        bytes[i] = binary_string.charCodeAt(i);
-    }
-    return bytes.buffer;
-}
-
 // Something's wring
 function addAlert(msg) {
     $('#please-wait').remove();
@@ -124,9 +112,7 @@ function spawnWebsocket(pa) {
             $('#pbt').html(`${percent}%`);
             try {
                 lufiApi.lufiCrypto.decrypt(window.key, slice).then((decrypted) => {
-                    var b64 = decrypted;
-
-                    window.a[data.part] = base64ToArrayBuffer(b64);
+                     window.a[data.part] = decrypted;
 
                     if (data.part + 1 === data.total) {
                         var blob = new Blob(a, { type: data.type });
