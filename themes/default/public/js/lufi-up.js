@@ -278,7 +278,7 @@ function uploadFile(i, delay, del_at_first_view) {
 
     lufiApi.lufiCrypto.generateKey().then((random) => {
         var randomKey = random;
-        
+
         // Get the file and properties
         var file = window.fileList[i];
         var name = escapeHtml(file.name);
@@ -288,11 +288,11 @@ function uploadFile(i, delay, del_at_first_view) {
             parts = 1;
         }
 
-    // Create a progress bar for the file
-    var r  = $('#ul-results');
-    var w  = $('<li>');
-    w.addClass('list-group-item');
-    w.html(`<div class="card">
+        // Create a progress bar for the file
+        var r = $('#ul-results');
+        var w = $('<li>');
+        w.addClass('list-group-item');
+        w.html(`<div class="card">
                 <div>
                     <a href="#" id="destroy-${window.fc}">
                         <i class="right mdi-navigation-close small"></i>
@@ -300,7 +300,7 @@ function uploadFile(i, delay, del_at_first_view) {
                     <div class="card-content">
                         <span class="card-title"
                               id="name-${window.fc}">${name}</span>
-                        <span id="size-${window.fc }">(${size})</span>
+                        <span id="size-${window.fc}">(${size})</span>
                         <p id="parts-${window.fc}"></p>
                     </div>
                     <div class="progress">
@@ -316,14 +316,14 @@ function uploadFile(i, delay, del_at_first_view) {
                         </div>
                     </div>
             <div>`);
-    r.prepend(w);
-    $(`#destroy-${window.fc}`).on('click', function(event) {
-        event.preventDefault();
-        window.cancelled.push(i);
-        destroyBlock(this);
-    });
+        r.prepend(w);
+        $(`#destroy-${window.fc}`).on('click', function (event) {
+            event.preventDefault();
+            window.cancelled.push(i);
+            destroyBlock(this);
+        });
 
-    sliceAndUpload(randomKey, i, parts, 0, delay, del_at_first_view, null, null);
+        sliceAndUpload(randomKey, i, parts, 0, delay, del_at_first_view, null, null);
     }).catch((e) => {
         console.error(e);
     });
@@ -389,30 +389,30 @@ function sliceAndUpload(randomKey, i, parts, j, delay, del_at_first_view, short,
                         data['file_pwd'] = $('#file_pwd').val();
                     }
                 }
-            
+
                 data = `${JSON.stringify(data)}XXMOJOXX${JSON.stringify(encrypted)}`;
 
-                var percent = Math.round(1000 * j/parts)/10;
+                var percent = Math.round(1000 * j / parts) / 10;
                 console.log(`sending slice ${j + 1}/${parts} of file ${file.name} (${percent}%)`);
 
                 sl.html(`${percent.toFixed(1)}%`);
 
                 // Verify that we have a websocket and send json
                 if (window.ws.readyState === 3) {
-                    window.ws = spawnWebsocket(0, function() {
+                    window.ws = spawnWebsocket(0, function () {
                         window.ws.send(data);
                     });
                 } else {
-                    window.ws.onclose = function() {
+                    window.ws.onclose = function () {
                         console.log('Websocket closed, waiting 10sec.');
-                        window.ws = spawnWebsocket(0, function() {
+                        window.ws = spawnWebsocket(0, function () {
                             console.log(`sending again slice ${j + 1}/${parts} of file ${file.name}`);
                             window.ws.send(data);
                         });
                     };
-                    window.ws.onerror = function() {
+                    window.ws.onerror = function () {
                         console.log('Error on Websocket, waiting 10sec.');
-                        window.ws = spawnWebsocket(0, function() {
+                        window.ws = spawnWebsocket(0, function () {
                             console.log(`sending again slice ${j + 1}/${parts} of file ${file.name}`);
                             window.ws.send(data);
                         });
@@ -469,27 +469,27 @@ function updateProgressBar(data) {
 
             console.log(`getting response for slice ${j + 1}/${parts} of file ${data.name} (${data.duration} sec)`);
 
-            var dp    = $(`#progress-${window.fc}`);
-            var key   = dp.attr('data-key');
+            var dp = $(`#progress-${window.fc}`);
+            var key = dp.attr('data-key');
 
             if (j + 1 === parts) {
                 window.ws.onclose = function () {
                     console.log('Connection is closed.');
                 };
-                window.ws.onerror = function() {
+                window.ws.onerror = function () {
                     console.log('Error on WebSocket connection but file has been fully send, so we don’t care.');
                 }
 
                 notify(i18n.fileUploaded, data.name);
 
                 $(`#parts-${window.fc}`).remove();
-                var n       = $(`#name-${window.fc}`);
-                var s       = $(`#size-${window.fc}`);
-                var d       = $('<div>');
-                var url     = `${baseURL}r/${short}#${key}`;
+                var n = $(`#name-${window.fc}`);
+                var s = $(`#size-${window.fc}`);
+                var d = $('<div>');
+                var url = `${baseURL}r/${short}#${key}`;
                 var del_url = `${actionURL}d/${short}/${data.token}`;
-                var links   = encodeURIComponent(`["${short}"]`);
-                var limit   = (delay === 0) ? i18n.noLimit : `${i18n.expiration} ${formatDate(delay * 86400 + created_at)}`;
+                var links = encodeURIComponent(`["${short}"]`);
+                var limit = (delay === 0) ? i18n.noLimit : `${i18n.expiration} ${formatDate(delay * 86400 + created_at)}`;
                 if (!isGuest) {
                     n.html(`${n.html()} ${s.html()} <a href="${actionURL}m?links=${links}"><i class="mdi-communication-email"></i></a><br>${limit}`);
                     d.html(`<div class="card-action">
@@ -524,7 +524,7 @@ function updateProgressBar(data) {
                 p2.remove();
                 p1.append(d);
 
-                $(`#copyurl-${window.fc}`).on('click', function(e) {
+                $(`#copyurl-${window.fc}`).on('click', function (e) {
                     e.preventDefault();
                     copyToClipboard(url);
                 });
@@ -601,9 +601,9 @@ function updateProgressBar(data) {
 
 // Write message instead in a file block
 function addAlertOnFile(msg, i, sent_delay, del_at_first_view) {
-    var n       = $(`#name-${window.fc}`);
-    var p       = $(`#progress-${window.fc}`);
-    var d       = $('<div>');
+    var n = $(`#name-${window.fc}`);
+    var p = $(`#progress-${window.fc}`);
+    var d = $('<div>');
 
     p.parent().remove();
     d.addClass('card pink');

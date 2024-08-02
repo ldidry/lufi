@@ -17,19 +17,19 @@ function pageKey() {
     // First, strip everything after the equal sign (=) which signals end of base64 string.
     i = key.indexOf('=');
     let isb64 = false
-    
-    if (i>-1) {
+
+    if (i > -1) {
         key = key.substring(0, i + 1);
-        
+
         isb64 = true
     }
 
     // If the equal sign was not present, some parameters may remain:
-    i = key.indexOf('&'); if (i>-1) { key = key.substring(0, i); }
+    i = key.indexOf('&'); if (i > -1) { key = key.substring(0, i); }
 
     // Then add trailing equal sign if it's missing and was using the Sjcl algorithm
     if (isb64) {
-        if (key.charAt(key.length-1)!=='=') key += '=';
+        if (key.charAt(key.length - 1) !== '=') key += '=';
     }
 
     return key;
@@ -95,16 +95,16 @@ function spawnWebsocket(pa) {
             window.attempts = 10;
         } else {
             console.log(`Getting slice ${data.part + 1} of ${data.total}`);
-            var slice   = JSON.parse(res.shift());
-            
+            var slice = JSON.parse(res.shift());
+
             // If file was used using Lufi API
             if (slice.iv) {
                 slice.iv = new Uint8Array(Object.values(slice.iv))
             }
 
-            var percent = Math.round(1000 * (data.part + 1)/data.total)/10;
-            var wClass  = percent.toString().replace('.', '-');
-            var pb      = $('#pb');
+            var percent = Math.round(1000 * (data.part + 1) / data.total) / 10;
+            var wClass = percent.toString().replace('.', '-');
+            var pb = $('#pb');
             pb.removeClass();
             pb.addClass('determinate');
             pb.addClass(`width-${wClass}`);
@@ -112,7 +112,7 @@ function spawnWebsocket(pa) {
             $('#pbt').html(`${percent}%`);
             try {
                 lufiApi.lufiCrypto.decrypt(window.key, slice).then((decrypted) => {
-                     window.a[data.part] = decrypted;
+                    window.a[data.part] = decrypted;
 
                     if (data.part + 1 === data.total) {
                         var blob = new Blob(a, { type: data.type });
@@ -121,43 +121,43 @@ function spawnWebsocket(pa) {
                         $('#please-wait').remove();
                         $('#loading').remove();
 
-                    var pbd  = $('#pbd');
-                    pbd.attr('class', 'center-align');
-                    // IE & Edge fix for downloading blob files, gives option to save or open the file when the link is opened.
-                    if (window.navigator && window.navigator.msSaveOrOpenBlob) {
-                        var fileName = escapeHtml(data.name);
-                        window.navigator.msSaveOrOpenBlob(blob, fileName);
-                    } else {
-                        var blobURL   = URL.createObjectURL(blob);
-                    }
-                    var innerHTML = `<p><a href="${blobURL}" class="btn btn-primary" download="${escapeHtml(data.name)}">${i18n.download}</a></p>`;
+                        var pbd = $('#pbd');
+                        pbd.attr('class', 'center-align');
+                        // IE & Edge fix for downloading blob files, gives option to save or open the file when the link is opened.
+                        if (window.navigator && window.navigator.msSaveOrOpenBlob) {
+                            var fileName = escapeHtml(data.name);
+                            window.navigator.msSaveOrOpenBlob(blob, fileName);
+                        } else {
+                            var blobURL = URL.createObjectURL(blob);
+                        }
+                        var innerHTML = `<p><a href="${blobURL}" class="btn btn-primary" download="${escapeHtml(data.name)}">${i18n.download}</a></p>`;
 
-                    var isZip = ($('#filesize').attr('data-zipped') === 'true');
-                    if (data.type.match(/^image\//) !== null) {
-                        innerHTML += `<img id="render-image" class="responsive-img" alt="${escapeHtml(data.name)}" src="${blobURL}">`;
-                    } else if (data.type.match(/^video\//) !== null) {
-                        innerHTML += `<video class="responsive-video" controls>
+                        var isZip = ($('#filesize').attr('data-zipped') === 'true');
+                        if (data.type.match(/^image\//) !== null) {
+                            innerHTML += `<img id="render-image" class="responsive-img" alt="${escapeHtml(data.name)}" src="${blobURL}">`;
+                        } else if (data.type.match(/^video\//) !== null) {
+                            innerHTML += `<video class="responsive-video" controls>
                                            <source src="${blobURL}" type="${data.type}">
                                       </video>`;
-                    } else if (data.type.match(/^audio\//) !== null) {
-                        innerHTML += `<audio class="responsive-video" controls>
+                        } else if (data.type.match(/^audio\//) !== null) {
+                            innerHTML += `<audio class="responsive-video" controls>
                                            <source src="${blobURL}" type="${data.type}">
                                       </audio>`;
-                    } else if (isZip) {
-                        innerHTML += `<p><a class="btn btn-primary" id="showZipContent">${i18n.showZipContent}</a></p>`;
-                    }
+                        } else if (isZip) {
+                            innerHTML += `<p><a class="btn btn-primary" id="showZipContent">${i18n.showZipContent}</a></p>`;
+                        }
 
-                    pbd.html(innerHTML);
+                        pbd.html(innerHTML);
 
-                    if (isZip) {
-                        $('#showZipContent').click(function() {
-                            JSZip.loadAsync(blob)
-                            .then(function (zip) {
-                                var innerHTML = `<h3>${i18n.zipContent}</h3><ul>`;
-                                zip.forEach(function (relativePath, zipEntry) {
-                                    innerHTML += `<li>
+                        if (isZip) {
+                            $('#showZipContent').click(function () {
+                                JSZip.loadAsync(blob)
+                                    .then(function (zip) {
+                                        var innerHTML = `<h3>${i18n.zipContent}</h3><ul>`;
+                                        zip.forEach(function (relativePath, zipEntry) {
+                                            innerHTML += `<li>
                                                       ${escapeHtml(zipEntry.name)}
-                                                      (${filesize(zipEntry._data.uncompressedSize, {base: 10})})
+                                                      (${filesize(zipEntry._data.uncompressedSize, { base: 10 })})
                                                       <a href="#"
                                                          download="${escapeHtml(zipEntry.name)}"
                                                          class="download-zip-content"
@@ -165,47 +165,47 @@ function spawnWebsocket(pa) {
                                                            <i class="mdi-file-file-download"></i>
                                                       </a>
                                                   </li>`
-                                });
-                                innerHTML += '</ul>';
-                                pbd.append(innerHTML);
-                                $('.download-zip-content').click(function(e) {
-                                    e.preventDefault();
-                                    var t = $(this);
-                                    var filename = t.attr('download');
-                                    zip.files[filename].async('blob').then(function(blob) {
-                                        t.unbind('click');
-                                        t.attr('href', URL.createObjectURL(blob));
-                                        t[0].click();
+                                        });
+                                        innerHTML += '</ul>';
+                                        pbd.append(innerHTML);
+                                        $('.download-zip-content').click(function (e) {
+                                            e.preventDefault();
+                                            var t = $(this);
+                                            var filename = t.attr('download');
+                                            zip.files[filename].async('blob').then(function (blob) {
+                                                t.unbind('click');
+                                                t.attr('href', URL.createObjectURL(blob));
+                                                t[0].click();
+                                            });
+                                        })
+                                        $('#showZipContent').hide();
+                                        $('#showZipContent').unbind('click');
                                     });
-                                })
-                                $('#showZipContent').hide();
-                                $('#showZipContent').unbind('click');
                             });
-                        });
-                    }
-                    if ($('#file_pwd').length === 1) {
-                        val = $('#file_pwd').val();
-                        window.ws.send(`{"ended":true, "file_pwd": "${val}"}`);
-                    } else {
-                        window.ws.send('{"ended":true}');
-                    }
-                    window.onbeforeunload = null;
-                    window.completed = true;
-                    $('#abort').remove();
+                        }
+                        if ($('#file_pwd').length === 1) {
+                            val = $('#file_pwd').val();
+                            window.ws.send(`{"ended":true, "file_pwd": "${val}"}`);
+                        } else {
+                            window.ws.send('{"ended":true}');
+                        }
+                        window.onbeforeunload = null;
+                        window.completed = true;
+                        $('#abort').remove();
                     } else {
                         var l = $('#loading');
                         l.html(i18n.loading.replace(/XX1/, (data.part + 1)));
                         if (ws.readyState === 3) {
                             window.ws = spawnWebsocket(data.part + 1);
                         } else {
-                            window.ws.onclose = function() {
+                            window.ws.onclose = function () {
                                 console.log('Connection is closed');
                                 if (!window.completed) {
                                     console.log(`Connection closed. Retrying to get slice ${data.part + 1}`);
                                     window.ws = spawnWebsocket(data.part + 1);
                                 }
                             }
-                            window.ws.onerror = function() {
+                            window.ws.onerror = function () {
                                 console.log(`Error. Retrying to get slice ${data.part + 1}`);
                                 window.ws = spawnWebsocket(data.part + 1);
                             };
