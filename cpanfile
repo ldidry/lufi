@@ -1,5 +1,5 @@
 requires 'inc::Module::Install';
-requires 'Mojolicious', '>= 8.05';
+requires 'Mojolicious', '>= 9.34';
 requires 'Mojolicious::Plugin::DebugDumperHelper';
 requires 'Mojolicious::Plugin::I18N';
 requires 'Mojolicious::Plugin::Mail';
