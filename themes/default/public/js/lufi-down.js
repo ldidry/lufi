@@ -1,293 +1,237 @@
 // vim:set sw=4 ts=4 sts=4 ft=javascript expandtab:
+import { lufi } from "/js/lufi.js";
 
-import * as lufiApi from "/js/lufi-api.browser.js"
+const abortedDOM = document.createElement("div");
+abortedDOM.innerHTML = `<h4>${i18n.aborted1}</h4>
+                                      <p>
+                                          <a id="reloadLocation"
+                                             class="waves-effect waves-light btn">
+                                              ${i18n.aborted2}
+                                          </a>
+                                      </p>`;
 
-/*
- * Return the deciphering key stored in anchor part of the URL
- * Stolen from https://github.com/sebsauvage/ZeroBin/blob/master/js/zerobin.js
- */
-function pageKey() {
-    var key = window.location.hash.substring(1);  // Get key
-    let i;
+const loadingDOM = document.getElementById("loading");
+const passwordDOM = document.getElementById("file_pwd");
+const filesizeDOM = document.getElementById("filesize");
 
-    // Some stupid web 2.0 services and redirectors add data AFTER the anchor
-    // (such as &utm_source=...).
-    // We will strip any additional data.
+document.addEventListener("DOMContentLoaded", () => {
+  let go = true;
 
-    // First, strip everything after the equal sign (=) which signals end of base64 string.
-    i = key.indexOf('=');
-    let isb64 = false
+  filesizeDOM.innerHTML = filesize(filesizeDOM.attributes.getNamedItem("data-filesize").value, {
+    base: 10,
+  });
 
-    if (i > -1) {
-        key = key.substring(0, i + 1);
+  if (isPasswordNeeded()) {
+    go = false;
 
-        isb64 = true
+    passwordDOM.focus()
+
+    onPasswordEvents();
+  }
+
+  if (go) {
+    startDownload();
+  }
+});
+
+const isPasswordNeeded = () => document.querySelectorAll("#file_pwd").length === 1
+
+const startDownload = () => {
+  warnOnReload();
+
+
+  lufi
+    .download(window.location, passwordDOM?.value)
+    .andThen((job) => {
+      job.onProgress(() => {
+        updateProgress(job.lufiFile);
+      });
+
+      document.getElementById("abort").onclick = () => {
+        remove(["please-wait", "pbd", "loading", "abort"]);
+
+        job.terminate();
+
+        filesizeDOM.parentElement.append(abortedDOM);
+        warnOnReload(false)
+
+        document.getElementById("reloadLocation").onclick = (e) => {
+          e.preventDefault();
+          window.location.reload();
+        };
+      };
+
+      return job.waitForCompletion();
+    })
+    .mapErr((error) => {
+      addAlert(error.message);
+      warnOnReload(false)
+      remove(["abort"])
+    })
+    .andThen((job) => {
+      notify(i18n.fileDownloaded, job.lufiFile.name);
+      remove(["please-wait", "loading"]);
+
+      const pbd = document.getElementById("pbd");
+      pbd.className = "center-align";
+
+      const blobURL = URL.createObjectURL(job.tmpFile);
+
+      let htmlContent = `<p><a href="${blobURL}" class="btn btn-primary" download="${escapeHtml(
+        job.lufiFile.name
+      )}">${i18n.download}</a></p>`;
+
+      var isZip = filesizeDOM.getAttribute("data-zipped") === "true";
+
+      if (job.lufiFile.type.match(/^image\//) !== null) {
+        htmlContent += `<img id="render-image" class="responsive-img" alt="${escapeHtml(
+          job.lufiFile.name
+        )}" src="${blobURL}">`;
+      } else if (job.lufiFile.type.match(/^video\//) !== null) {
+        htmlContent += `<video class="responsive-video" controls>
+                                  <source src="${blobURL}" type="${job.lufiFile.type}">
+                              </video>`;
+      } else if (job.lufiFile.type.match(/^audio\//) !== null) {
+        htmlContent += `<audio class="responsive-video" controls>
+                                  <source src="${blobURL}" type="${job.lufiFile.type}">
+                              </audio>`;
+      } else if (isZip) {
+        htmlContent += `<p><a class="btn btn-primary" id="showZipContent">${i18n.showZipContent}</a></p>`;
+      }
+
+      pbd.innerHTML = htmlContent;
+
+      if (isZip) {
+        showZipContent(job.tmpFile);
+      }
+
+      document.getElementById("abort").remove();
+      window.completed = true;
+    });
+};
+
+const remove = (elements) => {
+  elements.forEach((id) => {
+    if (document.getElementById(id)) {
+      document.getElementById(id).remove();
+    } else {
+      console.error(`${id} does not exist`)
     }
+  });
+};
 
-    // If the equal sign was not present, some parameters may remain:
-    i = key.indexOf('&'); if (i > -1) { key = key.substring(0, i); }
+const onPasswordEvents = () => {
+  const callback = () => {
+    document.getElementsByClassName("file-progress")[0].classList.remove("hide");
+    document.getElementsByClassName("file-abort")[0].classList.remove("hide");
 
-    // Then add trailing equal sign if it's missing and was using the Sjcl algorithm
-    if (isb64) {
-        if (key.charAt(key.length - 1) !== '=') key += '=';
+    passwordDOM.parentElement.parentElement.classList.add("hide");
+
+    startDownload();
+  }
+
+  document.getElementById("go").onclick = () => {
+    callback();
+  };
+
+  document.getElementById("file_pwd").onkeydown = (event) => {
+    if (event.key === "Enter") {
+      callback();
     }
-
-    return key;
+  }
 }
 
 // Something's wring
-function addAlert(msg) {
-    $('#please-wait').remove();
+const addAlert = (msg) => {
+  // remove(["please-wait"]);
 
-    var pbd = $('.file-progress');
-    pbd.attr('role', 'alert');
-    pbd.removeClass('progress');
-    pbd.html(`<div class="card pink">
+  let pbd = document.getElementsByClassName("file-progress")[0];
+
+  pbd.setAttribute("role", "alert");
+
+  pbd.classList.remove("progress");
+
+  pbd.innerHTML = `<div class="card pink">
                   <div class="card-content white-text">
                       <strong>${msg}</strong>
                   </div>
-              </div>`);
+              </div>`;
 }
 
-// Spawn WebSocket
-function spawnWebsocket(pa) {
-    console.log('Spawning websocket…');
-    var ws = new WebSocket(ws_url);
-    ws.onopen = function () {
-        console.log('Connection is established!');
-
-        var l = $('#loading');
-        l.html(i18n.loading.replace(/XX1/, (pa + 1)));
-        if ($('#file_pwd').length === 1) {
-            val = $('#file_pwd').val();
-            window.ws.send(`{"part":${pa}, "file_pwd": "${val}"}`);
-        } else {
-            window.ws.send(`{"part":${pa}}`);
-        }
-    };
-    ws.onclose = function () {
-        console.log('Connection is closed');
-        if (!window.completed) {
-            window.attempts++;
-            if (window.attempts < 10) {
-                console.log(`Connection closed. Retrying to get slice ${pa}`);
-                window.ws = spawnWebsocket(pa);
-            } else {
-                alert(i18n.tooMuchAttempts);
-            }
-        }
-    }
-    ws.onmessage = function (e) {
-        var res = e.data.split('XXMOJOXX');
-        var json = res.shift();
-        var data = JSON.parse(json);
-
-        // Reset counter since we succeded to open a websocket and got a message
-        window.attempts = 0;
-
-        if (data.msg !== undefined) {
-            addAlert(data.msg);
-            console.log(data.msg);
-            if ($('#file_pwd').length === 1) {
-                $('.file-abort').addClass('hide');
-            }
-            window.onbeforeunload = null;
-            window.attempts = 10;
-        } else {
-            console.log(`Getting slice ${data.part + 1} of ${data.total}`);
-            var slice = JSON.parse(res.shift());
-
-            // If file was used using Lufi API
-            if (slice.iv) {
-                slice.iv = new Uint8Array(Object.values(slice.iv))
-            }
-
-            var percent = Math.round(1000 * (data.part + 1) / data.total) / 10;
-            var wClass = percent.toString().replace('.', '-');
-            var pb = $('#pb');
-            pb.removeClass();
-            pb.addClass('determinate');
-            pb.addClass(`width-${wClass}`);
-            pb.attr('aria-valuenow', percent);
-            $('#pbt').html(`${percent}%`);
-            try {
-                lufiApi.lufiCrypto.decrypt(window.key, slice).then((decrypted) => {
-                    window.a[data.part] = decrypted;
-
-                    if (data.part + 1 === data.total) {
-                        var blob = new Blob(a, { type: data.type });
-
-                        notify(i18n.fileDownloaded, data.name);
-                        $('#please-wait').remove();
-                        $('#loading').remove();
-
-                        var pbd = $('#pbd');
-                        pbd.attr('class', 'center-align');
-                        // IE & Edge fix for downloading blob files, gives option to save or open the file when the link is opened.
-                        if (window.navigator && window.navigator.msSaveOrOpenBlob) {
-                            var fileName = escapeHtml(data.name);
-                            window.navigator.msSaveOrOpenBlob(blob, fileName);
-                        } else {
-                            var blobURL = URL.createObjectURL(blob);
-                        }
-                        var innerHTML = `<p><a href="${blobURL}" class="btn btn-primary" download="${escapeHtml(data.name)}">${i18n.download}</a></p>`;
-
-                        var isZip = ($('#filesize').attr('data-zipped') === 'true');
-                        if (data.type.match(/^image\//) !== null) {
-                            innerHTML += `<img id="render-image" class="responsive-img" alt="${escapeHtml(data.name)}" src="${blobURL}">`;
-                        } else if (data.type.match(/^video\//) !== null) {
-                            innerHTML += `<video class="responsive-video" controls>
-                                           <source src="${blobURL}" type="${data.type}">
-                                      </video>`;
-                        } else if (data.type.match(/^audio\//) !== null) {
-                            innerHTML += `<audio class="responsive-video" controls>
-                                           <source src="${blobURL}" type="${data.type}">
-                                      </audio>`;
-                        } else if (isZip) {
-                            innerHTML += `<p><a class="btn btn-primary" id="showZipContent">${i18n.showZipContent}</a></p>`;
-                        }
-
-                        pbd.html(innerHTML);
-
-                        if (isZip) {
-                            $('#showZipContent').click(function () {
-                                JSZip.loadAsync(blob)
-                                    .then(function (zip) {
-                                        var innerHTML = `<h3>${i18n.zipContent}</h3><ul>`;
-                                        zip.forEach(function (relativePath, zipEntry) {
-                                            innerHTML += `<li>
-                                                      ${escapeHtml(zipEntry.name)}
-                                                      (${filesize(zipEntry._data.uncompressedSize, { base: 10 })})
-                                                      <a href="#"
-                                                         download="${escapeHtml(zipEntry.name)}"
-                                                         class="download-zip-content"
-                                                         title="${i18n.download}">
-                                                           <i class="mdi-file-file-download"></i>
-                                                      </a>
-                                                  </li>`
-                                        });
-                                        innerHTML += '</ul>';
-                                        pbd.append(innerHTML);
-                                        $('.download-zip-content').click(function (e) {
-                                            e.preventDefault();
-                                            var t = $(this);
-                                            var filename = t.attr('download');
-                                            zip.files[filename].async('blob').then(function (blob) {
-                                                t.unbind('click');
-                                                t.attr('href', URL.createObjectURL(blob));
-                                                t[0].click();
-                                            });
-                                        })
-                                        $('#showZipContent').hide();
-                                        $('#showZipContent').unbind('click');
-                                    });
-                            });
-                        }
-                        if ($('#file_pwd').length === 1) {
-                            val = $('#file_pwd').val();
-                            window.ws.send(`{"ended":true, "file_pwd": "${val}"}`);
-                        } else {
-                            window.ws.send('{"ended":true}');
-                        }
-                        window.onbeforeunload = null;
-                        window.completed = true;
-                        $('#abort').remove();
-                    } else {
-                        var l = $('#loading');
-                        l.html(i18n.loading.replace(/XX1/, (data.part + 1)));
-                        if (ws.readyState === 3) {
-                            window.ws = spawnWebsocket(data.part + 1);
-                        } else {
-                            window.ws.onclose = function () {
-                                console.log('Connection is closed');
-                                if (!window.completed) {
-                                    console.log(`Connection closed. Retrying to get slice ${data.part + 1}`);
-                                    window.ws = spawnWebsocket(data.part + 1);
-                                }
-                            }
-                            window.ws.onerror = function () {
-                                console.log(`Error. Retrying to get slice ${data.part + 1}`);
-                                window.ws = spawnWebsocket(data.part + 1);
-                            };
-                            if ($('#file_pwd').length === 1) {
-                                val = $('#file_pwd').val();
-                                window.ws.send(`{"part":${data.part + 1}, "file_pwd": "${val}"}`);
-                            } else {
-                                window.ws.send(`{"part":${data.part + 1}}`);
-                            }
-                        }
-                    }
-                }).catch((e) => {
-                    console.error(e);
-                })
-            } catch (err) {
-                if (err.message === 'ccm: tag doesn\'t match') {
-                    addAlert(i18n.badkey);
-                } else {
-                    addAlert(err.message);
-                }
-                window.onbeforeunload = null;
-            }
-        }
-    }
-    ws.onerror = function () {
-        window.attempts++;
-        if (window.attempts < 10) {
-            console.log(`Error. Retrying to get slice ${pa}`);
-            window.ws = spawnWebsocket(pa);
-        } else {
-            alert(i18n.tooMuchAttempts);
-        }
-    }
-    return ws;
+const warnOnReload = (toWarn = true) => {
+  if (toWarn) {
+    window.onbeforeunload = confirmExit;
+  } else {
+    window.onbeforeunload = null;
+  }
 }
-// When it's ready
-$(document).ready(function () {
-    $('#abort').click(function () {
-        window.ws.onclose = function () { };
-        window.ws.close();
-        $('#please-wait, #loading, #pbd, #abort').remove();
-        $('#filesize').parent().append(`<h4>${i18n.aborted1}</h4>
-                                        <p>
-                                            <a id="reloadLocation"
-                                               class="waves-effect waves-light btn">
-                                                ${i18n.aborted2}
-                                            </a>
-                                        </p>`);
-        window.onbeforeunload = null;
-        $('#reloadLocation').on('click', function (e) {
+
+const updateProgress = (lufiFile) => {
+  // Update loading text
+  loadingDOM.textContent = i18n.loading.replace(/XX1/, lufiFile.chunksReady);
+
+  // Update progress bar
+  const percent = Math.round((1000 * lufiFile.chunksReady) / lufiFile.totalChunks) / 10;
+  const wClass = percent.toString().replace(".", "-");
+
+  const pb = document.getElementById("pb");
+  pb.className = `determinate width-${wClass}`;
+  pb.attributes.getNamedItem("aria-valuenow").value = percent;
+
+  document.getElementById("pbt").innerHTML = `${percent}%`;
+}
+
+const showZipContent = (blob) => {
+  const showZipContentDOM = document.getElementById('showZipContent');
+
+  const showZipContentDOMListener = () => {
+    JSZip.loadAsync(blob)
+      .then((zip) => {
+        const newElement = document.createElement("div");
+
+        let innerHTML = `<h3>${i18n.zipContent}</h3><ul>`;
+
+
+        zip.forEach(function (_relativePath, zipEntry) {
+          innerHTML += `<li>
+                                  ${escapeHtml(zipEntry.name)}
+                                  (${filesize(zipEntry._data.uncompressedSize, { base: 10 })})
+                                  <a href="#"
+                                     download="${escapeHtml(zipEntry.name)}"
+                                     class="download-zip-content"
+                                     title="${i18n.download}">
+                                       <i class="mdi-file-file-download"></i>
+                                  </a>
+                              </li>`
+        });
+
+        innerHTML += '</ul>';
+
+        newElement.innerHTML = innerHTML
+
+        pbd.append(newElement);
+
+        console.debug()
+
+        document.querySelectorAll('.download-zip-content').forEach((element) => {
+          const elementListener = (e) => {
             e.preventDefault();
-            window.location.reload();
-        })
-    });
-    $('#filesize').html(filesize($('#filesize').attr('data-filesize'), { base: 10 }));
-    window.a = new Array();
-    window.key = pageKey();
-    window.completed = false;
-    window.attempts = 0;
-
-    if (key !== '=') {
-        var go = true;
-        if ($('#file_pwd').length === 1) {
-            go = false;
-            $('#go').click(function () {
-                $('.file-progress, .file-abort').removeClass('hide');
-                $('#file_pwd').parent().parent().addClass('hide');
-                // Set websocket
-                window.ws = spawnWebsocket(0);
-
-                // Prevent exiting page before full download
-                window.onbeforeunload = confirmExit;
+            var filename = element.getAttribute('download');
+            zip.files[filename].async('blob').then((blob) => {
+              element.removeEventListener('click', elementListener);
+              element.setAttribute('href', URL.createObjectURL(blob));
+              element.click();
             });
-        }
-        if (go) {
-            // Set websocket
-            window.ws = spawnWebsocket(0);
+          };
+          element.addEventListener('click', elementListener);
 
-            // Prevent exiting page before full download
-            window.onbeforeunload = confirmExit;
-        }
-    } else {
-        addAlert(i18n.nokey);
-    }
-});
+          showZipContentDOM.style.display = "none";
+
+          showZipContentDOM.removeEventListener('click', showZipContentDOMListener);
+        });
+      })
+  };
+
+  showZipContentDOM.onclick = showZipContentDOMListener
+
+}

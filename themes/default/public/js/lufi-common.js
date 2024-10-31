@@ -15,7 +15,7 @@ function escapeHtml(string) {
     });
 }
 function changeLang() {
-    window.location = langUrl+$(this).val();
+    window.location = langUrl + $(this).val();
 }
 function formatDate(unixTimestamp) {
     return new Date(unixTimestamp * 1000).toLocaleString(window.navigator.language, {
@@ -27,7 +27,7 @@ function formatDate(unixTimestamp) {
         minute: '2-digit',
     })
 }
-$(document).ready(function(){
+$(document).ready(function () {
     $('select').material_select();
     $(".select-lang select").on('change', changeLang);
     $(".select-lang-mobile select").on('change', changeLang);

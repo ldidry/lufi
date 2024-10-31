@@ -152,8 +152,7 @@
     <div id="results">
         <h2><%= l('Uploaded files') %></h2>
         <div id="misc"></div>
-        <ul class="list-group" id="ul-results">
-        </ul>
+        <ul class="list-group" id="ul-results"></ul>
     </div>
 %= include 'delays'
 % if (defined stash('invitation')) {
