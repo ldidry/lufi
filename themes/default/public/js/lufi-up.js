@@ -458,7 +458,14 @@ const handleFiles = (files = []) => {
 
     document.body.style.cursor = "default";
 
-    startUpload(filesArray, delay, delAtFirstView, isZipped, password);
+    startUpload(
+      filesArray,
+      delay,
+      delAtFirstView,
+      isZipped,
+      undefined,
+      password
+    );
   } else {
     lufi
       .addFilesToArchive(filesArray, archiveEntries)
