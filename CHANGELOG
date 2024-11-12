@@ -1,6 +1,10 @@
 Revision history for Lufi
 
 0.08.0 ????-??-??
+	- Use Lufi API
+	-	Password encryption is now done client side, through Lufi API
+	- Update default CSP to allow "blob:"
+
 
 0.07.0 2023-12-25
 	- ⬆️ — Update jQuery

@@ -13,3 +13,7 @@ stop-upload
 themes/*
 !themes/default
 !themes/default/*
+.stignore
+.stfolder/
+TODO
+

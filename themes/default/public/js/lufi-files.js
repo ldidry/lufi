@@ -1,217 +1,248 @@
 // vim:set sw=4 ts=4 sts=4 ft=javascript expandtab:
 // Add item to localStorage
-function addItem(item) {
-    var files = localStorage.getItem(`${window.prefix}files`);
-    if (files === null) {
-        files = new Array();
-    } else {
-        files = JSON.parse(files);
-    }
-    files.push(item);
-    localStorage.setItem(`${window.prefix}files`, JSON.stringify(files));
-}
+const addItem = (item) => {
+  const files = JSON.parse(localStorage.getItem(`${window.prefix}files`)) || [];
 
-function delItem(name) {
-    var files = localStorage.getItem(`${window.prefix}files`);
-    if (files === null) {
-        files = new Array();
-    } else {
-        files = JSON.parse(files);
+  files.push(item);
+  localStorage.setItem(`${window.prefix}files`, JSON.stringify(files));
+};
+
+const delItem = (name) => {
+  const files = JSON.parse(localStorage.getItem(`${window.prefix}files`)) || [];
+
+  let i;
+  for (i = 0; i < files.length; i++) {
+    if (files[i].short === name) {
+      files.splice(i, 1);
     }
-    var i;
+  }
+  localStorage.setItem(`${window.prefix}files`, JSON.stringify(files));
+};
+
+const itemExists = (name) => {
+  let files = localStorage.getItem(`${window.prefix}files`);
+  if (files === null) {
+    return false;
+  } else {
+    files = JSON.parse(files);
+
+    let i;
     for (i = 0; i < files.length; i++) {
-        if (files[i].short === name) {
-            files.splice(i, 1);
-        }
+      if (files[i].short === name) {
+        return true;
+      }
     }
-    localStorage.setItem(`${window.prefix}files`, JSON.stringify(files));
-}
+    return false;
+  }
+};
 
-function itemExists(name) {
-    var files = localStorage.getItem(`${window.prefix}files`);
-    if (files === null) {
-        return false;
+const invertSelection = (event) => {
+  event.preventDefault();
+  document.querySelectorAll('input[type="checkbox"]').forEach((element) => {
+    element.click();
+
+    if (element.getAttribute("data-checked") === "data-checked") {
+      element.setAttribute("data-checked", null);
     } else {
-        files = JSON.parse(files);
-        var i;
-        for (i = 0; i < files.length; i++) {
-            if (files[i].short === name) {
-                return true;
-            }
-        }
-        return false;
+      element.setAttribute("data-checked", "data-checked");
     }
-}
+  });
+  evaluateMassDelete();
+};
 
-function invertSelection(event) {
-    event.preventDefault();
-    $('input[type="checkbox"]').each(function() {
-        var el = $(this);
-        el.click();
-        if (el.attr('data-checked') && el.attr('data-checked') === 'data-checked') {
-            el.attr('data-checked', null);
-        } else {
-            el.attr('data-checked', 'data-checked');
+const purgeExpired = (event) => {
+  event.preventDefault();
+
+  const files = JSON.parse(localStorage.getItem(`${window.prefix}files`));
+
+  files.forEach(function (element) {
+    fetch(counterURL, {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/x-www-form-urlencoded; charset=UTF-8",
+      },
+      body: new URLSearchParams({
+        short: element.short,
+        token: element.token,
+      }),
+    })
+      .then((response) => {
+        if (!response.ok) {
+          throw new Error("Request error.");
         }
-    });
-    evaluateMassDelete();
-}
 
-function purgeExpired(event) {
-    event.preventDefault();
-    var files = JSON.parse(localStorage.getItem(`${window.prefix}files`));
+        return response.json();
+      })
+      .then((data) => {
+        if (data.success) {
+          if (data.deleted) {
+            const elementToRemove = document.querySelector(
+              `#count-${data.short}`
+            );
 
-    files.forEach(function(element, index, array) {
-        $.ajax({
-            url: counterURL,
-            method: 'POST',
-            dataType: 'json',
-            data: {
-                short: element.short,
-                token: element.token
-            },
-            success: function(data, textStatus, jqXHR) {
-                if (data.success) {
-                    if (data.deleted) {
-                        $(`#count-${data.short}`).parent().remove();
-                        delItem(data.short);
-                    }
-                }
+            if (elementToRemove) {
+              elementToRemove.parentElement.remove();
             }
-        });
-    });
-}
 
-function exportStorage(event) {
-    event.preventDefault();
-    var a = $('<a id="data-json">');
-    a.hide();
-    $('body').append(a);
-
-    var storageData = [localStorage.getItem(`${window.prefix}files`)];
-    var exportFile  = new Blob(storageData, {type : 'application/json'});
-    var url         = window.URL.createObjectURL(exportFile);
-
-    a.attr('href', url);
-    a.attr('download', 'data.json');
-    $('#data-json')[0].click();
-    $('#data-json').remove();
-}
-
-function importStorage(f) {
-    var reader = new FileReader();
-    reader.addEventListener("loadend", function() {
-        try {
-            var newFiles = JSON.parse(String.fromCharCode.apply(null, new Uint8Array(reader.result)));
-            var i;
-            var hasImported = 0;
-            for (i = 0; i < newFiles.length; i++) {
-                var item = newFiles[i];
-                if (validURL(item.url) && !itemExists(item.short)) {
-                    addItem(item);
-                    hasImported++;
-                }
-            }
-            populateFilesTable();
-
-            Materialize.toast(i18n.importProcessed);
-        } catch(err) {
-            alert(err);
+            delItem(data.short);
+          }
         }
-    });
-    reader.readAsArrayBuffer(f[0]);
-}
+      });
+  });
+};
 
-function validURL(str) {
+const exportStorage = (event) => {
+  event.preventDefault();
+
+  const a = document.createElement("a");
+  a.id = "data-json";
+
+  a.style.display = "none";
+
+  document.body.append(a);
+
+  const storageData = [localStorage.getItem(`${window.prefix}files`)];
+  const exportFile = new Blob(storageData, { type: "application/json" });
+  const url = window.URL.createObjectURL(exportFile);
+
+  a.setAttribute("href", url);
+  a.setAttribute("download", "data.json");
+
+  a.click();
+  a.remove();
+};
+
+const importStorage = (f) => {
+  let reader = new FileReader();
+
+  reader.addEventListener("loadend", () => {
     try {
-        var url = new URL(str);
-        if (url.host) {
-            return true;
-        } else {
-            return false;
+      const newFiles = JSON.parse(
+        String.fromCharCode.apply(null, new Uint8Array(reader.result))
+      );
+      let i;
+      let hasImported = 0;
+      for (i = 0; i < newFiles.length; i++) {
+        const item = newFiles[i];
+        if (validURL(item.url) && !itemExists(item.short)) {
+          addItem(item);
+          hasImported++;
         }
-    } catch(e) {
-        return false;
-    }
-}
+      }
+      populateFilesTable();
 
-function delFile() {
-    var dlink = $(this).attr('data-dlink');
-    var short = $(this).attr('data-short');
-    $.ajax({
-        url: dlink,
-        method: 'GET',
-        data: {
-            _format: 'json'
-        },
-        success: function(data) {
-            if (data.success) {
-                $(`#row-${short}`).remove();
-                delItem(short);
-            } else {
-                alert(data.msg);
-            }
-            evaluateMassDelete();
-        },
-        error: function() {
-        },
-        complete: function() {
-        }
+      Materialize.toast(i18n.importProcessed);
+    } catch (err) {
+      alert(err);
+    }
+  });
+  reader.readAsArrayBuffer(f[0]);
+};
+
+const validURL = (str) => {
+  try {
+    return new URL(str).host ? true : false;
+  } catch (e) {
+    return false;
+  }
+};
+
+const delFile = (element) => {
+  const deleteUrl = new URL(element.getAttribute("data-dlink"));
+  const short = element.getAttribute("data-short");
+
+  deleteUrl.searchParams.append("_format", "json");
+
+  fetch(deleteUrl, {
+    method: "GET",
+  })
+    .then((response) => {
+      if (!response.ok) {
+        throw new Error("Network error while deleting file");
+      }
+
+      return response.json();
+    })
+    .then((data) => {
+      if (data.success) {
+        document.getElementById(`row-${short}`).remove();
+        delItem(short);
+      } else {
+        alert(data.msg);
+      }
+      evaluateMassDelete();
     });
-}
+};
 
-function evaluateMassDelete() {
-    if ($('input[data-checked="data-checked"]').length > 0) {
-        $('#mass-delete').removeAttr('disabled');
-        $('#mass-delete').removeClass('disabled');
+const evaluateMassDelete = () => {
+  const massDeleteDOM = document.getElementById("mass-delete");
+
+  if (
+    document.querySelectorAll('input[data-checked="data-checked"]').length > 0
+  ) {
+    massDeleteDOM.removeAttribute("disabled");
+    massDeleteDOM.classList.remove("disabled");
+  } else {
+    massDeleteDOM.setAttribute("disabled", "disabled");
+    massDeleteDOM.classList.add("disabled");
+  }
+};
+
+const massDelete = (event) => {
+  event.preventDefault();
+  document
+    .querySelectorAll('input[data-checked="data-checked"]')
+    .forEach(delFile);
+};
+
+const populateFilesTable = () => {
+  const myFilesDOM = document.getElementById("myfiles");
+
+  myFilesDOM.innerHTML = "";
+
+  let files = localStorage.getItem(`${window.prefix}files`);
+  if (files === null) {
+    var filesWithoutPrefix = localStorage.getItem("files");
+    if (filesWithoutPrefix !== null) {
+      if (window.confirm(i18n.importFilesWithoutPrefix)) {
+        localStorage.setItem(`${window.prefix}files`, filesWithoutPrefix);
+        files = JSON.parse(filesWithoutPrefix);
+      } else {
+        localStorage.setItem(`${window.prefix}files`, JSON.stringify([]));
+        files = [];
+      }
     } else {
-        $('#mass-delete').attr('disabled');
-        $('#mass-delete').addClass('disabled');
+      files = [];
     }
-}
+  } else {
+    files = JSON.parse(files);
+  }
 
-function massDelete(event) {
-    event.preventDefault();
-    $('input[data-checked="data-checked"]').each(delFile);
-}
-
-function populateFilesTable() {
-    $('#myfiles').empty();
-
-    var files = localStorage.getItem(`${window.prefix}files`);
-    if (files === null) {
-        var filesWithoutPrefix = localStorage.getItem('files');
-        if (filesWithoutPrefix !== null) {
-            if (window.confirm(i18n.importFilesWithoutPrefix)) {
-                localStorage.setItem(`${window.prefix}files`, filesWithoutPrefix);
-                files = JSON.parse(filesWithoutPrefix);
-            } else {
-                localStorage.setItem(`${window.prefix}files`, JSON.stringify([]));
-                files = new Array();
-            }
-        } else {
-            files = new Array();
-        }
+  files.sort(function (a, b) {
+    if (a.created_at < b.created_at) {
+      return -1;
+    } else if (a.created_at > b.created_at) {
+      return 1;
     } else {
-        files = JSON.parse(files);
+      return 0;
     }
-    files.sort(function(a, b) {
-        if (a.created_at < b.created_at) {
-            return -1;
-        } else if (a.created_at > b.created_at) {
-            return 1;
-        } else {
-            return 0
-        }
-    });
-    files.forEach(function(element, index, array) {
-        var del_view   = (element.del_at_first_view) ? '<i class="small mdi-action-done"></i>' : '<i class="small mdi-navigation-close"></i>';
-        var dlink      = `${actionURL}d/${element.short}/${element.token}`;
-        var limit      = (element.delay === 0) ? i18n.noExpiration : formatDate(element.delay * 86400 + element.created_at);
-        var created_at = formatDate(element.created_at);
+  });
 
-        var tr = $(`<tr id="row-${element.short}">`);
-        tr.html(`<td class="center-align">
+  files.forEach(function (element) {
+    const del_view = element.del_at_first_view
+      ? '<i class="small mdi-action-done"></i>'
+      : '<i class="small mdi-navigation-close"></i>';
+    const dlink = `${actionURL}d/${element.short}/${element.token}`;
+    const limit =
+      element.delay === 0
+        ? i18n.noExpiration
+        : formatDate(element.delay * 86400 + element.created_at);
+    const created_at = formatDate(element.created_at);
+
+    const tr = document.createElement("tr");
+    tr.id = `row-${element.short}`;
+
+    tr.innerHTML = `<td class="center-align">
                       <input type="checkbox"
                              id="check-${element.short}"
                              data-short="${element.short}"
@@ -249,47 +280,72 @@ function populateFilesTable() {
                       </a>
                   </td>
                   <td class="center-align">
-                      <a href="${actionURL}m?links=[&quot;${element.short}&quot;]"
+                      <a href="${actionURL}m?links=[&quot;${
+      element.short
+    }&quot;]"
                       class="classic"><i class="small mdi-communication-email"></i></a>
-                  </td>`);
-        $('#myfiles').append(tr);
-        $(`#del-${element.short}`).on('click', delFile);
-        $(`label[for="check-${element.short}"]`).on('click', function(){
-            if ($(`#check-${element.short}`).attr('data-checked') && $(`#check-${element.short}`).attr('data-checked') === 'data-checked') {
-                $(`#check-${element.short}`).attr('data-checked', null);
+                  </td>`;
+
+    myFilesDOM.append(tr);
+
+    document.getElementById(`del-${element.short}`).onclick = (event) =>
+      delFile(event.target.parentElement);
+
+    document.querySelector(`label[for="check-${element.short}"]`).onclick = (
+      event
+    ) => {
+      const checkDOM = document.getElementById(`check-${element.short}`);
+
+      if (checkDOM.getAttribute("data-checked") === "data-checked") {
+        checkDOM.setAttribute("data-checked", null);
+      } else {
+        checkDOM.setAttribute("data-checked", "data-checked");
+      }
+
+      evaluateMassDelete();
+    };
+
+    fetch(counterURL, {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/x-www-form-urlencoded; charset=UTF-8",
+      },
+      body: new URLSearchParams({
+        short: element.short,
+        token: element.token,
+      }),
+    })
+      .then((response) => {
+        if (!response.ok) {
+          throw new Error("Request error.");
+        }
+
+        return response.json();
+      })
+      .then((data) => {
+        if (data.success) {
+          if (data.deleted) {
+            const countDOM = document.getElementById(`count-${data.short}`);
+
+            countDOM.innerHTML = data.counter;
+
+            if (data.deleted) {
+              countDOM.parentElement.classList.add("purple", "lighten-4");
             } else {
-                $(`#check-${element.short}`).attr('data-checked', 'data-checked');
-            }
-            evaluateMassDelete();
-        });
+              alert(data.msg);
+              countDOM.parentElement.remove();
 
-        $.ajax({
-            url: counterURL,
-            method: 'POST',
-            dataType: 'json',
-            data: {
-                short: element.short,
-                token: element.token
-            },
-            success: function(data, textStatus, jqXHR) {
-                if (data.success) {
-                    $(`#count-${data.short}`).html(data.counter);
-                    if (data.deleted) {
-                        $(`#count-${data.short}`).parent().addClass('purple lighten-4');
-                    }
-                } else {
-                    alert(data.msg);
-                    $(`#count-${data.short}`).parent().remove();
-                    if (data.missing) {
-                        delItem(data.short);
-                    }
-                }
+              if (data.missing) {
+                delItem(data.short);
+              }
             }
-        });
-    });
-}
+          }
+        }
+      });
+  });
+};
 
-function clickImport(event) {
-    event.preventDefault();
-    $('#import').click();
-}
+const clickImport = (event) => {
+  event.preventDefault();
+  document.getElementById("import").click();
+};
