@@ -1,1 +1,2804 @@
-var ut=Object.create;var Le=Object.defineProperty;var ft=Object.getOwnPropertyDescriptor;var ht=Object.getOwnPropertyNames;var lt=Object.getPrototypeOf,dt=Object.prototype.hasOwnProperty;var pt=(t=>typeof require<"u"?require:typeof Proxy<"u"?new Proxy(t,{get:(e,r)=>(typeof require<"u"?require:e)[r]}):t)(function(t){if(typeof require<"u")return require.apply(this,arguments);throw Error('Dynamic require of "'+t+'" is not supported')});var ce=(t,e)=>()=>(e||t((e={exports:{}}).exports,e),e.exports);var mt=(t,e,r,n)=>{if(e&&typeof e=="object"||typeof e=="function")for(let o of ht(e))!dt.call(t,o)&&o!==r&&Le(t,o,{get:()=>e[o],enumerable:!(n=ft(e,o))||n.enumerable});return t};var ue=(t,e,r)=>(r=t!=null?ut(lt(t)):{},mt(e||!t||!t.__esModule?Le(r,"default",{value:t,enumerable:!0}):r,t));var Me=ce((tr,fe)=>{"use strict";var N=typeof Reflect=="object"?Reflect:null,be=N&&typeof N.apply=="function"?N.apply:function(e,r,n){return Function.prototype.apply.call(e,r,n)},ee;N&&typeof N.ownKeys=="function"?ee=N.ownKeys:Object.getOwnPropertySymbols?ee=function(e){return Object.getOwnPropertyNames(e).concat(Object.getOwnPropertySymbols(e))}:ee=function(e){return Object.getOwnPropertyNames(e)};function yt(t){console&&console.warn&&console.warn(t)}var De=Number.isNaN||function(e){return e!==e};function y(){y.init.call(this)}fe.exports=y;fe.exports.once=Et;y.EventEmitter=y;y.prototype._events=void 0;y.prototype._eventsCount=0;y.prototype._maxListeners=void 0;var _e=10;function te(t){if(typeof t!="function")throw new TypeError('The "listener" argument must be of type Function. Received type '+typeof t)}Object.defineProperty(y,"defaultMaxListeners",{enumerable:!0,get:function(){return _e},set:function(t){if(typeof t!="number"||t<0||De(t))throw new RangeError('The value of "defaultMaxListeners" is out of range. It must be a non-negative number. Received '+t+".");_e=t}});y.init=function(){(this._events===void 0||this._events===Object.getPrototypeOf(this)._events)&&(this._events=Object.create(null),this._eventsCount=0),this._maxListeners=this._maxListeners||void 0};y.prototype.setMaxListeners=function(e){if(typeof e!="number"||e<0||De(e))throw new RangeError('The value of "n" is out of range. It must be a non-negative number. Received '+e+".");return this._maxListeners=e,this};function Ce(t){return t._maxListeners===void 0?y.defaultMaxListeners:t._maxListeners}y.prototype.getMaxListeners=function(){return Ce(this)};y.prototype.emit=function(e){for(var r=[],n=1;n<arguments.length;n++)r.push(arguments[n]);var o=e==="error",i=this._events;if(i!==void 0)o=o&&i.error===void 0;else if(!o)return!1;if(o){var s;if(r.length>0&&(s=r[0]),s instanceof Error)throw s;var c=new Error("Unhandled error."+(s?" ("+s.message+")":""));throw c.context=s,c}var u=i[e];if(u===void 0)return!1;if(typeof u=="function")be(u,this,r);else for(var f=u.length,l=Pe(u,f),n=0;n<f;++n)be(l[n],this,r);return!0};function ke(t,e,r,n){var o,i,s;if(te(r),i=t._events,i===void 0?(i=t._events=Object.create(null),t._eventsCount=0):(i.newListener!==void 0&&(t.emit("newListener",e,r.listener?r.listener:r),i=t._events),s=i[e]),s===void 0)s=i[e]=r,++t._eventsCount;else if(typeof s=="function"?s=i[e]=n?[r,s]:[s,r]:n?s.unshift(r):s.push(r),o=Ce(t),o>0&&s.length>o&&!s.warned){s.warned=!0;var c=new Error("Possible EventEmitter memory leak detected. "+s.length+" "+String(e)+" listeners added. Use emitter.setMaxListeners() to increase limit");c.name="MaxListenersExceededWarning",c.emitter=t,c.type=e,c.count=s.length,yt(c)}return t}y.prototype.addListener=function(e,r){return ke(this,e,r,!1)};y.prototype.on=y.prototype.addListener;y.prototype.prependListener=function(e,r){return ke(this,e,r,!0)};function vt(){if(!this.fired)return this.target.removeListener(this.type,this.wrapFn),this.fired=!0,arguments.length===0?this.listener.call(this.target):this.listener.apply(this.target,arguments)}function Se(t,e,r){var n={fired:!1,wrapFn:void 0,target:t,type:e,listener:r},o=vt.bind(n);return o.listener=r,n.wrapFn=o,o}y.prototype.once=function(e,r){return te(r),this.on(e,Se(this,e,r)),this};y.prototype.prependOnceListener=function(e,r){return te(r),this.prependListener(e,Se(this,e,r)),this};y.prototype.removeListener=function(e,r){var n,o,i,s,c;if(te(r),o=this._events,o===void 0)return this;if(n=o[e],n===void 0)return this;if(n===r||n.listener===r)--this._eventsCount===0?this._events=Object.create(null):(delete o[e],o.removeListener&&this.emit("removeListener",e,n.listener||r));else if(typeof n!="function"){for(i=-1,s=n.length-1;s>=0;s--)if(n[s]===r||n[s].listener===r){c=n[s].listener,i=s;break}if(i<0)return this;i===0?n.shift():gt(n,i),n.length===1&&(o[e]=n[0]),o.removeListener!==void 0&&this.emit("removeListener",e,c||r)}return this};y.prototype.off=y.prototype.removeListener;y.prototype.removeAllListeners=function(e){var r,n,o;if(n=this._events,n===void 0)return this;if(n.removeListener===void 0)return arguments.length===0?(this._events=Object.create(null),this._eventsCount=0):n[e]!==void 0&&(--this._eventsCount===0?this._events=Object.create(null):delete n[e]),this;if(arguments.length===0){var i=Object.keys(n),s;for(o=0;o<i.length;++o)s=i[o],s!=="removeListener"&&this.removeAllListeners(s);return this.removeAllListeners("removeListener"),this._events=Object.create(null),this._eventsCount=0,this}if(r=n[e],typeof r=="function")this.removeListener(e,r);else if(r!==void 0)for(o=r.length-1;o>=0;o--)this.removeListener(e,r[o]);return this};function Te(t,e,r){var n=t._events;if(n===void 0)return[];var o=n[e];return o===void 0?[]:typeof o=="function"?r?[o.listener||o]:[o]:r?wt(o):Pe(o,o.length)}y.prototype.listeners=function(e){return Te(this,e,!0)};y.prototype.rawListeners=function(e){return Te(this,e,!1)};y.listenerCount=function(t,e){return typeof t.listenerCount=="function"?t.listenerCount(e):Ie.call(t,e)};y.prototype.listenerCount=Ie;function Ie(t){var e=this._events;if(e!==void 0){var r=e[t];if(typeof r=="function")return 1;if(r!==void 0)return r.length}return 0}y.prototype.eventNames=function(){return this._eventsCount>0?ee(this._events):[]};function Pe(t,e){for(var r=new Array(e),n=0;n<e;++n)r[n]=t[n];return r}function gt(t,e){for(;e+1<t.length;e++)t[e]=t[e+1];t.pop()}function wt(t){for(var e=new Array(t.length),r=0;r<e.length;++r)e[r]=t[r].listener||t[r];return e}function Et(t,e){return new Promise(function(r,n){function o(s){t.removeListener(e,i),n(s)}function i(){typeof t.removeListener=="function"&&t.removeListener("error",o),r([].slice.call(arguments))}Re(t,e,i,{once:!0}),e!=="error"&&At(t,o,{once:!0})})}function At(t,e,r){typeof t.on=="function"&&Re(t,"error",e,r)}function Re(t,e,r,n){if(typeof t.on=="function")n.once?t.once(e,r):t.on(e,r);else if(typeof t.addEventListener=="function")t.addEventListener(e,function o(i){n.once&&t.removeEventListener(e,o),r(i)});else throw new TypeError('The "emitter" argument must be of type EventEmitter. Received type '+typeof t)}});var He=ce((Wr,W)=>{"use strict";var a={cipher:{},hash:{},keyexchange:{},mode:{},misc:{},codec:{},exception:{corrupt:function(t){this.toString=function(){return"CORRUPT: "+this.message},this.message=t},invalid:function(t){this.toString=function(){return"INVALID: "+this.message},this.message=t},bug:function(t){this.toString=function(){return"BUG: "+this.message},this.message=t},notReady:function(t){this.toString=function(){return"NOT READY: "+this.message},this.message=t}}};a.cipher.aes=function(t){this.s[0][0][0]||this.O();var e,r,n,o,i=this.s[0][4],s=this.s[1];e=t.length;var c=1;if(e!==4&&e!==6&&e!==8)throw new a.exception.invalid("invalid aes key size");for(this.b=[n=t.slice(0),o=[]],t=e;t<4*e+28;t++)r=n[t-1],(t%e===0||e===8&&t%e===4)&&(r=i[r>>>24]<<24^i[r>>16&255]<<16^i[r>>8&255]<<8^i[r&255],t%e===0&&(r=r<<8^r>>>24^c<<24,c=c<<1^283*(c>>7))),n[t]=n[t-e]^r;for(e=0;t;e++,t--)r=n[e&3?t:t-4],o[e]=4>=t||4>e?r:s[0][i[r>>>24]]^s[1][i[r>>16&255]]^s[2][i[r>>8&255]]^s[3][i[r&255]]};a.cipher.aes.prototype={encrypt:function(t){return Xe(this,t,0)},decrypt:function(t){return Xe(this,t,1)},s:[[[],[],[],[],[]],[[],[],[],[],[]]],O:function(){var t=this.s[0],e=this.s[1],r=t[4],n=e[4],o,i,s,c=[],u=[],f,l,h,d;for(o=0;256>o;o++)u[(c[o]=o<<1^283*(o>>7))^o]=o;for(i=s=0;!r[i];i^=f||1,s=u[s]||1)for(h=s^s<<1^s<<2^s<<3^s<<4,h=h>>8^h&255^99,r[i]=h,n[h]=i,l=c[o=c[f=c[i]]],d=16843009*l^65537*o^257*f^16843008*i,l=257*c[h]^16843008*h,o=0;4>o;o++)t[o][i]=l=l<<24^l>>>8,e[o][h]=d=d<<24^d>>>8;for(o=0;5>o;o++)t[o]=t[o].slice(0),e[o]=e[o].slice(0)}};function Xe(t,e,r){if(e.length!==4)throw new a.exception.invalid("invalid aes block size");var n=t.b[r],o=e[0]^n[0],i=e[r?3:1]^n[1],s=e[2]^n[2];e=e[r?1:3]^n[3];var c,u,f,l=n.length/4-2,h,d=4,p=[0,0,0,0];c=t.s[r],t=c[0];var v=c[1],M=c[2],Q=c[3],Z=c[4];for(h=0;h<l;h++)c=t[o>>>24]^v[i>>16&255]^M[s>>8&255]^Q[e&255]^n[d],u=t[i>>>24]^v[s>>16&255]^M[e>>8&255]^Q[o&255]^n[d+1],f=t[s>>>24]^v[e>>16&255]^M[o>>8&255]^Q[i&255]^n[d+2],e=t[e>>>24]^v[o>>16&255]^M[i>>8&255]^Q[s&255]^n[d+3],d+=4,o=c,i=u,s=f;for(h=0;4>h;h++)p[r?3&-h:h]=Z[o>>>24]<<24^Z[i>>16&255]<<16^Z[s>>8&255]<<8^Z[e&255]^n[d++],c=o,o=i,i=s,s=e,e=c;return p}a.bitArray={bitSlice:function(t,e,r){return t=a.bitArray.$(t.slice(e/32),32-(e&31)).slice(1),r===void 0?t:a.bitArray.clamp(t,r-e)},extract:function(t,e,r){var n=Math.floor(-e-r&31);return((e+r-1^e)&-32?t[e/32|0]<<32-n^t[e/32+1|0]>>>n:t[e/32|0]>>>n)&(1<<r)-1},concat:function(t,e){if(t.length===0||e.length===0)return t.concat(e);var r=t[t.length-1],n=a.bitArray.getPartial(r);return n===32?t.concat(e):a.bitArray.$(e,n,r|0,t.slice(0,t.length-1))},bitLength:function(t){var e=t.length;return e===0?0:32*(e-1)+a.bitArray.getPartial(t[e-1])},clamp:function(t,e){if(32*t.length<e)return t;t=t.slice(0,Math.ceil(e/32));var r=t.length;return e=e&31,0<r&&e&&(t[r-1]=a.bitArray.partial(e,t[r-1]&2147483648>>e-1,1)),t},partial:function(t,e,r){return t===32?e:(r?e|0:e<<32-t)+1099511627776*t},getPartial:function(t){return Math.round(t/1099511627776)||32},equal:function(t,e){if(a.bitArray.bitLength(t)!==a.bitArray.bitLength(e))return!1;var r=0,n;for(n=0;n<t.length;n++)r|=t[n]^e[n];return r===0},$:function(t,e,r,n){var o;for(o=0,n===void 0&&(n=[]);32<=e;e-=32)n.push(r),r=0;if(e===0)return n.concat(t);for(o=0;o<t.length;o++)n.push(r|t[o]>>>e),r=t[o]<<32-e;return o=t.length?t[t.length-1]:0,t=a.bitArray.getPartial(o),n.push(a.bitArray.partial(e+t&31,32<e+t?r:n.pop(),1)),n},i:function(t,e){return[t[0]^e[0],t[1]^e[1],t[2]^e[2],t[3]^e[3]]},byteswapM:function(t){var e,r;for(e=0;e<t.length;++e)r=t[e],t[e]=r>>>24|r>>>8&65280|(r&65280)<<8|r<<24;return t}};a.codec.utf8String={fromBits:function(t){var e="",r=a.bitArray.bitLength(t),n,o;for(n=0;n<r/8;n++)!(n&3)&&(o=t[n/4]),e+=String.fromCharCode(o>>>8>>>8>>>8),o<<=8;return decodeURIComponent(escape(e))},toBits:function(t){t=unescape(encodeURIComponent(t));var e=[],r,n=0;for(r=0;r<t.length;r++)n=n<<8|t.charCodeAt(r),(r&3)===3&&(e.push(n),n=0);return r&3&&e.push(a.bitArray.partial(8*(r&3),n)),e}};a.codec.hex={fromBits:function(t){var e="",r;for(r=0;r<t.length;r++)e+=((t[r]|0)+0xf00000000000).toString(16).substr(4);return e.substr(0,a.bitArray.bitLength(t)/4)},toBits:function(t){var e,r=[],n;for(t=t.replace(/\s|0x/g,""),n=t.length,t=t+"00000000",e=0;e<t.length;e+=8)r.push(parseInt(t.substr(e,8),16)^0);return a.bitArray.clamp(r,4*n)}};a.codec.base32={B:"ABCDEFGHIJKLMNOPQRSTUVWXYZ234567",X:"0123456789ABCDEFGHIJKLMNOPQRSTUV",BITS:32,BASE:5,REMAINING:27,fromBits:function(t,e,r){var n=a.codec.base32.BASE,o=a.codec.base32.REMAINING,i="",s=0,c=a.codec.base32.B,u=0,f=a.bitArray.bitLength(t);for(r&&(c=a.codec.base32.X),r=0;i.length*n<f;)i+=c.charAt((u^t[r]>>>s)>>>o),s<n?(u=t[r]<<n-s,s+=o,r++):(u<<=n,s-=n);for(;i.length&7&&!e;)i+="=";return i},toBits:function(t,e){t=t.replace(/\s|=/g,"").toUpperCase();var r=a.codec.base32.BITS,n=a.codec.base32.BASE,o=a.codec.base32.REMAINING,i=[],s,c=0,u=a.codec.base32.B,f=0,l,h="base32";for(e&&(u=a.codec.base32.X,h="base32hex"),s=0;s<t.length;s++){if(l=u.indexOf(t.charAt(s)),0>l){if(!e)try{return a.codec.base32hex.toBits(t)}catch{}throw new a.exception.invalid("this isn't "+h+"!")}c>o?(c-=o,i.push(f^l>>>c),f=l<<r-c):(c+=n,f^=l<<r-c)}return c&56&&i.push(a.bitArray.partial(c&56,f,1)),i}};a.codec.base32hex={fromBits:function(t,e){return a.codec.base32.fromBits(t,e,1)},toBits:function(t){return a.codec.base32.toBits(t,1)}};a.codec.base64={B:"ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789+/",fromBits:function(t,e,r){var n="",o=0,i=a.codec.base64.B,s=0,c=a.bitArray.bitLength(t);for(r&&(i=i.substr(0,62)+"-_"),r=0;6*n.length<c;)n+=i.charAt((s^t[r]>>>o)>>>26),6>o?(s=t[r]<<6-o,o+=26,r++):(s<<=6,o-=6);for(;n.length&3&&!e;)n+="=";return n},toBits:function(t,e){t=t.replace(/\s|=/g,"");var r=[],n,o=0,i=a.codec.base64.B,s=0,c;for(e&&(i=i.substr(0,62)+"-_"),n=0;n<t.length;n++){if(c=i.indexOf(t.charAt(n)),0>c)throw new a.exception.invalid("this isn't base64!");26<o?(o-=26,r.push(s^c>>>o),s=c<<32-o):(o+=6,s^=c<<32-o)}return o&56&&r.push(a.bitArray.partial(o&56,s,1)),r}};a.codec.base64url={fromBits:function(t){return a.codec.base64.fromBits(t,1,1)},toBits:function(t){return a.codec.base64.toBits(t,1)}};a.hash.sha256=function(t){this.b[0]||this.O(),t?(this.F=t.F.slice(0),this.A=t.A.slice(0),this.l=t.l):this.reset()};a.hash.sha256.hash=function(t){return new a.hash.sha256().update(t).finalize()};a.hash.sha256.prototype={blockSize:512,reset:function(){return this.F=this.Y.slice(0),this.A=[],this.l=0,this},update:function(t){typeof t=="string"&&(t=a.codec.utf8String.toBits(t));var e,r=this.A=a.bitArray.concat(this.A,t);if(e=this.l,t=this.l=e+a.bitArray.bitLength(t),9007199254740991<t)throw new a.exception.invalid("Cannot hash more than 2^53 - 1 bits");if(typeof Uint32Array<"u"){var n=new Uint32Array(r),o=0;for(e=512+e-(512+e&511);e<=t;e+=512)de(this,n.subarray(16*o,16*(o+1))),o+=1;r.splice(0,16*o)}else for(e=512+e-(512+e&511);e<=t;e+=512)de(this,r.splice(0,16));return this},finalize:function(){var t,r=this.A,e=this.F,r=a.bitArray.concat(r,[a.bitArray.partial(1,1)]);for(t=r.length+2;t&15;t++)r.push(0);for(r.push(Math.floor(this.l/4294967296)),r.push(this.l|0);r.length;)de(this,r.splice(0,16));return this.reset(),e},Y:[],b:[],O:function(){function t(i){return 4294967296*(i-Math.floor(i))|0}for(var e=0,r=2,n,o;64>e;r++){for(o=!0,n=2;n*n<=r;n++)if(r%n===0){o=!1;break}o&&(8>e&&(this.Y[e]=t(Math.pow(r,.5))),this.b[e]=t(Math.pow(r,1/3)),e++)}}};function de(t,e){var r,n,o,i=t.F,s=t.b,c=i[0],u=i[1],f=i[2],l=i[3],h=i[4],d=i[5],p=i[6],v=i[7];for(r=0;64>r;r++)16>r?n=e[r]:(n=e[r+1&15],o=e[r+14&15],n=e[r&15]=(n>>>7^n>>>18^n>>>3^n<<25^n<<14)+(o>>>17^o>>>19^o>>>10^o<<15^o<<13)+e[r&15]+e[r+9&15]|0),n=n+v+(h>>>6^h>>>11^h>>>25^h<<26^h<<21^h<<7)+(p^h&(d^p))+s[r],v=p,p=d,d=h,h=l+n|0,l=f,f=u,u=c,c=n+(u&f^l&(u^f))+(u>>>2^u>>>13^u>>>22^u<<30^u<<19^u<<10)|0;i[0]=i[0]+c|0,i[1]=i[1]+u|0,i[2]=i[2]+f|0,i[3]=i[3]+l|0,i[4]=i[4]+h|0,i[5]=i[5]+d|0,i[6]=i[6]+p|0,i[7]=i[7]+v|0}a.mode.ccm={name:"ccm",G:[],listenProgress:function(t){a.mode.ccm.G.push(t)},unListenProgress:function(t){t=a.mode.ccm.G.indexOf(t),-1<t&&a.mode.ccm.G.splice(t,1)},fa:function(t){var e=a.mode.ccm.G.slice(),r;for(r=0;r<e.length;r+=1)e[r](t)},encrypt:function(t,e,r,n,o){var i,s=e.slice(0),c=a.bitArray,u=c.bitLength(r)/8,f=c.bitLength(s)/8;if(o=o||64,n=n||[],7>u)throw new a.exception.invalid("ccm: iv must be at least 7 bytes");for(i=2;4>i&&f>>>8*i;i++);return i<15-u&&(i=15-u),r=c.clamp(r,8*(15-i)),e=a.mode.ccm.V(t,e,r,n,o,i),s=a.mode.ccm.C(t,s,r,e,o,i),c.concat(s.data,s.tag)},decrypt:function(t,e,r,n,o){o=o||64,n=n||[];var i=a.bitArray,s=i.bitLength(r)/8,f=i.bitLength(e),c=i.clamp(e,f-o),u=i.bitSlice(e,f-o),f=(f-o)/8;if(7>s)throw new a.exception.invalid("ccm: iv must be at least 7 bytes");for(e=2;4>e&&f>>>8*e;e++);if(e<15-s&&(e=15-s),r=i.clamp(r,8*(15-e)),c=a.mode.ccm.C(t,c,r,u,o,e),t=a.mode.ccm.V(t,c.data,r,n,o,e),!i.equal(c.tag,t))throw new a.exception.corrupt("ccm: tag doesn't match");return c.data},na:function(t,e,r,n,o,i){var s=[],c=a.bitArray,u=c.i;if(n=[c.partial(8,(e.length?64:0)|n-2<<2|i-1)],n=c.concat(n,r),n[3]|=o,n=t.encrypt(n),e.length)for(r=c.bitLength(e)/8,65279>=r?s=[c.partial(16,r)]:4294967295>=r&&(s=c.concat([c.partial(16,65534)],[r])),s=c.concat(s,e),e=0;e<s.length;e+=4)n=t.encrypt(u(n,s.slice(e,e+4).concat([0,0,0])));return n},V:function(t,e,r,n,o,i){var s=a.bitArray,c=s.i;if(o/=8,o%2||4>o||16<o)throw new a.exception.invalid("ccm: invalid tag length");if(4294967295<n.length||4294967295<e.length)throw new a.exception.bug("ccm: can't deal with 4GiB or more data");for(r=a.mode.ccm.na(t,n,r,o,s.bitLength(e)/8,i),n=0;n<e.length;n+=4)r=t.encrypt(c(r,e.slice(n,n+4).concat([0,0,0])));return s.clamp(r,8*o)},C:function(t,e,r,n,o,i){var s,c=a.bitArray;s=c.i;var u=e.length,f=c.bitLength(e),l=u/50,h=l;if(r=c.concat([c.partial(8,i-1)],r).concat([0,0,0]).slice(0,4),n=c.bitSlice(s(n,t.encrypt(r)),0,o),!u)return{tag:n,data:[]};for(s=0;s<u;s+=4)s>l&&(a.mode.ccm.fa(s/u),l+=h),r[3]++,o=t.encrypt(r),e[s]^=o[0],e[s+1]^=o[1],e[s+2]^=o[2],e[s+3]^=o[3];return{tag:n,data:c.clamp(e,f)}}};a.mode.ocb2={name:"ocb2",encrypt:function(t,e,r,n,o,i){if(a.bitArray.bitLength(r)!==128)throw new a.exception.invalid("ocb iv must be 128 bits");var s,c=a.mode.ocb2.S,u=a.bitArray,f=u.i,l=[0,0,0,0];r=c(t.encrypt(r));var h,d=[];for(n=n||[],o=o||64,s=0;s+4<e.length;s+=4)h=e.slice(s,s+4),l=f(l,h),d=d.concat(f(r,t.encrypt(f(r,h)))),r=c(r);return h=e.slice(s),e=u.bitLength(h),s=t.encrypt(f(r,[0,0,0,e])),h=u.clamp(f(h.concat([0,0,0]),s),e),l=f(l,f(h.concat([0,0,0]),s)),l=t.encrypt(f(l,f(r,c(r)))),n.length&&(l=f(l,i?n:a.mode.ocb2.pmac(t,n))),d.concat(u.concat(h,u.clamp(l,o)))},decrypt:function(t,e,r,n,o,i){if(a.bitArray.bitLength(r)!==128)throw new a.exception.invalid("ocb iv must be 128 bits");o=o||64;var s=a.mode.ocb2.S,c=a.bitArray,u=c.i,f=[0,0,0,0],l=s(t.encrypt(r)),h,d,p=a.bitArray.bitLength(e)-o,v=[];for(n=n||[],r=0;r+4<p/32;r+=4)h=u(l,t.decrypt(u(l,e.slice(r,r+4)))),f=u(f,h),v=v.concat(h),l=s(l);if(d=p-32*r,h=t.encrypt(u(l,[0,0,0,d])),h=u(h,c.clamp(e.slice(r),d).concat([0,0,0])),f=u(f,h),f=t.encrypt(u(f,u(l,s(l)))),n.length&&(f=u(f,i?n:a.mode.ocb2.pmac(t,n))),!c.equal(c.clamp(f,o),c.bitSlice(e,p)))throw new a.exception.corrupt("ocb: tag doesn't match");return v.concat(c.clamp(h,d))},pmac:function(t,e){var r,n=a.mode.ocb2.S,o=a.bitArray,i=o.i,s=[0,0,0,0],c=t.encrypt([0,0,0,0]),c=i(c,n(n(c)));for(r=0;r+4<e.length;r+=4)c=n(c),s=i(s,t.encrypt(i(c,e.slice(r,r+4))));return r=e.slice(r),128>o.bitLength(r)&&(c=i(c,n(c)),r=o.concat(r,[-2147483648,0,0,0])),s=i(s,r),t.encrypt(i(n(i(c,n(c))),s))},S:function(t){return[t[0]<<1^t[1]>>>31,t[1]<<1^t[2]>>>31,t[2]<<1^t[3]>>>31,t[3]<<1^135*(t[0]>>>31)]}};a.mode.gcm={name:"gcm",encrypt:function(t,e,r,n,o){var i=e.slice(0);return e=a.bitArray,n=n||[],t=a.mode.gcm.C(!0,t,i,n,r,o||128),e.concat(t.data,t.tag)},decrypt:function(t,e,r,n,o){var i=e.slice(0),s=a.bitArray,c=s.bitLength(i);if(o=o||128,n=n||[],o<=c?(e=s.bitSlice(i,c-o),i=s.bitSlice(i,0,c-o)):(e=i,i=[]),t=a.mode.gcm.C(!1,t,i,n,r,o),!s.equal(t.tag,e))throw new a.exception.corrupt("gcm: tag doesn't match");return t.data},ka:function(t,e){var r,n,o,i,s,c=a.bitArray.i;for(o=[0,0,0,0],i=e.slice(0),r=0;128>r;r++){for((n=(t[Math.floor(r/32)]&1<<31-r%32)!==0)&&(o=c(o,i)),s=(i[3]&1)!==0,n=3;0<n;n--)i[n]=i[n]>>>1|(i[n-1]&1)<<31;i[0]>>>=1,s&&(i[0]^=-520093696)}return o},j:function(t,e,r){var n,o=r.length;for(e=e.slice(0),n=0;n<o;n+=4)e[0]^=4294967295&r[n],e[1]^=4294967295&r[n+1],e[2]^=4294967295&r[n+2],e[3]^=4294967295&r[n+3],e=a.mode.gcm.ka(e,t);return e},C:function(t,e,r,n,o,i){var s,c,u,f,l,h,d,p,v=a.bitArray;for(h=r.length,d=v.bitLength(r),p=v.bitLength(n),c=v.bitLength(o),s=e.encrypt([0,0,0,0]),c===96?(o=o.slice(0),o=v.concat(o,[1])):(o=a.mode.gcm.j(s,[0,0,0,0],o),o=a.mode.gcm.j(s,o,[0,0,Math.floor(c/4294967296),c&4294967295])),c=a.mode.gcm.j(s,[0,0,0,0],n),l=o.slice(0),n=c.slice(0),t||(n=a.mode.gcm.j(s,c,r)),f=0;f<h;f+=4)l[3]++,u=e.encrypt(l),r[f]^=u[0],r[f+1]^=u[1],r[f+2]^=u[2],r[f+3]^=u[3];return r=v.clamp(r,d),t&&(n=a.mode.gcm.j(s,c,r)),t=[Math.floor(p/4294967296),p&4294967295,Math.floor(d/4294967296),d&4294967295],n=a.mode.gcm.j(s,n,t),u=e.encrypt(o),n[0]^=u[0],n[1]^=u[1],n[2]^=u[2],n[3]^=u[3],{tag:v.bitSlice(n,0,i),data:r}}};a.misc.hmac=function(t,e){this.W=e=e||a.hash.sha256;var r=[[],[]],n,o=e.prototype.blockSize/32;for(this.w=[new e,new e],t.length>o&&(t=e.hash(t)),n=0;n<o;n++)r[0][n]=t[n]^909522486,r[1][n]=t[n]^1549556828;this.w[0].update(r[0]),this.w[1].update(r[1]),this.R=new e(this.w[0])};a.misc.hmac.prototype.encrypt=a.misc.hmac.prototype.mac=function(t){if(this.aa)throw new a.exception.invalid("encrypt on already updated hmac called!");return this.update(t),this.digest(t)};a.misc.hmac.prototype.reset=function(){this.R=new this.W(this.w[0]),this.aa=!1};a.misc.hmac.prototype.update=function(t){this.aa=!0,this.R.update(t)};a.misc.hmac.prototype.digest=function(){var t=this.R.finalize(),t=new this.W(this.w[1]).update(t).finalize();return this.reset(),t};a.misc.pbkdf2=function(t,e,r,n,o){if(r=r||1e4,0>n||0>r)throw new a.exception.invalid("invalid params to pbkdf2");typeof t=="string"&&(t=a.codec.utf8String.toBits(t)),typeof e=="string"&&(e=a.codec.utf8String.toBits(e)),o=o||a.misc.hmac,t=new o(t);var i,s,c,u,f=[],l=a.bitArray;for(u=1;32*f.length<(n||1);u++){for(o=i=t.encrypt(l.concat(e,[u])),s=1;s<r;s++)for(i=t.encrypt(i),c=0;c<i.length;c++)o[c]^=i[c];f=f.concat(o)}return n&&(f=l.clamp(f,n)),f};a.prng=function(t){this.c=[new a.hash.sha256],this.m=[0],this.P=0,this.H={},this.N=0,this.U={},this.Z=this.f=this.o=this.ha=0,this.b=[0,0,0,0,0,0,0,0],this.h=[0,0,0,0],this.L=void 0,this.M=t,this.D=!1,this.K={progress:{},seeded:{}},this.u=this.ga=0,this.I=1,this.J=2,this.ca=65536,this.T=[0,48,64,96,128,192,256,384,512,768,1024],this.da=3e4,this.ba=80};a.prng.prototype={randomWords:function(t,e){var r=[],n;n=this.isReady(e);var o;if(n===this.u)throw new a.exception.notReady("generator isn't seeded");if(n&this.J){n=!(n&this.I),o=[];var i=0,s;for(this.Z=o[0]=new Date().valueOf()+this.da,s=0;16>s;s++)o.push(4294967296*Math.random()|0);for(s=0;s<this.c.length&&(o=o.concat(this.c[s].finalize()),i+=this.m[s],this.m[s]=0,n||!(this.P&1<<s));s++);for(this.P>=1<<this.c.length&&(this.c.push(new a.hash.sha256),this.m.push(0)),this.f-=i,i>this.o&&(this.o=i),this.P++,this.b=a.hash.sha256.hash(this.b.concat(o)),this.L=new a.cipher.aes(this.b),n=0;4>n&&(this.h[n]=this.h[n]+1|0,!this.h[n]);n++);}for(n=0;n<t;n+=4)(n+1)%this.ca===0&&Ke(this),o=pe(this),r.push(o[0],o[1],o[2],o[3]);return Ke(this),r.slice(0,t)},setDefaultParanoia:function(t,e){if(t===0&&e!=="Setting paranoia=0 will ruin your security; use it only for testing")throw new a.exception.invalid("Setting paranoia=0 will ruin your security; use it only for testing");this.M=t},addEntropy:function(t,e,r){r=r||"user";var n,o,i=new Date().valueOf(),s=this.H[r],c=this.isReady(),u=0;switch(n=this.U[r],n===void 0&&(n=this.U[r]=this.ha++),s===void 0&&(s=this.H[r]=0),this.H[r]=(this.H[r]+1)%this.c.length,typeof t){case"number":e===void 0&&(e=1),this.c[s].update([n,this.N++,1,e,i,1,t|0]);break;case"object":if(r=Object.prototype.toString.call(t),r==="[object Uint32Array]"){for(o=[],r=0;r<t.length;r++)o.push(t[r]);t=o}else for(r!=="[object Array]"&&(u=1),r=0;r<t.length&&!u;r++)typeof t[r]!="number"&&(u=1);if(!u){if(e===void 0)for(r=e=0;r<t.length;r++)for(o=t[r];0<o;)e++,o=o>>>1;this.c[s].update([n,this.N++,2,e,i,t.length].concat(t))}break;case"string":e===void 0&&(e=t.length),this.c[s].update([n,this.N++,3,e,i,t.length]),this.c[s].update(t);break;default:u=1}if(u)throw new a.exception.bug("random: addEntropy only supports number, array of numbers or string");this.m[s]+=e,this.f+=e,c===this.u&&(this.isReady()!==this.u&&Ge("seeded",Math.max(this.o,this.f)),Ge("progress",this.getProgress()))},isReady:function(t){return t=this.T[t!==void 0?t:this.M],this.o&&this.o>=t?this.m[0]>this.ba&&new Date().valueOf()>this.Z?this.J|this.I:this.I:this.f>=t?this.J|this.u:this.u},getProgress:function(t){return t=this.T[t||this.M],this.o>=t||this.f>t?1:this.f/t},startCollectors:function(){if(!this.D){if(this.a={loadTimeCollector:$(this,this.ma),mouseCollector:$(this,this.oa),keyboardCollector:$(this,this.la),accelerometerCollector:$(this,this.ea),touchCollector:$(this,this.qa)},window.addEventListener)window.addEventListener("load",this.a.loadTimeCollector,!1),window.addEventListener("mousemove",this.a.mouseCollector,!1),window.addEventListener("keypress",this.a.keyboardCollector,!1),window.addEventListener("devicemotion",this.a.accelerometerCollector,!1),window.addEventListener("touchmove",this.a.touchCollector,!1);else if(document.attachEvent)document.attachEvent("onload",this.a.loadTimeCollector),document.attachEvent("onmousemove",this.a.mouseCollector),document.attachEvent("keypress",this.a.keyboardCollector);else throw new a.exception.bug("can't attach event");this.D=!0}},stopCollectors:function(){this.D&&(window.removeEventListener?(window.removeEventListener("load",this.a.loadTimeCollector,!1),window.removeEventListener("mousemove",this.a.mouseCollector,!1),window.removeEventListener("keypress",this.a.keyboardCollector,!1),window.removeEventListener("devicemotion",this.a.accelerometerCollector,!1),window.removeEventListener("touchmove",this.a.touchCollector,!1)):document.detachEvent&&(document.detachEvent("onload",this.a.loadTimeCollector),document.detachEvent("onmousemove",this.a.mouseCollector),document.detachEvent("keypress",this.a.keyboardCollector)),this.D=!1)},addEventListener:function(t,e){this.K[t][this.ga++]=e},removeEventListener:function(t,e){var r,n,o=this.K[t],i=[];for(n in o)o.hasOwnProperty(n)&&o[n]===e&&i.push(n);for(r=0;r<i.length;r++)n=i[r],delete o[n]},la:function(){q(this,1)},oa:function(t){var e,r;try{e=t.x||t.clientX||t.offsetX||0,r=t.y||t.clientY||t.offsetY||0}catch{r=e=0}e!=0&&r!=0&&this.addEntropy([e,r],2,"mouse"),q(this,0)},qa:function(t){t=t.touches[0]||t.changedTouches[0],this.addEntropy([t.pageX||t.clientX,t.pageY||t.clientY],1,"touch"),q(this,0)},ma:function(){q(this,2)},ea:function(t){if(t=t.accelerationIncludingGravity.x||t.accelerationIncludingGravity.y||t.accelerationIncludingGravity.z,window.orientation){var e=window.orientation;typeof e=="number"&&this.addEntropy(e,1,"accelerometer")}t&&this.addEntropy(t,2,"accelerometer"),q(this,0)}};function Ge(t,e){var r,n=a.random.K[t],o=[];for(r in n)n.hasOwnProperty(r)&&o.push(n[r]);for(r=0;r<o.length;r++)o[r](e)}function q(t,e){typeof window<"u"&&window.performance&&typeof window.performance.now=="function"?t.addEntropy(window.performance.now(),e,"loadtime"):t.addEntropy(new Date().valueOf(),e,"loadtime")}function Ke(t){t.b=pe(t).concat(pe(t)),t.L=new a.cipher.aes(t.b)}function pe(t){for(var e=0;4>e&&(t.h[e]=t.h[e]+1|0,!t.h[e]);e++);return t.L.encrypt(t.h)}function $(t,e){return function(){e.apply(t,arguments)}}a.random=new a.prng(6);e:try{if(ne=typeof W<"u"&&W.exports){try{oe=pt("crypto")}catch{oe=null}ne=re=oe}if(ne&&re.randomBytes)X=re.randomBytes(128),X=new Uint32Array(new Uint8Array(X).buffer),a.random.addEntropy(X,1024,"crypto['randomBytes']");else if(typeof window<"u"&&typeof Uint32Array<"u"){if(G=new Uint32Array(32),window.crypto&&window.crypto.getRandomValues)window.crypto.getRandomValues(G);else if(window.msCrypto&&window.msCrypto.getRandomValues)window.msCrypto.getRandomValues(G);else break e;a.random.addEntropy(G,1024,"crypto['getRandomValues']")}}catch(t){typeof window<"u"&&window.console&&(console.log("There was an error collecting entropy from the browser:"),console.log(t))}var X,re,G,ne,oe;a.json={defaults:{v:1,iter:1e4,ks:128,ts:64,mode:"ccm",adata:"",cipher:"aes"},ja:function(t,e,r,n){r=r||{},n=n||{};var o=a.json,i=o.g({iv:a.random.randomWords(4,0)},o.defaults),s;if(o.g(i,r),r=i.adata,typeof i.salt=="string"&&(i.salt=a.codec.base64.toBits(i.salt)),typeof i.iv=="string"&&(i.iv=a.codec.base64.toBits(i.iv)),!a.mode[i.mode]||!a.cipher[i.cipher]||typeof t=="string"&&100>=i.iter||i.ts!==64&&i.ts!==96&&i.ts!==128||i.ks!==128&&i.ks!==192&&i.ks!==256||2>i.iv.length||4<i.iv.length)throw new a.exception.invalid("json encrypt: invalid parameters");return typeof t=="string"?(s=a.misc.cachedPbkdf2(t,i),t=s.key.slice(0,i.ks/32),i.salt=s.salt):a.ecc&&t instanceof a.ecc.elGamal.publicKey&&(s=t.kem(),i.kemtag=s.tag,t=s.key.slice(0,i.ks/32)),typeof e=="string"&&(e=a.codec.utf8String.toBits(e)),typeof r=="string"&&(i.adata=r=a.codec.utf8String.toBits(r)),s=new a.cipher[i.cipher](t),o.g(n,i),n.key=t,i.ct=i.mode==="ccm"&&a.arrayBuffer&&a.arrayBuffer.ccm&&e instanceof ArrayBuffer?a.arrayBuffer.ccm.encrypt(s,e,i.iv,r,i.ts):a.mode[i.mode].encrypt(s,e,i.iv,r,i.ts),i},encrypt:function(t,e,r,n){var o=a.json,i=o.ja.apply(o,arguments);return o.encode(i)},ia:function(t,e,r,n){r=r||{},n=n||{};var o=a.json;e=o.g(o.g(o.g({},o.defaults),e),r,!0);var i,s;if(i=e.adata,typeof e.salt=="string"&&(e.salt=a.codec.base64.toBits(e.salt)),typeof e.iv=="string"&&(e.iv=a.codec.base64.toBits(e.iv)),!a.mode[e.mode]||!a.cipher[e.cipher]||typeof t=="string"&&100>=e.iter||e.ts!==64&&e.ts!==96&&e.ts!==128||e.ks!==128&&e.ks!==192&&e.ks!==256||!e.iv||2>e.iv.length||4<e.iv.length)throw new a.exception.invalid("json decrypt: invalid parameters");return typeof t=="string"?(s=a.misc.cachedPbkdf2(t,e),t=s.key.slice(0,e.ks/32),e.salt=s.salt):a.ecc&&t instanceof a.ecc.elGamal.secretKey&&(t=t.unkem(a.codec.base64.toBits(e.kemtag)).slice(0,e.ks/32)),typeof i=="string"&&(i=a.codec.utf8String.toBits(i)),s=new a.cipher[e.cipher](t),i=e.mode==="ccm"&&a.arrayBuffer&&a.arrayBuffer.ccm&&e.ct instanceof ArrayBuffer?a.arrayBuffer.ccm.decrypt(s,e.ct,e.iv,e.tag,i,e.ts):a.mode[e.mode].decrypt(s,e.ct,e.iv,i,e.ts),o.g(n,e),n.key=t,r.raw===1?i:a.codec.utf8String.fromBits(i)},decrypt:function(t,e,r,n){var o=a.json;return o.ia(t,o.decode(e),r,n)},encode:function(t){var e,r="{",n="";for(e in t)if(t.hasOwnProperty(e)){if(!e.match(/^[a-z0-9]+$/i))throw new a.exception.invalid("json encode: invalid property name");switch(r+=n+'"'+e+'":',n=",",typeof t[e]){case"number":case"boolean":r+=t[e];break;case"string":r+='"'+escape(t[e])+'"';break;case"object":r+='"'+a.codec.base64.fromBits(t[e],0)+'"';break;default:throw new a.exception.bug("json encode: unsupported type")}}return r+"}"},decode:function(t){if(t=t.replace(/\s/g,""),!t.match(/^\{.*\}$/))throw new a.exception.invalid("json decode: this isn't json!");t=t.replace(/^\{|\}$/g,"").split(/,/);var e={},r,n;for(r=0;r<t.length;r++){if(!(n=t[r].match(/^\s*(?:(["']?)([a-z][a-z0-9]*)\1)\s*:\s*(?:(-?\d+)|"([a-z0-9+\/%*_.@=\-]*)"|(true|false))$/i)))throw new a.exception.invalid("json decode: this isn't json!");n[3]!=null?e[n[2]]=parseInt(n[3],10):n[4]!=null?e[n[2]]=n[2].match(/^(ct|adata|salt|iv)$/)?a.codec.base64.toBits(n[4]):unescape(n[4]):n[5]!=null&&(e[n[2]]=n[5]==="true")}return e},g:function(t,e,r){if(t===void 0&&(t={}),e===void 0)return t;for(var n in e)if(e.hasOwnProperty(n)){if(r&&t[n]!==void 0&&t[n]!==e[n])throw new a.exception.invalid("required parameter overridden");t[n]=e[n]}return t},sa:function(t,e){var r={},n;for(n in t)t.hasOwnProperty(n)&&t[n]!==e[n]&&(r[n]=t[n]);return r},ra:function(t,e){var r={},n;for(n=0;n<e.length;n++)t[e[n]]!==void 0&&(r[e[n]]=t[e[n]]);return r}};a.encrypt=a.json.encrypt;a.decrypt=a.json.decrypt;a.misc.pa={};a.misc.cachedPbkdf2=function(t,e){var r=a.misc.pa,n;return e=e||{},n=e.iter||1e3,r=r[t]=r[t]||{},n=r[n]=r[n]||{firstSalt:e.salt&&e.salt.length?e.salt.slice(0):a.random.randomWords(2,0)},r=e.salt===void 0?n.firstSalt:e.salt,n[r]=n[r]||a.misc.pbkdf2(t,r,e.iter),{key:n[r].slice(0),salt:r.slice(0)}};typeof W<"u"&&W.exports&&(W.exports=a);typeof define=="function"&&define([],function(){return a})});var it=ce((Ln,ge)=>{"use strict";var Ht=Object.prototype.hasOwnProperty,x="~";function K(){}Object.create&&(K.prototype=Object.create(null),new K().__proto__||(x=!1));function Yt(t,e,r){this.fn=t,this.context=e,this.once=r||!1}function ot(t,e,r,n,o){if(typeof r!="function")throw new TypeError("The listener must be a function");var i=new Yt(r,n||t,o),s=x?x+e:e;return t._events[s]?t._events[s].fn?t._events[s]=[t._events[s],i]:t._events[s].push(i):(t._events[s]=i,t._eventsCount++),t}function ie(t,e){--t._eventsCount===0?t._events=new K:delete t._events[e]}function E(){this._events=new K,this._eventsCount=0}E.prototype.eventNames=function(){var e=[],r,n;if(this._eventsCount===0)return e;for(n in r=this._events)Ht.call(r,n)&&e.push(x?n.slice(1):n);return Object.getOwnPropertySymbols?e.concat(Object.getOwnPropertySymbols(r)):e};E.prototype.listeners=function(e){var r=x?x+e:e,n=this._events[r];if(!n)return[];if(n.fn)return[n.fn];for(var o=0,i=n.length,s=new Array(i);o<i;o++)s[o]=n[o].fn;return s};E.prototype.listenerCount=function(e){var r=x?x+e:e,n=this._events[r];return n?n.fn?1:n.length:0};E.prototype.emit=function(e,r,n,o,i,s){var c=x?x+e:e;if(!this._events[c])return!1;var u=this._events[c],f=arguments.length,l,h;if(u.fn){switch(u.once&&this.removeListener(e,u.fn,void 0,!0),f){case 1:return u.fn.call(u.context),!0;case 2:return u.fn.call(u.context,r),!0;case 3:return u.fn.call(u.context,r,n),!0;case 4:return u.fn.call(u.context,r,n,o),!0;case 5:return u.fn.call(u.context,r,n,o,i),!0;case 6:return u.fn.call(u.context,r,n,o,i,s),!0}for(h=1,l=new Array(f-1);h<f;h++)l[h-1]=arguments[h];u.fn.apply(u.context,l)}else{var d=u.length,p;for(h=0;h<d;h++)switch(u[h].once&&this.removeListener(e,u[h].fn,void 0,!0),f){case 1:u[h].fn.call(u[h].context);break;case 2:u[h].fn.call(u[h].context,r);break;case 3:u[h].fn.call(u[h].context,r,n);break;case 4:u[h].fn.call(u[h].context,r,n,o);break;default:if(!l)for(p=1,l=new Array(f-1);p<f;p++)l[p-1]=arguments[p];u[h].fn.apply(u[h].context,l)}}return!0};E.prototype.on=function(e,r,n){return ot(this,e,r,n,!1)};E.prototype.once=function(e,r,n){return ot(this,e,r,n,!0)};E.prototype.removeListener=function(e,r,n,o){var i=x?x+e:e;if(!this._events[i])return this;if(!r)return ie(this,i),this;var s=this._events[i];if(s.fn)s.fn===r&&(!o||s.once)&&(!n||s.context===n)&&ie(this,i);else{for(var c=0,u=[],f=s.length;c<f;c++)(s[c].fn!==r||o&&!s[c].once||n&&s[c].context!==n)&&u.push(s[c]);u.length?this._events[i]=u.length===1?u[0]:u:ie(this,i)}return this};E.prototype.removeAllListeners=function(e){var r;return e?(r=x?x+e:e,this._events[r]&&ie(this,r)):(this._events=new K,this._eventsCount=0),this};E.prototype.off=E.prototype.removeListener;E.prototype.addListener=E.prototype.on;E.prefixed=x;E.EventEmitter=E;typeof ge<"u"&&(ge.exports=E)});var ze=ue(Me());var xt={withStackTrace:!1},Ue=(t,e,r=xt)=>{let n=e.isOk()?{type:"Ok",value:e.value}:{type:"Err",value:e.error},o=r.withStackTrace?new Error().stack:void 0;return{data:n,message:t,stack:o}};function U(t,e,r,n){function o(i){return i instanceof r?i:new r(function(s){s(i)})}return new(r||(r=Promise))(function(i,s){function c(l){try{f(n.next(l))}catch(h){s(h)}}function u(l){try{f(n.throw(l))}catch(h){s(h)}}function f(l){l.done?i(l.value):o(l.value).then(c,u)}f((n=n.apply(t,[])).next())})}function Ne(t){var e=typeof Symbol=="function"&&Symbol.iterator,r=e&&t[e],n=0;if(r)return r.call(t);if(t&&typeof t.length=="number")return{next:function(){return t&&n>=t.length&&(t=void 0),{value:t&&t[n++],done:!t}}};throw new TypeError(e?"Object is not iterable.":"Symbol.iterator is not defined.")}function P(t){return this instanceof P?(this.v=t,this):new P(t)}function Ot(t,e,r){if(!Symbol.asyncIterator)throw new TypeError("Symbol.asyncIterator is not defined.");var n=r.apply(t,e||[]),o,i=[];return o={},s("next"),s("throw"),s("return"),o[Symbol.asyncIterator]=function(){return this},o;function s(d){n[d]&&(o[d]=function(p){return new Promise(function(v,M){i.push([d,p,v,M])>1||c(d,p)})})}function c(d,p){try{u(n[d](p))}catch(v){h(i[0][3],v)}}function u(d){d.value instanceof P?Promise.resolve(d.value.v).then(f,l):h(i[0][2],d)}function f(d){c("next",d)}function l(d){c("throw",d)}function h(d,p){d(p),i.shift(),i.length&&c(i[0][0],i[0][1])}}function Lt(t){var e,r;return e={},n("next"),n("throw",function(o){throw o}),n("return"),e[Symbol.iterator]=function(){return this},e;function n(o,i){e[o]=t[o]?function(s){return(r=!r)?{value:P(t[o](s)),done:o==="return"}:i?i(s):s}:i}}function bt(t){if(!Symbol.asyncIterator)throw new TypeError("Symbol.asyncIterator is not defined.");var e=t[Symbol.asyncIterator],r;return e?e.call(t):(t=typeof Ne=="function"?Ne(t):t[Symbol.iterator](),r={},n("next"),n("throw"),n("return"),r[Symbol.asyncIterator]=function(){return this},r);function n(i){r[i]=t[i]&&function(s){return new Promise(function(c,u){s=t[i](s),o(c,u,s.done,s.value)})}}function o(i,s,c,u){Promise.resolve(u).then(function(f){i({value:f,done:c})},s)}}var g=class t{constructor(e){this._promise=e}static fromSafePromise(e){let r=e.then(n=>new L(n));return new t(r)}static fromPromise(e,r){let n=e.then(o=>new L(o)).catch(o=>new b(r(o)));return new t(n)}static fromThrowable(e,r){return(...n)=>new t(U(this,void 0,void 0,function*(){try{return new L(yield e(...n))}catch(o){return new b(r?r(o):o)}}))}static combine(e){return _t(e)}static combineWithAllErrors(e){return Dt(e)}map(e){return new t(this._promise.then(r=>U(this,void 0,void 0,function*(){return r.isErr()?new b(r.error):new L(yield e(r.value))})))}andThrough(e){return new t(this._promise.then(r=>U(this,void 0,void 0,function*(){if(r.isErr())return new b(r.error);let n=yield e(r.value);return n.isErr()?new b(n.error):new L(r.value)})))}andTee(e){return new t(this._promise.then(r=>U(this,void 0,void 0,function*(){if(r.isErr())return new b(r.error);try{yield e(r.value)}catch{}return new L(r.value)})))}mapErr(e){return new t(this._promise.then(r=>U(this,void 0,void 0,function*(){return r.isOk()?new L(r.value):new b(yield e(r.error))})))}andThen(e){return new t(this._promise.then(r=>{if(r.isErr())return new b(r.error);let n=e(r.value);return n instanceof t?n._promise:n}))}orElse(e){return new t(this._promise.then(r=>U(this,void 0,void 0,function*(){return r.isErr()?e(r.error):new L(r.value)})))}match(e,r){return this._promise.then(n=>n.match(e,r))}unwrapOr(e){return this._promise.then(r=>r.unwrapOr(e))}safeUnwrap(){return Ot(this,arguments,function*(){return yield P(yield P(yield*Lt(bt(yield P(this._promise.then(r=>r.safeUnwrap()))))))})}then(e,r){return this._promise.then(e,r)}},_=t=>new g(Promise.resolve(new L(t))),A=t=>new g(Promise.resolve(new b(t))),or=g.fromPromise,ir=g.fromSafePromise,sr=g.fromThrowable,Be=t=>{let e=I([]);for(let r of t)if(r.isErr()){e=C(r.error);break}else e.map(n=>n.push(r.value));return e},_t=t=>g.fromSafePromise(Promise.all(t)).andThen(Be),je=t=>{let e=I([]);for(let r of t)r.isErr()&&e.isErr()?e.error.push(r.error):r.isErr()&&e.isOk()?e=C([r.error]):r.isOk()&&e.isOk()&&e.value.push(r.value);return e},Dt=t=>g.fromSafePromise(Promise.all(t)).andThen(je),he;(function(t){function e(o,i){return(...s)=>{try{let c=o(...s);return I(c)}catch(c){return C(i?i(c):c)}}}t.fromThrowable=e;function r(o){return Be(o)}t.combine=r;function n(o){return je(o)}t.combineWithAllErrors=n})(he||(he={}));var I=t=>new L(t);function C(t){return new b(t)}var L=class{constructor(e){this.value=e}isOk(){return!0}isErr(){return!this.isOk()}map(e){return I(e(this.value))}mapErr(e){return I(this.value)}andThen(e){return e(this.value)}andThrough(e){return e(this.value).map(r=>this.value)}andTee(e){try{e(this.value)}catch{}return I(this.value)}orElse(e){return I(this.value)}asyncAndThen(e){return e(this.value)}asyncAndThrough(e){return e(this.value).map(()=>this.value)}asyncMap(e){return g.fromSafePromise(e(this.value))}unwrapOr(e){return this.value}match(e,r){return e(this.value)}safeUnwrap(){let e=this.value;return function*(){return e}()}_unsafeUnwrap(e){return this.value}_unsafeUnwrapErr(e){throw Ue("Called `_unsafeUnwrapErr` on an Ok",this,e)}},b=class{constructor(e){this.error=e}isOk(){return!1}isErr(){return!this.isOk()}map(e){return C(this.error)}mapErr(e){return C(e(this.error))}andThrough(e){return C(this.error)}andTee(e){return C(this.error)}andThen(e){return C(this.error)}orElse(e){return e(this.error)}asyncAndThen(e){return A(this.error)}asyncAndThrough(e){return A(this.error)}asyncMap(e){return A(this.error)}unwrapOr(e){return e}match(e,r){return r(this.error)}safeUnwrap(){let e=this.error;return function*(){throw yield C(e),new Error("Do not use this generator out of `safeTry`")}()}_unsafeUnwrap(e){throw Ue("Called `_unsafeUnwrap` on an Err",this,e)}_unsafeUnwrapErr(e){return this.error}},ar=he.fromThrowable;var S=class extends Error{context;constructor(e,r={}){let{cause:n,context:o}=r;super(e,{cause:n}),this.name=this.constructor.name,this.context=o}};var R=t=>{if(t instanceof Error)return t;let e="[Unable to stringify the thrown value]";try{e=JSON.stringify(t)}catch{}return new Error(e)};var Ct=()=>typeof Deno<"u",B=t=>Ct()?new URL(`./worker/${t}.ts`,new URL(".",import.meta.url).href):new URL(import.meta.resolve(`./${t==="main"?`worker/${t}`:t}.js`));var m=new ze.default,w,We=!1;self.onmessage=t=>{St(t),We||(We=!0,m.once("OPERATION_FAILED",()=>{w&&w.terminate()}))};var k=(t,e)=>(Object.assign(t,e),typeof WorkerGlobalScope<"u"&&self.postMessage({event:"FILE_UPDATED",lufiFile:t}),t),Je=(t,e)=>{k(t,{uploadStatus:2}),self.postMessage({event:"OPERATION_FAILED",error:e})},St=(t,e)=>{let{action:r}=t.data;switch(r){case 0:w=new Worker(B("cancel"),{type:"module"}),w.postMessage(t.data);break;case 1:w=new Worker(B("download"),{type:"module"}),w.postMessage(t.data);break;case 2:w=new Worker(B("infos"),{type:"module"}),w.postMessage(t.data);break;case 4:w=w||new Worker(B("remove"),{type:"module"}),w.postMessage(t.data);break;case 5:{w=w||new Worker(B("upload"),{type:"module"}),w.postMessage(t.data);break}default:console.error("Action not found")}w.onmessage=n=>{e&&e(n),self.postMessage(n.data)},w.onerror=n=>{console.error(`Error: ${n.message}`)}},qe=()=>{m.once("SOCKET_OPENED",()=>{self.postMessage({event:"SOCKET_OPENED"})}),m.once("OPERATION_FAILED",t=>{self.postMessage({event:"OPERATION_FAILED",error:t})})};var D=class extends S{};var z=class extends D{message="An error occured while trying to connect to WebSocket"};var j=class{constructor(e,r){if(!e||e.length!=64)throw Error("Charset must contain 64 characters");this._charset=e,this._noPadding=!!r,this._valid=new RegExp("^["+this._charset.replace("-","\\-")+"]+={0,2}$")}Encode(e){let r=e.byteLength;if(!r)return"";let n=new Uint8Array(e),o="";for(let i=0;i<r;i+=3)o+=this._charset[n[i]>>2]+this._charset[(n[i]&3)<<4|n[i+1]>>4]+this._charset[(n[i+1]&15)<<2|n[i+2]>>6]+this._charset[n[i+2]&63];return r%3==2?(o=o.substring(0,o.length-1),this._noPadding||(o+="=")):r%3==1&&(o=o.substring(0,o.length-2),this._noPadding||(o+="==")),o}Decode(e){if(e=(e||"").replace(/[\s]/g,""),!e)return new ArrayBuffer(0);if(!this._valid.test(e))throw Error("Invalid base64 input sequence");let r=Math.floor(e.length*.75);e[e.length-2]=="="?r-=2:e[e.length-1]=="="&&r--;let n=new Uint8Array(r),o,i,s,c,u=0,f=0;for(;u<e.length*.75;)o=this._charset.indexOf(e.charAt(f++)),i=this._charset.indexOf(e.charAt(f++)),s=this._charset.indexOf(e.charAt(f++)),c=this._charset.indexOf(e.charAt(f++)),n[u++]=o<<2|i>>4,n[u++]=(i&15)<<4|s>>2,n[u++]=(s&3)<<6|c;return n.buffer}};var Tt=new j("ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789+/");function J(t){return Tt.Decode(t)}var It=new j("ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789-_",!0);function le(t){return It.Decode(t)}var Ve=ue(He());var T=class extends S{};var F=class extends T{message="Unable to decrypt the provided data"};var Qe=(t,e)=>{try{let r=typeof e=="string"?e:e.data;return _(J(Ve.default.decrypt(t,r)))}catch(r){return A(new F(void 0,{cause:R(r)}))}};var Ze=(t,e)=>Mt(t).andThen(r=>g.fromPromise(crypto.subtle.decrypt({name:"AES-GCM",iv:e.iv},r,J(e.data)),n=>new F(void 0,{cause:R(n)})));var Mt=t=>g.fromPromise(crypto.subtle.importKey("raw",le(t),{name:"AES-GCM"},!1,["encrypt","decrypt"]),e=>new T("Unable to import cryptography key",{cause:R(e)}));var et=(t,e)=>e.algo===void 0||e.algo===0?Qe(t,e):Ze(t,e);var O={},tt=5,Bt=t=>(m.emit("UPLOAD_CANCELLED",t.success),_(void 0)),jt=(t,e)=>{let r=t.split("XXMOJOXX"),n=r.shift();if(n!==void 0){let o=JSON.parse(n);if(Gt(o)){let i=r.shift();if(i){let s=JSON.parse(i);return s.iv&&(s.iv=new Uint8Array(Object.values(s.iv))),et(e.keys.client,s).andThen(c=>{let u=typeof c=="string"?new TextEncoder().encode(c).buffer:c;return o.part===0?(k(e,{chunksReady:e.chunksReady+1,delAtFirstView:o.del_at_first_view,delay:o.delay,name:o.name,size:o.size,totalChunks:o.total,type:o.type,zipped:o.zipped}),m.emit("DOWNLOAD_STARTED")):k(e,{chunksReady:e.chunksReady+1}),m.emit("CHUNK_DOWNLOADED",u,o.part),++o.part===o.total?Jt(e).andThen(()=>(m.emit("DOWNLOAD_COMPLETE"),m.emit("SOCKET_OPERATION_TERMINATED"),_(void 0))):_(void 0)})}else{let s=new D("Can't retrieve metadata from data received by the server");return m.emit("OPERATION_FAILED",s),A(s)}}else{let i=new D(o.msg);return m.emit("OPERATION_FAILED",i),A(i)}}else{let o=new D("Can't retrieve metadata from data received by the server");return m.emit("OPERATION_FAILED",o),A(o)}},Wt=(t,e)=>{if(t.success)return t.j===0&&(k(e,{keys:{client:e.keys.client,server:t.short},actionToken:t.token,queueIndex:t.i}),m.emit("UPLOAD_STARTED")),k(e,{chunksReady:e.chunksReady+1,createdAt:t.created_at}),m.emit("CHUNK_UPLOADED"),e.chunksReady===e.totalChunks&&(k(e,{uploadStatus:1}),m.emit("UPLOAD_COMPLETE"),m.emit("SOCKET_OPERATION_TERMINATED")),_(void 0);{let r=new D(t.msg);return m.emit("OPERATION_FAILED",r),A(r)}},Ft=(t,e)=>{let r=Xt(t.data),n;if(r)if(!r.action&&r.msg){let o=new D(r.msg);return m.emit("OPERATION_FAILED",o),A(o)}else"delay"in r?n=Wt(r,e):n=Bt(r);else n=jt(t.data,e);return n},zt=t=>O!==void 0&&O[t]!==void 0&&O[t].readyState===WebSocket.CONNECTING,me=t=>O!==void 0&&O[t]!==void 0&&O[t].readyState===WebSocket.OPEN;var ye=(t,e)=>{let r;return t.password?r={part:e,file_pwd:t.password}:r={part:e},ve(nt(t),t,JSON.stringify(r))},Jt=t=>{let e;return t.password?e={ended:!0,file_pwd:t.password}:e={ended:!0},ve(nt(t),t,JSON.stringify(e))};var ve=(t,e,r)=>me(t)?(O[t].onmessage=n=>Ft(n,e),O[t].send(r),_(void 0)):rt(t).andThen(()=>ve(t,e,r)),rt=(t,e=0)=>(!me(t)&&!zt(t)&&(O[t]=new WebSocket(t),m.once("SOCKET_OPERATION_TERMINATED",()=>{O[t].close()}),m.once("OPERATION_FAILED",()=>{m.emit("SOCKET_OPERATION_TERMINATED")}),O[t].onopen=()=>{m.emit("SOCKET_OPENED")},O[t].onclose=()=>{},O[t].onerror=()=>++e<=tt?(console.error(`An error happened while trying to connect to WebSocket ${t}. Trying again. ${e} / ${tt}`),rt(t,e)):(m.emit("SOCKET_ONERROR"),A(new z(`Unable to connect to WebSocket ${t}.`)))),qt(t).andThen(()=>_(t)).orElse(r=>A(r))),qt=t=>g.fromPromise(new Promise((e,r)=>{me(t)?e(void 0):(m.once("SOCKET_OPENED",()=>{e(void 0)}),m.on("SOCKET_ONERROR",()=>{r(new z)}))}),e=>R(e));var $t=(t,e)=>{let r=new URL(t);return r.protocol=r.protocol==="http:"?"ws:":"wss:",r.pathname+=e,r},nt=t=>$t(new URL(t.serverUrl),"download"+`/${t.keys.server}`).toString();var Xt=t=>{try{let e=JSON.parse(t);if(e&&typeof e=="object")return e}catch{}return!1},Gt=t=>typeof t=="object"&&t!==null&&!("msg"in t);var we=ue(it(),1);var H=class extends Error{constructor(e){super(e),this.name="TimeoutError"}},Ee=class extends Error{constructor(e){super(),this.name="AbortError",this.message=e}},st=t=>globalThis.DOMException===void 0?new Ee(t):new DOMException(t),at=t=>{let e=t.reason===void 0?st("This operation was aborted."):t.reason;return e instanceof Error?e:st(e)};function Ae(t,e){let{milliseconds:r,fallback:n,message:o,customTimers:i={setTimeout,clearTimeout}}=e,s,u=new Promise((f,l)=>{if(typeof r!="number"||Math.sign(r)!==1)throw new TypeError(`Expected \`milliseconds\` to be a positive number, got \`${r}\``);if(e.signal){let{signal:d}=e;d.aborted&&l(at(d));let p=()=>{l(at(d))};d.addEventListener("abort",p,{once:!0}),t.finally(()=>{d.removeEventListener("abort",p)})}if(r===Number.POSITIVE_INFINITY){t.then(f,l);return}let h=new H;s=i.setTimeout.call(void 0,()=>{if(n){try{f(n())}catch(d){l(d)}return}typeof t.cancel=="function"&&t.cancel(),o===!1?f():o instanceof Error?l(o):(h.message=o??`Promise timed out after ${r} milliseconds`,l(h))},r),(async()=>{try{f(await t)}catch(d){l(d)}})()}).finally(()=>{u.clear()});return u.clear=()=>{i.clearTimeout.call(void 0,s),s=void 0},u}function xe(t,e,r){let n=0,o=t.length;for(;o>0;){let i=Math.trunc(o/2),s=n+i;r(t[s],e)<=0?(n=++s,o-=i+1):o=i}return n}var Y=class{#e=[];enqueue(e,r){r={priority:0,...r};let n={priority:r.priority,run:e};if(this.size&&this.#e[this.size-1].priority>=r.priority){this.#e.push(n);return}let o=xe(this.#e,n,(i,s)=>s.priority-i.priority);this.#e.splice(o,0,n)}dequeue(){return this.#e.shift()?.run}filter(e){return this.#e.filter(r=>r.priority===e.priority).map(r=>r.run)}get size(){return this.#e.length}};var V=class extends we.default{#e;#s;#i=0;#d;#a;#p=0;#r;#c;#t;#m;#n=0;#u;#o;#y;timeout;constructor(e){if(super(),e={carryoverConcurrencyCount:!1,intervalCap:Number.POSITIVE_INFINITY,interval:0,concurrency:Number.POSITIVE_INFINITY,autoStart:!0,queueClass:Y,...e},!(typeof e.intervalCap=="number"&&e.intervalCap>=1))throw new TypeError(`Expected \`intervalCap\` to be a number from 1 and up, got \`${e.intervalCap?.toString()??""}\` (${typeof e.intervalCap})`);if(e.interval===void 0||!(Number.isFinite(e.interval)&&e.interval>=0))throw new TypeError(`Expected \`interval\` to be a finite number >= 0, got \`${e.interval?.toString()??""}\` (${typeof e.interval})`);this.#e=e.carryoverConcurrencyCount,this.#s=e.intervalCap===Number.POSITIVE_INFINITY||e.interval===0,this.#d=e.intervalCap,this.#a=e.interval,this.#t=new e.queueClass,this.#m=e.queueClass,this.concurrency=e.concurrency,this.timeout=e.timeout,this.#y=e.throwOnTimeout===!0,this.#o=e.autoStart===!1}get#w(){return this.#s||this.#i<this.#d}get#E(){return this.#n<this.#u}#A(){this.#n--,this.#f(),this.emit("next")}#x(){this.#g(),this.#v(),this.#c=void 0}get#O(){let e=Date.now();if(this.#r===void 0){let r=this.#p-e;if(r<0)this.#i=this.#e?this.#n:0;else return this.#c===void 0&&(this.#c=setTimeout(()=>{this.#x()},r)),!0}return!1}#f(){if(this.#t.size===0)return this.#r&&clearInterval(this.#r),this.#r=void 0,this.emit("empty"),this.#n===0&&this.emit("idle"),!1;if(!this.#o){let e=!this.#O;if(this.#w&&this.#E){let r=this.#t.dequeue();return r?(this.emit("active"),r(),e&&this.#v(),!0):!1}}return!1}#v(){this.#s||this.#r!==void 0||(this.#r=setInterval(()=>{this.#g()},this.#a),this.#p=Date.now()+this.#a)}#g(){this.#i===0&&this.#n===0&&this.#r&&(clearInterval(this.#r),this.#r=void 0),this.#i=this.#e?this.#n:0,this.#h()}#h(){for(;this.#f(););}get concurrency(){return this.#u}set concurrency(e){if(!(typeof e=="number"&&e>=1))throw new TypeError(`Expected \`concurrency\` to be a number from 1 and up, got \`${e}\` (${typeof e})`);this.#u=e,this.#h()}async#L(e){return new Promise((r,n)=>{e.addEventListener("abort",()=>{n(e.reason)},{once:!0})})}async add(e,r={}){return r={timeout:this.timeout,throwOnTimeout:this.#y,...r},new Promise((n,o)=>{this.#t.enqueue(async()=>{this.#n++,this.#i++;try{r.signal?.throwIfAborted();let i=e({signal:r.signal});r.timeout&&(i=Ae(Promise.resolve(i),{milliseconds:r.timeout})),r.signal&&(i=Promise.race([i,this.#L(r.signal)]));let s=await i;n(s),this.emit("completed",s)}catch(i){if(i instanceof H&&!r.throwOnTimeout){n();return}o(i),this.emit("error",i)}finally{this.#A()}},r),this.emit("add"),this.#f()})}async addAll(e,r){return Promise.all(e.map(async n=>this.add(n,r)))}start(){return this.#o?(this.#o=!1,this.#h(),this):this}pause(){this.#o=!0}clear(){this.#t=new this.#m}async onEmpty(){this.#t.size!==0&&await this.#l("empty")}async onSizeLessThan(e){this.#t.size<e||await this.#l("next",()=>this.#t.size<e)}async onIdle(){this.#n===0&&this.#t.size===0||await this.#l("idle")}async#l(e,r){return new Promise(n=>{let o=()=>{r&&!r()||(this.off(e,o),n())};this.on(e,o)})}get size(){return this.#t.size}sizeBy(e){return this.#t.filter(e).length}get pending(){return this.#n}get isPaused(){return this.#o}};var Vt=[],Oe=8,se=new V({concurrency:Oe,autoStart:!1}),ae=0,ct=!1;self.onmessage=t=>{ct||(qe(),ct=!0);let e=t.data;m.once("DOWNLOAD_COMPLETE",()=>{self.postMessage({event:"DOWNLOAD_COMPLETE"})}),m.on("FILE_UPDATED",k),m.on("CHUNK_DOWNLOADED",(r,n)=>{self.postMessage({event:"CHUNK_DOWNLOADED",chunk:{buffer:r,index:n}})}),Qt(e).mapErr(r=>{Je(e.args.lufiFile,r)})};var Qt=t=>{let{lufiFile:e}=t.args;return m.on("CHUNK_DOWNLOADED",(r,n)=>{Vt[n]=r,ae--,ae<Oe&&se.start()}),m.on("DOWNLOAD_STARTED",async()=>{for(let r=1;r<e.totalChunks;r++)await se.add(async()=>{await ye(e,r),ae++,ae===Oe&&se.pause()});se.start()}),ye(e,0)};export{Oe as QUEUE_CONCURRENCY_LIMIT,ae as itemsInQueue,se as queue};
+var __create = Object.create;
+var __defProp = Object.defineProperty;
+var __getOwnPropDesc = Object.getOwnPropertyDescriptor;
+var __getOwnPropNames = Object.getOwnPropertyNames;
+var __getProtoOf = Object.getPrototypeOf;
+var __hasOwnProp = Object.prototype.hasOwnProperty;
+var __typeError = (msg) => {
+  throw TypeError(msg);
+};
+var __defNormalProp = (obj3, key, value) => key in obj3 ? __defProp(obj3, key, { enumerable: true, configurable: true, writable: true, value }) : obj3[key] = value;
+var __require = /* @__PURE__ */ ((x) => typeof require !== "undefined" ? require : typeof Proxy !== "undefined" ? new Proxy(x, {
+  get: (a, b) => (typeof require !== "undefined" ? require : a)[b]
+}) : x)(function(x) {
+  if (typeof require !== "undefined") return require.apply(this, arguments);
+  throw Error('Dynamic require of "' + x + '" is not supported');
+});
+var __commonJS = (cb, mod) => function __require2() {
+  return mod || (0, cb[__getOwnPropNames(cb)[0]])((mod = { exports: {} }).exports, mod), mod.exports;
+};
+var __copyProps = (to, from, except, desc) => {
+  if (from && typeof from === "object" || typeof from === "function") {
+    for (let key of __getOwnPropNames(from))
+      if (!__hasOwnProp.call(to, key) && key !== except)
+        __defProp(to, key, { get: () => from[key], enumerable: !(desc = __getOwnPropDesc(from, key)) || desc.enumerable });
+  }
+  return to;
+};
+var __toESM = (mod, isNodeMode, target) => (target = mod != null ? __create(__getProtoOf(mod)) : {}, __copyProps(
+  // If the importer is in node compatibility mode or this is not an ESM
+  // file that has been converted to a CommonJS file using a Babel-
+  // compatible transform (i.e. "__esModule" has not been set), then set
+  // "default" to the CommonJS "module.exports" for node compatibility.
+  isNodeMode || !mod || !mod.__esModule ? __defProp(target, "default", { value: mod, enumerable: true }) : target,
+  mod
+));
+var __publicField = (obj3, key, value) => __defNormalProp(obj3, typeof key !== "symbol" ? key + "" : key, value);
+var __accessCheck = (obj3, member, msg) => member.has(obj3) || __typeError("Cannot " + msg);
+var __privateGet = (obj3, member, getter) => (__accessCheck(obj3, member, "read from private field"), getter ? getter.call(obj3) : member.get(obj3));
+var __privateAdd = (obj3, member, value) => member.has(obj3) ? __typeError("Cannot add the same private member more than once") : member instanceof WeakSet ? member.add(obj3) : member.set(obj3, value);
+var __privateSet = (obj3, member, value, setter) => (__accessCheck(obj3, member, "write to private field"), setter ? setter.call(obj3, value) : member.set(obj3, value), value);
+var __privateMethod = (obj3, member, method) => (__accessCheck(obj3, member, "access private method"), method);
+var __privateWrapper = (obj3, member, setter, getter) => ({
+  set _(value) {
+    __privateSet(obj3, member, value, setter);
+  },
+  get _() {
+    return __privateGet(obj3, member, getter);
+  }
+});
+
+// node_modules/.deno/events@3.3.0/node_modules/events/events.js
+var require_events = __commonJS({
+  "node_modules/.deno/events@3.3.0/node_modules/events/events.js"(exports, module) {
+    "use strict";
+    var R = typeof Reflect === "object" ? Reflect : null;
+    var ReflectApply = R && typeof R.apply === "function" ? R.apply : function ReflectApply2(target, receiver, args) {
+      return Function.prototype.apply.call(target, receiver, args);
+    };
+    var ReflectOwnKeys;
+    if (R && typeof R.ownKeys === "function") {
+      ReflectOwnKeys = R.ownKeys;
+    } else if (Object.getOwnPropertySymbols) {
+      ReflectOwnKeys = function ReflectOwnKeys2(target) {
+        return Object.getOwnPropertyNames(target).concat(Object.getOwnPropertySymbols(target));
+      };
+    } else {
+      ReflectOwnKeys = function ReflectOwnKeys2(target) {
+        return Object.getOwnPropertyNames(target);
+      };
+    }
+    function ProcessEmitWarning(warning) {
+      if (console && console.warn) console.warn(warning);
+    }
+    var NumberIsNaN = Number.isNaN || function NumberIsNaN2(value) {
+      return value !== value;
+    };
+    function EventEmitter3() {
+      EventEmitter3.init.call(this);
+    }
+    module.exports = EventEmitter3;
+    module.exports.once = once;
+    EventEmitter3.EventEmitter = EventEmitter3;
+    EventEmitter3.prototype._events = void 0;
+    EventEmitter3.prototype._eventsCount = 0;
+    EventEmitter3.prototype._maxListeners = void 0;
+    var defaultMaxListeners = 10;
+    function checkListener(listener) {
+      if (typeof listener !== "function") {
+        throw new TypeError('The "listener" argument must be of type Function. Received type ' + typeof listener);
+      }
+    }
+    Object.defineProperty(EventEmitter3, "defaultMaxListeners", {
+      enumerable: true,
+      get: function() {
+        return defaultMaxListeners;
+      },
+      set: function(arg) {
+        if (typeof arg !== "number" || arg < 0 || NumberIsNaN(arg)) {
+          throw new RangeError('The value of "defaultMaxListeners" is out of range. It must be a non-negative number. Received ' + arg + ".");
+        }
+        defaultMaxListeners = arg;
+      }
+    });
+    EventEmitter3.init = function() {
+      if (this._events === void 0 || this._events === Object.getPrototypeOf(this)._events) {
+        this._events = /* @__PURE__ */ Object.create(null);
+        this._eventsCount = 0;
+      }
+      this._maxListeners = this._maxListeners || void 0;
+    };
+    EventEmitter3.prototype.setMaxListeners = function setMaxListeners(n) {
+      if (typeof n !== "number" || n < 0 || NumberIsNaN(n)) {
+        throw new RangeError('The value of "n" is out of range. It must be a non-negative number. Received ' + n + ".");
+      }
+      this._maxListeners = n;
+      return this;
+    };
+    function _getMaxListeners(that) {
+      if (that._maxListeners === void 0)
+        return EventEmitter3.defaultMaxListeners;
+      return that._maxListeners;
+    }
+    EventEmitter3.prototype.getMaxListeners = function getMaxListeners() {
+      return _getMaxListeners(this);
+    };
+    EventEmitter3.prototype.emit = function emit(type) {
+      var args = [];
+      for (var i = 1; i < arguments.length; i++) args.push(arguments[i]);
+      var doError = type === "error";
+      var events2 = this._events;
+      if (events2 !== void 0)
+        doError = doError && events2.error === void 0;
+      else if (!doError)
+        return false;
+      if (doError) {
+        var er;
+        if (args.length > 0)
+          er = args[0];
+        if (er instanceof Error) {
+          throw er;
+        }
+        var err2 = new Error("Unhandled error." + (er ? " (" + er.message + ")" : ""));
+        err2.context = er;
+        throw err2;
+      }
+      var handler = events2[type];
+      if (handler === void 0)
+        return false;
+      if (typeof handler === "function") {
+        ReflectApply(handler, this, args);
+      } else {
+        var len = handler.length;
+        var listeners = arrayClone(handler, len);
+        for (var i = 0; i < len; ++i)
+          ReflectApply(listeners[i], this, args);
+      }
+      return true;
+    };
+    function _addListener(target, type, listener, prepend) {
+      var m;
+      var events2;
+      var existing;
+      checkListener(listener);
+      events2 = target._events;
+      if (events2 === void 0) {
+        events2 = target._events = /* @__PURE__ */ Object.create(null);
+        target._eventsCount = 0;
+      } else {
+        if (events2.newListener !== void 0) {
+          target.emit(
+            "newListener",
+            type,
+            listener.listener ? listener.listener : listener
+          );
+          events2 = target._events;
+        }
+        existing = events2[type];
+      }
+      if (existing === void 0) {
+        existing = events2[type] = listener;
+        ++target._eventsCount;
+      } else {
+        if (typeof existing === "function") {
+          existing = events2[type] = prepend ? [listener, existing] : [existing, listener];
+        } else if (prepend) {
+          existing.unshift(listener);
+        } else {
+          existing.push(listener);
+        }
+        m = _getMaxListeners(target);
+        if (m > 0 && existing.length > m && !existing.warned) {
+          existing.warned = true;
+          var w = new Error("Possible EventEmitter memory leak detected. " + existing.length + " " + String(type) + " listeners added. Use emitter.setMaxListeners() to increase limit");
+          w.name = "MaxListenersExceededWarning";
+          w.emitter = target;
+          w.type = type;
+          w.count = existing.length;
+          ProcessEmitWarning(w);
+        }
+      }
+      return target;
+    }
+    EventEmitter3.prototype.addListener = function addListener(type, listener) {
+      return _addListener(this, type, listener, false);
+    };
+    EventEmitter3.prototype.on = EventEmitter3.prototype.addListener;
+    EventEmitter3.prototype.prependListener = function prependListener(type, listener) {
+      return _addListener(this, type, listener, true);
+    };
+    function onceWrapper() {
+      if (!this.fired) {
+        this.target.removeListener(this.type, this.wrapFn);
+        this.fired = true;
+        if (arguments.length === 0)
+          return this.listener.call(this.target);
+        return this.listener.apply(this.target, arguments);
+      }
+    }
+    function _onceWrap(target, type, listener) {
+      var state = { fired: false, wrapFn: void 0, target, type, listener };
+      var wrapped = onceWrapper.bind(state);
+      wrapped.listener = listener;
+      state.wrapFn = wrapped;
+      return wrapped;
+    }
+    EventEmitter3.prototype.once = function once2(type, listener) {
+      checkListener(listener);
+      this.on(type, _onceWrap(this, type, listener));
+      return this;
+    };
+    EventEmitter3.prototype.prependOnceListener = function prependOnceListener(type, listener) {
+      checkListener(listener);
+      this.prependListener(type, _onceWrap(this, type, listener));
+      return this;
+    };
+    EventEmitter3.prototype.removeListener = function removeListener(type, listener) {
+      var list, events2, position, i, originalListener;
+      checkListener(listener);
+      events2 = this._events;
+      if (events2 === void 0)
+        return this;
+      list = events2[type];
+      if (list === void 0)
+        return this;
+      if (list === listener || list.listener === listener) {
+        if (--this._eventsCount === 0)
+          this._events = /* @__PURE__ */ Object.create(null);
+        else {
+          delete events2[type];
+          if (events2.removeListener)
+            this.emit("removeListener", type, list.listener || listener);
+        }
+      } else if (typeof list !== "function") {
+        position = -1;
+        for (i = list.length - 1; i >= 0; i--) {
+          if (list[i] === listener || list[i].listener === listener) {
+            originalListener = list[i].listener;
+            position = i;
+            break;
+          }
+        }
+        if (position < 0)
+          return this;
+        if (position === 0)
+          list.shift();
+        else {
+          spliceOne(list, position);
+        }
+        if (list.length === 1)
+          events2[type] = list[0];
+        if (events2.removeListener !== void 0)
+          this.emit("removeListener", type, originalListener || listener);
+      }
+      return this;
+    };
+    EventEmitter3.prototype.off = EventEmitter3.prototype.removeListener;
+    EventEmitter3.prototype.removeAllListeners = function removeAllListeners(type) {
+      var listeners, events2, i;
+      events2 = this._events;
+      if (events2 === void 0)
+        return this;
+      if (events2.removeListener === void 0) {
+        if (arguments.length === 0) {
+          this._events = /* @__PURE__ */ Object.create(null);
+          this._eventsCount = 0;
+        } else if (events2[type] !== void 0) {
+          if (--this._eventsCount === 0)
+            this._events = /* @__PURE__ */ Object.create(null);
+          else
+            delete events2[type];
+        }
+        return this;
+      }
+      if (arguments.length === 0) {
+        var keys = Object.keys(events2);
+        var key;
+        for (i = 0; i < keys.length; ++i) {
+          key = keys[i];
+          if (key === "removeListener") continue;
+          this.removeAllListeners(key);
+        }
+        this.removeAllListeners("removeListener");
+        this._events = /* @__PURE__ */ Object.create(null);
+        this._eventsCount = 0;
+        return this;
+      }
+      listeners = events2[type];
+      if (typeof listeners === "function") {
+        this.removeListener(type, listeners);
+      } else if (listeners !== void 0) {
+        for (i = listeners.length - 1; i >= 0; i--) {
+          this.removeListener(type, listeners[i]);
+        }
+      }
+      return this;
+    };
+    function _listeners(target, type, unwrap) {
+      var events2 = target._events;
+      if (events2 === void 0)
+        return [];
+      var evlistener = events2[type];
+      if (evlistener === void 0)
+        return [];
+      if (typeof evlistener === "function")
+        return unwrap ? [evlistener.listener || evlistener] : [evlistener];
+      return unwrap ? unwrapListeners(evlistener) : arrayClone(evlistener, evlistener.length);
+    }
+    EventEmitter3.prototype.listeners = function listeners(type) {
+      return _listeners(this, type, true);
+    };
+    EventEmitter3.prototype.rawListeners = function rawListeners(type) {
+      return _listeners(this, type, false);
+    };
+    EventEmitter3.listenerCount = function(emitter, type) {
+      if (typeof emitter.listenerCount === "function") {
+        return emitter.listenerCount(type);
+      } else {
+        return listenerCount.call(emitter, type);
+      }
+    };
+    EventEmitter3.prototype.listenerCount = listenerCount;
+    function listenerCount(type) {
+      var events2 = this._events;
+      if (events2 !== void 0) {
+        var evlistener = events2[type];
+        if (typeof evlistener === "function") {
+          return 1;
+        } else if (evlistener !== void 0) {
+          return evlistener.length;
+        }
+      }
+      return 0;
+    }
+    EventEmitter3.prototype.eventNames = function eventNames() {
+      return this._eventsCount > 0 ? ReflectOwnKeys(this._events) : [];
+    };
+    function arrayClone(arr, n) {
+      var copy = new Array(n);
+      for (var i = 0; i < n; ++i)
+        copy[i] = arr[i];
+      return copy;
+    }
+    function spliceOne(list, index) {
+      for (; index + 1 < list.length; index++)
+        list[index] = list[index + 1];
+      list.pop();
+    }
+    function unwrapListeners(arr) {
+      var ret = new Array(arr.length);
+      for (var i = 0; i < ret.length; ++i) {
+        ret[i] = arr[i].listener || arr[i];
+      }
+      return ret;
+    }
+    function once(emitter, name) {
+      return new Promise(function(resolve, reject) {
+        function errorListener(err2) {
+          emitter.removeListener(name, resolver);
+          reject(err2);
+        }
+        function resolver() {
+          if (typeof emitter.removeListener === "function") {
+            emitter.removeListener("error", errorListener);
+          }
+          resolve([].slice.call(arguments));
+        }
+        ;
+        eventTargetAgnosticAddListener(emitter, name, resolver, { once: true });
+        if (name !== "error") {
+          addErrorHandlerIfEventEmitter(emitter, errorListener, { once: true });
+        }
+      });
+    }
+    function addErrorHandlerIfEventEmitter(emitter, handler, flags) {
+      if (typeof emitter.on === "function") {
+        eventTargetAgnosticAddListener(emitter, "error", handler, flags);
+      }
+    }
+    function eventTargetAgnosticAddListener(emitter, name, listener, flags) {
+      if (typeof emitter.on === "function") {
+        if (flags.once) {
+          emitter.once(name, listener);
+        } else {
+          emitter.on(name, listener);
+        }
+      } else if (typeof emitter.addEventListener === "function") {
+        emitter.addEventListener(name, function wrapListener(arg) {
+          if (flags.once) {
+            emitter.removeEventListener(name, wrapListener);
+          }
+          listener(arg);
+        });
+      } else {
+        throw new TypeError('The "emitter" argument must be of type EventEmitter. Received type ' + typeof emitter);
+      }
+    }
+  }
+});
+
+// node_modules/.deno/sjcl@1.0.8/node_modules/sjcl/sjcl.js
+var require_sjcl = __commonJS({
+  "node_modules/.deno/sjcl@1.0.8/node_modules/sjcl/sjcl.js"(exports, module) {
+    "use strict";
+    var sjcl2 = { cipher: {}, hash: {}, keyexchange: {}, mode: {}, misc: {}, codec: {}, exception: { corrupt: function(a) {
+      this.toString = function() {
+        return "CORRUPT: " + this.message;
+      };
+      this.message = a;
+    }, invalid: function(a) {
+      this.toString = function() {
+        return "INVALID: " + this.message;
+      };
+      this.message = a;
+    }, bug: function(a) {
+      this.toString = function() {
+        return "BUG: " + this.message;
+      };
+      this.message = a;
+    }, notReady: function(a) {
+      this.toString = function() {
+        return "NOT READY: " + this.message;
+      };
+      this.message = a;
+    } } };
+    sjcl2.cipher.aes = function(a) {
+      this.s[0][0][0] || this.O();
+      var b, c, d, e, f = this.s[0][4], g = this.s[1];
+      b = a.length;
+      var h = 1;
+      if (4 !== b && 6 !== b && 8 !== b) throw new sjcl2.exception.invalid("invalid aes key size");
+      this.b = [d = a.slice(0), e = []];
+      for (a = b; a < 4 * b + 28; a++) {
+        c = d[a - 1];
+        if (0 === a % b || 8 === b && 4 === a % b) c = f[c >>> 24] << 24 ^ f[c >> 16 & 255] << 16 ^ f[c >> 8 & 255] << 8 ^ f[c & 255], 0 === a % b && (c = c << 8 ^ c >>> 24 ^ h << 24, h = h << 1 ^ 283 * (h >> 7));
+        d[a] = d[a - b] ^ c;
+      }
+      for (b = 0; a; b++, a--) c = d[b & 3 ? a : a - 4], e[b] = 4 >= a || 4 > b ? c : g[0][f[c >>> 24]] ^ g[1][f[c >> 16 & 255]] ^ g[2][f[c >> 8 & 255]] ^ g[3][f[c & 255]];
+    };
+    sjcl2.cipher.aes.prototype = { encrypt: function(a) {
+      return t(this, a, 0);
+    }, decrypt: function(a) {
+      return t(this, a, 1);
+    }, s: [[[], [], [], [], []], [[], [], [], [], []]], O: function() {
+      var a = this.s[0], b = this.s[1], c = a[4], d = b[4], e, f, g, h = [], k = [], l, n, m, p;
+      for (e = 0; 256 > e; e++) k[(h[e] = e << 1 ^ 283 * (e >> 7)) ^ e] = e;
+      for (f = g = 0; !c[f]; f ^= l || 1, g = k[g] || 1) for (m = g ^ g << 1 ^ g << 2 ^ g << 3 ^ g << 4, m = m >> 8 ^ m & 255 ^ 99, c[f] = m, d[m] = f, n = h[e = h[l = h[f]]], p = 16843009 * n ^ 65537 * e ^ 257 * l ^ 16843008 * f, n = 257 * h[m] ^ 16843008 * m, e = 0; 4 > e; e++) a[e][f] = n = n << 24 ^ n >>> 8, b[e][m] = p = p << 24 ^ p >>> 8;
+      for (e = 0; 5 > e; e++) a[e] = a[e].slice(0), b[e] = b[e].slice(0);
+    } };
+    function t(a, b, c) {
+      if (4 !== b.length) throw new sjcl2.exception.invalid("invalid aes block size");
+      var d = a.b[c], e = b[0] ^ d[0], f = b[c ? 3 : 1] ^ d[1], g = b[2] ^ d[2];
+      b = b[c ? 1 : 3] ^ d[3];
+      var h, k, l, n = d.length / 4 - 2, m, p = 4, r = [0, 0, 0, 0];
+      h = a.s[c];
+      a = h[0];
+      var q = h[1], v = h[2], w = h[3], x = h[4];
+      for (m = 0; m < n; m++) h = a[e >>> 24] ^ q[f >> 16 & 255] ^ v[g >> 8 & 255] ^ w[b & 255] ^ d[p], k = a[f >>> 24] ^ q[g >> 16 & 255] ^ v[b >> 8 & 255] ^ w[e & 255] ^ d[p + 1], l = a[g >>> 24] ^ q[b >> 16 & 255] ^ v[e >> 8 & 255] ^ w[f & 255] ^ d[p + 2], b = a[b >>> 24] ^ q[e >> 16 & 255] ^ v[f >> 8 & 255] ^ w[g & 255] ^ d[p + 3], p += 4, e = h, f = k, g = l;
+      for (m = 0; 4 > m; m++) r[c ? 3 & -m : m] = x[e >>> 24] << 24 ^ x[f >> 16 & 255] << 16 ^ x[g >> 8 & 255] << 8 ^ x[b & 255] ^ d[p++], h = e, e = f, f = g, g = b, b = h;
+      return r;
+    }
+    sjcl2.bitArray = { bitSlice: function(a, b, c) {
+      a = sjcl2.bitArray.$(a.slice(b / 32), 32 - (b & 31)).slice(1);
+      return void 0 === c ? a : sjcl2.bitArray.clamp(a, c - b);
+    }, extract: function(a, b, c) {
+      var d = Math.floor(-b - c & 31);
+      return ((b + c - 1 ^ b) & -32 ? a[b / 32 | 0] << 32 - d ^ a[b / 32 + 1 | 0] >>> d : a[b / 32 | 0] >>> d) & (1 << c) - 1;
+    }, concat: function(a, b) {
+      if (0 === a.length || 0 === b.length) return a.concat(b);
+      var c = a[a.length - 1], d = sjcl2.bitArray.getPartial(c);
+      return 32 === d ? a.concat(b) : sjcl2.bitArray.$(b, d, c | 0, a.slice(0, a.length - 1));
+    }, bitLength: function(a) {
+      var b = a.length;
+      return 0 === b ? 0 : 32 * (b - 1) + sjcl2.bitArray.getPartial(a[b - 1]);
+    }, clamp: function(a, b) {
+      if (32 * a.length < b) return a;
+      a = a.slice(0, Math.ceil(b / 32));
+      var c = a.length;
+      b = b & 31;
+      0 < c && b && (a[c - 1] = sjcl2.bitArray.partial(b, a[c - 1] & 2147483648 >> b - 1, 1));
+      return a;
+    }, partial: function(a, b, c) {
+      return 32 === a ? b : (c ? b | 0 : b << 32 - a) + 1099511627776 * a;
+    }, getPartial: function(a) {
+      return Math.round(a / 1099511627776) || 32;
+    }, equal: function(a, b) {
+      if (sjcl2.bitArray.bitLength(a) !== sjcl2.bitArray.bitLength(b)) return false;
+      var c = 0, d;
+      for (d = 0; d < a.length; d++) c |= a[d] ^ b[d];
+      return 0 === c;
+    }, $: function(a, b, c, d) {
+      var e;
+      e = 0;
+      for (void 0 === d && (d = []); 32 <= b; b -= 32) d.push(c), c = 0;
+      if (0 === b) return d.concat(a);
+      for (e = 0; e < a.length; e++) d.push(c | a[e] >>> b), c = a[e] << 32 - b;
+      e = a.length ? a[a.length - 1] : 0;
+      a = sjcl2.bitArray.getPartial(e);
+      d.push(sjcl2.bitArray.partial(b + a & 31, 32 < b + a ? c : d.pop(), 1));
+      return d;
+    }, i: function(a, b) {
+      return [a[0] ^ b[0], a[1] ^ b[1], a[2] ^ b[2], a[3] ^ b[3]];
+    }, byteswapM: function(a) {
+      var b, c;
+      for (b = 0; b < a.length; ++b) c = a[b], a[b] = c >>> 24 | c >>> 8 & 65280 | (c & 65280) << 8 | c << 24;
+      return a;
+    } };
+    sjcl2.codec.utf8String = { fromBits: function(a) {
+      var b = "", c = sjcl2.bitArray.bitLength(a), d, e;
+      for (d = 0; d < c / 8; d++) 0 === (d & 3) && (e = a[d / 4]), b += String.fromCharCode(e >>> 8 >>> 8 >>> 8), e <<= 8;
+      return decodeURIComponent(escape(b));
+    }, toBits: function(a) {
+      a = unescape(encodeURIComponent(a));
+      var b = [], c, d = 0;
+      for (c = 0; c < a.length; c++) d = d << 8 | a.charCodeAt(c), 3 === (c & 3) && (b.push(d), d = 0);
+      c & 3 && b.push(sjcl2.bitArray.partial(8 * (c & 3), d));
+      return b;
+    } };
+    sjcl2.codec.hex = { fromBits: function(a) {
+      var b = "", c;
+      for (c = 0; c < a.length; c++) b += ((a[c] | 0) + 263882790666240).toString(16).substr(4);
+      return b.substr(0, sjcl2.bitArray.bitLength(a) / 4);
+    }, toBits: function(a) {
+      var b, c = [], d;
+      a = a.replace(/\s|0x/g, "");
+      d = a.length;
+      a = a + "00000000";
+      for (b = 0; b < a.length; b += 8) c.push(parseInt(a.substr(b, 8), 16) ^ 0);
+      return sjcl2.bitArray.clamp(c, 4 * d);
+    } };
+    sjcl2.codec.base32 = { B: "ABCDEFGHIJKLMNOPQRSTUVWXYZ234567", X: "0123456789ABCDEFGHIJKLMNOPQRSTUV", BITS: 32, BASE: 5, REMAINING: 27, fromBits: function(a, b, c) {
+      var d = sjcl2.codec.base32.BASE, e = sjcl2.codec.base32.REMAINING, f = "", g = 0, h = sjcl2.codec.base32.B, k = 0, l = sjcl2.bitArray.bitLength(a);
+      c && (h = sjcl2.codec.base32.X);
+      for (c = 0; f.length * d < l; ) f += h.charAt((k ^ a[c] >>> g) >>> e), g < d ? (k = a[c] << d - g, g += e, c++) : (k <<= d, g -= d);
+      for (; f.length & 7 && !b; ) f += "=";
+      return f;
+    }, toBits: function(a, b) {
+      a = a.replace(/\s|=/g, "").toUpperCase();
+      var c = sjcl2.codec.base32.BITS, d = sjcl2.codec.base32.BASE, e = sjcl2.codec.base32.REMAINING, f = [], g, h = 0, k = sjcl2.codec.base32.B, l = 0, n, m = "base32";
+      b && (k = sjcl2.codec.base32.X, m = "base32hex");
+      for (g = 0; g < a.length; g++) {
+        n = k.indexOf(a.charAt(g));
+        if (0 > n) {
+          if (!b) try {
+            return sjcl2.codec.base32hex.toBits(a);
+          } catch (p) {
+          }
+          throw new sjcl2.exception.invalid("this isn't " + m + "!");
+        }
+        h > e ? (h -= e, f.push(l ^ n >>> h), l = n << c - h) : (h += d, l ^= n << c - h);
+      }
+      h & 56 && f.push(sjcl2.bitArray.partial(h & 56, l, 1));
+      return f;
+    } };
+    sjcl2.codec.base32hex = { fromBits: function(a, b) {
+      return sjcl2.codec.base32.fromBits(a, b, 1);
+    }, toBits: function(a) {
+      return sjcl2.codec.base32.toBits(a, 1);
+    } };
+    sjcl2.codec.base64 = { B: "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789+/", fromBits: function(a, b, c) {
+      var d = "", e = 0, f = sjcl2.codec.base64.B, g = 0, h = sjcl2.bitArray.bitLength(a);
+      c && (f = f.substr(0, 62) + "-_");
+      for (c = 0; 6 * d.length < h; ) d += f.charAt((g ^ a[c] >>> e) >>> 26), 6 > e ? (g = a[c] << 6 - e, e += 26, c++) : (g <<= 6, e -= 6);
+      for (; d.length & 3 && !b; ) d += "=";
+      return d;
+    }, toBits: function(a, b) {
+      a = a.replace(/\s|=/g, "");
+      var c = [], d, e = 0, f = sjcl2.codec.base64.B, g = 0, h;
+      b && (f = f.substr(0, 62) + "-_");
+      for (d = 0; d < a.length; d++) {
+        h = f.indexOf(a.charAt(d));
+        if (0 > h) throw new sjcl2.exception.invalid("this isn't base64!");
+        26 < e ? (e -= 26, c.push(g ^ h >>> e), g = h << 32 - e) : (e += 6, g ^= h << 32 - e);
+      }
+      e & 56 && c.push(sjcl2.bitArray.partial(e & 56, g, 1));
+      return c;
+    } };
+    sjcl2.codec.base64url = { fromBits: function(a) {
+      return sjcl2.codec.base64.fromBits(a, 1, 1);
+    }, toBits: function(a) {
+      return sjcl2.codec.base64.toBits(a, 1);
+    } };
+    sjcl2.hash.sha256 = function(a) {
+      this.b[0] || this.O();
+      a ? (this.F = a.F.slice(0), this.A = a.A.slice(0), this.l = a.l) : this.reset();
+    };
+    sjcl2.hash.sha256.hash = function(a) {
+      return new sjcl2.hash.sha256().update(a).finalize();
+    };
+    sjcl2.hash.sha256.prototype = { blockSize: 512, reset: function() {
+      this.F = this.Y.slice(0);
+      this.A = [];
+      this.l = 0;
+      return this;
+    }, update: function(a) {
+      "string" === typeof a && (a = sjcl2.codec.utf8String.toBits(a));
+      var b, c = this.A = sjcl2.bitArray.concat(this.A, a);
+      b = this.l;
+      a = this.l = b + sjcl2.bitArray.bitLength(a);
+      if (9007199254740991 < a) throw new sjcl2.exception.invalid("Cannot hash more than 2^53 - 1 bits");
+      if ("undefined" !== typeof Uint32Array) {
+        var d = new Uint32Array(c), e = 0;
+        for (b = 512 + b - (512 + b & 511); b <= a; b += 512) u(this, d.subarray(
+          16 * e,
+          16 * (e + 1)
+        )), e += 1;
+        c.splice(0, 16 * e);
+      } else for (b = 512 + b - (512 + b & 511); b <= a; b += 512) u(this, c.splice(0, 16));
+      return this;
+    }, finalize: function() {
+      var a, b = this.A, c = this.F, b = sjcl2.bitArray.concat(b, [sjcl2.bitArray.partial(1, 1)]);
+      for (a = b.length + 2; a & 15; a++) b.push(0);
+      b.push(Math.floor(this.l / 4294967296));
+      for (b.push(this.l | 0); b.length; ) u(this, b.splice(0, 16));
+      this.reset();
+      return c;
+    }, Y: [], b: [], O: function() {
+      function a(a2) {
+        return 4294967296 * (a2 - Math.floor(a2)) | 0;
+      }
+      for (var b = 0, c = 2, d, e; 64 > b; c++) {
+        e = true;
+        for (d = 2; d * d <= c; d++) if (0 === c % d) {
+          e = false;
+          break;
+        }
+        e && (8 > b && (this.Y[b] = a(Math.pow(c, 0.5))), this.b[b] = a(Math.pow(c, 1 / 3)), b++);
+      }
+    } };
+    function u(a, b) {
+      var c, d, e, f = a.F, g = a.b, h = f[0], k = f[1], l = f[2], n = f[3], m = f[4], p = f[5], r = f[6], q = f[7];
+      for (c = 0; 64 > c; c++) 16 > c ? d = b[c] : (d = b[c + 1 & 15], e = b[c + 14 & 15], d = b[c & 15] = (d >>> 7 ^ d >>> 18 ^ d >>> 3 ^ d << 25 ^ d << 14) + (e >>> 17 ^ e >>> 19 ^ e >>> 10 ^ e << 15 ^ e << 13) + b[c & 15] + b[c + 9 & 15] | 0), d = d + q + (m >>> 6 ^ m >>> 11 ^ m >>> 25 ^ m << 26 ^ m << 21 ^ m << 7) + (r ^ m & (p ^ r)) + g[c], q = r, r = p, p = m, m = n + d | 0, n = l, l = k, k = h, h = d + (k & l ^ n & (k ^ l)) + (k >>> 2 ^ k >>> 13 ^ k >>> 22 ^ k << 30 ^ k << 19 ^ k << 10) | 0;
+      f[0] = f[0] + h | 0;
+      f[1] = f[1] + k | 0;
+      f[2] = f[2] + l | 0;
+      f[3] = f[3] + n | 0;
+      f[4] = f[4] + m | 0;
+      f[5] = f[5] + p | 0;
+      f[6] = f[6] + r | 0;
+      f[7] = f[7] + q | 0;
+    }
+    sjcl2.mode.ccm = { name: "ccm", G: [], listenProgress: function(a) {
+      sjcl2.mode.ccm.G.push(a);
+    }, unListenProgress: function(a) {
+      a = sjcl2.mode.ccm.G.indexOf(a);
+      -1 < a && sjcl2.mode.ccm.G.splice(a, 1);
+    }, fa: function(a) {
+      var b = sjcl2.mode.ccm.G.slice(), c;
+      for (c = 0; c < b.length; c += 1) b[c](a);
+    }, encrypt: function(a, b, c, d, e) {
+      var f, g = b.slice(0), h = sjcl2.bitArray, k = h.bitLength(c) / 8, l = h.bitLength(g) / 8;
+      e = e || 64;
+      d = d || [];
+      if (7 > k) throw new sjcl2.exception.invalid("ccm: iv must be at least 7 bytes");
+      for (f = 2; 4 > f && l >>> 8 * f; f++) ;
+      f < 15 - k && (f = 15 - k);
+      c = h.clamp(
+        c,
+        8 * (15 - f)
+      );
+      b = sjcl2.mode.ccm.V(a, b, c, d, e, f);
+      g = sjcl2.mode.ccm.C(a, g, c, b, e, f);
+      return h.concat(g.data, g.tag);
+    }, decrypt: function(a, b, c, d, e) {
+      e = e || 64;
+      d = d || [];
+      var f = sjcl2.bitArray, g = f.bitLength(c) / 8, h = f.bitLength(b), k = f.clamp(b, h - e), l = f.bitSlice(b, h - e), h = (h - e) / 8;
+      if (7 > g) throw new sjcl2.exception.invalid("ccm: iv must be at least 7 bytes");
+      for (b = 2; 4 > b && h >>> 8 * b; b++) ;
+      b < 15 - g && (b = 15 - g);
+      c = f.clamp(c, 8 * (15 - b));
+      k = sjcl2.mode.ccm.C(a, k, c, l, e, b);
+      a = sjcl2.mode.ccm.V(a, k.data, c, d, e, b);
+      if (!f.equal(k.tag, a)) throw new sjcl2.exception.corrupt("ccm: tag doesn't match");
+      return k.data;
+    }, na: function(a, b, c, d, e, f) {
+      var g = [], h = sjcl2.bitArray, k = h.i;
+      d = [h.partial(8, (b.length ? 64 : 0) | d - 2 << 2 | f - 1)];
+      d = h.concat(d, c);
+      d[3] |= e;
+      d = a.encrypt(d);
+      if (b.length) for (c = h.bitLength(b) / 8, 65279 >= c ? g = [h.partial(16, c)] : 4294967295 >= c && (g = h.concat([h.partial(16, 65534)], [c])), g = h.concat(g, b), b = 0; b < g.length; b += 4) d = a.encrypt(k(d, g.slice(b, b + 4).concat([0, 0, 0])));
+      return d;
+    }, V: function(a, b, c, d, e, f) {
+      var g = sjcl2.bitArray, h = g.i;
+      e /= 8;
+      if (e % 2 || 4 > e || 16 < e) throw new sjcl2.exception.invalid("ccm: invalid tag length");
+      if (4294967295 < d.length || 4294967295 < b.length) throw new sjcl2.exception.bug("ccm: can't deal with 4GiB or more data");
+      c = sjcl2.mode.ccm.na(a, d, c, e, g.bitLength(b) / 8, f);
+      for (d = 0; d < b.length; d += 4) c = a.encrypt(h(c, b.slice(d, d + 4).concat([0, 0, 0])));
+      return g.clamp(c, 8 * e);
+    }, C: function(a, b, c, d, e, f) {
+      var g, h = sjcl2.bitArray;
+      g = h.i;
+      var k = b.length, l = h.bitLength(b), n = k / 50, m = n;
+      c = h.concat([h.partial(8, f - 1)], c).concat([0, 0, 0]).slice(0, 4);
+      d = h.bitSlice(g(d, a.encrypt(c)), 0, e);
+      if (!k) return { tag: d, data: [] };
+      for (g = 0; g < k; g += 4) g > n && (sjcl2.mode.ccm.fa(g / k), n += m), c[3]++, e = a.encrypt(c), b[g] ^= e[0], b[g + 1] ^= e[1], b[g + 2] ^= e[2], b[g + 3] ^= e[3];
+      return { tag: d, data: h.clamp(b, l) };
+    } };
+    sjcl2.mode.ocb2 = { name: "ocb2", encrypt: function(a, b, c, d, e, f) {
+      if (128 !== sjcl2.bitArray.bitLength(c)) throw new sjcl2.exception.invalid("ocb iv must be 128 bits");
+      var g, h = sjcl2.mode.ocb2.S, k = sjcl2.bitArray, l = k.i, n = [0, 0, 0, 0];
+      c = h(a.encrypt(c));
+      var m, p = [];
+      d = d || [];
+      e = e || 64;
+      for (g = 0; g + 4 < b.length; g += 4) m = b.slice(g, g + 4), n = l(n, m), p = p.concat(l(c, a.encrypt(l(c, m)))), c = h(c);
+      m = b.slice(g);
+      b = k.bitLength(m);
+      g = a.encrypt(l(c, [0, 0, 0, b]));
+      m = k.clamp(l(m.concat([0, 0, 0]), g), b);
+      n = l(n, l(m.concat([0, 0, 0]), g));
+      n = a.encrypt(l(n, l(c, h(c))));
+      d.length && (n = l(n, f ? d : sjcl2.mode.ocb2.pmac(a, d)));
+      return p.concat(k.concat(m, k.clamp(n, e)));
+    }, decrypt: function(a, b, c, d, e, f) {
+      if (128 !== sjcl2.bitArray.bitLength(c)) throw new sjcl2.exception.invalid("ocb iv must be 128 bits");
+      e = e || 64;
+      var g = sjcl2.mode.ocb2.S, h = sjcl2.bitArray, k = h.i, l = [0, 0, 0, 0], n = g(a.encrypt(c)), m, p, r = sjcl2.bitArray.bitLength(b) - e, q = [];
+      d = d || [];
+      for (c = 0; c + 4 < r / 32; c += 4) m = k(n, a.decrypt(k(n, b.slice(c, c + 4)))), l = k(l, m), q = q.concat(m), n = g(n);
+      p = r - 32 * c;
+      m = a.encrypt(k(n, [0, 0, 0, p]));
+      m = k(m, h.clamp(b.slice(c), p).concat([
+        0,
+        0,
+        0
+      ]));
+      l = k(l, m);
+      l = a.encrypt(k(l, k(n, g(n))));
+      d.length && (l = k(l, f ? d : sjcl2.mode.ocb2.pmac(a, d)));
+      if (!h.equal(h.clamp(l, e), h.bitSlice(b, r))) throw new sjcl2.exception.corrupt("ocb: tag doesn't match");
+      return q.concat(h.clamp(m, p));
+    }, pmac: function(a, b) {
+      var c, d = sjcl2.mode.ocb2.S, e = sjcl2.bitArray, f = e.i, g = [0, 0, 0, 0], h = a.encrypt([0, 0, 0, 0]), h = f(h, d(d(h)));
+      for (c = 0; c + 4 < b.length; c += 4) h = d(h), g = f(g, a.encrypt(f(h, b.slice(c, c + 4))));
+      c = b.slice(c);
+      128 > e.bitLength(c) && (h = f(h, d(h)), c = e.concat(c, [-2147483648, 0, 0, 0]));
+      g = f(g, c);
+      return a.encrypt(f(d(f(h, d(h))), g));
+    }, S: function(a) {
+      return [a[0] << 1 ^ a[1] >>> 31, a[1] << 1 ^ a[2] >>> 31, a[2] << 1 ^ a[3] >>> 31, a[3] << 1 ^ 135 * (a[0] >>> 31)];
+    } };
+    sjcl2.mode.gcm = { name: "gcm", encrypt: function(a, b, c, d, e) {
+      var f = b.slice(0);
+      b = sjcl2.bitArray;
+      d = d || [];
+      a = sjcl2.mode.gcm.C(true, a, f, d, c, e || 128);
+      return b.concat(a.data, a.tag);
+    }, decrypt: function(a, b, c, d, e) {
+      var f = b.slice(0), g = sjcl2.bitArray, h = g.bitLength(f);
+      e = e || 128;
+      d = d || [];
+      e <= h ? (b = g.bitSlice(f, h - e), f = g.bitSlice(f, 0, h - e)) : (b = f, f = []);
+      a = sjcl2.mode.gcm.C(false, a, f, d, c, e);
+      if (!g.equal(a.tag, b)) throw new sjcl2.exception.corrupt("gcm: tag doesn't match");
+      return a.data;
+    }, ka: function(a, b) {
+      var c, d, e, f, g, h = sjcl2.bitArray.i;
+      e = [
+        0,
+        0,
+        0,
+        0
+      ];
+      f = b.slice(0);
+      for (c = 0; 128 > c; c++) {
+        (d = 0 !== (a[Math.floor(c / 32)] & 1 << 31 - c % 32)) && (e = h(e, f));
+        g = 0 !== (f[3] & 1);
+        for (d = 3; 0 < d; d--) f[d] = f[d] >>> 1 | (f[d - 1] & 1) << 31;
+        f[0] >>>= 1;
+        g && (f[0] ^= -520093696);
+      }
+      return e;
+    }, j: function(a, b, c) {
+      var d, e = c.length;
+      b = b.slice(0);
+      for (d = 0; d < e; d += 4) b[0] ^= 4294967295 & c[d], b[1] ^= 4294967295 & c[d + 1], b[2] ^= 4294967295 & c[d + 2], b[3] ^= 4294967295 & c[d + 3], b = sjcl2.mode.gcm.ka(b, a);
+      return b;
+    }, C: function(a, b, c, d, e, f) {
+      var g, h, k, l, n, m, p, r, q = sjcl2.bitArray;
+      m = c.length;
+      p = q.bitLength(c);
+      r = q.bitLength(d);
+      h = q.bitLength(e);
+      g = b.encrypt([0, 0, 0, 0]);
+      96 === h ? (e = e.slice(0), e = q.concat(e, [1])) : (e = sjcl2.mode.gcm.j(g, [0, 0, 0, 0], e), e = sjcl2.mode.gcm.j(g, e, [0, 0, Math.floor(h / 4294967296), h & 4294967295]));
+      h = sjcl2.mode.gcm.j(g, [0, 0, 0, 0], d);
+      n = e.slice(0);
+      d = h.slice(0);
+      a || (d = sjcl2.mode.gcm.j(g, h, c));
+      for (l = 0; l < m; l += 4) n[3]++, k = b.encrypt(n), c[l] ^= k[0], c[l + 1] ^= k[1], c[l + 2] ^= k[2], c[l + 3] ^= k[3];
+      c = q.clamp(c, p);
+      a && (d = sjcl2.mode.gcm.j(g, h, c));
+      a = [Math.floor(r / 4294967296), r & 4294967295, Math.floor(p / 4294967296), p & 4294967295];
+      d = sjcl2.mode.gcm.j(g, d, a);
+      k = b.encrypt(e);
+      d[0] ^= k[0];
+      d[1] ^= k[1];
+      d[2] ^= k[2];
+      d[3] ^= k[3];
+      return { tag: q.bitSlice(d, 0, f), data: c };
+    } };
+    sjcl2.misc.hmac = function(a, b) {
+      this.W = b = b || sjcl2.hash.sha256;
+      var c = [[], []], d, e = b.prototype.blockSize / 32;
+      this.w = [new b(), new b()];
+      a.length > e && (a = b.hash(a));
+      for (d = 0; d < e; d++) c[0][d] = a[d] ^ 909522486, c[1][d] = a[d] ^ 1549556828;
+      this.w[0].update(c[0]);
+      this.w[1].update(c[1]);
+      this.R = new b(this.w[0]);
+    };
+    sjcl2.misc.hmac.prototype.encrypt = sjcl2.misc.hmac.prototype.mac = function(a) {
+      if (this.aa) throw new sjcl2.exception.invalid("encrypt on already updated hmac called!");
+      this.update(a);
+      return this.digest(a);
+    };
+    sjcl2.misc.hmac.prototype.reset = function() {
+      this.R = new this.W(this.w[0]);
+      this.aa = false;
+    };
+    sjcl2.misc.hmac.prototype.update = function(a) {
+      this.aa = true;
+      this.R.update(a);
+    };
+    sjcl2.misc.hmac.prototype.digest = function() {
+      var a = this.R.finalize(), a = new this.W(this.w[1]).update(a).finalize();
+      this.reset();
+      return a;
+    };
+    sjcl2.misc.pbkdf2 = function(a, b, c, d, e) {
+      c = c || 1e4;
+      if (0 > d || 0 > c) throw new sjcl2.exception.invalid("invalid params to pbkdf2");
+      "string" === typeof a && (a = sjcl2.codec.utf8String.toBits(a));
+      "string" === typeof b && (b = sjcl2.codec.utf8String.toBits(b));
+      e = e || sjcl2.misc.hmac;
+      a = new e(a);
+      var f, g, h, k, l = [], n = sjcl2.bitArray;
+      for (k = 1; 32 * l.length < (d || 1); k++) {
+        e = f = a.encrypt(n.concat(b, [k]));
+        for (g = 1; g < c; g++) for (f = a.encrypt(f), h = 0; h < f.length; h++) e[h] ^= f[h];
+        l = l.concat(e);
+      }
+      d && (l = n.clamp(l, d));
+      return l;
+    };
+    sjcl2.prng = function(a) {
+      this.c = [new sjcl2.hash.sha256()];
+      this.m = [0];
+      this.P = 0;
+      this.H = {};
+      this.N = 0;
+      this.U = {};
+      this.Z = this.f = this.o = this.ha = 0;
+      this.b = [0, 0, 0, 0, 0, 0, 0, 0];
+      this.h = [0, 0, 0, 0];
+      this.L = void 0;
+      this.M = a;
+      this.D = false;
+      this.K = { progress: {}, seeded: {} };
+      this.u = this.ga = 0;
+      this.I = 1;
+      this.J = 2;
+      this.ca = 65536;
+      this.T = [0, 48, 64, 96, 128, 192, 256, 384, 512, 768, 1024];
+      this.da = 3e4;
+      this.ba = 80;
+    };
+    sjcl2.prng.prototype = {
+      randomWords: function(a, b) {
+        var c = [], d;
+        d = this.isReady(b);
+        var e;
+        if (d === this.u) throw new sjcl2.exception.notReady("generator isn't seeded");
+        if (d & this.J) {
+          d = !(d & this.I);
+          e = [];
+          var f = 0, g;
+          this.Z = e[0] = (/* @__PURE__ */ new Date()).valueOf() + this.da;
+          for (g = 0; 16 > g; g++) e.push(4294967296 * Math.random() | 0);
+          for (g = 0; g < this.c.length && (e = e.concat(this.c[g].finalize()), f += this.m[g], this.m[g] = 0, d || !(this.P & 1 << g)); g++) ;
+          this.P >= 1 << this.c.length && (this.c.push(new sjcl2.hash.sha256()), this.m.push(0));
+          this.f -= f;
+          f > this.o && (this.o = f);
+          this.P++;
+          this.b = sjcl2.hash.sha256.hash(this.b.concat(e));
+          this.L = new sjcl2.cipher.aes(this.b);
+          for (d = 0; 4 > d && (this.h[d] = this.h[d] + 1 | 0, !this.h[d]); d++) ;
+        }
+        for (d = 0; d < a; d += 4) 0 === (d + 1) % this.ca && y(this), e = z(this), c.push(e[0], e[1], e[2], e[3]);
+        y(this);
+        return c.slice(0, a);
+      },
+      setDefaultParanoia: function(a, b) {
+        if (0 === a && "Setting paranoia=0 will ruin your security; use it only for testing" !== b) throw new sjcl2.exception.invalid("Setting paranoia=0 will ruin your security; use it only for testing");
+        this.M = a;
+      },
+      addEntropy: function(a, b, c) {
+        c = c || "user";
+        var d, e, f = (/* @__PURE__ */ new Date()).valueOf(), g = this.H[c], h = this.isReady(), k = 0;
+        d = this.U[c];
+        void 0 === d && (d = this.U[c] = this.ha++);
+        void 0 === g && (g = this.H[c] = 0);
+        this.H[c] = (this.H[c] + 1) % this.c.length;
+        switch (typeof a) {
+          case "number":
+            void 0 === b && (b = 1);
+            this.c[g].update([d, this.N++, 1, b, f, 1, a | 0]);
+            break;
+          case "object":
+            c = Object.prototype.toString.call(a);
+            if ("[object Uint32Array]" === c) {
+              e = [];
+              for (c = 0; c < a.length; c++) e.push(a[c]);
+              a = e;
+            } else for ("[object Array]" !== c && (k = 1), c = 0; c < a.length && !k; c++) "number" !== typeof a[c] && (k = 1);
+            if (!k) {
+              if (void 0 === b) for (c = b = 0; c < a.length; c++) for (e = a[c]; 0 < e; ) b++, e = e >>> 1;
+              this.c[g].update([d, this.N++, 2, b, f, a.length].concat(a));
+            }
+            break;
+          case "string":
+            void 0 === b && (b = a.length);
+            this.c[g].update([d, this.N++, 3, b, f, a.length]);
+            this.c[g].update(a);
+            break;
+          default:
+            k = 1;
+        }
+        if (k) throw new sjcl2.exception.bug("random: addEntropy only supports number, array of numbers or string");
+        this.m[g] += b;
+        this.f += b;
+        h === this.u && (this.isReady() !== this.u && A("seeded", Math.max(this.o, this.f)), A("progress", this.getProgress()));
+      },
+      isReady: function(a) {
+        a = this.T[void 0 !== a ? a : this.M];
+        return this.o && this.o >= a ? this.m[0] > this.ba && (/* @__PURE__ */ new Date()).valueOf() > this.Z ? this.J | this.I : this.I : this.f >= a ? this.J | this.u : this.u;
+      },
+      getProgress: function(a) {
+        a = this.T[a ? a : this.M];
+        return this.o >= a ? 1 : this.f > a ? 1 : this.f / a;
+      },
+      startCollectors: function() {
+        if (!this.D) {
+          this.a = { loadTimeCollector: B(this, this.ma), mouseCollector: B(this, this.oa), keyboardCollector: B(this, this.la), accelerometerCollector: B(this, this.ea), touchCollector: B(this, this.qa) };
+          if (window.addEventListener) window.addEventListener(
+            "load",
+            this.a.loadTimeCollector,
+            false
+          ), window.addEventListener("mousemove", this.a.mouseCollector, false), window.addEventListener("keypress", this.a.keyboardCollector, false), window.addEventListener("devicemotion", this.a.accelerometerCollector, false), window.addEventListener("touchmove", this.a.touchCollector, false);
+          else if (document.attachEvent) document.attachEvent("onload", this.a.loadTimeCollector), document.attachEvent("onmousemove", this.a.mouseCollector), document.attachEvent("keypress", this.a.keyboardCollector);
+          else throw new sjcl2.exception.bug("can't attach event");
+          this.D = true;
+        }
+      },
+      stopCollectors: function() {
+        this.D && (window.removeEventListener ? (window.removeEventListener("load", this.a.loadTimeCollector, false), window.removeEventListener("mousemove", this.a.mouseCollector, false), window.removeEventListener("keypress", this.a.keyboardCollector, false), window.removeEventListener("devicemotion", this.a.accelerometerCollector, false), window.removeEventListener("touchmove", this.a.touchCollector, false)) : document.detachEvent && (document.detachEvent("onload", this.a.loadTimeCollector), document.detachEvent(
+          "onmousemove",
+          this.a.mouseCollector
+        ), document.detachEvent("keypress", this.a.keyboardCollector)), this.D = false);
+      },
+      addEventListener: function(a, b) {
+        this.K[a][this.ga++] = b;
+      },
+      removeEventListener: function(a, b) {
+        var c, d, e = this.K[a], f = [];
+        for (d in e) e.hasOwnProperty(d) && e[d] === b && f.push(d);
+        for (c = 0; c < f.length; c++) d = f[c], delete e[d];
+      },
+      la: function() {
+        C(this, 1);
+      },
+      oa: function(a) {
+        var b, c;
+        try {
+          b = a.x || a.clientX || a.offsetX || 0, c = a.y || a.clientY || a.offsetY || 0;
+        } catch (d) {
+          c = b = 0;
+        }
+        0 != b && 0 != c && this.addEntropy([b, c], 2, "mouse");
+        C(this, 0);
+      },
+      qa: function(a) {
+        a = a.touches[0] || a.changedTouches[0];
+        this.addEntropy([a.pageX || a.clientX, a.pageY || a.clientY], 1, "touch");
+        C(this, 0);
+      },
+      ma: function() {
+        C(this, 2);
+      },
+      ea: function(a) {
+        a = a.accelerationIncludingGravity.x || a.accelerationIncludingGravity.y || a.accelerationIncludingGravity.z;
+        if (window.orientation) {
+          var b = window.orientation;
+          "number" === typeof b && this.addEntropy(b, 1, "accelerometer");
+        }
+        a && this.addEntropy(a, 2, "accelerometer");
+        C(this, 0);
+      }
+    };
+    function A(a, b) {
+      var c, d = sjcl2.random.K[a], e = [];
+      for (c in d) d.hasOwnProperty(c) && e.push(d[c]);
+      for (c = 0; c < e.length; c++) e[c](b);
+    }
+    function C(a, b) {
+      "undefined" !== typeof window && window.performance && "function" === typeof window.performance.now ? a.addEntropy(window.performance.now(), b, "loadtime") : a.addEntropy((/* @__PURE__ */ new Date()).valueOf(), b, "loadtime");
+    }
+    function y(a) {
+      a.b = z(a).concat(z(a));
+      a.L = new sjcl2.cipher.aes(a.b);
+    }
+    function z(a) {
+      for (var b = 0; 4 > b && (a.h[b] = a.h[b] + 1 | 0, !a.h[b]); b++) ;
+      return a.L.encrypt(a.h);
+    }
+    function B(a, b) {
+      return function() {
+        b.apply(a, arguments);
+      };
+    }
+    sjcl2.random = new sjcl2.prng(6);
+    a: try {
+      if (G = "undefined" !== typeof module && module.exports) {
+        try {
+          H = __require("crypto");
+        } catch (a) {
+          H = null;
+        }
+        G = E = H;
+      }
+      if (G && E.randomBytes) D = E.randomBytes(128), D = new Uint32Array(new Uint8Array(D).buffer), sjcl2.random.addEntropy(D, 1024, "crypto['randomBytes']");
+      else if ("undefined" !== typeof window && "undefined" !== typeof Uint32Array) {
+        F = new Uint32Array(32);
+        if (window.crypto && window.crypto.getRandomValues) window.crypto.getRandomValues(F);
+        else if (window.msCrypto && window.msCrypto.getRandomValues) window.msCrypto.getRandomValues(F);
+        else break a;
+        sjcl2.random.addEntropy(F, 1024, "crypto['getRandomValues']");
+      }
+    } catch (a) {
+      "undefined" !== typeof window && window.console && (console.log("There was an error collecting entropy from the browser:"), console.log(a));
+    }
+    var D;
+    var E;
+    var F;
+    var G;
+    var H;
+    sjcl2.json = { defaults: { v: 1, iter: 1e4, ks: 128, ts: 64, mode: "ccm", adata: "", cipher: "aes" }, ja: function(a, b, c, d) {
+      c = c || {};
+      d = d || {};
+      var e = sjcl2.json, f = e.g({ iv: sjcl2.random.randomWords(4, 0) }, e.defaults), g;
+      e.g(f, c);
+      c = f.adata;
+      "string" === typeof f.salt && (f.salt = sjcl2.codec.base64.toBits(f.salt));
+      "string" === typeof f.iv && (f.iv = sjcl2.codec.base64.toBits(f.iv));
+      if (!sjcl2.mode[f.mode] || !sjcl2.cipher[f.cipher] || "string" === typeof a && 100 >= f.iter || 64 !== f.ts && 96 !== f.ts && 128 !== f.ts || 128 !== f.ks && 192 !== f.ks && 256 !== f.ks || 2 > f.iv.length || 4 < f.iv.length) throw new sjcl2.exception.invalid("json encrypt: invalid parameters");
+      "string" === typeof a ? (g = sjcl2.misc.cachedPbkdf2(a, f), a = g.key.slice(0, f.ks / 32), f.salt = g.salt) : sjcl2.ecc && a instanceof sjcl2.ecc.elGamal.publicKey && (g = a.kem(), f.kemtag = g.tag, a = g.key.slice(0, f.ks / 32));
+      "string" === typeof b && (b = sjcl2.codec.utf8String.toBits(b));
+      "string" === typeof c && (f.adata = c = sjcl2.codec.utf8String.toBits(c));
+      g = new sjcl2.cipher[f.cipher](a);
+      e.g(d, f);
+      d.key = a;
+      f.ct = "ccm" === f.mode && sjcl2.arrayBuffer && sjcl2.arrayBuffer.ccm && b instanceof ArrayBuffer ? sjcl2.arrayBuffer.ccm.encrypt(g, b, f.iv, c, f.ts) : sjcl2.mode[f.mode].encrypt(g, b, f.iv, c, f.ts);
+      return f;
+    }, encrypt: function(a, b, c, d) {
+      var e = sjcl2.json, f = e.ja.apply(e, arguments);
+      return e.encode(f);
+    }, ia: function(a, b, c, d) {
+      c = c || {};
+      d = d || {};
+      var e = sjcl2.json;
+      b = e.g(e.g(e.g({}, e.defaults), b), c, true);
+      var f, g;
+      f = b.adata;
+      "string" === typeof b.salt && (b.salt = sjcl2.codec.base64.toBits(b.salt));
+      "string" === typeof b.iv && (b.iv = sjcl2.codec.base64.toBits(b.iv));
+      if (!sjcl2.mode[b.mode] || !sjcl2.cipher[b.cipher] || "string" === typeof a && 100 >= b.iter || 64 !== b.ts && 96 !== b.ts && 128 !== b.ts || 128 !== b.ks && 192 !== b.ks && 256 !== b.ks || !b.iv || 2 > b.iv.length || 4 < b.iv.length) throw new sjcl2.exception.invalid("json decrypt: invalid parameters");
+      "string" === typeof a ? (g = sjcl2.misc.cachedPbkdf2(a, b), a = g.key.slice(0, b.ks / 32), b.salt = g.salt) : sjcl2.ecc && a instanceof sjcl2.ecc.elGamal.secretKey && (a = a.unkem(sjcl2.codec.base64.toBits(b.kemtag)).slice(0, b.ks / 32));
+      "string" === typeof f && (f = sjcl2.codec.utf8String.toBits(f));
+      g = new sjcl2.cipher[b.cipher](a);
+      f = "ccm" === b.mode && sjcl2.arrayBuffer && sjcl2.arrayBuffer.ccm && b.ct instanceof ArrayBuffer ? sjcl2.arrayBuffer.ccm.decrypt(g, b.ct, b.iv, b.tag, f, b.ts) : sjcl2.mode[b.mode].decrypt(g, b.ct, b.iv, f, b.ts);
+      e.g(d, b);
+      d.key = a;
+      return 1 === c.raw ? f : sjcl2.codec.utf8String.fromBits(f);
+    }, decrypt: function(a, b, c, d) {
+      var e = sjcl2.json;
+      return e.ia(a, e.decode(b), c, d);
+    }, encode: function(a) {
+      var b, c = "{", d = "";
+      for (b in a) if (a.hasOwnProperty(b)) {
+        if (!b.match(/^[a-z0-9]+$/i)) throw new sjcl2.exception.invalid("json encode: invalid property name");
+        c += d + '"' + b + '":';
+        d = ",";
+        switch (typeof a[b]) {
+          case "number":
+          case "boolean":
+            c += a[b];
+            break;
+          case "string":
+            c += '"' + escape(a[b]) + '"';
+            break;
+          case "object":
+            c += '"' + sjcl2.codec.base64.fromBits(a[b], 0) + '"';
+            break;
+          default:
+            throw new sjcl2.exception.bug("json encode: unsupported type");
+        }
+      }
+      return c + "}";
+    }, decode: function(a) {
+      a = a.replace(/\s/g, "");
+      if (!a.match(/^\{.*\}$/)) throw new sjcl2.exception.invalid("json decode: this isn't json!");
+      a = a.replace(/^\{|\}$/g, "").split(/,/);
+      var b = {}, c, d;
+      for (c = 0; c < a.length; c++) {
+        if (!(d = a[c].match(/^\s*(?:(["']?)([a-z][a-z0-9]*)\1)\s*:\s*(?:(-?\d+)|"([a-z0-9+\/%*_.@=\-]*)"|(true|false))$/i))) throw new sjcl2.exception.invalid("json decode: this isn't json!");
+        null != d[3] ? b[d[2]] = parseInt(d[3], 10) : null != d[4] ? b[d[2]] = d[2].match(/^(ct|adata|salt|iv)$/) ? sjcl2.codec.base64.toBits(d[4]) : unescape(d[4]) : null != d[5] && (b[d[2]] = "true" === d[5]);
+      }
+      return b;
+    }, g: function(a, b, c) {
+      void 0 === a && (a = {});
+      if (void 0 === b) return a;
+      for (var d in b) if (b.hasOwnProperty(d)) {
+        if (c && void 0 !== a[d] && a[d] !== b[d]) throw new sjcl2.exception.invalid("required parameter overridden");
+        a[d] = b[d];
+      }
+      return a;
+    }, sa: function(a, b) {
+      var c = {}, d;
+      for (d in a) a.hasOwnProperty(d) && a[d] !== b[d] && (c[d] = a[d]);
+      return c;
+    }, ra: function(a, b) {
+      var c = {}, d;
+      for (d = 0; d < b.length; d++) void 0 !== a[b[d]] && (c[b[d]] = a[b[d]]);
+      return c;
+    } };
+    sjcl2.encrypt = sjcl2.json.encrypt;
+    sjcl2.decrypt = sjcl2.json.decrypt;
+    sjcl2.misc.pa = {};
+    sjcl2.misc.cachedPbkdf2 = function(a, b) {
+      var c = sjcl2.misc.pa, d;
+      b = b || {};
+      d = b.iter || 1e3;
+      c = c[a] = c[a] || {};
+      d = c[d] = c[d] || { firstSalt: b.salt && b.salt.length ? b.salt.slice(0) : sjcl2.random.randomWords(2, 0) };
+      c = void 0 === b.salt ? d.firstSalt : b.salt;
+      d[c] = d[c] || sjcl2.misc.pbkdf2(a, c, b.iter);
+      return { key: d[c].slice(0), salt: c.slice(0) };
+    };
+    "undefined" !== typeof module && module.exports && (module.exports = sjcl2);
+    "function" === typeof define && define([], function() {
+      return sjcl2;
+    });
+  }
+});
+
+// node_modules/.deno/eventemitter3@5.0.1/node_modules/eventemitter3/index.js
+var require_eventemitter3 = __commonJS({
+  "node_modules/.deno/eventemitter3@5.0.1/node_modules/eventemitter3/index.js"(exports, module) {
+    "use strict";
+    var has = Object.prototype.hasOwnProperty;
+    var prefix = "~";
+    function Events() {
+    }
+    if (Object.create) {
+      Events.prototype = /* @__PURE__ */ Object.create(null);
+      if (!new Events().__proto__) prefix = false;
+    }
+    function EE(fn, context, once) {
+      this.fn = fn;
+      this.context = context;
+      this.once = once || false;
+    }
+    function addListener(emitter, event, fn, context, once) {
+      if (typeof fn !== "function") {
+        throw new TypeError("The listener must be a function");
+      }
+      var listener = new EE(fn, context || emitter, once), evt = prefix ? prefix + event : event;
+      if (!emitter._events[evt]) emitter._events[evt] = listener, emitter._eventsCount++;
+      else if (!emitter._events[evt].fn) emitter._events[evt].push(listener);
+      else emitter._events[evt] = [emitter._events[evt], listener];
+      return emitter;
+    }
+    function clearEvent(emitter, evt) {
+      if (--emitter._eventsCount === 0) emitter._events = new Events();
+      else delete emitter._events[evt];
+    }
+    function EventEmitter3() {
+      this._events = new Events();
+      this._eventsCount = 0;
+    }
+    EventEmitter3.prototype.eventNames = function eventNames() {
+      var names = [], events2, name;
+      if (this._eventsCount === 0) return names;
+      for (name in events2 = this._events) {
+        if (has.call(events2, name)) names.push(prefix ? name.slice(1) : name);
+      }
+      if (Object.getOwnPropertySymbols) {
+        return names.concat(Object.getOwnPropertySymbols(events2));
+      }
+      return names;
+    };
+    EventEmitter3.prototype.listeners = function listeners(event) {
+      var evt = prefix ? prefix + event : event, handlers = this._events[evt];
+      if (!handlers) return [];
+      if (handlers.fn) return [handlers.fn];
+      for (var i = 0, l = handlers.length, ee = new Array(l); i < l; i++) {
+        ee[i] = handlers[i].fn;
+      }
+      return ee;
+    };
+    EventEmitter3.prototype.listenerCount = function listenerCount(event) {
+      var evt = prefix ? prefix + event : event, listeners = this._events[evt];
+      if (!listeners) return 0;
+      if (listeners.fn) return 1;
+      return listeners.length;
+    };
+    EventEmitter3.prototype.emit = function emit(event, a1, a2, a3, a4, a5) {
+      var evt = prefix ? prefix + event : event;
+      if (!this._events[evt]) return false;
+      var listeners = this._events[evt], len = arguments.length, args, i;
+      if (listeners.fn) {
+        if (listeners.once) this.removeListener(event, listeners.fn, void 0, true);
+        switch (len) {
+          case 1:
+            return listeners.fn.call(listeners.context), true;
+          case 2:
+            return listeners.fn.call(listeners.context, a1), true;
+          case 3:
+            return listeners.fn.call(listeners.context, a1, a2), true;
+          case 4:
+            return listeners.fn.call(listeners.context, a1, a2, a3), true;
+          case 5:
+            return listeners.fn.call(listeners.context, a1, a2, a3, a4), true;
+          case 6:
+            return listeners.fn.call(listeners.context, a1, a2, a3, a4, a5), true;
+        }
+        for (i = 1, args = new Array(len - 1); i < len; i++) {
+          args[i - 1] = arguments[i];
+        }
+        listeners.fn.apply(listeners.context, args);
+      } else {
+        var length = listeners.length, j;
+        for (i = 0; i < length; i++) {
+          if (listeners[i].once) this.removeListener(event, listeners[i].fn, void 0, true);
+          switch (len) {
+            case 1:
+              listeners[i].fn.call(listeners[i].context);
+              break;
+            case 2:
+              listeners[i].fn.call(listeners[i].context, a1);
+              break;
+            case 3:
+              listeners[i].fn.call(listeners[i].context, a1, a2);
+              break;
+            case 4:
+              listeners[i].fn.call(listeners[i].context, a1, a2, a3);
+              break;
+            default:
+              if (!args) for (j = 1, args = new Array(len - 1); j < len; j++) {
+                args[j - 1] = arguments[j];
+              }
+              listeners[i].fn.apply(listeners[i].context, args);
+          }
+        }
+      }
+      return true;
+    };
+    EventEmitter3.prototype.on = function on(event, fn, context) {
+      return addListener(this, event, fn, context, false);
+    };
+    EventEmitter3.prototype.once = function once(event, fn, context) {
+      return addListener(this, event, fn, context, true);
+    };
+    EventEmitter3.prototype.removeListener = function removeListener(event, fn, context, once) {
+      var evt = prefix ? prefix + event : event;
+      if (!this._events[evt]) return this;
+      if (!fn) {
+        clearEvent(this, evt);
+        return this;
+      }
+      var listeners = this._events[evt];
+      if (listeners.fn) {
+        if (listeners.fn === fn && (!once || listeners.once) && (!context || listeners.context === context)) {
+          clearEvent(this, evt);
+        }
+      } else {
+        for (var i = 0, events2 = [], length = listeners.length; i < length; i++) {
+          if (listeners[i].fn !== fn || once && !listeners[i].once || context && listeners[i].context !== context) {
+            events2.push(listeners[i]);
+          }
+        }
+        if (events2.length) this._events[evt] = events2.length === 1 ? events2[0] : events2;
+        else clearEvent(this, evt);
+      }
+      return this;
+    };
+    EventEmitter3.prototype.removeAllListeners = function removeAllListeners(event) {
+      var evt;
+      if (event) {
+        evt = prefix ? prefix + event : event;
+        if (this._events[evt]) clearEvent(this, evt);
+      } else {
+        this._events = new Events();
+        this._eventsCount = 0;
+      }
+      return this;
+    };
+    EventEmitter3.prototype.off = EventEmitter3.prototype.removeListener;
+    EventEmitter3.prototype.addListener = EventEmitter3.prototype.on;
+    EventEmitter3.prefixed = prefix;
+    EventEmitter3.EventEmitter = EventEmitter3;
+    if ("undefined" !== typeof module) {
+      module.exports = EventEmitter3;
+    }
+  }
+});
+
+// src/worker/main.ts
+var import_events = __toESM(require_events());
+
+// node_modules/.deno/neverthrow@8.0.0/node_modules/neverthrow/dist/index.es.js
+var defaultErrorConfig = {
+  withStackTrace: false
+};
+var createNeverThrowError = (message, result, config = defaultErrorConfig) => {
+  const data = result.isOk() ? { type: "Ok", value: result.value } : { type: "Err", value: result.error };
+  const maybeStack = config.withStackTrace ? new Error().stack : void 0;
+  return {
+    data,
+    message,
+    stack: maybeStack
+  };
+};
+function __awaiter(thisArg, _arguments, P, generator) {
+  function adopt(value) {
+    return value instanceof P ? value : new P(function(resolve) {
+      resolve(value);
+    });
+  }
+  return new (P || (P = Promise))(function(resolve, reject) {
+    function fulfilled(value) {
+      try {
+        step(generator.next(value));
+      } catch (e) {
+        reject(e);
+      }
+    }
+    function rejected(value) {
+      try {
+        step(generator["throw"](value));
+      } catch (e) {
+        reject(e);
+      }
+    }
+    function step(result) {
+      result.done ? resolve(result.value) : adopt(result.value).then(fulfilled, rejected);
+    }
+    step((generator = generator.apply(thisArg, [])).next());
+  });
+}
+function __values(o) {
+  var s = typeof Symbol === "function" && Symbol.iterator, m = s && o[s], i = 0;
+  if (m) return m.call(o);
+  if (o && typeof o.length === "number") return {
+    next: function() {
+      if (o && i >= o.length) o = void 0;
+      return { value: o && o[i++], done: !o };
+    }
+  };
+  throw new TypeError(s ? "Object is not iterable." : "Symbol.iterator is not defined.");
+}
+function __await(v) {
+  return this instanceof __await ? (this.v = v, this) : new __await(v);
+}
+function __asyncGenerator(thisArg, _arguments, generator) {
+  if (!Symbol.asyncIterator) throw new TypeError("Symbol.asyncIterator is not defined.");
+  var g = generator.apply(thisArg, _arguments || []), i, q = [];
+  return i = {}, verb("next"), verb("throw"), verb("return"), i[Symbol.asyncIterator] = function() {
+    return this;
+  }, i;
+  function verb(n) {
+    if (g[n]) i[n] = function(v) {
+      return new Promise(function(a, b) {
+        q.push([n, v, a, b]) > 1 || resume(n, v);
+      });
+    };
+  }
+  function resume(n, v) {
+    try {
+      step(g[n](v));
+    } catch (e) {
+      settle(q[0][3], e);
+    }
+  }
+  function step(r) {
+    r.value instanceof __await ? Promise.resolve(r.value.v).then(fulfill, reject) : settle(q[0][2], r);
+  }
+  function fulfill(value) {
+    resume("next", value);
+  }
+  function reject(value) {
+    resume("throw", value);
+  }
+  function settle(f, v) {
+    if (f(v), q.shift(), q.length) resume(q[0][0], q[0][1]);
+  }
+}
+function __asyncDelegator(o) {
+  var i, p;
+  return i = {}, verb("next"), verb("throw", function(e) {
+    throw e;
+  }), verb("return"), i[Symbol.iterator] = function() {
+    return this;
+  }, i;
+  function verb(n, f) {
+    i[n] = o[n] ? function(v) {
+      return (p = !p) ? { value: __await(o[n](v)), done: n === "return" } : f ? f(v) : v;
+    } : f;
+  }
+}
+function __asyncValues(o) {
+  if (!Symbol.asyncIterator) throw new TypeError("Symbol.asyncIterator is not defined.");
+  var m = o[Symbol.asyncIterator], i;
+  return m ? m.call(o) : (o = typeof __values === "function" ? __values(o) : o[Symbol.iterator](), i = {}, verb("next"), verb("throw"), verb("return"), i[Symbol.asyncIterator] = function() {
+    return this;
+  }, i);
+  function verb(n) {
+    i[n] = o[n] && function(v) {
+      return new Promise(function(resolve, reject) {
+        v = o[n](v), settle(resolve, reject, v.done, v.value);
+      });
+    };
+  }
+  function settle(resolve, reject, d, v) {
+    Promise.resolve(v).then(function(v2) {
+      resolve({ value: v2, done: d });
+    }, reject);
+  }
+}
+var ResultAsync = class _ResultAsync {
+  constructor(res) {
+    this._promise = res;
+  }
+  static fromSafePromise(promise) {
+    const newPromise = promise.then((value) => new Ok(value));
+    return new _ResultAsync(newPromise);
+  }
+  static fromPromise(promise, errorFn) {
+    const newPromise = promise.then((value) => new Ok(value)).catch((e) => new Err(errorFn(e)));
+    return new _ResultAsync(newPromise);
+  }
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  static fromThrowable(fn, errorFn) {
+    return (...args) => {
+      return new _ResultAsync((() => __awaiter(this, void 0, void 0, function* () {
+        try {
+          return new Ok(yield fn(...args));
+        } catch (error) {
+          return new Err(errorFn ? errorFn(error) : error);
+        }
+      }))());
+    };
+  }
+  static combine(asyncResultList) {
+    return combineResultAsyncList(asyncResultList);
+  }
+  static combineWithAllErrors(asyncResultList) {
+    return combineResultAsyncListWithAllErrors(asyncResultList);
+  }
+  map(f) {
+    return new _ResultAsync(this._promise.then((res) => __awaiter(this, void 0, void 0, function* () {
+      if (res.isErr()) {
+        return new Err(res.error);
+      }
+      return new Ok(yield f(res.value));
+    })));
+  }
+  andThrough(f) {
+    return new _ResultAsync(this._promise.then((res) => __awaiter(this, void 0, void 0, function* () {
+      if (res.isErr()) {
+        return new Err(res.error);
+      }
+      const newRes = yield f(res.value);
+      if (newRes.isErr()) {
+        return new Err(newRes.error);
+      }
+      return new Ok(res.value);
+    })));
+  }
+  andTee(f) {
+    return new _ResultAsync(this._promise.then((res) => __awaiter(this, void 0, void 0, function* () {
+      if (res.isErr()) {
+        return new Err(res.error);
+      }
+      try {
+        yield f(res.value);
+      } catch (e) {
+      }
+      return new Ok(res.value);
+    })));
+  }
+  mapErr(f) {
+    return new _ResultAsync(this._promise.then((res) => __awaiter(this, void 0, void 0, function* () {
+      if (res.isOk()) {
+        return new Ok(res.value);
+      }
+      return new Err(yield f(res.error));
+    })));
+  }
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any, @typescript-eslint/explicit-module-boundary-types
+  andThen(f) {
+    return new _ResultAsync(this._promise.then((res) => {
+      if (res.isErr()) {
+        return new Err(res.error);
+      }
+      const newValue = f(res.value);
+      return newValue instanceof _ResultAsync ? newValue._promise : newValue;
+    }));
+  }
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any, @typescript-eslint/explicit-module-boundary-types
+  orElse(f) {
+    return new _ResultAsync(this._promise.then((res) => __awaiter(this, void 0, void 0, function* () {
+      if (res.isErr()) {
+        return f(res.error);
+      }
+      return new Ok(res.value);
+    })));
+  }
+  match(ok2, _err) {
+    return this._promise.then((res) => res.match(ok2, _err));
+  }
+  unwrapOr(t) {
+    return this._promise.then((res) => res.unwrapOr(t));
+  }
+  /**
+   * Emulates Rust's `?` operator in `safeTry`'s body. See also `safeTry`.
+   */
+  safeUnwrap() {
+    return __asyncGenerator(this, arguments, function* safeUnwrap_1() {
+      return yield __await(yield __await(yield* __asyncDelegator(__asyncValues(yield __await(this._promise.then((res) => res.safeUnwrap()))))));
+    });
+  }
+  // Makes ResultAsync implement PromiseLike<Result>
+  then(successCallback, failureCallback) {
+    return this._promise.then(successCallback, failureCallback);
+  }
+};
+var okAsync = (value) => new ResultAsync(Promise.resolve(new Ok(value)));
+var errAsync = (err2) => new ResultAsync(Promise.resolve(new Err(err2)));
+var fromPromise = ResultAsync.fromPromise;
+var fromSafePromise = ResultAsync.fromSafePromise;
+var fromAsyncThrowable = ResultAsync.fromThrowable;
+var combineResultList = (resultList) => {
+  let acc = ok([]);
+  for (const result of resultList) {
+    if (result.isErr()) {
+      acc = err(result.error);
+      break;
+    } else {
+      acc.map((list) => list.push(result.value));
+    }
+  }
+  return acc;
+};
+var combineResultAsyncList = (asyncResultList) => ResultAsync.fromSafePromise(Promise.all(asyncResultList)).andThen(combineResultList);
+var combineResultListWithAllErrors = (resultList) => {
+  let acc = ok([]);
+  for (const result of resultList) {
+    if (result.isErr() && acc.isErr()) {
+      acc.error.push(result.error);
+    } else if (result.isErr() && acc.isOk()) {
+      acc = err([result.error]);
+    } else if (result.isOk() && acc.isOk()) {
+      acc.value.push(result.value);
+    }
+  }
+  return acc;
+};
+var combineResultAsyncListWithAllErrors = (asyncResultList) => ResultAsync.fromSafePromise(Promise.all(asyncResultList)).andThen(combineResultListWithAllErrors);
+var Result;
+(function(Result2) {
+  function fromThrowable2(fn, errorFn) {
+    return (...args) => {
+      try {
+        const result = fn(...args);
+        return ok(result);
+      } catch (e) {
+        return err(errorFn ? errorFn(e) : e);
+      }
+    };
+  }
+  Result2.fromThrowable = fromThrowable2;
+  function combine(resultList) {
+    return combineResultList(resultList);
+  }
+  Result2.combine = combine;
+  function combineWithAllErrors(resultList) {
+    return combineResultListWithAllErrors(resultList);
+  }
+  Result2.combineWithAllErrors = combineWithAllErrors;
+})(Result || (Result = {}));
+var ok = (value) => new Ok(value);
+function err(err2) {
+  return new Err(err2);
+}
+var Ok = class {
+  constructor(value) {
+    this.value = value;
+  }
+  isOk() {
+    return true;
+  }
+  isErr() {
+    return !this.isOk();
+  }
+  map(f) {
+    return ok(f(this.value));
+  }
+  // eslint-disable-next-line @typescript-eslint/no-unused-vars
+  mapErr(_f) {
+    return ok(this.value);
+  }
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any, @typescript-eslint/explicit-module-boundary-types
+  andThen(f) {
+    return f(this.value);
+  }
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any, @typescript-eslint/explicit-module-boundary-types
+  andThrough(f) {
+    return f(this.value).map((_value) => this.value);
+  }
+  andTee(f) {
+    try {
+      f(this.value);
+    } catch (e) {
+    }
+    return ok(this.value);
+  }
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any, @typescript-eslint/explicit-module-boundary-types
+  orElse(_f) {
+    return ok(this.value);
+  }
+  asyncAndThen(f) {
+    return f(this.value);
+  }
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any, @typescript-eslint/explicit-module-boundary-types
+  asyncAndThrough(f) {
+    return f(this.value).map(() => this.value);
+  }
+  asyncMap(f) {
+    return ResultAsync.fromSafePromise(f(this.value));
+  }
+  // eslint-disable-next-line @typescript-eslint/no-unused-vars
+  unwrapOr(_v) {
+    return this.value;
+  }
+  // eslint-disable-next-line @typescript-eslint/no-unused-vars
+  match(ok2, _err) {
+    return ok2(this.value);
+  }
+  safeUnwrap() {
+    const value = this.value;
+    return function* () {
+      return value;
+    }();
+  }
+  _unsafeUnwrap(_) {
+    return this.value;
+  }
+  _unsafeUnwrapErr(config) {
+    throw createNeverThrowError("Called `_unsafeUnwrapErr` on an Ok", this, config);
+  }
+};
+var Err = class {
+  constructor(error) {
+    this.error = error;
+  }
+  isOk() {
+    return false;
+  }
+  isErr() {
+    return !this.isOk();
+  }
+  // eslint-disable-next-line @typescript-eslint/no-unused-vars
+  map(_f) {
+    return err(this.error);
+  }
+  mapErr(f) {
+    return err(f(this.error));
+  }
+  andThrough(_f) {
+    return err(this.error);
+  }
+  andTee(_f) {
+    return err(this.error);
+  }
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any, @typescript-eslint/explicit-module-boundary-types
+  andThen(_f) {
+    return err(this.error);
+  }
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any, @typescript-eslint/explicit-module-boundary-types
+  orElse(f) {
+    return f(this.error);
+  }
+  // eslint-disable-next-line @typescript-eslint/no-unused-vars
+  asyncAndThen(_f) {
+    return errAsync(this.error);
+  }
+  asyncAndThrough(_f) {
+    return errAsync(this.error);
+  }
+  // eslint-disable-next-line @typescript-eslint/no-unused-vars
+  asyncMap(_f) {
+    return errAsync(this.error);
+  }
+  unwrapOr(v) {
+    return v;
+  }
+  match(_ok, err2) {
+    return err2(this.error);
+  }
+  safeUnwrap() {
+    const error = this.error;
+    return function* () {
+      yield err(error);
+      throw new Error("Do not use this generator out of `safeTry`");
+    }();
+  }
+  _unsafeUnwrap(config) {
+    throw createNeverThrowError("Called `_unsafeUnwrap` on an Err", this, config);
+  }
+  _unsafeUnwrapErr(_) {
+    return this.error;
+  }
+};
+var fromThrowable = Result.fromThrowable;
+
+// src/error/base-error.ts
+var BaseError = class extends Error {
+  constructor(message, options = {}) {
+    const { cause, context } = options;
+    super(message, { cause });
+    __publicField(this, "context");
+    this.name = this.constructor.name;
+    this.context = context;
+  }
+};
+
+// src/utils.ts
+var ensureError = (value) => {
+  if (value instanceof Error) return value;
+  let stringified = "[Unable to stringify the thrown value]";
+  try {
+    stringified = JSON.stringify(value);
+  } catch (_error) {
+  }
+  const error = new Error(stringified);
+  return error;
+};
+var isDenoRuntime = () => typeof Deno !== "undefined";
+var workerUrl = (relativePath) => isDenoRuntime() ? new URL(`./worker/${relativePath}.ts`, new URL(".", import.meta.url).href) : new URL(
+  import.meta.resolve(
+    `./${relativePath === "main" ? `worker/${relativePath}` : relativePath}.js`
+  )
+);
+
+// src/worker/main.ts
+var events = new import_events.default();
+var worker;
+var isInitialized = false;
+self.onmessage = (event) => {
+  addWorker(event);
+  if (!isInitialized) {
+    isInitialized = true;
+    events.once("OPERATION_FAILED" /* OPERATION_FAILED */, () => {
+      if (worker) {
+        worker.terminate();
+      }
+    });
+  }
+};
+var updateFile = (lufiFile, args) => {
+  Object.assign(lufiFile, args);
+  if (typeof WorkerGlobalScope !== "undefined") {
+    self.postMessage({
+      event: "FILE_UPDATED" /* FILE_UPDATED */,
+      lufiFile
+    });
+  }
+  return lufiFile;
+};
+var sendFileError = (lufiFile, error) => {
+  updateFile(lufiFile, { uploadStatus: 2 /* FAILED */ });
+  self.postMessage({ event: "OPERATION_FAILED" /* OPERATION_FAILED */, error });
+};
+var addWorker = (event, callback) => {
+  const { action } = event.data;
+  if (action === 5 /* PAUSE */ || action === 8 /* RESUME */) {
+    worker.postMessage(event.data);
+  } else {
+    switch (action) {
+      case 2 /* CANCEL */:
+        {
+          worker = new Worker(workerUrl("cancel"), { type: "module" });
+          worker.postMessage(event.data);
+        }
+        break;
+      case 3 /* DOWNLOAD */:
+        {
+          worker = new Worker(workerUrl("download"), { type: "module" });
+          worker.postMessage(event.data);
+        }
+        break;
+      case 4 /* INFOS */:
+        {
+          worker = new Worker(workerUrl("infos"), { type: "module" });
+          worker.postMessage(event.data);
+        }
+        break;
+      case 7 /* REMOVE */:
+        {
+          worker = worker || new Worker(workerUrl("remove"), { type: "module" });
+          worker.postMessage(event.data);
+        }
+        break;
+      case 9 /* UPLOAD */:
+        {
+          worker = worker || new Worker(workerUrl("upload"), { type: "module" });
+          worker.postMessage(event.data);
+        }
+        break;
+      default: {
+        console.error("Action not found");
+      }
+    }
+    worker.onmessage = (e) => {
+      if (callback) callback(e);
+      self.postMessage(e.data);
+    };
+    worker.onerror = (error) => {
+      console.error(`Error: ${error.message}`);
+    };
+  }
+};
+var init = () => {
+  events.once("SOCKET_OPENED" /* SOCKET_OPENED */, () => {
+    self.postMessage({
+      event: "SOCKET_OPENED" /* SOCKET_OPENED */
+    });
+  });
+  events.once("OPERATION_FAILED" /* OPERATION_FAILED */, (error) => {
+    self.postMessage({ event: "OPERATION_FAILED" /* OPERATION_FAILED */, error });
+  });
+};
+
+// src/error/websocket/websocket-error.ts
+var WebSocketError = class extends BaseError {
+};
+
+// src/error/websocket/websocket-connection-error.ts
+var WebSocketConnectionError = class extends WebSocketError {
+  constructor() {
+    super(...arguments);
+    __publicField(this, "message", "An error occured while trying to connect to WebSocket");
+  }
+};
+
+// node_modules/.deno/arraybuffer-encoding@1.1.0/node_modules/arraybuffer-encoding/dist/esm/base64/encoding.js
+var Encoding = class {
+  /**
+   *
+   * @param charset Charset to use for base64 encoding. This must be 64-characters long.
+   * @param noPadding If true, encoded strings won't include padding.
+   */
+  constructor(charset, noPadding) {
+    if (!charset || charset.length != 64) {
+      throw Error("Charset must contain 64 characters");
+    }
+    this._charset = charset;
+    this._noPadding = !!noPadding;
+    this._valid = new RegExp("^[" + this._charset.replace("-", "\\-") + "]+={0,2}$");
+  }
+  /**
+   * Encode an ArrayBuffer to base64 in a string.
+   * @param ab Data to encode to base64
+   * @returns Base64-encoded string
+   */
+  Encode(ab) {
+    const len = ab.byteLength;
+    if (!len) {
+      return "";
+    }
+    const view = new Uint8Array(ab);
+    let res = "";
+    for (let i = 0; i < len; i += 3) {
+      res += this._charset[view[i] >> 2] + this._charset[(view[i] & 3) << 4 | view[i + 1] >> 4] + this._charset[(view[i + 1] & 15) << 2 | view[i + 2] >> 6] + this._charset[view[i + 2] & 63];
+    }
+    if (len % 3 == 2) {
+      res = res.substring(0, res.length - 1);
+      if (!this._noPadding) {
+        res += "=";
+      }
+    } else if (len % 3 == 1) {
+      res = res.substring(0, res.length - 2);
+      if (!this._noPadding) {
+        res += "==";
+      }
+    }
+    return res;
+  }
+  /**
+   * Decode a string from base64. Padding is always optional.
+   * @param str Base64-encoded string
+   * @returns Data decoded from the base64 string
+   */
+  Decode(str) {
+    str = (str || "").replace(/[\s]/g, "");
+    if (!str) {
+      return new ArrayBuffer(0);
+    }
+    if (!this._valid.test(str)) {
+      throw Error("Invalid base64 input sequence");
+    }
+    let viewLen = Math.floor(str.length * 0.75);
+    if (str[str.length - 2] == "=") {
+      viewLen -= 2;
+    } else if (str[str.length - 1] == "=") {
+      viewLen--;
+    }
+    const view = new Uint8Array(viewLen);
+    let enc1, enc2, enc3, enc4, i = 0, j = 0;
+    while (i < str.length * 0.75) {
+      enc1 = this._charset.indexOf(str.charAt(j++));
+      enc2 = this._charset.indexOf(str.charAt(j++));
+      enc3 = this._charset.indexOf(str.charAt(j++));
+      enc4 = this._charset.indexOf(str.charAt(j++));
+      view[i++] = enc1 << 2 | enc2 >> 4;
+      view[i++] = (enc2 & 15) << 4 | enc3 >> 2;
+      view[i++] = (enc3 & 3) << 6 | enc4;
+    }
+    return view.buffer;
+  }
+};
+
+// node_modules/.deno/arraybuffer-encoding@1.1.0/node_modules/arraybuffer-encoding/dist/esm/base64/standard.js
+var obj = new Encoding("ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789+/");
+function Decode(str) {
+  return obj.Decode(str);
+}
+
+// node_modules/.deno/arraybuffer-encoding@1.1.0/node_modules/arraybuffer-encoding/dist/esm/base64/url.js
+var obj2 = new Encoding("ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789-_", true);
+function Decode2(str) {
+  return obj2.Decode(str);
+}
+
+// src/api/crypto/sjcl.ts
+var import_sjcl = __toESM(require_sjcl());
+
+// src/error/crypto/crypto-error.ts
+var CryptoError = class extends BaseError {
+};
+
+// src/error/crypto/decryption-error.ts
+var DecryptionError = class extends CryptoError {
+  constructor() {
+    super(...arguments);
+    __publicField(this, "message", "Unable to decrypt the provided data");
+  }
+};
+
+// src/api/crypto/sjcl.ts
+var decrypt = (key, encryptedData) => {
+  try {
+    const data = typeof encryptedData === "string" ? encryptedData : encryptedData.data;
+    return okAsync(Decode(import_sjcl.default.decrypt(key, data)));
+  } catch (error) {
+    return errAsync(
+      new DecryptionError(void 0, { cause: ensureError(error) })
+    );
+  }
+};
+
+// src/api/crypto/web.ts
+var decrypt2 = (key, encrypted) => {
+  return importKey(key).andThen(
+    (importedKey) => ResultAsync.fromPromise(
+      crypto.subtle.decrypt(
+        {
+          name: "AES-GCM",
+          iv: encrypted.iv
+        },
+        importedKey,
+        Decode(encrypted.data)
+      ),
+      (error) => new DecryptionError(void 0, { cause: ensureError(error) })
+    )
+  );
+};
+var importKey = (key) => {
+  return ResultAsync.fromPromise(
+    crypto.subtle.importKey(
+      "raw",
+      Decode2(key),
+      { name: "AES-GCM" },
+      false,
+      [
+        "encrypt",
+        "decrypt"
+      ]
+    ),
+    (error) => new CryptoError("Unable to import cryptography key", {
+      cause: ensureError(error)
+    })
+  );
+};
+
+// src/api/crypto.ts
+var decrypt3 = (key, value) => {
+  return value.algo === void 0 || value.algo === 0 /* Sjcl */ ? decrypt(key, value) : decrypt2(key, value);
+};
+
+// src/api/websocket.ts
+var sockets = {};
+var MAX_ERRORS = 5;
+var onCancelMessage = (data) => {
+  events.emit("UPLOAD_CANCELLED" /* UPLOAD_CANCELLED */, data.success);
+  return okAsync(void 0);
+};
+var onDownloadMessage = (response, lufiFile) => {
+  const result = response.split("XXMOJOXX");
+  const metadataString = result.shift();
+  if (metadataString !== void 0) {
+    const metadata = JSON.parse(metadataString);
+    if (isServerDownloadChunkSuccessMetadata(metadata)) {
+      const dataString = result.shift();
+      if (dataString) {
+        const encryptedData = JSON.parse(dataString);
+        if (encryptedData.iv) {
+          encryptedData.iv = new Uint8Array(Object.values(encryptedData.iv));
+        }
+        return decrypt3(lufiFile.keys.client, encryptedData).andThen(
+          (decryptedPart) => {
+            const chunk = typeof decryptedPart === "string" ? new TextEncoder().encode(decryptedPart).buffer : decryptedPart;
+            if (metadata.part === 0) {
+              updateFile(lufiFile, {
+                chunksReady: lufiFile.chunksReady + 1,
+                delAtFirstView: metadata.del_at_first_view,
+                delay: metadata.delay,
+                name: metadata.name,
+                size: metadata.size,
+                totalChunks: metadata.total,
+                type: metadata.type,
+                zipped: metadata.zipped
+              });
+              events.emit("DOWNLOAD_STARTED" /* DOWNLOAD_STARTED */);
+            } else {
+              updateFile(lufiFile, { chunksReady: lufiFile.chunksReady + 1 });
+            }
+            events.emit("CHUNK_DOWNLOADED" /* CHUNK_DOWNLOADED */, chunk, metadata.part);
+            if (++metadata.part === metadata.total) {
+              return endDownload(lufiFile).andThen(() => {
+                events.emit("DOWNLOAD_COMPLETE" /* DOWNLOAD_COMPLETE */);
+                events.emit("SOCKET_OPERATION_TERMINATED" /* SOCKET_OPERATION_TERMINATED */);
+                return okAsync(void 0);
+              });
+            }
+            return okAsync(void 0);
+          }
+        );
+      } else {
+        const error = new WebSocketError(
+          "Can't retrieve metadata from data received by the server"
+        );
+        events.emit("OPERATION_FAILED" /* OPERATION_FAILED */, error);
+        return errAsync(error);
+      }
+    } else {
+      const error = new WebSocketError(metadata.msg);
+      events.emit("OPERATION_FAILED" /* OPERATION_FAILED */, error);
+      return errAsync(error);
+    }
+  } else {
+    const error = new WebSocketError(
+      "Can't retrieve metadata from data received by the server"
+    );
+    events.emit("OPERATION_FAILED" /* OPERATION_FAILED */, error);
+    return errAsync(error);
+  }
+};
+var onUploadMessage = (response, lufiFile) => {
+  if (response.success) {
+    if (response.j === 0) {
+      updateFile(lufiFile, {
+        keys: { client: lufiFile.keys.client, server: response.short },
+        actionToken: response.token,
+        queueIndex: response.i
+      });
+      events.emit("UPLOAD_STARTED" /* UPLOAD_STARTED */);
+    }
+    updateFile(lufiFile, {
+      chunksReady: lufiFile.chunksReady + 1,
+      createdAt: response.created_at
+    });
+    events.emit("CHUNK_UPLOADED" /* CHUNK_UPLOADED */);
+    if (lufiFile.chunksReady === lufiFile.totalChunks) {
+      updateFile(lufiFile, { uploadStatus: 1 /* COMPLETE */ });
+      events.emit("UPLOAD_COMPLETE" /* UPLOAD_COMPLETE */);
+      events.emit("SOCKET_OPERATION_TERMINATED" /* SOCKET_OPERATION_TERMINATED */);
+    }
+    return okAsync(void 0);
+  } else {
+    const error = new WebSocketError(response.msg);
+    events.emit("OPERATION_FAILED" /* OPERATION_FAILED */, error);
+    return errAsync(error);
+  }
+};
+var onMessage = (e, lufiFile) => {
+  const data = tryParseJson(e.data);
+  let callback;
+  if (data) {
+    if (!data.action && data.msg) {
+      const error = new WebSocketError(data.msg);
+      events.emit("OPERATION_FAILED" /* OPERATION_FAILED */, error);
+      return errAsync(error);
+    } else {
+      if ("delay" in data) {
+        callback = onUploadMessage(data, lufiFile);
+      } else {
+        callback = onCancelMessage(data);
+      }
+    }
+  } else {
+    callback = onDownloadMessage(e.data, lufiFile);
+  }
+  return callback;
+};
+var isConnecting = (socketKey) => sockets !== void 0 && sockets[socketKey] !== void 0 && sockets[socketKey].readyState === WebSocket.CONNECTING;
+var isSpawned = (socketKey) => sockets !== void 0 && sockets[socketKey] !== void 0 && sockets[socketKey].readyState === WebSocket.OPEN;
+var downloadChunk = (lufiFile, chunkNumber) => {
+  let message;
+  if (lufiFile.password) {
+    message = { part: chunkNumber, file_pwd: lufiFile.password };
+  } else {
+    message = { part: chunkNumber };
+  }
+  return sendMessage(
+    downloadSocketUrl(lufiFile),
+    lufiFile,
+    JSON.stringify(message)
+  );
+};
+var endDownload = (lufiFile) => {
+  let message;
+  if (lufiFile.password) {
+    message = { ended: true, file_pwd: lufiFile.password };
+  } else {
+    message = { ended: true };
+  }
+  return sendMessage(
+    downloadSocketUrl(lufiFile),
+    lufiFile,
+    JSON.stringify(message)
+  );
+};
+var sendMessage = (socketUrl, lufiFile, message) => {
+  if (!isSpawned(socketUrl)) {
+    return spawn(socketUrl).andThen(
+      () => sendMessage(socketUrl, lufiFile, message)
+    );
+  } else {
+    sockets[socketUrl].onmessage = (e) => onMessage(e, lufiFile);
+    sockets[socketUrl].send(message);
+    return okAsync(void 0);
+  }
+};
+var spawn = (socketKey, errorCount = 0) => {
+  if (!isSpawned(socketKey) && !isConnecting(socketKey)) {
+    sockets[socketKey] = new WebSocket(socketKey);
+    events.once("SOCKET_OPERATION_TERMINATED" /* SOCKET_OPERATION_TERMINATED */, () => {
+      sockets[socketKey].close();
+    });
+    events.once("OPERATION_FAILED" /* OPERATION_FAILED */, () => {
+      events.emit("SOCKET_OPERATION_TERMINATED" /* SOCKET_OPERATION_TERMINATED */);
+    });
+    sockets[socketKey].onopen = () => {
+      events.emit("SOCKET_OPENED" /* SOCKET_OPENED */);
+    };
+    sockets[socketKey].onclose = () => {
+    };
+    sockets[socketKey].onerror = () => {
+      if (++errorCount <= MAX_ERRORS) {
+        console.error(
+          `An error happened while trying to connect to WebSocket ${socketKey}. Trying again. ${errorCount} / ${MAX_ERRORS}`
+        );
+        return spawn(socketKey, errorCount);
+      } else {
+        events.emit("SOCKET_ONERROR" /* SOCKET_ONERROR */);
+        return errAsync(
+          new WebSocketConnectionError(
+            `Unable to connect to WebSocket ${socketKey}.`
+          )
+        );
+      }
+    };
+  }
+  return waitForConnection(socketKey).andThen(() => okAsync(socketKey)).orElse((error) => errAsync(error));
+};
+var waitForConnection = (socketKey) => ResultAsync.fromPromise(
+  new Promise((resolve, reject) => {
+    if (!isSpawned(socketKey)) {
+      events.once("SOCKET_OPENED" /* SOCKET_OPENED */, () => {
+        resolve(void 0);
+      });
+      events.on("SOCKET_ONERROR" /* SOCKET_ONERROR */, () => {
+        reject(new WebSocketConnectionError());
+      });
+    } else {
+      resolve(void 0);
+    }
+  }),
+  (error) => {
+    return ensureError(error);
+  }
+);
+var buildSocketUrl = (instanceUrl, pathname) => {
+  const url = new URL(instanceUrl);
+  url.protocol = url.protocol === "http:" ? "ws:" : "wss:";
+  url.pathname += pathname;
+  return new URL(url.origin + url.pathname);
+};
+var downloadSocketUrl = (lufiFile) => {
+  return buildSocketUrl(
+    new URL(lufiFile.serverUrl),
+    "download" /* DOWNLOAD */ + `/${lufiFile.keys.server}`
+  ).toString();
+};
+var tryParseJson = (data) => {
+  try {
+    const parsedObject = JSON.parse(data);
+    if (parsedObject && typeof parsedObject === "object") {
+      return parsedObject;
+    }
+  } catch (_e) {
+  }
+  return false;
+};
+var isServerDownloadChunkSuccessMetadata = (message) => {
+  return typeof message === "object" && message !== null && !("msg" in message);
+};
+
+// node_modules/.deno/eventemitter3@5.0.1/node_modules/eventemitter3/index.mjs
+var import_index = __toESM(require_eventemitter3(), 1);
+
+// node_modules/.deno/p-timeout@6.1.3/node_modules/p-timeout/index.js
+var TimeoutError = class extends Error {
+  constructor(message) {
+    super(message);
+    this.name = "TimeoutError";
+  }
+};
+var AbortError = class extends Error {
+  constructor(message) {
+    super();
+    this.name = "AbortError";
+    this.message = message;
+  }
+};
+var getDOMException = (errorMessage) => globalThis.DOMException === void 0 ? new AbortError(errorMessage) : new DOMException(errorMessage);
+var getAbortedReason = (signal) => {
+  const reason = signal.reason === void 0 ? getDOMException("This operation was aborted.") : signal.reason;
+  return reason instanceof Error ? reason : getDOMException(reason);
+};
+function pTimeout(promise, options) {
+  const {
+    milliseconds,
+    fallback,
+    message,
+    customTimers = { setTimeout, clearTimeout }
+  } = options;
+  let timer;
+  const wrappedPromise = new Promise((resolve, reject) => {
+    if (typeof milliseconds !== "number" || Math.sign(milliseconds) !== 1) {
+      throw new TypeError(`Expected \`milliseconds\` to be a positive number, got \`${milliseconds}\``);
+    }
+    if (options.signal) {
+      const { signal } = options;
+      if (signal.aborted) {
+        reject(getAbortedReason(signal));
+      }
+      const abortHandler = () => {
+        reject(getAbortedReason(signal));
+      };
+      signal.addEventListener("abort", abortHandler, { once: true });
+      promise.finally(() => {
+        signal.removeEventListener("abort", abortHandler);
+      });
+    }
+    if (milliseconds === Number.POSITIVE_INFINITY) {
+      promise.then(resolve, reject);
+      return;
+    }
+    const timeoutError = new TimeoutError();
+    timer = customTimers.setTimeout.call(void 0, () => {
+      if (fallback) {
+        try {
+          resolve(fallback());
+        } catch (error) {
+          reject(error);
+        }
+        return;
+      }
+      if (typeof promise.cancel === "function") {
+        promise.cancel();
+      }
+      if (message === false) {
+        resolve();
+      } else if (message instanceof Error) {
+        reject(message);
+      } else {
+        timeoutError.message = message != null ? message : `Promise timed out after ${milliseconds} milliseconds`;
+        reject(timeoutError);
+      }
+    }, milliseconds);
+    (async () => {
+      try {
+        resolve(await promise);
+      } catch (error) {
+        reject(error);
+      }
+    })();
+  });
+  const cancelablePromise = wrappedPromise.finally(() => {
+    cancelablePromise.clear();
+  });
+  cancelablePromise.clear = () => {
+    customTimers.clearTimeout.call(void 0, timer);
+    timer = void 0;
+  };
+  return cancelablePromise;
+}
+
+// node_modules/.deno/p-queue@8.0.1/node_modules/p-queue/dist/lower-bound.js
+function lowerBound(array, value, comparator) {
+  let first = 0;
+  let count = array.length;
+  while (count > 0) {
+    const step = Math.trunc(count / 2);
+    let it = first + step;
+    if (comparator(array[it], value) <= 0) {
+      first = ++it;
+      count -= step + 1;
+    } else {
+      count = step;
+    }
+  }
+  return first;
+}
+
+// node_modules/.deno/p-queue@8.0.1/node_modules/p-queue/dist/priority-queue.js
+var _queue;
+var PriorityQueue = class {
+  constructor() {
+    __privateAdd(this, _queue, []);
+  }
+  enqueue(run, options) {
+    options = {
+      priority: 0,
+      ...options
+    };
+    const element = {
+      priority: options.priority,
+      run
+    };
+    if (this.size && __privateGet(this, _queue)[this.size - 1].priority >= options.priority) {
+      __privateGet(this, _queue).push(element);
+      return;
+    }
+    const index = lowerBound(__privateGet(this, _queue), element, (a, b) => b.priority - a.priority);
+    __privateGet(this, _queue).splice(index, 0, element);
+  }
+  dequeue() {
+    const item = __privateGet(this, _queue).shift();
+    return item == null ? void 0 : item.run;
+  }
+  filter(options) {
+    return __privateGet(this, _queue).filter((element) => element.priority === options.priority).map((element) => element.run);
+  }
+  get size() {
+    return __privateGet(this, _queue).length;
+  }
+};
+_queue = new WeakMap();
+
+// node_modules/.deno/p-queue@8.0.1/node_modules/p-queue/dist/index.js
+var _carryoverConcurrencyCount, _isIntervalIgnored, _intervalCount, _intervalCap, _interval, _intervalEnd, _intervalId, _timeoutId, _queue2, _queueClass, _pending, _concurrency, _isPaused, _throwOnTimeout, _PQueue_instances, doesIntervalAllowAnother_get, doesConcurrentAllowAnother_get, next_fn, onResumeInterval_fn, isIntervalPaused_get, tryToStartAnother_fn, initializeIntervalIfNeeded_fn, onInterval_fn, processQueue_fn, throwOnAbort_fn, onEvent_fn;
+var PQueue = class extends import_index.default {
+  // TODO: The `throwOnTimeout` option should affect the return types of `add()` and `addAll()`
+  constructor(options) {
+    var _a, _b, _c, _d;
+    super();
+    __privateAdd(this, _PQueue_instances);
+    __privateAdd(this, _carryoverConcurrencyCount);
+    __privateAdd(this, _isIntervalIgnored);
+    __privateAdd(this, _intervalCount, 0);
+    __privateAdd(this, _intervalCap);
+    __privateAdd(this, _interval);
+    __privateAdd(this, _intervalEnd, 0);
+    __privateAdd(this, _intervalId);
+    __privateAdd(this, _timeoutId);
+    __privateAdd(this, _queue2);
+    __privateAdd(this, _queueClass);
+    __privateAdd(this, _pending, 0);
+    // The `!` is needed because of https://github.com/microsoft/TypeScript/issues/32194
+    __privateAdd(this, _concurrency);
+    __privateAdd(this, _isPaused);
+    __privateAdd(this, _throwOnTimeout);
+    /**
+        Per-operation timeout in milliseconds. Operations fulfill once `timeout` elapses if they haven't already.
+    
+        Applies to each future operation.
+        */
+    __publicField(this, "timeout");
+    options = {
+      carryoverConcurrencyCount: false,
+      intervalCap: Number.POSITIVE_INFINITY,
+      interval: 0,
+      concurrency: Number.POSITIVE_INFINITY,
+      autoStart: true,
+      queueClass: PriorityQueue,
+      ...options
+    };
+    if (!(typeof options.intervalCap === "number" && options.intervalCap >= 1)) {
+      throw new TypeError(`Expected \`intervalCap\` to be a number from 1 and up, got \`${(_b = (_a = options.intervalCap) == null ? void 0 : _a.toString()) != null ? _b : ""}\` (${typeof options.intervalCap})`);
+    }
+    if (options.interval === void 0 || !(Number.isFinite(options.interval) && options.interval >= 0)) {
+      throw new TypeError(`Expected \`interval\` to be a finite number >= 0, got \`${(_d = (_c = options.interval) == null ? void 0 : _c.toString()) != null ? _d : ""}\` (${typeof options.interval})`);
+    }
+    __privateSet(this, _carryoverConcurrencyCount, options.carryoverConcurrencyCount);
+    __privateSet(this, _isIntervalIgnored, options.intervalCap === Number.POSITIVE_INFINITY || options.interval === 0);
+    __privateSet(this, _intervalCap, options.intervalCap);
+    __privateSet(this, _interval, options.interval);
+    __privateSet(this, _queue2, new options.queueClass());
+    __privateSet(this, _queueClass, options.queueClass);
+    this.concurrency = options.concurrency;
+    this.timeout = options.timeout;
+    __privateSet(this, _throwOnTimeout, options.throwOnTimeout === true);
+    __privateSet(this, _isPaused, options.autoStart === false);
+  }
+  get concurrency() {
+    return __privateGet(this, _concurrency);
+  }
+  set concurrency(newConcurrency) {
+    if (!(typeof newConcurrency === "number" && newConcurrency >= 1)) {
+      throw new TypeError(`Expected \`concurrency\` to be a number from 1 and up, got \`${newConcurrency}\` (${typeof newConcurrency})`);
+    }
+    __privateSet(this, _concurrency, newConcurrency);
+    __privateMethod(this, _PQueue_instances, processQueue_fn).call(this);
+  }
+  async add(function_, options = {}) {
+    options = {
+      timeout: this.timeout,
+      throwOnTimeout: __privateGet(this, _throwOnTimeout),
+      ...options
+    };
+    return new Promise((resolve, reject) => {
+      __privateGet(this, _queue2).enqueue(async () => {
+        var _a;
+        __privateWrapper(this, _pending)._++;
+        __privateWrapper(this, _intervalCount)._++;
+        try {
+          (_a = options.signal) == null ? void 0 : _a.throwIfAborted();
+          let operation = function_({ signal: options.signal });
+          if (options.timeout) {
+            operation = pTimeout(Promise.resolve(operation), { milliseconds: options.timeout });
+          }
+          if (options.signal) {
+            operation = Promise.race([operation, __privateMethod(this, _PQueue_instances, throwOnAbort_fn).call(this, options.signal)]);
+          }
+          const result = await operation;
+          resolve(result);
+          this.emit("completed", result);
+        } catch (error) {
+          if (error instanceof TimeoutError && !options.throwOnTimeout) {
+            resolve();
+            return;
+          }
+          reject(error);
+          this.emit("error", error);
+        } finally {
+          __privateMethod(this, _PQueue_instances, next_fn).call(this);
+        }
+      }, options);
+      this.emit("add");
+      __privateMethod(this, _PQueue_instances, tryToStartAnother_fn).call(this);
+    });
+  }
+  async addAll(functions, options) {
+    return Promise.all(functions.map(async (function_) => this.add(function_, options)));
+  }
+  /**
+  Start (or resume) executing enqueued tasks within concurrency limit. No need to call this if queue is not paused (via `options.autoStart = false` or by `.pause()` method.)
+  */
+  start() {
+    if (!__privateGet(this, _isPaused)) {
+      return this;
+    }
+    __privateSet(this, _isPaused, false);
+    __privateMethod(this, _PQueue_instances, processQueue_fn).call(this);
+    return this;
+  }
+  /**
+  Put queue execution on hold.
+  */
+  pause() {
+    __privateSet(this, _isPaused, true);
+  }
+  /**
+  Clear the queue.
+  */
+  clear() {
+    __privateSet(this, _queue2, new (__privateGet(this, _queueClass))());
+  }
+  /**
+      Can be called multiple times. Useful if you for example add additional items at a later time.
+  
+      @returns A promise that settles when the queue becomes empty.
+      */
+  async onEmpty() {
+    if (__privateGet(this, _queue2).size === 0) {
+      return;
+    }
+    await __privateMethod(this, _PQueue_instances, onEvent_fn).call(this, "empty");
+  }
+  /**
+      @returns A promise that settles when the queue size is less than the given limit: `queue.size < limit`.
+  
+      If you want to avoid having the queue grow beyond a certain size you can `await queue.onSizeLessThan()` before adding a new item.
+  
+      Note that this only limits the number of items waiting to start. There could still be up to `concurrency` jobs already running that this call does not include in its calculation.
+      */
+  async onSizeLessThan(limit) {
+    if (__privateGet(this, _queue2).size < limit) {
+      return;
+    }
+    await __privateMethod(this, _PQueue_instances, onEvent_fn).call(this, "next", () => __privateGet(this, _queue2).size < limit);
+  }
+  /**
+      The difference with `.onEmpty` is that `.onIdle` guarantees that all work from the queue has finished. `.onEmpty` merely signals that the queue is empty, but it could mean that some promises haven't completed yet.
+  
+      @returns A promise that settles when the queue becomes empty, and all promises have completed; `queue.size === 0 && queue.pending === 0`.
+      */
+  async onIdle() {
+    if (__privateGet(this, _pending) === 0 && __privateGet(this, _queue2).size === 0) {
+      return;
+    }
+    await __privateMethod(this, _PQueue_instances, onEvent_fn).call(this, "idle");
+  }
+  /**
+  Size of the queue, the number of queued items waiting to run.
+  */
+  get size() {
+    return __privateGet(this, _queue2).size;
+  }
+  /**
+      Size of the queue, filtered by the given options.
+  
+      For example, this can be used to find the number of items remaining in the queue with a specific priority level.
+      */
+  sizeBy(options) {
+    return __privateGet(this, _queue2).filter(options).length;
+  }
+  /**
+  Number of running items (no longer in the queue).
+  */
+  get pending() {
+    return __privateGet(this, _pending);
+  }
+  /**
+  Whether the queue is currently paused.
+  */
+  get isPaused() {
+    return __privateGet(this, _isPaused);
+  }
+};
+_carryoverConcurrencyCount = new WeakMap();
+_isIntervalIgnored = new WeakMap();
+_intervalCount = new WeakMap();
+_intervalCap = new WeakMap();
+_interval = new WeakMap();
+_intervalEnd = new WeakMap();
+_intervalId = new WeakMap();
+_timeoutId = new WeakMap();
+_queue2 = new WeakMap();
+_queueClass = new WeakMap();
+_pending = new WeakMap();
+_concurrency = new WeakMap();
+_isPaused = new WeakMap();
+_throwOnTimeout = new WeakMap();
+_PQueue_instances = new WeakSet();
+doesIntervalAllowAnother_get = function() {
+  return __privateGet(this, _isIntervalIgnored) || __privateGet(this, _intervalCount) < __privateGet(this, _intervalCap);
+};
+doesConcurrentAllowAnother_get = function() {
+  return __privateGet(this, _pending) < __privateGet(this, _concurrency);
+};
+next_fn = function() {
+  __privateWrapper(this, _pending)._--;
+  __privateMethod(this, _PQueue_instances, tryToStartAnother_fn).call(this);
+  this.emit("next");
+};
+onResumeInterval_fn = function() {
+  __privateMethod(this, _PQueue_instances, onInterval_fn).call(this);
+  __privateMethod(this, _PQueue_instances, initializeIntervalIfNeeded_fn).call(this);
+  __privateSet(this, _timeoutId, void 0);
+};
+isIntervalPaused_get = function() {
+  const now = Date.now();
+  if (__privateGet(this, _intervalId) === void 0) {
+    const delay = __privateGet(this, _intervalEnd) - now;
+    if (delay < 0) {
+      __privateSet(this, _intervalCount, __privateGet(this, _carryoverConcurrencyCount) ? __privateGet(this, _pending) : 0);
+    } else {
+      if (__privateGet(this, _timeoutId) === void 0) {
+        __privateSet(this, _timeoutId, setTimeout(() => {
+          __privateMethod(this, _PQueue_instances, onResumeInterval_fn).call(this);
+        }, delay));
+      }
+      return true;
+    }
+  }
+  return false;
+};
+tryToStartAnother_fn = function() {
+  if (__privateGet(this, _queue2).size === 0) {
+    if (__privateGet(this, _intervalId)) {
+      clearInterval(__privateGet(this, _intervalId));
+    }
+    __privateSet(this, _intervalId, void 0);
+    this.emit("empty");
+    if (__privateGet(this, _pending) === 0) {
+      this.emit("idle");
+    }
+    return false;
+  }
+  if (!__privateGet(this, _isPaused)) {
+    const canInitializeInterval = !__privateGet(this, _PQueue_instances, isIntervalPaused_get);
+    if (__privateGet(this, _PQueue_instances, doesIntervalAllowAnother_get) && __privateGet(this, _PQueue_instances, doesConcurrentAllowAnother_get)) {
+      const job = __privateGet(this, _queue2).dequeue();
+      if (!job) {
+        return false;
+      }
+      this.emit("active");
+      job();
+      if (canInitializeInterval) {
+        __privateMethod(this, _PQueue_instances, initializeIntervalIfNeeded_fn).call(this);
+      }
+      return true;
+    }
+  }
+  return false;
+};
+initializeIntervalIfNeeded_fn = function() {
+  if (__privateGet(this, _isIntervalIgnored) || __privateGet(this, _intervalId) !== void 0) {
+    return;
+  }
+  __privateSet(this, _intervalId, setInterval(() => {
+    __privateMethod(this, _PQueue_instances, onInterval_fn).call(this);
+  }, __privateGet(this, _interval)));
+  __privateSet(this, _intervalEnd, Date.now() + __privateGet(this, _interval));
+};
+onInterval_fn = function() {
+  if (__privateGet(this, _intervalCount) === 0 && __privateGet(this, _pending) === 0 && __privateGet(this, _intervalId)) {
+    clearInterval(__privateGet(this, _intervalId));
+    __privateSet(this, _intervalId, void 0);
+  }
+  __privateSet(this, _intervalCount, __privateGet(this, _carryoverConcurrencyCount) ? __privateGet(this, _pending) : 0);
+  __privateMethod(this, _PQueue_instances, processQueue_fn).call(this);
+};
+/**
+Executes all queued functions until it reaches the limit.
+*/
+processQueue_fn = function() {
+  while (__privateMethod(this, _PQueue_instances, tryToStartAnother_fn).call(this)) {
+  }
+};
+throwOnAbort_fn = async function(signal) {
+  return new Promise((_resolve, reject) => {
+    signal.addEventListener("abort", () => {
+      reject(signal.reason);
+    }, { once: true });
+  });
+};
+onEvent_fn = async function(event, filter) {
+  return new Promise((resolve) => {
+    const listener = () => {
+      if (filter && !filter()) {
+        return;
+      }
+      this.off(event, listener);
+      resolve();
+    };
+    this.on(event, listener);
+  });
+};
+
+// src/worker/download.ts
+var chunks = [];
+var QUEUE_CONCURRENCY_LIMIT = navigator.hardwareConcurrency || 4;
+var queue = new PQueue({
+  concurrency: QUEUE_CONCURRENCY_LIMIT,
+  autoStart: false
+});
+var itemsInQueue = 0;
+var isInitiated = false;
+var isPaused = false;
+self.onmessage = (event) => {
+  if (!isInitiated) {
+    init();
+    isInitiated = true;
+  }
+  const data = event.data;
+  switch (data.action) {
+    case 5 /* PAUSE */:
+      {
+        isPaused = true;
+        self.postMessage({ event: "JOB_PAUSED" /* JOB_PAUSED */ });
+      }
+      break;
+    case 8 /* RESUME */:
+      {
+        isPaused = false;
+        self.postMessage({ event: "JOB_RESUMED" /* JOB_RESUMED */ });
+      }
+      break;
+    default:
+      events.once("DOWNLOAD_COMPLETE" /* DOWNLOAD_COMPLETE */, () => {
+        self.postMessage({ event: "DOWNLOAD_COMPLETE" /* DOWNLOAD_COMPLETE */ });
+      });
+      events.on("FILE_UPDATED" /* FILE_UPDATED */, updateFile);
+      events.on("CHUNK_DOWNLOADED" /* CHUNK_DOWNLOADED */, (chunk, index) => {
+        self.postMessage({
+          event: "CHUNK_DOWNLOADED" /* CHUNK_DOWNLOADED */,
+          chunk: { buffer: chunk, index }
+        });
+      });
+      download(data).mapErr((error) => {
+        sendFileError(data.args.lufiFile, error);
+      });
+  }
+};
+var download = (workerMessage) => {
+  const { lufiFile } = workerMessage.args;
+  events.on(
+    "CHUNK_DOWNLOADED" /* CHUNK_DOWNLOADED */,
+    (chunk, chunkNumber) => {
+      chunks[chunkNumber] = chunk;
+      itemsInQueue--;
+      if (!isPaused && itemsInQueue < QUEUE_CONCURRENCY_LIMIT) {
+        queue.start();
+      }
+    }
+  );
+  events.on("DOWNLOAD_STARTED" /* DOWNLOAD_STARTED */, async () => {
+    for (let i = 1; i < lufiFile.totalChunks; i++) {
+      await queue.add(async () => {
+        await downloadChunk(lufiFile, i);
+        itemsInQueue++;
+        if (isPaused || itemsInQueue === QUEUE_CONCURRENCY_LIMIT) {
+          queue.pause();
+        }
+      });
+    }
+    queue.start();
+  });
+  return downloadChunk(lufiFile, 0);
+};
+export {
+  QUEUE_CONCURRENCY_LIMIT,
+  itemsInQueue,
+  queue
+};

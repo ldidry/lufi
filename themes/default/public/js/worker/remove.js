@@ -1,1 +1,929 @@
-var ee=Object.create;var T=Object.defineProperty;var re=Object.getOwnPropertyDescriptor;var te=Object.getOwnPropertyNames;var ne=Object.getPrototypeOf,oe=Object.prototype.hasOwnProperty;var se=(r,e)=>()=>(e||r((e={exports:{}}).exports,e),e.exports);var ie=(r,e,t,n)=>{if(e&&typeof e=="object"||typeof e=="function")for(let o of te(e))!oe.call(r,o)&&o!==t&&T(r,o,{get:()=>e[o],enumerable:!(n=re(e,o))||n.enumerable});return r};var ue=(r,e,t)=>(t=r!=null?ee(ne(r)):{},ie(e||!r||!r.__esModule?T(t,"default",{value:r,enumerable:!0}):t,r));var Q=se((He,M)=>{"use strict";var b=typeof Reflect=="object"?Reflect:null,W=b&&typeof b.apply=="function"?b.apply:function(e,t,n){return Function.prototype.apply.call(e,t,n)},A;b&&typeof b.ownKeys=="function"?A=b.ownKeys:Object.getOwnPropertySymbols?A=function(e){return Object.getOwnPropertyNames(e).concat(Object.getOwnPropertySymbols(e))}:A=function(e){return Object.getOwnPropertyNames(e)};function ve(r){console&&console.warn&&console.warn(r)}var j=Number.isNaN||function(e){return e!==e};function u(){u.init.call(this)}M.exports=u;M.exports.once=Le;u.EventEmitter=u;u.prototype._events=void 0;u.prototype._eventsCount=0;u.prototype._maxListeners=void 0;var U=10;function k(r){if(typeof r!="function")throw new TypeError('The "listener" argument must be of type Function. Received type '+typeof r)}Object.defineProperty(u,"defaultMaxListeners",{enumerable:!0,get:function(){return U},set:function(r){if(typeof r!="number"||r<0||j(r))throw new RangeError('The value of "defaultMaxListeners" is out of range. It must be a non-negative number. Received '+r+".");U=r}});u.init=function(){(this._events===void 0||this._events===Object.getPrototypeOf(this)._events)&&(this._events=Object.create(null),this._eventsCount=0),this._maxListeners=this._maxListeners||void 0};u.prototype.setMaxListeners=function(e){if(typeof e!="number"||e<0||j(e))throw new RangeError('The value of "n" is out of range. It must be a non-negative number. Received '+e+".");return this._maxListeners=e,this};function J(r){return r._maxListeners===void 0?u.defaultMaxListeners:r._maxListeners}u.prototype.getMaxListeners=function(){return J(this)};u.prototype.emit=function(e){for(var t=[],n=1;n<arguments.length;n++)t.push(arguments[n]);var o=e==="error",i=this._events;if(i!==void 0)o=o&&i.error===void 0;else if(!o)return!1;if(o){var s;if(t.length>0&&(s=t[0]),s instanceof Error)throw s;var a=new Error("Unhandled error."+(s?" ("+s.message+")":""));throw a.context=s,a}var l=i[e];if(l===void 0)return!1;if(typeof l=="function")W(l,this,t);else for(var v=l.length,m=G(l,v),n=0;n<v;++n)W(m[n],this,t);return!0};function $(r,e,t,n){var o,i,s;if(k(t),i=r._events,i===void 0?(i=r._events=Object.create(null),r._eventsCount=0):(i.newListener!==void 0&&(r.emit("newListener",e,t.listener?t.listener:t),i=r._events),s=i[e]),s===void 0)s=i[e]=t,++r._eventsCount;else if(typeof s=="function"?s=i[e]=n?[t,s]:[s,t]:n?s.unshift(t):s.push(t),o=J(r),o>0&&s.length>o&&!s.warned){s.warned=!0;var a=new Error("Possible EventEmitter memory leak detected. "+s.length+" "+String(e)+" listeners added. Use emitter.setMaxListeners() to increase limit");a.name="MaxListenersExceededWarning",a.emitter=r,a.type=e,a.count=s.length,ve(a)}return r}u.prototype.addListener=function(e,t){return $(this,e,t,!1)};u.prototype.on=u.prototype.addListener;u.prototype.prependListener=function(e,t){return $(this,e,t,!0)};function ye(){if(!this.fired)return this.target.removeListener(this.type,this.wrapFn),this.fired=!0,arguments.length===0?this.listener.call(this.target):this.listener.apply(this.target,arguments)}function H(r,e,t){var n={fired:!1,wrapFn:void 0,target:r,type:e,listener:t},o=ye.bind(n);return o.listener=t,n.wrapFn=o,o}u.prototype.once=function(e,t){return k(t),this.on(e,H(this,e,t)),this};u.prototype.prependOnceListener=function(e,t){return k(t),this.prependListener(e,H(this,e,t)),this};u.prototype.removeListener=function(e,t){var n,o,i,s,a;if(k(t),o=this._events,o===void 0)return this;if(n=o[e],n===void 0)return this;if(n===t||n.listener===t)--this._eventsCount===0?this._events=Object.create(null):(delete o[e],o.removeListener&&this.emit("removeListener",e,n.listener||t));else if(typeof n!="function"){for(i=-1,s=n.length-1;s>=0;s--)if(n[s]===t||n[s].listener===t){a=n[s].listener,i=s;break}if(i<0)return this;i===0?n.shift():Ee(n,i),n.length===1&&(o[e]=n[0]),o.removeListener!==void 0&&this.emit("removeListener",e,a||t)}return this};u.prototype.off=u.prototype.removeListener;u.prototype.removeAllListeners=function(e){var t,n,o;if(n=this._events,n===void 0)return this;if(n.removeListener===void 0)return arguments.length===0?(this._events=Object.create(null),this._eventsCount=0):n[e]!==void 0&&(--this._eventsCount===0?this._events=Object.create(null):delete n[e]),this;if(arguments.length===0){var i=Object.keys(n),s;for(o=0;o<i.length;++o)s=i[o],s!=="removeListener"&&this.removeAllListeners(s);return this.removeAllListeners("removeListener"),this._events=Object.create(null),this._eventsCount=0,this}if(t=n[e],typeof t=="function")this.removeListener(e,t);else if(t!==void 0)for(o=t.length-1;o>=0;o--)this.removeListener(e,t[o]);return this};function K(r,e,t){var n=r._events;if(n===void 0)return[];var o=n[e];return o===void 0?[]:typeof o=="function"?t?[o.listener||o]:[o]:t?we(o):G(o,o.length)}u.prototype.listeners=function(e){return K(this,e,!0)};u.prototype.rawListeners=function(e){return K(this,e,!1)};u.listenerCount=function(r,e){return typeof r.listenerCount=="function"?r.listenerCount(e):B.call(r,e)};u.prototype.listenerCount=B;function B(r){var e=this._events;if(e!==void 0){var t=e[r];if(typeof t=="function")return 1;if(t!==void 0)return t.length}return 0}u.prototype.eventNames=function(){return this._eventsCount>0?A(this._events):[]};function G(r,e){for(var t=new Array(e),n=0;n<e;++n)t[n]=r[n];return t}function Ee(r,e){for(;e+1<r.length;e++)r[e]=r[e+1];r.pop()}function we(r){for(var e=new Array(r.length),t=0;t<e.length;++t)e[t]=r[t].listener||r[t];return e}function Le(r,e){return new Promise(function(t,n){function o(s){r.removeListener(e,i),n(s)}function i(){typeof r.removeListener=="function"&&r.removeListener("error",o),t([].slice.call(arguments))}z(r,e,i,{once:!0}),e!=="error"&&ge(r,o,{once:!0})})}function ge(r,e,t){typeof r.on=="function"&&z(r,"error",e,t)}function z(r,e,t,n){if(typeof r.on=="function")n.once?r.once(e,t):r.on(e,t);else if(typeof r.addEventListener=="function")r.addEventListener(e,function o(i){n.once&&r.removeEventListener(e,o),t(i)});else throw new TypeError('The "emitter" argument must be of type EventEmitter. Received type '+typeof r)}});var ae={withStackTrace:!1},C=(r,e,t=ae)=>{let n=e.isOk()?{type:"Ok",value:e.value}:{type:"Err",value:e.error},o=t.withStackTrace?new Error().stack:void 0;return{data:n,message:r,stack:o}};function _(r,e,t,n){function o(i){return i instanceof t?i:new t(function(s){s(i)})}return new(t||(t=Promise))(function(i,s){function a(m){try{v(n.next(m))}catch(L){s(L)}}function l(m){try{v(n.throw(m))}catch(L){s(L)}}function v(m){m.done?i(m.value):o(m.value).then(a,l)}v((n=n.apply(r,[])).next())})}function R(r){var e=typeof Symbol=="function"&&Symbol.iterator,t=e&&r[e],n=0;if(t)return t.call(r);if(r&&typeof r.length=="number")return{next:function(){return r&&n>=r.length&&(r=void 0),{value:r&&r[n++],done:!r}}};throw new TypeError(e?"Object is not iterable.":"Symbol.iterator is not defined.")}function w(r){return this instanceof w?(this.v=r,this):new w(r)}function fe(r,e,t){if(!Symbol.asyncIterator)throw new TypeError("Symbol.asyncIterator is not defined.");var n=t.apply(r,e||[]),o,i=[];return o={},s("next"),s("throw"),s("return"),o[Symbol.asyncIterator]=function(){return this},o;function s(f){n[f]&&(o[f]=function(g){return new Promise(function(P,V){i.push([f,g,P,V])>1||a(f,g)})})}function a(f,g){try{l(n[f](g))}catch(P){L(i[0][3],P)}}function l(f){f.value instanceof w?Promise.resolve(f.value.v).then(v,m):L(i[0][2],f)}function v(f){a("next",f)}function m(f){a("throw",f)}function L(f,g){f(g),i.shift(),i.length&&a(i[0][0],i[0][1])}}function ce(r){var e,t;return e={},n("next"),n("throw",function(o){throw o}),n("return"),e[Symbol.iterator]=function(){return this},e;function n(o,i){e[o]=r[o]?function(s){return(t=!t)?{value:w(r[o](s)),done:o==="return"}:i?i(s):s}:i}}function le(r){if(!Symbol.asyncIterator)throw new TypeError("Symbol.asyncIterator is not defined.");var e=r[Symbol.asyncIterator],t;return e?e.call(r):(r=typeof R=="function"?R(r):r[Symbol.iterator](),t={},n("next"),n("throw"),n("return"),t[Symbol.asyncIterator]=function(){return this},t);function n(i){t[i]=r[i]&&function(s){return new Promise(function(a,l){s=r[i](s),o(a,l,s.done,s.value)})}}function o(i,s,a,l){Promise.resolve(l).then(function(v){i({value:v,done:a})},s)}}var p=class r{constructor(e){this._promise=e}static fromSafePromise(e){let t=e.then(n=>new d(n));return new r(t)}static fromPromise(e,t){let n=e.then(o=>new d(o)).catch(o=>new h(t(o)));return new r(n)}static fromThrowable(e,t){return(...n)=>new r(_(this,void 0,void 0,function*(){try{return new d(yield e(...n))}catch(o){return new h(t?t(o):o)}}))}static combine(e){return he(e)}static combineWithAllErrors(e){return pe(e)}map(e){return new r(this._promise.then(t=>_(this,void 0,void 0,function*(){return t.isErr()?new h(t.error):new d(yield e(t.value))})))}andThrough(e){return new r(this._promise.then(t=>_(this,void 0,void 0,function*(){if(t.isErr())return new h(t.error);let n=yield e(t.value);return n.isErr()?new h(n.error):new d(t.value)})))}andTee(e){return new r(this._promise.then(t=>_(this,void 0,void 0,function*(){if(t.isErr())return new h(t.error);try{yield e(t.value)}catch{}return new d(t.value)})))}mapErr(e){return new r(this._promise.then(t=>_(this,void 0,void 0,function*(){return t.isOk()?new d(t.value):new h(yield e(t.error))})))}andThen(e){return new r(this._promise.then(t=>{if(t.isErr())return new h(t.error);let n=e(t.value);return n instanceof r?n._promise:n}))}orElse(e){return new r(this._promise.then(t=>_(this,void 0,void 0,function*(){return t.isErr()?e(t.error):new d(t.value)})))}match(e,t){return this._promise.then(n=>n.match(e,t))}unwrapOr(e){return this._promise.then(t=>t.unwrapOr(e))}safeUnwrap(){return fe(this,arguments,function*(){return yield w(yield w(yield*ce(le(yield w(this._promise.then(t=>t.safeUnwrap()))))))})}then(e,t){return this._promise.then(e,t)}};var D=r=>new p(Promise.resolve(new h(r))),ke=p.fromPromise,Pe=p.fromSafePromise,xe=p.fromThrowable,F=r=>{let e=E([]);for(let t of r)if(t.isErr()){e=y(t.error);break}else e.map(n=>n.push(t.value));return e},he=r=>p.fromSafePromise(Promise.all(r)).andThen(F),N=r=>{let e=E([]);for(let t of r)t.isErr()&&e.isErr()?e.error.push(t.error):t.isErr()&&e.isOk()?e=y([t.error]):t.isOk()&&e.isOk()&&e.value.push(t.value);return e},pe=r=>p.fromSafePromise(Promise.all(r)).andThen(N),x;(function(r){function e(o,i){return(...s)=>{try{let a=o(...s);return E(a)}catch(a){return y(i?i(a):a)}}}r.fromThrowable=e;function t(o){return F(o)}r.combine=t;function n(o){return N(o)}r.combineWithAllErrors=n})(x||(x={}));var E=r=>new d(r);function y(r){return new h(r)}var d=class{constructor(e){this.value=e}isOk(){return!0}isErr(){return!this.isOk()}map(e){return E(e(this.value))}mapErr(e){return E(this.value)}andThen(e){return e(this.value)}andThrough(e){return e(this.value).map(t=>this.value)}andTee(e){try{e(this.value)}catch{}return E(this.value)}orElse(e){return E(this.value)}asyncAndThen(e){return e(this.value)}asyncAndThrough(e){return e(this.value).map(()=>this.value)}asyncMap(e){return p.fromSafePromise(e(this.value))}unwrapOr(e){return this.value}match(e,t){return e(this.value)}safeUnwrap(){let e=this.value;return function*(){return e}()}_unsafeUnwrap(e){return this.value}_unsafeUnwrapErr(e){throw C("Called `_unsafeUnwrapErr` on an Ok",this,e)}},h=class{constructor(e){this.error=e}isOk(){return!1}isErr(){return!this.isOk()}map(e){return y(this.error)}mapErr(e){return y(e(this.error))}andThrough(e){return y(this.error)}andTee(e){return y(this.error)}andThen(e){return y(this.error)}orElse(e){return e(this.error)}asyncAndThen(e){return D(this.error)}asyncAndThrough(e){return D(this.error)}asyncMap(e){return D(this.error)}unwrapOr(e){return e}match(e,t){return t(this.error)}safeUnwrap(){let e=this.error;return function*(){throw yield y(e),new Error("Do not use this generator out of `safeTry`")}()}_unsafeUnwrap(e){throw C("Called `_unsafeUnwrap` on an Err",this,e)}_unsafeUnwrapErr(e){return this.error}},Me=x.fromThrowable;var S=r=>{if(r instanceof Error)return r;let e="[Unable to stringify the thrown value]";try{e=JSON.stringify(r)}catch{}return new Error(e)};var de=()=>typeof Deno<"u",O=r=>de()?new URL(`./worker/${r}.ts`,new URL(".",import.meta.url).href):new URL(import.meta.resolve(`./${r==="main"?`worker/${r}`:r}.js`));var q=ue(Q());var I=new q.default,c,Z=!1;self.onmessage=r=>{Oe(r),Z||(Z=!0,I.once("OPERATION_FAILED",()=>{c&&c.terminate()}))};var Oe=(r,e)=>{let{action:t}=r.data;switch(t){case 0:c=new Worker(O("cancel"),{type:"module"}),c.postMessage(r.data);break;case 1:c=new Worker(O("download"),{type:"module"}),c.postMessage(r.data);break;case 2:c=new Worker(O("infos"),{type:"module"}),c.postMessage(r.data);break;case 4:c=c||new Worker(O("remove"),{type:"module"}),c.postMessage(r.data);break;case 5:{c=c||new Worker(O("upload"),{type:"module"}),c.postMessage(r.data);break}default:console.error("Action not found")}c.onmessage=n=>{e&&e(n),self.postMessage(n.data)},c.onerror=n=>{console.error(`Error: ${n.message}`)}},X=()=>{I.once("SOCKET_OPENED",()=>{self.postMessage({event:"SOCKET_OPENED"})}),I.once("OPERATION_FAILED",r=>{self.postMessage({event:"OPERATION_FAILED",error:r})})};var Y=!1;self.onmessage=r=>{Y||(X(),Y=!0),be(r.data).map(()=>{self.postMessage({event:"FILE_REMOVED"})}).mapErr(e=>{self.postMessage({event:"OPERATION_FAILED",error:e})})};var be=r=>p.fromPromise(new Promise((e,t)=>{let n=r.args.lufiFile;fetch(`${new URL(n.serverUrl).href}d/${n.keys.server}/${n.actionToken}`).then(o=>o.ok?e(void 0):t(o.statusText))}),e=>S(e));
+var __create = Object.create;
+var __defProp = Object.defineProperty;
+var __getOwnPropDesc = Object.getOwnPropertyDescriptor;
+var __getOwnPropNames = Object.getOwnPropertyNames;
+var __getProtoOf = Object.getPrototypeOf;
+var __hasOwnProp = Object.prototype.hasOwnProperty;
+var __commonJS = (cb, mod) => function __require() {
+  return mod || (0, cb[__getOwnPropNames(cb)[0]])((mod = { exports: {} }).exports, mod), mod.exports;
+};
+var __copyProps = (to, from, except, desc) => {
+  if (from && typeof from === "object" || typeof from === "function") {
+    for (let key of __getOwnPropNames(from))
+      if (!__hasOwnProp.call(to, key) && key !== except)
+        __defProp(to, key, { get: () => from[key], enumerable: !(desc = __getOwnPropDesc(from, key)) || desc.enumerable });
+  }
+  return to;
+};
+var __toESM = (mod, isNodeMode, target) => (target = mod != null ? __create(__getProtoOf(mod)) : {}, __copyProps(
+  // If the importer is in node compatibility mode or this is not an ESM
+  // file that has been converted to a CommonJS file using a Babel-
+  // compatible transform (i.e. "__esModule" has not been set), then set
+  // "default" to the CommonJS "module.exports" for node compatibility.
+  isNodeMode || !mod || !mod.__esModule ? __defProp(target, "default", { value: mod, enumerable: true }) : target,
+  mod
+));
+
+// node_modules/.deno/events@3.3.0/node_modules/events/events.js
+var require_events = __commonJS({
+  "node_modules/.deno/events@3.3.0/node_modules/events/events.js"(exports, module) {
+    "use strict";
+    var R = typeof Reflect === "object" ? Reflect : null;
+    var ReflectApply = R && typeof R.apply === "function" ? R.apply : function ReflectApply2(target, receiver, args) {
+      return Function.prototype.apply.call(target, receiver, args);
+    };
+    var ReflectOwnKeys;
+    if (R && typeof R.ownKeys === "function") {
+      ReflectOwnKeys = R.ownKeys;
+    } else if (Object.getOwnPropertySymbols) {
+      ReflectOwnKeys = function ReflectOwnKeys2(target) {
+        return Object.getOwnPropertyNames(target).concat(Object.getOwnPropertySymbols(target));
+      };
+    } else {
+      ReflectOwnKeys = function ReflectOwnKeys2(target) {
+        return Object.getOwnPropertyNames(target);
+      };
+    }
+    function ProcessEmitWarning(warning) {
+      if (console && console.warn) console.warn(warning);
+    }
+    var NumberIsNaN = Number.isNaN || function NumberIsNaN2(value) {
+      return value !== value;
+    };
+    function EventEmitter2() {
+      EventEmitter2.init.call(this);
+    }
+    module.exports = EventEmitter2;
+    module.exports.once = once;
+    EventEmitter2.EventEmitter = EventEmitter2;
+    EventEmitter2.prototype._events = void 0;
+    EventEmitter2.prototype._eventsCount = 0;
+    EventEmitter2.prototype._maxListeners = void 0;
+    var defaultMaxListeners = 10;
+    function checkListener(listener) {
+      if (typeof listener !== "function") {
+        throw new TypeError('The "listener" argument must be of type Function. Received type ' + typeof listener);
+      }
+    }
+    Object.defineProperty(EventEmitter2, "defaultMaxListeners", {
+      enumerable: true,
+      get: function() {
+        return defaultMaxListeners;
+      },
+      set: function(arg) {
+        if (typeof arg !== "number" || arg < 0 || NumberIsNaN(arg)) {
+          throw new RangeError('The value of "defaultMaxListeners" is out of range. It must be a non-negative number. Received ' + arg + ".");
+        }
+        defaultMaxListeners = arg;
+      }
+    });
+    EventEmitter2.init = function() {
+      if (this._events === void 0 || this._events === Object.getPrototypeOf(this)._events) {
+        this._events = /* @__PURE__ */ Object.create(null);
+        this._eventsCount = 0;
+      }
+      this._maxListeners = this._maxListeners || void 0;
+    };
+    EventEmitter2.prototype.setMaxListeners = function setMaxListeners(n) {
+      if (typeof n !== "number" || n < 0 || NumberIsNaN(n)) {
+        throw new RangeError('The value of "n" is out of range. It must be a non-negative number. Received ' + n + ".");
+      }
+      this._maxListeners = n;
+      return this;
+    };
+    function _getMaxListeners(that) {
+      if (that._maxListeners === void 0)
+        return EventEmitter2.defaultMaxListeners;
+      return that._maxListeners;
+    }
+    EventEmitter2.prototype.getMaxListeners = function getMaxListeners() {
+      return _getMaxListeners(this);
+    };
+    EventEmitter2.prototype.emit = function emit(type) {
+      var args = [];
+      for (var i = 1; i < arguments.length; i++) args.push(arguments[i]);
+      var doError = type === "error";
+      var events2 = this._events;
+      if (events2 !== void 0)
+        doError = doError && events2.error === void 0;
+      else if (!doError)
+        return false;
+      if (doError) {
+        var er;
+        if (args.length > 0)
+          er = args[0];
+        if (er instanceof Error) {
+          throw er;
+        }
+        var err2 = new Error("Unhandled error." + (er ? " (" + er.message + ")" : ""));
+        err2.context = er;
+        throw err2;
+      }
+      var handler = events2[type];
+      if (handler === void 0)
+        return false;
+      if (typeof handler === "function") {
+        ReflectApply(handler, this, args);
+      } else {
+        var len = handler.length;
+        var listeners = arrayClone(handler, len);
+        for (var i = 0; i < len; ++i)
+          ReflectApply(listeners[i], this, args);
+      }
+      return true;
+    };
+    function _addListener(target, type, listener, prepend) {
+      var m;
+      var events2;
+      var existing;
+      checkListener(listener);
+      events2 = target._events;
+      if (events2 === void 0) {
+        events2 = target._events = /* @__PURE__ */ Object.create(null);
+        target._eventsCount = 0;
+      } else {
+        if (events2.newListener !== void 0) {
+          target.emit(
+            "newListener",
+            type,
+            listener.listener ? listener.listener : listener
+          );
+          events2 = target._events;
+        }
+        existing = events2[type];
+      }
+      if (existing === void 0) {
+        existing = events2[type] = listener;
+        ++target._eventsCount;
+      } else {
+        if (typeof existing === "function") {
+          existing = events2[type] = prepend ? [listener, existing] : [existing, listener];
+        } else if (prepend) {
+          existing.unshift(listener);
+        } else {
+          existing.push(listener);
+        }
+        m = _getMaxListeners(target);
+        if (m > 0 && existing.length > m && !existing.warned) {
+          existing.warned = true;
+          var w = new Error("Possible EventEmitter memory leak detected. " + existing.length + " " + String(type) + " listeners added. Use emitter.setMaxListeners() to increase limit");
+          w.name = "MaxListenersExceededWarning";
+          w.emitter = target;
+          w.type = type;
+          w.count = existing.length;
+          ProcessEmitWarning(w);
+        }
+      }
+      return target;
+    }
+    EventEmitter2.prototype.addListener = function addListener(type, listener) {
+      return _addListener(this, type, listener, false);
+    };
+    EventEmitter2.prototype.on = EventEmitter2.prototype.addListener;
+    EventEmitter2.prototype.prependListener = function prependListener(type, listener) {
+      return _addListener(this, type, listener, true);
+    };
+    function onceWrapper() {
+      if (!this.fired) {
+        this.target.removeListener(this.type, this.wrapFn);
+        this.fired = true;
+        if (arguments.length === 0)
+          return this.listener.call(this.target);
+        return this.listener.apply(this.target, arguments);
+      }
+    }
+    function _onceWrap(target, type, listener) {
+      var state = { fired: false, wrapFn: void 0, target, type, listener };
+      var wrapped = onceWrapper.bind(state);
+      wrapped.listener = listener;
+      state.wrapFn = wrapped;
+      return wrapped;
+    }
+    EventEmitter2.prototype.once = function once2(type, listener) {
+      checkListener(listener);
+      this.on(type, _onceWrap(this, type, listener));
+      return this;
+    };
+    EventEmitter2.prototype.prependOnceListener = function prependOnceListener(type, listener) {
+      checkListener(listener);
+      this.prependListener(type, _onceWrap(this, type, listener));
+      return this;
+    };
+    EventEmitter2.prototype.removeListener = function removeListener(type, listener) {
+      var list, events2, position, i, originalListener;
+      checkListener(listener);
+      events2 = this._events;
+      if (events2 === void 0)
+        return this;
+      list = events2[type];
+      if (list === void 0)
+        return this;
+      if (list === listener || list.listener === listener) {
+        if (--this._eventsCount === 0)
+          this._events = /* @__PURE__ */ Object.create(null);
+        else {
+          delete events2[type];
+          if (events2.removeListener)
+            this.emit("removeListener", type, list.listener || listener);
+        }
+      } else if (typeof list !== "function") {
+        position = -1;
+        for (i = list.length - 1; i >= 0; i--) {
+          if (list[i] === listener || list[i].listener === listener) {
+            originalListener = list[i].listener;
+            position = i;
+            break;
+          }
+        }
+        if (position < 0)
+          return this;
+        if (position === 0)
+          list.shift();
+        else {
+          spliceOne(list, position);
+        }
+        if (list.length === 1)
+          events2[type] = list[0];
+        if (events2.removeListener !== void 0)
+          this.emit("removeListener", type, originalListener || listener);
+      }
+      return this;
+    };
+    EventEmitter2.prototype.off = EventEmitter2.prototype.removeListener;
+    EventEmitter2.prototype.removeAllListeners = function removeAllListeners(type) {
+      var listeners, events2, i;
+      events2 = this._events;
+      if (events2 === void 0)
+        return this;
+      if (events2.removeListener === void 0) {
+        if (arguments.length === 0) {
+          this._events = /* @__PURE__ */ Object.create(null);
+          this._eventsCount = 0;
+        } else if (events2[type] !== void 0) {
+          if (--this._eventsCount === 0)
+            this._events = /* @__PURE__ */ Object.create(null);
+          else
+            delete events2[type];
+        }
+        return this;
+      }
+      if (arguments.length === 0) {
+        var keys = Object.keys(events2);
+        var key;
+        for (i = 0; i < keys.length; ++i) {
+          key = keys[i];
+          if (key === "removeListener") continue;
+          this.removeAllListeners(key);
+        }
+        this.removeAllListeners("removeListener");
+        this._events = /* @__PURE__ */ Object.create(null);
+        this._eventsCount = 0;
+        return this;
+      }
+      listeners = events2[type];
+      if (typeof listeners === "function") {
+        this.removeListener(type, listeners);
+      } else if (listeners !== void 0) {
+        for (i = listeners.length - 1; i >= 0; i--) {
+          this.removeListener(type, listeners[i]);
+        }
+      }
+      return this;
+    };
+    function _listeners(target, type, unwrap) {
+      var events2 = target._events;
+      if (events2 === void 0)
+        return [];
+      var evlistener = events2[type];
+      if (evlistener === void 0)
+        return [];
+      if (typeof evlistener === "function")
+        return unwrap ? [evlistener.listener || evlistener] : [evlistener];
+      return unwrap ? unwrapListeners(evlistener) : arrayClone(evlistener, evlistener.length);
+    }
+    EventEmitter2.prototype.listeners = function listeners(type) {
+      return _listeners(this, type, true);
+    };
+    EventEmitter2.prototype.rawListeners = function rawListeners(type) {
+      return _listeners(this, type, false);
+    };
+    EventEmitter2.listenerCount = function(emitter, type) {
+      if (typeof emitter.listenerCount === "function") {
+        return emitter.listenerCount(type);
+      } else {
+        return listenerCount.call(emitter, type);
+      }
+    };
+    EventEmitter2.prototype.listenerCount = listenerCount;
+    function listenerCount(type) {
+      var events2 = this._events;
+      if (events2 !== void 0) {
+        var evlistener = events2[type];
+        if (typeof evlistener === "function") {
+          return 1;
+        } else if (evlistener !== void 0) {
+          return evlistener.length;
+        }
+      }
+      return 0;
+    }
+    EventEmitter2.prototype.eventNames = function eventNames() {
+      return this._eventsCount > 0 ? ReflectOwnKeys(this._events) : [];
+    };
+    function arrayClone(arr, n) {
+      var copy = new Array(n);
+      for (var i = 0; i < n; ++i)
+        copy[i] = arr[i];
+      return copy;
+    }
+    function spliceOne(list, index) {
+      for (; index + 1 < list.length; index++)
+        list[index] = list[index + 1];
+      list.pop();
+    }
+    function unwrapListeners(arr) {
+      var ret = new Array(arr.length);
+      for (var i = 0; i < ret.length; ++i) {
+        ret[i] = arr[i].listener || arr[i];
+      }
+      return ret;
+    }
+    function once(emitter, name) {
+      return new Promise(function(resolve, reject) {
+        function errorListener(err2) {
+          emitter.removeListener(name, resolver);
+          reject(err2);
+        }
+        function resolver() {
+          if (typeof emitter.removeListener === "function") {
+            emitter.removeListener("error", errorListener);
+          }
+          resolve([].slice.call(arguments));
+        }
+        ;
+        eventTargetAgnosticAddListener(emitter, name, resolver, { once: true });
+        if (name !== "error") {
+          addErrorHandlerIfEventEmitter(emitter, errorListener, { once: true });
+        }
+      });
+    }
+    function addErrorHandlerIfEventEmitter(emitter, handler, flags) {
+      if (typeof emitter.on === "function") {
+        eventTargetAgnosticAddListener(emitter, "error", handler, flags);
+      }
+    }
+    function eventTargetAgnosticAddListener(emitter, name, listener, flags) {
+      if (typeof emitter.on === "function") {
+        if (flags.once) {
+          emitter.once(name, listener);
+        } else {
+          emitter.on(name, listener);
+        }
+      } else if (typeof emitter.addEventListener === "function") {
+        emitter.addEventListener(name, function wrapListener(arg) {
+          if (flags.once) {
+            emitter.removeEventListener(name, wrapListener);
+          }
+          listener(arg);
+        });
+      } else {
+        throw new TypeError('The "emitter" argument must be of type EventEmitter. Received type ' + typeof emitter);
+      }
+    }
+  }
+});
+
+// node_modules/.deno/neverthrow@8.0.0/node_modules/neverthrow/dist/index.es.js
+var defaultErrorConfig = {
+  withStackTrace: false
+};
+var createNeverThrowError = (message, result, config = defaultErrorConfig) => {
+  const data = result.isOk() ? { type: "Ok", value: result.value } : { type: "Err", value: result.error };
+  const maybeStack = config.withStackTrace ? new Error().stack : void 0;
+  return {
+    data,
+    message,
+    stack: maybeStack
+  };
+};
+function __awaiter(thisArg, _arguments, P, generator) {
+  function adopt(value) {
+    return value instanceof P ? value : new P(function(resolve) {
+      resolve(value);
+    });
+  }
+  return new (P || (P = Promise))(function(resolve, reject) {
+    function fulfilled(value) {
+      try {
+        step(generator.next(value));
+      } catch (e) {
+        reject(e);
+      }
+    }
+    function rejected(value) {
+      try {
+        step(generator["throw"](value));
+      } catch (e) {
+        reject(e);
+      }
+    }
+    function step(result) {
+      result.done ? resolve(result.value) : adopt(result.value).then(fulfilled, rejected);
+    }
+    step((generator = generator.apply(thisArg, [])).next());
+  });
+}
+function __values(o) {
+  var s = typeof Symbol === "function" && Symbol.iterator, m = s && o[s], i = 0;
+  if (m) return m.call(o);
+  if (o && typeof o.length === "number") return {
+    next: function() {
+      if (o && i >= o.length) o = void 0;
+      return { value: o && o[i++], done: !o };
+    }
+  };
+  throw new TypeError(s ? "Object is not iterable." : "Symbol.iterator is not defined.");
+}
+function __await(v) {
+  return this instanceof __await ? (this.v = v, this) : new __await(v);
+}
+function __asyncGenerator(thisArg, _arguments, generator) {
+  if (!Symbol.asyncIterator) throw new TypeError("Symbol.asyncIterator is not defined.");
+  var g = generator.apply(thisArg, _arguments || []), i, q = [];
+  return i = {}, verb("next"), verb("throw"), verb("return"), i[Symbol.asyncIterator] = function() {
+    return this;
+  }, i;
+  function verb(n) {
+    if (g[n]) i[n] = function(v) {
+      return new Promise(function(a, b) {
+        q.push([n, v, a, b]) > 1 || resume(n, v);
+      });
+    };
+  }
+  function resume(n, v) {
+    try {
+      step(g[n](v));
+    } catch (e) {
+      settle(q[0][3], e);
+    }
+  }
+  function step(r) {
+    r.value instanceof __await ? Promise.resolve(r.value.v).then(fulfill, reject) : settle(q[0][2], r);
+  }
+  function fulfill(value) {
+    resume("next", value);
+  }
+  function reject(value) {
+    resume("throw", value);
+  }
+  function settle(f, v) {
+    if (f(v), q.shift(), q.length) resume(q[0][0], q[0][1]);
+  }
+}
+function __asyncDelegator(o) {
+  var i, p;
+  return i = {}, verb("next"), verb("throw", function(e) {
+    throw e;
+  }), verb("return"), i[Symbol.iterator] = function() {
+    return this;
+  }, i;
+  function verb(n, f) {
+    i[n] = o[n] ? function(v) {
+      return (p = !p) ? { value: __await(o[n](v)), done: n === "return" } : f ? f(v) : v;
+    } : f;
+  }
+}
+function __asyncValues(o) {
+  if (!Symbol.asyncIterator) throw new TypeError("Symbol.asyncIterator is not defined.");
+  var m = o[Symbol.asyncIterator], i;
+  return m ? m.call(o) : (o = typeof __values === "function" ? __values(o) : o[Symbol.iterator](), i = {}, verb("next"), verb("throw"), verb("return"), i[Symbol.asyncIterator] = function() {
+    return this;
+  }, i);
+  function verb(n) {
+    i[n] = o[n] && function(v) {
+      return new Promise(function(resolve, reject) {
+        v = o[n](v), settle(resolve, reject, v.done, v.value);
+      });
+    };
+  }
+  function settle(resolve, reject, d, v) {
+    Promise.resolve(v).then(function(v2) {
+      resolve({ value: v2, done: d });
+    }, reject);
+  }
+}
+var ResultAsync = class _ResultAsync {
+  constructor(res) {
+    this._promise = res;
+  }
+  static fromSafePromise(promise) {
+    const newPromise = promise.then((value) => new Ok(value));
+    return new _ResultAsync(newPromise);
+  }
+  static fromPromise(promise, errorFn) {
+    const newPromise = promise.then((value) => new Ok(value)).catch((e) => new Err(errorFn(e)));
+    return new _ResultAsync(newPromise);
+  }
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  static fromThrowable(fn, errorFn) {
+    return (...args) => {
+      return new _ResultAsync((() => __awaiter(this, void 0, void 0, function* () {
+        try {
+          return new Ok(yield fn(...args));
+        } catch (error) {
+          return new Err(errorFn ? errorFn(error) : error);
+        }
+      }))());
+    };
+  }
+  static combine(asyncResultList) {
+    return combineResultAsyncList(asyncResultList);
+  }
+  static combineWithAllErrors(asyncResultList) {
+    return combineResultAsyncListWithAllErrors(asyncResultList);
+  }
+  map(f) {
+    return new _ResultAsync(this._promise.then((res) => __awaiter(this, void 0, void 0, function* () {
+      if (res.isErr()) {
+        return new Err(res.error);
+      }
+      return new Ok(yield f(res.value));
+    })));
+  }
+  andThrough(f) {
+    return new _ResultAsync(this._promise.then((res) => __awaiter(this, void 0, void 0, function* () {
+      if (res.isErr()) {
+        return new Err(res.error);
+      }
+      const newRes = yield f(res.value);
+      if (newRes.isErr()) {
+        return new Err(newRes.error);
+      }
+      return new Ok(res.value);
+    })));
+  }
+  andTee(f) {
+    return new _ResultAsync(this._promise.then((res) => __awaiter(this, void 0, void 0, function* () {
+      if (res.isErr()) {
+        return new Err(res.error);
+      }
+      try {
+        yield f(res.value);
+      } catch (e) {
+      }
+      return new Ok(res.value);
+    })));
+  }
+  mapErr(f) {
+    return new _ResultAsync(this._promise.then((res) => __awaiter(this, void 0, void 0, function* () {
+      if (res.isOk()) {
+        return new Ok(res.value);
+      }
+      return new Err(yield f(res.error));
+    })));
+  }
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any, @typescript-eslint/explicit-module-boundary-types
+  andThen(f) {
+    return new _ResultAsync(this._promise.then((res) => {
+      if (res.isErr()) {
+        return new Err(res.error);
+      }
+      const newValue = f(res.value);
+      return newValue instanceof _ResultAsync ? newValue._promise : newValue;
+    }));
+  }
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any, @typescript-eslint/explicit-module-boundary-types
+  orElse(f) {
+    return new _ResultAsync(this._promise.then((res) => __awaiter(this, void 0, void 0, function* () {
+      if (res.isErr()) {
+        return f(res.error);
+      }
+      return new Ok(res.value);
+    })));
+  }
+  match(ok2, _err) {
+    return this._promise.then((res) => res.match(ok2, _err));
+  }
+  unwrapOr(t) {
+    return this._promise.then((res) => res.unwrapOr(t));
+  }
+  /**
+   * Emulates Rust's `?` operator in `safeTry`'s body. See also `safeTry`.
+   */
+  safeUnwrap() {
+    return __asyncGenerator(this, arguments, function* safeUnwrap_1() {
+      return yield __await(yield __await(yield* __asyncDelegator(__asyncValues(yield __await(this._promise.then((res) => res.safeUnwrap()))))));
+    });
+  }
+  // Makes ResultAsync implement PromiseLike<Result>
+  then(successCallback, failureCallback) {
+    return this._promise.then(successCallback, failureCallback);
+  }
+};
+var errAsync = (err2) => new ResultAsync(Promise.resolve(new Err(err2)));
+var fromPromise = ResultAsync.fromPromise;
+var fromSafePromise = ResultAsync.fromSafePromise;
+var fromAsyncThrowable = ResultAsync.fromThrowable;
+var combineResultList = (resultList) => {
+  let acc = ok([]);
+  for (const result of resultList) {
+    if (result.isErr()) {
+      acc = err(result.error);
+      break;
+    } else {
+      acc.map((list) => list.push(result.value));
+    }
+  }
+  return acc;
+};
+var combineResultAsyncList = (asyncResultList) => ResultAsync.fromSafePromise(Promise.all(asyncResultList)).andThen(combineResultList);
+var combineResultListWithAllErrors = (resultList) => {
+  let acc = ok([]);
+  for (const result of resultList) {
+    if (result.isErr() && acc.isErr()) {
+      acc.error.push(result.error);
+    } else if (result.isErr() && acc.isOk()) {
+      acc = err([result.error]);
+    } else if (result.isOk() && acc.isOk()) {
+      acc.value.push(result.value);
+    }
+  }
+  return acc;
+};
+var combineResultAsyncListWithAllErrors = (asyncResultList) => ResultAsync.fromSafePromise(Promise.all(asyncResultList)).andThen(combineResultListWithAllErrors);
+var Result;
+(function(Result2) {
+  function fromThrowable2(fn, errorFn) {
+    return (...args) => {
+      try {
+        const result = fn(...args);
+        return ok(result);
+      } catch (e) {
+        return err(errorFn ? errorFn(e) : e);
+      }
+    };
+  }
+  Result2.fromThrowable = fromThrowable2;
+  function combine(resultList) {
+    return combineResultList(resultList);
+  }
+  Result2.combine = combine;
+  function combineWithAllErrors(resultList) {
+    return combineResultListWithAllErrors(resultList);
+  }
+  Result2.combineWithAllErrors = combineWithAllErrors;
+})(Result || (Result = {}));
+var ok = (value) => new Ok(value);
+function err(err2) {
+  return new Err(err2);
+}
+var Ok = class {
+  constructor(value) {
+    this.value = value;
+  }
+  isOk() {
+    return true;
+  }
+  isErr() {
+    return !this.isOk();
+  }
+  map(f) {
+    return ok(f(this.value));
+  }
+  // eslint-disable-next-line @typescript-eslint/no-unused-vars
+  mapErr(_f) {
+    return ok(this.value);
+  }
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any, @typescript-eslint/explicit-module-boundary-types
+  andThen(f) {
+    return f(this.value);
+  }
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any, @typescript-eslint/explicit-module-boundary-types
+  andThrough(f) {
+    return f(this.value).map((_value) => this.value);
+  }
+  andTee(f) {
+    try {
+      f(this.value);
+    } catch (e) {
+    }
+    return ok(this.value);
+  }
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any, @typescript-eslint/explicit-module-boundary-types
+  orElse(_f) {
+    return ok(this.value);
+  }
+  asyncAndThen(f) {
+    return f(this.value);
+  }
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any, @typescript-eslint/explicit-module-boundary-types
+  asyncAndThrough(f) {
+    return f(this.value).map(() => this.value);
+  }
+  asyncMap(f) {
+    return ResultAsync.fromSafePromise(f(this.value));
+  }
+  // eslint-disable-next-line @typescript-eslint/no-unused-vars
+  unwrapOr(_v) {
+    return this.value;
+  }
+  // eslint-disable-next-line @typescript-eslint/no-unused-vars
+  match(ok2, _err) {
+    return ok2(this.value);
+  }
+  safeUnwrap() {
+    const value = this.value;
+    return function* () {
+      return value;
+    }();
+  }
+  _unsafeUnwrap(_) {
+    return this.value;
+  }
+  _unsafeUnwrapErr(config) {
+    throw createNeverThrowError("Called `_unsafeUnwrapErr` on an Ok", this, config);
+  }
+};
+var Err = class {
+  constructor(error) {
+    this.error = error;
+  }
+  isOk() {
+    return false;
+  }
+  isErr() {
+    return !this.isOk();
+  }
+  // eslint-disable-next-line @typescript-eslint/no-unused-vars
+  map(_f) {
+    return err(this.error);
+  }
+  mapErr(f) {
+    return err(f(this.error));
+  }
+  andThrough(_f) {
+    return err(this.error);
+  }
+  andTee(_f) {
+    return err(this.error);
+  }
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any, @typescript-eslint/explicit-module-boundary-types
+  andThen(_f) {
+    return err(this.error);
+  }
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any, @typescript-eslint/explicit-module-boundary-types
+  orElse(f) {
+    return f(this.error);
+  }
+  // eslint-disable-next-line @typescript-eslint/no-unused-vars
+  asyncAndThen(_f) {
+    return errAsync(this.error);
+  }
+  asyncAndThrough(_f) {
+    return errAsync(this.error);
+  }
+  // eslint-disable-next-line @typescript-eslint/no-unused-vars
+  asyncMap(_f) {
+    return errAsync(this.error);
+  }
+  unwrapOr(v) {
+    return v;
+  }
+  match(_ok, err2) {
+    return err2(this.error);
+  }
+  safeUnwrap() {
+    const error = this.error;
+    return function* () {
+      yield err(error);
+      throw new Error("Do not use this generator out of `safeTry`");
+    }();
+  }
+  _unsafeUnwrap(config) {
+    throw createNeverThrowError("Called `_unsafeUnwrap` on an Err", this, config);
+  }
+  _unsafeUnwrapErr(_) {
+    return this.error;
+  }
+};
+var fromThrowable = Result.fromThrowable;
+
+// src/utils.ts
+var ensureError = (value) => {
+  if (value instanceof Error) return value;
+  let stringified = "[Unable to stringify the thrown value]";
+  try {
+    stringified = JSON.stringify(value);
+  } catch (_error) {
+  }
+  const error = new Error(stringified);
+  return error;
+};
+var isDenoRuntime = () => typeof Deno !== "undefined";
+var workerUrl = (relativePath) => isDenoRuntime() ? new URL(`./worker/${relativePath}.ts`, new URL(".", import.meta.url).href) : new URL(
+  import.meta.resolve(
+    `./${relativePath === "main" ? `worker/${relativePath}` : relativePath}.js`
+  )
+);
+
+// src/worker/main.ts
+var import_events = __toESM(require_events());
+var events = new import_events.default();
+var worker;
+var isInitialized = false;
+self.onmessage = (event) => {
+  addWorker(event);
+  if (!isInitialized) {
+    isInitialized = true;
+    events.once("OPERATION_FAILED" /* OPERATION_FAILED */, () => {
+      if (worker) {
+        worker.terminate();
+      }
+    });
+  }
+};
+var addWorker = (event, callback) => {
+  const { action } = event.data;
+  if (action === 5 /* PAUSE */ || action === 8 /* RESUME */) {
+    worker.postMessage(event.data);
+  } else {
+    switch (action) {
+      case 2 /* CANCEL */:
+        {
+          worker = new Worker(workerUrl("cancel"), { type: "module" });
+          worker.postMessage(event.data);
+        }
+        break;
+      case 3 /* DOWNLOAD */:
+        {
+          worker = new Worker(workerUrl("download"), { type: "module" });
+          worker.postMessage(event.data);
+        }
+        break;
+      case 4 /* INFOS */:
+        {
+          worker = new Worker(workerUrl("infos"), { type: "module" });
+          worker.postMessage(event.data);
+        }
+        break;
+      case 7 /* REMOVE */:
+        {
+          worker = worker || new Worker(workerUrl("remove"), { type: "module" });
+          worker.postMessage(event.data);
+        }
+        break;
+      case 9 /* UPLOAD */:
+        {
+          worker = worker || new Worker(workerUrl("upload"), { type: "module" });
+          worker.postMessage(event.data);
+        }
+        break;
+      default: {
+        console.error("Action not found");
+      }
+    }
+    worker.onmessage = (e) => {
+      if (callback) callback(e);
+      self.postMessage(e.data);
+    };
+    worker.onerror = (error) => {
+      console.error(`Error: ${error.message}`);
+    };
+  }
+};
+var init = () => {
+  events.once("SOCKET_OPENED" /* SOCKET_OPENED */, () => {
+    self.postMessage({
+      event: "SOCKET_OPENED" /* SOCKET_OPENED */
+    });
+  });
+  events.once("OPERATION_FAILED" /* OPERATION_FAILED */, (error) => {
+    self.postMessage({ event: "OPERATION_FAILED" /* OPERATION_FAILED */, error });
+  });
+};
+
+// src/worker/remove.ts
+var isInitiated = false;
+self.onmessage = (event) => {
+  if (!isInitiated) {
+    init();
+    isInitiated = true;
+  }
+  removeFile(event.data).map(() => {
+    self.postMessage({ event: "FILE_REMOVED" /* FILE_REMOVED */ });
+  }).mapErr((error) => {
+    self.postMessage({
+      event: "OPERATION_FAILED" /* OPERATION_FAILED */,
+      error
+    });
+  });
+};
+var removeFile = (workerMessage) => ResultAsync.fromPromise(
+  new Promise((resolve, reject) => {
+    const lufiFile = workerMessage.args.lufiFile;
+    fetch(
+      `${new URL(lufiFile.serverUrl).href}d/${lufiFile.keys.server}/${lufiFile.actionToken}`
+    ).then((request) => request.ok ? resolve(void 0) : reject(request.statusText));
+  }),
+  (error) => ensureError(error)
+);

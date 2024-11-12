@@ -17,14 +17,17 @@ const filesizeDOM = document.getElementById("filesize");
 document.addEventListener("DOMContentLoaded", () => {
   let go = true;
 
-  filesizeDOM.innerHTML = filesize(filesizeDOM.attributes.getNamedItem("data-filesize").value, {
-    base: 10,
-  });
+  filesizeDOM.innerHTML = filesize(
+    filesizeDOM.attributes.getNamedItem("data-filesize").value,
+    {
+      base: 10,
+    }
+  );
 
   if (isPasswordNeeded()) {
     go = false;
 
-    passwordDOM.focus()
+    passwordDOM.focus();
 
     onPasswordEvents();
   }
@@ -34,11 +37,11 @@ document.addEventListener("DOMContentLoaded", () => {
   }
 });
 
-const isPasswordNeeded = () => document.querySelectorAll("#file_pwd").length === 1
+const isPasswordNeeded = () =>
+  document.querySelectorAll("#file_pwd").length === 1;
 
 const startDownload = () => {
   warnOnReload();
-
 
   lufi
     .download(window.location, passwordDOM?.value)
@@ -53,7 +56,7 @@ const startDownload = () => {
         job.terminate();
 
         filesizeDOM.parentElement.append(abortedDOM);
-        warnOnReload(false)
+        warnOnReload(false);
 
         document.getElementById("reloadLocation").onclick = (e) => {
           e.preventDefault();
@@ -65,8 +68,8 @@ const startDownload = () => {
     })
     .mapErr((error) => {
       addAlert(error.message);
-      warnOnReload(false)
-      remove(["abort"])
+      warnOnReload(false);
+      remove(["abort"]);
     })
     .andThen((job) => {
       notify(i18n.fileDownloaded, job.lufiFile.name);
@@ -115,20 +118,22 @@ const remove = (elements) => {
     if (document.getElementById(id)) {
       document.getElementById(id).remove();
     } else {
-      console.error(`${id} does not exist`)
+      console.error(`${id} does not exist`);
     }
   });
 };
 
 const onPasswordEvents = () => {
   const callback = () => {
-    document.getElementsByClassName("file-progress")[0].classList.remove("hide");
+    document
+      .getElementsByClassName("file-progress")[0]
+      .classList.remove("hide");
     document.getElementsByClassName("file-abort")[0].classList.remove("hide");
 
     passwordDOM.parentElement.parentElement.classList.add("hide");
 
     startDownload();
-  }
+  };
 
   document.getElementById("go").onclick = () => {
     callback();
@@ -138,8 +143,8 @@ const onPasswordEvents = () => {
     if (event.key === "Enter") {
       callback();
     }
-  }
-}
+  };
+};
 
 // Something's wring
 const addAlert = (msg) => {
@@ -156,7 +161,7 @@ const addAlert = (msg) => {
                       <strong>${msg}</strong>
                   </div>
               </div>`;
-}
+};
 
 const warnOnReload = (toWarn = true) => {
   if (toWarn) {
@@ -164,14 +169,15 @@ const warnOnReload = (toWarn = true) => {
   } else {
     window.onbeforeunload = null;
   }
-}
+};
 
 const updateProgress = (lufiFile) => {
   // Update loading text
   loadingDOM.textContent = i18n.loading.replace(/XX1/, lufiFile.chunksReady);
 
   // Update progress bar
-  const percent = Math.round((1000 * lufiFile.chunksReady) / lufiFile.totalChunks) / 10;
+  const percent =
+    Math.round((1000 * lufiFile.chunksReady) / lufiFile.totalChunks) / 10;
   const wClass = percent.toString().replace(".", "-");
 
   const pb = document.getElementById("pb");
@@ -179,59 +185,61 @@ const updateProgress = (lufiFile) => {
   pb.attributes.getNamedItem("aria-valuenow").value = percent;
 
   document.getElementById("pbt").innerHTML = `${percent}%`;
-}
+};
 
 const showZipContent = (blob) => {
-  const showZipContentDOM = document.getElementById('showZipContent');
+  const showZipContentDOM = document.getElementById("showZipContent");
 
   const showZipContentDOMListener = () => {
-    JSZip.loadAsync(blob)
-      .then((zip) => {
-        const newElement = document.createElement("div");
+    JSZip.loadAsync(blob).then((zip) => {
+      const newElement = document.createElement("div");
 
-        let innerHTML = `<h3>${i18n.zipContent}</h3><ul>`;
+      let innerHTML = `<h3>${i18n.zipContent}</h3><ul>`;
 
-
-        zip.forEach(function (_relativePath, zipEntry) {
-          innerHTML += `<li>
+      zip.forEach(function (_relativePath, zipEntry) {
+        innerHTML += `<li>
                                   ${escapeHtml(zipEntry.name)}
-                                  (${filesize(zipEntry._data.uncompressedSize, { base: 10 })})
+                                  (${filesize(zipEntry._data.uncompressedSize, {
+                                    base: 10,
+                                  })})
                                   <a href="#"
                                      download="${escapeHtml(zipEntry.name)}"
                                      class="download-zip-content"
                                      title="${i18n.download}">
                                        <i class="mdi-file-file-download"></i>
                                   </a>
-                              </li>`
-        });
+                              </li>`;
+      });
 
-        innerHTML += '</ul>';
+      innerHTML += "</ul>";
 
-        newElement.innerHTML = innerHTML
+      newElement.innerHTML = innerHTML;
 
-        pbd.append(newElement);
+      pbd.append(newElement);
 
-        console.debug()
+      console.debug();
 
-        document.querySelectorAll('.download-zip-content').forEach((element) => {
-          const elementListener = (e) => {
-            e.preventDefault();
-            var filename = element.getAttribute('download');
-            zip.files[filename].async('blob').then((blob) => {
-              element.removeEventListener('click', elementListener);
-              element.setAttribute('href', URL.createObjectURL(blob));
-              element.click();
-            });
-          };
-          element.addEventListener('click', elementListener);
+      document.querySelectorAll(".download-zip-content").forEach((element) => {
+        const elementListener = (e) => {
+          e.preventDefault();
+          var filename = element.getAttribute("download");
+          zip.files[filename].async("blob").then((blob) => {
+            element.removeEventListener("click", elementListener);
+            element.setAttribute("href", URL.createObjectURL(blob));
+            element.click();
+          });
+        };
+        element.addEventListener("click", elementListener);
 
-          showZipContentDOM.style.display = "none";
+        showZipContentDOM.style.display = "none";
 
-          showZipContentDOM.removeEventListener('click', showZipContentDOMListener);
-        });
-      })
+        showZipContentDOM.removeEventListener(
+          "click",
+          showZipContentDOMListener
+        );
+      });
+    });
   };
 
-  showZipContentDOM.onclick = showZipContentDOMListener
-
-}
+  showZipContentDOM.onclick = showZipContentDOMListener;
+};

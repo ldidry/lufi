@@ -13,10 +13,10 @@ var i18n       = {
 };
 $(document).ready(function() {
     populateFilesTable();
-    $('#invertSelection').on('click', invertSelection);
-    $('#exportStorage').on('click', exportStorage);
-    $('#purgeExpired').on('click', purgeExpired);
-    $('#clickImport').on('click', clickImport);
-    $('#mass-delete').on('click', massDelete);
+    document.getElementById('invertSelection').onclick = (event) => invertSelection(event);
+    document.getElementById('exportStorage').onclick = (event) => exportStorage(event);
+    document.getElementById('purgeExpired').onclick = (event) => purgeExpired(event);
+    document.getElementById('clickImport').onclick = (event) => clickImport(event);
+    document.getElementById('mass-delete').onclick = (event) => massDelete(event);
 });
 

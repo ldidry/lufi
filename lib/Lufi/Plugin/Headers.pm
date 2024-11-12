@@ -11,7 +11,7 @@ sub register {
     if (!defined($app->config('csp')) || (defined($app->config('csp')) && $app->config('csp') ne '')) {
         my $directives = {
             'default-src'     => "'none'",
-            'script-src'      => "'self' 'unsafe-inline' 'unsafe-eval'",
+            'script-src'      => "'self' 'unsafe-inline' 'unsafe-eval' blob:",
             'style-src'       => "'self' 'unsafe-inline'",
             'img-src'         => "'self' blob:",
             'media-src'       => "blob:",
