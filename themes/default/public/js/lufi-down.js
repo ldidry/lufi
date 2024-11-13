@@ -191,6 +191,9 @@ const showZipContent = (zipFile) => {
   const showZipContentDOM = document.getElementById("showZipContent");
 
   const showZipContentDOMListener = () => {
+    showZipContentDOM.onclick = () => {};
+
+    document.body.style.cursor = "wait";
     lufi.decompress(zipFile).andThen((files) => {
       const newElement = document.createElement("div");
 
@@ -231,11 +234,7 @@ const showZipContent = (zipFile) => {
         element.addEventListener("click", elementListener);
 
         showZipContentDOM.style.display = "none";
-
-        showZipContentDOM.removeEventListener(
-          "click",
-          showZipContentDOMListener
-        );
+        document.body.style.cursor = "auto";
       });
     });
   };
