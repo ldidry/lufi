@@ -457,7 +457,7 @@ const handleFiles = (files = []) => {
     });
     window.nbFiles = window.fileList.length;
 
-    document.body.style.cursor = "default";
+    document.body.style.cursor = "auto";
 
     startUpload(
       filesArray,
@@ -496,7 +496,7 @@ const handleFiles = (files = []) => {
           window.zipSize
         );
 
-        document.body.style.cursor = "default";
+        document.body.style.cursor = "auto";
 
         return okAsync(undefined);
       })
