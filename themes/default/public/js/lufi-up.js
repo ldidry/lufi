@@ -419,7 +419,8 @@ const startUpload = (
             });
         })
       )
-    );
+    )
+    .orElse((error) => console.error(error));
 };
 
 const handleFiles = (files = []) => {
@@ -436,25 +437,25 @@ const handleFiles = (files = []) => {
       document.getElementById("first-view").getAttribute("data-checked") ===
       "data-checked";
     const password = document.getElementById("file_pwd").value;
+    const resultsElement = document.getElementById("results");
 
     if (window.fileList === undefined || window.fileList === null) {
       window.fileList = filesArray; // Convert FileList to an array
-      window.fileList.forEach((file) => {
-        Materialize.toast(
-          i18n.enqueued.replace("XXX", escapeHtml(file.name)),
-          3000,
-          "teal accent-3"
-        );
-      });
-      window.nbFiles = window.fileList.length;
-
-      const resultsElement = document.getElementById("results");
       if (resultsElement) {
         resultsElement.style.display = "block";
       }
     } else {
       window.fileList = window.fileList.concat(filesArray); // Concatenate new files
     }
+
+    filesArray.forEach((file) => {
+      Materialize.toast(
+        i18n.enqueued.replace("XXX", escapeHtml(file.name)),
+        3000,
+        "teal accent-3"
+      );
+    });
+    window.nbFiles = window.fileList.length;
 
     document.body.style.cursor = "default";
 
