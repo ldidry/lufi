@@ -187,23 +187,26 @@ const updateProgress = (lufiFile) => {
   document.getElementById("pbt").innerHTML = `${percent}%`;
 };
 
-const showZipContent = (blob) => {
+const showZipContent = (zipFile) => {
   const showZipContentDOM = document.getElementById("showZipContent");
 
   const showZipContentDOMListener = () => {
-    JSZip.loadAsync(blob).then((zip) => {
+    showZipContentDOM.onclick = () => {};
+
+    document.body.style.cursor = "wait";
+    lufi.decompress(zipFile).andThen((files) => {
       const newElement = document.createElement("div");
 
       let innerHTML = `<h3>${i18n.zipContent}</h3><ul>`;
 
-      zip.forEach(function (_relativePath, zipEntry) {
+      files.forEach((file) => {
         innerHTML += `<li>
-                                  ${escapeHtml(zipEntry.name)}
-                                  (${filesize(zipEntry._data.uncompressedSize, {
+                                  ${escapeHtml(file.name)}
+                                  (${filesize(file.size, {
                                     base: 10,
                                   })})
                                   <a href="#"
-                                     download="${escapeHtml(zipEntry.name)}"
+                                     download="${escapeHtml(file.name)}"
                                      class="download-zip-content"
                                      title="${i18n.download}">
                                        <i class="mdi-file-file-download"></i>
@@ -217,26 +220,21 @@ const showZipContent = (blob) => {
 
       pbd.append(newElement);
 
-      console.debug();
-
       document.querySelectorAll(".download-zip-content").forEach((element) => {
         const elementListener = (e) => {
           e.preventDefault();
-          var filename = element.getAttribute("download");
-          zip.files[filename].async("blob").then((blob) => {
-            element.removeEventListener("click", elementListener);
-            element.setAttribute("href", URL.createObjectURL(blob));
-            element.click();
-          });
+
+          const filename = element.getAttribute("download");
+          const file = files.find((file) => file.name === filename);
+
+          element.removeEventListener("click", elementListener);
+          element.setAttribute("href", URL.createObjectURL(file));
+          element.click();
         };
         element.addEventListener("click", elementListener);
 
         showZipContentDOM.style.display = "none";
-
-        showZipContentDOM.removeEventListener(
-          "click",
-          showZipContentDOMListener
-        );
+        document.body.style.cursor = "auto";
       });
     });
   };
