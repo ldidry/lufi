@@ -522,7 +522,7 @@ const createUploadBox = (job) => {
                     <div class="card-content">
                         <span class="card-title"
                               id="name-${clientKey}">${job.lufiFile.name}</span>
-                        <span id="size-${clientKey}">(${filesize(
+                        <span id="size-${clientKey}"> (${filesize(
     job.lufiFile.size
   )})</span>
                         <p id="parts-${clientKey}"></p>
