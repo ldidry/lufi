@@ -9,15 +9,14 @@ const notify = (title, body) => {
   if (Notification.permission !== "granted") {
     Notification.requestPermission();
   } else {
-    let options = {
-      body: body,
+    new Notification(title, {
+      body,
       icon: "/img/lufi196.png",
-    };
-    new Notification(title, options);
+    });
   }
 };
 
-document.addEventListener("DOMContentLoaded", function () {
+document.addEventListener("DOMContentLoaded", () => {
   if (!"Notification" in window || typeof Notification === "undefined") {
     return;
   }

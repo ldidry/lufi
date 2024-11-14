@@ -8,17 +8,16 @@ import {
   CryptoAlgorithm,
 } from "/js/lufi.js";
 
-// Cancelled files indexes
-window.cancelled = [];
 // Global zip objects for currently created zip file
-window.zipSize = 0;
+let zipSize = 0;
 // Init the list of files (used by LDAP invitation feature)
-window.filesURLs = [];
+let filesURLs = [];
+let filesCounter = 0;
 
 let archiveEntries;
 
 // Copy a link to clipboard
-function copyToClipboard(txt) {
+const copyToClipboard = (txt) => {
   const textArea = document.createElement("textarea");
   textArea.className = "textarea-hidden";
   textArea.value = txt;
@@ -36,10 +35,10 @@ function copyToClipboard(txt) {
   }
 
   textArea.remove();
-}
+};
 
 // Copy all links to clipboard
-function copyAllToClipboard(event) {
+const copyAllToClipboard = (event) => {
   event.preventDefault();
   let text = [];
   const inputs = document.querySelectorAll(".link-input");
@@ -54,10 +53,10 @@ function copyAllToClipboard(event) {
   } catch (err) {
     alert(i18n.hits);
   }
-}
+};
 
 // Add item to localStorage
-function addItem(
+const addItem = (
   name,
   url,
   size,
@@ -66,7 +65,7 @@ function addItem(
   delay,
   short,
   token
-) {
+) => {
   let files = localStorage.getItem(`${window.prefix}files`);
   files = JSON.parse(files) || [];
 
@@ -81,27 +80,28 @@ function addItem(
     token,
   });
   localStorage.setItem(`${window.prefix}files`, JSON.stringify(files));
-}
+};
 
 // Remove a file block
-function destroyBlock(clientKey) {
+const destroyBlock = (clientKey) => {
+  filesCounter--;
   document.getElementById(`list-group-item-${clientKey}`).remove();
 
   if (document.querySelectorAll(".link-input").length === 0) {
     document.getElementById("misc").innerHTML = "";
     if (
       document.querySelectorAll("#results li").length === 0 &&
-      window.fileList === null
+      filesCounter === 0
     ) {
       document.getElementById("results").style.display = "none";
     }
   } else {
     updateMailLink();
   }
-}
+};
 
 // When clicking on del at first view checkbox
-function firstViewClicking() {
+const firstViewClicking = () => {
   document
     .getElementById("first-view")
     .setAttribute(
@@ -111,15 +111,15 @@ function firstViewClicking() {
         ? null
         : "data-checked"
     );
-}
+};
 
 // When clicking on zip checkbox
-function zipClicking() {
+const zipClicking = () => {
   if (
     document.getElementById("zip-files").getAttribute("data-checked") ===
     "data-checked"
   ) {
-    window.zipSize = 0;
+    zipSize = 0;
     document.getElementById("zip-files").removeAttribute("data-checked");
     document.getElementById("zipname").value = "documents.zip";
     document.getElementById("zipname-input").classList.add("hide");
@@ -132,9 +132,9 @@ function zipClicking() {
       .getElementById("zip-files")
       .setAttribute("data-checked", "data-checked");
     document.getElementById("zipname-input").classList.remove("hide");
-    document.getElementById("zip-size").innerText = filesize(window.zipSize);
+    document.getElementById("zip-size").innerText = filesize(zipSize);
   }
-}
+};
 
 // Get the zip file name
 const getZipname = () => {
@@ -191,8 +191,6 @@ const uploadZip = (e) => {
           "teal accent-3"
         );
 
-        window.fileList = window.fileList || [zipFile];
-
         startUpload(
           [zipFile],
           delay.value,
@@ -222,14 +220,14 @@ const updateMailLink = () => {
 
 // [Invitation feature] Send URLs of files to server
 const sendFilesURLs = () => {
-  if (window.filesURLs.length > 0) {
+  if (filesURLs.length > 0) {
     fetch(sendFilesURLsURL, {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
       },
       body: JSON.stringify({
-        urls: window.filesURLs,
+        urls: filesURLs,
       }),
     })
       .then((response) => response.json())
@@ -298,41 +296,6 @@ const bindDropZone = () => {
     });
 };
 
-// On page load
-document.addEventListener("DOMContentLoaded", () => {
-  document.getElementById("zip-files").checked = false;
-  document.getElementById("first-view").checked = false;
-  document.getElementById("zipname").value = "documents.zip";
-
-  bindDropZone();
-  if (maxSize > 0) {
-    document.getElementById("max-file-size").textContent = i18n.maxSize.replace(
-      "XXX",
-      filesize(maxSize)
-    );
-  }
-
-  document
-    .querySelector('label[for="first-view"]')
-    .addEventListener("click", firstViewClicking);
-  document
-    .querySelector('label[for="zip-files"]')
-    .addEventListener("click", zipClicking);
-  document.getElementById("zipname").addEventListener("input", updateZipname);
-  document.getElementById("uploadZip").addEventListener("click", uploadZip);
-
-  document.getElementById("reset-zipping").addEventListener("click", () => {
-    archiveEntries = undefined;
-    document.querySelector('label[for="zip-files"]').click();
-    document.getElementById("zip-files").disabled = false;
-    document.getElementById("zip-files").removeAttribute("data-checked");
-    document.getElementById("zip-compressing").classList.add("hide");
-    document.getElementById("file-browser-button").disabled = false;
-    document.getElementById("file-browser-span").classList.remove("disabled");
-    document.getElementById("files").classList.replace("m6", "m12");
-  });
-});
-
 const startUpload = (
   files,
   delay,
@@ -357,6 +320,10 @@ const startUpload = (
     .andThen((jobs) =>
       ResultAsync.combine(
         jobs.map((job) => {
+          filesCounter++;
+
+          document.getElementById("results").style.display = "block";
+
           clientKey = job.lufiFile.keys.client;
 
           createUploadBox(job);
@@ -391,7 +358,7 @@ const startUpload = (
               }
 
               if (isGuest && job.lufiFile.keys.server !== null) {
-                window.filesURLs.push(
+                filesURLs.push(
                   JSON.stringify({
                     name: job.lufiFile.name,
                     short: job.lufiFile.keys.server,
@@ -437,16 +404,6 @@ const handleFiles = (files = []) => {
       document.getElementById("first-view").getAttribute("data-checked") ===
       "data-checked";
     const password = document.getElementById("file_pwd").value;
-    const resultsElement = document.getElementById("results");
-
-    if (window.fileList === undefined || window.fileList === null) {
-      window.fileList = filesArray; // Convert FileList to an array
-      if (resultsElement) {
-        resultsElement.style.display = "block";
-      }
-    } else {
-      window.fileList = window.fileList.concat(filesArray); // Concatenate new files
-    }
 
     filesArray.forEach((file) => {
       Materialize.toast(
@@ -455,7 +412,6 @@ const handleFiles = (files = []) => {
         "teal accent-3"
       );
     });
-    window.nbFiles = window.fileList.length;
 
     document.body.style.cursor = "auto";
 
@@ -482,7 +438,7 @@ const handleFiles = (files = []) => {
         zipPartsDOM.replaceChildren();
 
         for (const [name, file] of Object.entries(archiveEntries)) {
-          window.zipSize += file.length;
+          zipSize += file.length;
 
           const listItemDOM = document.createElement("li");
           listItemDOM.innerHTML = `— ${escapeHtml(name)} (${filesize(
@@ -492,9 +448,7 @@ const handleFiles = (files = []) => {
           zipPartsDOM.appendChild(listItemDOM);
         }
 
-        document.getElementById("zip-size").textContent = filesize(
-          window.zipSize
-        );
+        document.getElementById("zip-size").textContent = filesize(zipSize);
 
         document.body.style.cursor = "auto";
 
@@ -548,7 +502,6 @@ const createUploadBox = (job) => {
     lufi
       .cancel(job)
       .map(() => {
-        window.cancelled.push(clientKey);
         destroyBlock(clientKey);
       })
       .mapErr((error) => {
@@ -627,7 +580,10 @@ const uploadBoxComplete = (lufiFile) => {
 
   // Select input text on click
   document.querySelectorAll("input[type='text']").forEach((input) => {
-    input.addEventListener("click", function () {
+    input.addEventListener("click", () => {
+      this.select();
+    });
+    input.addEventListener("keydown", () => {
       this.select();
     });
   });
@@ -663,3 +619,36 @@ const updateProgressBar = (lufiFile) => {
     `parts-${lufiFile.keys.client}`
   ).innerHTML = `${percent.toFixed(1)}%`;
 };
+
+// On page load
+document.addEventListener("DOMContentLoaded", () => {
+  document.getElementById("zip-files").checked = false;
+  document.getElementById("first-view").checked = false;
+  document.getElementById("zipname").value = "documents.zip";
+
+  bindDropZone();
+  if (maxSize > 0) {
+    document.getElementById("max-file-size").textContent = i18n.maxSize.replace(
+      "XXX",
+      filesize(maxSize)
+    );
+  }
+
+  document
+    .getElementById("first-view")
+    .addEventListener("click", firstViewClicking);
+  document.getElementById("zip-files").addEventListener("click", zipClicking);
+  document.getElementById("zipname").addEventListener("input", updateZipname);
+  document.getElementById("uploadZip").addEventListener("click", uploadZip);
+
+  document.getElementById("reset-zipping").addEventListener("click", () => {
+    archiveEntries = undefined;
+    document.getElementById("zip-files").click();
+    document.getElementById("zip-files").disabled = false;
+    document.getElementById("zip-files").removeAttribute("data-checked");
+    document.getElementById("zip-compressing").classList.add("hide");
+    document.getElementById("file-browser-button").disabled = false;
+    document.getElementById("file-browser-span").classList.remove("disabled");
+    document.getElementById("files").classList.replace("m6", "m12");
+  });
+});
