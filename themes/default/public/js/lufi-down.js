@@ -109,7 +109,6 @@ const startDownload = () => {
       }
 
       document.getElementById("abort").remove();
-      window.completed = true;
     });
 };
 
