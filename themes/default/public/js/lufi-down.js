@@ -18,10 +18,7 @@ document.addEventListener("DOMContentLoaded", () => {
   let go = true;
 
   filesizeDOM.innerHTML = filesize(
-    filesizeDOM.attributes.getNamedItem("data-filesize").value,
-    {
-      base: 10,
-    }
+    filesizeDOM.attributes.getNamedItem("data-filesize").value
   );
 
   if (isPasswordNeeded()) {
@@ -51,7 +48,7 @@ const startDownload = () => {
       });
 
       document.getElementById("abort").onclick = () => {
-        remove(["please-wait", "pbd", "loading", "abort"]);
+        removeElements(["please-wait", "pbd", "loading", "abort"]);
 
         job.terminate();
 
@@ -69,11 +66,11 @@ const startDownload = () => {
     .mapErr((error) => {
       addAlert(error.message);
       warnOnReload(false);
-      remove(["abort"]);
+      removeElements(["abort"]);
     })
     .andThen((job) => {
       notify(i18n.fileDownloaded, job.lufiFile.name);
-      remove(["please-wait", "loading"]);
+      removeElements(["please-wait", "loading"]);
 
       const pbd = document.getElementById("pbd");
       pbd.className = "center-align";
@@ -112,7 +109,11 @@ const startDownload = () => {
     });
 };
 
-const remove = (elements) => {
+/**
+ * Remove elements using their id
+ * @param elements
+ */
+const removeElements = (elements) => {
   elements.forEach((id) => {
     if (document.getElementById(id)) {
       document.getElementById(id).remove();
@@ -147,7 +148,7 @@ const onPasswordEvents = () => {
 
 // Something's wring
 const addAlert = (msg) => {
-  // remove(["please-wait"]);
+  removeElements(["please-wait"]);
 
   let pbd = document.getElementsByClassName("file-progress")[0];
 
@@ -163,11 +164,7 @@ const addAlert = (msg) => {
 };
 
 const warnOnReload = (toWarn = true) => {
-  if (toWarn) {
-    window.onbeforeunload = confirmExit;
-  } else {
-    window.onbeforeunload = null;
-  }
+  window.onbeforeunload = toWarn ? confirmExit : null;
 };
 
 const updateProgress = (lufiFile) => {
@@ -201,9 +198,7 @@ const showZipContent = (zipFile) => {
       files.forEach((file) => {
         innerHTML += `<li>
                                   ${escapeHtml(file.name)}
-                                  (${filesize(file.size, {
-                                    base: 10,
-                                  })})
+                                  (${filesize(file.size)})
                                   <a href="#"
                                      download="${escapeHtml(file.name)}"
                                      class="download-zip-content"
