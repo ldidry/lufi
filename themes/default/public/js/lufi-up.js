@@ -14,11 +14,12 @@ window.cancelled = [];
 window.zipSize = 0;
 // Init the list of files (used by LDAP invitation feature)
 window.filesURLs = [];
+let filesCounter = 0;
 
 let archiveEntries;
 
 // Copy a link to clipboard
-function copyToClipboard(txt) {
+const copyToClipboard = (txt) => {
   const textArea = document.createElement("textarea");
   textArea.className = "textarea-hidden";
   textArea.value = txt;
@@ -36,10 +37,10 @@ function copyToClipboard(txt) {
   }
 
   textArea.remove();
-}
+};
 
 // Copy all links to clipboard
-function copyAllToClipboard(event) {
+const copyAllToClipboard = (event) => {
   event.preventDefault();
   let text = [];
   const inputs = document.querySelectorAll(".link-input");
@@ -54,10 +55,10 @@ function copyAllToClipboard(event) {
   } catch (err) {
     alert(i18n.hits);
   }
-}
+};
 
 // Add item to localStorage
-function addItem(
+const addItem = (
   name,
   url,
   size,
@@ -66,7 +67,7 @@ function addItem(
   delay,
   short,
   token
-) {
+) => {
   let files = localStorage.getItem(`${window.prefix}files`);
   files = JSON.parse(files) || [];
 
@@ -81,27 +82,28 @@ function addItem(
     token,
   });
   localStorage.setItem(`${window.prefix}files`, JSON.stringify(files));
-}
+};
 
 // Remove a file block
-function destroyBlock(clientKey) {
+const destroyBlock = (clientKey) => {
+  filesCounter--;
   document.getElementById(`list-group-item-${clientKey}`).remove();
 
   if (document.querySelectorAll(".link-input").length === 0) {
     document.getElementById("misc").innerHTML = "";
     if (
       document.querySelectorAll("#results li").length === 0 &&
-      window.fileList === null
+      filesCounter === 0
     ) {
       document.getElementById("results").style.display = "none";
     }
   } else {
     updateMailLink();
   }
-}
+};
 
 // When clicking on del at first view checkbox
-function firstViewClicking() {
+const firstViewClicking = () => {
   document
     .getElementById("first-view")
     .setAttribute(
@@ -111,10 +113,10 @@ function firstViewClicking() {
         ? null
         : "data-checked"
     );
-}
+};
 
 // When clicking on zip checkbox
-function zipClicking() {
+const zipClicking = () => {
   if (
     document.getElementById("zip-files").getAttribute("data-checked") ===
     "data-checked"
@@ -134,7 +136,7 @@ function zipClicking() {
     document.getElementById("zipname-input").classList.remove("hide");
     document.getElementById("zip-size").innerText = filesize(window.zipSize);
   }
-}
+};
 
 // Get the zip file name
 const getZipname = () => {
@@ -190,8 +192,6 @@ const uploadZip = (e) => {
           3000,
           "teal accent-3"
         );
-
-        window.fileList = window.fileList || [zipFile];
 
         startUpload(
           [zipFile],
@@ -357,6 +357,10 @@ const startUpload = (
     .andThen((jobs) =>
       ResultAsync.combine(
         jobs.map((job) => {
+          filesCounter++;
+
+          document.getElementById("results").style.display = "block";
+
           clientKey = job.lufiFile.keys.client;
 
           createUploadBox(job);
@@ -437,16 +441,6 @@ const handleFiles = (files = []) => {
       document.getElementById("first-view").getAttribute("data-checked") ===
       "data-checked";
     const password = document.getElementById("file_pwd").value;
-    const resultsElement = document.getElementById("results");
-
-    if (window.fileList === undefined || window.fileList === null) {
-      window.fileList = filesArray; // Convert FileList to an array
-      if (resultsElement) {
-        resultsElement.style.display = "block";
-      }
-    } else {
-      window.fileList = window.fileList.concat(filesArray); // Concatenate new files
-    }
 
     filesArray.forEach((file) => {
       Materialize.toast(
@@ -455,7 +449,6 @@ const handleFiles = (files = []) => {
         "teal accent-3"
       );
     });
-    window.nbFiles = window.fileList.length;
 
     document.body.style.cursor = "auto";
 
@@ -627,7 +620,10 @@ const uploadBoxComplete = (lufiFile) => {
 
   // Select input text on click
   document.querySelectorAll("input[type='text']").forEach((input) => {
-    input.addEventListener("click", function () {
+    input.addEventListener("click", () => {
+      this.select();
+    });
+    input.addEventListener("keydown", () => {
       this.select();
     });
   });
