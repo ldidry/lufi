@@ -18,7 +18,7 @@
         <link rel="apple-touch-icon" sizes="152x152" href="<%= url_for('/img/lufi152.png') %>">
         <link rel="apple-touch-icon-precomposed" sizes="128x128" href="<%= url_for('/img/lufi128.png') %>">
         %= stylesheet '/css/materialize.min.css'
-        %= stylesheet '/css/lufi.css'
+        %= stylesheet '/css/lufi.min.css'
         %= javascript '/js/ie-detection.js'
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
     </head>
