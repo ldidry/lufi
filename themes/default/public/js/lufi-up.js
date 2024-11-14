@@ -8,12 +8,10 @@ import {
   CryptoAlgorithm,
 } from "/js/lufi.js";
 
-// Cancelled files indexes
-window.cancelled = [];
 // Global zip objects for currently created zip file
-window.zipSize = 0;
+let zipSize = 0;
 // Init the list of files (used by LDAP invitation feature)
-window.filesURLs = [];
+let filesURLs = [];
 let filesCounter = 0;
 
 let archiveEntries;
@@ -121,7 +119,7 @@ const zipClicking = () => {
     document.getElementById("zip-files").getAttribute("data-checked") ===
     "data-checked"
   ) {
-    window.zipSize = 0;
+    zipSize = 0;
     document.getElementById("zip-files").removeAttribute("data-checked");
     document.getElementById("zipname").value = "documents.zip";
     document.getElementById("zipname-input").classList.add("hide");
@@ -134,7 +132,7 @@ const zipClicking = () => {
       .getElementById("zip-files")
       .setAttribute("data-checked", "data-checked");
     document.getElementById("zipname-input").classList.remove("hide");
-    document.getElementById("zip-size").innerText = filesize(window.zipSize);
+    document.getElementById("zip-size").innerText = filesize(zipSize);
   }
 };
 
@@ -222,14 +220,14 @@ const updateMailLink = () => {
 
 // [Invitation feature] Send URLs of files to server
 const sendFilesURLs = () => {
-  if (window.filesURLs.length > 0) {
+  if (filesURLs.length > 0) {
     fetch(sendFilesURLsURL, {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
       },
       body: JSON.stringify({
-        urls: window.filesURLs,
+        urls: filesURLs,
       }),
     })
       .then((response) => response.json())
@@ -395,7 +393,7 @@ const startUpload = (
               }
 
               if (isGuest && job.lufiFile.keys.server !== null) {
-                window.filesURLs.push(
+                filesURLs.push(
                   JSON.stringify({
                     name: job.lufiFile.name,
                     short: job.lufiFile.keys.server,
@@ -475,7 +473,7 @@ const handleFiles = (files = []) => {
         zipPartsDOM.replaceChildren();
 
         for (const [name, file] of Object.entries(archiveEntries)) {
-          window.zipSize += file.length;
+          zipSize += file.length;
 
           const listItemDOM = document.createElement("li");
           listItemDOM.innerHTML = `— ${escapeHtml(name)} (${filesize(
@@ -485,9 +483,7 @@ const handleFiles = (files = []) => {
           zipPartsDOM.appendChild(listItemDOM);
         }
 
-        document.getElementById("zip-size").textContent = filesize(
-          window.zipSize
-        );
+        document.getElementById("zip-size").textContent = filesize(zipSize);
 
         document.body.style.cursor = "auto";
 
@@ -541,7 +537,6 @@ const createUploadBox = (job) => {
     lufi
       .cancel(job)
       .map(() => {
-        window.cancelled.push(clientKey);
         destroyBlock(clientKey);
       })
       .mapErr((error) => {
