@@ -296,41 +296,6 @@ const bindDropZone = () => {
     });
 };
 
-// On page load
-document.addEventListener("DOMContentLoaded", () => {
-  document.getElementById("zip-files").checked = false;
-  document.getElementById("first-view").checked = false;
-  document.getElementById("zipname").value = "documents.zip";
-
-  bindDropZone();
-  if (maxSize > 0) {
-    document.getElementById("max-file-size").textContent = i18n.maxSize.replace(
-      "XXX",
-      filesize(maxSize)
-    );
-  }
-
-  document
-    .querySelector('label[for="first-view"]')
-    .addEventListener("click", firstViewClicking);
-  document
-    .querySelector('label[for="zip-files"]')
-    .addEventListener("click", zipClicking);
-  document.getElementById("zipname").addEventListener("input", updateZipname);
-  document.getElementById("uploadZip").addEventListener("click", uploadZip);
-
-  document.getElementById("reset-zipping").addEventListener("click", () => {
-    archiveEntries = undefined;
-    document.querySelector('label[for="zip-files"]').click();
-    document.getElementById("zip-files").disabled = false;
-    document.getElementById("zip-files").removeAttribute("data-checked");
-    document.getElementById("zip-compressing").classList.add("hide");
-    document.getElementById("file-browser-button").disabled = false;
-    document.getElementById("file-browser-span").classList.remove("disabled");
-    document.getElementById("files").classList.replace("m6", "m12");
-  });
-});
-
 const startUpload = (
   files,
   delay,
@@ -654,3 +619,36 @@ const updateProgressBar = (lufiFile) => {
     `parts-${lufiFile.keys.client}`
   ).innerHTML = `${percent.toFixed(1)}%`;
 };
+
+// On page load
+document.addEventListener("DOMContentLoaded", () => {
+  document.getElementById("zip-files").checked = false;
+  document.getElementById("first-view").checked = false;
+  document.getElementById("zipname").value = "documents.zip";
+
+  bindDropZone();
+  if (maxSize > 0) {
+    document.getElementById("max-file-size").textContent = i18n.maxSize.replace(
+      "XXX",
+      filesize(maxSize)
+    );
+  }
+
+  document
+    .getElementById("first-view")
+    .addEventListener("click", firstViewClicking);
+  document.getElementById("zip-files").addEventListener("click", zipClicking);
+  document.getElementById("zipname").addEventListener("input", updateZipname);
+  document.getElementById("uploadZip").addEventListener("click", uploadZip);
+
+  document.getElementById("reset-zipping").addEventListener("click", () => {
+    archiveEntries = undefined;
+    document.getElementById("zip-files").click();
+    document.getElementById("zip-files").disabled = false;
+    document.getElementById("zip-files").removeAttribute("data-checked");
+    document.getElementById("zip-compressing").classList.add("hide");
+    document.getElementById("file-browser-button").disabled = false;
+    document.getElementById("file-browser-span").classList.remove("disabled");
+    document.getElementById("files").classList.replace("m6", "m12");
+  });
+});
