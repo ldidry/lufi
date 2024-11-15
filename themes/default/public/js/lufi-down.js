@@ -75,7 +75,7 @@ const startDownload = () => {
       const pbd = document.getElementById("pbd");
       pbd.className = "center-align";
 
-      const blobURL = URL.createObjectURL(job.tmpFile);
+      const blobURL = URL.createObjectURL(job.downloadedFile);
 
       let htmlContent = `<p><a href="${blobURL}" class="btn btn-primary" download="${escapeHtml(
         job.lufiFile.name
@@ -102,7 +102,7 @@ const startDownload = () => {
       pbd.innerHTML = htmlContent;
 
       if (isZip) {
-        showZipContent(job.tmpFile);
+        showZipContent(job.downloadedFile);
       }
 
       document.getElementById("abort").remove();
