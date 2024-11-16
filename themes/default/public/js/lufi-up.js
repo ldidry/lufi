@@ -306,6 +306,12 @@ const startUpload = (
 ) => {
   let clientKey;
 
+  document.getElementById("results").style.display = "block";
+
+  lufi.events.on("SLICE_STARTED", (lufiFile) => {
+    createUploadBox(lufiFile);
+  });
+
   return lufi
     .upload(
       window.location,
@@ -322,11 +328,19 @@ const startUpload = (
         jobs.map((job) => {
           filesCounter++;
 
-          document.getElementById("results").style.display = "block";
-
           clientKey = job.lufiFile.keys.client;
 
-          createUploadBox(job);
+          document.getElementById(`destroy-${clientKey}`).onclick = (event) => {
+            event.preventDefault();
+            lufi
+              .cancel(job)
+              .map(() => {
+                destroyBlock(clientKey);
+              })
+              .mapErr((error) => {
+                showAlertOnFile(error.msg, clientKey);
+              });
+          };
 
           job.onProgress(() => {
             updateProgressBar(job.lufiFile);
@@ -458,12 +472,12 @@ const handleFiles = (files = []) => {
   }
 };
 
-const createUploadBox = (job) => {
+const createUploadBox = (lufiFile) => {
   // Create a progress bar for the file
   const resultsDOM = document.getElementById("ul-results");
   const newItemDOM = document.createElement("li");
 
-  const clientKey = job.lufiFile.keys.client;
+  const clientKey = lufiFile.keys.client;
 
   newItemDOM.classList.add("list-group-item");
   newItemDOM.id = `list-group-item-${clientKey}`;
@@ -475,39 +489,27 @@ const createUploadBox = (job) => {
                     </a>
                     <div class="card-content">
                         <span class="card-title"
-                              id="name-${clientKey}">${job.lufiFile.name}</span>
+                              id="name-${clientKey}">${lufiFile.name}</span>
                         <span id="size-${clientKey}"> (${filesize(
-    job.lufiFile.size
+    lufiFile.size
   )})</span>
                         <p id="parts-${clientKey}"></p>
                     </div>
                     <div class="progress">
                         <div id="progress-${clientKey}"
-                             data-key="${job.lufiFile.keys.client}"
-                             data-name="${job.lufiFile.name}"
+                             data-key="${lufiFile.keys.client}"
+                             data-name="${lufiFile.name}"
                              aria-valuemax="100"
                              aria-valuemin="0"
                              aria-valuenow="0"
                              role="progressbar"
                              class="determinate width-0">
-                            <span class="sr-only">${job.lufiFile.name}0%</span>
+                            <span class="sr-only">${lufiFile.name}0%</span>
                         </div>
                     </div>
             <div>`;
 
   resultsDOM.prepend(newItemDOM);
-
-  document.getElementById(`destroy-${clientKey}`).onclick = (event) => {
-    event.preventDefault();
-    lufi
-      .cancel(job)
-      .map(() => {
-        destroyBlock(clientKey);
-      })
-      .mapErr((error) => {
-        showAlertOnFile(error.msg, clientKey);
-      });
-  };
 };
 
 const uploadBoxComplete = (lufiFile) => {
