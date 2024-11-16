@@ -6,7 +6,7 @@ import {
   ResultAsync,
   isSecureContext,
   CryptoAlgorithm,
-} from "/js/lufi.js";
+} from "./lufi.js";
 
 // Global zip objects for currently created zip file
 let zipSize = 0;
@@ -270,7 +270,7 @@ const handleDrop = (evt) => {
   evt.stopPropagation();
   evt.preventDefault();
 
-  handleFiles(evt.dataTransfer.files);
+  handleFiles(Array.from(evt.dataTransfer.files) || []);
 };
 
 const handleDragOver = (evt) => {
@@ -292,7 +292,7 @@ const bindDropZone = () => {
   document
     .getElementById("file-browser-button")
     .addEventListener("change", (e) => {
-      handleFiles(e.target.files);
+      handleFiles(Array.from(e.target.files));
     });
 };
 
@@ -305,6 +305,12 @@ const startUpload = (
   password
 ) => {
   let clientKey;
+
+  document.getElementById("results").style.display = "block";
+
+  lufi.events.once("SLICE_STARTED", (lufiFile) => {
+    createUploadBox(lufiFile);
+  });
 
   return lufi
     .upload(
@@ -322,11 +328,19 @@ const startUpload = (
         jobs.map((job) => {
           filesCounter++;
 
-          document.getElementById("results").style.display = "block";
-
           clientKey = job.lufiFile.keys.client;
 
-          createUploadBox(job);
+          document.getElementById(`destroy-${clientKey}`).onclick = (event) => {
+            event.preventDefault();
+            lufi
+              .cancel(job)
+              .map(() => {
+                destroyBlock(clientKey);
+              })
+              .mapErr((error) => {
+                showAlertOnFile(error.msg, clientKey);
+              });
+          };
 
           job.onProgress(() => {
             updateProgressBar(job.lufiFile);
@@ -391,7 +405,6 @@ const startUpload = (
 };
 
 const handleFiles = (files = []) => {
-  const filesArray = Array.from(files);
   const isZipped =
     document.getElementById("zip-files").getAttribute("data-checked") ===
     "data-checked";
@@ -405,7 +418,7 @@ const handleFiles = (files = []) => {
       "data-checked";
     const password = document.getElementById("file_pwd").value;
 
-    filesArray.forEach((file) => {
+    files.forEach((file) => {
       Materialize.toast(
         i18n.enqueued.replace("XXX", escapeHtml(file.name)),
         3000,
@@ -416,7 +429,7 @@ const handleFiles = (files = []) => {
     document.body.style.cursor = "auto";
 
     startUpload(
-      filesArray,
+      files,
       delay,
       delAtFirstView,
       isZipped,
@@ -425,7 +438,7 @@ const handleFiles = (files = []) => {
     );
   } else {
     lufi
-      .addFilesToArchive(filesArray, archiveEntries)
+      .addFilesToArchive(files, archiveEntries)
       .andThen((entries) => {
         archiveEntries = entries;
 
@@ -458,12 +471,12 @@ const handleFiles = (files = []) => {
   }
 };
 
-const createUploadBox = (job) => {
+const createUploadBox = (lufiFile) => {
   // Create a progress bar for the file
   const resultsDOM = document.getElementById("ul-results");
   const newItemDOM = document.createElement("li");
 
-  const clientKey = job.lufiFile.keys.client;
+  const clientKey = lufiFile.keys.client;
 
   newItemDOM.classList.add("list-group-item");
   newItemDOM.id = `list-group-item-${clientKey}`;
@@ -475,39 +488,27 @@ const createUploadBox = (job) => {
                     </a>
                     <div class="card-content">
                         <span class="card-title"
-                              id="name-${clientKey}">${job.lufiFile.name}</span>
+                              id="name-${clientKey}">${lufiFile.name}</span>
                         <span id="size-${clientKey}"> (${filesize(
-    job.lufiFile.size
+    lufiFile.size
   )})</span>
                         <p id="parts-${clientKey}"></p>
                     </div>
                     <div class="progress">
                         <div id="progress-${clientKey}"
-                             data-key="${job.lufiFile.keys.client}"
-                             data-name="${job.lufiFile.name}"
+                             data-key="${lufiFile.keys.client}"
+                             data-name="${lufiFile.name}"
                              aria-valuemax="100"
                              aria-valuemin="0"
                              aria-valuenow="0"
                              role="progressbar"
                              class="determinate width-0">
-                            <span class="sr-only">${job.lufiFile.name}0%</span>
+                            <span class="sr-only">${lufiFile.name}0%</span>
                         </div>
                     </div>
             <div>`;
 
   resultsDOM.prepend(newItemDOM);
-
-  document.getElementById(`destroy-${clientKey}`).onclick = (event) => {
-    event.preventDefault();
-    lufi
-      .cancel(job)
-      .map(() => {
-        destroyBlock(clientKey);
-      })
-      .mapErr((error) => {
-        showAlertOnFile(error.msg, clientKey);
-      });
-  };
 };
 
 const uploadBoxComplete = (lufiFile) => {
@@ -529,8 +530,8 @@ const uploadBoxComplete = (lufiFile) => {
     lufiFile.delay === 0
       ? i18n.noLimit
       : `${i18n.expiration} ${formatDate(
-          lufiFile.delay * 86400 + lufiFile.createdAt
-        )}`;
+        lufiFile.delay * 86400 + lufiFile.createdAt
+      )}`;
 
   if (!isGuest) {
     nameDOM.innerHTML += `${sizeDOM.innerHTML} <a href="${actionURL}m?links=${links}"><i class="mdi-communication-email"></i></a><br>${limit}`;
