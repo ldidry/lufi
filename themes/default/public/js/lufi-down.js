@@ -1,5 +1,5 @@
 // vim:set sw=4 ts=4 sts=4 ft=javascript expandtab:
-import { lufi } from "/js/lufi.js";
+import { lufi } from "./lufi.js";
 
 const abortedDOM = document.createElement("div");
 abortedDOM.innerHTML = `<h4>${i18n.aborted1}</h4>

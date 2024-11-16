@@ -6,7 +6,7 @@ import {
   ResultAsync,
   isSecureContext,
   CryptoAlgorithm,
-} from "/js/lufi.js";
+} from "./lufi.js";
 
 // Global zip objects for currently created zip file
 let zipSize = 0;
