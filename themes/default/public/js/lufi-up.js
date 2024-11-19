@@ -2,6 +2,7 @@
 
 import {
   lufi,
+  errAsync,
   okAsync,
   ResultAsync,
   isSecureContext,
@@ -169,7 +170,7 @@ const uploadZip = (e) => {
 
   lufi
     .compress(archiveEntries, zipname)
-    .andThen((zipFile) => {
+    .andThen((job) => {
       // if '#zipping' is hidden, the zipping has been aborted
       if (!document.getElementById("zipping").classList.contains("hide")) {
         document.getElementById("zipping").classList.add("hide");
@@ -192,7 +193,7 @@ const uploadZip = (e) => {
         );
 
         startUpload(
-          [zipFile],
+          [job.archiveFile],
           delay.value,
           del_at_first_view.checked,
           true,
@@ -292,7 +293,8 @@ const bindDropZone = () => {
   document
     .getElementById("file-browser-button")
     .addEventListener("change", (e) => {
-      handleFiles(Array.from(e.target.files));
+      console.debug(e.target.files)
+      handleFiles(e.target.files);
     });
 };
 
@@ -308,7 +310,7 @@ const startUpload = (
 
   document.getElementById("results").style.display = "block";
 
-  lufi.events.once("SLICE_STARTED", (lufiFile) => {
+  lufi.events.on("SLICE_STARTED", (lufiFile) => {
     createUploadBox(lufiFile);
   });
 
@@ -387,7 +389,7 @@ const startUpload = (
 
               return okAsync(job);
             })
-            .mapErr((error) => {
+            .orElse((error) => {
               if (clientKey) {
                 showAlertOnFile(error.message, clientKey);
               } else {
@@ -397,6 +399,8 @@ const startUpload = (
               if (isGuest) {
                 sendFilesURLs();
               }
+
+              return errAsync(error);
             });
         })
       )
@@ -405,6 +409,8 @@ const startUpload = (
 };
 
 const handleFiles = (files = []) => {
+  files = Array.from(files);
+
   const isZipped =
     document.getElementById("zip-files").getAttribute("data-checked") ===
     "data-checked";
@@ -428,14 +434,7 @@ const handleFiles = (files = []) => {
 
     document.body.style.cursor = "auto";
 
-    startUpload(
-      files,
-      delay,
-      delAtFirstView,
-      isZipped,
-      undefined,
-      password
-    );
+    startUpload(files, delay, delAtFirstView, isZipped, undefined, password);
   } else {
     lufi
       .addFilesToArchive(files, archiveEntries)
@@ -530,8 +529,8 @@ const uploadBoxComplete = (lufiFile) => {
     lufiFile.delay === 0
       ? i18n.noLimit
       : `${i18n.expiration} ${formatDate(
-        lufiFile.delay * 86400 + lufiFile.createdAt
-      )}`;
+          lufiFile.delay * 86400 + lufiFile.createdAt
+        )}`;
 
   if (!isGuest) {
     nameDOM.innerHTML += `${sizeDOM.innerHTML} <a href="${actionURL}m?links=${links}"><i class="mdi-communication-email"></i></a><br>${limit}`;
