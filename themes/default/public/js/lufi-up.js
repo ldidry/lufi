@@ -292,8 +292,7 @@ const bindDropZone = () => {
   document
     .getElementById("file-browser-button")
     .addEventListener("change", (e) => {
-      console.debug(e.target.files)
-      handleFiles(e.target.files);
+      handleFiles(Array.from(e.target.files));
     });
 };
 
@@ -309,7 +308,7 @@ const startUpload = (
 
   document.getElementById("results").style.display = "block";
 
-  lufi.events.on("SLICE_STARTED", (lufiFile) => {
+  lufi.events.once("SLICE_STARTED", (lufiFile) => {
     createUploadBox(lufiFile);
   });
 
@@ -406,8 +405,6 @@ const startUpload = (
 };
 
 const handleFiles = (files = []) => {
-  files = Array.from(files);
-
   const isZipped =
     document.getElementById("zip-files").getAttribute("data-checked") ===
     "data-checked";
