@@ -1,52 +1,90 @@
-% # vim:set sw=4 ts=4 sts=4 ft=html.epl expandtab:
-<div class="row">
+<section class="mail-section">
+  <section class="messages-zone">
 % if (defined(stash('msg'))) {
-    <div class="col s12">
-        <div class="card pink">
-            <div class="card-content white-text">
-                <strong><%== stash('msg')%></strong>
-            </div>
-        </div>
+    <article class="message-card error">
+        <%== stash('msg')%>
+    </article>
+% }
+
+    <article class="message-card info">
+      <p><%= l('If you send the mail from this server, the links will be sent to the server, which may lower your privacy protection.') %></p>
+      <p><%= l('Adding URLs not related to this Lufi instance to the mail body or subject is prohibited.') %></p>
+    </article>
+  </section>
+  
+  <form action="<%= url_for('m') %>" method="post" class="mail-form">
+    %= csrf_field
+    <div class="input-text emails">
+      <label for="emails"><%= l('Comma-separated email addresses') %></label>
+      <input type="text" name="emails" placeholder="<%= l('Emails') %>" value="<%= defined(stash('values')) ? stash('values')->{emails} : '' %>" required>
     </div>
-% }
-    <div class="col s12">
-        <div class="card cyan">
-            <div class="card-content white-text">
-                <p><%= l('If you send the mail from this server, the links will be sent to the server, which may lower your privacy protection.') %></p>
-                <p><%= l('Adding URLs not related to this Lufi instance to the mail body or subject is prohibited.') %></p>
-            </div>
-        </div>
+    
+    <div class="input-text subject">
+      <label for="subject"><%= l('Email subject') %></label>
+      <input type="text" name="subject" placeholder="<%= l('Email subject') %>" value="<%= defined(stash('values')) ? stash('values')->{subject} : l('Here\'s some files') %>" required>
     </div>
-    <form action="<%= url_for('m') %>" method="post" class="col s12">
-        %= csrf_field
-        <div class="input-field">
-            <label for="emails"><%= l('Comma-separated email addresses') %></label>
-% if (defined(stash('values'))) {
-            <input type="text" class="validate" id="emails" name="emails" placeholder="<%= l('Emails') %>" value="<%= stash('values')->{emails} %>">
-% } else {
-            <input type="text" class="validate" id="emails" name="emails" placeholder="<%= l('Emails') %>">
-% }
-        </div>
-        <div class="input-field">
-            <label for="subject"><%= l('Email subject') %></label>
-% if (defined(stash('values'))) {
-            <input type="text" class="validate" id="subject" name="subject" value="<%= stash('values')->{subject} %>">
-% } else {
-            <input type="text" class="validate" id="subject" name="subject" value="<%= l('Here\'s some files') %>">
-% }
-        </div>
-        <div class="input-field">
-            <label for="body"><%= l('Email body') %></label>
-            <textarea class="materialize-textarea" id="body" name="body" rows="10">
-% if (defined(stash('values'))) {
-<%= stash('values')->{body} %>
-% }
-            </textarea>
-        </div>
-        % if (!$self->config('disable_mail_sending')) {
-            <button type="submit" class="btn btn-info"><%= l('Send with this server') %></button>
-        % }
-        <a href="#" class="btn btn-primary" id="mailto"><%= l('Send with your own mail software') %></a>
-    </form>
-<div>
-%= javascript url_for('/partial/mail.js')->query(populate => (!defined(stash('msg')) && !defined(stash('values'))), links => $links)
+
+    <div class="input-text body">
+      <label for="body"><%= l('Email body') %></label>
+      <textarea id="body" name="body" placeholder="<%= l('Email body') %>" required><%= defined(stash('values')) ? stash('values')->{body} : "" %></textarea>
+    </div>
+
+    <div class="actions-buttons">
+      % if (!$self->config('disable_mail_sending')) {
+        <button type="submit" class="button action-submit"><%= l('Send with this server') %></button>
+      % }
+
+      <a href="#" class="button action-own-software"><%= l('Send with your own mail software') %></a>
+    </div>
+  </form>
+<section>
+
+<script type="text/javascript">
+  const retrieveItemFromStorage = (serverKey) => 
+    (JSON.parse(localStorage.getItem(`${prefix}files`))|| [])
+      .find((item) => item.short === serverKey )
+  
+  const updateMailtoLink = () => {
+      const ownSoftwareButtonDOM  = document.querySelector('.action-own-software');
+      const emails = document.querySelector('.input-text.emails input').value;
+      const subject  = document.querySelector('.input-text.subject input').value;
+      const body  = document.querySelector('.input-text.body textarea').value;
+
+      ownSoftwareButtonDOM.href = `mailto:${encodeURIComponent(emails)}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+  }
+
+  const populateBody = () => {
+    const links = JSON.parse(new URL(window.location).searchParams.get("links")) || [];
+
+    let text = "<%== l('Hello,\n\nHere\'s some files I want to share with you:\n') %>";
+
+
+    links.forEach((serverKey, index) => {
+      const item = retrieveItemFromStorage(serverKey);
+      if (item) {
+        const limit = (item.delay == 0) ? null : formatDate(item.delay * 86400 + item.created_at);
+
+        text += `- ${item.name}<%= l(':') %> ${item.url}`;
+
+        if (limit !== null) {
+            text += `\n  (<%= l('deadline: ') %>${limit})`;
+        }
+        text += "\n";
+      }
+    });
+
+  % if (!defined(config('ldap')) && !defined(config('htpasswd'))) {
+    text += "\n-- \n<%= l('Share your files in total privacy on %1', url_for('/')->to_abs) %>";
+  % }
+    
+    document.querySelector('.input-text.body textarea').value = text;
+    updateMailtoLink();
+  }
+  
+  document.addEventListener('DOMContentLoaded', () => {
+    populateBody();
+  
+    document.querySelectorAll(".input-text > *:not(label)")
+      .forEach(node => node.addEventListener('change', updateMailtoLink));
+  });
+</script>

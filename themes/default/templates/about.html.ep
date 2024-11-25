@@ -1,5 +1,4 @@
-% # vim:set sw=4 ts=4 sts=4 ft=html.epl expandtab:
-<div class="text-left">
+<section class="about-section">
     <h3><%= l('What is Lufi?') %></h3>
     <p><%= l('Lufi is a free (as in free speech) file hosting software.') %></p>
     <h3><%= l('Privacy') %></h3>
@@ -20,5 +19,5 @@
     <h3><%= l('Version') %></h3>
     <p><%== l('Latest tag of this instance: %1', sprintf('<a href="https://framagit.org/fiat-tux/hat-softwares/lufi/-/releases/%s" class="classic">%s</a>', stash('version')->{tag}, stash('version')->{tag})) %></p>
     <p><%== l('Latest commit of this instance: %1', sprintf('<a href="https://framagit.org/fiat-tux/hat-softwares/lufi/-/commit/%s" class="classic">%s</a>', stash('version')->{commit}, stash('version')->{commit})) %></p>
-    <p><%= link_to url_for('/') => ( class => "btn waves-effect waves-light cyan" ) => begin %><%= l('Back to homepage') %><% end%></p>
-</div>
+    <p><%= link_to url_for('/') => ( class => "button action-back-homepage" ) => begin %><%= l('Back to homepage') %><% end%></p>
+</section>

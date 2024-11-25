@@ -1,43 +1,89 @@
-% # vim:set sts=4 sw=4 ts=4 ft=html.epl expandtab:
+<section class="my-files-section">
+  <h1><%= l('My files') %></h1>
 
-<h2><%= l('My files') %></h2>
-<hr>
-
-
-<p>
+  <p class="intro">
     <%= l('Only the files sent with this browser will be listed here. This list is stored in localStorage: if you delete your localStorage data, you\'ll lose this list.') %><br>
     <%= l('Rows in red mean that the files have expired and are no longer available.') %>
-</p>
-<div class="files-buttons">
-    <a href="#" id="exportStorage"   class="btn left-mg cyan"><%= l('Export localStorage data') %></a>
-    <a href="#" id="purgeExpired"    class="btn left-mg cyan"><%= l('Purge expired files from localStorage') %></a>
-    <a href="#" id="clickImport"     class="btn left-mg cyan"><%= l('Import localStorage data') %></a>
-    <span class="file-field input-field">
-        <input type="file" id="import" onchange="importStorage(this.files)">
-    </span>
-    <a href="#" id="invertSelection" class="btn left-mg cyan"><%= l('Invert selection') %></a>
-    <a href="#" class="btn left-mg cyan disabled" id="mass-delete" disabled><%= l('Delete selected files') %></a>
-</div>
+  </p>
+  <div class="buttons actions-buttons">
+    <a href="#" class="button action-export-storage">
+      <%= l('Export localStorage data') %>
+    </a>
 
-<div>
-    <table class="responsive-table highlight striped">
-        <thead>
-            <tr>
-                <th class="center-align"></th>
-                <th class="center-align"><%= l('File name') %></th>
-                <th class="center-align"><%= l('Download link') %></th>
-                <th class="center-align"><%= l('Counter') %></th>
-                <th class="center-align"><%= l('Delete at first download?') %></th>
-                <th class="center-align"><%= l('Uploaded at') %></th>
-                <th class="center-align"><%= l('Expires at') %></th>
-                <th class="center-align"><%= l('Deletion link') %></th>
-                <th class="center-align"><%= l('Mail') %></th>
-            </tr>
-        </thead>
-        <tbody id="myfiles">
-        </tbody>
-    </table>
-</div>
+    <button type="button" class="button action-purge-expired">
+      <%= l('Purge expired files from localStorage') %>
+    </button>
 
-%= javascript '/partial/files.js'
+    <label class="button file-button">
+      <%= l('Import localStorage data') %>
+      <input type="file" class="input-file action-import-storage" >
+    </label>
+
+    <button type="button" class="button action-invert-selection">
+      <%= l('Invert selection') %>
+    </button>
+
+    <button type="button" class="button action-delete-selection" disabled="disabled">
+      <%= l('Delete selected files') %>
+    </button>
+  </div>
+
+  <table class="files-table">
+    <thead>
+      <tr>
+        <th></th>
+        <th><%= l('File name') %></th>
+        <th><%= l('Download link') %></th>
+        <th><%= l('Counter') %></th>
+        <th><%= l('Delete at first download?') %></th>
+        <th><%= l('Uploaded at') %></th>
+        <th><%= l('Expires at') %></th>
+        <th><%= l('Deletion link') %></th>
+        <th><%= l('Mail') %></th>
+      </tr>
+    </thead>
+    <tbody class="files-items">
+      <tr class="template item">
+        <td class="column selection">
+          <div class="checkbox input-delete-on-first-view">
+            <input type="checkbox" autocomplete="off">
+          </div>
+        </td>
+        <td class="column name"></td>
+        <td class="column download">
+          <a class="icon-button icon download" href="#"></a>
+        </td>
+        <td class="column counter"></td>
+        <td class="column delete-at-first-view">
+          <span class="icon"></span>
+        </td>
+        <td class="column created-at"></td>
+        <td class="column expires-at"></td>
+        <td class="column deletion">
+          <button type="button" class="icon icon-button delete" href="#"></button>
+        </td>
+        <td class="column mail">
+          <a class="icon icon-button mail" href="#"></a>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</section>
+
+<script type="text/javascript">
+% if (defined($self->config('fixed_domain')) && $self->config('fixed_domain')) {
+  const baseURL = '<%= url_for('/')->host($self->config('fixed_domain'))->to_abs() %>';
+% } else {
+  const baseURL = '<%= url_for('/')->to_abs() %>';
+% }
+
+const actionURL = '<%= url_for('/')->to_abs() %>';
+const counterURL = '<%== url_for('counter') %>';
+
+const i18n       = {
+  noExpiration:             '<%= l('No expiration delay') %>',
+  importProcessed:          '<%= l('The data has been successfully imported.') %>',
+  importFilesWithoutPrefix: "<%= l('Lufi recently changed its way to store files information.\n\nNo files have been found in the new localStorage location but we found files in the old one.\nDo you want to import those informations?\n\nPlease note that this is the only time that we will ask you this.') %>",
+};
+</script>
 %= javascript '/js/lufi-files.js'
