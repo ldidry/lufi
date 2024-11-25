@@ -1,4 +1,5 @@
 import { lufi } from "./lufi.js";
+import { filesize } from "./filesize.esm.min.js";
 
 document.addEventListener("DOMContentLoaded", () => {
   const reloadButtonDOM = document.querySelector(".action-reload");
