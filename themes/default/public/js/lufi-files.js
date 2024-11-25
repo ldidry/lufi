@@ -324,11 +324,10 @@ const populateFilesTable = () => {
       })
       .then((data) => {
         if (data.success) {
+          const countDOM = document.getElementById(`count-${data.short}`);
+          countDOM.innerHTML = data.counter;
+
           if (data.deleted) {
-            const countDOM = document.getElementById(`count-${data.short}`);
-
-            countDOM.innerHTML = data.counter;
-
             if (data.deleted) {
               countDOM.parentElement.classList.add("purple", "lighten-4");
             } else {
