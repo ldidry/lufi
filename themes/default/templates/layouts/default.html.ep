@@ -17,7 +17,7 @@
         <link rel="apple-touch-icon" sizes="152x152" href="<%= url_for('/img/lufi152.png') %>">
         <link rel="apple-touch-icon-precomposed" sizes="128x128" href="<%= url_for('/img/lufi128.png') %>">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <link rel="stylesheet" href="/css/gomugomu.css">
+        <link rel="stylesheet" href="/css/lufi.css">
     </head>
     <body>
       <header role="banner">
@@ -27,12 +27,12 @@
             <li><a href="<%= $self->config('report') %>" class="menu-item"><%= l('Report file') %></a></li>
 
             % if ((!defined(config('ldap')) && !defined(config('htpasswd')) && !defined(config('auth_headers'))) || is_user_authenticated()) {
-                <li<%== ' class="active"' if (current_route eq 'index') %>><a href="<%= url_for('/') %>" class="menu-item"><%= l('Upload files') %></a></li>
-                <li<%== ' class="active"' if (current_route eq 'files') %>><a href="<%= url_for('/files') %>" class="menu-item"><%= l('My files') %></a></li>
-                % if ((defined config('ldap') || defined config('auth_headers')) && defined config('invitations')) {
-                    <li<%== ' class="active"' if (current_route eq 'invite') %>><a href="<%= url_for('/invite') %>" class="menu-item"><%= l('Invite a guest') %></a></li>
-                    <li<%== ' class="active"' if (current_route eq 'invite/list') %>><a href="<%= url_for('/invite/list') %>" class="menu-item"><%= l('My invitations') %></a></li>
-                % }
+              <li<%== ' class="active"' if (current_route eq 'index') %>><a href="<%= url_for('/') %>" class="menu-item"><%= l('Upload files') %></a></li>
+              <li<%== ' class="active"' if (current_route eq 'files') %>><a href="<%= url_for('/files') %>" class="menu-item"><%= l('My files') %></a></li>
+              % if ((defined config('ldap') || defined config('auth_headers')) && defined config('invitations')) {
+                <li<%== ' class="active"' if (current_route eq 'invite') %>><a href="<%= url_for('/invite') %>" class="menu-item"><%= l('Invite a guest') %></a></li>
+                <li<%== ' class="active"' if (current_route eq 'invite/list') %>><a href="<%= url_for('/invite/list') %>" class="menu-item"><%= l('My invitations') %></a></li>
+              % }
             % } else {
                 <li><a href="<%= url_for('/login') %>" class="menu-item"><%= l('Signin') %></a></li>
             % }
@@ -50,12 +50,12 @@
             <li<%== ' class="active"' if (current_route eq 'about') %>><a href="<%= url_for('/about') %>" class="menu-item"><%= l('About') %></a></li>
             
             % if ((defined(config('ldap')) || defined(config('htpasswd')) || defined(config('auth_headers'))) && is_user_authenticated()) {
-                <li>
-                    <form action="<%= url_for('/logout') %>" method="POST">
-                        %= csrf_field
-                        <button class="menu-item reset" type="submit"><%= l('Logout') %></button>
-                    </form>
-                </li>
+              <li>
+                <form action="<%= url_for('/logout') %>" method="POST">
+                  %= csrf_field
+                  <button class="menu-item reset" type="submit"><%= l('Logout') %></button>
+                </form>
+              </li>
             % }
           </ul>
         </nav>

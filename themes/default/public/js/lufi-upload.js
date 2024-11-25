@@ -451,9 +451,7 @@ document.addEventListener("DOMContentLoaded", () => {
                       token: job.lufiFile.actionToken,
                     })
                   );
-                }
 
-                if (isGuest) {
                   sendFilesURLs();
                 }
 
