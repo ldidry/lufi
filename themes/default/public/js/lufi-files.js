@@ -234,7 +234,7 @@ const populateFilesTable = () => {
       : '<i class="small mdi-navigation-close"></i>';
     const dlink = `${actionURL}d/${element.short}/${element.token}`;
     const limit =
-      element.delay === 0
+      element.delay == 0
         ? i18n.noExpiration
         : formatDate(element.delay * 86400 + element.created_at);
     const created_at = formatDate(element.created_at);
