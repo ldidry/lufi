@@ -1,142 +1,83 @@
-// vim:set sw=4 ts=4 sts=4 ft=javascript expandtab:
 // Add item to localStorage
 const addItem = (item) => {
-  const files = JSON.parse(localStorage.getItem(`${window.prefix}files`)) || [];
+  const files = JSON.parse(localStorage.getItem(`${prefix}files`)) || [];
 
   files.push(item);
-  localStorage.setItem(`${window.prefix}files`, JSON.stringify(files));
+  localStorage.setItem(`${prefix}files`, JSON.stringify(files));
 };
 
-const delItem = (name) => {
-  const files = JSON.parse(localStorage.getItem(`${window.prefix}files`)) || [];
+const deleteFromStorage = (serverKey) => {
+  let files = JSON.parse(localStorage.getItem(`${prefix}files`)) || [];
 
-  let i;
-  for (i = 0; i < files.length; i++) {
-    if (files[i].short === name) {
-      files.splice(i, 1);
-    }
-  }
-  localStorage.setItem(`${window.prefix}files`, JSON.stringify(files));
+  files = files.filter((file) => file.short !== serverKey);
+
+  localStorage.setItem(`${prefix}files`, JSON.stringify(files));
 };
 
-const itemExists = (name) => {
-  let files = localStorage.getItem(`${window.prefix}files`);
-  if (files === null) {
-    return false;
-  } else {
-    files = JSON.parse(files);
+const itemExists = (serverKey) => {
+  const files = JSON.parse(localStorage.getItem(`${prefix}files`)) || [];
 
-    let i;
-    for (i = 0; i < files.length; i++) {
-      if (files[i].short === name) {
-        return true;
-      }
-    }
-    return false;
-  }
+  return files.some((file) => file.short === serverKey);
 };
 
-const invertSelection = (event) => {
-  event.preventDefault();
-  document.querySelectorAll('input[type="checkbox"]').forEach((element) => {
-    element.click();
+const invertSelection = () => {
+  document
+    .querySelectorAll(".item:not(.template) .column.selection input")
+    .forEach((node) => {
+      node.click();
+    });
+  checkItemSelection();
+};
 
-    if (element.getAttribute("data-checked") === "data-checked") {
-      element.setAttribute("data-checked", null);
-    } else {
-      element.setAttribute("data-checked", "data-checked");
+const purgeExpired = () => {
+  const files = JSON.parse(localStorage.getItem(`${prefix}files`));
+
+  files.forEach((file) => {
+    const fileDOM = document.querySelector(`.item-${file.short}`);
+
+    if (fileDOM.classList.contains("deleted")) {
+      deleteFromStorage(file.short);
+      fileDOM.remove();
     }
   });
-  evaluateMassDelete();
 };
 
-const purgeExpired = (event) => {
-  event.preventDefault();
+const exportStorage = () => {
+  const exportStorageDOM = document.querySelector(".action-export-storage");
 
-  const files = JSON.parse(localStorage.getItem(`${window.prefix}files`));
-
-  files.forEach(function (element) {
-    fetch(counterURL, {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/x-www-form-urlencoded; charset=UTF-8",
-      },
-      body: new URLSearchParams({
-        short: element.short,
-        token: element.token,
-      }),
-    })
-      .then((response) => {
-        if (!response.ok) {
-          throw new Error("Request error.");
-        }
-
-        return response.json();
-      })
-      .then((data) => {
-        if (data.success) {
-          if (data.deleted) {
-            const elementToRemove = document.querySelector(
-              `#count-${data.short}`
-            );
-
-            if (elementToRemove) {
-              elementToRemove.parentElement.remove();
-            }
-
-            delItem(data.short);
-          }
-        }
-      });
-  });
-};
-
-const exportStorage = (event) => {
-  event.preventDefault();
-
-  const a = document.createElement("a");
-  a.id = "data-json";
-
-  a.style.display = "none";
-
-  document.body.append(a);
-
-  const storageData = [localStorage.getItem(`${window.prefix}files`)];
+  const storageData = [localStorage.getItem(`${prefix}files`)];
   const exportFile = new Blob(storageData, { type: "application/json" });
-  const url = window.URL.createObjectURL(exportFile);
 
-  a.setAttribute("href", url);
-  a.setAttribute("download", "data.json");
-
-  a.click();
-  a.remove();
+  exportStorageDOM.href = window.URL.createObjectURL(exportFile);
+  exportStorageDOM.download = "data.json";
 };
 
-const importStorage = (f) => {
-  let reader = new FileReader();
+const importStorage = (event) => {
+  const reader = new FileReader();
 
   reader.addEventListener("loadend", () => {
     try {
       const newFiles = JSON.parse(
         String.fromCharCode.apply(null, new Uint8Array(reader.result))
       );
-      let i;
-      let hasImported = 0;
-      for (i = 0; i < newFiles.length; i++) {
-        const item = newFiles[i];
-        if (validURL(item.url) && !itemExists(item.short)) {
-          addItem(item);
-          hasImported++;
+
+      let importedCounter = 0;
+
+      newFiles.forEach((file) => {
+        if (validURL(file.url) && !itemExists(file.short)) {
+          addItem(file);
+          importedCounter++;
         }
-      }
+      });
+
       populateFilesTable();
 
-      Materialize.toast(i18n.importProcessed);
+      addToast(i18n.importProcessed, "success");
     } catch (err) {
       alert(err);
     }
   });
-  reader.readAsArrayBuffer(f[0]);
+  reader.readAsArrayBuffer(event.target.files[0]);
 };
 
 const validURL = (str) => {
@@ -147,10 +88,11 @@ const validURL = (str) => {
   }
 };
 
-const delFile = (element) => {
-  const deleteUrl = new URL(element.getAttribute("data-dlink"));
-  const short = element.getAttribute("data-short");
-
+const deleteFile = (node) => {
+  const serverKey = node.getAttribute("data-serverKey");
+  const deleteUrl = new URL(
+    `${actionURL}d/${serverKey}/${node.getAttribute("data-actionKey")}`
+  );
   deleteUrl.searchParams.append("_format", "json");
 
   fetch(deleteUrl, {
@@ -165,50 +107,52 @@ const delFile = (element) => {
     })
     .then((data) => {
       if (data.success) {
-        document.getElementById(`row-${short}`).remove();
-        delItem(short);
+        node.remove();
+        deleteFromStorage(serverKey);
       } else {
         alert(data.msg);
       }
-      evaluateMassDelete();
+      checkItemSelection();
     });
 };
 
-const evaluateMassDelete = () => {
-  const massDeleteDOM = document.getElementById("mass-delete");
+const checkItemSelection = () => {
+  const deleteSelectionDOM = document.querySelector(".action-delete-selection");
 
   if (
-    document.querySelectorAll('input[data-checked="data-checked"]').length > 0
+    document.querySelectorAll(".column.selection .checkbox input:checked")
+      .length > 0
   ) {
-    massDeleteDOM.removeAttribute("disabled");
-    massDeleteDOM.classList.remove("disabled");
+    deleteSelectionDOM.disabled = false;
   } else {
-    massDeleteDOM.setAttribute("disabled", "disabled");
-    massDeleteDOM.classList.add("disabled");
+    deleteSelectionDOM.disabled = true;
   }
 };
 
-const massDelete = (event) => {
-  event.preventDefault();
+const deleteSelection = () => {
   document
-    .querySelectorAll('input[data-checked="data-checked"]')
-    .forEach(delFile);
+    .querySelectorAll(".item:has(.column.selection .checkbox input:checked)")
+    .forEach((node) => deleteFile(node));
 };
 
 const populateFilesTable = () => {
-  const myFilesDOM = document.getElementById("myfiles");
+  const filesItemsDOM = document.querySelector(".files-items");
+  filesItemsDOM
+    .querySelectorAll("tr:not(.template)")
+    .forEach((node) => node.remove());
 
-  myFilesDOM.innerHTML = "";
+  let files = localStorage.getItem(`${prefix}files`);
 
-  let files = localStorage.getItem(`${window.prefix}files`);
   if (files === null) {
-    var filesWithoutPrefix = localStorage.getItem("files");
+    const filesWithoutPrefix = localStorage.getItem("files");
+
     if (filesWithoutPrefix !== null) {
       if (window.confirm(i18n.importFilesWithoutPrefix)) {
-        localStorage.setItem(`${window.prefix}files`, filesWithoutPrefix);
+        localStorage.setItem(`${prefix}files`, filesWithoutPrefix);
+
         files = JSON.parse(filesWithoutPrefix);
       } else {
-        localStorage.setItem(`${window.prefix}files`, JSON.stringify([]));
+        localStorage.setItem(`${prefix}files`, JSON.stringify([]));
         files = [];
       }
     } else {
@@ -218,92 +162,44 @@ const populateFilesTable = () => {
     files = JSON.parse(files);
   }
 
-  files.sort(function (a, b) {
-    if (a.created_at < b.created_at) {
-      return -1;
-    } else if (a.created_at > b.created_at) {
-      return 1;
-    } else {
-      return 0;
-    }
-  });
+  files.sort((a, b) => a.created_at - b.created_at);
 
-  files.forEach(function (element) {
-    const del_view = element.del_at_first_view
-      ? '<i class="small mdi-action-done"></i>'
-      : '<i class="small mdi-navigation-close"></i>';
-    const dlink = `${actionURL}d/${element.short}/${element.token}`;
-    const limit =
-      element.delay == 0
+  files.forEach((file) => {
+    const itemDOM = document
+      .querySelector(".files-items .template.item")
+      .cloneNode(true);
+    itemDOM.classList.replace("template", `item-${file.short}`);
+
+    itemDOM.setAttribute("data-serverKey", file.short);
+    itemDOM.setAttribute("data-actionKey", file.token);
+
+    const downloadLink = `${actionURL}d/${file.short}/${file.token}`;
+
+    itemDOM.querySelector(".column.name").innerText = file.name;
+    itemDOM.querySelector(".column.download a").href = downloadLink;
+    itemDOM
+      .querySelector(".column.delete-at-first-view .icon")
+      .classList.add(file.del_at_first_view ? "check" : "close");
+    itemDOM.querySelector(".column.created-at").innerText = formatDate(
+      file.created_at
+    );
+    itemDOM.querySelector(".column.expires-at").innerText =
+      file.delay == 0
         ? i18n.noExpiration
-        : formatDate(element.delay * 86400 + element.created_at);
-    const created_at = formatDate(element.created_at);
+        : formatDate(file.delay * 86400 + file.created_at);
 
-    const tr = document.createElement("tr");
-    tr.id = `row-${element.short}`;
+    itemDOM.querySelector(
+      ".column.mail a"
+    ).href = `${actionURL}m?links=["${file.short}"]`;
 
-    tr.innerHTML = `<td class="center-align">
-                      <input type="checkbox"
-                             id="check-${element.short}"
-                             data-short="${element.short}"
-                             data-dlink="${dlink}"
-                             data-checked="">
-                      <label for="check-${element.short}"></label>
-                  </td>
-                  <td class="left-align">
-                      ${escapeHtml(element.name)}
-                  </td>
-                  <td class="center-align">
-                      <a href="${element.url}"
-                         class="classic">
-                         <i class="small mdi-file-file-download"></i>
-                      </a>
-                  </td>
-                  <td id="count-${element.short}" class="center-align">
-                  </td>
-                  <td class="center-align">
-                      ${del_view}
-                  </td>
-                  <td>
-                      ${created_at}
-                  </td>
-                  <td>
-                      ${limit}
-                  </td>
-                  <td class="center-align">
-                      <a id="del-${element.short}"
-                         data-short="${element.short}"
-                         data-dlink="${dlink}"
-                         href="#"
-                         class="classic">
-                         <i class="small mdi-action-delete"></i>
-                      </a>
-                  </td>
-                  <td class="center-align">
-                      <a href="${actionURL}m?links=[&quot;${
-      element.short
-    }&quot;]"
-                      class="classic"><i class="small mdi-communication-email"></i></a>
-                  </td>`;
+    itemDOM.querySelector(".column.deletion button").onclick = () =>
+      deleteFile(itemDOM);
 
-    myFilesDOM.append(tr);
-
-    document.getElementById(`del-${element.short}`).onclick = (event) =>
-      delFile(event.target.parentElement);
-
-    document.querySelector(`label[for="check-${element.short}"]`).onclick = (
-      event
-    ) => {
-      const checkDOM = document.getElementById(`check-${element.short}`);
-
-      if (checkDOM.getAttribute("data-checked") === "data-checked") {
-        checkDOM.setAttribute("data-checked", null);
-      } else {
-        checkDOM.setAttribute("data-checked", "data-checked");
-      }
-
-      evaluateMassDelete();
+    itemDOM.querySelector(".column.selection .checkbox input").onclick = () => {
+      checkItemSelection();
     };
+
+    filesItemsDOM.append(itemDOM);
 
     fetch(counterURL, {
       method: "POST",
@@ -311,8 +207,8 @@ const populateFilesTable = () => {
         "Content-Type": "application/x-www-form-urlencoded; charset=UTF-8",
       },
       body: new URLSearchParams({
-        short: element.short,
-        token: element.token,
+        short: file.short,
+        token: file.token,
       }),
     })
       .then((response) => {
@@ -324,18 +220,19 @@ const populateFilesTable = () => {
       })
       .then((data) => {
         if (data.success) {
-          const countDOM = document.getElementById(`count-${data.short}`);
-          countDOM.innerHTML = data.counter;
+          const countDOM = itemDOM.querySelector(".column.counter");
+
+          countDOM.innerText = data.counter;
 
           if (data.deleted) {
             if (data.deleted) {
-              countDOM.parentElement.classList.add("purple", "lighten-4");
+              countDOM.parentElement.classList.add("deleted");
             } else {
               alert(data.msg);
               countDOM.parentElement.remove();
 
               if (data.missing) {
-                delItem(data.short);
+                deleteFromStorage(data.short);
               }
             }
           }
@@ -344,7 +241,11 @@ const populateFilesTable = () => {
   });
 };
 
-const clickImport = (event) => {
-  event.preventDefault();
-  document.getElementById("import").click();
-};
+document.addEventListener("DOMContentLoaded", () => {
+  populateFilesTable();
+  document.querySelector(".action-invert-selection").onclick = invertSelection;
+  document.querySelector(".action-export-storage").onclick = exportStorage;
+  document.querySelector(".action-purge-expired").onclick = purgeExpired;
+  document.querySelector(".action-import-storage").onchange = importStorage;
+  document.querySelector(".action-delete-selection").onclick = deleteSelection;
+});

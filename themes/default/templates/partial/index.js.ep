@@ -1,15 +1,11 @@
-% # vim:set sts=4 sw=4 ts=4 ft=javascript expandtab:
-$(document).ready(function(){
-    $('.modal-trigger').leanModal();
-});
-var ws_url  = '<%= url_for('upload')->to_abs() %>';
+const ws_url  = '<%= url_for('upload')->to_abs() %>';
 % if (defined($self->config('fixed_domain')) && $self->config('fixed_domain')) {
-var baseURL = '<%= url_for('/')->host($self->config('fixed_domain'))->to_abs() %>';
+const baseURL = '<%= url_for('/')->host($self->config('fixed_domain'))->to_abs() %>';
 % } else {
-var baseURL = '<%= url_for('/')->to_abs() %>';
+const baseURL = '<%= url_for('/')->to_abs() %>';
 % }
-var actionURL = '<%= url_for('/')->to_abs() %>';
-var i18n    = {
+const actionURL = '<%= url_for('/')->to_abs() %>';
+const i18n    = {
     enqueued:     '<%= l('XXX file has been added to upload queue.') %>',
     confirmExit:  '<%= l('You have attempted to leave this page. The upload will be canceled. Are you sure?') %>',
     copyAll:      '<%= l('Copy all links to clipboard') %>',
@@ -30,11 +26,11 @@ var i18n    = {
     sending:      '<%= l('Sending part XX1 of XX2. Please, be patient, the progress bar can take a while to move.') %>',
     wsProblem:    '<%= l('Websocket communication error') %>',
 };
-var maxSize = <%= config('max_file_size') || 0 %>;
+const maxSize = <%= config('max_file_size') || 0 %>;
 
 % if (stash('token')) {
-var isGuest          = true;
-var sendFilesURLsURL = '<%= url_for('guest_send_mail', token => stash('token'))->to_abs() %>';
+const isGuest          = true;
+const sendFilesURLsURL = '<%= url_for('guest_send_mail', token => stash('token'))->to_abs() %>';
 % } else {
-var isGuest = false;
+const isGuest = false;
 % }

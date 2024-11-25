@@ -1,51 +1,88 @@
-% # vim:set sw=4 ts=4 sts=4 ft=html.epl expandtab:
-<div class="row valign-wrapper">
-    <div class="valign center col s12">
-    % if (!defined(stash('f')) && defined(stash('msg'))) {
-        <div class="col s12">
-            <div class="card pink">
-                <div class="card-content white-text">
-                    <strong><%= stash('msg')%></strong>
-                </div>
-            </div>
-        </div>
+<section class="download-section">
+  % if (!defined(stash('f')) && defined(stash('msg'))) {
+  <article class="message-card error">
+    <%= stash('msg')%>
+  </article>
+  % } else {
+  <h1 class="title-filename"><%= stash('f')->filename %></h1>
+
+    % if (defined(stash('msg'))) {
+    <article class="message-card error">
+      <%= stash('msg')%>
+    </article>
     % } else {
-        <h2 class="col s12 center-align title-filename"><%= stash('f')->filename %></h2>
-        % if (defined(stash('msg'))) {
-        <div class="col s12">
-            <div class="card pink">
-                <div class="card-content white-text">
-                    <strong><%= stash('msg')%></strong>
-                </div>
+      % if (stash('file_pwd')) {
+      <form class="password-form">
+        <div class="input-text input-password">
+          <label for="file-password"><%= l('Add a password to file(s)') %></label>
+          <input type="password" id="file-password" autocomplete="off" autofocus placeholder="<%= l('Password') %>">
+        </div>
+        <button type="submit" class="button action-download" href="#"><%= l('Download') %></button>
+      </form>
+      % }
+
+      <div class="download-container"></div>
+
+      <article class="template download-card ongoing">
+        <div class="file-description">
+          <p class="file-size"></p>
+        </div>
+
+        <p class="wait-message"><%= l('Please wait while we are getting your file. We first need to download and decrypt all parts before you can get it.') %></p>
+        <p class="loading-message"></p>
+        
+        <div class="progress-container">
+          <div class="progress-bar" role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100"></div>
+        </div>
+
+        <button type="button" class="button action-abort"><%= l('Abort') %></a>
+      </article>
+
+      <article class="template download-card aborted">
+        <div class="file-description">
+          <p class="file-size"></p>
+        </div>
+        
+        <p class="abort-message"></p>
+        <button type="button" class="button action-reload"><%= l('Click here to refresh the page and restart the download.') %></a>
+      </article>
+
+      <article class="template download-card success">
+        <div class="file-description" data-isZipped="<%= (stash('f')->zipped) ? 'true' : 'false' %>">
+          <p class="file-size"></p>
+        </div>
+        
+        <a class="button action-download" autofocus href="#"><%= l('Get the file')%></a>
+
+        <div class="content">
+          <div class="hidden zip-container">
+            <button type="button" class="button action-show-zip"><%= l('Show zip content') %></button>
+
+            <div class="hidden zip-content">
+              <h2><%= l('Zip content:') %></h2>
+              <ul>
+                <li class="template zip-item">
+                  <span class="file-name"></span>
+                  <span class="file-size"></span>
+                  <a class="icon-button icon download action-download-item" title="<%= l('Get the file') %>" href="#"></a>
+                </li>
+              </ul>
             </div>
+          </div>
         </div>
-        % } else {
-        %   if (stash('file_pwd')) {
-        <div class="col s12">
-            <div class="input-field">
-                <input type="password" id="file_pwd" placeholder="<%= l('Password') %>" class="validate">
-            </div>
-            <a id="go" class="waves-effect waves-light btn"><%= l('Download') %></a>
+      </article>
+
+      <article class="template download-card error">
+        <div class="file-description">
+          <p class="file-name"></p>
+          <p class="file-size"></p>
         </div>
-        %   }
-        <div class="file-progress col s12<%= (stash('file_pwd')) ? ' hide' : '' %>">
-            <p id="filesize" data-filesize="<%= stash('f')->filesize %>" data-zipped="<%= (stash('f')->zipped) ? 'true' : 'false' %>"></p>
-            <p id="please-wait"><%= l('Please wait while we are getting your file. We first need to download and decrypt all parts before you can get it.') %></p>
-            <p id="loading"></p>
-            <div class="progress" id="pbd">
-                <div id="pb" class="determinate width-0" role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100">
-                    <span id="pbt" class="sr-only">0%</span>
-                </div>
-            </div>
-        </div>
-        <div class="file-abort col s12<%= (stash('file_pwd')) ? ' hide' : '' %>">
-            <a id="abort" class="waves-effect waves-light btn"><%= l('Abort') %></a>
-        </div>
+
+        <div class="message-card error"></div>
+      </article>
 %= javascript '/partial/render.js?nbslices='.stash('f')->nbslices.'&file='.stash('f')->short
 %= javascript '/js/filesize.min.js'
-%= javascript '/js/lufi-notifications.js'
-%= javascript '/js/lufi-down.js', type => 'module'
+%= javascript '/js/lufi-download.js', type => 'module'
     % }
-% }
-    </div>
-</div>
+  % }
+</section>
