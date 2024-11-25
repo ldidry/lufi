@@ -81,7 +81,6 @@
         <div class="message-card error"></div>
       </article>
 %= javascript '/partial/render.js?nbslices='.stash('f')->nbslices.'&file='.stash('f')->short
-%= javascript '/js/filesize.min.js'
 %= javascript '/js/lufi-download.js', type => 'module'
     % }
   % }
