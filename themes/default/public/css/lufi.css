@@ -1013,6 +1013,13 @@ dialog .actions {
   line-height: 2rem;
 }
 
+.download-card img {
+  max-width: 200px;
+  max-height: 100%;
+  margin-left: auto;
+  margin-right: auto;
+}
+
 /** Download Card --- End */
 /** Download --- End */
 

@@ -152,13 +152,13 @@ document.addEventListener("DOMContentLoaded", () => {
         let content;
 
         if (job.lufiFile.type.match(/^image\//) !== null) {
-          content = `<img id="render-image" class="responsive-img" alt="${escapeHtml(
+          content = `<img alt="${escapeHtml(
             job.lufiFile.name
           )}" src="${blobURL}">`;
         } else if (job.lufiFile.type.match(/^video\//) !== null) {
-          content = `<video class="responsive-video" controls><source src="${blobURL}" type="${job.lufiFile.type}"></video>`;
+          content = `<video controls><source src="${blobURL}" type="${job.lufiFile.type}"></video>`;
         } else if (job.lufiFile.type.match(/^audio\//) !== null) {
-          content = `<audio class="responsive-video" controls><source src="${blobURL}" type="${job.lufiFile.type}"></audio>`;
+          content = `<audio controls><source src="${blobURL}" type="${job.lufiFile.type}"></audio>`;
         }
 
         if (content) {
