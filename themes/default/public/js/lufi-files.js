@@ -21,11 +21,9 @@ const itemExists = (serverKey) => {
 };
 
 const invertSelection = () => {
-  document
-    .querySelectorAll(".item:not(.template) .column.selection input")
-    .forEach((node) => {
-      node.click();
-    });
+  document.querySelectorAll(".item .column.selection input").forEach((node) => {
+    node.click();
+  });
   checkItemSelection();
 };
 
@@ -137,9 +135,7 @@ const deleteSelection = () => {
 
 const populateFilesTable = () => {
   const filesItemsDOM = document.querySelector(".files-items");
-  filesItemsDOM
-    .querySelectorAll("tr:not(.template)")
-    .forEach((node) => node.remove());
+  filesItemsDOM.querySelectorAll("tr").forEach((node) => node.remove());
 
   let files = localStorage.getItem(`${prefix}files`);
 
@@ -166,9 +162,10 @@ const populateFilesTable = () => {
 
   files.forEach((file) => {
     const itemDOM = document
-      .querySelector(".files-items .template.item")
-      .cloneNode(true);
-    itemDOM.classList.replace("template", `item-${file.short}`);
+      .querySelector("template#item")
+      .content.cloneNode(true).children[0];
+
+    itemDOM.classList.add(`item-${file.short}`);
 
     itemDOM.setAttribute("data-serverKey", file.short);
     itemDOM.setAttribute("data-actionKey", file.token);
@@ -213,7 +210,7 @@ const populateFilesTable = () => {
     })
       .then((response) => {
         if (!response.ok) {
-          throw new Error("Request error.");
+          throw new Error(`Request error: ${response.statusText}`);
         }
 
         return response.json();
@@ -237,7 +234,8 @@ const populateFilesTable = () => {
             }
           }
         }
-      });
+      })
+      .catch((error) => console.error(error));
   });
 };
 

@@ -43,32 +43,36 @@
       </tr>
     </thead>
     <tbody class="files-items">
-      <tr class="template item">
-        <td class="column selection">
-          <div class="checkbox input-delete-on-first-view">
-            <input type="checkbox" autocomplete="off">
-          </div>
-        </td>
-        <td class="column name"></td>
-        <td class="column download">
-          <a class="icon-button icon download" href="#"></a>
-        </td>
-        <td class="column counter"></td>
-        <td class="column delete-at-first-view">
-          <span class="icon"></span>
-        </td>
-        <td class="column created-at"></td>
-        <td class="column expires-at"></td>
-        <td class="column deletion">
-          <button type="button" class="icon icon-button delete" href="#"></button>
-        </td>
-        <td class="column mail">
-          <a class="icon icon-button mail" href="#"></a>
-        </td>
-      </tr>
+
     </tbody>
   </table>
 </section>
+
+<template id="item">
+  <tr class="item">
+    <td class="column selection">
+      <div class="checkbox input-delete-on-first-view">
+        <input type="checkbox" autocomplete="off">
+      </div>
+    </td>
+    <td class="column name"></td>
+    <td class="column download">
+      <a class="icon-button icon download" href="#"></a>
+    </td>
+    <td class="column counter"></td>
+    <td class="column delete-at-first-view">
+      <span class="icon"></span>
+    </td>
+    <td class="column created-at"></td>
+    <td class="column expires-at"></td>
+    <td class="column deletion">
+      <button type="button" class="icon icon-button delete" href="#"></button>
+    </td>
+    <td class="column mail">
+      <a class="icon icon-button mail" href="#"></a>
+    </td>
+  </tr>
+</template>
 
 <script type="text/javascript">
 % if (defined($self->config('fixed_domain')) && $self->config('fixed_domain')) {

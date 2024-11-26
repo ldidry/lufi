@@ -7,26 +7,26 @@
     <%= l('Rows in purple mean that the invitations have expired.') %>
   </p>
   <div class="actions-buttons">
-    <a href="#" class="button action-invert-selection"><%= l('Invert selection') %></a>
-    <a href="#" class="button action-toggle-hidden"><%= l('Show hidden invitations') %></a>
-    <a href="#" class="button action-delete-invitation" disabled><%= l('Delete') %></a>
-    <a href="#" class="button action-resend-mail" disabled><%= l('Resend invitation mail') %></a>
-    <a href="#" class="button action-toggle-visibility" disabled><%= l('Toggle visibility') %></a>
+    <button href="#" class="button action-invert-selection"><%= l('Invert selection') %></button>
+    <button href="#" class="button action-toggle-hidden"><%= l('Show hidden invitations') %></button>
+    <button href="#" class="button target-selection action-delete-invitation" disabled="disabled"=><%= l('Delete') %></button>
+    <button href="#" class="button target-selection action-resend-invitation" disabled="disabled"><%= l('Resend invitation mail') %></button>
+    <button href="#" class="button target-selection action-toggle-visibility" disabled="disabled"><%= l('Toggle visibility') %></button>
   </div>
 
   <table>
     <thead>
         <tr>
-            <th>&nbsp;</th>
+            <th></th>
             <th><%= l('Guest mail') %></th>
             <th><%= l('URL') %></th>
             <th><%= l('Created at') %></th>
             <th><%= l('Expire at') %></th>
             <th><%= l('Files sent at') %></th>
-            <th>&nbsp;</th>
+            <th></th>
         </tr>
     </thead>
-    <tbody data-visibility="hidden">
+    <tbody class="invitations-list" data-visibility="hidden">
     % my $time = time;
     % $invitations->each(sub {
       % my ($e, $num) = @_;
@@ -34,53 +34,79 @@
       % my $class = '';
       % $class = 'deleted' unless $e->is_valid;
       % $class .= ' hidden' unless $e->show_in_list;
-      <tr id="row-<%= $e->token %>" class="<%= $class %>" data-visibility="<%= ($e->show_in_list) ? 1 : 0 %>">
+      <tr id="row-<%= $e->token %>" class="item <%= $class %>" data-visibility="<%= ($e->show_in_list) ? 1 : 0 %>">
         <td class="column selection">
           <div class="checkbox input-selection">
-            <input type="checkbox">
+            <input type="checkbox" data-token="<%= $e->token %>">
+            
+            % unless ($e->show_in_list) {
+              <span class="icon hide-source" title="<%= l('This invitation is normally hidden') %>"></span>
+            % }
           </div>
-          <input type="checkbox" id="<%= $e->token %>">
-          <label for="<%= $e->token %>" hidden></label>
-
-          % unless ($e->show_in_list) {
-            <i class="mdi-navigation-cancel" title="<%= l('This invitation is normally hidden') %>"></i>
-          % }
         </td>
-        <td><%= $e->guest_mail %></td>
-        <td><%= url_for('guest', token => $e->token)->to_abs %></td>
-        <td><%= $lang->time2str(l('%A %d %B %Y at %T'), $e->created_at) %></td>
-        <td id="expire-<%= $e->token %>"><%= $lang->time2str(l('%A %d %B %Y at %T'), $e->expire_at) %></td>
-        <td><%= $lang->time2str(l('%A %d %B %Y at %T'), $e->files_sent_at) if $e->files_sent_at %></td>
-        <td>
+        <td class="column mail"><%= $e->guest_mail %></td>
+        <td class="column url"><%= url_for('guest', token => $e->token)->to_abs %></td>
+        <td class="column creation-date"><%= $lang->time2str(l('%A %d %B %Y at %T'), $e->created_at) %></td>
+        <td class="column expiration-date"><%= $lang->time2str(l('%A %d %B %Y at %T'), $e->expire_at) %></td>
+        <td class="column files-sent-data"><%= $lang->time2str(l('%A %d %B %Y at %T'), $e->files_sent_at) if $e->files_sent_at %></td>
+        <td class="column actions">
           % if ($e->files) {
-            <a href="#files-info"
-              data-files="<%= $e->files %>"
+            <a
+              class="button modal-button action-files-info"
+              href="#files-info"
+              data-files='<%= $e->files %>'
               data-token="<%= $e->token %>"
               data-guest="<%= $e->guest_mail %>"
-              class="btn left-mg cyan waves-effect waves-light modal-trigger prefix">
-                <%= l('Files') %>
+            >
+              <%= l('Files') %>
             </a>
-          % }
+         % }
         </td>
       </tr>
     % });
     </tbody>
   </table>
 
-  <div id="files-info" class="modal">
-    <div class="modal-content">
-      <h1 class="small-h1"></h1>
-      <div class="text-left">
-        <ul id="files-ul">
-        </ul>
+  <dialog class="modal files-info">
+    <section>
+      <header>
+        <h1></h1>
+      </header>
+
+      <div class="content">
+        <ul class="files-list"></ul>
       </div>
-    </div>
-    <div class="modal-footer">
-      <a href="#!" class="modal-action modal-close waves-effect waves-green btn-flat"><%= l('Close') %></a>
-    </div>
-  </div>
+      
+      <footer class="actions">
+        <button autofocus class="button close-modal"><%= l('Close') %></button>
+      </footer>
+    </section>
+  </dialog>
 </section>
 
-%= javascript '/partial/invitations.js'
-%= javascript '/js/lufi-list-invitations.js'
-%= javascript '/js/filesize.min.js'
+<template id="icon-hide-source">
+  <span class="icon hide-source" title="<%= l('This invitation is normally hidden') %>"></span>
+</template>
+
+<template id="item">
+  <li class="item">
+    <a class="file-link" href="#"></a>
+    <span class="file-size"></span>
+  </li>
+</template>
+
+<script type="text/javascript">
+const i18n = {
+    confirmDeleteInvit: '<%= l('Are you sure you want to delete the selected invitations?') %>',
+    confirmResendMail:  '<%= l('Are you sure you want to resend the invitation mail for the selected invitations?') %>',
+    expiration:         '<%= l('expires on XXX') %>',
+    hideText:           '<%= l('Hide hidden invitations') %>',
+    listFiles:          '<%= l('Files sent in invitation XX1 by XX2') %>',
+    showText:           '<%= l('Show hidden invitations') %>'
+};
+
+const deleteURL = '<%= url_for('invite_list_delete') %>';
+const resendURL = '<%= url_for('invite_list_resend') %>';
+const toggleURL = '<%= url_for('invite_list_visibility') %>';
+</script>
+%= javascript '/js/lufi-list-invitations.js', type => 'module'

@@ -1,0 +1,272 @@
+import { filesize } from "./filesize.esm.min.js";
+
+const updateButtonsStatus = () => {
+  const targetSelectionDOM = document.querySelectorAll(".target-selection");
+
+  if (
+    document.querySelectorAll(".column.selection .checkbox input:checked")
+      .length > 0
+  ) {
+    targetSelectionDOM.forEach((node) => (node.disabled = false));
+  } else {
+    targetSelectionDOM.forEach((node) => (node.disabled = true));
+  }
+};
+
+const invertSelection = () => {
+  document.querySelectorAll(".item .column.selection input").forEach((node) => {
+    node.click();
+  });
+
+  updateButtonsStatus();
+};
+
+const toggleHidden = () => {
+  const invitationsListDOM = document.querySelector(".invitations-list");
+  const toggleButtonDOM = document.querySelector(".action-toggle-hidden");
+  const itemsHiddenDOM = invitationsListDOM.querySelectorAll(
+    ".item[data-visibility='0']"
+  );
+
+  if (invitationsListDOM.getAttribute("data-visibility") === "hidden") {
+    toggleButtonDOM.innerText = i18n.hideText;
+
+    itemsHiddenDOM.forEach((item) => item.classList.remove("hidden"));
+
+    invitationsListDOM.setAttribute("data-visibility", "shown");
+  } else {
+    toggleButtonDOM.innerText = i18n.showText;
+
+    itemsHiddenDOM.forEach((item) => {
+      item.classList.add("hidden");
+
+      const checkbox = item.querySelector("input");
+
+      if (checkbox.checked) {
+        checkbox.click();
+      }
+    });
+
+    invitationsListDOM.setAttribute("data-visibility", "hidden");
+  }
+};
+
+const deleteInvitation = () => {
+  if (confirm(i18n.confirmDeleteInvit)) {
+    try {
+      fetch(deleteURL, {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/x-www-form-urlencoded; charset=UTF-8",
+        },
+        body: getTokensBody(),
+      })
+        .then((response) => {
+          if (!response.ok) {
+            throw new Error(`Request error: ${response.statusText}`);
+          }
+
+          return response.json();
+        })
+        .then((data) => {
+          if (data.success) {
+            data.tokens.forEach((t) => {
+              addToast(t.msg, "success");
+              document.getElementById(`row-${t.token}`).remove();
+            });
+
+            data.failures.forEach((msg) => {
+              addToast(msg, "error");
+            });
+
+            updateButtonsStatus();
+          } else {
+            data.failures.forEach((msg) => {
+              addToast(msg, "error");
+            });
+
+            if (data.msg) {
+              addToast(data.msg, "error");
+            }
+          }
+        });
+    } catch (error) {
+      console.error(error);
+    }
+  }
+};
+
+const resendInvitation = () => {
+  if (confirm(i18n.confirmResendMail)) {
+    fetch(resendURL, {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/x-www-form-urlencoded; charset=UTF-8",
+      },
+      body: getTokensBody(),
+    })
+      .then((response) => {
+        if (!response.ok) {
+          throw new Error(`Request error: ${response.statusText}`);
+        }
+
+        return response.json();
+      })
+      .then((data) => {
+        if (data.success) {
+          data.tokens.forEach((t) => {
+            const itemDOM = document.getElementById(`row-${t.token}`);
+
+            itemDOM.querySelector(".column.expiration-date").innerText =
+              t.expires;
+
+            itemDOM.querySelector(".column.selection input").click();
+            addToast(t.msg, "success");
+          });
+
+          data.failures.forEach((msg) => {
+            addToast(msg, "error");
+          });
+
+          updateButtonsStatus();
+        }
+      })
+      .catch((error) => console.error(error));
+  }
+};
+
+const toggleVisibility = () => {
+  fetch(toggleURL, {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/x-www-form-urlencoded; charset=UTF-8",
+    },
+    body: getTokensBody(),
+  })
+    .then((response) => {
+      if (!response.ok) {
+        throw new Error(`Request error: ${response.statusText}`);
+      }
+
+      return response.json();
+    })
+    .then((data) => {
+      if (data.success) {
+        data.tokens.forEach((t) => {
+          const itemDOM = document.getElementById(`row-${t.token}`);
+
+          if (t.show) {
+            itemDOM.setAttribute("data-visibility", 1);
+            itemDOM.classList.remove("hidden");
+            itemDOM
+              .querySelector(".column.selection .icon.hide-source")
+              .remove();
+          } else {
+            itemDOM.setAttribute("data-visibility", 0);
+
+            if (
+              document
+                .querySelector(".invitations-list")
+                .getAttribute("data-visibility") === "hidden"
+            ) {
+              itemDOM.classList.add("hidden");
+            }
+
+            itemDOM
+              .querySelector(".column.selection")
+              .appendChild(
+                document
+                  .querySelector("template#icon-hide-source")
+                  .content.cloneNode(true)
+              );
+          }
+
+          itemDOM.querySelector(".column.selection input").click();
+        });
+
+        updateButtonsStatus();
+      } else {
+        addToast(data.msg, "error");
+      }
+    })
+    .catch((error) => console.error(error));
+};
+
+const getTokensBody = () => {
+  const tokens = new URLSearchParams();
+
+  document
+    .querySelectorAll(".column.selection input:checked")
+    .forEach((item) =>
+      tokens.append("tokens[]", item.getAttribute("data-token"))
+    );
+
+  return tokens;
+};
+
+const fillModal = (event) => {
+  const buttonDOM = event.target;
+  const modalDOM = document.querySelector(".modal.files-info");
+
+  // Cleanup the modal
+  modalDOM.querySelector(".files-list").replaceChildren();
+
+  modalDOM.querySelector("h1").innerText = i18n.listFiles
+    .replace("XX1", buttonDOM.getAttribute("data-token"))
+    .replace("XX2", buttonDOM.getAttribute("data-guest"));
+
+  const files = JSON.parse(buttonDOM.getAttribute("data-files")) || [];
+  const itemList = new DocumentFragment();
+
+  files.forEach((file) => {
+    const expires = i18n.expiration.replace(
+      "XXX",
+      formatDate(file.delay * 86400 + file.created_at)
+    );
+    const item = modalDOM
+      .querySelector("template#item")
+      .content.cloneNode(true);
+
+    item.querySelector(".file-link").href = file.url;
+    item.querySelector(".file-link").value = file.name;
+    item.querySelector(".file-size").innerText = `${filesize(
+      file.size
+    )}, ${expires}`;
+
+    itemList.appendChild(item);
+  });
+
+  modalDOM.querySelector(".files-list").appendChild(itemList);
+};
+
+document.addEventListener("DOMContentLoaded", () => {
+  document.querySelectorAll(".modal-button.action-files-info").forEach(
+    (button) =>
+      (button.onclick = (event) => {
+        fillModal(event);
+
+        document.querySelector(".modal.files-info").showModal();
+      })
+  );
+
+  document.querySelector(".close-modal").onclick = () => {
+    document.querySelector(".modal").close();
+  };
+
+  document
+    .querySelectorAll(".column.selection input")
+    .forEach((node) => (node.onclick = updateButtonsStatus));
+
+  document.querySelector(".action-invert-selection").onclick = invertSelection;
+
+  document.querySelector(".action-toggle-hidden").onclick = toggleHidden;
+
+  document.querySelector(".action-delete-invitation").onclick =
+    deleteInvitation;
+
+  document.querySelector(".action-resend-invitation").onclick =
+    resendInvitation;
+
+  document.querySelector(".action-toggle-visibility").onclick =
+    toggleVisibility;
+});
