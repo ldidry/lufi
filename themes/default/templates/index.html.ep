@@ -110,24 +110,6 @@
         </div>
       </div>
     </form>
-
-    <script type="text/javascript">
-      document.addEventListener('DOMContentLoaded', () => {
-        document.querySelector(".drop-zone").onkeydown = (event) => {
-          if(event.key === " ") {
-            document.getElementById("file-browser").click();
-          }
-        };
-
-        document.querySelector(".info-delete-after-days").onclick = () => {
-          document.querySelector(".modal-delete-after-days").showModal();
-        }
-
-        document.querySelector(".close-modal").onclick = () => {
-          document.querySelector(".modal").close();
-        }
-      });
-    </script>
   </section>
 
   <section class="hidden uploaded-zone">
@@ -211,50 +193,105 @@
 
   <dialog class="modal modal-delete-after-days">
     % use Number::Bytes::Human qw(format_bytes);
-    <div class="content">
-      <h1><%= l('Information about delays') %></h1>
-      <p>
-        <%= l('If you choose a delay, the file will be deleted after that delay.') %><br>
-        <%= l('Don\'t worry: if a user begins to download the file before the expiration and the download ends after the expiration, he will be able to get the file.') %>
-      </p>
-      % if (defined(config('delay_for_size'))) {
+    <section>
+      <header>
+        <h1><%= l('Information about delays') %></h1>
+      </header>
+
+      <div class="content">
         <p>
-          <%= l('This server sets limitations according to the file size. The expiration delay of your file will be the minimum between what you choose and the following limitations:') %>
+          <%= l('If you choose a delay, the file will be deleted after that delay.') %><br>
+          <%= l('Don\'t worry: if a user begins to download the file before the expiration and the download ends after the expiration, he will be able to get the file.') %>
         </p>
-        <ul>
-        % my $delays   = config('delay_for_size');
-        % $delays->{0} = max_delay;
-        % my @keys     = sort {$a <=> $b} keys %{$delays};
-        % my $i        = 0;
-        % for my $key (@keys) {
-          % my $delay = $delays->{$keys[$i]};
-          % if ($i + 1 < scalar(@keys)) {
-            % if ($delay) {
-              <li><%= l('between %1 and %2, the file will be kept %3 day(s).', format_bytes($keys[$i]), format_bytes($keys[$i + 1]), $delay) %></li>
+        % if (defined(config('delay_for_size'))) {
+          <p>
+            <%= l('This server sets limitations according to the file size. The expiration delay of your file will be the minimum between what you choose and the following limitations:') %>
+          </p>
+          <ul>
+          % my $delays   = config('delay_for_size');
+          % $delays->{0} = max_delay;
+          % my @keys     = sort {$a <=> $b} keys %{$delays};
+          % my $i        = 0;
+          % for my $key (@keys) {
+            % my $delay = $delays->{$keys[$i]};
+            % if ($i + 1 < scalar(@keys)) {
+              % if ($delay) {
+                <li><%= l('between %1 and %2, the file will be kept %3 day(s).', format_bytes($keys[$i]), format_bytes($keys[$i + 1]), $delay) %></li>
+              % } else {
+                <li><%= l('between %1 and %2, the file will be kept forever.', format_bytes($keys[$i]), format_bytes($keys[$i + 1]), $delay) %></li>
+              % }
             % } else {
-              <li><%= l('between %1 and %2, the file will be kept forever.', format_bytes($keys[$i]), format_bytes($keys[$i + 1]), $delay) %></li>
+              % if ($delay) {
+                <li><%= l('for %1 and more, the file will be kept %2 day(s)', format_bytes($keys[$i]), $delay) %></li>
+              % } else {
+                <li><%= l('for %1 and more, the file will be kept forever.', format_bytes($keys[$i]), $delay) %></li>
+              % }
             % }
-          % } else {
-            % if ($delay) {
-              <li><%= l('for %1 and more, the file will be kept %2 day(s)', format_bytes($keys[$i]), $delay) %></li>
-            % } else {
-              <li><%= l('for %1 and more, the file will be kept forever.', format_bytes($keys[$i]), $delay) %></li>
-            % }
+            % $i++;
           % }
-          % $i++;
+          </ul>
         % }
-        </ul>
-      % }
-    </div>
-    <div class="actions">
-      <button autofocus class="button close-modal"><%= l('Close') %></button>
-    </div>
+      </div>
+      
+      <footer class="actions">
+        <button autofocus class="button close-modal"><%= l('Close') %></button>
+      </footer>
+    </section>
   </dialog>
 % }
 
-% if (defined stash('invitation')) {
-%= javascript '/partial/index.js?token=' . stash('invitation')->token
+<script type="text/javascript">
+const ws_url  = '<%= url_for('upload')->to_abs() %>';
+% if (defined($self->config('fixed_domain')) && $self->config('fixed_domain')) {
+const baseURL = '<%= url_for('/')->host($self->config('fixed_domain'))->to_abs() %>';
 % } else {
-%= javascript '/partial/index.js'
+const baseURL = '<%= url_for('/')->to_abs() %>';
 % }
+const actionURL = '<%= url_for('/')->to_abs() %>';
+const i18n    = {
+    enqueued:     '<%= l('XXX file has been added to upload queue.') %>',
+    confirmExit:  '<%= l('You have attempted to leave this page. The upload will be canceled. Are you sure?') %>',
+    copyAll:      '<%= l('Copy all links to clipboard') %>',
+    copySuccess:  '<%= l('The link(s) has been copied to your clipboard') %>',
+    copyFail:     '<%= l('Unable to copy the link(s) to your clipboard') %>',
+    cpText:       '<%= l('Copy to clipboard') %>',
+    delText:      '<%= l('Deletion link') %>',
+    dlText:       '<%= l('Download link') %>',
+    download:     '<%= l('Download') %>',
+    encrypting:   '<%= l('Encrypting part XX1 of XX2') %>',
+    expiration:   '<%= l('Expiration:') %>',
+    fileUploaded: '<%= l('File uploaded') %>',
+    hit:          '<%= l('Hit Enter, then Ctrl+C to copy the download link') %>',
+    hits:         '<%= l('Hit Enter, then Ctrl+C to copy all the download links') %>',
+    mailTo:       '<%= l('Send all links by email') %>',
+    maxSize:      '<%= l('(max size: XXX)') %>',
+    noLimit:      '<%= l('No expiration delay') %>',
+    sending:      '<%= l('Sending part XX1 of XX2. Please, be patient, the progress bar can take a while to move.') %>',
+    wsProblem:    '<%= l('Websocket communication error') %>',
+};
+const maxSize = <%= config('max_file_size') || 0 %>;
+
+% if (defined stash('invitation')) {
+const isGuest          = true;
+const sendFilesURLsURL = '<%= url_for('guest_send_mail', token => stash('invation')->token)->to_abs() %>';
+% } else {
+const isGuest = false;
+% }
+
+document.addEventListener('DOMContentLoaded', () => {
+  document.querySelector(".drop-zone").onkeydown = (event) => {
+    if(event.key === " ") {
+      document.getElementById("file-browser").click();
+    }
+  };
+
+  document.querySelector(".info-delete-after-days").onclick = () => {
+    document.querySelector(".modal-delete-after-days").showModal();
+  }
+
+  document.querySelector(".close-modal").onclick = () => {
+    document.querySelector(".modal").close();
+  }
+});
+</script>
 %= javascript '/js/lufi-upload.js', type => 'module'
