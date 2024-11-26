@@ -615,11 +615,6 @@ main form select {
   padding-bottom: 2rem;
 }
 
-.zip-zone .action-close {
-  grid-row: 1;
-  grid-column: 2;
-}
-
 .zip-zone .files-list {
   grid-row: 2;
   grid-column: 1 /-1;

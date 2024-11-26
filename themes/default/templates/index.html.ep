@@ -92,7 +92,7 @@
 
 
       <div class="hidden zip-zone card">
-        <button type="button" class="icon-button action-close"></button>
+        <button type="button" class="icon-button icon close action-close"></button>
         
         <div class="file-description">
           <p class="file-name">documents.zip</p>
@@ -126,7 +126,7 @@
   
   <template id="file-card-error">
     <article class="card file-card error">
-      <button type="button" class="icon-button action-close"></button>
+      <button type="button" class="icon-button icon close action-close"></button>
       <div class="file-description">
         <p class="file-name"></p>
         <p class="file-size"></p>
@@ -150,7 +150,7 @@
 
   <template id="file-card-ongoing">
     <article class="card file-card ongoing">
-      <span class="action-close"></span>
+      <button type="button" class="icon-button icon close action-close"></button>
       <div class="file-description">
         <p class="file-name"></p>
         <p class="file-size"></p>
