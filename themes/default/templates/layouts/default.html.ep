@@ -92,8 +92,8 @@
           };
 
           const addToast = (text, type) => {
-            const toastDOM = document.querySelector(".template.toast").cloneNode(true);
-            toastDOM.classList.replace("template", type)
+            const toastDOM = document.querySelector("template#toast").content.cloneNode(true).children[0];
+            toastDOM.classList.add(type)
 
             toastDOM.querySelector(".message").innerText = escapeHtml(text);
 
@@ -142,12 +142,14 @@
 
       <div class="toast-container"></div>
 
-      <div class="template toast">
-        <div class="message"></div>
-        <div class="progress-container">
-          <div class="progress-bar"></div>
+      <template id="toast">
+        <div class="toast">
+          <div class="message"></div>
+          <div class="progress-container">
+            <div class="progress-bar"></div>
+          </div>
         </div>
-      </div>
+      </template>
 
       % if (defined(config('piwik_img'))) {
         <img src="<%== config('piwik_img') %>" class="no_border" alt="" />

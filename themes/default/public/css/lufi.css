@@ -100,6 +100,35 @@ a:visited {
   color: var(--active-color);
 }
 
+table {
+  width: 100%;
+  line-height: 1.5rem;
+  border-collapse: collapse;
+}
+
+table tbody tr:nth-child(even) {
+  background-color: var(--table-bg-color);
+}
+
+table tbody tr.deleted {
+  background: repeating-linear-gradient(-45deg, transparent 0 2rem, var(--table-deleted-bg-color) 2rem 4rem);
+}
+
+table tbody tr:hover {
+  background-color: var(--hover-color);
+  transition: background-color 0.3s linear;
+}
+
+table tbody td {
+  padding: 0.5rem;
+  text-align: center;
+}
+
+table tbody td.column.name {
+  text-align: left;
+  font-size: 0.9rem;
+}
+
 .input-text {
   display: inline-block;
 }
@@ -183,7 +212,7 @@ a.button {
   height: 2rem;
   mask: url("../icon/hide-source.svg");
   mask-repeat: no-repeat;
-  background: var(--icon-color);
+  background: var(--main-fg-color);
 }
 
 .icon.mail {
@@ -240,10 +269,6 @@ a.button {
   content: ")";
 }
 
-.template {
-  display: none !important;
-}
-
 .icon-button {
   cursor: pointer;
 }
@@ -261,7 +286,6 @@ a.button {
 
 #main-menu {
   min-height: 3rem;
-  width: 100%;
   background-color: var(--menu-bg-color);
   color: var(--menu-fg-color);
   display: flex;
@@ -493,7 +517,7 @@ main form select {
   transform: scale(1);
 }
 
-.checkbox>* {
+.checkbox input {
   cursor: pointer;
 }
 
@@ -717,7 +741,7 @@ main form select {
   display: grid;
   grid-template-columns: calc(100% - 2rem) 2rem;
   justify-content: center;
-  margin: 1rem 0;
+  margin: 1rem 2px;
   gap: 0.5rem;
 }
 
@@ -727,6 +751,10 @@ main form select {
 
 .file-card>* {
   margin: 0;
+}
+
+.actions-buttons.upload-success {
+  justify-content: center;
 }
 
 
@@ -833,6 +861,11 @@ main form select {
 dialog {
   border: none;
   width: 75%;
+}
+
+dialog h1 {
+  font-size: 2rem;
+  text-align: left;
 }
 
 dialog::backdrop {
@@ -1071,35 +1104,6 @@ dialog .actions {
   overflow: auto;
 }
 
-.my-files-section table {
-  width: 100%;
-  line-height: 1.5rem;
-  border-collapse: collapse;
-}
-
-.my-files-section table tbody tr:nth-child(even) {
-  background-color: var(--table-bg-color);
-}
-
-.my-files-section table tbody tr.deleted {
-  background: repeating-linear-gradient(-45deg, transparent 0 2rem, var(--table-deleted-bg-color) 2rem 4rem);
-}
-
-.my-files-section table tbody tr:hover {
-  background-color: var(--hover-color);
-  transition: background-color 0.3s linear;
-}
-
-.my-files-section table tbody td {
-  padding: 0.5rem;
-  text-align: center;
-}
-
-.my-files-section table tbody td.column.name {
-  text-align: left;
-  font-size: 0.9rem;
-}
-
 .my-files-section .icon {
   background-color: CanvasText;
 }
@@ -1165,7 +1169,7 @@ dialog .actions {
 }
 
 /** Login --- End */
-/** Invite --- Start */
+/** Invitations --- Start */
 .invite-form {
   display: flex;
   flex-direction: column;
@@ -1177,4 +1181,23 @@ dialog .actions {
   margin: auto;
 }
 
-/** Invite --- End */
+.my-invitations-section {
+  display: flex;
+  flex-direction: column;
+}
+
+.my-invitations-section .column.url {
+  text-align: left;
+}
+
+.my-invitations-section .input-selection {
+  display: flex;
+  gap: 0.5rem;
+}
+
+.my-invitations-section .input-selection .icon {
+  height: 1.5rem;
+  width: 1.5rem;
+}
+
+/** Invitations --- End */

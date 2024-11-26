@@ -107,9 +107,9 @@ document.addEventListener("DOMContentLoaded", () => {
   const createFileCard = (job, type, existingCard = undefined) => {
     const { lufiFile } = job;
     const cardDOM = document
-      .querySelector(`.template.file-card.${type}`)
-      .cloneNode(true);
-    cardDOM.classList.remove("template");
+      .querySelector(`template#file-card-${type}`)
+      .content.cloneNode(true).children[0];
+
     cardDOM.id = `file-card-${lufiFile.keys.client}`;
 
     cardDOM.querySelector(".file-name").innerText = escapeHtml(lufiFile.name);

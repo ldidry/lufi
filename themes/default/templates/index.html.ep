@@ -122,8 +122,50 @@
     </header>
 
     <div class="file-cards"></div>
+  </section>
+  
+  <template id="file-card-error">
+    <article class="card file-card error">
+      <button type="button" class="icon-button action-close"></button>
+      <div class="file-description">
+        <p class="file-name"></p>
+        <p class="file-size"></p>
+      </div>
 
-    <article class="template card file-card success">
+      <div class="message-card error upload-error"></div>
+    </article>
+  </template>
+  
+  <template id="file-card-guest">
+    <article class="card file-card guest">
+      <button type="button" class="icon-button icon close action-close"></button>
+      <div class="file-description">
+        <p class="file-name"></p>
+        <p class="file-size"></p>
+      </div>
+      
+      <p class="file-expiration"></p>
+    </article>
+  </template>
+
+  <template id="file-card-ongoing">
+    <article class="card file-card ongoing">
+      <span class="action-close"></span>
+      <div class="file-description">
+        <p class="file-name"></p>
+        <p class="file-size"></p>
+      </div>
+
+      <p class="progress-percent">0</p>
+      
+      <div class="progress-container">
+        <div class="progress-bar" role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100"></div>
+      </div>
+    </article>
+  </template>
+
+  <template id="file-card-success">
+    <article class="card file-card success">
       <button type="button" class="icon-button icon close action-close"></button>
       <div class="file-description">
         <p class="file-name"></p>
@@ -155,41 +197,7 @@
         </div>
       </div>
     </article>
-
-    <article class="template card file-card guest">
-      <button type="button" class="icon-button icon close action-close"></button>
-      <div class="file-description">
-        <p class="file-name"></p>
-        <p class="file-size"></p>
-      </div>
-      
-      <p class="file-expiration"></p>
-    </article>
-
-    <article class="template card file-card error">
-      <button type="button" class="icon-button action-close"></button>
-      <div class="file-description">
-        <p class="file-name"></p>
-        <p class="file-size"></p>
-      </div>
-
-      <div class="message-card error upload-error"></div>
-    </article>
-
-    <article class="template card file-card ongoing">
-      <span class="action-close"></span>
-      <div class="file-description">
-        <p class="file-name"></p>
-        <p class="file-size"></p>
-      </div>
-
-      <p class="progress-percent">0</p>
-      
-      <div class="progress-container">
-        <div class="progress-bar" role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100"></div>
-      </div>
-    </article>
-  </section>
+  </template>
 
   <dialog class="modal modal-delete-after-days">
     % use Number::Bytes::Human qw(format_bytes);
@@ -273,7 +281,7 @@ const maxSize = <%= config('max_file_size') || 0 %>;
 
 % if (defined stash('invitation')) {
 const isGuest          = true;
-const sendFilesURLsURL = '<%= url_for('guest_send_mail', token => stash('invation')->token)->to_abs() %>';
+const sendFilesURLsURL = '<%= url_for('guest_send_mail', token => stash('invitation')->token)->to_abs() %>';
 % } else {
 const isGuest = false;
 % }

@@ -96,7 +96,7 @@ sub send_mail {
                 subject => $subject,
                 body    => $body
             }
-        )
+        );
     }
 
     $c->mail(

@@ -17,9 +17,8 @@ document.addEventListener("DOMContentLoaded", () => {
    */
   const updateDOM = (lufiFile = undefined, type) => {
     const cardDOM = document
-      .querySelector(`.template.download-card.${type}`)
-      .cloneNode(true);
-    cardDOM.classList.remove("template");
+      .querySelector(`template#download-card-${type}`)
+      .content.cloneNode(true).children[0];
 
     if (lufiFile) {
       cardDOM.querySelector(".file-size").innerText = filesize(lufiFile.size);
@@ -66,10 +65,8 @@ document.addEventListener("DOMContentLoaded", () => {
         .map((job) => {
           job.archiveFiles.forEach((file) => {
             const itemDOM = zipContainerDOM
-              .querySelector(".zip-item")
-              .cloneNode(true);
-
-            itemDOM.classList.remove("template");
+              .querySelector("template#zip-item")
+              .content.cloneNode(true).children[0];
 
             itemDOM.querySelector(".file-name").innerText = escapeHtml(
               file.name
