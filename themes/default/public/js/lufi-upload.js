@@ -188,7 +188,6 @@ document.addEventListener("DOMContentLoaded", () => {
     };
 
     mustZipDOM.onchange = () => {
-      console.debug(zipNameDOM.classList);
       if (!mustZipDOM.checked) {
         clearZip();
       } else {
