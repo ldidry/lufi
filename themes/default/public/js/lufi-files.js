@@ -170,10 +170,8 @@ const populateFilesTable = () => {
     itemDOM.setAttribute("data-serverKey", file.short);
     itemDOM.setAttribute("data-actionKey", file.token);
 
-    const downloadLink = `${actionURL}d/${file.short}/${file.token}`;
-
     itemDOM.querySelector(".column.name").innerText = file.name;
-    itemDOM.querySelector(".column.download a").href = downloadLink;
+    itemDOM.querySelector(".column.download a").href = file.url;
     itemDOM
       .querySelector(".column.delete-at-first-view .icon")
       .classList.add(file.del_at_first_view ? "check" : "close");
