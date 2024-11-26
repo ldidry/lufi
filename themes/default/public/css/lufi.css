@@ -842,7 +842,7 @@ main form select {
   height: 4px;
 }
 
-.file-card .progress-bar {
+.progress-bar {
   height: 100%;
   background-color: var(--progress-fg-color);
   transition: width 0.5s linear;
@@ -1054,6 +1054,14 @@ dialog .actions {
   max-height: 100%;
   margin-left: auto;
   margin-right: auto;
+}
+
+.download-card .progress-container {
+  width: 100%;
+  margin: 0 4px;
+  background-color: var(--progress-bg-color);
+  border-radius: 4px;
+  height: 4px;
 }
 
 /** Download Card --- End */

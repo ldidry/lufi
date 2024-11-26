@@ -102,11 +102,14 @@ document.addEventListener("DOMContentLoaded", () => {
 
         warnOnReload();
         job.onProgress(() => {
-          const percent = Math.round(
-            (job.lufiFile.chunksReady * 100) / job.lufiFile.totalChunks
-          );
+          const percent =
+            Math.round(
+              (job.lufiFile.chunksReady * 100) / job.lufiFile.totalChunks
+            ) + "%";
 
-          cardDOM.querySelector(".progress-bar").style.width = `${percent}%`;
+          cardDOM.querySelector(".progress-bar").style.width = percent;
+          cardDOM.querySelector(".loading-message").innerText =
+            i18n.loading.replace("XX1", job.lufiFile.chunksReady);
         });
 
         document.querySelector(".action-abort").onclick = () => {
