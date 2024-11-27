@@ -65,9 +65,14 @@
   all: unset;
 }
 
+html {
+  height: 100%;
+}
+
 body {
   margin: 0;
   padding: 0;
+  height: 100%;
 }
 
 main {
@@ -379,11 +384,6 @@ a.button {
 main form label {
   cursor: pointer;
   user-select: none;
-}
-
-.input-text label,
-.checkbox label {
-  opacity: 0.8;
 }
 
 main form input:not(:disabled):active {
@@ -1092,14 +1092,12 @@ dialog .actions {
   gap: 1rem;
 }
 
-.my-files-section h1 {
+section h1 {
   margin-top: 2rem;
   margin-bottom: 0;
   padding-bottom: 0.5rem;
   font-size: 3rem;
-  text-align: left;
   width: 100%;
-  border-bottom: 2px solid gray;
 }
 
 .my-files-section .actions-buttons input {
