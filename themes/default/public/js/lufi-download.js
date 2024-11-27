@@ -39,7 +39,7 @@ document.addEventListener("DOMContentLoaded", () => {
     passwordFormDOM.onsubmit = (event) => {
       event.preventDefault();
 
-      passwordFormDOM.classList.add("hidden");
+      hideNode(passwordFormDOM);
 
       startDownload();
     };
@@ -48,14 +48,14 @@ document.addEventListener("DOMContentLoaded", () => {
   const showZipContent = (zipFile, cardDOM) => {
     const zipContainerDOM = cardDOM.querySelector(".content .zip-container");
 
-    zipContainerDOM.classList.remove("hidden");
+    showNode(zipContainerDOM);
 
     zipContainerDOM.querySelector(".action-show-zip").onclick = (event) => {
-      event.target.classList.add("hidden");
+      hideNode(event.target);
 
       const zipContentDOM = zipContainerDOM.querySelector(".zip-content");
 
-      zipContentDOM.classList.remove("hidden");
+      showNode(zipContentDOM);
 
       document.body.style.cursor = "wait";
 
@@ -64,7 +64,7 @@ document.addEventListener("DOMContentLoaded", () => {
         .andThen((job) => job.waitForCompletion())
         .map((job) => {
           job.archiveFiles.forEach((file) => {
-            const itemDOM = zipContainerDOM
+            const itemDOM = document
               .querySelector("template#zip-item")
               .content.cloneNode(true).children[0];
 

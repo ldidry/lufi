@@ -63,10 +63,10 @@
           <a class="button action-download" autofocus href="#"><%= l('Get the file')%></a>
 
           <div class="content">
-            <div class="hidden zip-container">
+            <div class="hidden zip-container" aria-hidden="true">
               <button type="button" class="button action-show-zip"><%= l('Show zip content') %></button>
 
-              <div class="hidden zip-content">
+              <div class="hidden zip-content" aria-hidden="true">
                 <h2><%= l('Zip content:') %></h2>
                 <ul>
                 </ul>

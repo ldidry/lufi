@@ -17,13 +17,13 @@
   <table>
     <thead>
         <tr>
-            <th></th>
+            <th><%= l('Selection') %></th>
             <th><%= l('Guest mail') %></th>
             <th><%= l('URL') %></th>
             <th><%= l('Created at') %></th>
             <th><%= l('Expire at') %></th>
             <th><%= l('Files sent at') %></th>
-            <th></th>
+            <th><%= l('Files') %></th>
         </tr>
     </thead>
     <tbody class="invitations-list" data-visibility="hidden">
@@ -34,10 +34,10 @@
       % my $class = '';
       % $class = 'deleted' unless $e->is_valid;
       % $class .= ' hidden' unless $e->show_in_list;
-      <tr id="row-<%= $e->token %>" class="item <%= $class %>" data-visibility="<%= ($e->show_in_list) ? 1 : 0 %>">
+      <tr id="row-<%= $e->token %>" class="item <%= $class %>" aria-hidden="<%= ($e->show_in_list) ? 'true' : 'false' %>" data-visibility="<%= ($e->show_in_list) ? 1 : 0 %>">
         <td class="column selection">
           <div class="checkbox input-selection">
-            <input type="checkbox" data-token="<%= $e->token %>">
+            <input type="checkbox" data-token="<%= $e->token %>" aria-label="Select">
             
             % unless ($e->show_in_list) {
               <span class="icon hide-source" title="<%= l('This invitation is normally hidden') %>"></span>
@@ -70,7 +70,7 @@
   <dialog class="modal files-info">
     <section>
       <header>
-        <h1></h1>
+        <h1><%= l('Files sent in invitation XX1 by XX2') %></h1>
       </header>
 
       <div class="content">

@@ -29,7 +29,7 @@
   <section class="upload-zone">
     <form class="upload-form">
       <div class="input-delete-after-days">
-        <button type="button" class="icon-button info-delete-after-days modal-button"></button>
+        <button type="button" class="icon-button info-delete-after-days modal-button" title="<%= l('Important: more information on delays') %>"></button>
         
         <select class="select-delete-after-days" id="delete-after-days" aria-label="Delay">
         % for my $delay (qw/0 1 7 30 365/) {
@@ -91,8 +91,8 @@
       </div>
 
 
-      <div class="hidden zip-zone card">
-        <button type="button" class="icon-button icon close action-close"></button>
+      <div class="hidden zip-zone card" aria-hidden="true">
+        <button type="button" class="icon-button icon close action-close" title="<%= l('Close') %>"></button>
         
         <div class="file-description">
           <p class="file-name">documents.zip</p>
@@ -102,7 +102,7 @@
         <ul class="files-list"></ul>
 
         <button type="button" class="button action-upload-zip"><%= l("Upload generated zip file") %></button>
-        <div class="zip-compressing hidden">
+        <div class="zip-compressing hidden" aria-hidden="true">
           <div class="icon-container pulse">
             <span class="icon archive"></span>
           </div>
@@ -112,9 +112,9 @@
     </form>
   </section>
 
-  <section class="hidden uploaded-zone">
+  <section class="hidden uploaded-zone" aria-hidden="true">
     <h1><%= l('Uploaded files') %></h1>
-    <header class="hidden buttons">
+    <header class="hidden buttons" aria-hidden="true">
       <div class="actions-buttons upload-success">
         <button type="button" class="button action-copy-links"><%= l('Copy all links to clipboard') %></button>
         <a class="button action-mail-links" href="<%= url_for('/')->to_abs() %>m"><%= l('Send all links by email') %></a>

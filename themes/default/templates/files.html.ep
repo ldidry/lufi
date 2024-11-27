@@ -31,7 +31,7 @@
   <table class="files-table">
     <thead>
       <tr>
-        <th></th>
+        <th><%= l('Action') %></th>
         <th><%= l('File name') %></th>
         <th><%= l('Download link') %></th>
         <th><%= l('Counter') %></th>
@@ -52,12 +52,12 @@
   <tr class="item">
     <td class="column selection">
       <div class="checkbox input-delete-on-first-view">
-        <input type="checkbox" autocomplete="off">
+        <input type="checkbox" autocomplete="off" aria-label="Select">
       </div>
     </td>
     <td class="column name"></td>
     <td class="column download">
-      <a class="icon-button icon download" href="#"></a>
+      <a class="icon-button icon download" title="<%= l('Download') %>" href="#"></a>
     </td>
     <td class="column counter"></td>
     <td class="column delete-at-first-view">
@@ -66,10 +66,10 @@
     <td class="column created-at"></td>
     <td class="column expires-at"></td>
     <td class="column deletion">
-      <button type="button" class="icon icon-button delete" href="#"></button>
+      <button type="button" class="icon icon-button delete" title="<%= l('Delete') %>"></button>
     </td>
     <td class="column mail">
-      <a class="icon icon-button mail" href="#"></a>
+      <a class="icon icon-button mail" title="<%= l('Mail') %>" href="#"></a>
     </td>
   </tr>
 </template>

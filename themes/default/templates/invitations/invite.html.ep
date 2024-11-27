@@ -28,13 +28,13 @@
         <label for="guest_mail">
             <%= l('Email address of your guest') %>
         </label>
-        <input name="guest_mail" type="email" placeholder="name@example.org" required>
+        <input id="guest_mail" name="guest_mail" type="email" placeholder="name@example.org" required>
     </div>
     <div class="input-text">
         <label for="expire_at">
             <%= l('How many days would you like the invitation to be valid?') %>
         </label>
-        <input name="expire_at" type="number" min="1" max="<%= stash('max_expire_at') %>" step="1" value="<%= stash('max_expire_at') %>" required>
+        <input id="expire_at" name="expire_at" type="number" min="1" max="<%= stash('max_expire_at') %>" step="1" value="<%= stash('max_expire_at') %>" required>
     </div>
     <button class="button" type="submit"><%= l('Send the invitation') %></button>
   </form>

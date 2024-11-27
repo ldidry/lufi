@@ -31,14 +31,14 @@ const toggleHidden = () => {
   if (invitationsListDOM.getAttribute("data-visibility") === "hidden") {
     toggleButtonDOM.innerText = i18n.hideText;
 
-    itemsHiddenDOM.forEach((item) => item.classList.remove("hidden"));
+    itemsHiddenDOM.forEach((item) => showNode(item));
 
     invitationsListDOM.setAttribute("data-visibility", "shown");
   } else {
     toggleButtonDOM.innerText = i18n.showText;
 
     itemsHiddenDOM.forEach((item) => {
-      item.classList.add("hidden");
+      hideNode(item);
 
       const checkbox = item.querySelector("input");
 
@@ -157,7 +157,7 @@ const toggleVisibility = () => {
 
           if (t.show) {
             itemDOM.setAttribute("data-visibility", 1);
-            itemDOM.classList.remove("hidden");
+            showNode(itemDOM);
             itemDOM
               .querySelector(".column.selection .icon.hide-source")
               .remove();
@@ -169,7 +169,7 @@ const toggleVisibility = () => {
                 .querySelector(".invitations-list")
                 .getAttribute("data-visibility") === "hidden"
             ) {
-              itemDOM.classList.add("hidden");
+              hideNode(itemDOM);
             }
 
             itemDOM
