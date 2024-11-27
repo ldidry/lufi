@@ -10,19 +10,18 @@ document.addEventListener("DOMContentLoaded", () => {
   /**
    * Update the DOM depending on the situation
    *
-   * @param {LufiFile} lufiFile
    * @param {string} type Can be aborted, success or ongoing
    * @param {Node} existingCard Existing card to be replaced with the new one
    * @returns
    */
-  const updateDOM = (lufiFile = undefined, type) => {
+  const updateDOM = (type) => {
     const cardDOM = document
       .querySelector(`template#download-card-${type}`)
       .content.cloneNode(true).children[0];
 
-    if (lufiFile) {
-      cardDOM.querySelector(".file-size").innerText = filesize(lufiFile.size);
-    }
+    cardDOM.querySelector(".file-size").innerText = filesize(
+      cardDOM.querySelector(".file-size").getAttribute("data-filesize")
+    );
 
     downloadContainerDOM.replaceChildren(cardDOM);
 
@@ -98,7 +97,7 @@ document.addEventListener("DOMContentLoaded", () => {
         passwordInputDOM?.querySelector("#file-password").value
       )
       .andThen((job) => {
-        const cardDOM = updateDOM(job.lufiFile, "ongoing");
+        const cardDOM = updateDOM("ongoing");
 
         warnOnReload();
         job.onProgress(() => {
@@ -117,7 +116,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
           warnOnReload(false);
 
-          updateDOM(lufiFile, "aborted");
+          updateDOM("aborted");
 
           reloadButtonDOM.onclick = (event) => {
             event.preventDefault();
@@ -128,7 +127,7 @@ document.addEventListener("DOMContentLoaded", () => {
         return job.waitForCompletion();
       })
       .mapErr((error) => {
-        updateDOM(undefined, "error").querySelector(".message-card").innerText =
+        updateDOM("error").querySelector(".message-card").innerText =
           error.message;
 
         warnOnReload(false);
@@ -136,7 +135,7 @@ document.addEventListener("DOMContentLoaded", () => {
       .andThen((job) => {
         notify(i18n.fileDownloaded, job.lufiFile.name);
 
-        const downloadDOM = updateDOM(job.lufiFile, "success");
+        const downloadDOM = updateDOM("success");
 
         const blobURL = URL.createObjectURL(job.downloadedFile);
 
