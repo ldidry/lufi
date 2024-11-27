@@ -70,14 +70,15 @@ document.addEventListener("DOMContentLoaded", () => {
   };
 
   const clearZip = () => {
-    zipZoneDOM.classList.add("hidden");
-    zipZoneDOM.querySelector(".action-upload-zip").classList.remove("hidden");
-    zipZoneDOM.querySelector(".zip-compressing").classList.add("hidden");
+    hideNode(zipZoneDOM);
+    showNode(zipZoneDOM.querySelector(".action-upload-zip"));
+    hideNode(zipZoneDOM.querySelector(".zip-compressing"));
+    hideNode(inputZipNameDOM);
+
     zipZoneDOM.querySelector(".files-list").replaceChildren();
 
-    inputZipNameDOM.classList.add("hidden");
-
     archiveEntries = undefined;
+    zipSize = 0;
     mustZipDOM.checked = false;
   };
 
@@ -176,7 +177,7 @@ document.addEventListener("DOMContentLoaded", () => {
     }
 
     if (fileCardsDOM.querySelectorAll(".file-card.success").length > 0) {
-      uploadedZoneDOM.querySelector(".buttons").classList.remove("hidden");
+      showNode(uploadedZoneDOM.querySelector(".buttons"));
     }
 
     return cardDOM;
@@ -191,7 +192,7 @@ document.addEventListener("DOMContentLoaded", () => {
       if (!mustZipDOM.checked) {
         clearZip();
       } else {
-        inputZipNameDOM.classList.remove("hidden");
+        showNode(inputZipNameDOM);
       }
     };
 
@@ -237,7 +238,8 @@ document.addEventListener("DOMContentLoaded", () => {
         password
       );
     } else {
-      zipZoneDOM.classList.remove("hidden");
+      showNode(zipZoneDOM);
+
       lufi
         .addFilesToArchive(files, archiveEntries)
         .andThen((entries) => {
@@ -295,11 +297,11 @@ document.addEventListener("DOMContentLoaded", () => {
     updateMailLinksButton(serverKey, true);
 
     if (fileCardsDOM.children.length === 0) {
-      uploadedZoneDOM.classList.add("hidden");
+      hideNode(uploadedZoneDOM);
     }
 
     if (fileCardsDOM.querySelectorAll(".file-card.success").length === 0) {
-      uploadedZoneDOM.querySelector(".buttons").classList.add("hidden");
+      hideNode(uploadedZoneDOM);
     }
   };
 
@@ -388,7 +390,7 @@ document.addEventListener("DOMContentLoaded", () => {
     zipName,
     password
   ) => {
-    uploadedZoneDOM.classList.remove("hidden");
+    showNode(uploadedZoneDOM);
 
     const serverUrl = new URL(ws_url.replace("/upload", ""));
     serverUrl.protocol = serverUrl.protocol === "ws:" ? "http:" : "https:";
@@ -511,8 +513,8 @@ document.addEventListener("DOMContentLoaded", () => {
 
   const uploadZip = () => {
     document.body.style.cursor = "wait";
-    zipZoneDOM.querySelector(".action-upload-zip").classList.add("hidden");
-    zipZoneDOM.querySelector(".zip-compressing").classList.remove("hidden");
+    hideNode(zipZoneDOM.querySelector(".action-upload-zip"));
+    showNode(zipZoneDOM.querySelector(".zip-compressing"));
 
     const { zipName, deleteDays, shouldDeleteOnFirstView, password } =
       retrieveUploadParams();
@@ -522,9 +524,15 @@ document.addEventListener("DOMContentLoaded", () => {
       .andThen((job) => {
         document.body.style.cursor = "auto";
 
+        zipZoneDOM.querySelector(".action-close").onclick = () => {
+          job.terminate();
+
+          clearZip();
+        };
+
         return job.waitForCompletion();
       })
-      .andThen((job) => {
+      .map((job) => {
         // if '.zip-zone' is hidden, the zipping has been aborted
         if (!zipZoneDOM.classList.contains("hidden")) {
           addToast(i18n.enqueued.replace("XXX", zipName), "success");

@@ -10,11 +10,11 @@
   <form class="login-form" method="post" action="<%= url_for('login') %>">
     <div class="input-text login">
         <label for="login"><%= l('Login') %></label>
-        <input type="text" name="login" autofocus required>
+        <input type="text" id="login" name="login" autofocus required>
     </div>
     <div class="input-text input-password">
         <label for="password"><%= l('Password') %></label>
-        <input type="password" name="password" required>
+        <input type="password" id="password" name="password" required>
     </div>
     %= csrf_field
     <input name="redirect" value="<%= stash('redirect') %>" type="hidden">
