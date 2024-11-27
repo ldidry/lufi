@@ -40,11 +40,13 @@
 
             <li>
                 <label for="menu-language" class="hidden"><%= l('Language') %></label>
+                
                 <select class="menu-item" id="menu-language" aria-label="<%= l('Language') %>">
-                    <option value="" disabled selected><%= l('Language') %></option>
+                  <optgroup label="<%= l('Language') %>">
                 % for my $i (@{$self->available_langs}) {
-                    <option value="<%= $i %>"><%= iso639_native_name($i) %></option>
+                    <option value="<%= $i %>" <%= 'selected="true"' if ($i eq $lang) %>><%= iso639_native_name($i) %></option>
                 % }
+                  </optgroup>
                 </select>
             </li>
 
