@@ -96,6 +96,10 @@ a {
   color: var(--active-color);
 }
 
+a:hover {
+  filter: brightness(80%);
+}
+
 a:visited {
   color: var(--active-color);
 }

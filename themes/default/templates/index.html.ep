@@ -302,4 +302,4 @@ document.addEventListener('DOMContentLoaded', () => {
   }
 });
 </script>
-%= javascript '/js/lufi-upload.js', type => 'module'
+%= javascript '/js/lufi-upload.js', type => 'module', defer => "true"

@@ -17,6 +17,7 @@
         <link rel="apple-touch-icon" sizes="152x152" href="<%= url_for('/img/lufi152.png') %>">
         <link rel="apple-touch-icon-precomposed" sizes="128x128" href="<%= url_for('/img/lufi128.png') %>">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="preload" href="/css/lufi.css" as="style">
         <link rel="stylesheet" href="/css/lufi.css">
     </head>
     <body>
@@ -62,82 +63,11 @@
       </header>
 
       <main role="main">
-        <script type="text/javascript">
-          const langUrl = '<%= url_for('lang') %>';
-          const prefix  = '<%= substr(config('prefix'), 1) %>';
-
-          const entityMap = {
-            "&": "&amp;",
-            "<": "&lt;",
-            ">": "&gt;",
-            '"': "&quot;",
-            "'": "&#39;",
-            "/": "&#x2F;",
-          };
-
-          const escapeHtml = (string) => String(string).replace(/[&<>"'\/]/g, (s) => entityMap[s]);
-
-          const formatDate = (unixTimestamp) => {
-            return new Date(unixTimestamp * 1000).toLocaleString(
-              window.navigator.language,
-              {
-                year: "numeric",
-                month: "long",
-                day: "numeric",
-                weekday: "long",
-                hour: "2-digit",
-                minute: "2-digit",
-              }
-            );
-          };
-
-          const addToast = (text, type) => {
-            const toastDOM = document.querySelector("template#toast").content.cloneNode(true).children[0];
-            toastDOM.classList.add(type)
-
-            toastDOM.querySelector(".message").innerText = escapeHtml(text);
-
-            document.querySelector(".toast-container").appendChild(toastDOM);
-            setTimeout(() => {
-              toastDOM.remove();
-            }, 3500)
-
-            toastDOM.onclick = () => {
-              toastDOM.remove();
-            }
-          };
-
-          const notify = (title, body) => {
-            if (!"Notification" in window || typeof Notification === "undefined") {
-              console.log(
-                `This browser does not support desktop notification, cannot send following message: ${title} ${body}`
-              );
-              return;
-            }
-
-            if (Notification.permission !== "granted") {
-              Notification.requestPermission();
-            } else {
-              new Notification(title, {
-                body,
-                icon: "/img/lufi196.png",
-              });
-            }
-          };
-          
-          document.addEventListener("DOMContentLoaded", () => {            
-            if (!"Notification" in window || typeof Notification === "undefined") {
-              return;
-            }
-
-            if (Notification.permission !== "granted") {
-              Notification.requestPermission();
-            }
-            
-            document.getElementById("menu-language").onchange = (event) =>  window.location = langUrl + event.target.value;
-          })
-        </script>
         <%= content %>
+        
+      % if (defined(config('piwik_img'))) {
+        <img src="<%== config('piwik_img') %>" class="no_border" alt="" />
+      % }
       </main>
 
       <div class="toast-container"></div>
@@ -151,8 +81,80 @@
         </div>
       </template>
 
-      % if (defined(config('piwik_img'))) {
-        <img src="<%== config('piwik_img') %>" class="no_border" alt="" />
-      % }
+      <script type="text/javascript">
+        const langUrl = '<%= url_for('lang') %>';
+        const prefix  = '<%= substr(config('prefix'), 1) %>';
+
+        const entityMap = {
+          "&": "&amp;",
+          "<": "&lt;",
+          ">": "&gt;",
+          '"': "&quot;",
+          "'": "&#39;",
+          "/": "&#x2F;",
+        };
+
+        const escapeHtml = (string) => String(string).replace(/[&<>"'\/]/g, (s) => entityMap[s]);
+
+        const formatDate = (unixTimestamp) => {
+          return new Date(unixTimestamp * 1000).toLocaleString(
+            window.navigator.language,
+            {
+              year: "numeric",
+              month: "long",
+              day: "numeric",
+              weekday: "long",
+              hour: "2-digit",
+              minute: "2-digit",
+            }
+          );
+        };
+
+        const addToast = (text, type) => {
+          const toastDOM = document.querySelector("template#toast").content.cloneNode(true).children[0];
+          toastDOM.classList.add(type)
+
+          toastDOM.querySelector(".message").innerText = escapeHtml(text);
+
+          document.querySelector(".toast-container").appendChild(toastDOM);
+          setTimeout(() => {
+            toastDOM.remove();
+          }, 3500)
+
+          toastDOM.onclick = () => {
+            toastDOM.remove();
+          }
+        };
+
+        const notify = (title, body) => {
+          if (!"Notification" in window || typeof Notification === "undefined") {
+            console.log(
+              `This browser does not support desktop notification, cannot send following message: ${title} ${body}`
+            );
+            return;
+          }
+
+          if (Notification.permission !== "granted") {
+            Notification.requestPermission();
+          } else {
+            new Notification(title, {
+              body,
+              icon: "/img/lufi196.png",
+            });
+          }
+        };
+        
+        document.addEventListener("DOMContentLoaded", () => {            
+          if (!"Notification" in window || typeof Notification === "undefined") {
+            return;
+          }
+
+          if (Notification.permission !== "granted") {
+            Notification.requestPermission();
+          }
+          
+          document.getElementById("menu-language").onchange = (event) =>  window.location = langUrl + event.target.value;
+        })
+      </script>
     </body>
 </html>
