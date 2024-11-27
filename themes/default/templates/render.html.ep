@@ -27,7 +27,7 @@
       <template id="download-card-ongoing">
         <article class="download-card ongoing">
           <div class="file-description">
-            <p class="file-size"></p>
+            <p class="file-size" data-filesize="<%= stash('f')->filesize %>"></p>
           </div>
 
           <p class="wait-message"><%= l('Please wait while we are getting your file. We first need to download and decrypt all parts before you can get it.') %></p>
@@ -45,7 +45,7 @@
       <template id="download-card-aborted">
         <article class="download-card aborted">
           <div class="file-description">
-            <p class="file-size"></p>
+            <p class="file-size" data-filesize="<%= stash('f')->filesize %>"></p>
           </div>
           
           <p class="abort-message"></p>
@@ -57,7 +57,7 @@
       <template id="download-card-success">
         <article class="download-card success">
           <div class="file-description" data-isZipped="<%= (stash('f')->zipped) ? 'true' : 'false' %>">
-            <p class="file-size"></p>
+            <p class="file-size" data-filesize="<%= stash('f')->filesize %>"></p>
           </div>
           
           <a class="button action-download" autofocus href="#"><%= l('Get the file')%></a>
@@ -80,7 +80,7 @@
         <article class="download-card error">
           <div class="file-description">
             <p class="file-name"></p>
-            <p class="file-size"></p>
+            <p class="file-size" data-filesize="<%= stash('f')->filesize %>"></p>
           </div>
 
           <div class="message-card error"></div>
