@@ -68,7 +68,7 @@
                   <div class="cell is-col-1">
                       <span class="icon fas fa-file fa-2x is-large has-text-primary" aria-hidden="true"></span>
                   </div>
-                  <div class="cell is-col-span-11 description" data-iszipped="<%= (stash('f')->zipped) ? 'true' : 'false' %>">
+                  <div class="cell is-col-span-11 description" data-is-zipped="<%= (stash('f')->zipped) ? 'true' : 'false' %>">
                     <strong class="is-block wb-all name is-overflow-x"><%= stash('f')->filename %></strong>
                     <small class="is-block size mt-1" data-filesize="<%= stash('f')->filesize %>"></small>
                   </div>
@@ -101,7 +101,7 @@
                   <div class="cell is-col-1">
                       <span class="icon fas fa-file fa-2x is-large has-text-primary" aria-hidden="true"></span>
                   </div>
-                  <div class="cell is-col-span-11 description" data-iszipped="<%= (stash('f')->zipped) ? 'true' : 'false' %>">
+                  <div class="cell is-col-span-11 description" data-is-zipped="<%= (stash('f')->zipped) ? 'true' : 'false' %>">
                     <strong class="is-block wb-all name is-overflow-x"><%= stash('f')->filename %></strong>
                     <small class="is-block size mt-1" data-filesize="<%= stash('f')->filesize %>"></small>
                   </div>
