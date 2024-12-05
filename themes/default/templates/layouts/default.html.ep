@@ -21,7 +21,7 @@
     </head>
     <body>
       <header class="header" role="banner">        
-        <nav class="navbar is-primary" role="navigation" aria-label="main navigation">
+        <nav class="navbar is-primary has-text-weight-semibold" role="navigation" aria-label="main navigation">
           <div class="navbar-brand">
             <a class="navbar-item" href="<%= url_for('/') %>">
               <img src="<%= url_for('/img/lufi.svg') %>" alt="Lufi logo">
