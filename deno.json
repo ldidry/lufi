@@ -1,0 +1,14 @@
+{
+  "tasks": {
+    "build": "deno run --allow-all bundler.build.ts",
+    "watch": "deno run --allow-all bundler.watch.ts"
+  },
+  "imports": {
+    "@fortawesome/fontawesome-free": "npm:@fortawesome/fontawesome-free@^6.7.1",
+    "esbuild": "npm:esbuild@^0.24.0",
+    "esbuild-plugin-ignore": "npm:esbuild-plugin-ignore@^1.1.1",
+    "@luca/esbuild-deno-loader": "jsr:@luca/esbuild-deno-loader@^0.11.0",
+    "fontawesome-subset": "npm:fontawesome-subset@^4.4.0",
+    "~/": "./themes/default/public/js/"
+  }
+}

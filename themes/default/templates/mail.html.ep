@@ -1,43 +1,51 @@
-<section class="mail-section">
-  <section class="messages-zone">
+<div class="box">
 % if (defined(stash('msg'))) {
-    <article class="message-card error">
-        <%== stash('msg')%>
-    </article>
+  <div class="message">
+    <div class="message-body is-danger">
+      <%= stash('msg')%>
+    </div>
+  </div>
 % }
 
-    <article class="message-card info">
-      <p><%= l('If you send the mail from this server, the links will be sent to the server, which may lower your privacy protection.') %></p>
-      <p><%= l('Adding URLs not related to this Lufi instance to the mail body or subject is prohibited.') %></p>
-    </article>
-  </section>
+  <div class="message">
+    <div class="message-body is-info">
+    <p><%= l('If you send the mail from this server, the links will be sent to the server, which may lower your privacy protection.') %></p>
+    <p><%= l('Adding URLs not related to this Lufi instance to the mail body or subject is prohibited.') %></p>
+    </div>
+  </div>
   
-  <form action="<%= url_for('m') %>" method="post" class="mail-form">
+  <form class="field" action="<%= url_for('m') %>" method="post" class="mail-form">
     %= csrf_field
-    <div class="input-text emails">
-      <label for="emails"><%= l('Comma-separated email addresses') %></label>
-      <input type="text" name="emails" placeholder="<%= l('Emails') %>" value="<%= defined(stash('values')) ? stash('values')->{emails} : '' %>" required>
+    <div class="field emails">
+      <label class="label" for="emails"><%= l('Comma-separated email addresses') %></label>
+      <div class="control">
+        <input class="input" type="text" name="emails" placeholder="<%= l('Emails') %>" value="<%= defined(stash('values')) ? stash('values')->{emails} : '' %>" required>
+      </div>
     </div>
     
-    <div class="input-text subject">
-      <label for="subject"><%= l('Email subject') %></label>
-      <input type="text" name="subject" placeholder="<%= l('Email subject') %>" value="<%= defined(stash('values')) ? stash('values')->{subject} : l('Here\'s some files') %>" required>
+    <div class="field subject">
+      <label class="label" for="subject"><%= l('Email subject') %></label>
+      <div class="control">
+        <input class="input" type="text" name="subject" placeholder="<%= l('Email subject') %>" value="<%= defined(stash('values')) ? stash('values')->{subject} : l('Here\'s some files') %>" required>
+      </div>
     </div>
 
-    <div class="input-text body">
-      <label for="body"><%= l('Email body') %></label>
-      <textarea id="body" name="body" placeholder="<%= l('Email body') %>" required><%= defined(stash('values')) ? stash('values')->{body} : "" %></textarea>
+    <div class="field body">
+      <label class="label" for="body"><%= l('Email body') %></label>
+      <div class="control">
+        <textarea class="textarea" id="body" name="body" placeholder="<%= l('Email body') %>" required><%= defined(stash('values')) ? stash('values')->{body} : "" %></textarea>
+      </div>
     </div>
 
-    <div class="actions-buttons">
+    <div class="actions-buttons has-text-centered">
       % if (!$self->config('disable_mail_sending')) {
-        <button type="submit" class="button action-submit"><%= l('Send with this server') %></button>
+        <button type="submit" class="button action-submit is-primary"><%= l('Send with this server') %></button>
       % }
 
-      <a href="#" class="button action-own-software"><%= l('Send with your own mail software') %></a>
+      <a href="#" class="button action-own-software is-primary"><%= l('Send with your own mail software') %></a>
     </div>
   </form>
-<section>
+</div>
 
 <script type="text/javascript">
   const retrieveItemFromStorage = (serverKey) => 
@@ -46,9 +54,9 @@
   
   const updateMailtoLink = () => {
       const ownSoftwareButtonDOM  = document.querySelector('.action-own-software');
-      const emails = document.querySelector('.input-text.emails input').value;
-      const subject  = document.querySelector('.input-text.subject input').value;
-      const body  = document.querySelector('.input-text.body textarea').value;
+      const emails = document.querySelector('.emails input').value;
+      const subject  = document.querySelector('.subject input').value;
+      const body  = document.querySelector('.body textarea').value;
 
       ownSoftwareButtonDOM.href = `mailto:${encodeURIComponent(emails)}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
   }
@@ -77,14 +85,14 @@
     text += "\n-- \n<%= l('Share your files in total privacy on %1', url_for('/')->to_abs) %>";
   % }
     
-    document.querySelector('.input-text.body textarea').value = text;
+    document.querySelector('.body textarea').value = text;
     updateMailtoLink();
   }
   
   document.addEventListener('DOMContentLoaded', () => {
     populateBody();
   
-    document.querySelectorAll(".input-text > *:not(label)")
+    document.querySelectorAll(".control > *")
       .forEach(node => node.addEventListener('change', updateMailtoLink));
   });
 </script>

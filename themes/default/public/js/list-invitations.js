@@ -1,4 +1,4 @@
-import { filesize } from "./filesize.esm.min.js";
+import { filesize } from "~/lib/filesize.esm.min.js";
 
 const updateButtonsStatus = () => {
   const targetSelectionDOM = document.querySelectorAll(".target-selection");

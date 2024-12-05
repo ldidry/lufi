@@ -306,11 +306,7 @@ sub download {
                     # Do we need a password?
                     my $valid = 1;
                     if ($c->config('allow_pwd_on_files') && defined($f->{passwd})) {
-                        if ($f->{passwd} == $json->{file_pwd}) {
-                            $valid = 1;
-                        } else {
-                            $valid = 0;
-                        }
+                        $valid = $json->{file_pwd} eq $f->{passwd};
                     }
 
                     if ($valid) {
