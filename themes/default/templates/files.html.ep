@@ -3,9 +3,11 @@
 <div class="box">
   <h1 class="title is-1 has-text-centered mb-6"><%= l('My files') %></h1>
 
-  <div class="intro">
-    <%= l('Only the files sent with this browser will be listed here. This list is stored in localStorage: if you delete your localStorage data, you\'ll lose this list.') %><br>
-    <%= l('Rows in red mean that the files have expired and are no longer available.') %>
+  <div class="message is-info">
+    <div class="message-body">
+      <%= l('Only the files sent with this browser will be listed here. This list is stored in localStorage: if you delete your localStorage data, you\'ll lose this list.') %><br>
+      <%= l('Rows in red mean that the files have expired and are no longer available.') %>
+    </div>
   </div>
 
 

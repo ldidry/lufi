@@ -1,14 +1,14 @@
 <div class="box">
 % if (defined(stash('msg'))) {
-  <div class="message">
-    <div class="message-body is-danger">
+  <div class="message is-danger">
+    <div class="message-body">
       <%= stash('msg')%>
     </div>
   </div>
 % }
 
-  <div class="message">
-    <div class="message-body is-info">
+  <div class="message is-info">
+    <div class="message-body">
     <p><%= l('If you send the mail from this server, the links will be sent to the server, which may lower your privacy protection.') %></p>
     <p><%= l('Adding URLs not related to this Lufi instance to the mail body or subject is prohibited.') %></p>
     </div>
