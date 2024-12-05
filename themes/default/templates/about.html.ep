@@ -1,5 +1,5 @@
-<section class="about-section">
-  <h1><%= l('About') %></h1>
+<section class="section container">
+  <h2><%= l('About') %></h2>
   <h3><%= l('What is Lufi?') %></h3>
   <p><%= l('Lufi is a free (as in free speech) file hosting software.') %></p>
   <h3><%= l('Privacy') %></h3>

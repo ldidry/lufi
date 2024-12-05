@@ -1,4 +1,4 @@
-<section class="login-section">
+<section class="section login-section">
   % if (defined stash('msg')) {
   <section class="messages-zone">
     <div class="message-card error">

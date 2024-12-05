@@ -109,4 +109,4 @@ const deleteURL = '<%= url_for('invite_list_delete') %>';
 const resendURL = '<%= url_for('invite_list_resend') %>';
 const toggleURL = '<%= url_for('invite_list_visibility') %>';
 </script>
-%= javascript '/js/lufi-list-invitations.js', type => 'module'
+%= javascript '/js/min.lufi-list-invitations.js', type => 'module', defer => "true"

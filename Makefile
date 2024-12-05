@@ -30,7 +30,9 @@ clean:
 	rm -rf lufi.db files/
 
 dev: clean
+	deno task watch&
 	$(CARTON) morbo $(LUFI) --listen http://$(MORBO_HOST):$(MORBO_PORT) --watch lib/ --watch script/ --watch themes/ --watch lufi.conf
+	
 
 ldap:
 	podman run -d -p $(LOCAL_LDAP_PORT):10389 $(LDAP_CONTAINER_IMAGE); exit 0
@@ -49,4 +51,5 @@ devlog:
 	multitail log/development.log
 
 prod:
+	deno task build
 	$(CARTON) hypnotoad -f $(LUFI)

@@ -1,18 +1,22 @@
-<section class="messages-zone">
+<section class="box">
 % if (!defined(stash('f')) && defined(stash('msg'))) {
-  <article class="message-card error">
-    <p><%= stash('msg') %></p>
-  </article>
+  <div class="message is-danger">
+    <div class="message-body">
+      <%= stash('msg')%>
+    </div>
+  </div>
 % } elsif (defined(stash('msg_success'))) {
-  <article class="message-card success">
-    <p><%= stash('msg_success') %></p>
-  </article>
+  <div class="message is-success">
+    <div class="message-body">
+      <%= stash('msg_success')%>
+    </div>
+  </div>
 % } else {
-  <article class="message-card success">
-    <header>
-      <h1><%= stash('f')->filename %></h1>
-    </header>
-    <p><%= stash('msg') %></p>
-  </article>
+  <h1 class="title is-1"><%= stash('f')->filename %></h1>
+  <div class="message is-success">
+    <div class="message-body">
+      <%= stash('msg')%>
+    </div>
+  </div>
 % }
 </section>

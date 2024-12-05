@@ -1,0 +1,199 @@
+/**
+ * Custom CSS Rules
+ * Some are inspired by Signal design
+ */
+:root {
+  --bulma-primary-h: 182deg;
+  --bulma-link-h: 182deg;
+}
+
+@media (prefers-color-scheme: light) {
+  :root {
+    --bulma-link-l: 19%;
+    --bulma-link-on-scheme-l: 19%;
+    --bulma-danger-l: 35%;
+  }
+
+  .has-text-primary {
+    --bulma-primary-l: 20%;
+  }
+
+  .button.is-danger {
+    --bulma-button-background-l-delta: 35%;
+  }
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --bulma-danger-l: 75%;
+  }
+}
+
+@media (min-width: 768px) {
+  main {
+    /* Equivalent to hero is-fullheight-with-navbar value */
+    height: calc(100vh - var(--bulma-navbar-height));
+    max-height: calc(100vh - var(--bulma-navbar-height));
+  }
+
+  #section-main .left-zone,
+  #section-main .right-zone,
+  #section-main .left-zone .fixed-grid,
+  #section-main .left-zone .fixed-grid .grid,
+  #section-main .left-zone .file-cta.full-version {
+    height: 100%;
+  }
+
+  #upload-box {
+    height: 100%;
+  }
+}
+
+.input {
+  --bulma-input-placeholder-color: hsla(var(--bulma-text-h), var(--bulma-text-s), var(--bulma-text-strong-l), .6) !important;
+}
+
+.field-label .label.disabled {
+  color: var(--bulma-text-weak);
+}
+
+a:not(#main-menu a) a:hover {
+  color: hsl(var(--bulma-link-h), var(--bulma-link-s), calc(var(--bulma-link-on-scheme-l) - 15%))
+}
+
+.progress::-webkit-progress-value {
+  transition: width 0.5s ease;
+}
+
+#modal-language-selector .modal-card-foot {
+  background: var(--bulma-modal-card-body-background-color);
+}
+
+#modal-language-selector a.navbar-item:hover {
+  color: var(--bulma-link-text);
+}
+
+#main-menu div.navbar-item:hover:has(form) {
+  --bulma-navbar-item-background-l-delta: var(--bulma-navbar-item-hover-background-l-delta);
+  --bulma-navbar-item-background-a: 1;
+
+  background-color: hsla(var(--bulma-navbar-h),
+      var(--bulma-navbar-s),
+      calc(var(--bulma-navbar-item-background-l) + var(--bulma-navbar-item-background-l-delta)),
+      var(--bulma-navbar-item-background-a));
+}
+
+#main-menu div.navbar-item form {
+  height: 100%;
+  width: 100%;
+  align-content: center;
+}
+
+#upload-box .file-cta {
+  border-style: dashed;
+  border-width: 2px;
+  justify-content: center;
+}
+
+#upload-box #password-control .icon.is-right {
+  pointer-events: initial;
+}
+
+.wb-all {
+  word-break: break-all;
+}
+
+.wb-word {
+  word-break: break-word;
+}
+
+#provided-files {
+  height: 30vh;
+  overflow-y: auto;
+  border-radius: var(--bulma-radius);
+}
+
+#provided-files .icon-text {
+  justify-content: center;
+  text-align: center
+}
+
+#uploaded-files {
+  height: 100%;
+  overflow-y: auto;
+  background: hsl(var(--bulma-scheme-h), var(--bulma-scheme-s), calc(var(--bulma-scheme-main-ter-l)));
+  border-radius: var(--bulma-radius);
+}
+
+#file-js-upload {
+  background: hsl(var(--bulma-scheme-h), var(--bulma-scheme-s), calc(var(--bulma-scheme-main-ter-l)));
+}
+
+#file-js-upload:has(.full-version:not(.is-hidden)) .file-cta {
+  height: 100%;
+  width: 100%
+}
+
+#file-js-upload:has(.small-version:not(.is-hidden)) .grid {
+  align-content: space-between;
+}
+
+.file-input:focus~.file-cta {
+  border-color: hsl(var(--bulma-primary-h), var(--bulma-primary-s), var(--bulma-primary-l));
+}
+
+@media (prefers-color-scheme: dark) {
+  #file-js-upload {
+    background: hsl(var(--bulma-scheme-h), var(--bulma-scheme-s), calc(var(--bulma-scheme-main-ter-l)));
+  }
+}
+
+.notifications-container {
+  position: fixed;
+  z-index: 10;
+}
+
+.notification {
+  display: flex;
+  box-shadow: 0 0.1rem 0.3rem 0 rgba(0, 0, 0, 0.16), 0 0.1rem 0.7rem 0 rgba(0, 0, 0, 0.12);
+  width: 30rem;
+  min-height: 3rem;
+  padding: 0.5rem;
+  align-items: center;
+  justify-content: left;
+  position: relative;
+  margin: auto;
+  bottom: 2rem;
+  margin-top: 1rem;
+  line-height: 1.5rem;
+  overflow: hidden;
+  opacity: 0;
+  text-wrap: pretty;
+  animation: fadein 0.5s forwards, fadeout 0.5s 3.5s forwards;
+}
+
+@keyframes fadein {
+  from {
+    opacity: 0;
+    bottom: 0;
+  }
+
+  to {
+    opacity: 1;
+    bottom: 2rem;
+  }
+}
+
+@keyframes fadeout {
+  from {
+    opacity: 1;
+  }
+
+  to {
+    opacity: 1;
+  }
+}
+
+tr.deleted {
+  background: repeating-linear-gradient(-45deg, transparent 0 2rem, var(--bulma-danger-95) 2rem 4rem);
+}

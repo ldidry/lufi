@@ -17,74 +17,137 @@
         <link rel="apple-touch-icon" sizes="152x152" href="<%= url_for('/img/lufi152.png') %>">
         <link rel="apple-touch-icon-precomposed" sizes="128x128" href="<%= url_for('/img/lufi128.png') %>">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <link rel="preload" href="/css/lufi.css" as="style">
-        <link rel="stylesheet" href="/css/lufi.css">
+        <link rel="stylesheet" href="/css/main.min.css">
     </head>
     <body>
-      <header role="banner">
-        <nav id="main-menu" role="navigation">
-          <a href="<%= url_for('/') %>" class="instance-name"><img class="logo" src="<%= url_for('/img/lufi.svg') %>" alt="Lufi logo"><%= config('instance_name') %></a>
-          <ul>
-            <li><a href="<%= $self->config('report') %>" class="menu-item"><%= l('Report file') %></a></li>
-
+      <header class="header" role="banner">        
+        <nav class="navbar is-primary" role="navigation" aria-label="main navigation">
+          <div class="navbar-brand">
+            <a class="navbar-item" href="<%= url_for('/') %>">
+              <img src="<%= url_for('/img/lufi.svg') %>" alt="Lufi logo">
+              <%= config('instance_name') %>
+            </a>
             % if ((!defined(config('ldap')) && !defined(config('htpasswd')) && !defined(config('auth_headers'))) || is_user_authenticated()) {
-              <li<%== ' class="active"' if (current_route eq 'index') %>><a href="<%= url_for('/') %>" class="menu-item"><%= l('Upload files') %></a></li>
-              <li<%== ' class="active"' if (current_route eq 'files') %>><a href="<%= url_for('/files') %>" class="menu-item"><%= l('My files') %></a></li>
-              % if ((defined config('ldap') || defined config('auth_headers')) && defined config('invitations')) {
-                <li<%== ' class="active"' if (current_route eq 'invite') %>><a href="<%= url_for('/invite') %>" class="menu-item"><%= l('Invite a guest') %></a></li>
-                <li<%== ' class="active"' if (current_route eq 'invite/list') %>><a href="<%= url_for('/invite/list') %>" class="menu-item"><%= l('My invitations') %></a></li>
-              % }
-            % } else {
-                <li><a href="<%= url_for('/login') %>" class="menu-item"><%= l('Signin') %></a></li>
+              <a href="<%= url_for('/') %>" class="navbar-item<%== ' has-background-primary-35' if (current_route eq 'index') %>"><%= l('Upload files') %></a>
+              <a href="<%= url_for('/files') %>" class="navbar-item<%== ' has-background-primary-35' if (current_route eq 'files') %>"><%= l('My files') %></a>
             % }
-
-            <li>
-                <label for="menu-language" class="hidden"><%= l('Language') %></label>
-                
-                <select class="menu-item" id="menu-language" aria-label="<%= l('Language') %>">
-                  <optgroup label="<%= l('Language') %>">
-                % for my $i (@{$self->available_langs}) {
-                    <option value="<%= $i %>" <%= 'selected="true"' if ($i eq $lang) %>><%= iso639_native_name($i) %></option>
-                % }
-                  </optgroup>
-                </select>
-            </li>
-
-            <li<%== ' class="active"' if (current_route eq 'about') %>><a href="<%= url_for('/about') %>" class="menu-item"><%= l('About') %></a></li>
             
-            % if ((defined(config('ldap')) || defined(config('htpasswd')) || defined(config('auth_headers'))) && is_user_authenticated()) {
-              <li>
-                <form action="<%= url_for('/logout') %>" method="POST">
-                  %= csrf_field
-                  <button class="menu-item reset" type="submit"><%= l('Logout') %></button>
-                </form>
-              </li>
+            <a href="<%= $self->config('report') %>" class="navbar-item"><%= l('Report file') %></a>
+
+            <a role="button" class="navbar-burger" aria-label="menu" aria-expanded="false" data-target="main-menu">
+              <span aria-hidden="true"></span>
+              <span aria-hidden="true"></span>
+              <span aria-hidden="true"></span>
+              <span aria-hidden="true"></span>
+            </a>
+          </div>
+
+          <div class="navbar-menu" id="main-menu">
+            <div class="navbar-start">
+              % if ((!defined(config('ldap')) && !defined(config('htpasswd')) && !defined(config('auth_headers'))) || is_user_authenticated()) {
+                % if ((defined config('ldap') || defined config('auth_headers')) && defined config('invitations')) {
+                  <div class="navbar-item has-dropdown is-hoverable" role="navigation" tabindex=0>
+                    <a class="navbar-link"><%= l('My invitations') %></a>
+
+                    <div class="navbar-dropdown" role="button" aria-expanded="false" aria-label="<%= l('My invitations') %>">
+                      <a href="<%= url_for('/invite') %>" class="navbar-item<%= ' has-background-primary-35' if (current_route eq 'invite') %>"><%= l('Invite a guest') %></a>
+                      <a href="<%= url_for('/invite/list') %>" class="navbar-item<%= ' has-background-primary-35' if (current_route eq 'invite/list') %>"><%= l('My invitations') %></a>
+                    </div>
+                  </div>
+                % }
+              % }
+            </div>
+
+            <div class="navbar-end">
+              <a href="<%= url_for('/about') %>" class="navbar-item<%= ' has-background-primary-35' if (current_route eq 'about') %>"><%= l('About') %></a>
+
+            % if ((defined(config('ldap')) || defined(config('htpasswd')) || defined(config('auth_headers')))) {
+              % if (is_user_authenticated()) {
+                <div class="navbar-item">
+                  <form action="<%= url_for('/logout') %>" method="POST">
+                    %= csrf_field
+                    <button type="submit"><%= l('Logout') %></button>
+                  </form>
+                </div>
+              % } else {
+                <a href="<%= url_for('/login') %>" class="navbar-item <%= ' has-background-primary-35' if (current_route eq 'login') %>">
+                  <span class="icon-text">
+                    <span class="icon fa-solid fa-user" aria-hidden="true"></span>
+                    <span><%= l('Signin') %></span>
+                  </span>
+                </a>
+              % }
             % }
-          </ul>
+            
+              <a href="#" id="language-selector" class="js-modal-trigger navbar-item" data-target="modal-language-selector" role="button" aria-haspopup="true" aria-expanded="false" aria-label="<%= l('Languages') %>">
+                <span class="icon-text">
+                  <span class="icon">
+                    <span class="fa-solid fa-globe" aria-hidden="true"></span>
+                  </span>
+                  <span>
+                    <%= iso639_native_name($lang) %>
+                  </span>
+                </span>
+              </a>
+            </div>
+          </div>
         </nav>
       </header>
 
       <main role="main">
-        <%= content %>
+        <div id="notifications-container" class="is-overlay"></div>
         
+        <noscript>
+          <div class="message is-danger">
+            <div class="message-body">
+              <%= l('Javascript is disabled. You won\'t be able to use Lufi.') %>
+            </div>
+          </div>
+        </noscript>
+
+      <section id="section-main" class="hero is-fullheight-with-navbar">
+        <div class="hero-body is-fullwidth">
+          <div class="container section-container">
+            <%= content %>
+          </div>
+        </div>
+      </section>
+
       % if (defined(config('piwik_img'))) {
         <img src="<%== config('piwik_img') %>" class="no_border" alt="" />
       % }
       </main>
 
-      <div class="toast-container"></div>
+      <div id="modal-language-selector" class="modal">
+        <div class="modal-background"></div>
+        <div class="modal-card">
+          <header class="modal-card-head is-shadowless">
+            <p class="modal-card-title">
+              <%= l('Languages') %>
+              <button class="delete is-pulled-right" aria-label="close"></button>
+            </p>
+          </header>
 
-      <template id="toast">
-        <div class="toast">
+          <section class="modal-card-body">
+            <div class="fixed-grid is-fullwidth">
+              <div class="grid has-4-cols" aria-labelledby="language-selector">
+              % for my $i (@{$self->available_langs}) {
+                <a class="navbar-item cell" href="<%= url_for('lang') . $i %>"><%= iso639_native_name($i) %></a>
+              % }
+              </div>
+            </div>
+          </section>
+          <footer class="modal-card-foot"></footer>
+        </div>
+      </div>
+
+      <template id="notification">
+        <div class="notification">
           <div class="message"></div>
-          <div class="progress-container">
-            <div class="progress-bar"></div>
-          </div>
         </div>
       </template>
 
       <script type="text/javascript">
-        const langUrl = '<%= url_for('lang') %>';
         const prefix  = '<%= substr(config('prefix'), 1) %>';
 
         const entityMap = {
@@ -98,75 +161,91 @@
 
         const escapeHtml = (string) => String(string).replace(/[&<>"'\/]/g, (s) => entityMap[s]);
 
-        const formatDate = (unixTimestamp) => {
-          return new Date(unixTimestamp * 1000).toLocaleString(
-            window.navigator.language,
-            {
-              year: "numeric",
-              month: "long",
-              day: "numeric",
-              weekday: "long",
-              hour: "2-digit",
-              minute: "2-digit",
-            }
+        document.addEventListener("DOMContentLoaded", () => {
+          if (isSecureContext && Notification.permission !== "granted") {
+            Notification.requestPermission();
+          }
+
+          // Get all "navbar-burger" elements
+          const $navbarBurgers = Array.prototype.slice.call(
+            document.querySelectorAll(".navbar-burger"),
+            0
           );
-        };
 
-        const addToast = (text, type) => {
-          const toastDOM = document.querySelector("template#toast").content.cloneNode(true).children[0];
-          toastDOM.classList.add(type)
+          // Add a click event on each of them
+          $navbarBurgers.forEach((el) => {
+            el.addEventListener("click", () => {
+              // Get the target from the "data-target" attribute
+              const target = el.dataset.target;
+              const $target = document.getElementById(target);
 
-          toastDOM.querySelector(".message").innerText = escapeHtml(text);
-
-          document.querySelector(".toast-container").appendChild(toastDOM);
-          setTimeout(() => {
-            toastDOM.remove();
-          }, 3500)
-
-          toastDOM.onclick = () => {
-            toastDOM.remove();
-          }
-        };
-
-        const notify = (title, body) => {
-          if (!"Notification" in window || typeof Notification === "undefined") {
-            console.log(
-              `This browser does not support desktop notification, cannot send following message: ${title} ${body}`
-            );
-            return;
-          }
-
-          if (Notification.permission !== "granted") {
-            Notification.requestPermission();
-          } else {
-            new Notification(title, {
-              body,
-              icon: "/img/lufi196.png",
+              // Toggle the "is-active" class on both the "navbar-burger" and the "navbar-menu"
+              el.classList.toggle("is-active");
+              $target.classList.toggle("is-active");
             });
-          }
-        };
+          });
 
-        const hideNode = (node) => {
-          node.classList.add("hidden");
-          node.setAttribute("aria-hidden", true);
-        }
+          // Functions to open and close a modal
+          const openModal = ($el) => {
+            $el.classList.add("is-active");
+          };
 
-        const showNode = (node) => {
-          node.classList.remove("hidden");
-          node.setAttribute("aria-hidden", false);
-        }
-        
-        document.addEventListener("DOMContentLoaded", () => {            
-          if (!"Notification" in window || typeof Notification === "undefined") {
-            return;
-          }
+          const closeModal = ($el) => {
+            $el.classList.remove("is-active");
+          };
 
-          if (Notification.permission !== "granted") {
-            Notification.requestPermission();
-          }
-          
-          document.getElementById("menu-language").onchange = (event) =>  window.location = langUrl + event.target.value;
-        })
+          const closeAllModals = () => {
+            (document.querySelectorAll(".modal") || []).forEach(($modal) => {
+              closeModal($modal);
+            });
+          };
+
+          // Add a click event on buttons to open a specific modal
+          (document.querySelectorAll(".js-modal-trigger") || []).forEach(($trigger) => {
+            const modal = $trigger.dataset.target;
+            const $target = document.getElementById(modal);
+
+            $trigger.addEventListener("click", () => {
+              openModal($target);
+            });
+          });
+
+          // Add a click event on various child elements to close the parent modal
+          (
+            document.querySelectorAll(
+              ".modal-background, .modal-close, .modal-card-head .delete, .modal-card-foot .button"
+            ) || []
+          ).forEach(($close) => {
+            const $target = $close.closest(".modal");
+
+            $close.addEventListener("click", () => {
+              closeModal($target);
+            });
+          });
+
+          // Add a keyboard event to close all modals
+          document.addEventListener("keydown", (event) => {
+            if (event.key === "Escape") {
+              closeAllModals();
+            }
+          });
+
+          document.addEventListener('DOMContentLoaded', () => {
+            (document.querySelectorAll('.notification .delete') || []).forEach(($delete) => {
+              const $notification = $delete.parentNode;
+
+              $delete.addEventListener('click', () => {
+                $notification.parentNode.removeChild($notification);
+              });
+
+              $delete.addEventListener('keydown', (event) => {
+                if (event.key === " " || event.key === "enter") {
+                  event.target.click()
+                }
+              })
+            });
+          });
+        });
       </script>
     </body>
 </html>

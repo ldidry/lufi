@@ -4,249 +4,310 @@
 %   delay_365 => l('1 year')
 % );
 
-<section class="messages-zone">
-  <noscript class="message-card error">
-      <%= l('Javascript is disabled. You won\'t be able to use Lufi.') %>
-  </noscript>
-  % if (defined(config('broadcast_message'))) {      
-    <div class="message-card error">
-      <%= config('broadcast_message') %>
-    </div>
-  % }
-  % if (stash('invitation')) {
-    <div class="message-card success">
-      <%= l('The link(s) of your file(s) will automatically be sent by mail to %1 (%2)', stash('invitation')->ldap_user, stash('invitation')->ldap_user_mail) %>
-    </div>
-  % }
-  % if (stop_upload) {
-    <div class="message-card error">
-      <%= l('Sorry, the uploading is currently disabled. Please try again later.') %>
-    </div>
-  % }
-</section>
-
 % if (!stop_upload) {
-  <section class="upload-zone">
-    <form class="upload-form">
-      <div class="input-delete-after-days">
-        <button type="button" class="icon-button info-delete-after-days modal-button" title="<%= l('Important: more information on delays') %>"></button>
-        
-        <select class="select-delete-after-days" id="delete-after-days" aria-label="Delay">
-        % for my $delay (qw/0 1 7 30 365/) {
-          % my $text = ($delay == 7 || $delay == 30) ? l('%1 days', $delay) : $d{'delay_'.$delay};
-          % if (max_delay) {
-            % if ($delay) {
-              % if ($delay < max_delay) {
-                <option value="<%= $delay %>" <%== is_selected($delay) %>><%= $text %></option>
-              % } elsif ($delay == max_delay) {
-                <option value="<%= $delay %>" <%== is_selected($delay) %>><%= $text %></option>
+  <div id="upload-box" class="box columns is-desktop">
+    <div class="left-zone column">
+      <div class="fixed-grid has-1-cols">
+        <div class="grid">
+          <div id="file-js-upload" class="cell fixed-grid has-1-cols">
+            <div class="grid file is-boxed is-fullwidth">
+              <div id="provided-files" class="cell is-fullwidth is-rounded p-0 is-hidden"></div>
+
+              <div class="cell total-size p-2 is-hidden">
+                <span><%= l('Total size:')%></span>
+                <span class="size"></span>
+              </div>
+
+              <label class="file-label is-clickable">
+                <input class="file-input" type="file" name="upload" multiple>
                 
-                % last;
-              % } else {
-                % my $text = ($delay == 1) ? l('24 hours') : l('%1 days', $delay);
-                  <option value="<%= max_delay %>" <%== is_selected(max_delay) %>><%= l('%1 days', max_delay) %></option>
-                % last;
-              % }
-            % }
-          % } else {
-            <option value="<%= $delay %>" <%== is_selected($delay) %>><%= $text %></option>
-          % }
-        % }
-        </select>
-      </div>
+                <div class="file-cta px-0 is-size-1 full-version">
+                  <span class="file-icon mr-0">
+                    <span class="icon fas fa-circle-plus"></span>
+                  </span>
+                  <div class="file-label has-text-centered is-gap-3">
+                    <span class="is-size-3"><%= l('Drop files here') %></span>
+                    <span class="is-size-5"><%= l('or') %></span> 
+                    <button type="button" id="upload-zone-button" class="button m-auto is-primary" tabindex=-1><%= l('Click to open the file browser') %></button>
+                  </div>
+                </div>
 
-      <div class="checkbox input-delete-on-first-view">
-        <input type="checkbox" id="delete-on-first-view" name="delete-on-first-view" autocomplete="off" <%= 'checked="true"' if config('force_burn_after_reading') %> <%= 'disabled="disabled"' if config('force_burn_after_reading') %>>
-        <label for="delete-on-first-view"><%= l('Delete at first download?') %></label>
-      </div>
-
-    % if (config('allow_pwd_on_files') && (!stash('invitation'))) {
-      <div class="input-text input-password">
-        <label for="password"><%= l('Add a password to file(s)') %></label>
-        <input type="password" id="password" placeholder="<%= l('Password') %>" autocomplete="off">
-      </div>
-    % }
-
-      <div class="checkbox input-zip-files">
-        <input
-          type="checkbox"
-          id="must-zip"
-        >
-        <label for="must-zip"><%= l('Create a zip archive with the files before uploading?') %></label>
-      </div>
-
-      <div class="hidden input-text input-zip-name">
-        <label for="zip-name"><%= l('Name of the zip file') %></label>
-        <input type="text" id="zip-name" name="zip-name" placeholder="documents.zip" value="documents.zip" autocomplete="off">
-      </div>
-
-      <div class="drop-zone">
-        <h1><%= l('Drop files here') %></h1>
-        <p class="max-file-size"></p>
-        <p><%= l('or') %></p>
-        <label class="button" for="upload-button">
-        <%= l('Click to open the file browser') %>
-        </label>
-        <input type="file" id="upload-button" multiple autofocus>
-      </div>
-
-
-      <div class="hidden zip-zone card" aria-hidden="true">
-        <button type="button" class="icon-button icon close action-close" title="<%= l('Close') %>"></button>
-        
-        <div class="file-description">
-          <p class="file-name">documents.zip</p>
-          <p class="file-size">0</p>
-        </div>
-
-        <ul class="files-list"></ul>
-
-        <button type="button" class="button action-upload-zip"><%= l("Upload generated zip file") %></button>
-        <div class="zip-compressing hidden" aria-hidden="true">
-          <div class="icon-container pulse">
-            <span class="icon archive"></span>
+                <div class="file-cta px-0 is-small small-version has-text-primary is-hidden">
+                  <span class="file-icon mr-0">
+                    <span class="icon fas fa-circle-plus"></span>
+                  </span>
+                  <div class="file-label has-text-centered">
+                    <span><%= l('Add files') %></span>
+                  </div>
+                </div>
+              </label>
+            </div>
           </div>
-          <p><%= l('Compressing zip file…') %></p>
-        </div>
-      </div>
-    </form>
-  </section>
 
-  <section class="hidden uploaded-zone" aria-hidden="true">
-    <h1><%= l('Uploaded files') %></h1>
-    <header class="hidden buttons" aria-hidden="true">
-      <div class="actions-buttons upload-success">
-        <button type="button" class="button action-copy-links"><%= l('Copy all links to clipboard') %></button>
-        <a class="button action-mail-links" href="<%= url_for('/')->to_abs() %>m"><%= l('Send all links by email') %></a>
-      </div>
-    </header>
+          <div id="upload-controls" class="cell is-hidden">
+            <div class="field">
+              <div class="field is-horizontal is-align-items-center">
+                <div class="field-label">
+                  <label class="label<%= ' disabled' if(max_delay) %>" for="expiration-delay">
+                    <%= l('Expires after') %>
+                  </label>
+                </div>
 
-    <div class="file-cards"></div>
-  </section>
-  
-  <template id="file-card-error">
-    <article class="card file-card error">
-      <button type="button" class="icon-button icon close action-close"></button>
-      <div class="file-description">
-        <p class="file-name"></p>
-        <p class="file-size"></p>
-      </div>
+                <div class="field-body is-align-items-center">
+                    <div class="field">
+                      <div class="control">
+                        <div class="select">
+                          <select id="expiration-delay" <%= 'disabled' if(max_delay) %>>
+                            % for my $delay (qw/0 1 7 30 365/) {
+                              % my $text = ($delay == 7 || $delay == 30) ? l('%1 days', $delay) : $d{'delay_'.$delay};
+                              % if (max_delay) {
+                                % if ($delay) {
+                                  % if ($delay < max_delay) {
+                                    <option value="<%= $delay %>" <%= is_selected($delay) %>><%= $text %></option>
+                                  % } elsif ($delay == max_delay) {
+                                    <option value="<%= $delay %>" <%= is_selected($delay) %>><%= $text %></option>
+                                    
+                                    % last;
+                                  % } else {
+                                    % my $text = ($delay == 1) ? l('24 hours') : l('%1 days', $delay);
+                                      <option value="<%= max_delay %>" <%= is_selected(max_delay) %>><%= l('%1 days', max_delay) %></option>
+                                    % last;
+                                  % }
+                                % }
+                              % } else {
+                                <option value="<%= $delay %>" <%= is_selected($delay) %>><%= $text %></option>
+                              % }
+                            % }
+                          </select>
+                        </div>
+                      </div>
+                    </div>
 
-      <div class="message-card error upload-error"></div>
-    </article>
-  </template>
-  
-  <template id="file-card-guest">
-    <article class="card file-card guest">
-      <button type="button" class="icon-button icon close action-close"></button>
-      <div class="file-description">
-        <p class="file-name"></p>
-        <p class="file-size"></p>
-      </div>
-      
-      <p class="file-expiration"></p>
-    </article>
-  </template>
+                  <div class="field is-narrow">or</div>
 
-  <template id="file-card-ongoing">
-    <article class="card file-card ongoing">
-      <button type="button" class="icon-button icon close action-close"></button>
-      <div class="file-description">
-        <p class="file-name"></p>
-        <p class="file-size"></p>
-      </div>
+                  <fieldset <%= 'disabled' if config('force_burn_after_reading') %>>
+                    <div class="field">
+                      <div class="control"> 
+                        <label for="delete-at-first-download" class="label is-flex is-gap-1 checkbox">
+                          <%= l('After first download?') %>
+                          <input
+                            type="checkbox"
+                            id="delete-at-first-download"
+                            <%= 'checked disabled' if config('force_burn_after_reading') %>
+                          >
+                        </label>
+                      </div>
+                    </div>
+                  </fieldset>
+                </div>
+              </div>
 
-      <p class="progress-percent">0</p>
-      
-      <div class="progress-container">
-        <div class="progress-bar" role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100"></div>
-      </div>
-    </article>
-  </template>
+              <div class="field is-horizontal is-align-items-center<%= ' is-hidden' if (!config('allow_pwd_on_files') || stash('invitation')) %>">
+                <div class="field-label">
+                  <label for="use-password" class="label">
+                    <%= l('Protect with password') %>
+                  </label>
+                </div>
+                <div class="field-body">
+                  <div class="field is-grouped is-align-items-center">
+                    <div class="control">
+                      <input
+                        type="checkbox"
+                        id="use-password"
+                      >
+                    </div>
+                    
+                    <div class="field">
+                      <label id="password-control" class="label is-invisible">
+                        Password
+                        <div class="control has-icons-left has-icons-right is-expanded">
+                            <input class="input" id="password-input" type="password" placeholder="<%= l('Password') %>" autocomplete="off" value="">
+                            
+                            <span class="icon is-small is-left fas fa-lock" aria-hidden="true"></span>
+                            <span id="password-preview-button" class="icon is-small is-right fas fa-eye is-clickable has-text-primary" aria-hidden="true"></span>
+                        </div>
+                      <label>
+                    </div>
+                  </div>
+                </div>
+              </div>
 
-  <template id="file-card-success">
-    <article class="card file-card success">
-      <button type="button" class="icon-button icon close action-close"></button>
-      <div class="file-description">
-        <p class="file-name"></p>
-        <p class="file-size"></p>
-        <a class="icon-button icon mail action-mail" href="#"></a>
-      </div>
-      
-      <p class="file-expiration"></p>
-      
-      <div class="links-zone">
-        <div class="download-link">
-          <a class="icon-button icon download download-button" title="<%= l('Download link') %>" href="#"></a>
-          <button type="button" title="<%= l('Copy to clipboard') %>" class="icon-button icon copy copy-button"></button>
-          <div class="input-text">
-            <label>
-              <%= l('Download link') %>
-              <input class="download-input" type="text">
-            </label>
-          </div>
-        </div>
-        <div class="delete-link">
-          <a class="icon-button icon delete delete-button" title="<%= l('Deletion link') %>" href="#"></a>
-          <div class="input-text">
-            <label>
-              <%= l('Deletion link') %>
-              <input class="delete-input" type="text">
-            </label>
+              <div class="field is-horizontal is-align-items-center">
+                <div class="field-label">
+                  <label for="zip-multiple" class="label">
+                    <%= l('Compress multiple files') %>
+                  </label>
+                </div>
+                <div class="field-body">
+                  <div class="field is-grouped is-align-items-center">
+                    <div class="control">
+                      <input
+                        type="checkbox"
+                        id="zip-multiple"
+                        checked
+                      >
+                    </div>
+
+                    <div class="control is-expanded">
+                      <label class="label">
+                        <%= l('Name of the zip file') %>
+                        <input id="zip-name" type="text" class="input" value="documents.zip" placeholder="documents.zip">
+                      </label>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <div class="field">
+                <div class="control has-text-centered">
+                  <button id="submit-button" type="button" class="button is-primary is-medium is-fullwidth"><%= l('Send') %></button>
+                </div>
+              </div>
+            </div>
           </div>
         </div>
       </div>
-    </article>
-  </template>
+    </div>
 
-  <dialog class="modal modal-delete-after-days">
-    % use Number::Bytes::Human qw(format_bytes);
-    <section>
-      <header>
-        <h1><%= l('Information about delays') %></h1>
-      </header>
-
-      <div class="content">
-        <p>
-          <%= l('If you choose a delay, the file will be deleted after that delay.') %><br>
-          <%= l('Don\'t worry: if a user begins to download the file before the expiration and the download ends after the expiration, he will be able to get the file.') %>
-        </p>
-        % if (defined(config('delay_for_size'))) {
-          <p>
-            <%= l('This server sets limitations according to the file size. The expiration delay of your file will be the minimum between what you choose and the following limitations:') %>
-          </p>
-          <ul>
-          % my $delays   = config('delay_for_size');
-          % $delays->{0} = max_delay;
-          % my @keys     = sort {$a <=> $b} keys %{$delays};
-          % my $i        = 0;
-          % for my $key (@keys) {
-            % my $delay = $delays->{$keys[$i]};
-            % if ($i + 1 < scalar(@keys)) {
-              % if ($delay) {
-                <li><%= l('between %1 and %2, the file will be kept %3 day(s).', format_bytes($keys[$i]), format_bytes($keys[$i + 1]), $delay) %></li>
-              % } else {
-                <li><%= l('between %1 and %2, the file will be kept forever.', format_bytes($keys[$i]), format_bytes($keys[$i + 1]), $delay) %></li>
-              % }
-            % } else {
-              % if ($delay) {
-                <li><%= l('for %1 and more, the file will be kept %2 day(s)', format_bytes($keys[$i]), $delay) %></li>
-              % } else {
-                <li><%= l('for %1 and more, the file will be kept forever.', format_bytes($keys[$i]), $delay) %></li>
-              % }
-            % }
-            % $i++;
-          % }
-          </ul>
-        % }
+    <div class="right-zone column">
+      <div id="uploaded-files" class="block">
       </div>
-      
-      <footer class="actions">
-        <button autofocus class="button close-modal"><%= l('Close') %></button>
-      </footer>
-    </section>
-  </dialog>
+    </div>
+  </div>
 % }
+
+<template id="card-file-error">
+  <article class="card-file-error card m-2 is-size-6">
+    <div class="card-content p-2">
+      <div class="content fixed-grid has-12-cols">
+        <div class="grid is-vcentered">
+          <div class="cell is-col-1">
+              <span class="icon fas fa-file fa-2x is-large has-text-primary"></span>
+          </div>
+          <div class="cell is-col-span-10">
+            <strong class="is-block wb-all name is-overflow-x"></strong>
+            <small class="is-block size mt-1"></small>
+          </div>
+
+          <div class="cell is-col-12 ">
+            <button class="is-narrow card-header-icon" aria-label="<%= l('Close') %>">
+              <span class="delete"></span>
+            </button>
+          </div>
+        </div>
+
+        <div class="message is-danger has-text-danger">
+          <div class="message-body"></div>
+        </div>
+      
+      </div>
+    </div>
+  </article>
+</template>
+
+<template id="card-file-to-upload">
+  <article class="card-file-to-upload card m-2 is-size-6">
+    <div class="card-content p-2">
+      <div class="content fixed-grid has-12-cols">
+        <div class="grid is-vcentered">
+          <div class="cell is-col-1">
+              <span class="icon fas fa-file fa-2x is-large has-text-primary" aria-hidden="true"></span>
+          </div>
+          <div class="cell is-col-span-10">
+            <strong class="is-block wb-all name is-overflow-x"></strong>
+            <small class="is-block size mt-1"></small>
+          </div>
+
+          <div class="cell is-col-12 ">
+            <button class="is-narrow card-header-icon" aria-label="<%= l('Close') %>">
+              <span class="delete"></span>
+            </button>
+          </div>
+        </div>
+      
+      </div>
+    </div>
+  </article>
+</template>
+
+<template id="card-file-uploading">
+  <article class="card-file-uploading card m-2 is-size-6">
+    <div class="card-content p-2">
+      <div class="content fixed-grid has-12-cols">
+        <div class="grid is-vcentered">
+          <div class="cell is-col-1">
+              <span class="icon fas fa-file fa-2x is-large has-text-primary" aria-hidden="true"></span>
+          </div>
+          <div class="cell is-col-span-10">
+            <strong class="is-block wb-all name is-overflow-x"></strong>
+            <small class="is-block size mt-1"></small>
+          </div>
+
+          <button class="cell is-col-12 is-narrow has-text-right card-header-icon" aria-label="<%= l('Close') %>">
+            <span class="delete"></span>
+          </button>
+        </div>
+        <div class="block info"><%= l('Compression in progress') %></div>
+
+        <div class="progress-text has-text-centered">0%</div>
+        <progress class="progress is-primary is-small" max="100">0%</progress>
+      </div>
+    </div>
+  </article>
+</template>
+
+<template id="card-file-uploaded">
+  <article class="card-file-uploaded card m-2 is-size-6">
+    <div class="card-content p-2">
+      <div class="content fixed-grid has-12-cols">
+        <div class="grid is-vcentered">
+          <div class="cell is-col-1">
+              <span class="icon fas fa-file fa-2x is-large has-text-primary" aria-hidden="true"></span>
+          </div>
+          <div class="cell is-col-span-10">
+            <strong class="is-block wb-all name is-overflow-x name"></strong>
+            <small class="is-block size mt-1 size"></small>
+          </div>
+
+          <button class="cell is-col-12 is-narrow has-text-right card-header-icon" aria-label="<%= l('Close') %>">
+            <span class="delete"></span>
+          </button>
+        </div>
+
+        <div class="expiration"></div>
+      </div>
+    </div>
+
+    % if (!defined stash('invitation')) {
+      <footer class="card-footer is-align-items-center">
+        <a href="#" class="card-footer-item action-copy">
+          <span class="icon-text is-justify-content-center">
+            <span class="icon fas fa-copy" aria-hidden="true"></span>
+            <span class="text"><%= l('Copy link') %></span>
+          </span>
+        </a>
+        <a href="#" class="card-footer-item action-download">
+          <span class="icon-text is-justify-content-center">
+            <span class="icon fas fa-download" aria-hidden="true"></span>
+            <span><%= l('Download') %></span>
+          </span>
+        </a>
+        <a href="#" class="card-footer-item action-share">
+          <span class="icon-text is-justify-content-center">
+            <span class="icon fas fa-envelope" aria-hidden="true"></span>
+            <span><%= l('Share') %></span>
+          </span>
+        </a>
+        <a href="#" class="card-footer-item has-text-danger action-delete">
+          <span class="icon-text is-justify-content-center">
+            <span class="icon fas fa-trash" aria-hidden="true"></span>
+            <span><%= l('Delete') %></span>
+          </span>
+        </a>
+      </footer>
+    % }
+  </article>
+</template>
 
 <script type="text/javascript">
 const ws_url  = '<%= url_for('upload')->to_abs() %>';
@@ -258,7 +319,10 @@ const baseURL = '<%= url_for('/')->to_abs() %>';
 const actionURL = '<%= url_for('/')->to_abs() %>';
 const i18n    = {
     enqueued:     '<%= l('XXX file has been added to upload queue.') %>',
+    compressing:  '<%= l('Compression in progress...') %>',
     confirmExit:  '<%= l('You have attempted to leave this page. The upload will be canceled. Are you sure?') %>',
+    copied:       '<%= l('Copied') %>',
+    copyLink:     '<%= l('Copy link') %>',
     copyAll:      '<%= l('Copy all links to clipboard') %>',
     copySuccess:  '<%= l('The link(s) has been copied to your clipboard') %>',
     copyFail:     '<%= l('Unable to copy the link(s) to your clipboard') %>',
@@ -275,6 +339,8 @@ const i18n    = {
     maxSize:      '<%= l('(max size: XXX)') %>',
     noLimit:      '<%= l('No expiration delay') %>',
     sending:      '<%= l('Sending part XX1 of XX2. Please, be patient, the progress bar can take a while to move.') %>',
+    unknownYet:   '<%= l('Unknown yet') %>',
+    uploading:    '<%= l('Upload in progress...') %>',
     wsProblem:    '<%= l('Websocket communication error') %>',
 };
 const maxSize = <%= config('max_file_size') || 0 %>;
@@ -286,20 +352,6 @@ const sendFilesURLsURL = '<%= url_for('guest_send_mail', token => stash('invitat
 const isGuest = false;
 % }
 
-document.addEventListener('DOMContentLoaded', () => {
-  document.querySelector(".drop-zone").onkeydown = (event) => {
-    if(event.key === " ") {
-      document.getElementById("file-browser").click();
-    }
-  };
-
-  document.querySelector(".info-delete-after-days").onclick = () => {
-    document.querySelector(".modal-delete-after-days").showModal();
-  }
-
-  document.querySelector(".close-modal").onclick = () => {
-    document.querySelector(".modal").close();
-  }
-});
 </script>
-%= javascript '/js/lufi-upload.js', type => 'module', defer => "true"
+
+%= javascript '/js/minified/upload.min.js', type => 'module', defer => "true"
