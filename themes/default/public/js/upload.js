@@ -329,6 +329,36 @@ document.addEventListener("DOMContentLoaded", () => {
     }
   };
 
+  const showSmallUploadZone = () => {
+    document.getElementById("provided-files").classList.remove("is-hidden");
+    document.getElementById("upload-controls").classList.remove("is-hidden");
+    document
+      .querySelector("#file-js-upload .total-size")
+      .classList.remove("is-hidden");
+
+    document
+      .querySelector("#file-js-upload .small-version")
+      .classList.remove("is-hidden");
+    document
+      .querySelector("#file-js-upload .full-version")
+      .classList.add("is-hidden");
+  };
+
+  const showFullUploadZone = () => {
+    document.querySelector("#provided-files").classList.add("is-hidden");
+    document.getElementById("upload-controls").classList.add("is-hidden");
+    document
+      .querySelector("#file-js-upload .total-size")
+      .classList.add("is-hidden");
+
+    document
+      .querySelector("#file-js-upload .small-version")
+      .classList.add("is-hidden");
+    document
+      .querySelector("#file-js-upload .full-version")
+      .classList.remove("is-hidden");
+  };
+
   /**
    * Update the progress bar of the File Card
    *
@@ -475,33 +505,3 @@ document.addEventListener("DOMContentLoaded", () => {
       .append(maxSizeDOM);
   }
 });
-
-const showSmallUploadZone = () => {
-  document.getElementById("provided-files").classList.remove("is-hidden");
-  document.getElementById("upload-controls").classList.remove("is-hidden");
-  document
-    .querySelector("#file-js-upload .total-size")
-    .classList.remove("is-hidden");
-
-  document
-    .querySelector("#file-js-upload .small-version")
-    .classList.remove("is-hidden");
-  document
-    .querySelector("#file-js-upload .full-version")
-    .classList.add("is-hidden");
-};
-
-const showFullUploadZone = () => {
-  document.querySelector("#provided-files").classList.add("is-hidden");
-  document.getElementById("upload-controls").classList.add("is-hidden");
-  document
-    .querySelector("#file-js-upload .total-size")
-    .classList.add("is-hidden");
-
-  document
-    .querySelector("#file-js-upload .small-version")
-    .classList.add("is-hidden");
-  document
-    .querySelector("#file-js-upload .full-version")
-    .classList.remove("is-hidden");
-};
