@@ -503,7 +503,7 @@ document.addEventListener("DOMContentLoaded", () => {
     const maxSizeDOM = document.createElement("span");
     maxSizeDOM.innerText = i18n.maxSize.replace("XXX", filesize(maxSize));
 
-    maxSizeDOM.classList.add("is-size-5");
+    maxSizeDOM.classList.add("is-size-5", "is-size-6-mobile");
 
     document
       .querySelector("#upload-box .file-cta .file-label")
