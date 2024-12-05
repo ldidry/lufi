@@ -151,14 +151,6 @@ document.addEventListener("DOMContentLoaded", () => {
 
     const cardId = isSecureContext ? crypto.randomUUID() : uuidv4();
 
-    const uploadingFileCard = initCard("uploading", cardId);
-
-    uploadingFileCard.querySelector(".name").innerText = zipName;
-    uploadingFileCard.querySelector(".size").innerText = i18n.unknownYet;
-    uploadingFileCard.querySelector(".info").innerText = i18n.compressing;
-
-    uploadFilesDOM.prepend(uploadingFileCard);
-
     const runUpload = (job = null) => {
       if (!job || job.status === JobStatus.COMPLETE) {
         return lufi
@@ -175,6 +167,8 @@ document.addEventListener("DOMContentLoaded", () => {
           .andThen((jobs) =>
             ResultAsync.combine(
               jobs.map((job) => {
+                const uploadingFileCard = initCard("uploading", cardId);
+
                 uploadingFileCard.querySelector(".name").innerText =
                   job.lufiFile.name;
                 uploadingFileCard.querySelector(".size").innerText = filesize(
@@ -193,6 +187,8 @@ document.addEventListener("DOMContentLoaded", () => {
                 job.onProgress(() => {
                   updateProgressBar(job.lufiFile, uploadingFileCard);
                 });
+
+                uploadFilesDOM.prepend(uploadingFileCard);
 
                 return job
                   .waitForCompletion()
@@ -299,6 +295,14 @@ document.addEventListener("DOMContentLoaded", () => {
     };
 
     if (isZipped) {
+      const uploadingFileCard = initCard("uploading", cardId);
+
+      uploadingFileCard.querySelector(".name").innerText = zipName;
+      uploadingFileCard.querySelector(".size").innerText = i18n.unknownYet;
+      uploadingFileCard.querySelector(".info").innerText = i18n.compressing;
+
+      uploadFilesDOM.prepend(uploadingFileCard);
+
       return lufi
         .addFilesToArchive(files)
         .andThen((archiveEntries) => lufi.compress(archiveEntries, zipName))
