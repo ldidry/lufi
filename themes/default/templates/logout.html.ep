@@ -1,11 +1,19 @@
-
-<section class="logout-section">
+<div class="box">
 % if (defined stash('msg')) {
-    <article class="message-card error"><%= stash('msg') %></article>
+  <div class="message is-error">
+    <div class="message-body">
+      <%= stash('msg') %>
+    </div>
+  </div>
 % } else {
-    <article class="info">
+  <div class="message is-error">
+    <div class="message-body">
         <p><%= l('You have been successfully logged out.') %></p>
-        <a class="button" href="<%= url_for('login') %>"><%= l('Signin') %></a>
-    </article>
+    </div>
+  </div>
+
+  <div class="has-text-centered">
+    <a class="button is-primary" href="<%= url_for('login') %>"><%= l('Signin') %></a>
+  </div>
 % }
-</section>
+</div>
