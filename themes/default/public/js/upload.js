@@ -151,6 +151,8 @@ document.addEventListener("DOMContentLoaded", () => {
 
     const cardId = isSecureContext ? crypto.randomUUID() : uuidv4();
 
+    let uploadingFileCard = initCard("uploading", cardId);
+
     const runUpload = (job = null) => {
       if (!job || job.status === JobStatus.COMPLETE) {
         return lufi
@@ -167,7 +169,8 @@ document.addEventListener("DOMContentLoaded", () => {
           .andThen((jobs) =>
             ResultAsync.combine(
               jobs.map((job) => {
-                const uploadingFileCard = initCard("uploading", cardId);
+                uploadingFileCard =
+                  uploadingFileCard ?? initCard("uploading", cardId);
 
                 uploadingFileCard.querySelector(".name").innerText =
                   job.lufiFile.name;
@@ -297,7 +300,7 @@ document.addEventListener("DOMContentLoaded", () => {
     };
 
     if (isZipped) {
-      const uploadingFileCard = initCard("uploading", cardId);
+      uploadingFileCard = initCard("uploading", cardId);
 
       uploadingFileCard.querySelector(".name").innerText = zipName;
       uploadingFileCard.querySelector(".size").innerText = i18n.unknownYet;
