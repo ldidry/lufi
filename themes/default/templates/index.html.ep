@@ -26,9 +26,9 @@
                     <span class="icon fas fa-circle-plus"></span>
                   </span>
                   <div class="file-label has-text-centered is-gap-3">
-                    <span class="is-size-3"><%= l('Drop files here') %></span>
-                    <span class="is-size-5"><%= l('or') %></span> 
-                    <button type="button" id="upload-zone-button" class="button m-auto is-primary" tabindex=-1><%= l('Click to open the file browser') %></button>
+                    <span class="is-size-3 is-size-5-mobile"><%= l('Drop files here') %></span>
+                    <span class="is-size-5 is-hidden-mobile"><%= l('or') %></span> 
+                    <button type="button" id="upload-zone-button" class="button m-auto is-primary is-hidden-mobile" tabindex=-1><%= l('Click to open the file browser') %></button>
                   </div>
                 </div>
 
@@ -177,7 +177,7 @@
         </div>
       </div>
     % }
-    
+
       <div id="uploaded-files" class="block">
       </div>
     </div>

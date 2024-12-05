@@ -151,6 +151,8 @@ document.addEventListener("DOMContentLoaded", () => {
 
     const cardId = isSecureContext ? crypto.randomUUID() : uuidv4();
 
+    let uploadingFileCard = initCard("uploading", cardId);
+
     const runUpload = (job = null) => {
       if (!job || job.status === JobStatus.COMPLETE) {
         return lufi
@@ -167,7 +169,8 @@ document.addEventListener("DOMContentLoaded", () => {
           .andThen((jobs) =>
             ResultAsync.combine(
               jobs.map((job) => {
-                const uploadingFileCard = initCard("uploading", cardId);
+                uploadingFileCard =
+                  uploadingFileCard ?? initCard("uploading", cardId);
 
                 uploadingFileCard.querySelector(".name").innerText =
                   job.lufiFile.name;
@@ -297,7 +300,7 @@ document.addEventListener("DOMContentLoaded", () => {
     };
 
     if (isZipped) {
-      const uploadingFileCard = initCard("uploading", cardId);
+      uploadingFileCard = initCard("uploading", cardId);
 
       uploadingFileCard.querySelector(".name").innerText = zipName;
       uploadingFileCard.querySelector(".size").innerText = i18n.unknownYet;
@@ -500,7 +503,7 @@ document.addEventListener("DOMContentLoaded", () => {
     const maxSizeDOM = document.createElement("span");
     maxSizeDOM.innerText = i18n.maxSize.replace("XXX", filesize(maxSize));
 
-    maxSizeDOM.classList.add("is-size-5");
+    maxSizeDOM.classList.add("is-size-5", "is-size-6-mobile");
 
     document
       .querySelector("#upload-box .file-cta .file-label")
