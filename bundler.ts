@@ -20,9 +20,10 @@ fontawesomeSubset(
     "globe",
     "lock",
     "recycle",
+    "right-from-bracket",
+    "right-to-bracket",
     "trash",
     "upload",
-    "user",
   ],
   `${themeDir}/public/webfonts`,
   {}
