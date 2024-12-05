@@ -197,3 +197,9 @@ a:not(#main-menu a) a:hover {
 tr.deleted {
   background: repeating-linear-gradient(-45deg, transparent 0 2rem, var(--bulma-danger-95) 2rem 4rem);
 }
+
+@media (prefers-color-scheme: dark) {
+  tr.deleted {
+    background: repeating-linear-gradient(-45deg, transparent 0 2rem, var(--bulma-danger-05) 2rem 4rem);
+  }
+}
