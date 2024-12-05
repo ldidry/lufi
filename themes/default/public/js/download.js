@@ -144,20 +144,20 @@ document.addEventListener("DOMContentLoaded", () => {
         const isZipped =
           downloadDOM.querySelector(".description").dataset.isZipped === "true";
 
-        let content;
+        let render;
 
         if (job.lufiFile.type.match(/^image\//) !== null) {
-          content = `<img alt="${escapeHtml(
+          render = `<img alt="${escapeHtml(
             job.lufiFile.name
           )}" src="${blobURL}">`;
         } else if (job.lufiFile.type.match(/^video\//) !== null) {
-          content = `<video controls><source src="${blobURL}" type="${job.lufiFile.type}"></video>`;
+          render = `<video controls><source src="${blobURL}" type="${job.lufiFile.type}"></video>`;
         } else if (job.lufiFile.type.match(/^audio\//) !== null) {
-          content = `<audio controls><source src="${blobURL}" type="${job.lufiFile.type}"></audio>`;
+          render = `<audio controls><source src="${blobURL}" type="${job.lufiFile.type}"></audio>`;
         }
 
-        if (content) {
-          downloadDOM.querySelector(".content").innerHTML = content;
+        if (render) {
+          downloadDOM.querySelector(".render").innerHTML = render;
         }
 
         if (isZipped) {

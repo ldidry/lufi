@@ -115,6 +115,9 @@
               <a href="#" id="download-button" class="button is-primary is-fullwidth is-size-5"><%= l('Get the file') %></a>
             </div>
           </div>
+
+
+          <div class="render has-text-centered"></div>
             
           <div id="zip-container" class="columns is-justify-content-center is-hidden mt-6">
             <div class="column is-half has-text-centered is-size-6 p-0 content">
