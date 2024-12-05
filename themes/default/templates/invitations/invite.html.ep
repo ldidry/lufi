@@ -1,41 +1,60 @@
-<section class="invite-section">
+<div class="box">
 % if (scalar(@{$self->stash('fails')})) {
-  <article class="message-card error">
+  <div class="message is-error">
+    <div class="message-body">
     % for my $msg (@{$self->stash('fails')}) {
       <%= $msg %>
     % }
-  </article>
+    </div>
+  </div>
 % }
 % if (scalar(@{$self->stash('success')})) {
-  <article class="message-card success">
+  <div class="message is-success">
+    <div class="message-body">
     % for my $msg (@{$self->stash('success')}) {
-      <%== $msg %>
+      <%= $msg %>
     % }
-  </article>
+    </div>
+  </div>
 % }
 
-  <form class="invite-form" method="post">
-    <h1><%= l('Invite a guest') %></h1>
+  <h1 class="title is-1"><%= l('Invite a guest') %></h1>
+
+  <div class="message is-info">
+    <div class="message-body">
       <p>
         <%= l('You can invite someone to send you files through this Lufi instance even if they don’t have an account on it.') %>
       </p>
-      % if (stash('send_with_user_email')) {
+      % if (stash('send_invitation_with_ldap_user_email')) {
         <p>
           <%= l('The invitation mail will be send from your email address (%1).', stash('user_mail')) %>
         </p>
       % }
-    <div class="input-text">
-        <label for="guest_mail">
-            <%= l('Email address of your guest') %>
-        </label>
-        <input id="guest_mail" name="guest_mail" type="email" placeholder="name@example.org" required>
     </div>
-    <div class="input-text">
-        <label for="expire_at">
-            <%= l('How many days would you like the invitation to be valid?') %>
-        </label>
-        <input id="expire_at" name="expire_at" type="number" min="1" max="<%= stash('max_expire_at') %>" step="1" value="<%= stash('max_expire_at') %>" required>
+  </div>
+
+
+  <form class="field invite-form" method="post">
+    <div class="field">
+      <label class="label" for="guest_mail">
+        <%= l('Email address of your guest') %>
+      </label>
+      <div class="control">
+        <input class="input" id="guest_mail" name="guest_mail" type="email" placeholder="name@example.org" required>
+      </div>
     </div>
-    <button class="button" type="submit"><%= l('Send the invitation') %></button>
+    <div class="field">
+      <label class="label" for="expire_at">
+        <%= l('How many days would you like the invitation to be valid?') %>
+      </label>
+      <div class="control">
+        <input class="input" id="expire_at" name="expire_at" type="number" min="1" max="<%= stash('max_expire_at') %>" step="1" value="<%= stash('max_expire_at') %>" required>
+      </div>
+    </div>
+    <div class="field">
+      <div class="control has-text-centered">
+        <button class="button is-primary" type="submit"><%= l('Send the invitation') %></button>
+      </div>
+    </div>
   </form>
-</section>
+</div>
