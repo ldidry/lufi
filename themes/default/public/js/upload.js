@@ -84,8 +84,6 @@ document.addEventListener("DOMContentLoaded", () => {
   ) => {
     const files = JSON.parse(localStorage.getItem(`${prefix}files`)) || [];
 
-    console.debug(serverKey);
-
     files.push({
       name,
       short: serverKey,
