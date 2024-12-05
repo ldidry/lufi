@@ -215,31 +215,33 @@ document.addEventListener("DOMContentLoaded", () => {
                       filesize(job.lufiFile.size);
                     uploadedFileCard.querySelector(".expiration").innerText =
                       expirationDate;
-                    uploadedFileCard.querySelector(".action-download").href =
-                      job.lufiFile.downloadUrl();
-                    uploadedFileCard.querySelector(".action-delete").href =
-                      job.lufiFile.removeUrl();
-                    uploadedFileCard.querySelector(".action-share").href = `${
-                      job.lufiFile.serverUrl
-                    }m?links=${encodeURIComponent(
-                      '["' + job.lufiFile.keys.server + '"]'
-                    )}`;
 
-                    uploadedFileCard
-                      .querySelector(".action-copy")
-                      .addEventListener("click", async () => {
-                        await copyToClipboard(job.lufiFile.downloadUrl());
+                    if (!isGuest) {
+                      uploadedFileCard.querySelector(".action-download").href =
+                        job.lufiFile.downloadUrl();
+                      uploadedFileCard.querySelector(".action-delete").href =
+                        job.lufiFile.removeUrl();
+                      uploadedFileCard.querySelector(".action-share").href = `${
+                        job.lufiFile.serverUrl
+                      }m?links=${encodeURIComponent(
+                        '["' + job.lufiFile.keys.server + '"]'
+                      )}`;
 
-                        uploadedFileCard.querySelector(
-                          ".action-copy .text"
-                        ).innerText = i18n.copied;
-                        setTimeout(() => {
+                      uploadedFileCard
+                        .querySelector(".action-copy")
+                        .addEventListener("click", async () => {
+                          await copyToClipboard(job.lufiFile.downloadUrl());
+
                           uploadedFileCard.querySelector(
                             ".action-copy .text"
-                          ).innerText = i18n.copyLink;
-                        }, 1000);
-                      });
-
+                          ).innerText = i18n.copied;
+                          setTimeout(() => {
+                            uploadedFileCard.querySelector(
+                              ".action-copy .text"
+                            ).innerText = i18n.copyLink;
+                          }, 1000);
+                        });
+                    }
                     uploadFilesDOM.replaceChild(
                       uploadedFileCard,
                       uploadingFileCard
