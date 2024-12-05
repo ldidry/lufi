@@ -14,7 +14,8 @@ stop-upload
 themes/*
 !themes/default
 !themes/default/*
-themes/default/public/js/minified
+themes/default/public/js/minified/*
+!themes/default/public/js/minified/worker/
 .stignore
 .stfolder/
 TODO
