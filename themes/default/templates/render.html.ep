@@ -1,6 +1,6 @@
 % if (!defined(stash('f')) && defined(stash('msg'))) {
-<div class="message">
-  <div class="message-body is-danger">
+<div class="message is-danger">
+  <div class="message-body">
     <%= stash('msg')%>
   </div>
 </div>
