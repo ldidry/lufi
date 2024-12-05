@@ -368,6 +368,14 @@ document.addEventListener("DOMContentLoaded", () => {
             document.querySelector(".total-size .size").innerText =
               filesize(totalSize);
 
+            if (providedFiles.length > 1) {
+              document
+                .getElementById("zip-fields")
+                .classList.remove("is-hidden");
+            } else {
+              document.getElementById("zip-fields").classList.add("is-hidden");
+            }
+
             if (providedFiles.length === 0) {
               document
                 .getElementById("upload-controls")
@@ -393,6 +401,12 @@ document.addEventListener("DOMContentLoaded", () => {
 
       showSmallUploadZone();
     });
+
+    if (providedFiles.length > 1) {
+      document.getElementById("zip-fields").classList.remove("is-hidden");
+    } else {
+      document.getElementById("zip-fields").classList.add("is-hidden");
+    }
   };
 
   document.getElementById("zip-multiple").onchange = () => {

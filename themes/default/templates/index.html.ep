@@ -132,7 +132,7 @@
                 </div>
               </div>
 
-              <div class="field is-horizontal is-align-items-center">
+              <div id="zip-fields" class="field is-horizontal is-align-items-center is-hidden">
                 <div class="field-label">
                   <label for="zip-multiple" class="label">
                     <%= l('Compress multiple files') %>
