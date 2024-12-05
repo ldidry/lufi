@@ -170,6 +170,14 @@
     </div>
 
     <div class="right-zone column">
+    % if (stash('invitation')) {
+      <div class="message is-info">
+        <div class="message-body">
+          <%= l('The link(s) of your file(s) will automatically be sent by mail to %1 (%2)', stash('invitation')->ldap_user, stash('invitation')->ldap_user_mail) %>
+        </div>
+      </div>
+    % }
+    
       <div id="uploaded-files" class="block">
       </div>
     </div>
