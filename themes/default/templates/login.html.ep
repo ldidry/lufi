@@ -1,24 +1,32 @@
-<section class="section login-section">
+<div class="box">
   % if (defined stash('msg')) {
-  <section class="messages-zone">
-    <div class="message-card error">
+  <div class="message is-error">
+    <div class="message-body">
       <%= stash('msg') %>
     </div>
-  </section>
+  </div>
   % }
 
-  <form class="login-form" method="post" action="<%= url_for('login') %>">
-    <div class="input-text login">
-        <label for="login"><%= l('Login') %></label>
-        <input type="text" id="login" name="login" autofocus required>
-    </div>
-    <div class="input-text input-password">
-        <label for="password"><%= l('Password') %></label>
-        <input type="password" id="password" name="password" required>
-    </div>
-    %= csrf_field
-    <input name="redirect" value="<%= stash('redirect') %>" type="hidden">
+  <div class="container is-half">
+    <form class="field is-half" method="post" action="<%= url_for('login') %>">
+      <div class="field is-narrow">
+        <label class="label" for="login"><%= l('Login') %></label>
+        <div class="control is-narrow">
+          <input class="input is-narrow" type="text" id="login" name="login" autofocus required>
+        </div>
+      </div>
+      <div class="field">
+        <label class="label" for="password"><%= l('Password') %></label>
+        <input class="input" type="password" id="password" name="password" required>
+      </div>
+      %= csrf_field
+      <input name="redirect" value="<%= stash('redirect') %>" type="hidden">
 
-    <button class="button" type="submit" name="action"><%= l('Signin') %></button>
-  </form>
-</section>
+      <div class="field has-text-centered">
+        <div class="control">
+          <button class="button is-primary" type="submit" name="action"><%= l('Signin') %></button>
+        </div>
+      </div>
+    </form>
+  </div>
+</div>

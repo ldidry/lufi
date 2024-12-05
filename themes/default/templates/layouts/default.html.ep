@@ -66,13 +66,18 @@
                 <div class="navbar-item">
                   <form action="<%= url_for('/logout') %>" method="POST">
                     %= csrf_field
-                    <button type="submit"><%= l('Logout') %></button>
+                    <button class="has-text-weight-semibold" type="submit">
+                      <span class="icon-text">
+                        <span class="icon fas fa-right-from-bracket" aria-hidden="true"></span>
+                        <span><%= l('Logout') %></span>
+                      </span>
+                    </button>
                   </form>
                 </div>
               % } else {
                 <a href="<%= url_for('/login') %>" class="navbar-item <%= ' has-background-primary-35' if (current_route eq 'login') %>">
                   <span class="icon-text">
-                    <span class="icon fa-solid fa-user" aria-hidden="true"></span>
+                    <span class="icon fa-solid fa-right-to-bracket" aria-hidden="true"></span>
                     <span><%= l('Signin') %></span>
                   </span>
                 </a>
