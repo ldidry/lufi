@@ -5,6 +5,7 @@ const addItem = (item) => {
   const files = JSON.parse(localStorage.getItem(`${prefix}files`)) || [];
 
   files.push(item);
+
   localStorage.setItem(`${prefix}files`, JSON.stringify(files));
 };
 
@@ -194,8 +195,6 @@ const populateFilesTable = () => {
     };
 
     itemsTableDOM.append(itemDOM);
-
-    console.debug(file.short, file.token);
 
     fetch(counterURL, {
       method: "POST",

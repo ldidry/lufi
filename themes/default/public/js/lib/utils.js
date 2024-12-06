@@ -7,6 +7,22 @@ const entityMap = {
   "/": "&#x2F;",
 };
 
+export const addToast = (message, type) => {
+  const notification = document
+    .querySelector("template#notification")
+    .content.cloneNode(true).children[0];
+
+  notification.classList.add(`is-${type}`);
+
+  notification.querySelector(".message").innerText = message;
+
+  document.getElementById("notifications-container").append(notification);
+
+  setTimeout(() => {
+    notification.remove();
+  }, 3500);
+};
+
 export const copyToClipboard = async (text) => {
   try {
     if (navigator.clipboard) {
@@ -50,21 +66,11 @@ export const formatDate = (unixTimestamp) =>
     minute: "2-digit",
   });
 
-// export const notify = (message, type) => {
-//   const notification = document
-//     .querySelector("template#notification")
-//     .content.cloneNode(true).children[0];
-
-//   notification.classList.add(`is-${type}`);
-
-//   notification.querySelector(".message").innerText = message;
-
-//   document.getElementById("notifications-container").append(notification);
-
-//   setTimeout(() => {
-//     notification.remove();
-//   }, 3500);
-// };
+export const hideNode = (node) => {
+  if (node) {
+    node.classList.add("is-hidden");
+  }
+};
 
 export const notify = (title, body) => {
   if (isSecureContext) {
@@ -83,6 +89,12 @@ export const notify = (title, body) => {
         icon: "/img/lufi.svg",
       });
     }
+  }
+};
+
+export const showNode = (node) => {
+  if (node) {
+    node.classList.remove("is-hidden");
   }
 };
 

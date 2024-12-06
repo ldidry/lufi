@@ -53,7 +53,7 @@
       <thead>
         <tr>
           <th class="has-text-centered">
-            <span><%= l('Selection') %></span>
+            <div><%= l('Selection') %></div>
             <div class="checkbox">
               <input type="checkbox" id="action-select-all">
             </div>

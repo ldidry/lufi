@@ -32,7 +32,7 @@ fontawesomeSubset(
 const ignoreFontsPlugin: esbuild.Plugin = {
   name: "file",
   setup(build) {
-    build.onResolve({ filter: /\.woff2|ttf$/ }, (args) => ({
+    build.onResolve({ filter: /\.woff2|ttf$/ }, () => ({
       external: true,
     }));
   },

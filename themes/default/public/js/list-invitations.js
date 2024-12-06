@@ -1,21 +1,23 @@
 import { filesize } from "~/lib/filesize.esm.min.js";
+import { addToast, hideNode, showNode } from "~/lib/utils.js";
 
 const updateButtonsStatus = () => {
   const targetSelectionDOM = document.querySelectorAll(".target-selection");
 
   if (
-    document.querySelectorAll(".column.selection .checkbox input:checked")
-      .length > 0
+    document.querySelectorAll(".selection .checkbox input:checked").length > 0
   ) {
-    targetSelectionDOM.forEach((node) => (node.disabled = false));
+    targetSelectionDOM.forEach((node) => {
+      node.disabled = false;
+    });
   } else {
     targetSelectionDOM.forEach((node) => (node.disabled = true));
   }
 };
 
-const invertSelection = () => {
-  document.querySelectorAll(".item .column.selection input").forEach((node) => {
-    node.click();
+const updateSelection = (event) => {
+  document.querySelectorAll(".item .checkbox input").forEach((node) => {
+    node.checked = event.target.checked;
   });
 
   updateButtonsStatus();
@@ -28,12 +30,12 @@ const toggleHidden = () => {
     ".item[data-visibility='0']"
   );
 
-  if (invitationsListDOM.getAttribute("data-visibility") === "hidden") {
+  if (invitationsListDOM.dataset.visibility === "hidden") {
     toggleButtonDOM.innerText = i18n.hideText;
 
     itemsHiddenDOM.forEach((item) => showNode(item));
 
-    invitationsListDOM.setAttribute("data-visibility", "shown");
+    invitationsListDOM.dataset.visibility = "shown";
   } else {
     toggleButtonDOM.innerText = i18n.showText;
 
@@ -47,7 +49,7 @@ const toggleHidden = () => {
       }
     });
 
-    invitationsListDOM.setAttribute("data-visibility", "hidden");
+    invitationsListDOM.dataset.visibility = "hidden";
   }
 };
 
@@ -70,7 +72,7 @@ const deleteInvitation = () => {
         })
         .then((data) => {
           if (data.success) {
-            data.tokens.forEach((t) => {
+            data.success.forEach((t) => {
               addToast(t.msg, "success");
               document.getElementById(`row-${t.token}`).remove();
             });
@@ -114,13 +116,12 @@ const resendInvitation = () => {
       })
       .then((data) => {
         if (data.success) {
-          data.tokens.forEach((t) => {
+          data.success.forEach((t) => {
             const itemDOM = document.getElementById(`row-${t.token}`);
 
-            itemDOM.querySelector(".column.expiration-date").innerText =
-              t.expires;
+            itemDOM.querySelector(".expiration-date").innerText = t.expires;
 
-            itemDOM.querySelector(".column.selection input").click();
+            itemDOM.querySelector(".selection input").click();
             addToast(t.msg, "success");
           });
 
@@ -158,22 +159,19 @@ const toggleVisibility = () => {
           if (t.show) {
             itemDOM.setAttribute("data-visibility", 1);
             showNode(itemDOM);
-            itemDOM
-              .querySelector(".column.selection .icon.hide-source")
-              .remove();
+            itemDOM.querySelector(".selection .icon.hide-source").remove();
           } else {
             itemDOM.setAttribute("data-visibility", 0);
 
             if (
-              document
-                .querySelector(".invitations-list")
-                .getAttribute("data-visibility") === "hidden"
+              document.querySelector(".invitations-list").dataset.visibility ===
+              "hidden"
             ) {
               hideNode(itemDOM);
             }
 
             itemDOM
-              .querySelector(".column.selection")
+              .querySelector(".selection")
               .appendChild(
                 document
                   .querySelector("template#icon-hide-source")
@@ -181,7 +179,7 @@ const toggleVisibility = () => {
               );
           }
 
-          itemDOM.querySelector(".column.selection input").click();
+          itemDOM.querySelector(".selection input").click();
         });
 
         updateButtonsStatus();
@@ -196,10 +194,8 @@ const getTokensBody = () => {
   const tokens = new URLSearchParams();
 
   document
-    .querySelectorAll(".column.selection input:checked")
-    .forEach((item) =>
-      tokens.append("tokens[]", item.getAttribute("data-token"))
-    );
+    .querySelectorAll(".selection input:checked")
+    .forEach((item) => tokens.append("tokens[]", item.dataset.token));
 
   return tokens;
 };
@@ -212,10 +208,10 @@ const fillModal = (event) => {
   modalDOM.querySelector(".files-list").replaceChildren();
 
   modalDOM.querySelector("h1").innerText = i18n.listFiles
-    .replace("XX1", buttonDOM.getAttribute("data-token"))
-    .replace("XX2", buttonDOM.getAttribute("data-guest"));
+    .replace("XX1", buttonDOM.dataset.token)
+    .replace("XX2", buttonDOM.dataset.guest);
 
-  const files = JSON.parse(buttonDOM.getAttribute("data-files")) || [];
+  const files = JSON.parse(buttonDOM.dataset.files) || [];
   const itemList = new DocumentFragment();
 
   files.forEach((file) => {
@@ -254,10 +250,10 @@ document.addEventListener("DOMContentLoaded", () => {
   };
 
   document
-    .querySelectorAll(".column.selection input")
+    .querySelectorAll(".selection input")
     .forEach((node) => (node.onclick = updateButtonsStatus));
 
-  document.querySelector(".action-invert-selection").onclick = invertSelection;
+  document.getElementById("action-select-all").onclick = updateSelection;
 
   document.querySelector(".action-toggle-hidden").onclick = toggleHidden;
 

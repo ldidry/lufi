@@ -25,7 +25,7 @@
       <p>
         <%= l('You can invite someone to send you files through this Lufi instance even if they don’t have an account on it.') %>
       </p>
-      % if (stash('send_invitation_with_ldap_user_email')) {
+      % if (stash('send_with_user_email')) {
         <p>
           <%= l('The invitation mail will be send from your email address (%1).', stash('user_mail')) %>
         </p>

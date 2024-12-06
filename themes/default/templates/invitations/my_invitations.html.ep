@@ -1,55 +1,66 @@
 % use Number::Bytes::Human qw(format_bytes);
 % my $lang = $self->get_date_lang();
 
-<section class="my-invitations-section">
-  <h1><%= l('My invitations') %></h1>
-  <p>
-    <%= l('Rows in purple mean that the invitations have expired.') %>
-  </p>
-  <div class="actions-buttons">
-    <button href="#" class="button action-invert-selection"><%= l('Invert selection') %></button>
+<div class="box">
+  <h1 class="title is-1"><%= l('My invitations') %></h1>
+
+  <div class="message is-info">
+    <div class="message-body">
+      <p>
+        <%= l('Rows in purple mean that the invitations have expired.') %>
+      </p>
+    </div>
+  </div>
+
+  <div class="buttons">
     <button href="#" class="button action-toggle-hidden"><%= l('Show hidden invitations') %></button>
     <button href="#" class="button target-selection action-delete-invitation" disabled="disabled"=><%= l('Delete') %></button>
     <button href="#" class="button target-selection action-resend-invitation" disabled="disabled"><%= l('Resend invitation mail') %></button>
     <button href="#" class="button target-selection action-toggle-visibility" disabled="disabled"><%= l('Toggle visibility') %></button>
   </div>
 
-  <table>
-    <thead>
+  <div class="table-container">
+    <table class="table is-stripped is-hoverable">
+      <thead>
         <tr>
-            <th><%= l('Selection') %></th>
-            <th><%= l('Guest mail') %></th>
-            <th><%= l('URL') %></th>
-            <th><%= l('Created at') %></th>
-            <th><%= l('Expire at') %></th>
-            <th><%= l('Files sent at') %></th>
-            <th><%= l('Files') %></th>
+          <th class="has-text-centered">
+            <div><%= l('Selection') %></div>
+            <div class="checkbox">
+              <input type="checkbox" id="action-select-all">
+            </div>
+          </th>
+          <th class="has-text-centered"><%= l('Guest mail') %></th>
+          <th class="has-text-centered"><%= l('URL') %></th>
+          <th class="has-text-centered"><%= l('Created at') %></th>
+          <th class="has-text-centered"><%= l('Expire at') %></th>
+          <th class="has-text-centered"><%= l('Files sent at') %></th>
+          <th class="has-text-centered"><%= l('Files') %></th>
         </tr>
-    </thead>
-    <tbody class="invitations-list" data-visibility="hidden">
-    % my $time = time;
-    % $invitations->each(sub {
-      % my ($e, $num) = @_;
-      % return if $e->deleted;
-      % my $class = '';
-      % $class = 'deleted' unless $e->is_valid;
-      % $class .= ' hidden' unless $e->show_in_list;
-      <tr id="row-<%= $e->token %>" class="item <%= $class %>" aria-hidden="<%= ($e->show_in_list) ? 'true' : 'false' %>" data-visibility="<%= ($e->show_in_list) ? 1 : 0 %>">
-        <td class="column selection">
-          <div class="checkbox input-selection">
-            <input type="checkbox" data-token="<%= $e->token %>" aria-label="Select">
-            
-            % unless ($e->show_in_list) {
-              <span class="icon hide-source" title="<%= l('This invitation is normally hidden') %>"></span>
-            % }
-          </div>
-        </td>
-        <td class="column mail"><%= $e->guest_mail %></td>
-        <td class="column url"><%= url_for('guest', token => $e->token)->to_abs %></td>
-        <td class="column creation-date"><%= $lang->time2str(l('%A %d %B %Y at %T'), $e->created_at) %></td>
-        <td class="column expiration-date"><%= $lang->time2str(l('%A %d %B %Y at %T'), $e->expire_at) %></td>
-        <td class="column files-sent-data"><%= $lang->time2str(l('%A %d %B %Y at %T'), $e->files_sent_at) if $e->files_sent_at %></td>
-        <td class="column actions">
+      </thead>
+      <tbody class="invitations-list" data-visibility="hidden">
+      % my $time = time;
+      % $invitations->each(sub {
+        % my ($e, $num) = @_;
+        % return if $e->deleted;
+        % my $class = '';
+        % $class = 'deleted' unless $e->is_valid;
+        % $class .= ' is-hidden' unless $e->show_in_list;
+        <tr id="row-<%= $e->token %>" class="item <%= $class %>" aria-hidden="<%= ($e->show_in_list) ? 'true' : 'false' %>" data-visibility="<%= ($e->show_in_list) ? 1 : 0 %>">
+          <td class="selection is-vcentered has-text-centered">
+            <div class="checkbox input-delete-on-first-view">
+              <input type="checkbox" data-token="<%= $e->token %>" autocomplete="off" aria-label="Select">
+              
+              % unless ($e->show_in_list) {
+                <span class="icon fas fa-eye-slash" title="<%= l('This invitation is normally hidden') %>"></span>
+              % }
+            </div>
+          </td>
+          <td class="mail is-vcentered"><%= $e->guest_mail %></td>
+          <td class="url is-vcentered"><%= url_for('guest', token => $e->token)->to_abs %></td>
+          <td class="creation-date is-vcentered"><%= $lang->time2str(l('%A %d %B %Y at %T'), $e->created_at) %></td>
+          <td class="expiration-date is-vcentered"><%= $lang->time2str(l('%A %d %B %Y at %T'), $e->expire_at) %></td>
+          <td class="files-sent-data is-vcentered"><%= $lang->time2str(l('%A %d %B %Y at %T'), $e->files_sent_at) if $e->files_sent_at %></td>
+          <td class="actions is-vcentered">
           % if ($e->files) {
             <a
               class="button modal-button action-files-info"
@@ -60,12 +71,13 @@
             >
               <%= l('Files') %>
             </a>
-         % }
-        </td>
-      </tr>
-    % });
-    </tbody>
-  </table>
+        % }
+          </td>
+        </tr>
+      % });
+      </tbody>
+    </table>
+  </div>
 
   <dialog class="modal files-info">
     <section>
@@ -82,10 +94,30 @@
       </footer>
     </section>
   </dialog>
-</section>
+</div>
+
+
+<div id="modal-language-selector" class="modal files-info">
+  <div class="modal-background"></div>
+  <div class="modal-card">
+    <header class="modal-card-head is-shadowless">
+      <p class="modal-card-title">
+        <%= l('Files sent in invitation XX1 by XX2') %>
+        <button class="delete is-pulled-right" aria-label="close"></button>
+      </p>
+    </header>
+
+    <section class="modal-card-body">
+      <ul class="files-list">
+        
+      </li>
+    </section>
+    <footer class="modal-card-foot"></footer>
+  </div>
+</div>
 
 <template id="icon-hide-source">
-  <span class="icon hide-source" title="<%= l('This invitation is normally hidden') %>"></span>
+  <span class="icon fas fa-eye-slash" title="<%= l('This invitation is normally hidden') %>"></span>
 </template>
 
 <template id="item">
@@ -109,4 +141,4 @@ const deleteURL = '<%= url_for('invite_list_delete') %>';
 const resendURL = '<%= url_for('invite_list_resend') %>';
 const toggleURL = '<%= url_for('invite_list_visibility') %>';
 </script>
-%= javascript '/js/min.lufi-list-invitations.js', type => 'module', defer => "true"
+%= javascript '/js/minified/list-invitations.min.js', type => 'module', defer => "true"

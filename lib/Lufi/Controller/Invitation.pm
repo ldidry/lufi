@@ -18,7 +18,7 @@ sub new_invite {
     if ($c->is_user_authenticated) {
         my $mail_attr            = $c->config('invitations')->{'mail_attr'} // 'mail';
         my $max_expire_at        = $c->config('invitations')->{'max_invitation_expiration_delay'} // 30;
-        my $send_with_user_email = defined $c->config('invitations')->{'send_invitation_with_ldap_user_mail'};
+        my $send_with_user_email = defined $c->config('invitations')->{'send_invitation_with_ldap_user_mail'} && $c->config('invitations')->{'send_invitation_with_ldap_user_mail'} eq 1;
         $c->render(
             template             => 'invitations/invite',
             max_expire_at        => $max_expire_at,
