@@ -252,6 +252,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
                     // Add the file to localStorage
                     if (!isGuest) {
+                      console.debug(job.lufiFile.keys.server);
                       addItem(
                         job.lufiFile.name,
                         job.lufiFile.downloadUrl(),
