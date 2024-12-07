@@ -221,16 +221,14 @@
           <div class="cell is-col-1">
               <span class="icon fas fa-file fa-2x is-large has-text-primary" aria-hidden="true"></span>
           </div>
-          <div class="cell is-col-span-9">
+          <div class="cell is-col-span-10">
             <strong class="is-block wb-all name is-overflow-x"></strong>
             <small class="is-block size mt-1"></small>
           </div>
 
-          <div class="cell is-col-10 ">
-            <button class="is-narrow card-header-icon" aria-label="<%= l('Close') %>">
-              <span class="delete"></span>
-            </button>
-          </div>
+          <button class="is-narrow is-pulled-right card-header-icon" aria-label="<%= l('Close') %>">
+            <span class="delete"></span>
+          </button>
         </div>
       
       </div>
@@ -246,12 +244,12 @@
           <div class="cell is-col-1">
               <span class="icon fas fa-file fa-2x is-large has-text-primary" aria-hidden="true"></span>
           </div>
-          <div class="cell is-col-span-9">
+          <div class="cell is-col-span-10">
             <strong class="is-block wb-all name is-overflow-x"></strong>
             <small class="is-block size mt-1"></small>
           </div>
 
-          <button class="cell is-col-10 is-narrow has-text-right card-header-icon" aria-label="<%= l('Close') %>">
+          <button class="is-narrow is-pulled-right card-header-icon" aria-label="<%= l('Close') %>">
             <span class="delete"></span>
           </button>
         </div>
@@ -272,12 +270,12 @@
           <div class="cell is-col-1">
               <span class="icon fas fa-file fa-2x is-large has-text-primary" aria-hidden="true"></span>
           </div>
-          <div class="cell is-col-span-9">
+          <div class="cell is-col-span-10">
             <strong class="is-block wb-all name is-overflow-x name"></strong>
             <small class="is-block size mt-1 size"></small>
           </div>
 
-          <button class="cell is-col-10 is-narrow has-text-right card-header-icon" aria-label="<%= l('Close') %>">
+          <button class="is-narrow is-pulled-right card-header-icon" aria-label="<%= l('Close') %>">
             <span class="delete"></span>
           </button>
         </div>
