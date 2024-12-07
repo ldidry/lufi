@@ -73,10 +73,6 @@ a:not(#main-menu a) a:hover {
   color: var(--bulma-link-text);
 }
 
-.navbar {
-  overflow-x: auto;
-}
-
 #main-menu div.navbar-item:hover:has(form) {
   --bulma-navbar-item-background-l-delta: var(--bulma-navbar-item-hover-background-l-delta);
   --bulma-navbar-item-background-a: 1;
