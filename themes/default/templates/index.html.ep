@@ -342,7 +342,7 @@ const maxSize = <%= config('max_file_size') || 0 %>;
 
 % if (defined stash('invitation')) {
 const isGuest          = true;
-const sendFilesURLsURL = '<%= url_for('guest_send_mail', token => stash('invitation')->token)->to_abs() %>';
+const sendGuestFileURL = '<%= url_for('guest_send_mail', token => stash('invitation')->token)->to_abs() %>';
 % } else {
 const isGuest = false;
 % }

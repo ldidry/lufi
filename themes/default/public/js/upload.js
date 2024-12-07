@@ -100,29 +100,27 @@ document.addEventListener("DOMContentLoaded", () => {
   /**
    * [Invitation feature] Send URLs of files to server
    */
-  const sendFilesURLs = () => {
-    if (filesURLs.length > 0) {
-      fetch(sendFilesURLsURL, {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify({
-          urls: filesURLs,
-        }),
+  const sendGuestFiles = (fileURL) => {
+    fetch(sendGuestFileURL, {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({
+        urls: [fileURL],
+      }),
+    })
+      .then((response) => response.json())
+      .then((data) => {
+        if (data.success) {
+          notify(data.msg, "success");
+        } else {
+          notify(data.msg, "danger");
+        }
       })
-        .then((response) => response.json())
-        .then((data) => {
-          if (data.success) {
-            notify(data.msg, "success");
-          } else {
-            notify(data.msg, "danger");
-          }
-        })
-        .catch((error) => {
-          console.error("Error:", error);
-        });
-    }
+      .catch((error) => {
+        console.error("Error:", error);
+      });
   };
 
   /**
@@ -203,8 +201,8 @@ document.addEventListener("DOMContentLoaded", () => {
                       job.lufiFile.delay === 0
                         ? i18n.noLimit
                         : `${i18n.expiration} ${formatDate(
-                            job.lufiFile.delay * 86400 + job.lufiFile.createdAt
-                          )}`;
+                          job.lufiFile.delay * 86400 + job.lufiFile.createdAt
+                        )}`;
 
                     if (job.lufiFile.type === "application/zip") {
                       uploadedFileCard
@@ -224,11 +222,10 @@ document.addEventListener("DOMContentLoaded", () => {
                         job.lufiFile.downloadUrl();
                       uploadedFileCard.querySelector(".action-delete").href =
                         job.lufiFile.removeUrl();
-                      uploadedFileCard.querySelector(".action-share").href = `${
-                        job.lufiFile.serverUrl
-                      }m?links=${encodeURIComponent(
-                        '["' + job.lufiFile.keys.server + '"]'
-                      )}`;
+                      uploadedFileCard.querySelector(".action-share").href = `${job.lufiFile.serverUrl
+                        }m?links=${encodeURIComponent(
+                          '["' + job.lufiFile.keys.server + '"]'
+                        )}`;
 
                       uploadedFileCard
                         .querySelector(".action-copy")
@@ -266,19 +263,15 @@ document.addEventListener("DOMContentLoaded", () => {
                     }
 
                     if (isGuest && job.lufiFile.keys.server !== null) {
-                      filesURLs.push(
-                        JSON.stringify({
-                          name: job.lufiFile.name,
-                          short: job.lufiFile.keys.server,
-                          url: job.lufiFile.downloadUrl(),
-                          size: job.lufiFile.size,
-                          created_at: job.lufiFile.createdAt,
-                          delay,
-                          token: job.lufiFile.actionToken,
-                        })
-                      );
-
-                      sendFilesURLs();
+                      sendGuestFiles(JSON.stringify({
+                        name: job.lufiFile.name,
+                        short: job.lufiFile.keys.server,
+                        url: job.lufiFile.downloadUrl(),
+                        size: job.lufiFile.size,
+                        created_at: job.lufiFile.createdAt,
+                        delay,
+                        token: job.lufiFile.actionToken,
+                      }));
                     }
 
                     return okAsync(job);
