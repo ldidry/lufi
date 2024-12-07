@@ -73,6 +73,10 @@ a:not(#main-menu a) a:hover {
   color: var(--bulma-link-text);
 }
 
+.navbar {
+  overflow-x: auto;
+}
+
 #main-menu div.navbar-item:hover:has(form) {
   --bulma-navbar-item-background-l-delta: var(--bulma-navbar-item-hover-background-l-delta);
   --bulma-navbar-item-background-a: 1;
@@ -123,6 +127,10 @@ a:not(#main-menu a) a:hover {
   overflow-y: auto;
   background: hsl(var(--bulma-scheme-h), var(--bulma-scheme-s), calc(var(--bulma-scheme-main-ter-l)));
   border-radius: var(--bulma-radius);
+}
+
+#uploaded-files .card-footer {
+  overflow-x: auto;
 }
 
 #file-js-upload {
