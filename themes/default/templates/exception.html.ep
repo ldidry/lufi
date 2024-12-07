@@ -1,0 +1,18 @@
+
+<section class="box">
+% if (stash('expired_or_deleted_invitation')) {
+  <div class="message is-danger">
+    <div class="message-body">
+      <%= l('Sorry, your invitation has expired or has been deleted.') %>
+    </div>
+  </div>
+% }
+
+% if (stash('invitation_not_found')) {
+  <div class="message is-danger">
+    <div class="message-body">
+      <%= l('Sorry, the invitation doesn’t exist. Are you sure you are on the right URL?') %>
+    </div>
+  </div>
+% }
+</section>

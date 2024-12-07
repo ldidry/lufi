@@ -14,13 +14,13 @@
 
   <div class="buttons">
     <button href="#" class="button action-toggle-hidden"><%= l('Show hidden invitations') %></button>
-    <button href="#" class="button target-selection action-delete-invitation" disabled="disabled"=><%= l('Delete') %></button>
+    <button href="#" class="button target-selection action-delete-invitation" disabled="disabled"><%= l('Delete') %></button>
     <button href="#" class="button target-selection action-resend-invitation" disabled="disabled"><%= l('Resend invitation mail') %></button>
     <button href="#" class="button target-selection action-toggle-visibility" disabled="disabled"><%= l('Toggle visibility') %></button>
   </div>
 
-  <div class="table-container">
-    <table class="table is-stripped is-hoverable">
+  <div class="table-container is-fullwidth">
+    <table class="table is-stripped is-hoverable is-fullwidth">
       <thead>
         <tr>
           <th class="has-text-centered">
@@ -43,16 +43,13 @@
         % my ($e, $num) = @_;
         % return if $e->deleted;
         % my $class = '';
-        % $class = 'deleted' unless $e->is_valid;
+        % $class = ' deleted' unless $e->is_valid;
         % $class .= ' is-hidden' unless $e->show_in_list;
-        <tr id="row-<%= $e->token %>" class="item <%= $class %>" aria-hidden="<%= ($e->show_in_list) ? 'true' : 'false' %>" data-visibility="<%= ($e->show_in_list) ? 1 : 0 %>">
+        <tr id="row-<%= $e->token %>" class="item<%= $class %>" aria-hidden="<%= ($e->show_in_list) ? 'true' : 'false' %>" data-visibility="<%= ($e->show_in_list) ? 'shown' : 'hidden' %>">
           <td class="selection is-vcentered has-text-centered">
             <div class="checkbox input-delete-on-first-view">
               <input type="checkbox" data-token="<%= $e->token %>" autocomplete="off" aria-label="Select">
-              
-              % unless ($e->show_in_list) {
-                <span class="icon fas fa-eye-slash" title="<%= l('This invitation is normally hidden') %>"></span>
-              % }
+              <span class="icon fas fa-eye-slash<%= ' is-hidden' if($e->show_in_list) %>" title="<%= l('This invitation is normally hidden') %>"></span>
             </div>
           </td>
           <td class="mail is-vcentered"><%= $e->guest_mail %></td>
@@ -108,17 +105,11 @@
     </header>
 
     <section class="modal-card-body">
-      <ul class="files-list">
-        
-      </li>
+      <ul class="files-list"></ul>
     </section>
     <footer class="modal-card-foot"></footer>
   </div>
 </div>
-
-<template id="icon-hide-source">
-  <span class="icon fas fa-eye-slash" title="<%= l('This invitation is normally hidden') %>"></span>
-</template>
 
 <template id="item">
   <li class="item">

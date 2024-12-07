@@ -11,9 +11,11 @@
 % if (scalar(@{$self->stash('success')})) {
   <div class="message is-success">
     <div class="message-body">
-    % for my $msg (@{$self->stash('success')}) {
-      <%= $msg %>
-    % }
+      <p class="content">
+      % for my $msg (@{$self->stash('success')}) {
+        <%= $msg %>
+      % }
+      </p>
     </div>
   </div>
 % }

@@ -27,7 +27,7 @@ const toggleHidden = () => {
   const invitationsListDOM = document.querySelector(".invitations-list");
   const toggleButtonDOM = document.querySelector(".action-toggle-hidden");
   const itemsHiddenDOM = invitationsListDOM.querySelectorAll(
-    ".item[data-visibility='0']"
+    ".item[data-visibility='hidden']"
   );
 
   if (invitationsListDOM.dataset.visibility === "hidden") {
@@ -72,7 +72,7 @@ const deleteInvitation = () => {
         })
         .then((data) => {
           if (data.success) {
-            data.success.forEach((t) => {
+            data.tokens.forEach((t) => {
               addToast(t.msg, "success");
               document.getElementById(`row-${t.token}`).remove();
             });
@@ -157,11 +157,11 @@ const toggleVisibility = () => {
           const itemDOM = document.getElementById(`row-${t.token}`);
 
           if (t.show) {
-            itemDOM.setAttribute("data-visibility", 1);
+            itemDOM.setAttribute("data-visibility", "shown");
             showNode(itemDOM);
-            itemDOM.querySelector(".selection .icon.hide-source").remove();
+            itemDOM.querySelector(".selection .icon").classList.add("is-hidden");
           } else {
-            itemDOM.setAttribute("data-visibility", 0);
+            itemDOM.setAttribute("data-visibility", "hidden");
 
             if (
               document.querySelector(".invitations-list").dataset.visibility ===
@@ -170,13 +170,7 @@ const toggleVisibility = () => {
               hideNode(itemDOM);
             }
 
-            itemDOM
-              .querySelector(".selection")
-              .appendChild(
-                document
-                  .querySelector("template#icon-hide-source")
-                  .content.cloneNode(true)
-              );
+            itemDOM.querySelector(".selection .icon").classList.remove("is-hidden")
           }
 
           itemDOM.querySelector(".selection input").click();
@@ -238,11 +232,11 @@ const fillModal = (event) => {
 document.addEventListener("DOMContentLoaded", () => {
   document.querySelectorAll(".modal-button.action-files-info").forEach(
     (button) =>
-      (button.onclick = (event) => {
-        fillModal(event);
+    (button.onclick = (event) => {
+      fillModal(event);
 
-        document.querySelector(".modal.files-info").showModal();
-      })
+      document.querySelector(".modal.files-info").showModal();
+    })
   );
 
   document.querySelector(".close-modal").onclick = () => {
