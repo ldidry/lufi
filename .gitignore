@@ -16,6 +16,7 @@ themes/*
 !themes/default/*
 themes/default/public/js/minified/*
 !themes/default/public/js/minified/worker/
+themes/default/public/css/main.min.css
 .stignore
 .stfolder/
 TODO
