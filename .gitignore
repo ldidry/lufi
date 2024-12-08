@@ -20,4 +20,4 @@ themes/default/public/css/main.min.css
 .stignore
 .stfolder/
 TODO
-
+.vscode/
