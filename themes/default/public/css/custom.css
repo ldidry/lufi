@@ -207,3 +207,15 @@ tr.deleted {
     background: repeating-linear-gradient(-45deg, transparent 0 2rem, var(--bulma-danger-05) 2rem 4rem);
   }
 }
+
+.modal-card-title {
+  width: 100%
+}
+
+.modal-card-title p {
+  width: 95%
+}
+
+.files-list {
+  list-style: disc;
+}

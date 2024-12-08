@@ -7,7 +7,7 @@
   <div class="message is-info">
     <div class="message-body">
       <p>
-        <%= l('Rows in purple mean that the invitations have expired.') %>
+        <%= l('Hatched lines mean that the invitations have expired.') %>
       </p>
     </div>
   </div>
@@ -60,48 +60,32 @@
           <td class="actions is-vcentered">
           % if ($e->files) {
             <a
-              class="button modal-button action-files-info"
+              class="js-modal-trigger button action-files-info is-primary"
               href="#files-info"
-              data-files='<%= $e->files %>'
+              data-files="<%= $e->files %>"
               data-token="<%= $e->token %>"
               data-guest="<%= $e->guest_mail %>"
+              data-target="modal-files-list"
             >
               <%= l('Files') %>
             </a>
-        % }
+          % }
           </td>
         </tr>
       % });
       </tbody>
     </table>
   </div>
-
-  <dialog class="modal files-info">
-    <section>
-      <header>
-        <h1><%= l('Files sent in invitation XX1 by XX2') %></h1>
-      </header>
-
-      <div class="content">
-        <ul class="files-list"></ul>
-      </div>
-      
-      <footer class="actions">
-        <button autofocus class="button close-modal"><%= l('Close') %></button>
-      </footer>
-    </section>
-  </dialog>
 </div>
 
-
-<div id="modal-language-selector" class="modal files-info">
+<div id="modal-files-list" class="modal files-info">
   <div class="modal-background"></div>
   <div class="modal-card">
     <header class="modal-card-head is-shadowless">
-      <p class="modal-card-title">
-        <%= l('Files sent in invitation XX1 by XX2') %>
+      <div class="modal-card-title">
+        <p class="is-inline-block wb-word"><%= l('Files sent in invitation XX1 by XX2') %></p>
         <button class="delete is-pulled-right" aria-label="close"></button>
-      </p>
+      </div>
     </header>
 
     <section class="modal-card-body">

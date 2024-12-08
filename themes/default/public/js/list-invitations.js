@@ -1,5 +1,5 @@
 import { filesize } from "~/lib/filesize.esm.min.js";
-import { addToast, hideNode, showNode } from "~/lib/utils.js";
+import { addToast, formatDate, hideNode, showNode } from "~/lib/utils.js";
 
 const updateButtonsStatus = () => {
   const targetSelectionDOM = document.querySelectorAll(".target-selection");
@@ -159,7 +159,9 @@ const toggleVisibility = () => {
           if (t.show) {
             itemDOM.setAttribute("data-visibility", "shown");
             showNode(itemDOM);
-            itemDOM.querySelector(".selection .icon").classList.add("is-hidden");
+            itemDOM
+              .querySelector(".selection .icon")
+              .classList.add("is-hidden");
           } else {
             itemDOM.setAttribute("data-visibility", "hidden");
 
@@ -170,7 +172,9 @@ const toggleVisibility = () => {
               hideNode(itemDOM);
             }
 
-            itemDOM.querySelector(".selection .icon").classList.remove("is-hidden")
+            itemDOM
+              .querySelector(".selection .icon")
+              .classList.remove("is-hidden");
           }
 
           itemDOM.querySelector(".selection input").click();
@@ -194,18 +198,20 @@ const getTokensBody = () => {
   return tokens;
 };
 
-const fillModal = (event) => {
-  const buttonDOM = event.target;
-  const modalDOM = document.querySelector(".modal.files-info");
+const fillModal = (buttonDOM) => {
+  const modalDOM = document.getElementById("modal-files-list");
 
   // Cleanup the modal
   modalDOM.querySelector(".files-list").replaceChildren();
 
-  modalDOM.querySelector("h1").innerText = i18n.listFiles
-    .replace("XX1", buttonDOM.dataset.token)
-    .replace("XX2", buttonDOM.dataset.guest);
+  modalDOM.querySelector("header .modal-card-title p").innerText =
+    i18n.listFiles
+      .replace("XX1", buttonDOM.dataset.token)
+      .replace("XX2", buttonDOM.dataset.guest);
 
-  const files = JSON.parse(buttonDOM.dataset.files) || [];
+  const files = buttonDOM.dataset.files
+    ? JSON.parse(buttonDOM.dataset.files)
+    : [];
   const itemList = new DocumentFragment();
 
   files.forEach((file) => {
@@ -213,15 +219,15 @@ const fillModal = (event) => {
       "XXX",
       formatDate(file.delay * 86400 + file.created_at)
     );
-    const item = modalDOM
-      .querySelector("template#item")
-      .content.cloneNode(true);
+    const item = document.querySelector("template#item").content.cloneNode(true)
+      .children[0];
 
+    console.debug(file.name);
     item.querySelector(".file-link").href = file.url;
-    item.querySelector(".file-link").value = file.name;
-    item.querySelector(".file-size").innerText = `${filesize(
+    item.querySelector(".file-link").innerText = file.name;
+    item.querySelector(".file-size").innerText = `(${filesize(
       file.size
-    )}, ${expires}`;
+    )}, ${expires})`;
 
     itemList.appendChild(item);
   });
@@ -230,18 +236,13 @@ const fillModal = (event) => {
 };
 
 document.addEventListener("DOMContentLoaded", () => {
-  document.querySelectorAll(".modal-button.action-files-info").forEach(
-    (button) =>
-    (button.onclick = (event) => {
-      fillModal(event);
-
-      document.querySelector(".modal.files-info").showModal();
-    })
-  );
-
-  document.querySelector(".close-modal").onclick = () => {
-    document.querySelector(".modal").close();
-  };
+  document
+    .querySelectorAll(".js-modal-trigger.action-files-info")
+    .forEach((node) => {
+      node.addEventListener("click", () => {
+        fillModal(node);
+      });
+    });
 
   document
     .querySelectorAll(".selection input")
