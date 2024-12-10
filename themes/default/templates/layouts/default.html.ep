@@ -123,12 +123,12 @@
       % }
       </main>
 
-      <div id="modal-language-selector" class="modal">
+      <div id="modal-language-selector" class="modal" role="dialog" aria-labelledby="modal-language-selector-title" tabindex="-1">
         <div class="modal-background"></div>
         <div class="modal-card">
           <header class="modal-card-head is-shadowless">
             <p class="modal-card-title">
-              <%= l('Languages') %>
+              <span id="modal-language-selector-title"><%= l('Languages') %></span>
               <button class="delete is-pulled-right" aria-label="close"></button>
             </p>
           </header>
@@ -193,6 +193,7 @@
           // Functions to open and close a modal
           const openModal = ($el) => {
             $el.classList.add("is-active");
+            $el.focus();
           };
 
           const closeModal = ($el) => {
