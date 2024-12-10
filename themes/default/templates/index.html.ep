@@ -177,6 +177,15 @@
         </div>
       </div>
     % }
+      <div id="lufi-description" class="block">
+        <div class="content">
+          <h1 class="title is-1 has-text-centered">Lufi</h1>
+          <h2 class="subtitle has-text-centered"><%= l("") %></h2>
+          <p class="is-size-5">
+            <%= l("Lufi lets you temporarily host your files securely! Your files are encrypted on your device and then stored on our server until the set expiry date. It's impossible for us to know what they contain!") %>
+          </p>
+        </div>
+      </div>
 
       <div id="uploaded-files" class="block">
       </div>
