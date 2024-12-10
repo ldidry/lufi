@@ -21,6 +21,8 @@
     <h3><%= l('Version') %></h3>
     <p><%== l('Latest tag of this instance: %1', sprintf('<a href="https://framagit.org/fiat-tux/hat-softwares/lufi/-/releases/%s" class="classic">%s</a>', stash('version')->{tag}, stash('version')->{tag})) %></p>
     <p><%== l('Latest commit of this instance: %1', sprintf('<a href="https://framagit.org/fiat-tux/hat-softwares/lufi/-/commit/%s" class="classic">%s</a>', stash('version')->{commit}, stash('version')->{commit})) %></p>
-    <p><%= link_to url_for('/') => ( class => "button action-back-homepage" ) => begin %><%= l('Back to homepage') %><% end%></p>
+    <p class="has-text-centered">
+      <%= link_to url_for('/') => ( class => "button action-back-homepage" ) => begin %><%= l('Back to homepage') %><% end%>
+    </p>
   </div>
 </div>
