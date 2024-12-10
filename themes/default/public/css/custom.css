@@ -5,11 +5,11 @@
 :root {
   --bulma-primary-h: 182deg;
   --bulma-link-h: 182deg;
+  --bulma-link-l: 19%;
 }
 
 @media (prefers-color-scheme: light) {
   :root {
-    --bulma-link-l: 19%;
     --bulma-link-on-scheme-l: 19%;
     --bulma-danger-l: 35%;
   }

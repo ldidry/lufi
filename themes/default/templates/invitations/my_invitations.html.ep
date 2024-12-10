@@ -7,7 +7,7 @@
   <div class="message is-info">
     <div class="message-body">
       <p>
-        <%= l('Hatched lines mean that the invitations have expired.') %>
+        <%= l('Hatched lines mean that the invitation have expired.') %>
       </p>
     </div>
   </div>
