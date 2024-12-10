@@ -222,7 +222,6 @@ const fillModal = (buttonDOM) => {
     const item = document.querySelector("template#item").content.cloneNode(true)
       .children[0];
 
-    console.debug(file.name);
     item.querySelector(".file-link").href = file.url;
     item.querySelector(".file-link").innerText = file.name;
     item.querySelector(".file-size").innerText = `(${filesize(
