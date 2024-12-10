@@ -78,7 +78,7 @@
   </div>
 </div>
 
-<div id="modal-files-list" class="modal files-info">
+<div id="modal-files-list" class="modal files-info" tabindex=-1 role="dialog" aria-label="<%= l('Files sent by the user')%>">
   <div class="modal-background"></div>
   <div class="modal-card">
     <header class="modal-card-head is-shadowless">
