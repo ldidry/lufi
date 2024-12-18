@@ -187,11 +187,33 @@
         </div>
       </div>
 
-      <div id="uploaded-files" class="block">
-      </div>
+      <div id="uploaded-files" class="block"></div>
     </div>
   </div>
 % }
+
+<template id="card-file-skeleton">
+  <article class="card-file-skeleton card m-2 is-size-6 skeleton-block">
+    <div class="card-content p-2">
+      <div class="content fixed-grid has-12-cols">
+        <div class="grid is-vcentered">
+          <div class="cell is-col-1">
+              <span class="icon fas fa-file fa-2x is-large has-text-primary" aria-hidden="true"></span>
+          </div>
+          <div class="cell is-col-span-10">
+            <strong class="is-block wb-all name is-overflow-x"></strong>
+            <small class="is-block size mt-1"></small>
+          </div>
+
+          <button class="is-narrow is-pulled-right card-header-icon" aria-label="<%= l('Close') %>">
+            <span class="delete"></span>
+          </button>
+        </div>
+      
+      </div>
+    </div>
+  </article>
+</template>
 
 <template id="card-file-error">
   <article class="card-file-error card m-2 is-size-6">
