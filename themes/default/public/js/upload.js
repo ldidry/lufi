@@ -150,6 +150,12 @@ document.addEventListener("DOMContentLoaded", () => {
   ) => {
     const uploadedFilesDOM = document.getElementById("uploaded-files");
 
+    const skeletonCardDOM = document
+      .querySelector("template#card-file-skeleton")
+      .content.cloneNode(true).children[0];
+
+    uploadedFilesDOM.prepend(skeletonCardDOM);
+
     const serverUrl = new URL(ws_url.replace("/upload", ""));
     serverUrl.protocol = serverUrl.protocol === "ws:" ? "http:" : "https:";
 
@@ -197,6 +203,7 @@ document.addEventListener("DOMContentLoaded", () => {
                   updateProgressBar(job.lufiFile, uploadingFileCard);
                 });
 
+                skeletonCardDOM.remove();
                 uploadedFilesDOM.prepend(uploadingFileCard);
 
                 return job
