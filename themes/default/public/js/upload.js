@@ -395,10 +395,10 @@ document.addEventListener("DOMContentLoaded", () => {
   let providedFiles = [];
   let totalSize = 0;
 
-  fileInput.onchange = () => {
+  const handleFilesPick = (files) => {
     const providedFilesDOM = document.getElementById("provided-files");
 
-    Array.from(fileInput.files).forEach((file) => {
+    Array.from(files).forEach((file) => {
       if (!providedFiles.find((f) => file.name === f.name)) {
         providedFiles.push(file);
 
@@ -457,6 +457,8 @@ document.addEventListener("DOMContentLoaded", () => {
     }
   };
 
+  fileInput.onchange = () => handleFilesPick(fileInput.files);
+
   document.getElementById("zip-multiple").onchange = () => {
     document.getElementById("zip-name").classList.toggle("is-invisible");
   };
@@ -508,6 +510,20 @@ document.addEventListener("DOMContentLoaded", () => {
     document.getElementById("provided-files").replaceChildren();
 
     showFullUploadZone();
+  };
+
+  document.getElementById("file-js-upload").ondragover = (event) => {
+    event.stopPropagation();
+    event.preventDefault();
+
+    event.dataTransfer.dropEffect = "copy";
+  };
+
+  document.querySelector("#file-js-upload").ondrop = (event) => {
+    event.preventDefault();
+    event.stopPropagation();
+
+    handleFilesPick(event.dataTransfer.files);
   };
 
   if (maxSize) {
