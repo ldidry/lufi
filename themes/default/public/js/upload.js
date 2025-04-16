@@ -159,11 +159,15 @@ document.addEventListener("DOMContentLoaded", () => {
     const serverUrl = new URL(ws_url.replace("/upload", ""));
     serverUrl.protocol = serverUrl.protocol === "ws:" ? "http:" : "https:";
 
-    const cardId = isSecureContext ? crypto.randomUUID() : uuidv4();
-
-    let uploadingFileCard = initCard("uploading", cardId);
-
     document.getElementById("lufi-description").classList.add("is-hidden");
+
+    const generateCardId = () =>
+      isSecureContext ? crypto.randomUUID() : uuidv4();
+
+    const zippedCardId = isZipped ? generateCardId() : null;
+    const zippedUploadingFileCard = isZipped
+      ? initCard("uploading", zippedCardId)
+      : null;
 
     const runUpload = (job = null) => {
       if (!job || job.status === JobStatus.COMPLETE) {
@@ -181,8 +185,10 @@ document.addEventListener("DOMContentLoaded", () => {
           .andThen((jobs) =>
             ResultAsync.combine(
               jobs.map((job) => {
-                uploadingFileCard =
-                  uploadingFileCard ?? initCard("uploading", cardId);
+                const cardId = isZipped ? zippedCardId : generateCardId();
+                const uploadingFileCard = isZipped
+                  ? zippedUploadingFileCard
+                  : initCard("uploading", cardId);
 
                 uploadingFileCard.querySelector(".name").innerText =
                   job.lufiFile.name;
@@ -258,6 +264,7 @@ document.addEventListener("DOMContentLoaded", () => {
                           }, 1000);
                         });
                     }
+
                     uploadedFilesDOM.replaceChild(
                       uploadedFileCard,
                       uploadingFileCard
@@ -294,14 +301,14 @@ document.addEventListener("DOMContentLoaded", () => {
                     return okAsync(job);
                   })
                   .orElse((error) => {
-                    showErrorCard(error, cardId, job.lufiFile);
+                    showErrorCard(error, zippedCardId, job.lufiFile);
                     return errAsync(error);
                   });
               })
             )
           )
           .orElse((error) => {
-            showErrorCard(error, cardId);
+            showErrorCard(error, zippedCardId);
 
             return errAsync(error);
           });
@@ -311,20 +318,20 @@ document.addEventListener("DOMContentLoaded", () => {
     };
 
     if (isZipped) {
-      uploadingFileCard = initCard("uploading", cardId);
+      zippedUploadingFileCard.querySelector(".name").innerText = zipName;
+      zippedUploadingFileCard.querySelector(".size").innerText =
+        i18n.unknownYet;
+      zippedUploadingFileCard.querySelector(".info").innerText =
+        i18n.compressing;
 
-      uploadingFileCard.querySelector(".name").innerText = zipName;
-      uploadingFileCard.querySelector(".size").innerText = i18n.unknownYet;
-      uploadingFileCard.querySelector(".info").innerText = i18n.compressing;
-
-      uploadedFilesDOM.prepend(uploadingFileCard);
+      uploadedFilesDOM.prepend(zippedUploadingFileCard);
 
       return lufi
         .addFilesToArchive(files)
         .andThen((archiveEntries) => lufi.compress(archiveEntries, zipName))
         .andThen((job) => {
-          if (uploadingFileCard.querySelector(".name")) {
-            uploadingFileCard
+          if (zippedUploadingFileCard.querySelector(".name")) {
+            zippedUploadingFileCard
               .querySelector("button .delete")
               .parentNode.addEventListener("click", () => {
                 job.terminate();
@@ -338,7 +345,7 @@ document.addEventListener("DOMContentLoaded", () => {
         })
         .andThen(runUpload)
         .mapErr((error) => {
-          showErrorCard(error, cardId);
+          showErrorCard(error, zippedCardId);
         });
     } else {
       return runUpload();
