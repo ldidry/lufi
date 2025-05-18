@@ -80,7 +80,7 @@ const importStorage = (event) => {
 const validURL = (str) => {
   try {
     return new URL(str).host ? true : false;
-  } catch (e) {
+  } catch (_e) {
     return false;
   }
 };
