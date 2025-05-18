@@ -187,13 +187,13 @@
         </div>
       </div>
 
-      <div id="uploaded-files" class="block"></div>
+      <ul id="uploaded-files" class="block"></ul>
     </div>
   </div>
 % }
 
 <template id="card-file-skeleton">
-  <article class="card-file-skeleton card m-2 is-size-6 skeleton-block">
+  <li class="card-file-skeleton card m-2 is-size-6 skeleton-block">
     <div class="card-content p-2">
       <div class="content fixed-grid has-12-cols">
         <div class="grid is-vcentered">
@@ -212,11 +212,11 @@
       
       </div>
     </div>
-  </article>
+  </li>
 </template>
 
 <template id="card-file-error">
-  <article class="card-file-error card m-2 is-size-6">
+  <li class="card-file-error card m-2 is-size-6">
     <div class="card-content p-2">
       <div class="content fixed-grid has-12-cols">
         <div class="grid is-vcentered">
@@ -241,11 +241,11 @@
       
       </div>
     </div>
-  </article>
+  </li>
 </template>
 
 <template id="card-file-to-upload">
-  <article class="card-file-to-upload card m-2 is-size-6">
+  <li class="card-file-to-upload card m-2 is-size-6">
     <div class="card-content p-2">
       <div class="content fixed-grid has-12-cols">
         <div class="grid is-vcentered">
@@ -264,11 +264,11 @@
       
       </div>
     </div>
-  </article>
+  </li>
 </template>
 
 <template id="card-file-uploading">
-  <article class="card-file-uploading card m-2 is-size-6">
+  <li class="card-file-uploading card m-2 is-size-6">
     <div class="card-content p-2">
       <div class="content fixed-grid has-12-cols">
         <div class="grid is-vcentered">
@@ -290,11 +290,11 @@
         <progress class="progress is-primary is-small" max="100">0%</progress>
       </div>
     </div>
-  </article>
+  </li>
 </template>
 
 <template id="card-file-uploaded">
-  <article class="card-file-uploaded card m-2 is-size-6">
+  <li class="card-file-uploaded card m-2 is-size-6">
     <div class="card-content p-2">
       <div class="content fixed-grid has-12-cols">
         <div class="grid is-vcentered">
@@ -343,7 +343,7 @@
         </a>
       </footer>
     % }
-  </article>
+  </li>
 </template>
 
 <script type="text/javascript">
