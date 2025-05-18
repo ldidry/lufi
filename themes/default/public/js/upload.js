@@ -543,6 +543,4 @@ document.addEventListener("DOMContentLoaded", () => {
       .querySelector("#upload-box .file-cta .file-label")
       .append(maxSizeDOM);
   }
-
-  document.querySelector(".file-input").focus();
 });
