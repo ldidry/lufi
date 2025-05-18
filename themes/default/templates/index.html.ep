@@ -119,7 +119,7 @@
                   </div>
                   <div class="field is-grouped">
                     <div id="password-control" class="control has-icons-left has-icons-right is-expanded is-invisible">
-                      <input class="input is-fullwidth" id="password-input" type="password" placeholder="<%= l('Password') %>" autocomplete="off" value="">
+                      <input class="input is-fullwidth" id="password-input" aria-label="<%= l('Password') %>"type="password" placeholder="<%= l('Password') %>" autocomplete="off" value="">
                       
                       <span class="icon is-small is-left fas fa-lock" aria-hidden="true"></span>
                       <span id="password-preview-button" class="icon is-small is-right fas fa-eye is-clickable has-text-primary" aria-hidden="true"></span>
