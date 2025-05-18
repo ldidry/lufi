@@ -27,9 +27,7 @@
         <tr>
           <th class="has-text-centered">
             <div><%= l('Selection') %></div>
-            <div class="checkbox">
-              <input type="checkbox" id="action-select-all" aria-label="<%= l('Select All')%>">
-            </div>
+            <input class="checkbox" type="checkbox" id="action-select-all" aria-label="<%= l('Select All')%>">
           </th>
           <th class="has-text-centered is-vcentered"><%= l('File name') %></th>
           <th class="has-text-centered is-vcentered is-narrow"><%= l('Access nb') %></th>
