@@ -32,6 +32,11 @@
   :root {
     --bulma-danger-l: 75%;
   }
+
+  .panel.is-danger {
+    --bulma-panel-heading-background-l: 65%;
+    --bulma-panel-s: 55%;
+  }
 }
 
 @media (min-width: 768px) {
