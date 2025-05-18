@@ -318,10 +318,10 @@
     % if (!defined stash('invitation')) {
       <footer class="card-footer is-align-items-center">
         <a href="#" class="card-footer-item action-copy">
-          <span class="icon-text is-justify-content-center">
+          <button class="icon-text is-justify-content-center">
             <span class="icon fas fa-copy" aria-hidden="true"></span>
             <span class="text"><%= l('Copy link') %></span>
-          </span>
+          </button>
         </a>
         <a href="#" class="card-footer-item action-download">
           <span class="icon-text is-justify-content-center">
