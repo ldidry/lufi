@@ -5,7 +5,7 @@
 
   <div class="message is-info">
     <div class="message-body">
-      <%= l('Only the files sent with this browser will be listed here. This list is stored in localStorage: if you delete your localStorage data, you\'ll lose this list.') %><br>
+      <%= l('Only the files sent with this browser will be listed here. If you delete your browser data you will lose this list.') %><br>
       <%= l('Rows in red mean that the files have expired and are no longer available.') %>
     </div>
   </div>
