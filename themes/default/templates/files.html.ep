@@ -38,7 +38,7 @@
             </div>
           </th>
           <th class="has-text-centered"><%= l('File name') %></th>
-          <th class="has-text-centered"><%= l('Counter') %></th>
+          <th class="has-text-centered"><%= l('Access nb') %></th>
           <th class="has-text-centered"><%= l('Delete at first download?') %></th>
           <th class="has-text-centered"><%= l('Uploaded at') %></th>
           <th class="has-text-centered"><%= l('Expires at') %></th>
