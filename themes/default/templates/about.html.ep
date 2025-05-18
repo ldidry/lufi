@@ -11,7 +11,7 @@
     <p><%= l('Drag and drop files in the appropriate area or use the traditional way to send files and the files will be chunked, encrypted and sent to the server. You will get two links per file: a download link, that you give to the people you want to share the file with and a deletion link, allowing you to delete the file whenever you want.') %></p>
     <p><%= l('You can see the list of your files by clicking on the "My files" link at the top right of this page.') %></p>
     <h2><%= l('How to report an illegal file?') %></h2>
-    <p><%== l('Please contact the administrator: <a href="%1">%2</a>', config('report'), l('Contact mail')) %></p>
+    <p><%== l('Please use the dedicated report mail: <a href="%1">%2</a>', config('report'), l('Contact mail')) %></p>
     <h2><%= l('Who wrote this software?') %></h2>
     <p><%== l('The original (and only for now) author is <a href="https://fiat-tux.fr" class="classic">Luc Didry</a>.') %></p>
     <h2><%= l('How to install the software on my server?') %></h2>
