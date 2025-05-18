@@ -32,16 +32,13 @@ const updateSelection = (event) => {
 };
 
 const purgeExpired = () => {
-  const files = JSON.parse(localStorage.getItem(`${prefix}files`));
+  const deletedItemsDOM = document.getElementById("deleted-items-table");
 
-  files.forEach((file) => {
-    const fileDOM = document.querySelector(`.item-${file.short}`);
+  for (let i = 0; i < deletedItemsDOM.children.length; i++) {
+    deleteFromStorage(deletedItemsDOM.children[i].dataset.serverKey);
+  }
 
-    if (fileDOM?.classList.contains("deleted")) {
-      deleteFromStorage(file.short);
-      fileDOM.remove();
-    }
-  });
+  deletedItemsDOM.replaceChildren();
 };
 
 const exportStorage = () => {
@@ -135,6 +132,35 @@ const deleteSelection = () => {
 
 const populateFilesTable = () => {
   const itemsTableDOM = document.getElementById("items-table");
+  const deletedItemsDOM = document.getElementById("deleted-items-table");
+
+  const addDeletedItem = (file) => {
+    const deletedItemDOM = document
+      .querySelector("template#deleted-item")
+      .content.cloneNode(true).children[0];
+
+    deletedItemDOM.dataset.serverKey = file.short;
+    deletedItemDOM.querySelector(".name").innerText = file.name;
+    deletedItemDOM
+      .querySelector(".delete-at-first-view .icon")
+      .classList.add(file.del_at_first_view ? "fa-eraser" : "fa-close");
+    deletedItemDOM
+      .querySelector(".delete-at-first-view .icon")
+      .setAttribute("title", file.del_at_first_view ? i18n.yes : i18n.no);
+
+    deletedItemDOM.querySelector(".created-at").innerText = formatDate(
+      file.created_at
+    );
+    deletedItemDOM.querySelector(".expires-at").innerText =
+      file.delay == 0
+        ? i18n.noExpiration
+        : formatDate(file.delay * 86400 + file.created_at);
+
+    deletedItemDOM.querySelector(".counter").innerText = file.counter;
+
+    deletedItemsDOM.append(deletedItemDOM);
+  };
+
   itemsTableDOM.replaceChildren();
 
   let files = localStorage.getItem(`${prefix}files`);
@@ -175,6 +201,9 @@ const populateFilesTable = () => {
     itemDOM
       .querySelector(".delete-at-first-view .icon")
       .classList.add(file.del_at_first_view ? "fa-eraser" : "fa-close");
+    itemDOM
+      .querySelector(".delete-at-first-view .icon")
+      .setAttribute("title", file.del_at_first_view ? i18n.yes : i18n.no);
     itemDOM.querySelector(".created-at").innerText = formatDate(
       file.created_at
     );
@@ -220,13 +249,19 @@ const populateFilesTable = () => {
           countDOM.innerText = data.counter;
 
           if (data.deleted) {
-            countDOM.parentElement.classList.add("deleted");
+            file.counter = data.counter;
+
+            addDeletedItem(file);
+            countDOM.parentElement.remove();
           }
         } else {
-          alert(data.msg);
           countDOM.parentElement.remove();
 
           if (data.missing) {
+            console.log(
+              `$(data.name) ($(data.short)) is missing. Removing it from Storage.`
+            );
+
             deleteFromStorage(data.short);
           }
         }

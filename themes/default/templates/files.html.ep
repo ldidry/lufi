@@ -9,48 +9,74 @@
   </div>
 
 
-  <div class="buttons">
+  <article class="panel is-info">
+  <h2 class="panel-heading"><%= l('Uploaded files') %></h2>
+
+  <div class="buttons panel-block">
     <button id="action-delete-selection" type="button" class="button is-danger" disabled="disabled">
       <span class="icon-text">
         <span class="icon fas fa-trash"></span>
         <span><%= l('Delete selected files') %></span>
       </span>
     </button>
-
-    <button id="action-purge-expired" type="button" class="button">
-      <span class="icon-text">
-        <span class="icon fas fa-recycle"></span>
-        <span><%= l('Purge expired files') %></span>
-      </span>
-    </button>
   </div>
 
-  <div class="table-container">
+  <div class="panel-block table-container files-table mb-6">
     <table class="table is-stripped is-hoverable">
       <thead>
         <tr>
           <th class="has-text-centered">
             <div><%= l('Selection') %></div>
             <div class="checkbox">
-              <input type="checkbox" id="action-select-all">
+              <input type="checkbox" id="action-select-all" aria-label="<%= l('Select All')%>">
             </div>
           </th>
-          <th class="has-text-centered"><%= l('File name') %></th>
-          <th class="has-text-centered"><%= l('Access nb') %></th>
-          <th class="has-text-centered"><%= l('Delete at first download?') %></th>
-          <th class="has-text-centered"><%= l('Uploaded at') %></th>
-          <th class="has-text-centered"><%= l('Expires at') %></th>
-          <th class="has-text-centered"><%= l('Download link') %></th>
-          <th class="has-text-centered"><%= l('Share link') %></th>
-          <th class="has-text-centered"><%= l('Deletion link') %></th>
+          <th class="has-text-centered is-vcentered"><%= l('File name') %></th>
+          <th class="has-text-centered is-vcentered is-narrow"><%= l('Access nb') %></th>
+          <th class="has-text-centered is-vcentered is-narrow"><abbr title="<%= l('Delete at first download?') %>"><%= l('Delete after download') %></abbr></th>
+          <th class="has-text-centered is-vcentered"><%= l('Uploaded at') %></th>
+          <th class="has-text-centered is-vcentered"><%= l('Expires at') %></th>
+          <th class="has-text-centered is-vcentered"><%= l('Download') %></th>
+          <th class="has-text-centered is-vcentered"><%= l('Share') %></th>
+          <th class="has-text-centered is-vcentered"><%= l('Delete') %></th>
         </tr>
       </thead>
 
-      <tbody id="items-table"></tbody>
+      <tbody id="items-table" class="has-text-centered"></tbody>
     </table>
   </div>
+  </article>
 
-  <div class="buttons">
+  <article class="panel is-danger">
+  <h2 class="panel-heading"><%= l('Expired files') %></h2>
+
+  <div class="panel-block buttons">
+    <button id="action-purge-expired" type="button" class="button">
+      <span class="icon-text">
+        <span class="icon fas fa-recycle"></span>
+        <span><%= l('Remore expired files from browser history') %></span>
+      </span>
+    </button>
+  </div>
+
+  <div class="panel-block table-container deleted-files-table mb-6">
+    <table class="table is-stripped is-hoverable is-fullwidth">
+      <thead>
+        <tr>
+          <th class="has-text-centered is-vcentered"><%= l('File name') %></th>
+          <th class="has-text-centered is-vcentered"><%= l('Access nb') %></th>
+          <th class="has-text-centered is-vcentered is-narrow"><abbr title="<%= l('Delete at first download?') %>"><%= l('Delete at first download') %></abbr></th>
+          <th class="has-text-centered is-vcentered"><%= l('Uploaded at') %></th>
+          <th class="has-text-centered is-vcentered"><%= l('Expires at') %></th>
+        </tr>
+      </thead>
+
+      <tbody id="deleted-items-table" class="has-text-centered"></tbody>
+    </table>
+  </div>
+  </article>
+
+  <div class="buttons is-justify-content-center">
     <a id="action-export-storage" href="#" class="button">
       <span class="icon-text">
         <span class="icon fas fa-download"></span>
@@ -89,7 +115,7 @@
     <td class="created-at is-vcentered"></td>
     <td class="expires-at is-vcentered"></td>
     <td class="download is-vcentered">
-      <a title="<%= l('Download') %>" href="#">
+      <a href="#">
         <span class="icon-text is-justify-content-center">
           <span class="icon fas fa-download" aria-hidden="true"></span>
           <span><%= l('Download') %></span>
@@ -105,13 +131,28 @@
       </a>
     </td>
     <td class="deletion is-vcentered">
-      <a class="action-delete-item" title="<%= l('Delete') %>" href="#">
+      <a class="action-delete-item" href="#">
         <span class="icon-text is-justify-content-center">
           <span class="icon fas fa-trash" aria-hidden="true"></span>
           <span><%= l('Delete') %></span>
         </span>
       </a>
     </td>
+  </tr>
+</template>
+
+<template id="deleted-item">
+  <tr class="item">
+    <td class="name is-vcentered"></td>
+    <td class="counter is-vcentered"></td>
+    <td class="delete-at-first-view is-vcentered has-text-centered">
+      <span class="icon-text is-justify-content-center">
+        <span class="icon fas"></span>
+        <span class="text"></span>
+      </span>
+    </td>
+    <td class="created-at is-vcentered"></td>
+    <td class="expires-at is-vcentered"></td>
   </tr>
 </template>
 
@@ -126,9 +167,11 @@ const actionURL = '<%= url_for('/')->to_abs() %>';
 const counterURL = '<%== url_for('counter') %>';
 
 const i18n       = {
+  no:                       '<%= l('No') %>',
   noExpiration:             '<%= l('No expiration delay') %>',
   importProcessed:          '<%= l('The data has been successfully imported.') %>',
   importFilesWithoutPrefix: "<%= l('Lufi recently changed its way to store files information.\n\nNo files have been found in the new localStorage location but we found files in the old one.\nDo you want to import those informations?\n\nPlease note that this is the only time that we will ask you this.') %>",
+  yes:                       '<%= l('yes') %>'
 };
 </script>
 %= javascript '/js/minified/files.min.js', type => "module", defer => "true"

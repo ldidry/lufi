@@ -21,6 +21,11 @@
   .button.is-danger {
     --bulma-button-background-l-delta: 35%;
   }
+
+  .panel.is-danger {
+    --bulma-panel-heading-background-l: 65%;
+    --bulma-panel-s: 80%;
+  }
 }
 
 @media (prefers-color-scheme: dark) {
