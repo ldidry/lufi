@@ -134,11 +134,13 @@
 
           <section class="modal-card-body">
             <div class="fixed-grid is-fullwidth">
-              <div class="grid has-4-cols" aria-labelledby="language-selector">
+              <ul class="grid has-4-cols" aria-labelledby="language-selector">
               % for my $i (@{$self->available_langs}) {
-                <a class="navbar-item cell" href="<%= url_for('lang') . $i %>"><%= iso639_native_name($i) %></a>
+                <li>
+                  <a class="navbar-item cell" href="<%= url_for('lang') . $i %>"><%= iso639_native_name($i) %></a>
+                </li>
               % }
-              </div>
+              </diulv>
             </div>
           </section>
           <footer class="modal-card-foot"></footer>
