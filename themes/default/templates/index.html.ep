@@ -54,7 +54,7 @@
                 </div>
 
                 <div class="field-body is-align-items-center">
-                    <div class="field">
+                    <div class="field is-narrow">
                       <div class="control">
                         <div class="select">
                           <select id="expiration-delay" <%= 'disabled' if(max_delay) %>>
@@ -86,7 +86,7 @@
                   <div class="field is-narrow">or</div>
 
                   <fieldset <%= 'disabled' if config('force_burn_after_reading') %>>
-                    <div class="field">
+                    <div class="field is-expanded">
                       <div class="control"> 
                         <label for="delete-at-first-download" class="label is-flex is-gap-1 checkbox">
                           <%= l('After first download?') %>
@@ -102,31 +102,27 @@
                 </div>
               </div>
 
-              <div class="field is-horizontal is-align-items-center<%= ' is-hidden' if (!config('allow_pwd_on_files') || stash('invitation')) %>">
+              <div class="field is-horizontal is-expanded is-align-items-center<%= ' is-hidden' if (!config('allow_pwd_on_files') || stash('invitation')) %>">
                 <div class="field-label">
                   <label for="use-password" class="label">
                     <%= l('Protect with password') %>
                   </label>
                 </div>
                 <div class="field-body">
-                  <div class="field is-grouped is-align-items-center">
+                  <div class="field is-grouped is-narrow is-align-items-center">
                     <div class="control">
                       <input
                         type="checkbox"
                         id="use-password"
                       >
                     </div>
-                    
-                    <div class="field">
-                      <label id="password-control" class="label is-invisible">
-                        Password
-                        <div class="control has-icons-left has-icons-right is-expanded">
-                            <input class="input" id="password-input" type="password" placeholder="<%= l('Password') %>" autocomplete="off" value="">
-                            
-                            <span class="icon is-small is-left fas fa-lock" aria-hidden="true"></span>
-                            <span id="password-preview-button" class="icon is-small is-right fas fa-eye is-clickable has-text-primary" aria-hidden="true"></span>
-                        </div>
-                      </label>
+                  </div>
+                  <div class="field is-grouped">
+                    <div id="password-control" class="control has-icons-left has-icons-right is-expanded is-invisible">
+                      <input class="input is-fullwidth" id="password-input" type="password" placeholder="<%= l('Password') %>" autocomplete="off" value="">
+                      
+                      <span class="icon is-small is-left fas fa-lock" aria-hidden="true"></span>
+                      <span id="password-preview-button" class="icon is-small is-right fas fa-eye is-clickable has-text-primary" aria-hidden="true"></span>
                     </div>
                   </div>
                 </div>
