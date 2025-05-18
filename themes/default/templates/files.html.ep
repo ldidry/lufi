@@ -25,27 +25,6 @@
         <span><%= l('Purge expired files') %></span>
       </span>
     </button>
-
-    <a id="action-export-storage" href="#" class="button">
-      <span class="icon-text">
-        <span class="icon fas fa-download"></span>
-        <span><%= l('Export local data') %></span>
-      </span>
-    </a>
-
-    <div class="file">
-      <label class="file-label">
-        <input id="action-import-storage" type="file" class="file-input" name="import-local-data">
-        <span class="file-cta">
-          <span class="file-icon">
-            <span class="fas fa-upload"></span>
-          </span>
-          <span class="file-label">
-            <%= l('Import local data') %>
-          </span>
-        </span>
-      </label>
-    </div>
   </div>
 
   <div class="table-container">
@@ -71,6 +50,29 @@
 
       <tbody id="items-table"></tbody>
     </table>
+  </div>
+
+  <div class="buttons">
+    <a id="action-export-storage" href="#" class="button">
+      <span class="icon-text">
+        <span class="icon fas fa-download"></span>
+        <span><%= l('Export local data') %></span>
+      </span>
+    </a>
+
+    <div class="file">
+      <label class="file-label">
+        <input id="action-import-storage" type="file" class="file-input" name="import-local-data">
+        <span class="file-cta">
+          <span class="file-icon">
+            <span class="fas fa-upload"></span>
+          </span>
+          <span class="file-label">
+            <%= l('Import local data') %>
+          </span>
+        </span>
+      </label>
+    </div>
   </div>
 </div>
 
