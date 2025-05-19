@@ -50,6 +50,7 @@ swiftdev: swift dev
 devlog:
 	multitail log/development.log
 
-prod:
+build:
 	deno task build
+prod: build
 	$(CARTON) hypnotoad -f $(LUFI)
