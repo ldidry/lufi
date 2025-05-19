@@ -1,3 +1,4 @@
+% # vim:set sw=4 ts=4 sts=4 ft=html.epl expandtab:
 % my $lang = $self->languages;
 %    $lang =~ s/-(.*)/_\U$1/;
 <!DOCTYPE html>

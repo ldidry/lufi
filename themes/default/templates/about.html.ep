@@ -1,3 +1,4 @@
+% # vim:set sw=4 ts=4 sts=4 ft=html.epl expandtab:
 <div class="box">
   <div class="content">
     <h1 class="title is-1"><%= l('About') %></h1>
