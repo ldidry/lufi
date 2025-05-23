@@ -146,9 +146,9 @@
                     </div>
 
                     <div class="control is-expanded">
-                      <label class="label">
+                      <label id="zip-name" class="label">
                         <%= l('Name of the zip file') %>
-                        <input id="zip-name" type="text" class="input" value="documents.zip" placeholder="documents.zip">
+                        <input type="text" class="input" value="documents.zip" placeholder="documents.zip">
                       </label>
                     </div>
                   </div>
