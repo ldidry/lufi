@@ -499,7 +499,7 @@ document.addEventListener("DOMContentLoaded", () => {
       : "";
 
     const zipMultiple = document.getElementById("zip-multiple").checked;
-    const zipName = document.getElementById("zip-name").value;
+    const zipName = document.querySelector("#zip-name input").value;
 
     const mustZip = providedFiles.length > 1 ? zipMultiple : false;
 
