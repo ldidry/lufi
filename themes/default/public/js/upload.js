@@ -499,8 +499,9 @@ document.addEventListener("DOMContentLoaded", () => {
       : "";
 
     const zipMultiple = document.getElementById("zip-multiple").checked;
-    const zipName = document.querySelector("#zip-name input").value;
-
+    let zipName = document.querySelector("#zip-name input").value;
+    zipName = zipName.endsWith(".zip") ? zipName : `${zipName}.zip`;
+    
     const mustZip = providedFiles.length > 1 ? zipMultiple : false;
 
     startUpload(
