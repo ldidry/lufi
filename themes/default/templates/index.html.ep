@@ -49,7 +49,7 @@
             <div class="field">
               <div class="field is-horizontal is-align-items-center">
                 <div class="field-label">
-                  <label class="label<%= ' disabled' if(max_delay) %>" for="expiration-delay">
+                  <label class="label" for="expiration-delay">
                     <%= l('Expires after') %>
                   </label>
                 </div>
@@ -57,27 +57,14 @@
                 <div class="field-body is-align-items-center">
                     <div class="field is-narrow">
                       <div class="control">
-                        <div class="select">
-                          <select id="expiration-delay" <%= 'disabled' if(max_delay) %>>
+                        % if(max_delay)  {
+                          <%= (max_delay == 1) ? l('%1 hours', max_delay) : l('%1 days', max_delay) %>
+                        % }
+                        <div class="select <%= 'is-hidden' if(max_delay) %>">
+                          <select id="expiration-delay">
                             % for my $delay (qw/0 1 7 30 365/) {
                               % my $text = ($delay == 7 || $delay == 30) ? l('%1 days', $delay) : $d{'delay_'.$delay};
-                              % if (max_delay) {
-                                % if ($delay) {
-                                  % if ($delay < max_delay) {
-                                    <option value="<%= $delay %>" <%= is_selected($delay) %>><%= $text %></option>
-                                  % } elsif ($delay == max_delay) {
-                                    <option value="<%= $delay %>" <%= is_selected($delay) %>><%= $text %></option>
-                                    
-                                    % last;
-                                  % } else {
-                                    % my $text = ($delay == 1) ? l('24 hours') : l('%1 days', $delay);
-                                      <option value="<%= max_delay %>" <%= is_selected(max_delay) %>><%= l('%1 days', max_delay) %></option>
-                                    % last;
-                                  % }
-                                % }
-                              % } else {
                                 <option value="<%= $delay %>" <%= is_selected($delay) %>><%= $text %></option>
-                              % }
                             % }
                           </select>
                         </div>
