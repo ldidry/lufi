@@ -31,6 +31,7 @@
 - pi2 (typo)
 - Rain (bugfix)
 - Nicolas Constant (notifications)
+- Booteille (rework of the frontend)
 
 ## Vulnerabilities / bug hunters 🐛
 
