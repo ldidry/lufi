@@ -49,51 +49,15 @@
 </div>
 
 <script type="text/javascript">
-  const retrieveItemFromStorage = (serverKey) => 
-    (JSON.parse(localStorage.getItem(`${prefix}files`))|| [])
-      .find((item) => item.short === serverKey )
-  
-  const updateMailtoLink = () => {
-      const ownSoftwareButtonDOM  = document.querySelector('.action-own-software');
-      const emails = document.querySelector('.emails input').value;
-      const subject  = document.querySelector('.subject input').value;
-      const body  = document.querySelector('.body textarea').value;
+const isLdapDefined = <%= defined(config('ldap')) ? "true" : "false" %>;
+const isHtpasswdDefined = <%= defined(config('htpasswd')) ? "true" : "false" %>;
 
-      ownSoftwareButtonDOM.href = `mailto:${encodeURIComponent(emails)}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
-  }
-
-  const populateBody = () => {
-    const links = JSON.parse(new URL(window.location).searchParams.get("links")) || [];
-
-    let text = "<%== l('Hello,\n\nHere\'s some files I want to share with you:\n') %>";
-
-
-    links.forEach((serverKey, index) => {
-      const item = retrieveItemFromStorage(serverKey);
-      if (item) {
-        const limit = (item.delay == 0) ? null : formatDate(item.delay * 86400 + item.created_at);
-
-        text += `- ${item.name}<%= l(':') %> ${item.url}`;
-
-        if (limit !== null) {
-            text += `\n  (<%= l('deadline: ') %>${limit})`;
-        }
-        text += "\n";
-      }
-    });
-
-  % if (!defined(config('ldap')) && !defined(config('htpasswd'))) {
-    text += "\n-- \n<%= l('Share your files in total privacy on %1', url_for('/')->to_abs) %>";
-  % }
-    
-    document.querySelector('.body textarea').value = text;
-    updateMailtoLink();
-  }
-  
-  document.addEventListener('DOMContentLoaded', () => {
-    populateBody();
-  
-    document.querySelectorAll(".control > *")
-      .forEach(node => node.addEventListener('change', updateMailtoLink));
-  });
+const i18n = {
+  intro: '<%= l('Hello,\n\nHere\'s some files I want to share with you:\n') %>',
+  colon: '<%= l(':') %>',
+  deadline: '<%= l('deadline: ') %>',
+  footer: '<%= l('Share your files in total privacy on %1', url_for('/')->to_abs) %>',
+};
 </script>
+
+%= javascript '/js/minified/mail.min.js', type => 'module', defer => "true"
