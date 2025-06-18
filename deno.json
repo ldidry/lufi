@@ -4,6 +4,7 @@
     "watch": "deno run --allow-all bundler.watch.ts"
   },
   "imports": {
+    "@booteille/lufi-api": "jsr:@booteille/lufi-api@^0.3.0",
     "@fortawesome/fontawesome-free": "npm:@fortawesome/fontawesome-free@^6.7.2",
     "esbuild": "npm:esbuild@^0.25.4",
     "esbuild-plugin-ignore": "npm:esbuild-plugin-ignore@^1.1.1",
