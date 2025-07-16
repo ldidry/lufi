@@ -218,10 +218,14 @@ sub startup {
       ->to('Files#get_counter')
       ->name('counter');
 
-    # Get counter informations about a file
+    # Delete a file
     $r->get('/d/:short/:token')
-      ->to('Files#delete')
+      ->to('Files#delete_file_page')
       ->name('delete');
+
+    $r->post('/d/:short/:token')
+      ->to('Files#delete')
+      ->name('really_delete');
 
     # Get some informations about delays
     $r->get('/delays')

@@ -446,56 +446,79 @@ sub get_counter {
     }
 }
 
+sub delete_file_page {
+    my $c = shift;
+    if ((!defined($c->config('ldap')) && !defined($c->config('htpasswd'))) || $c->is_user_authenticated) {
+        my $short = $c->param('short');
+        my $token = $c->param('token');
+        my $ldfile = Lufi::DB::File->new(app => $c->app)->from_short($short);
+
+        $c->render(
+            template => 'delete_file',
+            short    => $short,
+            token    => $token,
+            filename => $ldfile->{filename},
+        );
+    } else {
+        $c->redirect_to('login');
+    }
+}
+
 sub delete {
     my $c     = shift;
     my $short = $c->param('short');
     my $token = $c->param('token');
 
     if ((!defined($c->config('ldap')) && !defined($c->config('htpasswd')) && !defined($c->config('auth_headers'))) || $c->is_user_authenticated) {
-        my $ldfile = Lufi::DB::File->new(app => $c->app)->from_short($short);
-
-        $ldfile = undef unless (defined($ldfile) && $ldfile->mod_token eq $token);
-
-        if (defined $ldfile) {
-            my $msg;
-            if ($ldfile->deleted) {
-                $msg = $c->l('The file has already been deleted');
-            } else {
-                $ldfile->delete;
-                $msg = $c->l('File deleted');
-            }
-            return $c->respond_to(
-                json => {
-                    json => {
-                        success => true,
-                        msg     => $msg
-                    }
-                },
-                any => sub {
-                    $c->render(
-                        template => 'msg',
-                        f        => $ldfile,
-                        msg      => $msg
-                    );
-                }
-            );
+        if ($c->validation->csrf_protect->has_error('csrf_token')) {
+            $c->flash(msg => $c->l('Bad CSRF token.'));
+            $c->redirect_to('delete', $short, $token);
         } else {
-            my $msg = $c->l('Could not find the file. Are you sure of the URL and the token?');
-            return $c->respond_to(
-                json => {
-                    json => {
-                        success => false,
-                        msg     => $msg
-                    }
-                },
-                any => sub {
-                    $c->render(
-                        template => 'msg',
-                        f        => undef,
-                        msg      => $msg
-                    );
+            my $ldfile = Lufi::DB::File->new(app => $c->app)->from_short($short);
+
+            $ldfile = undef unless (defined($ldfile) && $ldfile->mod_token eq $token);
+
+            if (defined $ldfile) {
+                my $msg;
+                if ($ldfile->deleted) {
+                    $msg = $c->l('The file has already been deleted');
+                } else {
+                    $ldfile->delete;
+                    $msg = $c->l('File deleted');
                 }
-            );
+                return $c->respond_to(
+                    json => {
+                        json => {
+                            success => true,
+                            msg     => $msg
+                        }
+                    },
+                    any => sub {
+                        $c->render(
+                            template => 'msg',
+                            f        => $ldfile,
+                            msg      => $msg
+                        );
+                    }
+                );
+            } else {
+                my $msg = $c->l('Could not find the file. Are you sure of the URL and the token?');
+                return $c->respond_to(
+                    json => {
+                        json => {
+                            success => false,
+                            msg     => $msg
+                        }
+                    },
+                    any => sub {
+                        $c->render(
+                            template => 'msg',
+                            f        => undef,
+                            msg      => $msg
+                        );
+                    }
+                );
+            }
         }
     } else {
         my $msg = $c->l('Could not delete the file. You are not authenticated.');
