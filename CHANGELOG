@@ -2,7 +2,7 @@ Revision history for Lufi
 
 0.08.0 ????-??-??
 
-0.07.2 ????-??-??
+0.07.2 2025-07-29
 	- 🐛 — Fix bug in POST file deletion (#319)
 
 0.07.1 2025-07-16
