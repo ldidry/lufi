@@ -58,6 +58,7 @@ BEGIN {
                     how => 'sendmail'
                 },
                 mail_sender              => 'no-reply@lufi.io',
+                disable_mail_sending     => 1,
                 theme                    => 'default',
                 upload_dir               => 'files',
                 session_duration         => 3600,
