@@ -11,22 +11,6 @@ function addItem(item) {
     localStorage.setItem(`${window.prefix}files`, JSON.stringify(files));
 }
 
-function delItem(name) {
-    var files = localStorage.getItem(`${window.prefix}files`);
-    if (files === null) {
-        files = new Array();
-    } else {
-        files = JSON.parse(files);
-    }
-    var i;
-    for (i = 0; i < files.length; i++) {
-        if (files[i].short === name) {
-            files.splice(i, 1);
-        }
-    }
-    localStorage.setItem(`${window.prefix}files`, JSON.stringify(files));
-}
-
 function itemExists(name) {
     var files = localStorage.getItem(`${window.prefix}files`);
     if (files === null) {
@@ -140,7 +124,7 @@ function delFile() {
     var short = $(this).attr('data-short');
     $.ajax({
         url: dlink,
-        method: 'GET',
+        method: 'POST',
         data: {
             _format: 'json'
         },

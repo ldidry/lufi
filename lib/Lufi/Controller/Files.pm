@@ -470,7 +470,7 @@ sub delete {
     my $token = $c->param('token');
 
     if ((!defined($c->config('ldap')) && !defined($c->config('htpasswd')) && !defined($c->config('auth_headers'))) || $c->is_user_authenticated) {
-        if ($c->validation->csrf_protect->has_error('csrf_token')) {
+        if (!(defined($c->param('_format')) && $c->param('_format') eq 'json') && $c->validation->csrf_protect->has_error('csrf_token')) {
             $c->flash(msg => $c->l('Bad CSRF token.'));
             $c->redirect_to('delete', $short, $token);
         } else {
@@ -495,9 +495,10 @@ sub delete {
                     },
                     any => sub {
                         $c->render(
-                            template => 'msg',
-                            f        => $ldfile,
-                            msg      => $msg
+                            template                    => 'msg',
+                            f                           => $ldfile,
+                            msg                         => $msg,
+                            del_short_from_localstorage => $short
                         );
                     }
                 );

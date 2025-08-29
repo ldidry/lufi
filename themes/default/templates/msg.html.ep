@@ -20,3 +20,10 @@
         </div>
     </div>
 </div>
+% if (defined stash('del_short_from_localstorage')) {
+<script>
+    $(document).ready(function(){
+        delItem('<%= stash('del_short_from_localstorage') %>');
+    });
+</script>
+% }
