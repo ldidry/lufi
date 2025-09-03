@@ -11,7 +11,16 @@ function notify(title, body) {
             body: body,
             icon: '/img/lufi196.png'
         };
-        let n = new Notification(title, options);
+
+        try {
+            let n = new Notification(title, options);
+        } catch (e) {
+            if (e.name === 'TypeError') {
+                console.log(`This browser does not support new notifications, cannot send following message: ${title} ${body}`);
+            } else {
+                throw e;
+            }
+        }
     }
 }
 
