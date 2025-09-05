@@ -65,21 +65,3 @@ export const buildJS = await esbuild.context({
   format: "esm",
   target: ["deno2", "chrome67", "firefox68"],
 });
-
-/**
- * Extract Lufi from a Deno lib to a JS file
- */
-export const extractLufi = await esbuild.context({
-  plugins: [...denoPlugins()],
-  entryPoints: ["@booteille/lufi-api"],
-  outdir: `${themeDir}/public/js/lib`,
-  entryNames: "lufi",
-  bundle: true,
-  minify: false,
-  sourcemap: false,
-  allowOverwrite: true,
-  format: "esm",
-  target: ["deno2", "chrome67", "firefox68"],
-});
-await extractLufi.rebuild();
-extractLufi.dispose();
