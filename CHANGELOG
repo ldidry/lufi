@@ -8,6 +8,12 @@ Revision history for Lufi
 	- Add focus on password input on download page
 
 
+0.07.2 2025-07-29
+	- 🐛 — Fix bug in POST file deletion (#319)
+
+0.07.1 2025-07-16
+	- 🚚 — Use POST to delete a file instead of GET
+
 0.07.0 2023-12-25
 	- ⬆️ — Update jQuery
 	- 🩹 — Fix a format query parameter

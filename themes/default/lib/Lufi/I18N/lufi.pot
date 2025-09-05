@@ -81,11 +81,11 @@ msgstr ""
 msgid "Adding URLs not related to this Lufi instance to the mail body or subject is prohibited."
 msgstr ""
 
-#: themes/default/templates/index.html.ep:92
-msgid "After first download?"
+#: themes/default/templates/delete_file.html.ep:18
+msgid "Are you sure you want to delete that file?"
 msgstr ""
 
-#: themes/default/templates/invitations/my_invitations.html.ep:107
+#: themes/default/templates/partial/invitations.js.ep:3
 msgid "Are you sure you want to delete the selected invitations?"
 msgstr ""
 
@@ -105,7 +105,7 @@ msgstr ""
 msgid "Bad CSRF token!"
 msgstr ""
 
-#: lib/Lufi/Controller/Auth.pm:38 lib/Lufi/Controller/Auth.pm:60
+#: lib/Lufi/Controller/Auth.pm:38 lib/Lufi/Controller/Auth.pm:60 lib/Lufi/Controller/Files.pm:474
 msgid "Bad CSRF token."
 msgstr ""
 
@@ -153,11 +153,11 @@ msgstr ""
 msgid "Copy link"
 msgstr ""
 
-#: lib/Lufi/Controller/Files.pm:500
+#: lib/Lufi/Controller/Files.pm:524
 msgid "Could not delete the file. You are not authenticated."
 msgstr ""
 
-#: lib/Lufi/Controller/Files.pm:482
+#: lib/Lufi/Controller/Files.pm:505
 msgid "Could not find the file. Are you sure of the URL and the token?"
 msgstr ""
 
@@ -261,7 +261,7 @@ msgstr ""
 msgid "Export local data"
 msgstr ""
 
-#: lib/Lufi/Controller/Files.pm:464
+#: lib/Lufi/Controller/Files.pm:487
 msgid "File deleted"
 msgstr ""
 
@@ -465,6 +465,10 @@ msgstr ""
 msgid "Please use the dedicated report mail: <a href=\"%1\">%2</a>"
 msgstr ""
 
+#: themes/default/templates/render.html.ep:33
+msgid "Please wait while we are getting your file. We first need to download and decrypt all parts before you can get it."
+msgstr ""
+
 #: lib/Lufi/Controller/Auth.pm:49
 msgid "Please, check your credentials or your right to access this service: unable to authenticate."
 msgstr ""
@@ -593,7 +597,7 @@ msgstr ""
 msgid "The expiration delay (%1) is not between 1 and %2 days."
 msgstr ""
 
-#: lib/Lufi/Controller/Files.pm:461
+#: lib/Lufi/Controller/Files.pm:484
 msgid "The file has already been deleted"
 msgstr ""
 

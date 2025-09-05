@@ -85,11 +85,11 @@ msgstr ""
 msgid "Adding URLs not related to this Lufi instance to the mail body or subject is prohibited."
 msgstr "Adding URLs not related to this Lufi instance to the mail body or subject is prohibited."
 
-#: themes/default/templates/index.html.ep:92
-msgid "After first download?"
-msgstr ""
+#: themes/default/templates/delete_file.html.ep:18
+msgid "Are you sure you want to delete that file?"
+msgstr "Are you sure you want to delete that file?"
 
-#: themes/default/templates/invitations/my_invitations.html.ep:107
+#: themes/default/templates/partial/invitations.js.ep:3
 msgid "Are you sure you want to delete the selected invitations?"
 msgstr "Are you sure you want to delete the selected invitations?"
 
@@ -113,7 +113,7 @@ msgstr "Back to homepage"
 msgid "Bad CSRF token!"
 msgstr "Bad CSRF token!"
 
-#: lib/Lufi/Controller/Auth.pm:38 lib/Lufi/Controller/Auth.pm:60
+#: lib/Lufi/Controller/Auth.pm:38 lib/Lufi/Controller/Auth.pm:60 lib/Lufi/Controller/Files.pm:474
 msgid "Bad CSRF token."
 msgstr "Bad CSRF token."
 
@@ -173,11 +173,11 @@ msgstr ""
 msgid "Copy to clipboard"
 msgstr "Copy to clipboard"
 
-#: lib/Lufi/Controller/Files.pm:500
+#: lib/Lufi/Controller/Files.pm:524
 msgid "Could not delete the file. You are not authenticated."
 msgstr "Could not delete the file. You are not authenticated."
 
-#: lib/Lufi/Controller/Files.pm:482
+#: lib/Lufi/Controller/Files.pm:505
 msgid "Could not find the file. Are you sure of the URL and the token?"
 msgstr "Could not find the file. Are you sure of the URL and the token?"
 
@@ -309,7 +309,7 @@ msgstr ""
 msgid "Export localStorage data"
 msgstr "Export localStorage data"
 
-#: lib/Lufi/Controller/Files.pm:464
+#: lib/Lufi/Controller/Files.pm:487
 msgid "File deleted"
 msgstr "File deleted"
 
@@ -713,7 +713,7 @@ msgstr "The email subject can't be empty."
 msgid "The expiration delay (%1) is not between 1 and %2 days."
 msgstr "The expiration delay (%1) is not between 1 and %2 days."
 
-#: lib/Lufi/Controller/Files.pm:461
+#: lib/Lufi/Controller/Files.pm:484
 msgid "The file has already been deleted"
 msgstr "The file has already been deleted"
 

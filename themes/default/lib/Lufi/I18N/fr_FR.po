@@ -85,6 +85,10 @@ msgstr ""
 "L’ajout d’URL non liées à cette instance Lufi au corps ou au sujet du mail "
 "est interdit."
 
+#: themes/default/templates/delete_file.html.ep:18
+msgid "Are you sure you want to delete that file?"
+msgstr "Voulez-vous vraiment supprimer ce fichier ?"
+
 #: themes/default/templates/partial/invitations.js.ep:3
 msgid "Are you sure you want to delete the selected invitations?"
 msgstr "Êtes-vous sûr·e de vouloir supprimer les invitations sélectionnées ?"
