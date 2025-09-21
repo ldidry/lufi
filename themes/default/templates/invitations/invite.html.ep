@@ -1,51 +1,63 @@
 % # vim:set sw=4 ts=4 sts=4 ft=html.epl expandtab:
-
+<div class="box">
 % if (scalar(@{$self->stash('fails')})) {
-    <div class="col s12">
-        <div class="card pink">
-            <div class="card-content white-text">
-                % for my $msg (@{$self->stash('fails')}) {
-                    <strong><%= $msg %></strong>
-                % }
-            </div>
-        </div>
+  <div class="message is-error">
+    <div class="message-body">
+    % for my $msg (@{$self->stash('fails')}) {
+      <%= $msg %>
+    % }
     </div>
+  </div>
 % }
 % if (scalar(@{$self->stash('success')})) {
-    <div class="col s12">
-        <div class="card blue">
-            <div class="card-content white-text">
-                % for my $msg (@{$self->stash('success')}) {
-                    <strong><%== $msg %></strong>
-                % }
-            </div>
-        </div>
+  <div class="message is-success">
+    <div class="message-body">
+      <p class="content">
+      % for my $msg (@{$self->stash('success')}) {
+        <%= $msg %>
+      % }
+      </p>
     </div>
+  </div>
 % }
 
-<form class="row" method="post">
-    <h1><%= l('Invite a guest') %></h1>
-    <div class="margin-bottom-35">
+  <h1 class="title is-1"><%= l('Invite a guest') %></h1>
+
+  <div class="message is-info">
+    <div class="message-body">
+      <p>
+        <%= l('You can invite someone to send you files through this Lufi instance even if they don’t have an account on it.') %>
+      </p>
+      % if (stash('send_with_user_email')) {
         <p>
-            <%= l('You can invite someone to send you files through this Lufi instance even if they don’t have an account on it.') %>
+          <%= l('The invitation mail will be send from your email address (%1).', stash('user_mail')) %>
         </p>
-        % if (stash('send_with_user_email')) {
-            <p>
-                <%= l('The invitation mail will be send from your email address (%1).', stash('user_mail')) %>
-            </p>
-        % }
+      % }
     </div>
-    <div class="input-field">
-        <label for="guest_mail">
-            <%= l('Email address of your guest') %>
-        </label>
-        <input id="guest_mail" name="guest_mail" type="email" placeholder="name@example.org" required>
+  </div>
+
+
+  <form class="field invite-form" method="post">
+    <div class="field">
+      <label class="label" for="guest_mail">
+        <%= l('Email address of your guest') %>
+      </label>
+      <div class="control">
+        <input class="input" id="guest_mail" name="guest_mail" type="email" placeholder="name@example.org" required>
+      </div>
     </div>
-    <div class="input-field">
-        <label for="expire_at">
-            <%= l('How many days would you like the invitation to be valid?') %>
-        </label>
-        <input id="expire_at" name="expire_at" type="number" min="1" max="<%= stash('max_expire_at') %>" step="1" value="<%= stash('max_expire_at') %>" required>
+    <div class="field">
+      <label class="label" for="expire_at">
+        <%= l('How many days would you like the invitation to be valid?') %>
+      </label>
+      <div class="control">
+        <input class="input" id="expire_at" name="expire_at" type="number" min="1" max="<%= stash('max_expire_at') %>" step="1" value="<%= stash('max_expire_at') %>" required>
+      </div>
     </div>
-    <button class="btn waves-effect waves-light" type="submit"><%= l('Send the invitation') %></button>
-</form>
+    <div class="field">
+      <div class="control has-text-centered">
+        <button class="button is-primary" type="submit"><%= l('Send the invitation') %></button>
+      </div>
+    </div>
+  </form>
+</div>

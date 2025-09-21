@@ -7,9 +7,16 @@ cover_db/*
 *.db-wal
 *.bak
 *.swp
+*.lock
 script/*.pid
 stop-upload
 .zanata-cache/
 themes/*
 !themes/default
 !themes/default/*
+themes/default/public/js/minified/*
+themes/default/public/css/main.min.css
+.stignore
+.stfolder/
+TODO
+.vscode/

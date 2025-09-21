@@ -1,53 +1,190 @@
 % # vim:set sw=4 ts=4 sts=4 ft=html.epl expandtab:
-<div class="row valign-wrapper">
-    <div class="valign center col s12">
-    % if (!defined(stash('f')) && defined(stash('msg'))) {
-        <div class="col s12">
-            <div class="card pink">
-                <div class="card-content white-text">
-                    <strong><%= stash('msg')%></strong>
-                </div>
-            </div>
-        </div>
-    % } else {
-        <h2 class="col s12 center-align title-filename"><%= stash('f')->filename %></h2>
-        % if (defined(stash('msg'))) {
-        <div class="col s12">
-            <div class="card pink">
-                <div class="card-content white-text">
-                    <strong><%= stash('msg')%></strong>
-                </div>
-            </div>
-        </div>
-        % } else {
-        %   if (stash('file_pwd')) {
-        <div class="col s12">
-            <div class="input-field">
-                <input type="password" id="file_pwd" placeholder="<%= l('Password') %>" class="validate">
-            </div>
-            <a id="go" class="waves-effect waves-light btn"><%= l('Download') %></a>
-        </div>
-        %   }
-        <div class="file-progress col s12<%= (stash('file_pwd')) ? ' hide' : '' %>">
-            <p id="filesize" data-filesize="<%= stash('f')->filesize %>" data-zipped="<%= (stash('f')->zipped) ? 'true' : 'false' %>"></p>
-            <p id="please-wait"><%= l('Please wait while we are getting your file. We first need to download and decrypt all parts before you can get it.') %></p>
-            <p id="loading"></p>
-            <div class="progress" id="pbd">
-                <div id="pb" class="determinate width-0" role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100">
-                    <span id="pbt" class="sr-only">0%</span>
-                </div>
-            </div>
-        </div>
-        <div class="file-abort col s12<%= (stash('file_pwd')) ? ' hide' : '' %>">
-            <a id="abort" class="waves-effect waves-light btn"><%= l('Abort') %></a>
-        </div>
-%= javascript '/partial/render.js?nbslices='.stash('f')->nbslices.'&file='.stash('f')->short
-%= javascript '/js/filesize.min.js'
-%= javascript '/js/sjcl.js'
-%= javascript '/js/jszip.min.js'
-%= javascript '/js/lufi-notifications.js'
-%= javascript '/js/lufi-down.js'
-    % }
-% }
-    </div>
+% if (!defined(stash('f')) && defined(stash('msg'))) {
+<div class="message is-danger">
+  <div class="message-body">
+    <%= stash('msg')%>
+  </div>
 </div>
+% } else {
+  <div class="box">
+    <h1 class="title is-1 has-text-centered mb-6"><%= l('Download file') %></h1>
+    % if (defined(stash('msg'))) {
+      <div class="message">
+        <div class="message-body is-danger">
+          <%= stash('msg')%>
+        </div>
+      </div>
+    % } else {
+      % if (stash('file_pwd')) {
+        <form id="password-form" class="field has-addons is-align-items-center is-justify-content-center">
+          <label class="label mb-0 mr-3" for="password"><%= l('Password') %></label>
+          <div class="control">
+            <input class="input" type="password" id="password" autocomplete="off" autofocus placeholder="<%= l('Password') %>">
+          </div>
+
+          <div class="control">
+            <button type="submit" class="button is-primary action-download" href="#"><%= l('Download') %></button>
+          </div>
+        </form>
+      % }
+
+      <div id="download-container" class="is-size-5">
+      </div>
+      
+      <template id="block-download-ongoing">
+        <article class="block block-download-ongoing">
+          <div class="columns is-justify-content-center">
+            <div class="box column is-half">
+              <div class="content fixed-grid has-12-cols">
+                <div class="grid is-vcentered">
+                  <div class="cell is-col-1">
+                      <span class="icon fas fa-file fa-2x is-large has-text-primary" aria-hidden="true"></span>
+                  </div>
+                  <div class="cell is-col-span-11 description" data-is-zipped="<%= (stash('f')->zipped) ? 'true' : 'false' %>">
+                    <strong class="is-block wb-all name is-overflow-x"><%= stash('f')->filename %></strong>
+                    <small class="is-block size mt-1" data-filesize="<%= stash('f')->filesize %>"></small>
+                  </div>
+                </div>
+              </div>
+
+              <div class="progress-text has-text-centered has-text-weight-bold">0%</div>
+              <progress class="progress is-primary is-small" max="100">0%</progress>
+            </div>
+          </div>  
+
+          <div class="columns is-justify-content-center">
+            <div class="column has-text-centered is-half px-0">
+              <button id="abort-button" type="button" class="button is-danger is-fullwidth is-size-5"><%= l('Abort') %></button>
+            </div>
+          </div>
+        </article>
+      </template>
+
+      <template id="block-download-aborted"><article class="block download-aborted">
+        <article class="block block-download-aborted">
+          <div class="columns is-justify-content-center">
+            <div class="box column is-half">
+              <div class="content fixed-grid has-12-cols">
+                <div class="grid is-vcentered">
+                  <div class="cell is-col-1">
+                      <span class="icon fas fa-file fa-2x is-large has-text-primary" aria-hidden="true"></span>
+                  </div>
+                  <div class="cell is-col-span-11 description" data-is-zipped="<%= (stash('f')->zipped) ? 'true' : 'false' %>">
+                    <strong class="is-block wb-all name is-overflow-x"><%= stash('f')->filename %></strong>
+                    <small class="is-block size mt-1" data-filesize="<%= stash('f')->filesize %>"></small>
+                  </div>
+                </div>
+              </div>
+
+
+            <div class="message is-info">
+              <div class="message-body">
+                <%= l('Download aborted.') %>
+              </div>
+            </div>
+          </div>  
+
+          <div class="columns is-justify-content-center">
+            <div class="column has-text-centered is-half px-0">
+              <button id="reload-button" type="button" class="button is-primary is-fullwidth is-size-5"><%= l('Click here to refresh the page and restart the download.') %></button>
+            </div>
+          </div>
+        </article>
+      </template>
+      
+
+      <template id="block-download-success">
+        <article class="block block-success">
+          <div class="columns is-justify-content-center">
+            <div class="box column is-half">
+              <div class="content fixed-grid has-12-cols">
+                <div class="grid is-vcentered">
+                  <div class="cell is-col-1">
+                      <span class="icon fas fa-file fa-2x is-large has-text-primary" aria-hidden="true"></span>
+                  </div>
+                  <div class="cell is-col-span-11 description" data-is-zipped="<%= (stash('f')->zipped) ? 'true' : 'false' %>">
+                    <strong class="is-block wb-all name is-overflow-x"><%= stash('f')->filename %></strong>
+                    <small class="is-block size mt-1" data-filesize="<%= stash('f')->filesize %>"></small>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="columns is-justify-content-center">
+            <div class="column has-text-centered is-half px-0">
+              <a href="#" id="download-button" class="button is-primary is-fullwidth is-size-5"><%= l('Get the file') %></a>
+            </div>
+          </div>
+
+
+          <div class="render has-text-centered"></div>
+            
+          <div id="zip-container" class="columns is-justify-content-center is-hidden mt-6">
+            <div class="column is-half has-text-centered is-size-6 p-0 content">
+              <a id="show-zip-button" href="" class="button"><%= l('Show zip content') %></a>
+            </div>
+          </div>
+        </article>
+      </template>
+
+      <template id="block-download-error">
+        <article class="block block-download-error">
+          <div class="columns is-justify-content-center">
+            <div class="box column is-half">
+              <div class="content fixed-grid has-12-cols">
+                <div class="grid is-vcentered">
+                  <div class="cell is-col-1">
+                      <span class="icon fas fa-file fa-2x is-large has-text-primary" aria-hidden="true"></span>
+                  </div>
+                  <div class="cell is-col-span-11 description">
+                    <strong class="is-block wb-all name is-overflow-x"><%= stash('f')->filename %></strong>
+                    <small class="is-block size mt-1" data-filesize="<%= stash('f')->filesize %>"></small>
+                  </div>
+                </div>
+              </div>
+
+              <div class="message is-danger">
+                <div class="message-body"></div>
+              </div>
+            </div>
+          </div>
+        </article>
+      </template>
+
+      <template id="card-zipped-item">
+        <article class="card card-zipped-item">
+          <div class="card-content fixed-grid has-12-cols p-1 mb-0">
+            <div class="grid is-vcentered is-align-items-center p-0">
+              <div class="cell is-col-1">
+                <span class="icon fas fa-file has-text-primary" aria-hidden="true"></span>
+              </div>
+              <div class="cell is-col-span-11">
+                <strong class="is-block wb-all name is-overflow-x">test</strong>
+                <small class="is-block size mt-1">a</small>
+              </div>
+            </div>
+          </div>
+
+          <footer class="card-footer">
+            <a href="#" class="card-footer-item py-1 action-download">
+              <span class="icon-text">
+                <span class="icon fas fa-download" aria-hidden="true"></span>
+                <span><%= l('Download') %></span>
+              </span>
+            </a>
+          </footer>
+        </article>
+      </template>
+    % }
+  </div>
+% }
+
+<script type="text/javascript">
+const ws_url = '<%= url_for('download')->to_abs().stash('f')->short %>';
+const i18n   = {
+  confirmExit:     '<%= l('You have attempted to leave this page. The download will be canceled. Are you sure?') %>',
+  fileDownloaded:  '<%= l('File downloaded') %>',
+}
+</script>
+%= javascript '/js/minified/download.min.js', type => 'module', defer => "true"

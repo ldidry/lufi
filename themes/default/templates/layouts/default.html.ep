@@ -2,7 +2,7 @@
 % my $lang = $self->languages;
 %    $lang =~ s/-(.*)/_\U$1/;
 <!DOCTYPE html>
-<html>
+<html lang="<%= $lang %>">
     <head>
         <title><%= config('instance_name') %></title>
         <meta charset="utf-8">
@@ -17,94 +17,243 @@
         <link rel="apple-touch-icon" sizes="120x120" href="<%= url_for('/img/lufi120.png') %>">
         <link rel="apple-touch-icon" sizes="152x152" href="<%= url_for('/img/lufi152.png') %>">
         <link rel="apple-touch-icon-precomposed" sizes="128x128" href="<%= url_for('/img/lufi128.png') %>">
-        %= stylesheet '/css/materialize.min.css'
-        %= stylesheet '/css/lufi.css'
-        %= javascript '/js/ie-detection.js'
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="/css/main.min.css">
     </head>
     <body>
-        <nav class="cyan">
-            <div class="nav-wrapper container">
-                <a href="<%= url_for('/') %>" class="brand-logo">&nbsp;<img src="<%= url_for('/img/lufi-min.png') %>" alt="logo"> <%= config('instance_name') %></a>
-                <a href="#" data-activates="mobile" class="button-collapse"><i class="mdi-navigation-menu"></i></a>
-                <ul id="nav-mobile" class="right hide-on-med-and-down">
-                    <li><a href="<%= $self->config('report') %>"><%= l('Report file') %></a></li>
-                % if ((!defined(config('ldap')) && !defined(config('htpasswd')) && !defined(config('auth_headers'))) || is_user_authenticated()) {
-                    <li<%== ' class="active"' if (current_route eq 'index') %>><a href="<%= url_for('/') %>"><%= l('Upload files') %></a></li>
-                    <li<%== ' class="active"' if (current_route eq 'files') %>><a href="<%= url_for('/files') %>"><%= l('My files') %></a></li>
-                    % if ((defined config('ldap') || defined config('auth_headers')) && defined config('invitations')) {
-                        <li<%== ' class="active"' if (current_route eq 'invite') %>><a href="<%= url_for('/invite') %>"><%= l('Invite a guest') %></a></li>
-                        <li<%== ' class="active"' if (current_route eq 'invite/list') %>><a href="<%= url_for('/invite/list') %>"><%= l('My invitations') %></a></li>
-                    % }
-                % } else {
-                    <li><a href="<%= url_for('/login') %>"><%= l('Signin') %></a></li>
+      <header class="header" role="banner">        
+        <nav class="navbar is-primary has-text-weight-semibold" role="navigation" aria-label="main navigation">
+          <div class="navbar-brand">
+            <a href="<%= url_for('/') %>" class="navbar-item<%== ' has-background-primary-35' if (current_route eq 'index') %>">
+              <img src="<%= url_for('/img/lufi.svg') %>" alt="Lufi logo" aria-hidden="true">
+              <%= l('Home') %>
+            </a>
+            % if ((!defined(config('ldap')) && !defined(config('htpasswd')) && !defined(config('auth_headers'))) || is_user_authenticated()) {
+              <a href="<%= url_for('/files') %>" class="navbar-item<%== ' has-background-primary-35' if (current_route eq 'files') %>"><%= l('My files') %></a>
+            % }
+            
+            <a href="<%= $self->config('report') %>" class="navbar-item"><%= l('Report file') %></a>
+
+            <a role="button" class="navbar-burger" aria-label="menu" aria-expanded="false" data-target="main-menu">
+              <span aria-hidden="true"></span>
+              <span aria-hidden="true"></span>
+              <span aria-hidden="true"></span>
+              <span aria-hidden="true"></span>
+            </a>
+          </div>
+
+          <div class="navbar-menu" id="main-menu">
+            <div class="navbar-start">
+              % if ((!defined(config('ldap')) && !defined(config('htpasswd')) && !defined(config('auth_headers'))) || is_user_authenticated()) {
+                % if ((defined config('ldap') || defined config('auth_headers')) && defined config('invitations')) {
+                  <div class="navbar-item has-dropdown is-hoverable" role="navigation" tabindex=0>
+                    <a class="navbar-link"><%= l('My invitations') %></a>
+
+                    <div class="navbar-dropdown" role="button" aria-expanded="false" aria-label="<%= l('My invitations') %>">
+                      <a href="<%= url_for('/invite') %>" class="navbar-item<%= ' has-background-primary-35' if (current_route eq 'invite') %>"><%= l('Invite a guest') %></a>
+                      <a href="<%= url_for('/invite/list') %>" class="navbar-item<%= ' has-background-primary-35' if (current_route eq 'invite/list') %>"><%= l('My invitations') %></a>
+                    </div>
+                  </div>
                 % }
-                    <li>
-                        <div class="input-field select-lang">
-                            <label class="hiddendiv"><%= l('Language') %></label>
-                            <select>
-                                <option value="" disabled selected><%= l('Language') %></option>
-                            % for my $i (@{$self->available_langs}) {
-                                <option value="<%= $i %>"><%= iso639_native_name($i) %></option>
-                            % }
-                            </select>
-                        </div>
-                    </li>
-                    <li<%== ' class="active"' if (current_route eq 'about') %>><a href="<%= url_for('/about') %>"><%= l('About') %></a></li>
-                % if ((defined(config('ldap')) || defined(config('htpasswd')) || defined(config('auth_headers'))) && is_user_authenticated()) {
-                    <li>
-                        <form action="<%= url_for('/logout') %>" method="POST">
-                            %= csrf_field
-                            <button class="btn-flat" type="submit"><%= l('Logout') %></button>
-                        </form>
-                    </li>
-                % }
-                </ul>
-                <ul id="mobile" class="side-nav">
-                    <li><a href="<%= $self->config('report') %>"><%= l('Report file') %></a></li>
-                % if ((!defined(config('ldap')) && !defined(config('htpasswd')) && !defined(config('auth_headers'))) || is_user_authenticated()) {
-                    <li<%== ' class="active"' if (current_route eq 'index') %>><a href="<%= url_for('/') %>"><%= l('Upload files') %></a></li>
-                    <li<%== ' class="active"' if (current_route eq 'files') %>><a href="<%= url_for('/files') %>"><%= l('My files') %></a></li>
-                    % if ((defined config('ldap') || defined config('auth_headers')) && defined config('invitations')) {
-                        <li<%== ' class="active"' if (current_route eq 'invite') %>><a href="<%= url_for('/invite') %>"><%= l('Invite a guest') %></a></li>
-                        <li<%== ' class="active"' if (current_route eq 'invite/list') %>><a href="<%= url_for('/invite/list') %>"><%= l('My invitations') %></a></li>
-                    % }
-                % } else {
-                    <li><a href="<%= url_for('/login') %>"><%= l('Signin') %></a></li>
-                % }
-                    <li>
-                        <div class="input-field select-lang-mobile">
-                            <label class="hiddendiv"><%= l('Language') %></label>
-                            <select>
-                                <option value="" disabled selected><%= l('Language') %></option>
-                            % for my $i (@{$self->available_langs}) {
-                                <option value="<%= $i %>"><%= iso639_native_name($i) %></option>
-                            % }
-                            </select>
-                        </div>
-                    </li>
-                    <li<%== ' class="active"' if (current_route eq 'about') %>><a href="<%= url_for('/about') %>"><%= l('About') %></a></li>
-                % if ((defined(config('ldap')) || defined(config('htpasswd')) || defined(config('auth_headers'))) && is_user_authenticated()) {
-                    <li>
-                        <form action="<%= url_for('/logout') %>" method="POST">
-                            %= csrf_field
-                            <button class="btn-flat" type="submit"><%= l('Logout') %></button>
-                        </form>
-                    </li>
-                % }
-                </ul>
+              % }
             </div>
+
+            <div class="navbar-end">
+              <a href="<%= url_for('/about') %>" class="navbar-item<%= ' has-background-primary-35' if (current_route eq 'about') %>"><%= l('About') %></a>
+
+            % if ((defined(config('ldap')) || defined(config('htpasswd')) || defined(config('auth_headers')))) {
+              % if (is_user_authenticated()) {
+                <div class="navbar-item">
+                  <form action="<%= url_for('/logout') %>" method="POST">
+                    %= csrf_field
+                    <button class="has-text-weight-semibold" type="submit">
+                      <span class="icon-text">
+                        <span class="icon fas fa-right-from-bracket" aria-hidden="true"></span>
+                        <span><%= l('Logout') %></span>
+                      </span>
+                    </button>
+                  </form>
+                </div>
+              % } else {
+                <a href="<%= url_for('/login') %>" class="navbar-item <%= ' has-background-primary-35' if (current_route eq 'login') %>">
+                  <span class="icon-text">
+                    <span class="icon fa-solid fa-right-to-bracket" aria-hidden="true"></span>
+                    <span><%= l('Signin') %></span>
+                  </span>
+                </a>
+              % }
+            % }
+            
+              <a href="#" id="language-selector" class="js-modal-trigger navbar-item" data-target="modal-language-selector" role="button" aria-haspopup="true" aria-expanded="false" aria-label="<%= l('Languages') %>">
+                <span class="icon-text">
+                  <span class="icon">
+                    <span class="fa-solid fa-globe" aria-hidden="true"></span>
+                  </span>
+                  <span>
+                    <%= iso639_native_name($lang) %>
+                  </span>
+                </span>
+              </a>
+            </div>
+          </div>
         </nav>
-        <div class="container">
-            %= javascript '/js/jquery-3.7.1.min.js'
-            %= javascript '/partial/layout.js'
-            %= javascript '/js/lufi-common.js'
+      </header>
+
+      <main role="main">
+        <div id="notifications-container" class="is-overlay"></div>
+        
+        <noscript>
+          <div class="message is-danger">
+            <div class="message-body">
+              <%= l('Javascript is disabled. You won\'t be able to use Lufi.') %>
+            </div>
+          </div>
+        </noscript>
+
+      <section id="section-main" class="hero is-fullheight-with-navbar">
+        <div class="hero-body is-fullwidth">
+          <div class="container section-container">
             <%= content %>
+          </div>
         </div>
-% if (defined(config('piwik_img'))) {
+      </section>
+
+      % if (defined(config('piwik_img'))) {
         <img src="<%== config('piwik_img') %>" class="no_border" alt="" />
-% }
-            %= javascript '/js/materialize.js'
-            %= javascript '/js/sidenav.js'
+      % }
+      </main>
+
+      <div id="modal-language-selector" class="modal" role="dialog" aria-labelledby="modal-language-selector-title" tabindex="-1">
+        <div class="modal-background"></div>
+        <div class="modal-card">
+          <header class="modal-card-head is-shadowless">
+            <p class="modal-card-title">
+              <span id="modal-language-selector-title"><%= l('Languages') %></span>
+              <button class="delete is-pulled-right" aria-label="close"></button>
+            </p>
+          </header>
+
+          <section class="modal-card-body">
+            <div class="fixed-grid is-fullwidth">
+              <ul class="grid has-4-cols" aria-labelledby="language-selector">
+              % for my $i (@{$self->available_langs}) {
+                <li>
+                  <a class="navbar-item cell" href="<%= url_for('lang') . $i %>"><%= iso639_native_name($i) %></a>
+                </li>
+              % }
+              </diulv>
+            </div>
+          </section>
+          <footer class="modal-card-foot"></footer>
+        </div>
+      </div>
+
+      <template id="notification">
+        <div class="notification">
+          <div class="message"></div>
+        </div>
+      </template>
+
+      <script type="text/javascript">
+        const prefix  = '<%= substr(config('prefix'), 1) %>';
+
+        const entityMap = {
+          "&": "&amp;",
+          "<": "&lt;",
+          ">": "&gt;",
+          '"': "&quot;",
+          "'": "&#39;",
+          "/": "&#x2F;",
+        };
+
+        const escapeHtml = (string) => String(string).replace(/[&<>"'\/]/g, (s) => entityMap[s]);
+
+        document.addEventListener("DOMContentLoaded", () => {
+          if (isSecureContext && Notification.permission !== "granted") {
+            Notification.requestPermission();
+          }
+
+          // Get all "navbar-burger" elements
+          const $navbarBurgers = Array.prototype.slice.call(
+            document.querySelectorAll(".navbar-burger"),
+            0
+          );
+
+          // Add a click event on each of them
+          $navbarBurgers.forEach((el) => {
+            el.addEventListener("click", () => {
+              // Get the target from the "data-target" attribute
+              const target = el.dataset.target;
+              const $target = document.getElementById(target);
+
+              // Toggle the "is-active" class on both the "navbar-burger" and the "navbar-menu"
+              el.classList.toggle("is-active");
+              $target.classList.toggle("is-active");
+            });
+          });
+
+          // Functions to open and close a modal
+          const openModal = ($el) => {
+            $el.classList.add("is-active");
+            $el.focus();
+          };
+
+          const closeModal = ($el) => {
+            $el.classList.remove("is-active");
+          };
+
+          const closeAllModals = () => {
+            (document.querySelectorAll(".modal") || []).forEach(($modal) => {
+              closeModal($modal);
+            });
+          };
+
+          // Add a click event on buttons to open a specific modal
+          (document.querySelectorAll(".js-modal-trigger") || []).forEach(($trigger) => {
+            const modal = $trigger.dataset.target;
+            const $target = document.getElementById(modal);
+
+            $trigger.addEventListener("click", () => {
+              openModal($target);
+            });
+          });
+
+          // Add a click event on various child elements to close the parent modal
+          (
+            document.querySelectorAll(
+              ".modal-background, .modal-close, .modal-card-head .delete, .modal-card-foot .button"
+            ) || []
+          ).forEach(($close) => {
+            const $target = $close.closest(".modal");
+
+            $close.addEventListener("click", () => {
+              closeModal($target);
+            });
+          });
+
+          // Add a keyboard event to close all modals
+          document.addEventListener("keydown", (event) => {
+            if (event.key === "Escape") {
+              closeAllModals();
+            }
+          });
+
+          document.addEventListener('DOMContentLoaded', () => {
+            (document.querySelectorAll('.notification .delete') || []).forEach(($delete) => {
+              const $notification = $delete.parentNode;
+
+              $delete.addEventListener('click', () => {
+                $notification.parentNode.removeChild($notification);
+              });
+
+              $delete.addEventListener('keydown', (event) => {
+                if (event.key === " " || event.key === "enter") {
+                  event.target.click()
+                }
+              })
+            });
+          });
+        });
+      </script>
     </body>
 </html>

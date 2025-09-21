@@ -307,7 +307,7 @@
     # Set to '' to disable CSP header
     # https://content-security-policy.com/ provides a good documentation about CSP.
     # https://report-uri.com/home/generate provides a tool to generate a CSP header.
-    # optional, default is "base-uri 'self'; connect-src 'self' ws://YOUR_HOST; default-src 'none'; font-src 'self'; form-action 'self'; frame-ancestors 'none'; img-src 'self' blob:; media-src blob:; script-src 'self' 'unsafe-inline' 'unsafe-eval'; style-src 'self' 'unsafe-inline'"
+    # optional, default is "base-uri 'self'; connect-src 'self' ws://YOUR_HOST; default-src 'none'; font-src 'self'; form-action 'self'; frame-ancestors 'none'; img-src 'self' blob:; media-src blob:; script-src 'self' 'unsafe-inline' 'unsafe-eval' blob:; style-src 'self' 'unsafe-inline'"
     #csp => "",
 
     # X-Frame-Options header that will be sent by Lufi

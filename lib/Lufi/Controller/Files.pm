@@ -9,7 +9,6 @@ use Lufi::DB::Slice;
 use File::Spec::Functions;
 use Number::Bytes::Human qw(format_bytes);
 use Filesys::DfPortable;
-use Crypt::SaltedHash;
 
 sub files {
     my $c = shift;
@@ -151,12 +150,9 @@ sub upload {
                             $delay = (($json->{delay} > 0 && $json->{delay} <= $c->max_delay) || $c->max_delay == 0) ? $json->{delay} : $c->max_delay;
                         }
                         # If we have a password
-                        my $salted_pwd;
+                        my $handle_password;
                         if ($c->config('allow_pwd_on_files') && defined($json->{file_pwd}) && $json->{file_pwd} ne '') {
-                            my $csh = Crypt::SaltedHash->new(algorithm => 'SHA-256', salt_len => 8);
-                            $csh->add($json->{file_pwd});
-
-                            $salted_pwd = $csh->generate();
+                            $handle_password = $json->{file_pwd};
                         }
 
                         my $creator = $c->ip;
@@ -180,7 +176,7 @@ sub upload {
                                 ->filesize($json->{size})
                                 ->nbslices($json->{total})
                                 ->mod_token($c->shortener($c->config('token_length')))
-                                ->passwd($salted_pwd)
+                                ->passwd($handle_password)
                                 ->zipped($json->{zipped})
                                 ->write;
                     }
@@ -310,8 +306,7 @@ sub download {
                     # Do we need a password?
                     my $valid = 1;
                     if ($c->config('allow_pwd_on_files') && defined($f->{passwd})) {
-                        my $pwd = $json->{file_pwd};
-                        $valid = Crypt::SaltedHash->validate($f->{passwd}, $json->{file_pwd}, 8);
+                        $valid = $json->{file_pwd} eq $f->{passwd};
                     }
 
                     if ($valid) {

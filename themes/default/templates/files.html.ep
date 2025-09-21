@@ -1,43 +1,176 @@
-% # vim:set sts=4 sw=4 ts=4 ft=html.epl expandtab:
+% # vim:set sw=4 ts=4 sts=4 ft=html.epl expandtab:
+<div class="box">
+  <h1 class="title is-1 has-text-centered mb-6"><%= l('My files') %></h1>
 
-<h2><%= l('My files') %></h2>
-<hr>
+  <div class="message is-info">
+    <div class="message-body">
+      <%= l('Only the files sent with this browser will be listed here. If you delete your browser data you will lose this list.') %><br>
+      <%= l('Rows in red mean that the files have expired and are no longer available.') %>
+    </div>
+  </div>
 
 
-<p>
-    <%= l('Only the files sent with this browser will be listed here. This list is stored in localStorage: if you delete your localStorage data, you\'ll lose this list.') %><br>
-    <%= l('Rows in red mean that the files have expired and are no longer available.') %>
-</p>
-<div class="files-buttons">
-    <a href="#" id="exportStorage"   class="btn left-mg cyan"><%= l('Export localStorage data') %></a>
-    <a href="#" id="purgeExpired"    class="btn left-mg cyan"><%= l('Purge expired files from localStorage') %></a>
-    <a href="#" id="clickImport"     class="btn left-mg cyan"><%= l('Import localStorage data') %></a>
-    <span class="file-field input-field">
-        <input type="file" id="import" onchange="importStorage(this.files)">
-    </span>
-    <a href="#" id="invertSelection" class="btn left-mg cyan"><%= l('Invert selection') %></a>
-    <a href="#" class="btn left-mg cyan disabled" id="mass-delete" disabled><%= l('Delete selected files') %></a>
-</div>
+  <article class="panel is-info">
+  <h2 class="panel-heading"><%= l('Uploaded files') %></h2>
 
-<div>
-    <table class="responsive-table highlight striped">
-        <thead>
-            <tr>
-                <th class="center-align"></th>
-                <th class="center-align"><%= l('File name') %></th>
-                <th class="center-align"><%= l('Download link') %></th>
-                <th class="center-align"><%= l('Counter') %></th>
-                <th class="center-align"><%= l('Delete at first download?') %></th>
-                <th class="center-align"><%= l('Uploaded at') %></th>
-                <th class="center-align"><%= l('Expires at') %></th>
-                <th class="center-align"><%= l('Deletion link') %></th>
-                <th class="center-align"><%= l('Mail') %></th>
-            </tr>
-        </thead>
-        <tbody id="myfiles">
-        </tbody>
+  <div class="buttons panel-block">
+    <button id="action-delete-selection" type="button" class="button is-danger" disabled="disabled">
+      <span class="icon-text">
+        <span class="icon fas fa-trash"></span>
+        <span><%= l('Delete selected files') %></span>
+      </span>
+    </button>
+  </div>
+
+  <div class="panel-block table-container files-table mb-6">
+    <table class="table is-stripped is-hoverable">
+      <thead>
+        <tr>
+          <th class="has-text-centered">
+            <div><%= l('Selection') %></div>
+            <input class="checkbox" type="checkbox" id="action-select-all" aria-label="<%= l('Select All')%>">
+          </th>
+          <th class="has-text-centered is-vcentered"><%= l('File name') %></th>
+          <th class="has-text-centered is-vcentered is-narrow"><%= l('Access nb') %></th>
+          <th class="has-text-centered is-vcentered is-narrow"><abbr title="<%= l('Delete at first download?') %>"><%= l('Delete after download') %></abbr></th>
+          <th class="has-text-centered is-vcentered"><%= l('Uploaded at') %></th>
+          <th class="has-text-centered is-vcentered"><%= l('Expires at') %></th>
+          <th class="has-text-centered is-vcentered"><%= l('Download') %></th>
+          <th class="has-text-centered is-vcentered"><%= l('Share') %></th>
+          <th class="has-text-centered is-vcentered"><%= l('Delete') %></th>
+        </tr>
+      </thead>
+
+      <tbody id="items-table" class="has-text-centered"></tbody>
     </table>
+  </div>
+  </article>
+
+  <article class="panel is-danger">
+  <h2 class="panel-heading"><%= l('Expired files') %></h2>
+
+  <div class="panel-block buttons">
+    <button id="action-purge-expired" type="button" class="button">
+      <span class="icon-text">
+        <span class="icon fas fa-recycle"></span>
+        <span><%= l('Remore expired files from browser history') %></span>
+      </span>
+    </button>
+  </div>
+
+  <div class="panel-block table-container deleted-files-table mb-6">
+    <table class="table is-stripped is-hoverable is-fullwidth">
+      <thead>
+        <tr>
+          <th class="has-text-centered is-vcentered"><%= l('File name') %></th>
+          <th class="has-text-centered is-vcentered"><%= l('Access nb') %></th>
+          <th class="has-text-centered is-vcentered is-narrow"><abbr title="<%= l('Delete at first download?') %>"><%= l('Delete at first download') %></abbr></th>
+          <th class="has-text-centered is-vcentered"><%= l('Uploaded at') %></th>
+          <th class="has-text-centered is-vcentered"><%= l('Expires at') %></th>
+        </tr>
+      </thead>
+
+      <tbody id="deleted-items-table" class="has-text-centered"></tbody>
+    </table>
+  </div>
+  </article>
+
+  <div class="buttons is-justify-content-center">
+    <a id="action-export-storage" href="#" class="button">
+      <span class="icon-text">
+        <span class="icon fas fa-download"></span>
+        <span><%= l('Export local data') %></span>
+      </span>
+    </a>
+
+    <div class="file">
+      <label class="file-label">
+        <input id="action-import-storage" type="file" class="file-input" name="import-local-data">
+        <span class="file-cta">
+          <span class="file-icon">
+            <span class="fas fa-upload"></span>
+          </span>
+          <span class="file-label">
+            <%= l('Import local data') %>
+          </span>
+        </span>
+      </label>
+    </div>
+  </div>
 </div>
 
-%= javascript '/partial/files.js'
-%= javascript '/js/lufi-files.js'
+<template id="item">
+  <tr class="item">
+    <td class="selection is-vcentered has-text-centered">
+      <div class="checkbox input-delete-on-first-view">
+        <input type="checkbox" autocomplete="off" aria-label="Select">
+      </div>
+    </td>
+    <td class="name is-vcentered"></td>
+    <td class="counter is-vcentered"></td>
+    <td class="delete-at-first-view is-vcentered has-text-centered">
+      <span class="icon fas"></span>
+    </td>
+    <td class="created-at is-vcentered"></td>
+    <td class="expires-at is-vcentered"></td>
+    <td class="download is-vcentered">
+      <a href="#">
+        <span class="icon-text is-justify-content-center">
+          <span class="icon fas fa-download" aria-hidden="true"></span>
+          <span><%= l('Download') %></span>
+        </span>
+      </a>
+    </td>
+    <td class="mail is-vcentered">
+      <a title="<%= l('Mail') %>" href="#">
+        <span class="icon-text is-justify-content-center">
+          <span class="icon fas fa-envelope" aria-hidden="true"></span>
+          <span><%= l('Share') %></span>
+        </span>
+      </a>
+    </td>
+    <td class="deletion is-vcentered">
+      <a class="action-delete-item" href="#">
+        <span class="icon-text is-justify-content-center">
+          <span class="icon fas fa-trash" aria-hidden="true"></span>
+          <span><%= l('Delete') %></span>
+        </span>
+      </a>
+    </td>
+  </tr>
+</template>
+
+<template id="deleted-item">
+  <tr class="item">
+    <td class="name is-vcentered"></td>
+    <td class="counter is-vcentered"></td>
+    <td class="delete-at-first-view is-vcentered has-text-centered">
+      <span class="icon-text is-justify-content-center">
+        <span class="icon fas"></span>
+        <span class="text"></span>
+      </span>
+    </td>
+    <td class="created-at is-vcentered"></td>
+    <td class="expires-at is-vcentered"></td>
+  </tr>
+</template>
+
+<script type="text/javascript">
+% if (defined($self->config('fixed_domain')) && $self->config('fixed_domain')) {
+  const baseURL = '<%= url_for('/')->host($self->config('fixed_domain'))->to_abs() %>';
+% } else {
+  const baseURL = '<%= url_for('/')->to_abs() %>';
+% }
+
+const actionURL = '<%= url_for('/')->to_abs() %>';
+const counterURL = '<%== url_for('counter') %>';
+
+const i18n       = {
+  no:                       '<%= l('No') %>',
+  noExpiration:             '<%= l('No expiration delay') %>',
+  importProcessed:          '<%= l('The data has been successfully imported.') %>',
+  importFilesWithoutPrefix: "<%= l('Lufi recently changed its way to store files information.\n\nNo files have been found in the new localStorage location but we found files in the old one.\nDo you want to import those informations?\n\nPlease note that this is the only time that we will ask you this.') %>",
+  yes:                       '<%= l('yes') %>'
+};
+</script>
+%= javascript '/js/minified/files.min.js', type => "module", defer => "true"
