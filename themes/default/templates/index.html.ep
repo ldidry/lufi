@@ -21,14 +21,14 @@
 
               <label class="file-label is-clickable">
                 <input class="file-input" type="file" name="upload" multiple>
-                
+
                 <div class="file-cta px-0 is-size-1 full-version">
                   <span class="file-icon mr-0">
                     <span class="icon fas fa-circle-plus"></span>
                   </span>
                   <div class="file-label has-text-centered is-gap-3">
                     <span class="is-size-3 is-size-5-mobile"><%= l('Drop files here') %></span>
-                    <span class="is-size-5 is-hidden-mobile"><%= l('or') %></span> 
+                    <span class="is-size-5 is-hidden-mobile"><%= l('or') %></span>
                     <button type="button" id="upload-zone-button" class="button m-auto is-primary is-hidden-mobile" tabindex=-1><%= l('Click to open the file browser') %></button>
                   </div>
                 </div>
@@ -75,7 +75,7 @@
 
                   <fieldset <%= 'disabled' if config('force_burn_after_reading') %>>
                     <div class="field is-expanded">
-                      <div class="control"> 
+                      <div class="control">
                         <label for="delete-at-first-download" class="label is-flex is-gap-1 checkbox">
                           <%= l('After first download?') %>
                           <input
@@ -107,8 +107,8 @@
                   </div>
                   <div class="field is-grouped">
                     <div id="password-control" class="control has-icons-left has-icons-right is-expanded is-invisible">
-                      <input class="input is-fullwidth" id="password-input" aria-label="<%= l('Password') %>"type="password" placeholder="<%= l('Password') %>" autocomplete="off" value="">
-                      
+                      <input class="input is-fullwidth" id="password-input" aria-label="<%= l('Password') %>" type="password" placeholder="<%= l('Password') %>" autocomplete="off" value="">
+
                       <span class="icon is-small is-left fas fa-lock" aria-hidden="true"></span>
                       <span id="password-preview-button" class="icon is-small is-right fas fa-eye is-clickable has-text-primary" aria-hidden="true"></span>
                     </div>
@@ -193,7 +193,6 @@
             <span class="delete"></span>
           </button>
         </div>
-      
       </div>
     </div>
   </li>
@@ -222,7 +221,6 @@
         <div class="message is-danger has-text-danger">
           <div class="message-body"></div>
         </div>
-      
       </div>
     </div>
   </li>
@@ -245,7 +243,6 @@
             <span class="delete"></span>
           </button>
         </div>
-      
       </div>
     </div>
   </li>
