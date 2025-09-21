@@ -93,7 +93,7 @@ sub _mysql {
     my $addr    = $c->pg_url({
         host => $mysqldb->{host}, port => $port, database => $mysqldb->{database}, user => $mysqldb->{user}, pwd => $mysqldb->{pwd}
     });
-    $addr =~ s/postgresql/mysql/;
+    $addr =~ s/postgresql/mariadb/;
     state $mysql = Mojo::mysql->new($addr);
     $mysql->max_connections($mysqldb->{max_connections}) if defined $mysqldb->{max_connections};
     return $mysql;

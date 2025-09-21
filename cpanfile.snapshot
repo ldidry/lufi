@@ -185,10 +185,10 @@ DISTRIBUTIONS
       ExtUtils::MakeMaker 6.30
       Test::Fatal 0
       Test::More 0
-  DBD-MariaDB-1.23
-    pathname: P/PA/PALI/DBD-MariaDB-1.23.tar.gz
+  DBD-MariaDB-1.24
+    pathname: P/PA/PALI/DBD-MariaDB-1.24.tar.gz
     provides:
-      DBD::MariaDB 1.23
+      DBD::MariaDB 1.24
     requirements:
       Config 0
       DBI 1.608
@@ -233,21 +233,6 @@ DISTRIBUTIONS
       Test::More 0.88
       Tie::Hash 0
       perl 5.006
-  DBD-mysql-4.050
-    pathname: D/DV/DVEEDEN/DBD-mysql-4.050.tar.gz
-    provides:
-      Bundle::DBD::mysql 4.050
-      DBD::mysql 4.050
-      DBD::mysql::GetInfo undef
-      DBD::mysql::db 4.050
-      DBD::mysql::dr 4.050
-      DBD::mysql::st 4.050
-    requirements:
-      DBI 1.609
-      Data::Dumper 0
-      Devel::CheckLib 1.09
-      ExtUtils::MakeMaker 0
-      perl 5.008001
   DBI-1.643
     pathname: T/TI/TIMB/DBI-1.643.tar.gz
     provides:
@@ -570,6 +555,7 @@ DISTRIBUTIONS
     requirements:
       ExtUtils::MakeMaker 0
       Mail::Address 0
+      Net::DNS 0
       Scalar::Util 0
       Test::More 0
       perl 5.006
@@ -841,6 +827,22 @@ DISTRIBUTIONS
       Exporter 5.57
       ExtUtils::MakeMaker 0
       perl 5.008
+  IO-Socket-INET6-2.73
+    pathname: S/SH/SHLOMIF/IO-Socket-INET6-2.73.tar.gz
+    provides:
+      IO::Socket::INET6 2.73
+    requirements:
+      Carp 0
+      Errno 0
+      Exporter 0
+      IO::Socket 0
+      Module::Build 0.36
+      Socket 0
+      Socket6 0.12
+      Test::More 0
+      perl 5.008
+      strict 0
+      warnings 0
   IO-Socket-SSL-2.084
     pathname: S/SU/SULLR/IO-Socket-SSL-2.084.tar.gz
     provides:
@@ -1845,6 +1847,12 @@ DISTRIBUTIONS
       ExtUtils::MakeMaker 0
       SQL::Abstract 2.0
       perl 5.016
+  Socket6-0.29
+    pathname: U/UM/UMEMOTO/Socket6-0.29.tar.gz
+    provides:
+      Socket6 0.29
+    requirements:
+      ExtUtils::MakeMaker 0
   Sub-Exporter-Progressive-0.001013
     pathname: F/FR/FREW/Sub-Exporter-Progressive-0.001013.tar.gz
     provides:
@@ -2269,6 +2277,15 @@ DISTRIBUTIONS
       Fcntl 0
       URI 1.10
       perl 5.008001
+  XML-SAX-Base-1.09
+    pathname: G/GR/GRANTM/XML-SAX-Base-1.09.tar.gz
+    provides:
+      XML::SAX::Base 1.09
+      XML::SAX::Base::NoHandler 1.09
+      XML::SAX::Exception 1.09
+    requirements:
+      ExtUtils::MakeMaker 0
+      perl 5.008
   YAML-Tiny-1.74
     pathname: E/ET/ETHER/YAML-Tiny-1.74.tar.gz
     provides:
@@ -2423,6 +2440,7 @@ DISTRIBUTIONS
     requirements:
       Authen::SASL 2.00
       Convert::ASN1 0.2
+      Digest::HMAC_MD5 0
       Digest::MD5 0
       ExtUtils::MakeMaker 6.59
       File::Basename 0
@@ -2432,6 +2450,7 @@ DISTRIBUTIONS
       HTTP::Response 0
       HTTP::Status 0
       IO::File 0
+      IO::Socket::INET6 0
       IO::Socket::SSL 1.26
       JSON 0
       LWP 0
@@ -2442,4 +2461,5 @@ DISTRIBUTIONS
       Text::Soundex 0
       Time::Local 0
       URI::ldap 1.1
+      XML::SAX::Base 0
       perl 5.008001
