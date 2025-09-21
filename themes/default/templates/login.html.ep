@@ -1,31 +1,33 @@
 % # vim:set sw=4 ts=4 sts=4 ft=html.epl expandtab:
-% if (defined stash('msg')) {
-<div class="col s12">
-    <div class="card pink">
-        <div class="card-content white-text">
-            <strong><%= stash('msg') %></strong>
-        </div>
+<div class="box">
+  % if (defined stash('msg')) {
+  <div class="message is-error">
+    <div class="message-body">
+      <%= stash('msg') %>
     </div>
+  </div>
+  % }
+
+  <div class="container is-half">
+    <form class="field is-half" method="post" action="<%= url_for('login') %>">
+      <div class="field is-narrow">
+        <label class="label" for="login"><%= l('Login') %></label>
+        <div class="control is-narrow">
+          <input class="input is-narrow" type="text" id="login" name="login" autofocus required>
+        </div>
+      </div>
+      <div class="field">
+        <label class="label" for="password"><%= l('Password') %></label>
+        <input class="input" type="password" id="password" name="password" required>
+      </div>
+      %= csrf_field
+      <input name="redirect" value="<%= stash('redirect') %>" type="hidden">
+
+      <div class="field has-text-centered">
+        <div class="control">
+          <button class="button is-primary" type="submit" name="action"><%= l('Signin') %></button>
+        </div>
+      </div>
+    </form>
+  </div>
 </div>
-% }
-<form class="row" method="post" action="<%= url_for('login') %>">
-    <div class="col s8 m8 offset-s2 offset-m2">
-        <div class="input-field">
-            <input id="login" type="text" class="validate" name="login" autofocus>
-            <label for="login"><%= l('Login') %></label>
-        </div>
-    </div>
-    <div class="col s8 m8 offset-s2 offset-m2">
-        <div class="input-field">
-            <input id="password" type="password" class="validate" name="password">
-            <label for="password"><%= l('Password') %></label>
-        </div>
-    </div>
-    %= csrf_field
-    <input name="redirect" value="<%= stash('redirect') %>" type="hidden">
-    <div class="col s8 m8 offset-s2 offset-m2">
-        <button class="btn waves-effect waves-light" type="submit" name="action">
-            <%= l('Signin') %>
-        </button>
-    </div>
-</form>

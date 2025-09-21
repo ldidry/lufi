@@ -30,7 +30,9 @@ clean:
 	rm -rf lufi.db files/
 
 dev: clean
+	deno task watch&
 	$(CARTON) morbo $(LUFI) --listen http://$(MORBO_HOST):$(MORBO_PORT) --watch lib/ --watch script/ --watch themes/ --watch lufi.conf
+	
 
 ldap:
 	podman run -d -p $(LOCAL_LDAP_PORT):10389 $(LDAP_CONTAINER_IMAGE); exit 0
@@ -48,5 +50,16 @@ swiftdev: swift dev
 devlog:
 	multitail log/development.log
 
-prod:
+build:
+	deno task build
+
+prod: build
 	$(CARTON) hypnotoad -f $(LUFI)
+
+deps:
+	curl -L "https://framagit.org/Booteille/lufi-api/-/jobs/artifacts/main/download?job=release" --output /tmp/archive.zip
+	unzip -u /tmp/archive.zip -d /tmp/lufi-api/
+	mv /tmp/lufi-api/dist/index.js ./themes/default/public/js/lib/lufi.js
+	rm -rf ./themes/default/public/js/minified/worker/
+	mv /tmp/lufi-api/dist/worker ./themes/default/public/js/minified/
+	rm -rf /tmp/lufi-api/ archive.zip

@@ -1,52 +1,65 @@
 % # vim:set sw=4 ts=4 sts=4 ft=html.epl expandtab:
-<div class="row">
+<div class="box">
 % if (defined(stash('msg'))) {
-    <div class="col s12">
-        <div class="card pink">
-            <div class="card-content white-text">
-                <strong><%== stash('msg')%></strong>
-            </div>
-        </div>
+  <div class="message is-danger">
+    <div class="message-body">
+      <%= stash('msg')%>
     </div>
+  </div>
 % }
-    <div class="col s12">
-        <div class="card cyan">
-            <div class="card-content white-text">
-                <p><%= l('If you send the mail from this server, the links will be sent to the server, which may lower your privacy protection.') %></p>
-                <p><%= l('Adding URLs not related to this Lufi instance to the mail body or subject is prohibited.') %></p>
-            </div>
-        </div>
+
+  <div class="message is-info">
+  % if (!$self->config('disable_mail_sending')) {
+    <div class="message-body">
+      <p><%= l('If you send the mail from this server, the links will be sent to the server, which may lower your privacy protection.') %></p>
+      <p><%= l('Adding URLs not related to this Lufi instance to the mail body or subject is prohibited.') %></p>
     </div>
-    <form action="<%= url_for('m') %>" method="post" class="col s12">
-        %= csrf_field
-        <div class="input-field">
-            <label for="emails"><%= l('Comma-separated email addresses') %></label>
-% if (defined(stash('values'))) {
-            <input type="text" class="validate" id="emails" name="emails" placeholder="<%= l('Emails') %>" value="<%= stash('values')->{emails} %>">
-% } else {
-            <input type="text" class="validate" id="emails" name="emails" placeholder="<%= l('Emails') %>">
-% }
-        </div>
-        <div class="input-field">
-            <label for="subject"><%= l('Email subject') %></label>
-% if (defined(stash('values'))) {
-            <input type="text" class="validate" id="subject" name="subject" value="<%= stash('values')->{subject} %>">
-% } else {
-            <input type="text" class="validate" id="subject" name="subject" value="<%= l('Here\'s some files') %>">
-% }
-        </div>
-        <div class="input-field">
-            <label for="body"><%= l('Email body') %></label>
-            <textarea class="materialize-textarea" id="body" name="body" rows="10">
-% if (defined(stash('values'))) {
-<%= stash('values')->{body} %>
-% }
-            </textarea>
-        </div>
-        % if (!$self->config('disable_mail_sending')) {
-            <button type="submit" class="btn btn-info"><%= l('Send with this server') %></button>
-        % }
-        <a href="#" class="btn btn-primary" id="mailto"><%= l('Send with your own mail software') %></a>
-    </form>
-<div>
-%= javascript url_for('/partial/mail.js')->query(populate => (!defined(stash('msg')) && !defined(stash('values'))), links => $links)
+  % }
+  </div>
+  
+  <form class="field" action="<%= url_for('m') %>" method="post" class="mail-form">
+    %= csrf_field
+    <div class="field emails">
+      <label class="label" for="emails"><%= l('Comma-separated email addresses') %></label>
+      <div class="control">
+        <input class="input" type="text" name="emails" placeholder="<%= l('Emails') %>" value="<%= defined(stash('values')) ? stash('values')->{emails} : '' %>" required>
+      </div>
+    </div>
+    
+    <div class="field subject">
+      <label class="label" for="subject"><%= l('Email subject') %></label>
+      <div class="control">
+        <input class="input" type="text" name="subject" placeholder="<%= l('Email subject') %>" value="<%= defined(stash('values')) ? stash('values')->{subject} : l('Here\'s some files') %>" required>
+      </div>
+    </div>
+
+    <div class="field body">
+      <label class="label" for="body"><%= l('Email body') %></label>
+      <div class="control">
+        <textarea class="textarea" id="body" name="body" placeholder="<%= l('Email body') %>" required><%= defined(stash('values')) ? stash('values')->{body} : "" %></textarea>
+      </div>
+    </div>
+
+    <div class="actions-buttons has-text-centered">
+      % if (!$self->config('disable_mail_sending')) {
+        <button type="submit" class="button action-submit is-primary"><%= l('Send with this server') %></button>
+      % }
+
+      <a href="#" class="button action-own-software is-primary"><%= l('Send with your own mail software') %></a>
+    </div>
+  </form>
+</div>
+
+<script type="text/javascript">
+const isLdapDefined = <%= defined(config('ldap')) ? "true" : "false" %>;
+const isHtpasswdDefined = <%= defined(config('htpasswd')) ? "true" : "false" %>;
+
+const i18n = {
+  intro: '<%= l('Hello,\n\nHere\'s some files I want to share with you:\n') %>',
+  colon: '<%= l(':') %>',
+  deadline: '<%= l('deadline: ') %>',
+  footer: '<%= l('Share your files in total privacy on %1', url_for('/')->to_abs) %>',
+};
+</script>
+
+%= javascript '/js/minified/mail.min.js', type => 'module', defer => "true"

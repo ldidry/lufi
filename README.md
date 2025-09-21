@@ -90,7 +90,7 @@ It uses:
 
 * [Materialize](http://materializecss.com/) framework to look not too ugly
 * [jQuery](https://jquery.com)
-* [Stanford Javascript Crypto Library](http://bitwiseshiftleft.github.com/sjcl/)
+* [Lufi API](https://codeberg.org/Booteille/lufi-api)
 * [Moment.js](http://momentjs.com/) for displaying real dates instead of unix timestamps.
 * [Filesize.js](http://filesizejs.com/) for displaying file sizes
 
