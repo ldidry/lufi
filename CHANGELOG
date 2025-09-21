@@ -8,6 +8,7 @@ Revision history for Lufi
 	- Update default CSP to allow `blob:`
 	- Ability to use `Enter` key to validate password
 	- Add focus on password input on download page
+	- 🩹 — Fix warning in mounter app
 
 0.07.2 2025-07-29
 	- 🐛 — Fix bug in POST file deletion (#319)

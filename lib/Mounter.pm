@@ -1,7 +1,7 @@
 package Mounter;
 use Mojo::Base 'Mojolicious';
 use FindBin qw($Bin);
-use File::Spec qw(catfile);
+use File::Spec;
 use Lufi::DefaultConfig qw($default_config);
 
 # This method will run once at server start
@@ -38,6 +38,9 @@ sub startup {
 
     # Themes handling
     $self->plugin('FiatTux::Themes');
+
+    # Secrets
+    $self->secrets($self->config('secrets'));
 
     $self->plugin('Mount' => {$config->{prefix} => File::Spec->catfile($Bin, '..', 'script', 'application')});
 }
