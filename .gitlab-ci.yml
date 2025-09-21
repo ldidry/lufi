@@ -1,4 +1,5 @@
-image: hatsoftwares/lufi-test-ci:bullseye
+---
+image: hatsoftwares/lufi-test-ci:trixie
 stages:
   - create_release
   - publish_changelog
@@ -45,7 +46,6 @@ variables:
   coverage: '/Total.* (\d+\.\d+)$/'
   before_script:
     - tar xf local.tar && rm local.tar
-    - which mariadb_config && cd $(dirname $(which mariadb_config)) && ln -s mariadb_config mysql_config
     - cd $CI_PROJECT_DIR
     - pwd
   script:
@@ -101,19 +101,6 @@ podcheck:
   except:
     - tags
 
-### Cpanfile.snapshot
-## Used to get a cpanfile.snapshot from a fresh server (not like my dev VM)
-#
-#cpanfile_snapshot:
-#  stage: carton
-#  script:
-#    - rm cpanfile.snapshot
-#    - which mariadb_config && cd $(dirname $(which mariadb_config)) && ln -s mariadb_config mysql_config
-#    - carton install
-#    - cat cpanfile.snapshot
-#  except:
-#    - tags
-
 ### Install common dependencies
 ##
 #
@@ -125,7 +112,10 @@ carton:
     paths:
       - local/
   script:
-    - carton install --deployment --without=sqlite --without=postgresql --without=mysql
+    - carton install --deployment
+                     --without=sqlite
+                     --without=postgresql
+                     --without=mysql
 
 ### Install DB related dependencies
 ##
@@ -133,18 +123,21 @@ carton:
 carton_sqlite:
   <<: *carton_bdd_definition
   script:
-    - carton install --deployment --without=postgresql --without=mysql
+    - carton install --deployment
+                     --without=postgresql
+                     --without=mysql
 carton_postgresql:
   <<: *carton_bdd_definition
   script:
-    - carton install --deployment --without=sqlite --without=mysql
+    - carton install --deployment
+                     --without=sqlite
+                     --without=mysql
 carton_mysql:
   <<: *carton_bdd_definition
-  before_script:
-    - which mariadb_config && cd $(dirname $(which mariadb_config)) && ln -s mariadb_config mysql_config
-    - cd $CI_PROJECT_DIR
   script:
-    - carton install --deployment --without=sqlite --without=postgresql
+    - carton install --deployment
+                     --without=sqlite
+                     --without=postgresql
 
 ### Tests
 ##

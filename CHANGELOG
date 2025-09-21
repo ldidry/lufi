@@ -10,6 +10,7 @@ Revision history for Lufi
 	- Add focus on password input on download page
 	- 🩹 — Fix warning in mounter app
 	- 🩹 — Fix missing space in a template file
+	- 👷 — Update CI image to trixie
 
 0.07.2 2025-07-29
 	- 🐛 — Fix bug in POST file deletion (#319)
