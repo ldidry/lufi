@@ -57,9 +57,11 @@ prod: build
 	$(CARTON) hypnotoad -f $(LUFI)
 
 deps:
-	curl -L "https://framagit.org/Booteille/lufi-api/-/jobs/artifacts/main/download?job=release" --output /tmp/archive.zip
-	unzip -u /tmp/archive.zip -d /tmp/lufi-api/
-	mv /tmp/lufi-api/dist/index.js ./themes/default/public/js/lib/lufi.js
-	rm -rf ./themes/default/public/js/minified/worker/
-	mv /tmp/lufi-api/dist/worker ./themes/default/public/js/minified/
-	rm -rf /tmp/lufi-api/ archive.zip
+	export TMPFILE=$$(mktemp --tmpdir=/tmp lufi-api-archive-XXXXX) && \
+		export TMPDIR=$$(mktemp --tmpdir=/tmp --directory lufi-api-archive-dir-XXXXX) && \
+		curl -L "https://framagit.org/Booteille/lufi-api/-/jobs/artifacts/main/download?job=release" --output "$$TMPFILE.zip" && \
+		unzip -u "$$TMPFILE.zip" -d "$$TMPDIR" && \
+		mv "$$TMPDIR/dist/index.js" ./themes/default/public/js/lib/lufi.js && \
+		rm -rf ./themes/default/public/js/minified/worker/ && \
+		mv "$$TMPDIR/dist/worker" ./themes/default/public/js/minified/ && \
+		rm -rf "$$TMPDIR" "$$TMPFILE.zip"
