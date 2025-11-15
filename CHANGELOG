@@ -2,6 +2,9 @@ Revision history for Lufi
 
 0.08.0 ????-??-??
 
+0.07.3 2025-11-15
+	- 🔖 — Fix 0.07.2 release (tag on wrong commit)
+
 0.07.2 2025-07-29
 	- 🐛 — Fix bug in POST file deletion (#319)
 
