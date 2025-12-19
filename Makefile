@@ -58,10 +58,13 @@ prod: build
 
 deps:
 	export TMPFILE=$$(mktemp --tmpdir=/tmp lufi-api-archive-XXXXX) && \
-		export TMPDIR=$$(mktemp --tmpdir=/tmp --directory lufi-api-archive-dir-XXXXX) && \
-		curl -L "https://framagit.org/Booteille/lufi-api/-/jobs/artifacts/main/download?job=release" --output "$$TMPFILE.zip" && \
-		unzip -u "$$TMPFILE.zip" -d "$$TMPDIR" && \
-		mv "$$TMPDIR/dist/index.js" ./themes/default/public/js/lib/lufi.js && \
-		rm -rf ./themes/default/public/js/minified/worker/ && \
-		mv "$$TMPDIR/dist/worker" ./themes/default/public/js/minified/ && \
-		rm -rf "$$TMPDIR" "$$TMPFILE.zip"
+	export TMPDIR=$$(mktemp --tmpdir=/tmp --directory lufi-api-archive-dir-XXXXX) && \
+	export PROJECT="Booteille%2Flufi-api" && \
+	export PIPELINEID=$$(curl -s "https://framagit.org/api/v4/projects/$$PROJECT/pipelines?per_page=1" | jq -r '.[0].id') && \
+	export JOBID=$$(curl -s "https://framagit.org/api/v4/projects/$$PROJECT/pipelines/$$PIPELINEID/jobs" | jq -r '.[] | select(.name=="release_job") | .id') && \
+	curl -fLS "https://framagit.org/Booteille/lufi-api/-/jobs/$$JOBID/artifacts/download?file_type=archive" --output "$$TMPFILE.zip" && \
+	unzip -oq "$$TMPFILE.zip" -d "$$TMPDIR" && \
+	mv "$$TMPDIR/dist/index.js" ./themes/default/public/js/lib/lufi.js && \
+	rm -rf ./themes/default/public/js/minified/worker/ && \
+	mv "$$TMPDIR/dist/worker" ./themes/default/public/js/minified/ && \
+	rm -rf "$$TMPDIR" "$$TMPFILE.zip"
