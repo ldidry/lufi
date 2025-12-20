@@ -517,6 +517,8 @@ document.addEventListener("DOMContentLoaded", () => {
     providedFiles = [];
     document.getElementById("provided-files").replaceChildren();
 
+    totalSize = 0; // re-init total file size
+
     showFullUploadZone();
   };
 
