@@ -53,6 +53,8 @@ document.addEventListener("DOMContentLoaded", () => {
 
     const actualCard = document.querySelector(`.card-${cardId}`);
 
+    console.debug(actualCard, cardId);
+
     if (actualCard.classList.contains("card-file-error")) {
       errorCard.querySelector(
         ".message-body"
@@ -164,9 +166,9 @@ document.addEventListener("DOMContentLoaded", () => {
     const generateCardId = () =>
       isSecureContext ? crypto.randomUUID() : uuidv4();
 
-    const zippedCardId = isZipped ? generateCardId() : null;
+    let cardId = isZipped ? generateCardId() : null;
     const zippedUploadingFileCard = isZipped
-      ? initCard("uploading", zippedCardId)
+      ? initCard("uploading", cardId)
       : null;
 
     const runUpload = (job = null) => {
@@ -185,7 +187,7 @@ document.addEventListener("DOMContentLoaded", () => {
           .andThen((jobs) =>
             ResultAsync.combine(
               jobs.map((job) => {
-                const cardId = isZipped ? zippedCardId : generateCardId();
+                cardId = isZipped ? cardId : generateCardId();
                 const uploadingFileCard = isZipped
                   ? zippedUploadingFileCard
                   : initCard("uploading", cardId);
@@ -301,14 +303,14 @@ document.addEventListener("DOMContentLoaded", () => {
                     return okAsync(job);
                   })
                   .orElse((error) => {
-                    showErrorCard(error, zippedCardId, job.lufiFile);
+                    showErrorCard(error, cardId, job.lufiFile);
                     return errAsync(error);
                   });
               })
             )
           )
           .orElse((error) => {
-            showErrorCard(error, zippedCardId);
+            showErrorCard(error, cardId);
 
             return errAsync(error);
           });
@@ -345,7 +347,7 @@ document.addEventListener("DOMContentLoaded", () => {
         })
         .andThen(runUpload)
         .mapErr((error) => {
-          showErrorCard(error, zippedCardId);
+          showErrorCard(error, cardId);
         });
     } else {
       return runUpload();
@@ -501,7 +503,7 @@ document.addEventListener("DOMContentLoaded", () => {
     const zipMultiple = document.getElementById("zip-multiple").checked;
     let zipName = document.querySelector("#zip-name input").value;
     zipName = zipName.endsWith(".zip") ? zipName : `${zipName}.zip`;
-    
+
     const mustZip = providedFiles.length > 1 ? zipMultiple : false;
 
     startUpload(
