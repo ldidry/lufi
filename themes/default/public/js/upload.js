@@ -8,7 +8,7 @@ import {
 } from "~/lib/lufi.js";
 import { copyToClipboard, formatDate, notify, uuidv4 } from "~/lib/utils.js";
 
-import { filesize } from "~/lib/filesize.esm.min.js";
+import { filesize } from "~/lib/filesize.min.js";
 
 document.addEventListener("DOMContentLoaded", () => {
   const initCard = (cardType, cardId = null) => {
