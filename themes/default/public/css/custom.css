@@ -229,3 +229,7 @@ tr.deleted {
 .files-list {
   list-style: disc;
 }
+
+th abbr {
+  cursor: help
+}
