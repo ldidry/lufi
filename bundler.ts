@@ -59,7 +59,7 @@ export const buildJS = await esbuild.context({
   outdir: `${themeDir}/public/js/minified`,
   entryNames: "[dir]/[name].min",
   bundle: true,
-  minify: false,
+  minify: true,
   sourcemap: false,
   allowOverwrite: true,
   format: "esm",
