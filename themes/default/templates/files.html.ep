@@ -130,7 +130,7 @@
       </a>
     </td>
     <td class="deletion is-vcentered">
-      <a class="action-delete-item" href="#">
+      <a class="action-delete-item has-text-danger" href="#">
         <span class="icon-text is-justify-content-center">
           <span class="icon fas fa-trash" aria-hidden="true"></span>
           <span><%= l('Delete') %></span>
