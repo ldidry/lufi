@@ -17,6 +17,7 @@ themes/*
 themes/default/public/js/minified/*
 themes/default/public/js/lib/lufi.js
 themes/default/public/css/main.min.css
+themes/default/public/webfonts/fa-*
 .stignore
 .stfolder/
 TODO
