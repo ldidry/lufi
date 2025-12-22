@@ -167,6 +167,11 @@ document.addEventListener("DOMContentLoaded", () => {
       isSecureContext ? crypto.randomUUID() : uuidv4();
 
     let cardId = isZipped ? generateCardId() : null;
+
+    if (isZipped) {
+      skeletonCardDOM.remove();
+    }
+
     const zippedUploadingFileCard = isZipped
       ? initCard("uploading", cardId)
       : null;
@@ -211,7 +216,10 @@ document.addEventListener("DOMContentLoaded", () => {
                   updateProgressBar(job.lufiFile, uploadingFileCard);
                 });
 
-                skeletonCardDOM.remove();
+                if (!isZipped) {
+                  skeletonCardDOM.remove();
+                }
+
                 uploadedFilesDOM.prepend(uploadingFileCard);
 
                 return job
