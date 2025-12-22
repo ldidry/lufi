@@ -72,7 +72,7 @@ a:not(#main-menu a) a:hover {
 }
 
 .progress::-webkit-progress-value {
-  transition: width 0.5s ease;
+  transition: width 0.5s linear;
 }
 
 #modal-language-selector .modal-card-foot {
