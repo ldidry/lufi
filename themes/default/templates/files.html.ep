@@ -23,21 +23,21 @@
   </div>
 
   <div class="panel-block table-container files-table mb-6">
-    <table class="table is-stripped is-hoverable">
+    <table class="table is-stripped is-hoverable is-fullwidth">
       <thead>
         <tr>
           <th class="has-text-centered">
             <div><%= l('Selection') %></div>
             <input class="checkbox" type="checkbox" id="action-select-all" aria-label="<%= l('Select All')%>">
           </th>
-          <th class="has-text-centered is-vcentered"><%= l('File name') %></th>
-          <th class="has-text-centered is-vcentered is-narrow"><%= l('Access nb') %></th>
-          <th class="has-text-centered is-vcentered is-narrow"><abbr title="<%= l('Delete at first download?') %>"><%= l('Delete after download') %></abbr></th>
-          <th class="has-text-centered is-vcentered"><%= l('Uploaded at') %></th>
-          <th class="has-text-centered is-vcentered"><%= l('Expires at') %></th>
-          <th class="has-text-centered is-vcentered"><%= l('Download') %></th>
-          <th class="has-text-centered is-vcentered"><%= l('Share') %></th>
-          <th class="has-text-centered is-vcentered"><%= l('Delete') %></th>
+          <th class="has-text-centered"><%= l('File name') %></th>
+          <th class="has-text-centered is-narrow"><%= l('Access nb') %></th>
+          <th class="has-text-centered is-narrow"><abbr title="<%= l('Delete at first download?') %>"><%= l('Delete after download') %></abbr></th>
+          <th class="has-text-centered"><%= l('Uploaded at') %></th>
+          <th class="has-text-centered"><%= l('Expires at') %></th>
+          <th class="has-text-centered"><%= l('Download') %></th>
+          <th class="has-text-centered"><%= l('Share') %></th>
+          <th class="has-text-centered"><%= l('Delete') %></th>
         </tr>
       </thead>
 
@@ -59,14 +59,14 @@
   </div>
 
   <div class="panel-block table-container deleted-files-table mb-6">
-    <table class="table is-stripped is-hoverable is-fullwidth">
+    <table class="table is-stripped is-hoverable is-fullwidth is-fullwidth">
       <thead>
         <tr>
-          <th class="has-text-centered is-vcentered"><%= l('File name') %></th>
-          <th class="has-text-centered is-vcentered"><%= l('Access nb') %></th>
-          <th class="has-text-centered is-vcentered is-narrow"><abbr title="<%= l('Delete at first download?') %>"><%= l('Delete at first download') %></abbr></th>
-          <th class="has-text-centered is-vcentered"><%= l('Uploaded at') %></th>
-          <th class="has-text-centered is-vcentered"><%= l('Expires at') %></th>
+          <th class="has-text-centered "><%= l('File name') %></th>
+          <th class="has-text-centered "><%= l('Access nb') %></th>
+          <th class="has-text-centered is-narrow"><abbr title="<%= l('Delete at first download?') %>"><%= l('Delete at first download') %></abbr></th>
+          <th class="has-text-centered "><%= l('Uploaded at') %></th>
+          <th class="has-text-centered "><%= l('Expires at') %></th>
         </tr>
       </thead>
 
