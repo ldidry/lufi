@@ -178,13 +178,14 @@
       </template>
     % }
   </div>
-% }
 
-<script type="text/javascript">
-const ws_url = '<%= url_for('download')->to_abs().stash('f')->short %>';
-const i18n   = {
-  confirmExit:     '<%= l('You have attempted to leave this page. The download will be canceled. Are you sure?') %>',
-  fileDownloaded:  '<%= l('File downloaded') %>',
-}
-</script>
-%= javascript '/js/minified/download.min.js', type => 'module', defer => "true"
+  <script type="text/javascript">
+
+  const ws_url = '<%= url_for('download')->to_abs().stash('f')->short %>';
+  const i18n   = {
+    confirmExit:     '<%= l('You have attempted to leave this page. The download will be canceled. Are you sure?') %>',
+    fileDownloaded:  '<%= l('File downloaded') %>',
+  }
+  </script>
+  %= javascript '/js/minified/download.min.js', type => 'module', defer => "true"
+% }
