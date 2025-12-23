@@ -101,7 +101,7 @@
 
       <main role="main">
         <div id="notifications-container" class="is-overlay"></div>
-        
+
         <noscript>
           <div class="message is-danger">
             <div class="message-body">
@@ -109,6 +109,15 @@
             </div>
           </div>
         </noscript>
+        % if (defined(config('broadcast_message'))) {
+          <div class="message broadcast-message">
+            <div class="message-body">
+              <span class="icon fas fa-bullhorn" aria-hidden="true"></span>
+
+              <%= config('broadcast_message') %>
+            </div>
+          </div>
+        % }
 
       <section id="section-main" class="hero is-fullheight-with-navbar">
         <div class="hero-body is-fullwidth">

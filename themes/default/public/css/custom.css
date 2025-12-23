@@ -233,3 +233,10 @@ tr.deleted {
 th abbr {
   cursor: help
 }
+
+.broadcast-message {
+  margin: 1rem;
+
+  --bulma-scheme-h: 260;
+  --bulma-scheme-s: 100%;
+}

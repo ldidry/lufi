@@ -7,6 +7,7 @@ const themeDir = "./themes/default";
 
 fontawesomeSubset(
   [
+    "bullhorn",
     "circle-plus",
     "close",
     "copy",
