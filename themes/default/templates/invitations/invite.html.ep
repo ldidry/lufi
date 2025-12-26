@@ -4,7 +4,7 @@
   <div class="message is-error">
     <div class="message-body">
     % for my $msg (@{$self->stash('fails')}) {
-      <%= $msg %>
+      <%== $msg %>
     % }
     </div>
   </div>
@@ -14,7 +14,7 @@
     <div class="message-body">
       <p class="content">
       % for my $msg (@{$self->stash('success')}) {
-        <%= $msg %>
+        <%== $msg %>
       % }
       </p>
     </div>
