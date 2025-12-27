@@ -23,6 +23,7 @@ fontawesomeSubset(
     "recycle",
     "right-from-bracket",
     "right-to-bracket",
+    "rotate",
     "trash",
     "upload",
   ],

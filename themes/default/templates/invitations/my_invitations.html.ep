@@ -14,10 +14,30 @@
   </div>
 
   <div class="buttons">
-    <button href="#" class="button action-toggle-hidden"><%= l('Show hidden invitations') %></button>
-    <button href="#" class="button target-selection action-delete-invitation" disabled="disabled"><%= l('Delete') %></button>
-    <button href="#" class="button target-selection action-resend-invitation" disabled="disabled"><%= l('Resend invitation mail') %></button>
-    <button href="#" class="button target-selection action-toggle-visibility" disabled="disabled"><%= l('Toggle visibility') %></button>
+    <button href="#" class="button action-toggle-hidden">
+      <span class="icon-text">
+        <span class="icon fas fa-eye"></span>
+        <span class="text"><%= l('Show hidden invitations') %></span>
+      </span>
+    </button>
+    <button href="#" class="button is-danger target-selection action-delete-invitation" disabled="disabled">
+      <span class="icon-text">
+        <span class="icon fas fa-trash"></span>
+        <span><%= l('Delete') %></span>
+      </span>
+    </button>
+    <button href="#" class="button target-selection action-resend-invitation" disabled="disabled">
+      <span class="icon-text">
+        <span class="icon fas fa-envelope"></span>
+        <span><%= l('Resend invitation mail') %></span>
+      </span>
+    </button>
+    <button href="#" class="button target-selection action-toggle-visibility" disabled="disabled">
+      <span class="icon-text">
+        <span class="icon fas fa-rotate"></span>
+        <span><%= l('Toggle visibility') %></span>
+      </span>
+    </button>
   </div>
 
   <div class="table-container is-fullwidth">
