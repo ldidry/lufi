@@ -162,13 +162,18 @@ a:not(#main-menu a) a:hover {
   }
 }
 
-.notifications-container {
-  position: fixed;
-  z-index: 10;
+#notifications-container {
+  top: 5rem;
+  left: auto;
+  z-index: 99999;
+  max-height: 100%;
+  overflow: hidden;
+  padding: 1rem;
 }
 
 .notification {
   display: flex;
+  flex-direction: column;
   box-shadow: 0 0.1rem 0.3rem 0 rgba(0, 0, 0, 0.16), 0 0.1rem 0.7rem 0 rgba(0, 0, 0, 0.12);
   width: 30rem;
   min-height: 3rem;
@@ -184,6 +189,25 @@ a:not(#main-menu a) a:hover {
   opacity: 0;
   text-wrap: pretty;
   animation: fadein 0.5s forwards, fadeout 0.5s 3.5s forwards;
+}
+
+.notification::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  height: 0.25rem;
+  background: hsl(var(--bulma-notification-h), var(--bulma-notification-s), calc(var(--bulma-notification-background-l) - 20%));
+  transform-origin: left center;
+  transform: scaleX(0);
+  animation: growX 3.5s forwards linear;
+}
+
+@media (prefers-color-scheme: dark) {
+  .notification::after {
+    background: hsl(var(--bulma-notification-h), var(--bulma-notification-s), calc(var(--bulma-notification-background-l) + 20%));
+  }
 }
 
 @keyframes fadein {
@@ -205,6 +229,12 @@ a:not(#main-menu a) a:hover {
 
   to {
     opacity: 1;
+  }
+}
+
+@keyframes growX {
+  to {
+    transform: scaleX(1);
   }
 }
 

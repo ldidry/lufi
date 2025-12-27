@@ -14,7 +14,7 @@ export const addToast = (message, type) => {
 
   notification.classList.add(`is-${type}`);
 
-  notification.querySelector(".message").innerText = message;
+  notification.querySelector(".content").innerText = message;
 
   document.getElementById("notifications-container").append(notification);
 

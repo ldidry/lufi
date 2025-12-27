@@ -31,13 +31,19 @@ const toggleHidden = () => {
   );
 
   if (invitationsListDOM.dataset.visibility === "hidden") {
-    toggleButtonDOM.innerText = i18n.hideText;
+    toggleButtonDOM.querySelector(".icon-text .text").innerText = i18n.hideText;
+    toggleButtonDOM
+      .querySelector(".icon-text .icon")
+      .classList.replace("fa-eye", "fa-eye-slash");
 
     itemsHiddenDOM.forEach((item) => showNode(item));
 
     invitationsListDOM.dataset.visibility = "shown";
   } else {
-    toggleButtonDOM.innerText = i18n.showText;
+    toggleButtonDOM.querySelector(".icon-text .text").innerText = i18n.showText;
+    toggleButtonDOM
+      .querySelector(".icon-text .icon")
+      .classList.replace("fa-eye-slash", "fa-eye");
 
     itemsHiddenDOM.forEach((item) => {
       hideNode(item);
