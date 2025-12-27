@@ -159,7 +159,7 @@
 
       <template id="notification">
         <div class="notification">
-          <div class="message"></div>
+          <p class="content"></p>
         </div>
       </template>
 
