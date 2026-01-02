@@ -30,7 +30,7 @@ clean:
 	rm -rf lufi.db files/
 
 dev: clean
-	deno task watch&
+	deno task watch &
 	$(CARTON) morbo $(LUFI) --listen http://$(MORBO_HOST):$(MORBO_PORT) --watch lib/ --watch script/ --watch themes/ --watch lufi.conf
 	
 
@@ -57,17 +57,4 @@ prod: build
 	$(CARTON) hypnotoad -f $(LUFI)
 
 deps:
-	export TMPFILE=$$(mktemp --tmpdir=/tmp lufi-api-archive-XXXXX) && \
-	export TMPDIR=$$(mktemp --tmpdir=/tmp --directory lufi-api-archive-dir-XXXXX) && \
-	export PROJECT="Booteille%2Flufi-api" && \
-	export PIPELINE_INFO=$$(curl -s "https://framagit.org/api/v4/projects/$$PROJECT/pipelines?per_page=1" | jq -r '.[0] | "\(.id) \(.ref)"') && \
-	set -- $$PIPELINE_INFO && \
-	export PIPELINE_ID=$$1; shift; export API_VERSION="$${*}" && \
-	export JOBID=$$(curl -s "https://framagit.org/api/v4/projects/$$PROJECT/pipelines/$$PIPELINE_ID/jobs" | jq -r '.[] | select(.name=="release_job") | .id') && \
-	echo "Downloading Lufi API $$API_VERSION" && \
-	curl -fLS "https://framagit.org/Booteille/lufi-api/-/jobs/$$JOBID/artifacts/download?file_type=archive" --output "$$TMPFILE.zip" && \
-	unzip -oq "$$TMPFILE.zip" -d "$$TMPDIR" && \
-	mv "$$TMPDIR/dist/index.js" ./themes/default/public/js/lib/lufi.js && \
-	rm -rf ./themes/default/public/js/minified/worker/ && \
-	mv "$$TMPDIR/dist/worker" ./themes/default/public/js/minified/ && \
-	rm -rf "$$TMPDIR" "$$TMPFILE.zip"
+	$(CARTON) ./script/lufi getLufiAPI
