@@ -13,6 +13,7 @@ Revision history for Lufi
 	- 👷 — Update CI image to trixie
 	- 🔨 — Use temporary filename and directory to download Lufi API
 	- ⬆️ — Update MySQL deps
+	- 💥 — Prevent Lufi to start if Lufi-API js lib has not been downloaded
 
 0.07.2 2025-07-29
 	- 🐛 — Fix bug in POST file deletion (#319)

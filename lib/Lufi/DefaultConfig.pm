@@ -2,7 +2,10 @@
 package Lufi::DefaultConfig;
 require Exporter;
 @ISA = qw(Exporter);
-@EXPORT_OK = qw($default_config);
+@EXPORT_OK = qw($default_config LUFI_API_VERSION);
+
+use constant LUFI_API_VERSION => 'v0.3.6';
+
 our $default_config = {
     instance_name => 'Lufi',
     prefix        => '/',

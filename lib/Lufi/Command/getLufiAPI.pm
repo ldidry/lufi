@@ -5,8 +5,7 @@ use Mojo::File qw(tempdir tempfile);
 use Mojo::UserAgent;
 use FindBin qw($Bin);
 use IO::Uncompress::Unzip qw(unzip $UnzipError);
-
-use constant LUFI_API_VERSION => 'v0.3.6';
+use Lufi::DefaultConfig qw(LUFI_API_VERSION);
 
 has description => 'Download and extract Lufi-API js library.';
 has usage => sub { shift->extract_usage };

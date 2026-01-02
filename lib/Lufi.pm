@@ -3,9 +3,10 @@ package Lufi;
 use Mojo::Base 'Mojolicious';
 use Mojolicious::Sessions;
 use Mojo::File;
+use FindBin qw($Bin);
 use Email::Valid;
 use Data::Validate::URI qw(is_web_uri);
-use Lufi::DefaultConfig qw($default_config);
+use Lufi::DefaultConfig qw($default_config LUFI_API_VERSION);
 
 $ENV{MOJO_MAX_WEBSOCKET_SIZE} = 100485760; # 10 * 1024 * 1024 = 10MiB
 
@@ -27,6 +28,13 @@ sub startup {
 
     die 'You need to provide a contact information in lufi.conf!' unless (defined($self->config('contact')));
     die 'You need to provide a **report** information in lufi.conf!' unless (defined($self->config('report')));
+
+    if (! scalar(@ARGV) || $ARGV[0] ne 'getLufiAPI') {
+        my $version_file = Mojo::File->new($Bin, '..', 'themes', 'default', 'public', 'js', 'minified', 'worker', 'VERSION');
+        if (! -e $version_file || $version_file->slurp() ne LUFI_API_VERSION) {
+            die "\nERROR: You need to download Lufi API js library! Use \"make deps\" or \"carton exec ./script/lufi getLufiAPI\"";
+        }
+    }
 
     if (Email::Valid->address($self->config('report'))) {
         $self->config('report' => 'mailto:'.$self->config('report'));

@@ -57,4 +57,4 @@ prod: build
 	$(CARTON) hypnotoad -f $(LUFI)
 
 deps:
-	$(CARTON) ./script/lufi getLufiAPI
+	$(CARTON) $(LUFI) getLufiAPI
