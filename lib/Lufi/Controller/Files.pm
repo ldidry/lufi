@@ -247,7 +247,6 @@ sub upload {
                         msg     => $c->l('Sorry, you are not authenticated.'),
                     }
                 )));
-                
                 $c->app->log->info(sprintf('Someone unauthenticated tried to upload a file. IP: %s', $c->ip));
                 $c->finish;
             }

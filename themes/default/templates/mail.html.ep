@@ -16,7 +16,7 @@
     </div>
   % }
   </div>
-  
+
   <form class="field" action="<%= url_for('m') %>" method="post" class="mail-form">
     %= csrf_field
     <div class="field emails">
@@ -25,7 +25,7 @@
         <input class="input" type="text" name="emails" placeholder="<%= l('Emails') %>" value="<%= defined(stash('values')) ? stash('values')->{emails} : '' %>" required>
       </div>
     </div>
-    
+
     <div class="field subject">
       <label class="label" for="subject"><%= l('Email subject') %></label>
       <div class="control">

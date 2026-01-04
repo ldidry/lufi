@@ -21,7 +21,7 @@
         <link rel="stylesheet" href="/css/main.min.css">
     </head>
     <body>
-      <header class="header" role="banner">        
+      <header class="header" role="banner">
         <nav class="navbar is-primary has-text-weight-semibold" role="navigation" aria-label="main navigation">
           <div class="navbar-brand">
             <a href="<%= url_for('/') %>" class="navbar-item<%== ' has-background-primary-35' if (current_route eq 'index') %>">
@@ -31,7 +31,7 @@
             % if ((!defined(config('ldap')) && !defined(config('htpasswd')) && !defined(config('auth_headers'))) || is_user_authenticated()) {
               <a href="<%= url_for('/files') %>" class="navbar-item<%== ' has-background-primary-35' if (current_route eq 'files') %>"><%= l('My files') %></a>
             % }
-            
+
             <a href="<%= $self->config('report') %>" class="navbar-item"><%= l('Report file') %></a>
 
             <a role="button" class="navbar-burger" aria-label="menu" aria-expanded="false" data-target="main-menu">
@@ -83,7 +83,7 @@
                 </a>
               % }
             % }
-            
+
               <a href="#" id="language-selector" class="js-modal-trigger navbar-item" data-target="modal-language-selector" role="button" aria-haspopup="true" aria-expanded="false" aria-label="<%= l('Languages') %>">
                 <span class="icon-text">
                   <span class="icon">

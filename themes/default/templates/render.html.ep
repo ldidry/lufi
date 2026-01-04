@@ -30,7 +30,7 @@
 
       <div id="download-container" class="is-size-5">
       </div>
-      
+
       <template id="block-download-ongoing">
         <article class="block block-download-ongoing">
           <div class="columns is-justify-content-center">
@@ -50,7 +50,7 @@
               <div class="progress-text has-text-centered has-text-weight-bold">0%</div>
               <progress class="progress is-primary is-small" max="100">0%</progress>
             </div>
-          </div>  
+          </div>
 
           <div class="columns is-justify-content-center">
             <div class="column has-text-centered is-half px-0">
@@ -82,7 +82,7 @@
                 <%= l('Download aborted.') %>
               </div>
             </div>
-          </div>  
+          </div>
 
           <div class="columns is-justify-content-center">
             <div class="column has-text-centered is-half px-0">
@@ -91,7 +91,7 @@
           </div>
         </article>
       </template>
-      
+
 
       <template id="block-download-success">
         <article class="block block-success">
@@ -119,7 +119,7 @@
 
 
           <div class="render has-text-centered"></div>
-            
+
           <div id="zip-container" class="columns is-justify-content-center is-hidden mt-6">
             <div class="column is-half has-text-centered is-size-6 p-0 content">
               <a id="show-zip-button" href="" class="button"><%= l('Show zip content') %></a>
