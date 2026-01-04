@@ -26,6 +26,11 @@
     --bulma-panel-heading-background-l: 65%;
     --bulma-panel-s: 80%;
   }
+
+  a.navbar-item.is-active {
+    background-color: #F0F2F4;
+    color: #1F2229;
+  }
 }
 
 @media (prefers-color-scheme: dark) {
@@ -36,6 +41,11 @@
   .panel.is-danger {
     --bulma-panel-heading-background-l: 65%;
     --bulma-panel-s: 55%;
+  }
+
+  a.navbar-item.is-active {
+    background-color: #1F2229;
+    color: #EBECF0;
   }
 }
 
