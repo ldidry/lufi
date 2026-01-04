@@ -1,5 +1,5 @@
-import { filesize } from "~/lib/filesize.min.js";
-import { addToast, formatDate, hideNode, showNode } from "~/lib/utils.js";
+import { filesize } from "./lib/filesize.min.js";
+import { addToast, formatDate, hideNode, showNode } from "./lib/utils.js";
 
 const updateButtonsStatus = () => {
   const targetSelectionDOM = document.querySelectorAll(".target-selection");

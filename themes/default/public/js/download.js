@@ -1,6 +1,6 @@
-import { lufi } from "~/lib/lufi.js";
-import { filesize } from "~/lib/filesize.min.js";
-import { notify, escapeHtml } from "~/lib/utils.js";
+import { lufi } from "./lib/lufi.js";
+import { filesize } from "./lib/filesize.min.js";
+import { notify, escapeHtml } from "./lib/utils.js";
 
 document.addEventListener("DOMContentLoaded", () => {
   const passwordFormDOM = document.getElementById("password-form");

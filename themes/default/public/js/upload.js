@@ -5,10 +5,10 @@ import {
   ResultAsync,
   CryptoAlgorithm,
   JobStatus,
-} from "~/lib/lufi.js";
-import { copyToClipboard, formatDate, notify, uuidv4 } from "~/lib/utils.js";
+} from "./lib/lufi.js";
+import { copyToClipboard, formatDate, notify, uuidv4 } from "./lib/utils.js";
 
-import { filesize } from "~/lib/filesize.min.js";
+import { filesize } from "./lib/filesize.min.js";
 
 document.addEventListener("DOMContentLoaded", () => {
   const initCard = (cardType, cardId = null) => {

@@ -4,6 +4,7 @@ use Mojo::Base 'Mojolicious::Plugin';
 use Lufi::DB::File;
 use Lufi::DB::Invitation;
 use Date::Language;
+use Mojo::File;
 
 sub register {
     my ($self, $app) = @_;
@@ -70,6 +71,7 @@ sub register {
     $app->helper(is_guest                => \&_is_guest);
     $app->helper(get_date_lang           => \&_get_date_lang);
     $app->helper(git_version             => \&_git_version);
+    $app->helper(minified_asset          => \&_minified_asset);
 }
 
 sub _pg {
@@ -243,6 +245,23 @@ sub _git_version {
     return {
         tag    => $last_tag,
         commit => $last_commit
+    }
+}
+
+sub _minified_asset {
+    my $c = shift;
+    my $asset = shift;
+
+    return $asset if ($c->app->mode ne 'production');
+
+    $asset = Mojo::File->new($asset);
+    my $path = $asset->dirname();
+    if ($asset =~ m#\.css#) {
+        my $basename = $asset->basename('.css');
+        return "$path/$basename.min.css";
+    } else {
+        my $basename = $asset->basename('.js');
+        return "$path/minified/$basename.min.js";
     }
 }
 

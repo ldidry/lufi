@@ -62,4 +62,4 @@ const i18n = {
 };
 </script>
 
-%= javascript '/js/minified/mail.min.js', type => 'module', defer => "true"
+%= javascript $self->minified_asset('/js/mail.js'), type => 'module', defer => "true"

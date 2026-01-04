@@ -187,5 +187,5 @@
     fileDownloaded:  '<%= l('File downloaded') %>',
   }
   </script>
-  %= javascript '/js/minified/download.min.js', type => 'module', defer => "true"
+  %= javascript $self->minified_asset('/js/download.js'), type => 'module', defer => "true"
 % }

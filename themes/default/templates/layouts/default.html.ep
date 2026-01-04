@@ -18,7 +18,7 @@
         <link rel="apple-touch-icon" sizes="152x152" href="<%= url_for('/img/lufi152.png') %>">
         <link rel="apple-touch-icon-precomposed" sizes="128x128" href="<%= url_for('/img/lufi128.png') %>">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <link rel="stylesheet" href="/css/main.min.css">
+        <link rel="stylesheet" href="<%= url_for($self->minified_asset('/css/main.css')) %>">
     </head>
     <body>
       <header class="header" role="banner">
