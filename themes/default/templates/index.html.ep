@@ -71,7 +71,7 @@
                       </div>
                     </div>
 
-                  <div class="field is-narrow">or</div>
+                  <div class="field is-narrow"><%= l('or') %></div>
 
                   <fieldset <%= 'disabled' if config('force_burn_after_reading') %>>
                     <div class="field is-expanded">
@@ -336,7 +336,7 @@ const baseURL = '<%= url_for('/')->to_abs() %>';
 % }
 const actionURL = '<%= url_for('/')->to_abs() %>';
 const i18n    = {
-    compressing:  '<%= l('Compression in progress...') %>',
+    compressing:  '<%= l('Compression in progress…') %>',
     confirmExit:  '<%= l('You have attempted to leave this page. The upload will be canceled. Are you sure?') %>',
     copied:       '<%= l('Copied') %>',
     copyLink:     '<%= l('Copy link') %>',
@@ -346,7 +346,7 @@ const i18n    = {
     maxSize:      '<%= l('(max size: XXX)') %>',
     noLimit:      '<%= l('No expiration delay') %>',
     unknownYet:   '<%= l('Unknown yet') %>',
-    uploading:    '<%= l('Upload in progress...') %>',
+    uploading:    '<%= l('Upload in progress…') %>',
 };
 const maxSize = <%= config('max_file_size') || 0 %>;
 

@@ -244,7 +244,7 @@ sub upload {
                 $ws->send(decode('UTF-8', encode_json(
                     {
                         success => false,
-                        msg     => $c->l('Sorry, you are not authenticated'),
+                        msg     => $c->l('Sorry, you are not authenticated.'),
                     }
                 )));
                 

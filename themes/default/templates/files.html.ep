@@ -53,7 +53,7 @@
     <button id="action-purge-expired" type="button" class="button">
       <span class="icon-text">
         <span class="icon fas fa-recycle"></span>
-        <span><%= l('Remore expired files from browser history') %></span>
+        <span><%= l('Remove expired files from browser history') %></span>
       </span>
     </button>
   </div>
