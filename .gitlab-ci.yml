@@ -49,6 +49,7 @@ variables:
     - cd $CI_PROJECT_DIR
     - pwd
   script:
+    - MOJO_CONFIG="t/${CI_JOB_NAME}.conf" make deps
     - MOJO_CONFIG="t/${CI_JOB_NAME}.conf" make test
     - MOJO_CONFIG="t/${CI_JOB_NAME}.conf" make cover
 
