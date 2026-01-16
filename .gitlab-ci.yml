@@ -58,7 +58,7 @@ variables:
   needs:
     - carton_sqlite
   services:
-    - name: rroemhild/test-openldap
+    - name: ghcr.io/rroemhild/docker-test-openldap:master
       alias: rroemhild-test-openldap
       # - name: openstackswift/saio
       #   alias: swiftstack-picoswiftstack
@@ -69,7 +69,7 @@ variables:
   services:
     - name: postgres:17
       alias: postgres
-    - name: rroemhild/test-openldap
+    - name: ghcr.io/rroemhild/docker-test-openldap:master
       alias: rroemhild-test-openldap
       # - name: openstackswift/saio
       #   alias: swiftstack-picoswiftstack
@@ -80,7 +80,7 @@ variables:
   services:
     - name: mariadb:11.8
       alias: mariadb
-    - name: rroemhild/test-openldap
+    - name: ghcr.io/rroemhild/docker-test-openldap:master
       alias: rroemhild-test-openldap
       # - name: openstackswift/saio
       #   alias: swiftstack-picoswiftstack
