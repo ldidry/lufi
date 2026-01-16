@@ -9,6 +9,7 @@ use Lufi::DB::Slice;
 use File::Spec::Functions;
 use Number::Bytes::Human qw(format_bytes);
 use Filesys::DfPortable;
+use Crypt::SaltedHash;
 
 sub files {
     my $c = shift;
@@ -312,8 +313,17 @@ sub download {
 
                     # Do we need a password?
                     my $valid = 1;
+                    my $pwd_error = 'encrypted';
                     if ($c->config('allow_pwd_on_files') && defined($f->{passwd})) {
-                        $valid = $json->{file_pwd} eq $f->{passwd};
+                        if (defined($json->{file_pwd})) {
+                            $valid = $json->{file_pwd} eq $f->{passwd};
+                        } elsif (defined($json->{file_clear_pwd})) {
+                            $valid = Crypt::SaltedHash->validate($f->{passwd}, $json->{file_clear_pwd}, 8);
+                            $pwd_error = 'clear text';
+                        } else {
+                            $valid = 0;
+                            $pwd_error = 'no password';
+                        }
                     }
 
                     if ($valid) {
@@ -344,7 +354,8 @@ sub download {
                     } else {
                         $c->send(decode('UTF-8', encode_json(
                             {
-                                msg => $c->l('Your password is not valid. Please refresh the page to retry.')
+                                msg => $c->l('Your password is not valid. Please refresh the page to retry.'),
+                                pwd => $pwd_error
                             }
                         )));
                     }
