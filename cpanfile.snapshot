@@ -99,6 +99,16 @@ DISTRIBUTIONS
       Class::Accessor::Lite 0.08
     requirements:
       ExtUtils::MakeMaker 6.36
+  Class-Inspector-1.36
+    pathname: P/PL/PLICEASE/Class-Inspector-1.36.tar.gz
+    provides:
+      Class::Inspector 1.36
+      Class::Inspector::Functions 1.36
+    requirements:
+      ExtUtils::MakeMaker 0
+      File::Spec 0.80
+      base 0
+      perl 5.008
   Class-Method-Modifiers-2.15
     pathname: E/ET/ETHER/Class-Method-Modifiers-2.15.tar.gz
     provides:
@@ -377,6 +387,49 @@ DISTRIBUTIONS
       perl 5.006
       strict 0
       warnings 0
+  Data-OptList-0.114
+    pathname: R/RJ/RJBS/Data-OptList-0.114.tar.gz
+    provides:
+      Data::OptList 0.114
+    requirements:
+      ExtUtils::MakeMaker 6.78
+      List::Util 0
+      Params::Util 0
+      Sub::Install 0.921
+      perl 5.012
+      strict 0
+      warnings 0
+  Data-Serializer-0.65
+    pathname: N/NE/NEELY/Data-Serializer-0.65.tar.gz
+    provides:
+      Data::Serializer 0.65
+      Data::Serializer::Bencode 0.03
+      Data::Serializer::Config::General 0.02
+      Data::Serializer::Convert::Bencode 0.03
+      Data::Serializer::Convert::Bencode_XS 0.03
+      Data::Serializer::Cookbook 0.05
+      Data::Serializer::Data::Denter 0.02
+      Data::Serializer::Data::Dumper 0.05
+      Data::Serializer::Data::Taxi 0.02
+      Data::Serializer::FreezeThaw 0.02
+      Data::Serializer::JSON 0.04
+      Data::Serializer::JSON::Syck 0.02
+      Data::Serializer::PHP::Serialization 0.02
+      Data::Serializer::Persistent 0.01
+      Data::Serializer::Raw 0.02
+      Data::Serializer::Storable 0.03
+      Data::Serializer::XML::Dumper 0.02
+      Data::Serializer::XML::Simple 0.03
+      Data::Serializer::YAML 0.03
+      Data::Serializer::YAML::Syck 0.03
+    requirements:
+      AutoLoader 0
+      Data::Dumper 2.08
+      Digest::SHA 0
+      Exporter 0
+      File::Spec 0
+      IO::File 0
+      Test::More 0
   Data-Validate-Domain-0.15
     pathname: D/DR/DROLSKY/Data-Validate-Domain-0.15.tar.gz
     provides:
@@ -506,6 +559,19 @@ DISTRIBUTIONS
       HTML::Entities 3.69
       Storable 0
       Test::More 0
+  Devel-StackTrace-2.05
+    pathname: D/DR/DROLSKY/Devel-StackTrace-2.05.tar.gz
+    provides:
+      Devel::StackTrace 2.05
+      Devel::StackTrace::Frame 2.05
+    requirements:
+      ExtUtils::MakeMaker 0
+      File::Spec 0
+      Scalar::Util 0
+      overload 0
+      perl 5.006
+      strict 0
+      warnings 0
   Digest-HMAC-1.04
     pathname: A/AR/ARODLAND/Digest-HMAC-1.04.tar.gz
     provides:
@@ -538,6 +604,40 @@ DISTRIBUTIONS
       Canary::Stability 0
       ExtUtils::MakeMaker 6.52
       common::sense 0
+  Email-Abstract-3.010
+    pathname: R/RJ/RJBS/Email-Abstract-3.010.tar.gz
+    provides:
+      Email::Abstract 3.010
+      Email::Abstract::EmailMIME 3.010
+      Email::Abstract::EmailSimple 3.010
+      Email::Abstract::MIMEEntity 3.010
+      Email::Abstract::MailInternet 3.010
+      Email::Abstract::MailMessage 3.010
+      Email::Abstract::Plugin 3.010
+    requirements:
+      Carp 0
+      Email::Simple 1.998
+      ExtUtils::MakeMaker 6.78
+      MRO::Compat 0
+      Module::Pluggable 1.5
+      Scalar::Util 0
+      perl 5.006
+      strict 0
+      warnings 0
+  Email-Address-XS-1.05
+    pathname: P/PA/PALI/Email-Address-XS-1.05.tar.gz
+    provides:
+      Email::Address::XS 1.05
+    requirements:
+      Carp 0
+      Exporter 0
+      ExtUtils::MakeMaker 0
+      XSLoader 0
+      base 0
+      overload 0
+      perl 5.006000
+      strict 0
+      warnings 0
   Email-Date-Format-1.008
     pathname: R/RJ/RJBS/Email-Date-Format-1.008.tar.gz
     provides:
@@ -547,6 +647,185 @@ DISTRIBUTIONS
       ExtUtils::MakeMaker 6.78
       Time::Local 1.27
       perl 5.012
+      warnings 0
+  Email-MIME-1.954
+    pathname: R/RJ/RJBS/Email-MIME-1.954.tar.gz
+    provides:
+      Email::MIME 1.954
+      Email::MIME::Creator 1.954
+      Email::MIME::Encode 1.954
+      Email::MIME::Header 1.954
+      Email::MIME::Header::AddressList 1.954
+      Email::MIME::Modifier 1.954
+    requirements:
+      Carp 0
+      Email::Address::XS 0
+      Email::MIME::ContentType 1.023
+      Email::MIME::Encodings 1.314
+      Email::MessageID 0
+      Email::Simple 2.212
+      Email::Simple::Creator 0
+      Email::Simple::Header 0
+      Encode 1.9801
+      ExtUtils::MakeMaker 6.78
+      MIME::Base64 0
+      MIME::Types 1.13
+      Module::Runtime 0
+      Scalar::Util 0
+      parent 0
+      perl 5.012
+      strict 0
+      warnings 0
+  Email-MIME-ContentType-1.028
+    pathname: R/RJ/RJBS/Email-MIME-ContentType-1.028.tar.gz
+    provides:
+      Email::MIME::ContentType 1.028
+    requirements:
+      Carp 0
+      Encode 2.87
+      Exporter 5.57
+      ExtUtils::MakeMaker 6.78
+      Text::Unidecode 0
+      perl 5.012
+      warnings 0
+  Email-MIME-CreateHTML-1.042
+    pathname: V/VA/VANSTYN/Email-MIME-CreateHTML-1.042.tar.gz
+    provides:
+      Email::MIME::CreateHTML 1.042
+      Email::MIME::CreateHTML::Resolver 1.042
+      Email::MIME::CreateHTML::Resolver::Cached 1.042
+      Email::MIME::CreateHTML::Resolver::Filesystem 1.042
+      Email::MIME::CreateHTML::Resolver::LWP 1.042
+    requirements:
+      Carp 0
+      Data::Serializer 0
+      Email::MIME 0
+      Email::MIME::Creator 0
+      Exporter 0
+      ExtUtils::MakeMaker 0
+      File::Slurp::WithinPolicy 0
+      File::Spec 0
+      HTML::Tagset 0
+      HTML::TokeParser::Simple 3.15
+      LWP::UserAgent 0
+      Log::Trace 0
+      MIME::Types 2.17
+      Scalar::Util 0
+      Test::Assertions 0
+      Test::Assertions::TestScript 0
+      URI::Escape 0
+      URI::WithBase 0
+      URI::file 0
+      strict 0
+      vars 0
+  Email-MIME-Encodings-1.317
+    pathname: R/RJ/RJBS/Email-MIME-Encodings-1.317.tar.gz
+    provides:
+      Email::MIME::Encodings 1.317
+    requirements:
+      Carp 0
+      ExtUtils::MakeMaker 6.78
+      MIME::Base64 3.05
+      MIME::QuotedPrint 3.05
+      perl 5.012
+      strict 0
+      warnings 0
+  Email-Mailer-1.22
+    pathname: G/GR/GRYPHON/Email-Mailer-1.22.tar.gz
+    provides:
+      Email::Mailer 1.22
+    requirements:
+      Email::MIME 1.940
+      Email::MIME::CreateHTML 0
+      Email::MessageID 0
+      Email::Sender::Simple 0
+      Encode 0
+      ExtUtils::MakeMaker 0
+      HTML::FormatText 0
+      HTML::TreeBuilder 0
+      IO::All 0
+      MIME::Words 0
+      exact 1.14
+      perl 5.014
+  Email-MessageID-1.408
+    pathname: R/RJ/RJBS/Email-MessageID-1.408.tar.gz
+    provides:
+      Email::MessageID 1.408
+    requirements:
+      ExtUtils::MakeMaker 6.78
+      Sys::Hostname 0
+      overload 0
+      perl 5.012
+      strict 0
+      warnings 0
+  Email-Sender-2.601
+    pathname: R/RJ/RJBS/Email-Sender-2.601.tar.gz
+    provides:
+      Email::Sender 2.601
+      Email::Sender::Failure 2.601
+      Email::Sender::Failure::Multi 2.601
+      Email::Sender::Failure::Permanent 2.601
+      Email::Sender::Failure::Temporary 2.601
+      Email::Sender::Manual 2.601
+      Email::Sender::Manual::QuickStart 2.601
+      Email::Sender::Role::CommonSending 2.601
+      Email::Sender::Role::HasMessage 2.601
+      Email::Sender::Simple 2.601
+      Email::Sender::Success 2.601
+      Email::Sender::Success::Partial 2.601
+      Email::Sender::Transport 2.601
+      Email::Sender::Transport::DevNull 2.601
+      Email::Sender::Transport::Failable 2.601
+      Email::Sender::Transport::Maildir 2.601
+      Email::Sender::Transport::Mbox 2.601
+      Email::Sender::Transport::Print 2.601
+      Email::Sender::Transport::SMTP 2.601
+      Email::Sender::Transport::SMTP::Persistent 2.601
+      Email::Sender::Transport::Sendmail 2.601
+      Email::Sender::Transport::Test 2.601
+      Email::Sender::Transport::Wrapper 2.601
+      Email::Sender::Util 2.601
+    requirements:
+      Carp 0
+      Email::Abstract 3.006
+      Email::Address::XS 0
+      Email::Simple 1.998
+      ExtUtils::MakeMaker 6.78
+      Fcntl 0
+      File::Basename 0
+      File::Path 2.06
+      File::Spec 0
+      IO::File 1.11
+      IO::Handle 0
+      List::Util 1.45
+      Module::Runtime 0
+      Moo 2.000000
+      Moo::Role 0
+      MooX::Types::MooseLike 0.15
+      MooX::Types::MooseLike::Base 0
+      Net::SMTP 3.07
+      Scalar::Util 0
+      Sub::Exporter 0
+      Sub::Exporter::Util 0
+      Sys::Hostname 0
+      Throwable::Error 0.200003
+      Try::Tiny 0
+      perl 5.012
+      strict 0
+      utf8 0
+      warnings 0
+  Email-Simple-2.218
+    pathname: R/RJ/RJBS/Email-Simple-2.218.tar.gz
+    provides:
+      Email::Simple 2.218
+      Email::Simple::Creator 2.218
+      Email::Simple::Header 2.218
+    requirements:
+      Carp 0
+      Email::Date::Format 0
+      ExtUtils::MakeMaker 6.78
+      perl 5.012
+      strict 0
       warnings 0
   Email-Valid-1.203
     pathname: R/RJ/RJBS/Email-Valid-1.203.tar.gz
@@ -568,6 +847,14 @@ DISTRIBUTIONS
       Encode::Alias 0
       ExtUtils::MakeMaker 0
       perl 5.008
+  ExtUtils-CChecker-0.12
+    pathname: P/PE/PEVANS/ExtUtils-CChecker-0.12.tar.gz
+    provides:
+      ExtUtils::CChecker 0.12
+    requirements:
+      ExtUtils::CBuilder 0
+      Module::Build 0.4004
+      perl 5.014
   ExtUtils-Config-0.008
     pathname: L/LE/LEONT/ExtUtils-Config-0.008.tar.gz
     provides:
@@ -621,6 +908,18 @@ DISTRIBUTIONS
       ExtUtils::MakeMaker 0
       HTTP::Date 0
       perl 5.006
+  File-Policy-1.005
+    pathname: B/BB/BBC/File-Policy-1.005.tar.gz
+    provides:
+      File::Policy 1.005
+      File::Policy::Default 1.006
+      File::Slurp::WithinPolicy 1.004
+    requirements:
+      ExtUtils::MakeMaker 0
+      File::Slurp 0
+      File::Spec::Functions 0
+      Log::Trace 0
+      Test::Assertions 0
   File-Remove-1.61
     pathname: S/SH/SHLOMIF/File-Remove-1.61.tar.gz
     provides:
@@ -636,6 +935,49 @@ DISTRIBUTIONS
       perl 5.008
       strict 0
       vars 0
+      warnings 0
+  File-ShareDir-1.118
+    pathname: R/RE/REHSACK/File-ShareDir-1.118.tar.gz
+    provides:
+      File::ShareDir 1.118
+    requirements:
+      Carp 0
+      Class::Inspector 1.12
+      ExtUtils::MakeMaker 0
+      File::ShareDir::Install 0.13
+      File::Spec 0.80
+      perl 5.008001
+      warnings 0
+  File-ShareDir-Install-0.14
+    pathname: E/ET/ETHER/File-ShareDir-Install-0.14.tar.gz
+    provides:
+      File::ShareDir::Install 0.14
+    requirements:
+      Carp 0
+      Exporter 0
+      ExtUtils::MakeMaker 0
+      File::Spec 0
+      IO::Dir 0
+      perl 5.006
+      strict 0
+      warnings 0
+  File-Slurp-9999.32
+    pathname: C/CA/CAPOEIRAB/File-Slurp-9999.32.tar.gz
+    provides:
+      File::Slurp 9999.32
+    requirements:
+      B 0
+      Carp 0
+      Errno 0
+      Exporter 5.57
+      ExtUtils::MakeMaker 0
+      Fcntl 0
+      File::Basename 0
+      File::Spec 3.01
+      File::Temp 0
+      IO::Handle 0
+      POSIX 0
+      strict 0
       warnings 0
   Filesys-DfPortable-0.85
     pathname: I/IG/IGUTHRIE/Filesys-DfPortable-0.85.tar.gz
@@ -655,6 +997,24 @@ DISTRIBUTIONS
       Test::More 0
       Test::Warn 0
       perl 5.006
+  Font-AFM-1.20
+    pathname: G/GA/GAAS/Font-AFM-1.20.tar.gz
+    provides:
+      Font::AFM 1.20
+      Font::Metrics::Courier undef
+      Font::Metrics::CourierBold undef
+      Font::Metrics::CourierBoldOblique undef
+      Font::Metrics::CourierOblique undef
+      Font::Metrics::Helvetica undef
+      Font::Metrics::HelveticaBold undef
+      Font::Metrics::HelveticaBoldOblique undef
+      Font::Metrics::HelveticaOblique undef
+      Font::Metrics::TimesBold undef
+      Font::Metrics::TimesBoldItalic undef
+      Font::Metrics::TimesItalic undef
+      Font::Metrics::TimesRoman undef
+    requirements:
+      ExtUtils::MakeMaker 0
   Furl-3.14
     pathname: S/SY/SYOHEX/Furl-3.14.tar.gz
     provides:
@@ -676,6 +1036,41 @@ DISTRIBUTIONS
       Socket 0
       Time::HiRes 0
       perl 5.008001
+  HTML-Formatter-2.16
+    pathname: N/NI/NIGELM/HTML-Formatter-2.16.tar.gz
+    provides:
+      HTML::FormatMarkdown 2.16
+      HTML::FormatPS 2.16
+      HTML::FormatRTF 2.16
+      HTML::FormatText 2.16
+      HTML::Formatter 2.16
+    requirements:
+      Carp 0
+      Data::Dumper 0
+      Encode 0
+      ExtUtils::MakeMaker 0
+      Font::Metrics::Courier 0
+      Font::Metrics::CourierBold 0
+      Font::Metrics::CourierBoldOblique 0
+      Font::Metrics::CourierOblique 0
+      Font::Metrics::Helvetica 0
+      Font::Metrics::HelveticaBold 0
+      Font::Metrics::HelveticaBoldOblique 0
+      Font::Metrics::HelveticaOblique 0
+      Font::Metrics::TimesBold 0
+      Font::Metrics::TimesBoldItalic 0
+      Font::Metrics::TimesItalic 0
+      Font::Metrics::TimesRoman 0
+      HTML::Element 3.15
+      HTML::TreeBuilder 0
+      IO::File 0
+      base 0
+      integer 0
+      parent 0
+      perl 5.008
+      strict 0
+      utf8 0
+      warnings 0
   HTML-Parser-3.81
     pathname: O/OA/OALDERS/HTML-Parser-3.81.tar.gz
     provides:
@@ -703,6 +1098,47 @@ DISTRIBUTIONS
       HTML::Tagset 3.20
     requirements:
       ExtUtils::MakeMaker 0
+  HTML-TokeParser-Simple-3.16
+    pathname: O/OV/OVID/HTML-TokeParser-Simple-3.16.tar.gz
+    provides:
+      HTML::TokeParser::Simple 3.16
+      HTML::TokeParser::Simple::Token 3.16
+      HTML::TokeParser::Simple::Token::Comment 3.16
+      HTML::TokeParser::Simple::Token::Declaration 3.15
+      HTML::TokeParser::Simple::Token::ProcessInstruction 3.16
+      HTML::TokeParser::Simple::Token::Tag 3.16
+      HTML::TokeParser::Simple::Token::Tag::End 3.16
+      HTML::TokeParser::Simple::Token::Tag::Start 3.16
+      HTML::TokeParser::Simple::Token::Text 3.16
+    requirements:
+      HTML::Parser 3.25
+      HTML::TokeParser 2.24
+      Sub::Override 0
+      Test::More 0
+      perl 5.006
+  HTML-Tree-5.07
+    pathname: K/KE/KENTNL/HTML-Tree-5.07.tar.gz
+    provides:
+      HTML::AsSubs 5.07
+      HTML::Element 5.07
+      HTML::Element::traverse 5.07
+      HTML::Parse 5.07
+      HTML::Tree 5.07
+      HTML::TreeBuilder 5.07
+    requirements:
+      Carp 0
+      Encode 0
+      Exporter 0
+      HTML::Entities 0
+      HTML::Parser 3.46
+      HTML::Tagset 3.02
+      Module::Build 0.2808
+      Scalar::Util 0
+      Test::Fatal 0
+      Test::More 0
+      base 0
+      integer 0
+      perl 5.008
   HTTP-CookieJar-0.014
     pathname: D/DA/DAGOLDEN/HTTP-CookieJar-0.014.tar.gz
     provides:
@@ -817,6 +1253,27 @@ DISTRIBUTIONS
       ExtUtils::MakeMaker 6.64
       Scalar::Util 0
       perl 5.008001
+  IO-All-0.87
+    pathname: F/FR/FREW/IO-All-0.87.tar.gz
+    provides:
+      IO::All 0.87
+      IO::All::Base undef
+      IO::All::DBM undef
+      IO::All::Dir undef
+      IO::All::File undef
+      IO::All::Filesys undef
+      IO::All::Link undef
+      IO::All::MLDBM undef
+      IO::All::Pipe undef
+      IO::All::STDIO undef
+      IO::All::Socket undef
+      IO::All::String undef
+      IO::All::Temp undef
+    requirements:
+      Cwd 0
+      ExtUtils::MakeMaker 0
+      Scalar::Util 0
+      perl 5.008001
   IO-HTML-1.004
     pathname: C/CJ/CJM/IO-HTML-1.004.tar.gz
     provides:
@@ -882,6 +1339,16 @@ DISTRIBUTIONS
     requirements:
       Module::Build::Tiny 0.035
       perl 5.008001
+  Import-Into-1.002005
+    pathname: H/HA/HAARG/Import-Into-1.002005.tar.gz
+    provides:
+      Import::Into 1.002005
+    requirements:
+      ExtUtils::MakeMaker 0
+      Module::Runtime 0
+      perl 5.006
+      strict 0
+      warnings 0
   JSON-4.10
     pathname: I/IS/ISHIGAKI/JSON-4.10.tar.gz
     provides:
@@ -941,45 +1408,13 @@ DISTRIBUTIONS
       Module::Build 0.38
       Scalar::Util 0
       Term::ANSIColor 0
-  MIME-Charset-1.013.1
-    pathname: N/NE/NEZUMI/MIME-Charset-1.013.1.tar.gz
+  Log-Trace-1.070
+    pathname: B/BB/BBC/Log-Trace-1.070.tar.gz
     provides:
-      MIME::Charset v1.13.1
+      Log::Trace 1.070
     requirements:
-      CPAN 0
-      Encode 1.98
-      ExtUtils::MakeMaker 6.42
-      Test::More 0
-      perl 5.005
-  MIME-EncWords-1.014.3
-    pathname: N/NE/NEZUMI/MIME-EncWords-1.014.3.tar.gz
-    provides:
-      Encode::MIME::EncWords 0.03
-      MIME::EncWords 1.014003
-    requirements:
-      Encode 1.98
       ExtUtils::MakeMaker 0
-      MIME::Base64 2.13
-      MIME::Charset v1.10.1
       Test::More 0
-  MIME-Lite-3.033
-    pathname: R/RJ/RJBS/MIME-Lite-3.033.tar.gz
-    provides:
-      MIME::Lite 3.033
-      MIME::Lite::IO_Handle 3.033
-      MIME::Lite::IO_Scalar 3.033
-      MIME::Lite::IO_ScalarArray 3.033
-      MIME::Lite::SMTP 3.033
-      MailTool undef
-    requirements:
-      Email::Date::Format 1.000
-      ExtUtils::MakeMaker 0
-      File::Basename 0
-      File::Spec 0
-      MIME::Base64 0
-      MIME::QuotedPrint 0
-      MIME::Types 1.28
-      Mail::Address 1.62
   MIME-Types-2.24
     pathname: M/MA/MARKOV/MIME-Types-2.24.tar.gz
     provides:
@@ -992,6 +1427,53 @@ DISTRIBUTIONS
       File::Spec 0
       List::Util 0
       Test::More 0.47
+  MIME-tools-5.515
+    pathname: D/DS/DSKOLL/MIME-tools-5.515.tar.gz
+    provides:
+      MIME::Body 5.515
+      MIME::Body::File 5.515
+      MIME::Body::InCore 5.515
+      MIME::Body::Scalar 5.515
+      MIME::Decoder 5.515
+      MIME::Decoder::Base64 5.515
+      MIME::Decoder::BinHex 5.515
+      MIME::Decoder::Binary 5.515
+      MIME::Decoder::Gzip64 5.515
+      MIME::Decoder::NBit 5.515
+      MIME::Decoder::QuotedPrint 5.515
+      MIME::Decoder::UU 5.515
+      MIME::Entity 5.515
+      MIME::Field::ConTraEnc 5.515
+      MIME::Field::ContDisp 5.515
+      MIME::Field::ContType 5.515
+      MIME::Field::ParamVal 5.515
+      MIME::Head 5.515
+      MIME::Parser 5.515
+      MIME::Parser::FileInto undef
+      MIME::Parser::FileUnder undef
+      MIME::Parser::Filer undef
+      MIME::Parser::Reader undef
+      MIME::Parser::Results undef
+      MIME::Tools 5.515
+      MIME::WordDecoder undef
+      MIME::WordDecoder::ISO_8859 undef
+      MIME::WordDecoder::US_ASCII undef
+      MIME::WordDecoder::UTF_8 undef
+      MIME::Words 5.515
+    requirements:
+      ExtUtils::MakeMaker 6.59
+      File::Path 1
+      File::Spec 0.6
+      File::Temp 0.18
+      IO::File 1.13
+      IO::Handle 0
+      MIME::Base64 2.2
+      Mail::Field 1.05
+      Mail::Header 1.01
+      Mail::Internet 1.0203
+      Test::Deep 0
+      Test::More 0
+      perl 5.008
   MRO-Compat-0.15
     pathname: H/HA/HAARG/MRO-Compat-0.15.tar.gz
     provides:
@@ -1182,6 +1664,23 @@ DISTRIBUTIONS
       YAML::Tiny 1.38
       autodie 0
       perl 5.006
+  Module-Pluggable-6.3
+    pathname: S/SI/SIMONW/Module-Pluggable-6.3.tar.gz
+    provides:
+      Devel::InnerPackage 0.4
+      Module::Pluggable 6.3
+      Module::Pluggable::Object 5.2
+    requirements:
+      Exporter 5.57
+      ExtUtils::MakeMaker 0
+      File::Basename 0
+      File::Find 0
+      File::Spec 3.00
+      File::Spec::Functions 0
+      Scalar::Util 0
+      if 0
+      perl 5.006
+      strict 0
   Module-Runtime-0.016
     pathname: Z/ZE/ZEFRAM/Module-Runtime-0.016.tar.gz
     provides:
@@ -1255,7 +1754,7 @@ DISTRIBUTIONS
       Mojo::mysql::Transaction undef
       SQL::Abstract::mysql undef
     requirements:
-      DBD::MariaDB 1.21
+      DBD::mysql 4.050
       DBI 1.643
       ExtUtils::MakeMaker 0
       Mojolicious 8.03
@@ -1402,6 +1901,19 @@ DISTRIBUTIONS
     requirements:
       ExtUtils::MakeMaker 0
       Mojolicious 6.11
+  Mojolicious-Plugin-EmailMailer-0.04
+    pathname: L/LD/LDIDRY/Mojolicious-Plugin-EmailMailer-0.04.tar.gz
+    provides:
+      Mojolicious::Plugin::EmailMailer 0.04
+    requirements:
+      Email::Mailer 1.22
+      Email::Sender 2.601
+      ExtUtils::MakeMaker 6.48
+      Hash::Merge 0
+      MIME::Words 5.515
+      Mojolicious 9.34
+      Try::Tiny 0.31
+      perl 5.020
   Mojolicious-Plugin-GzipStatic-0.04
     pathname: L/LD/LDIDRY/Mojolicious-Plugin-GzipStatic-0.04.tar.gz
     provides:
@@ -1420,17 +1932,6 @@ DISTRIBUTIONS
       Mojolicious 5
       Test::More 0
       perl 5.010001
-  Mojolicious-Plugin-Mail-1.5
-    pathname: S/SH/SHARIFULN/Mojolicious-Plugin-Mail-1.5.tar.gz
-    provides:
-      Mojolicious::Plugin::Mail 1.5
-    requirements:
-      Encode 0
-      MIME::EncWords 0
-      MIME::Lite 3.027
-      Mojolicious 5
-      Test::More 0
-      perl 5.001001
   Mojolicious-Plugin-PgURLHelper-0.03
     pathname: L/LD/LDIDRY/Mojolicious-Plugin-PgURLHelper-0.03.tar.gz
     provides:
@@ -1472,6 +1973,14 @@ DISTRIBUTIONS
       Sub::Defer 2.006006
       Sub::Quote 2.006006
       perl 5.006
+  MooX-Types-MooseLike-0.29
+    pathname: M/MA/MATEU/MooX-Types-MooseLike-0.29.tar.gz
+    provides:
+      MooX::Types::MooseLike 0.29
+      MooX::Types::MooseLike::Base 0.29
+    requirements:
+      ExtUtils::MakeMaker 0
+      Module::Runtime 0.014
   Mouse-v2.5.10
     pathname: S/SK/SKAJI/Mouse-v2.5.10.tar.gz
     provides:
@@ -1777,6 +2286,22 @@ DISTRIBUTIONS
       perl 5.006001
       strict 0
       warnings 0
+  Params-Util-1.102
+    pathname: R/RE/REHSACK/Params-Util-1.102.tar.gz
+    provides:
+      Params::Util 1.102
+      Params::Util::PP 1.102
+    requirements:
+      Carp 0
+      ExtUtils::MakeMaker 0
+      File::Basename 0
+      File::Copy 0
+      File::Path 0
+      File::Spec 0
+      IPC::Cmd 0
+      Scalar::Util 1.18
+      XSLoader 0.22
+      parent 0
   Path-Tiny-0.144
     pathname: D/DA/DAGOLDEN/Path-Tiny-0.144.tar.gz
     provides:
@@ -1804,6 +2329,15 @@ DISTRIBUTIONS
       strict 0
       warnings 0
       warnings::register 0
+  PerlX-Maybe-1.202
+    pathname: T/TO/TOBYINK/PerlX-Maybe-1.202.tar.gz
+    provides:
+      PerlX::Maybe 1.202
+      Syntax::Feature::Maybe 1.202
+    requirements:
+      ExtUtils::MakeMaker 6.17
+      Scalar::Util 0
+      perl 5.006
   Role-Tiny-2.002004
     pathname: H/HA/HAARG/Role-Tiny-2.002004.tar.gz
     provides:
@@ -1853,12 +2387,47 @@ DISTRIBUTIONS
       Socket6 0.29
     requirements:
       ExtUtils::MakeMaker 0
+  Sub-Exporter-0.991
+    pathname: R/RJ/RJBS/Sub-Exporter-0.991.tar.gz
+    provides:
+      Sub::Exporter 0.991
+      Sub::Exporter::Util 0.991
+    requirements:
+      Carp 0
+      Data::OptList 0.100
+      ExtUtils::MakeMaker 6.78
+      Params::Util 0.14
+      Sub::Install 0.92
+      perl 5.012
+      strict 0
+      warnings 0
   Sub-Exporter-Progressive-0.001013
     pathname: F/FR/FREW/Sub-Exporter-Progressive-0.001013.tar.gz
     provides:
       Sub::Exporter::Progressive 0.001013
     requirements:
       ExtUtils::MakeMaker 0
+  Sub-Install-0.929
+    pathname: R/RJ/RJBS/Sub-Install-0.929.tar.gz
+    provides:
+      Sub::Install 0.929
+    requirements:
+      B 0
+      Carp 0
+      ExtUtils::MakeMaker 6.78
+      Scalar::Util 0
+      perl 5.008000
+      strict 0
+      warnings 0
+  Sub-Override-0.12
+    pathname: M/MV/MVSJES/Sub-Override-0.12.tar.gz
+    provides:
+      Sub::Override 0.12
+    requirements:
+      ExtUtils::MakeMaker 0
+      Scalar::Util 1.11
+      Test::Fatal 0.010
+      Test::More 0.47
   Sub-Quote-2.006008
     pathname: H/HA/HAARG/Sub-Quote-2.006008.tar.gz
     provides:
@@ -1889,6 +2458,17 @@ DISTRIBUTIONS
       Text::Balanced 2
       if 0
       perl 5.005
+  Syntax-Keyword-Try-0.31
+    pathname: P/PE/PEVANS/Syntax-Keyword-Try-0.31.tar.gz
+    provides:
+      Syntax::Keyword::Try 0.31
+      Syntax::Keyword::Try::Deparse 0.31
+    requirements:
+      ExtUtils::CBuilder 0
+      Module::Build 0.4004
+      XS::Parse::Keyword 0.35
+      XS::Parse::Keyword::Builder 0.35
+      perl 5.014
   Sys-CPU-0.52
     pathname: M/MK/MKODERER/Sys-CPU-0.52.tar.gz
     provides:
@@ -1919,6 +2499,16 @@ DISTRIBUTIONS
       Term::ReadKey 2.38
     requirements:
       ExtUtils::MakeMaker 6.58
+  Test-Assertions-1.054
+    pathname: B/BB/BBC/Test-Assertions-1.054.tar.gz
+    provides:
+      Test::Assertions 1.054
+      Test::Assertions::TestScript 1.018
+    requirements:
+      Carp 0
+      ExtUtils::MakeMaker 0
+      Getopt::Long 0
+      Log::Trace 0
   Test-Deep-1.204
     pathname: R/RJ/RJBS/Test-Deep-1.204.tar.gz
     provides:
@@ -2049,6 +2639,29 @@ DISTRIBUTIONS
     requirements:
       ExtUtils::MakeMaker 0
       if 0
+  Text-Unidecode-1.30
+    pathname: S/SB/SBURKE/Text-Unidecode-1.30.tar.gz
+    provides:
+      Text::Unidecode 1.30
+    requirements:
+      ExtUtils::MakeMaker 0
+      perl 5.008
+  Throwable-1.001
+    pathname: R/RJ/RJBS/Throwable-1.001.tar.gz
+    provides:
+      StackTrace::Auto 1.001
+      Throwable 1.001
+      Throwable::Error 1.001
+    requirements:
+      Carp 0
+      Devel::StackTrace 1.32
+      ExtUtils::MakeMaker 6.78
+      Module::Runtime 0.002
+      Moo 1.000001
+      Moo::Role 0
+      Scalar::Util 0
+      Sub::Quote 0
+      overload 0
   TimeDate-2.33
     pathname: A/AT/ATOOMIC/TimeDate-2.33.tar.gz
     provides:
@@ -2286,6 +2899,20 @@ DISTRIBUTIONS
     requirements:
       ExtUtils::MakeMaker 0
       perl 5.008
+  XS-Parse-Keyword-0.49
+    pathname: P/PE/PEVANS/XS-Parse-Keyword-0.49.tar.gz
+    provides:
+      XS::Parse::Infix 0.49
+      XS::Parse::Infix::Builder 0.49
+      XS::Parse::Keyword 0.49
+      XS::Parse::Keyword::Builder 0.49
+    requirements:
+      ExtUtils::CBuilder 0
+      ExtUtils::CChecker 0.11
+      ExtUtils::ParseXS 3.16
+      File::ShareDir 1.00
+      Module::Build 0.4004
+      perl 5.014
   YAML-Tiny-1.74
     pathname: E/ET/ETHER/YAML-Tiny-1.74.tar.gz
     provides:
@@ -2306,6 +2933,28 @@ DISTRIBUTIONS
       common::sense 3.75
     requirements:
       ExtUtils::MakeMaker 0
+  exact-1.29
+    pathname: G/GR/GRYPHON/exact-1.29.tar.gz
+    provides:
+      exact 1.29
+    requirements:
+      B::Deparse 0
+      Carp 0
+      ExtUtils::MakeMaker 0
+      IO::File 0
+      IO::Handle 0
+      Import::Into 0
+      PerlX::Maybe 0
+      Sub::Util 0
+      Syntax::Keyword::Try 0.18
+      Try::Tiny 0
+      feature 0
+      mro 0
+      namespace::autoclean 0
+      perl 5.014
+      strict 0
+      utf8 0
+      warnings 0
   libwww-perl-6.72
     pathname: O/OA/OALDERS/libwww-perl-6.72.tar.gz
     provides:
@@ -2365,6 +3014,19 @@ DISTRIBUTIONS
       WWW::RobotRules 6
       parent 0.217
       perl 5.008001
+      strict 0
+      warnings 0
+  namespace-autoclean-0.31
+    pathname: E/ET/ETHER/namespace-autoclean-0.31.tar.gz
+    provides:
+      namespace::autoclean 0.31
+    requirements:
+      B 0
+      B::Hooks::EndOfScope 0.12
+      ExtUtils::MakeMaker 0
+      List::Util 0
+      namespace::clean 0.20
+      perl 5.006
       strict 0
       warnings 0
   namespace-clean-0.27

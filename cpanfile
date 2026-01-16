@@ -2,7 +2,7 @@ requires 'inc::Module::Install';
 requires 'Mojolicious', '>= 9.34';
 requires 'Mojolicious::Plugin::DebugDumperHelper';
 requires 'Mojolicious::Plugin::I18N';
-requires 'Mojolicious::Plugin::Mail';
+requires 'Mojolicious::Plugin::EmailMailer', '>= 0.04';
 requires 'Mojolicious::Plugin::GzipStatic';
 requires 'Mojolicious::Plugin::StaticCache';
 requires 'Mojolicious::Plugin::CSPHeader', '>= 0.06';
