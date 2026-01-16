@@ -49,13 +49,12 @@ sub startup {
 
     # Mail config
     my $mail_config = {
-        type     => 'text/plain',
-        encoding => 'quoted-printable',
+        from     => $self->config('mail_sender'),
         how      => $self->config('mail')->{'how'}
     };
     $mail_config->{howargs} = $self->config('mail')->{'howargs'} if (defined $self->config('mail')->{'howargs'});
 
-    $self->plugin('Mail' => $mail_config);
+    $self->plugin('EmailMailer' => $mail_config);
 
     # Internationalization
     my $lib = $self->home->rel_file('themes/'.$config->{theme}.'/lib');
@@ -250,12 +249,12 @@ sub startup {
 
     # Get mail page
     $r->get('/m')
-      ->to('Mail#render_mail')
+      ->to('Mail#render_share_mail')
       ->name('mail');
 
     # Submit mail
     $r->post('/m')
-      ->to('Mail#send_mail') unless $self->config('disable_mail_sending');
+      ->to('Mail#send_share_mail') unless $self->config('disable_mail_sending');
 
     # Upload files websocket
     $r->websocket('/upload')
