@@ -9,6 +9,14 @@
         <meta name="mobile-web-app-capable" content="yes">
         <meta name="apple-mobile-web-app-capable" content="yes">
         <meta name="apple-mobile-web-app-status-bar-style" content="black">
+        <meta content="<%= config('instance_name') %>" property="og:title">
+        <meta content="<%= $lang %>" property="og:locale">
+        <meta content="website" property="og:type">
+        <meta content="<%= url_for()->to_abs() %>" property="og:url">
+        <meta content="<%= l('Share your files in total privacy on %1', url_for('/')->to_abs) %>" property="og:description">
+        <meta content="<%= url_for('/img/lufi.png')->to_abs() %>" property="og:image">
+        <meta property="og:image:width" value="791" />
+        <meta property="og:image:height" value="791" />
         <link rel="icon" type="image/png" href="<%= url_for('/img/favicon.png') %>">
         <link rel="icon" sizes="128x128" href="<%= url_for('/img/lufi128.png') %>">
         <link rel="icon" sizes="196x196" href="<%= url_for('/img/lufi196.png') %>">
