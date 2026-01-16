@@ -7,7 +7,7 @@ use Email::Valid;
 use URI::Find;
 use URI::Find::Schemeless;
 
-sub render_mail {
+sub render_share_mail {
     my $c = shift;
     my $links = (defined($c->param('links'))) ? decode_json($c->param('links')) : [];
 
@@ -19,7 +19,7 @@ sub render_mail {
     );
 }
 
-sub send_mail {
+sub send_share_mail {
     my $c = shift;
 
     my $validation = $c->validation;
@@ -75,6 +75,8 @@ sub send_mail {
     for my $email (@a) {
         if (!Email::Valid->address($email)) {
             push @bad, $email;
+        } else {
+            push @good, { to => $email };
         }
     }
 
@@ -99,17 +101,31 @@ sub send_mail {
         );
     }
 
-    $c->mail(
-        from    => $c->config('mail_sender'),
-        bcc     => $emails,
-        subject => $subject,
-        data    => $body
+    my $success = $c->send_multiple_mail(
+        mail => {
+            subject => $subject,
+            text    => $body
+        },
+        send => \@good
     );
 
-    return $c->render(
-        template    => 'msg',
-        msg_success => $c->l('The mail has been sent.')
-    );
+    if ($success) {
+        return $c->render(
+            template    => 'msg',
+            msg_success => $c->l('The mail has been sent.')
+        );
+    } else {
+        return $c->render(
+            template => 'mail',
+            msg      => $c->l('Something went wrong when sending the mail(s). You should contact the administrator of this instance.'),
+            links    => [],
+            values   => {
+                emails  => $emails,
+                subject => $subject,
+                body    => $body
+            }
+        )
+    }
 }
 
 1;
