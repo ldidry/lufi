@@ -59,6 +59,30 @@
             </div>
 
             <div class="navbar-end">
+              <div class="navbar-item dropdown theme-selector">
+                <div class="dropdown-trigger">
+                  <button class="button no-border is-sun" aria-haspopup="true" aria-controls="theme-selector-menu" aria-label="theme">
+                    <span class="icon"><i class="fas fa-sun"></i></span>
+                  </button>
+                </div>
+              <div class="dropdown-menu is-rounded" id="theme-selector-menu" role="menu">
+                <div class="dropdown-content p-1">
+                  <button class="dropdown-item option is-sun" data-option="light" role="menuitem">
+                    <span class="icon"><i class="fas fa-sun"  aria-hidden="true"></i></span>
+                    <span><%= l('Light') %></span>
+                  </button>
+                  <button class="dropdown-item option is-moon" data-option="dark" role="menuitem">
+                    <span class="icon"><i class="fas fa-moon"  aria-hidden="true"></i></span>
+                    <span><%= l('Dark') %></span>
+                  </button>
+                  <button class="dropdown-item option is-desktop" data-option="desktop" role="menuitem">
+                    <span class="icon"><i class="fas fa-desktop"  aria-hidden="true"></i></span>
+                    <span><%= l('System') %></span>
+                  </button>
+                </div>
+              </div>
+            </div>
+
               <a href="<%= url_for('/about') %>" class="navbar-item<%= ' is-active' if (current_route eq 'about') %>"><%= l('About') %></a>
 
             % if ((defined(config('ldap')) || defined(config('htpasswd')) || defined(config('auth_headers')))) {
@@ -246,21 +270,69 @@
             }
           });
 
-          document.addEventListener('DOMContentLoaded', () => {
-            (document.querySelectorAll('.notification .delete') || []).forEach(($delete) => {
-              const $notification = $delete.parentNode;
+          (document.querySelectorAll('.notification .delete') || []).forEach(($delete) => {
+            const $notification = $delete.parentNode;
 
-              $delete.addEventListener('click', () => {
-                $notification.parentNode.removeChild($notification);
-              });
+            $delete.addEventListener('click', () => {
+              $notification.parentNode.removeChild($notification);
+            });
 
-              $delete.addEventListener('keydown', (event) => {
-                if (event.key === " " || event.key === "enter") {
-                  event.target.click()
-                }
-              })
+            $delete.addEventListener('keydown', (event) => {
+              if (event.key === " " || event.key === "enter") {
+                event.target.click()
+              }
             });
           });
+
+          const themeQuery = window.matchMedia("(prefers-color-scheme: dark)");
+          const themeIcon = document.querySelectorAll(".theme-selector .dropdown-trigger .icon .fas")[0];
+
+          const loadTheme = () => {
+            document.documentElement.dataset.theme = localStorage.getItem("theme") || "desktop";
+          }
+
+          const isDarkTheme = () => document.documentElement.dataset.theme === "dark" || ((!document.documentElement.dataset.theme || document.documentElement.dataset.theme === "desktop") && themeQuery.matches);
+
+          const handleThemeChange = (event) => {
+            if(isDarkTheme()) {
+              themeIcon.classList.remove("fa-sun");
+              themeIcon.classList.add("fa-moon");
+
+              themeIcon.parentNode.parentNode.classList.remove("is-sun");
+              themeIcon.parentNode.parentNode.classList.add("is-moon");
+            } else {
+              themeIcon.classList.remove("fa-moon");
+              themeIcon.classList.add("fa-sun");
+              themeIcon.parentNode.parentNode.classList.remove("is-moon");
+              themeIcon.parentNode.parentNode.classList.add("is-sun");
+            }
+          };
+
+
+          loadTheme();
+          handleThemeChange(themeQuery);
+
+          document.querySelectorAll('.theme-selector').forEach((element) => {
+            element.addEventListener('click', () => {
+              element.classList.toggle("is-active")
+            })
+
+            document.addEventListener("click", (event) => {
+              if (!element.contains(event.target)) {
+                element.classList.remove("is-active");
+              }
+            })
+          });
+
+          document.querySelectorAll(".theme-selector .option").forEach((element) => {
+            element.addEventListener('click', () => {
+              document.documentElement.dataset.theme = element.dataset.option
+              localStorage.setItem("theme", element.dataset.option);
+              handleThemeChange();
+            })
+          })
+          
+
         });
       </script>
     </body>

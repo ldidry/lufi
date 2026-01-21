@@ -31,6 +31,107 @@
     background-color: #F0F2F4;
     color: #1F2229;
   }
+
+  #file-js-upload {
+    background: hsl(var(--bulma-scheme-h), var(--bulma-scheme-s), calc(var(--bulma-scheme-main-ter-l)));
+  }
+
+  .notification::after {
+    background: hsl(var(--bulma-notification-h), var(--bulma-notification-s), calc(var(--bulma-notification-background-l) + 20%));
+  }
+
+  tr.deleted {
+    background: repeating-linear-gradient(-45deg, transparent 0 2rem, var(--bulma-danger-05) 2rem 4rem);
+  }
+
+  .broadcast-message {
+    --bulma-scheme-s: 50%;
+  }
+
+  .theme-selector {
+    --l-hover: 95%;
+  }
+
+  .is-sun {
+    --h: 37deg;
+    --s: 94%;
+    --l: 33%
+  }
+
+  .is-moon {
+    --h: 256;
+    --s: 88%;
+    --l: 64%
+  }
+
+  .is-desktop {
+    --h: 157deg;
+    --s: 30%;
+    --l: 39%
+  }
+}
+
+[data-theme=light] {
+  *:root {
+    --bulma-link-on-scheme-l: 19%;
+    --bulma-danger-l: 35%;
+  }
+
+  .has-text-primary {
+    --bulma-primary-l: 20%;
+  }
+
+  .button.is-danger {
+    --bulma-button-background-l-delta: 35%;
+  }
+
+  .panel.is-danger {
+    --bulma-panel-heading-background-l: 65%;
+    --bulma-panel-s: 80%;
+  }
+
+  a.navbar-item.is-active {
+    background-color: #F0F2F4;
+    color: #1F2229;
+  }
+
+  #file-js-upload {
+    background: hsl(var(--bulma-scheme-h), var(--bulma-scheme-s), calc(var(--bulma-scheme-main-ter-l)));
+  }
+
+  .notification::after {
+    background: hsl(var(--bulma-notification-h), var(--bulma-notification-s), calc(var(--bulma-notification-background-l) + 20%));
+  }
+
+  tr.deleted {
+    background: repeating-linear-gradient(-45deg, transparent 0 2rem, var(--bulma-danger-05) 2rem 4rem);
+  }
+
+  .broadcast-message {
+    --bulma-scheme-s: 50%;
+  }
+
+  .theme-selector {
+    --l-hover: 95%;
+  }
+
+  .is-sun {
+    --h: 37deg;
+    --s: 94%;
+    --l: 33%
+  }
+
+  .is-moon {
+    --h: 256;
+    --s: 88%;
+    --l: 64%
+  }
+
+  .is-desktop {
+    --h: 157deg;
+    --s: 30%;
+    --l: 39%
+  }
 }
 
 @media (prefers-color-scheme: dark) {
@@ -46,6 +147,98 @@
   a.navbar-item.is-active {
     background-color: #1F2229;
     color: #EBECF0;
+  }
+
+  #file-js-upload {
+    background: hsl(var(--bulma-scheme-h), var(--bulma-scheme-s), calc(var(--bulma-scheme-main-ter-l)));
+  }
+
+  .notification::after {
+    background: hsl(var(--bulma-notification-h), var(--bulma-notification-s), calc(var(--bulma-notification-background-l) + 20%));
+  }
+
+  tr.deleted {
+    background: repeating-linear-gradient(-45deg, transparent 0 2rem, var(--bulma-danger-05) 2rem 4rem);
+  }
+
+  .broadcast-message {
+    --bulma-scheme-s: 50%;
+  }
+
+  .theme-selector {
+    --l-hover: 5%;
+  }
+
+  .is-sun {
+    --h: 42deg;
+    --s: 100%;
+    --l: 53%
+  }
+
+  .is-moon {
+    --h: 256;
+    --s: 88%;
+    --l: 64%
+  }
+
+  .is-desktop {
+    --h: 153deg;
+    --s: 53%;
+    --l: 53%
+  }
+}
+
+[data-theme=dark] {
+  :root {
+    --bulma-danger-l: 75%;
+  }
+
+  .panel.is-danger {
+    --bulma-panel-heading-background-l: 65%;
+    --bulma-panel-s: 55%;
+  }
+
+  a.navbar-item.is-active {
+    background-color: #1F2229;
+    color: #EBECF0;
+  }
+
+  #file-js-upload {
+    background: hsl(var(--bulma-scheme-h), var(--bulma-scheme-s), calc(var(--bulma-scheme-main-ter-l)));
+  }
+
+  .notification::after {
+    background: hsl(var(--bulma-notification-h), var(--bulma-notification-s), calc(var(--bulma-notification-background-l) + 20%));
+  }
+
+  tr.deleted {
+    background: repeating-linear-gradient(-45deg, transparent 0 2rem, var(--bulma-danger-05) 2rem 4rem);
+  }
+
+  .broadcast-message {
+    --bulma-scheme-s: 50%;
+  }
+
+  .theme-selector {
+    --l-hover: 5%;
+  }
+
+  .is-sun {
+    --h: 42deg;
+    --s: 100%;
+    --l: 53%
+  }
+
+  .is-moon {
+    --h: 256;
+    --s: 88%;
+    --l: 64%
+  }
+
+  .is-desktop {
+    --h: 153deg;
+    --s: 53%;
+    --l: 53%
   }
 }
 
@@ -166,12 +359,6 @@ a:not(#main-menu a) a:hover {
   border-color: hsl(var(--bulma-primary-h), var(--bulma-primary-s), var(--bulma-primary-l));
 }
 
-@media (prefers-color-scheme: dark) {
-  #file-js-upload {
-    background: hsl(var(--bulma-scheme-h), var(--bulma-scheme-s), calc(var(--bulma-scheme-main-ter-l)));
-  }
-}
-
 #notifications-container {
   top: 5rem;
   left: auto;
@@ -214,11 +401,6 @@ a:not(#main-menu a) a:hover {
   animation: growX 3.5s forwards linear;
 }
 
-@media (prefers-color-scheme: dark) {
-  .notification::after {
-    background: hsl(var(--bulma-notification-h), var(--bulma-notification-s), calc(var(--bulma-notification-background-l) + 20%));
-  }
-}
 
 @keyframes fadein {
   from {
@@ -252,12 +434,6 @@ tr.deleted {
   background: repeating-linear-gradient(-45deg, transparent 0 2rem, var(--bulma-danger-95) 2rem 4rem);
 }
 
-@media (prefers-color-scheme: dark) {
-  tr.deleted {
-    background: repeating-linear-gradient(-45deg, transparent 0 2rem, var(--bulma-danger-05) 2rem 4rem);
-  }
-}
-
 .modal-card-title {
   width: 100%
 }
@@ -280,8 +456,21 @@ th abbr {
   --bulma-scheme-s: 100%;
 }
 
-@media(prefers-color-scheme: dark) {
-  .broadcast-message {
-    --bulma-scheme-s: 50%;
-  }
+.theme-selector .icon {
+  color: hsl(var(--h), var(--s), var(--l));
+}
+
+.theme-selector .option:hover,
+.theme-selector .dropdown-trigger:hover {
+  background-color: hsl(var(--h), var(--s), var(--l-hover));
+}
+
+.theme-selector .dropdown-trigger .button:hover,
+.theme-selector.is-active .dropdown-trigger .button {
+  background-color: hsl(var(--h), var(--s), var(--l-hover));
+}
+
+.no-border {
+  border: none;
+  box-shadow: none;
 }
