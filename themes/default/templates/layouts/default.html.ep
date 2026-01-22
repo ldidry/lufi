@@ -1,8 +1,10 @@
 % # vim:set sw=4 ts=4 sts=4 ft=html.epl expandtab:
 % my $lang = $self->languages;
 %    $lang =~ s/-(.*)/_\U$1/;
+% my $html_lang = $lang;
+%    $html_lang =~ s/_.*//;
 <!DOCTYPE html>
-<html lang="<%= $lang %>">
+<html lang="<%= $html_lang %>">
     <head>
         <title><%= config('instance_name') %></title>
         <meta charset="utf-8">
@@ -10,7 +12,7 @@
         <meta name="apple-mobile-web-app-capable" content="yes">
         <meta name="apple-mobile-web-app-status-bar-style" content="black">
         <meta content="<%= config('instance_name') %>" property="og:title">
-        <meta content="<%= $lang %>" property="og:locale">
+        <meta content="<%= $html_lang %>" property="og:locale">
         <meta content="website" property="og:type">
         <meta content="<%= url_for()->to_abs() %>" property="og:url">
         <meta content="<%= l('Share your files in total privacy on %1', url_for('/')->to_abs) %>" property="og:description">
