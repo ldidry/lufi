@@ -100,3 +100,32 @@ ALTER TABLE invitations RENAME ldap_user_mail TO auth_user_mail;
 -- 5 down
 ALTER TABLE invitations RENAME auth_user TO ldap_user;
 ALTER TABLE invitations RENAME auth_user_mail TO ldap_user_mail;
+-- 6 up
+ALTER TABLE files ADD COLUMN postlufiapi INTEGER;
+UPDATE files SET postlufiapi = 0 WHERE created_at IS NOT NULL;
+UPDATE files SET postlufiapi = 1 WHERE created_at IS NULL;
+-- 6 down
+BEGIN TRANSACTION;
+    CREATE TABLE files_backup (
+       short                 TEXT PRIMARY KEY,
+       deleted               INTEGER,
+       mediatype             TEXT,
+       filename              TEXT,
+       filesize              INTEGER,
+       counter               INTEGER,
+       delete_at_first_view  INTEGER,
+       delete_at_day         INTEGER,
+       created_at            INTEGER,
+       created_by            TEXT,
+       last_access_at        INTEGER,
+       mod_token             TEXT,
+       nbslices              INTEGER,
+       complete              INTEGER,
+       passwd                TEXT,
+       abuse                 INTEGER,
+       zipped                INTEGER
+    );
+    INSERT INTO files_backup SELECT short, deleted, mediatype, filename, filesize, counter, delete_at_first_view, delete_at_day, created_at, created_by, last_access_at, mod_token, nbslices, complete, passwd, abuse, zipped FROM files;
+    DROP TABLE files;
+    ALTER TABLE files_backup RENAME TO files;
+COMMIT;

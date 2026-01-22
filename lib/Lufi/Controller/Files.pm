@@ -354,8 +354,9 @@ sub download {
                     } else {
                         $c->send(decode('UTF-8', encode_json(
                             {
-                                msg => $c->l('Your password is not valid. Please refresh the page to retry.'),
-                                pwd => $pwd_error
+                                msg         => $c->l('Your password is not valid. Please refresh the page to retry.'),
+                                pwd         => $pwd_error,
+                                postlufiapi => ($f->postlufiapi) ? true : false,
                             }
                         )));
                     }

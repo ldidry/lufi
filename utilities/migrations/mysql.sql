@@ -61,3 +61,8 @@ ALTER TABLE invitations CHANGE ldap_user_mail auth_user_mail varchar(255);
 -- 6 down
 ALTER TABLE invitations CHANGE auth_user ldap_user varchar(255);
 ALTER TABLE invitations CHANGE auth_user_mail ldap_user_mail varchar(255);
+-- 7 up
+ALTER TABLE files ADD COLUMN postlufiapi boolean default true;
+UPDATE files SET postlufiapi = false WHERE created_at IS NOT NULL;
+-- 7 down
+ALTER TABLE files DROP COLUMN postlufiapi;

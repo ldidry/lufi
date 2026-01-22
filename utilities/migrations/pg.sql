@@ -66,3 +66,8 @@ ALTER TABLE invitations RENAME COLUMN ldap_user_mail TO auth_user_mail;
 -- 7 down
 ALTER TABLE invitations RENAME COLUMN auth_user TO ldap_user;
 ALTER TABLE invitations RENAME COLUMN auth_user_mail TO ldap_user_mail;
+-- 8 up
+ALTER TABLE files ADD COLUMN postlufiapi boolean default true;
+UPDATE files SET postlufiapi = false WHERE created_at IS NOT NULL;
+-- 8 down
+ALTER TABLE files DROP COLUMN postlufiapi;

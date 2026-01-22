@@ -27,6 +27,7 @@ has 'slices' => sub {
 has 'passwd';
 has 'abuse';
 has 'zipped' => 0;
+has 'postlufiapi' => 1;
 has 'record' => 0;
 has 'app';
 
@@ -80,6 +81,8 @@ Have a look at Lufi::DB::File::SQLite's code: it's simple and may be more unders
 =item B<abuse>                : integer
 
 =item B<zipped>               : boolean
+
+=item B<postlufiapi>          : boolean
 
 =item B<app>                  : a Mojolicious object
 
@@ -202,9 +205,9 @@ sub write {
     my $c = shift;
 
     if ($c->record) {
-        $c->app->dbi->db->query('UPDATE files SET short = ?, deleted = ?, mediatype = ?, filename = ?, filesize = ?, counter = ?, delete_at_first_view = ?, delete_at_day = ?, created_at = ?, created_by = ?, last_access_at = ?, mod_token = ?, nbslices = ?, complete = ?, passwd = ?, abuse = ?, zipped = ? WHERE short = ?', $c->short, $c->deleted, $c->mediatype, $c->filename, $c->filesize, $c->counter, $c->delete_at_first_view, $c->delete_at_day, $c->created_at, $c->created_by, $c->last_access_at, $c->mod_token, $c->nbslices, $c->complete, $c->passwd, $c->abuse, $c->zipped, $c->short);
+        $c->app->dbi->db->query('UPDATE files SET short = ?, deleted = ?, mediatype = ?, filename = ?, filesize = ?, counter = ?, delete_at_first_view = ?, delete_at_day = ?, created_at = ?, created_by = ?, last_access_at = ?, mod_token = ?, nbslices = ?, complete = ?, passwd = ?, abuse = ?, zipped = ?, postlufiapi = ? WHERE short = ?', $c->short, $c->deleted, $c->mediatype, $c->filename, $c->filesize, $c->counter, $c->delete_at_first_view, $c->delete_at_day, $c->created_at, $c->created_by, $c->last_access_at, $c->mod_token, $c->nbslices, $c->complete, $c->passwd, $c->abuse, $c->zipped, $c->postlufiapi, $c->short);
     } else {
-        $c->app->dbi->db->query('INSERT INTO files (short, deleted, mediatype, filename, filesize, counter, delete_at_first_view, delete_at_day, created_at, created_by, last_access_at, mod_token, nbslices, complete, passwd, abuse, zipped) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)', $c->short, $c->deleted, $c->mediatype, $c->filename, $c->filesize, $c->counter, $c->delete_at_first_view, $c->delete_at_day, $c->created_at, $c->created_by, $c->last_access_at, $c->mod_token, $c->nbslices, $c->complete, $c->passwd, $c->abuse, $c->zipped);
+        $c->app->dbi->db->query('INSERT INTO files (short, deleted, mediatype, filename, filesize, counter, delete_at_first_view, delete_at_day, created_at, created_by, last_access_at, mod_token, nbslices, complete, passwd, abuse, zipped, postlufiapi) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)', $c->short, $c->deleted, $c->mediatype, $c->filename, $c->filesize, $c->counter, $c->delete_at_first_view, $c->delete_at_day, $c->created_at, $c->created_by, $c->last_access_at, $c->mod_token, $c->nbslices, $c->complete, $c->passwd, $c->abuse, $c->zipped, $c->postlufiapi);
         $c->record(1);
     }
 
@@ -533,6 +536,7 @@ sub _slurp {
         $c->passwd($file->{passwd});
         $c->abuse($file->{abuse});
         $c->zipped($file->{zipped});
+        $c->postlufiapi($file->{postlufiapi});
 
         $c->record(1) unless $c->record;
     }

@@ -16,7 +16,7 @@
       </div>
     % } else {
       % if (stash('file_pwd')) {
-        <form id="password-form" class="field has-addons is-align-items-center is-justify-content-center">
+        <form id="password-form" class="field has-addons is-align-items-center is-justify-content-center" data-is-postlufiapi="<%= (stash('f')->postlufiapi) ? 'true' : 'false' %>">
           <label class="label mb-0 mr-3" for="password"><%= l('Password') %></label>
           <div class="control">
             <input class="input" type="password" id="password" autocomplete="off" autofocus placeholder="<%= l('Password') %>">
