@@ -71,7 +71,7 @@
             <div class="navbar-end">
               <div class="navbar-item dropdown theme-selector">
                 <div class="dropdown-trigger">
-                  <button class="button no-border is-sun" aria-haspopup="true" aria-controls="theme-selector-menu" aria-label="theme">
+                  <button class="button no-border is-sun" aria-haspopup="true" aria-controls="theme-selector-menu" aria-label="<%= l('Theme choice') %>">
                     <span class="icon"><i class="fas fa-sun"></i></span>
                   </button>
                 </div>

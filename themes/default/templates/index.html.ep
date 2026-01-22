@@ -77,7 +77,7 @@
                     <div class="field is-expanded">
                       <div class="control">
                         <label for="delete-at-first-download" class="label is-flex is-gap-1 checkbox">
-                          <%= l('After first download?') %>
+                          <legend><%= l('After first download?') %></legend>
                           <input
                             type="checkbox"
                             id="delete-at-first-download"
