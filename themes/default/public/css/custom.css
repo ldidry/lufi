@@ -2,16 +2,17 @@
  * Custom CSS Rules
  * Some are inspired by Signal design
  */
+
 :root {
-  --bulma-primary-h: 182deg;
-  --bulma-link-h: 182deg;
-  --bulma-link-l: 19%;
+  --bulma-link-h: 171deg;
+  --bulma-link-s: 100%;
+  --bulma-link-l: 40%;
 }
 
 @media (prefers-color-scheme: light) {
   :root {
-    --bulma-link-on-scheme-l: 19%;
-    --bulma-danger-l: 35%;
+    --bulma-link-on-scheme-l: 26%;
+    --bulma-danger-l: 45%;
   }
 
   .has-text-primary {
@@ -19,12 +20,13 @@
   }
 
   .button.is-danger {
-    --bulma-button-background-l-delta: 35%;
+    --bulma-link-on-scheme-l: 19%;
+    --bulma-button-background-l: 65%;
   }
 
   .panel.is-danger {
     --bulma-panel-heading-background-l: 65%;
-    --bulma-panel-s: 80%;
+    --bulma-panel-s: 85%;
   }
 
   a.navbar-item.is-active {
@@ -42,73 +44,6 @@
 
   tr.deleted {
     background: repeating-linear-gradient(-45deg, transparent 0 2rem, var(--bulma-danger-05) 2rem 4rem);
-  }
-
-  .broadcast-message {
-    --bulma-scheme-s: 50%;
-  }
-
-  .theme-selector {
-    --l-hover: 95%;
-  }
-
-  .is-sun {
-    --h: 37deg;
-    --s: 94%;
-    --l: 33%
-  }
-
-  .is-moon {
-    --h: 256;
-    --s: 88%;
-    --l: 64%
-  }
-
-  .is-desktop {
-    --h: 157deg;
-    --s: 30%;
-    --l: 39%
-  }
-}
-
-[data-theme=light] {
-  *:root {
-    --bulma-link-on-scheme-l: 19%;
-    --bulma-danger-l: 35%;
-  }
-
-  .has-text-primary {
-    --bulma-primary-l: 20%;
-  }
-
-  .button.is-danger {
-    --bulma-button-background-l-delta: 35%;
-  }
-
-  .panel.is-danger {
-    --bulma-panel-heading-background-l: 65%;
-    --bulma-panel-s: 80%;
-  }
-
-  a.navbar-item.is-active {
-    background-color: #F0F2F4;
-    color: #1F2229;
-  }
-
-  #file-js-upload {
-    background: hsl(var(--bulma-scheme-h), var(--bulma-scheme-s), calc(var(--bulma-scheme-main-ter-l)));
-  }
-
-  .notification::after {
-    background: hsl(var(--bulma-notification-h), var(--bulma-notification-s), calc(var(--bulma-notification-background-l) + 20%));
-  }
-
-  tr.deleted {
-    background: repeating-linear-gradient(-45deg, transparent 0 2rem, var(--bulma-danger-05) 2rem 4rem);
-  }
-
-  .broadcast-message {
-    --bulma-scheme-s: 50%;
   }
 
   .theme-selector {
@@ -137,6 +72,7 @@
 @media (prefers-color-scheme: dark) {
   :root {
     --bulma-danger-l: 75%;
+    --bulma-link-on-scheme-l: 40%;
   }
 
   .panel.is-danger {
@@ -188,10 +124,66 @@
   }
 }
 
-[data-theme=dark] {
-  :root {
-    --bulma-danger-l: 75%;
+[data-theme=light] {
+  --bulma-danger-l: 45%;
+  --bulma-link-on-scheme-l: 26%;
+
+  .has-text-primary {
+    --bulma-primary-l: 20%;
   }
+
+  .button.is-danger {
+    --bulma-button-background-l: 65%;
+  }
+
+  .panel.is-danger {
+    --bulma-panel-heading-background-l: 65%;
+    --bulma-panel-s: 85%;
+  }
+
+  a.navbar-item.is-active {
+    background-color: #F0F2F4;
+    color: #1F2229;
+  }
+
+  #file-js-upload {
+    background: hsl(var(--bulma-scheme-h), var(--bulma-scheme-s), calc(var(--bulma-scheme-main-ter-l)));
+  }
+
+  .notification::after {
+    background: hsl(var(--bulma-notification-h), var(--bulma-notification-s), calc(var(--bulma-notification-background-l) + 20%));
+  }
+
+  tr.deleted {
+    background: repeating-linear-gradient(-45deg, transparent 0 2rem, var(--bulma-danger-05) 2rem 4rem);
+  }
+
+  .theme-selector {
+    --l-hover: 95%;
+  }
+
+  .is-sun {
+    --h: 37deg;
+    --s: 94%;
+    --l: 33%
+  }
+
+  .is-moon {
+    --h: 256;
+    --s: 88%;
+    --l: 64%
+  }
+
+  .is-desktop {
+    --h: 157deg;
+    --s: 30%;
+    --l: 39%
+  }
+}
+
+[data-theme=dark] {
+  --bulma-danger-l: 75%;
+  --bulma-link-on-scheme-l: 40%;
 
   .panel.is-danger {
     --bulma-panel-heading-background-l: 65%;
@@ -452,8 +444,6 @@ th abbr {
 
 .broadcast-message {
   margin: 1rem;
-  --bulma-scheme-h: 260;
-  --bulma-scheme-s: 100%;
 }
 
 .theme-selector .icon {
@@ -473,4 +463,42 @@ th abbr {
 .no-border {
   border: none;
   box-shadow: none;
+}
+
+.file-as-button {
+  --bulma-button-weight: var(--bulma-weight-medium);
+  --bulma-button-border-style: solid;
+  --bulma-button-border-width: var(--bulma-control-border-width);
+  --bulma-button-padding-vertical: 0.5em;
+  --bulma-button-padding-horizontal: 1em;
+  --bulma-button-h: var(--bulma-scheme-h);
+  --bulma-button-s: var(--bulma-scheme-s);
+  --bulma-button-background-l: var(--bulma-scheme-main-l);
+  --bulma-button-background-l-delta: 0%;
+  --bulma-button-color-l: var(--bulma-text-strong-l);
+  --bulma-button-border-l: var(--bulma-border-l);
+  --bulma-button-border-l-delta: 0%;
+  --bulma-button-outer-shadow-h: 0;
+  --bulma-button-outer-shadow-s: 0%;
+  --bulma-button-outer-shadow-l: 20%;
+  --bulma-button-outer-shadow-a: 0.05;
+  background-color: hsl(var(--bulma-button-h), var(--bulma-button-s), calc(var(--bulma-button-background-l) + var(--bulma-button-background-l-delta)));
+  border-color: hsl(var(--bulma-button-h), var(--bulma-button-s), calc(var(--bulma-button-border-l) + var(--bulma-button-border-l-delta)));
+  border-style: var(--bulma-button-border-style);
+  border-width: var(--bulma-button-border-width);
+  box-shadow: 0 .0625em .125em hsla(var(--bulma-button-outer-shadow-h), var(--bulma-button-outer-shadow-s), var(--bulma-button-outer-shadow-l), var(--bulma-button-outer-shadow-a)), 0 .125em .25em hsla(var(--bulma-button-outer-shadow-h), var(--bulma-button-outer-shadow-s), var(--bulma-button-outer-shadow-l), var(--bulma-button-outer-shadow-a));
+  color: hsl(var(--bulma-button-h), var(--bulma-button-s), var(--bulma-button-color-l));
+  cursor: pointer;
+  font-weight: var(--bulma-button-weight);
+  height: auto;
+  justify-content: center;
+  padding: calc(var(--bulma-button-padding-vertical) - var(--bulma-button-border-width)) calc(var(--bulma-button-padding-horizontal) - var(--bulma-button-border-width));
+  text-align: center;
+  white-space: nowrap;
+}
+
+.file-as-button:hover {
+  --bulma-button-background-l-delta: var(--bulma-hover-background-l-delta);
+  --bulma-button-border-l-delta: var(--bulma-hover-border-l-delta);
+  background-color: hsl(var(--bulma-button-h), var(--bulma-button-s), calc(var(--bulma-button-background-l) + var(--bulma-button-background-l-delta)));
 }

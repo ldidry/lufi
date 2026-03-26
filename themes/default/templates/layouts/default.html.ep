@@ -145,7 +145,7 @@
             </div>
           </noscript>
           % if (defined(config('broadcast_message'))) {
-            <div class="message broadcast-message">
+            <div class="message broadcast-message is-info">
               <div class="message-body">
                 <span class="icon fas fa-bullhorn" aria-hidden="true"></span>
 
@@ -197,6 +197,9 @@
       </template>
 
       <script type="text/javascript">
+        // Use the theme picked by the user
+        document.documentElement.dataset.theme = localStorage.getItem("theme") || "desktop";
+
         const prefix  = '<%= substr(config('prefix'), 1) %>';
 
         const entityMap = {
@@ -211,6 +214,28 @@
         const escapeHtml = (string) => String(string).replace(/[&<>"'\/]/g, (s) => entityMap[s]);
 
         document.addEventListener("DOMContentLoaded", () => {
+          const themeQuery = window.matchMedia("(prefers-color-scheme: dark)");
+          const themeIcon = document.querySelectorAll(".theme-selector .dropdown-trigger .icon .fas")[0];
+
+          const isDarkTheme = () => document.documentElement.dataset.theme === "dark" || ((!document.documentElement.dataset.theme || document.documentElement.dataset.theme === "desktop") && themeQuery.matches);
+
+          const handleThemeChange = (event) => {
+            if(isDarkTheme()) {
+              themeIcon.classList.remove("fa-sun");
+              themeIcon.classList.add("fa-moon");
+
+              themeIcon.parentNode.parentNode.classList.remove("is-sun");
+              themeIcon.parentNode.parentNode.classList.add("is-moon");
+            } else {
+              themeIcon.classList.remove("fa-moon");
+              themeIcon.classList.add("fa-sun");
+              themeIcon.parentNode.parentNode.classList.remove("is-moon");
+              themeIcon.parentNode.parentNode.classList.add("is-sun");
+            }
+          };
+
+          handleThemeChange(themeQuery);
+
           if (isSecureContext && Notification.permission !== "granted") {
             Notification.requestPermission();
           }
@@ -293,34 +318,6 @@
               }
             });
           });
-
-          const themeQuery = window.matchMedia("(prefers-color-scheme: dark)");
-          const themeIcon = document.querySelectorAll(".theme-selector .dropdown-trigger .icon .fas")[0];
-
-          const loadTheme = () => {
-            document.documentElement.dataset.theme = localStorage.getItem("theme") || "desktop";
-          }
-
-          const isDarkTheme = () => document.documentElement.dataset.theme === "dark" || ((!document.documentElement.dataset.theme || document.documentElement.dataset.theme === "desktop") && themeQuery.matches);
-
-          const handleThemeChange = (event) => {
-            if(isDarkTheme()) {
-              themeIcon.classList.remove("fa-sun");
-              themeIcon.classList.add("fa-moon");
-
-              themeIcon.parentNode.parentNode.classList.remove("is-sun");
-              themeIcon.parentNode.parentNode.classList.add("is-moon");
-            } else {
-              themeIcon.classList.remove("fa-moon");
-              themeIcon.classList.add("fa-sun");
-              themeIcon.parentNode.parentNode.classList.remove("is-moon");
-              themeIcon.parentNode.parentNode.classList.add("is-sun");
-            }
-          };
-
-
-          loadTheme();
-          handleThemeChange(themeQuery);
 
           document.querySelectorAll('.theme-selector').forEach((element) => {
             element.addEventListener('click', () => {

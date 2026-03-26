@@ -18,7 +18,7 @@ document.addEventListener("DOMContentLoaded", () => {
   let go = true;
 
   filesizeDOM.innerHTML = filesize(
-    filesizeDOM.attributes.getNamedItem("data-filesize").value
+    filesizeDOM.attributes.getNamedItem("data-filesize").value,
   );
 
   if (isPasswordNeeded()) {
@@ -64,6 +64,7 @@ const startDownload = () => {
       return job.waitForCompletion();
     })
     .mapErr((error) => {
+      console.error(error);
       addAlert(error.message);
       warnOnReload(false);
       removeElements(["abort"]);
@@ -78,14 +79,14 @@ const startDownload = () => {
       const blobURL = URL.createObjectURL(job.downloadedFile);
 
       let htmlContent = `<p><a href="${blobURL}" class="btn btn-primary" download="${escapeHtml(
-        job.lufiFile.name
+        job.lufiFile.name,
       )}">${i18n.download}</a></p>`;
 
       var isZip = filesizeDOM.getAttribute("data-zipped") === "true";
 
       if (job.lufiFile.type.match(/^image\//) !== null) {
         htmlContent += `<img id="render-image" class="responsive-img" alt="${escapeHtml(
-          job.lufiFile.name
+          job.lufiFile.name,
         )}" src="${blobURL}">`;
       } else if (job.lufiFile.type.match(/^video\//) !== null) {
         htmlContent += `<video class="responsive-video" controls>
@@ -225,7 +226,7 @@ const showZipContent = (zipFile) => {
 
               const filename = element.getAttribute("download");
               const file = job.archiveFiles.find(
-                (file) => file.name === filename
+                (file) => file.name === filename,
               );
 
               element.removeEventListener("click", elementListener);

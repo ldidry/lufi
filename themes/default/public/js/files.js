@@ -94,7 +94,7 @@ const deleteFile = (node) => {
   deleteUrl.searchParams.append("_format", "json");
 
   fetch(deleteUrl, {
-    method: "GET",
+    method: "POST",
   })
     .then((response) => {
       if (!response.ok) {

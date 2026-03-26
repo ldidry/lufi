@@ -32,7 +32,7 @@
           </th>
           <th class="has-text-centered"><%= l('File name') %></th>
           <th class="has-text-centered is-narrow"><%= l('Access nb') %></th>
-          <th class="has-text-centered is-narrow"><abbr title="<%= l('Delete at first download?') %>"><%= l('Delete at first download?') %></abbr></th>
+          <th class="has-text-centered is-narrow"><abbr title="<%= l('Delete at first download?') %>"><%= l('Del at first DL?') %></abbr></th>
           <th class="has-text-centered"><%= l('Uploaded at') %></th>
           <th class="has-text-centered"><%= l('Expires at') %></th>
           <th class="has-text-centered"><%= l('Download') %></th>
@@ -64,7 +64,7 @@
         <tr>
           <th class="has-text-centered "><%= l('File name') %></th>
           <th class="has-text-centered "><%= l('Access nb') %></th>
-          <th class="has-text-centered is-narrow"><abbr title="<%= l('Delete at first download?') %>"><%= l('Delete at first download?') %></abbr></th>
+          <th class="has-text-centered is-narrow"><abbr title="<%= l('Delete at first download?') %>"><%= l('Del at first DL?') %></abbr></th>
           <th class="has-text-centered "><%= l('Uploaded at') %></th>
           <th class="has-text-centered "><%= l('Expires at') %></th>
         </tr>
@@ -86,7 +86,7 @@
     <div class="file">
       <label class="file-label">
         <input id="action-import-storage" type="file" class="file-input" name="import-local-data">
-        <span class="file-cta">
+        <span class="file-cta file-as-button">
           <span class="file-icon">
             <span class="fas fa-upload"></span>
           </span>
