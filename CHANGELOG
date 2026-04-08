@@ -15,6 +15,7 @@ Revision history for Lufi
 	- ⬆️ — Update MySQL deps
 	- 💥 — Prevent Lufi to start if Lufi-API js lib has not been downloaded
 	- 💥 — Mail settings have changed! Update them!
+	- 🩹 — Prevent having no shorts provisioned
 
 0.07.2 2025-07-29
 	- 🐛 — Fix bug in POST file deletion (#319)

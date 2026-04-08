@@ -278,7 +278,14 @@ sub already_exists {
 sub get_empty {
     my $c     = shift;
 
-    my $r = $c->app->dbi->db->query('SELECT * FROM files WHERE created_at IS NULL')->hashes->shuffle->first;
+    my $collection = $c->app->dbi->db->query('SELECT * FROM files WHERE created_at IS NULL')->hashes;
+    my $r;
+    if ($collection->size != 0) {
+        $r = $collection->shuffle->first;
+    } else {
+        $c->app->provisioning(3, 3);
+        $r = $c->app->dbi->db->query('SELECT * FROM files WHERE created_at IS NULL')->hashes->shuffle->first;
+    }
 
     return $c->_slurp($r)->created_at(time)->write;
 }

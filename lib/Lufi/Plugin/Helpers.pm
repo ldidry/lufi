@@ -110,11 +110,33 @@ sub _sqlite {
 
 sub _provisioning {
     my $c = shift;
+    my $needed = shift // $c->app->config('provisioning');
+    my $provis_step = shift // $c->app->config('provis_step');
+
+    my $config_file = $ENV{MOJO_CONFIG} || $c->app->moniker.'.conf';
+    my $lockfile = Mojo::File->new($config_file)->basename('.conf').'-provisioning.lock';
+
+    if (defined($c->app->config('lockfile_dir'))) {
+        $lockfile = Mojo::File->new($c->app->config('lockfile_dir'), $lockfile)->to_string;
+    }
+
+    if (-e $lockfile) {
+        my ($dev,$ino,$mode,$nlink,$uid,$gid,$rdev,$size,$atime,$mtime,$ctime,$blksize,$blocks) = stat($lockfile);
+
+        # Remove the lockfile if more than 20 seconds old
+        if ($mtime && time - $mtime > 20) {
+            unlink $lockfile if -e $lockfile; # if -e just to be sure the file hasn’t been removed while checking it
+        } else {
+            return;
+        }
+    }
+
+    Mojo::File->new($lockfile)->open('>'); # Create the file, like ->touch() but does not croak on fail
 
     # Create some short patterns for provisioning
     my $ldfile = Lufi::DB::File->new(app => $c->app);
-    if ($ldfile->count_empty < $c->app->config('provisioning')) {
-        for (my $i = 0; $i < $c->app->config('provis_step'); $i++) {
+    if ($ldfile->count_empty < $needed) {
+        for (my $i = 0; $i < $provis_step; $i++) {
             my $short;
             do {
                 $short = $c->shortener($c->app->config('length'));
@@ -123,6 +145,8 @@ sub _provisioning {
             $ldfile->created_at(undef)->short($short)->write;
         }
     }
+
+    unlink $lockfile if -e $lockfile;
 }
 
 sub _get_empty {
