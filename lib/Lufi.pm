@@ -4,6 +4,7 @@ use Mojo::Base 'Mojolicious';
 use Mojolicious::Sessions;
 use Mojo::File;
 use FindBin qw($Bin);
+use Time::HiRes;
 use Email::Valid;
 use Data::Validate::URI qw(is_web_uri);
 use Lufi::DefaultConfig qw($default_config LUFI_API_VERSION);
@@ -88,8 +89,14 @@ sub startup {
         $self->log->info('EXPERIMENTAL Using Swift object storage');
     }
 
-    # Ensure some shorts before first provising loop
-    $self->provisioning(3, 3);
+    # If not running a command
+    if (scalar(@ARGV) == 0) {
+        # Ensure some shorts before first provising loop
+        # The usleep is here to try to ensure multiple hypnotoad threads
+        # won’t try to provision shorts simultaneously.
+        Time::HiRes::usleep(int(rand(1) * 1000000));
+        $self->provisioning(3, 3);
+    }
 
     # Recurrent task
     Mojo::IOLoop->recurring(2 => sub {
