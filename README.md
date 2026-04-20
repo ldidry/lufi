@@ -113,3 +113,7 @@ It uses:
 An ansible role and a terraform plan reside under the `.provision` directory. An user could utilize the terraform plan if they chose to deploy lufi on AWS, if that's not the goal, they could simply execute the ansible role in part. Usage docs for both are present in their respective directories.
 
 You can use Docker by using the recipe on <https://github.com/megalis-bretagne/lufi-docker>.
+
+## AI instruction files
+
+All due credits and thanks to <https://codeberg.org/rossabaker/no-agents.md> ♥️

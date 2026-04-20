@@ -16,6 +16,7 @@ Revision history for Lufi
 	- 💥 — Prevent Lufi to start if Lufi-API js lib has not been downloaded
 	- 💥 — Mail settings have changed! Update them!
 	- 🩹 — Prevent having no shorts provisioned
+	- 🤖 — Add AI agents instructions files
 
 0.07.2 2025-07-29
 	- 🐛 — Fix bug in POST file deletion (#319)
