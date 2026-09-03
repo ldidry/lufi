@@ -129,6 +129,16 @@ sub upload {
                     my $f;
                     if (defined($json->{id})) {
                         $f = Lufi::DB::File->new(app => $c->app)->from_short($json->{id});
+                        if ($f && (!$f->mod_token || !defined($json->{token}) || $f->mod_token ne $json->{token})) {
+                            return $ws->send(decode('UTF-8', encode_json(
+                                {
+                                    success    => false,
+                                    msg        => $c->l('Your token does not match the token of the file you want to add parts to.'),
+                                    sent_delay => $json->{delay},
+                                    i          => $json->{i}
+                                }
+                            )));
+                        }
                     } else {
                         my $delay;
                         unless (defined $json->{delay}) {
