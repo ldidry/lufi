@@ -1,6 +1,7 @@
 Revision history for Lufi
 
 0.08.0 ????-??-??
+	- ✊ — Add POLITICAL.md
 	- 🔒️ — Ask for file’s token to continue upload
 	- 🔧 — Rename ldap_user to auth_user for invitations (@mildis)
 	- 💥 — [BREAKING CHANGE] Mail sending is now disabled by default! Set disable_mail_sending to 0 to enable it
