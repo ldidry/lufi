@@ -30,8 +30,6 @@ clean:
 	rm -rf lufi.db files/
 
 dev: clean
-	deno task watch &
-	if [ ! -e "themes/default/public/js/lib/worker" ]; then ln -s ../minified/worker themes/default/public/js/lib/; fi
 	$(CARTON) morbo $(LUFI) --listen http://$(MORBO_HOST):$(MORBO_PORT) --watch lib/ --watch script/ --watch themes/ --watch lufi.conf
 
 ldap:
@@ -50,11 +48,8 @@ swiftdev: swift dev
 devlog:
 	multitail log/development.log
 
-build:
-	deno task build
-
-prod: build
-	$(CARTON) hypnotoad -f $(LUFI)
-
 deps:
 	$(CARTON) $(LUFI) getLufiAPI
+
+prod: deps
+	$(CARTON) hypnotoad -f $(LUFI)

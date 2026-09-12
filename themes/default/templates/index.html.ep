@@ -359,4 +359,4 @@ const isGuest = false;
 
 </script>
 
-%= javascript $self->minified_asset('/js/upload.js'), type => 'module', defer => "true"
+%= javascript '/js/upload.js', type => 'module', defer => "true"

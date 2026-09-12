@@ -173,4 +173,4 @@ const i18n       = {
   yes:                       '<%= l('yes') %>'
 };
 </script>
-%= javascript $self->minified_asset('/js/files.js'), type => "module", defer => "true"
+%= javascript '/js/files.js', type => "module", defer => "true"

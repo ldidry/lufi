@@ -14,7 +14,7 @@ sub run {
     my $c = shift;
 
     my $home = Mojo::File->new($Bin, '..', 'themes', 'default', 'public', 'js');
-    my $worker_dir = Mojo::File->new($home, 'minified', 'worker');
+    my $worker_dir = Mojo::File->new($home, 'lib', 'worker');
 
     my $version_file = Mojo::File->new($worker_dir, 'VERSION');
     if (-e $version_file && $version_file->slurp() eq LUFI_API_VERSION) {

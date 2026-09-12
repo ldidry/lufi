@@ -4,7 +4,7 @@ require Exporter;
 @ISA = qw(Exporter);
 @EXPORT_OK = qw($default_config LUFI_API_VERSION);
 
-use constant LUFI_API_VERSION => 'v0.4.0';
+use constant LUFI_API_VERSION => 'v0.5.0';
 
 our $default_config = {
     instance_name => 'Lufi',

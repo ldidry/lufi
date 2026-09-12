@@ -31,7 +31,7 @@ sub startup {
     die 'You need to provide a **report** information in lufi.conf!' unless (defined($self->config('report')));
 
     if (! scalar(@ARGV) || $ARGV[0] ne 'getLufiAPI') {
-        my $version_file = Mojo::File->new($Bin, '..', 'themes', 'default', 'public', 'js', 'minified', 'worker', 'VERSION');
+        my $version_file = Mojo::File->new($Bin, '..', 'themes', 'default', 'public', 'js', 'lib', 'worker', 'VERSION');
         if (! -e $version_file || $version_file->slurp() ne LUFI_API_VERSION) {
             die "\nERROR: You need to download Lufi API js library! Use \"make deps\" or \"carton exec ./script/lufi getLufiAPI\"";
         }
