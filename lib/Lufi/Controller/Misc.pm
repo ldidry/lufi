@@ -65,7 +65,13 @@ sub config_infos {
 sub js_files {
     my $c = shift;
 
-    $c->stash($c->req->params->to_hash);
+    my $params = $c->req->params->to_hash;
+    my $stash = {};
+    for my $i ('token', 'links', 'populate', 'file', 'nbslices') {
+        $stash->{$i} = $params->{$i} if defined($params->{$i});
+    }
+
+    $c->stash($stash);
     $c->render(
         template => 'partial/'.$c->param('file'),
         format   => 'js',
